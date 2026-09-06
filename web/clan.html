@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Join the Clan · Innsegall Macintosh Protection</title>
+  <meta name="description" content="Innsegall Clan plan: 5 household seats, unlimited Battle Scouts, shared receipts. $6.67/mo · shield your Macintosh household from scareware panic.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://innsegall.com/clan">
+  <meta name="theme-color" content="#0B1D2E">
+  <meta property="og:title" content="Join the Clan · Innsegall">
+  <meta property="og:description" content="Five seats · unlimited scouts · Battle Scouts you can share. Recruit your household.">
+  <meta property="og:url" content="https://innsegall.com/clan">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/innsegall.css?v=6">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%230B1D2E' width='32' height='32' rx='6'/%3E%3Cpath fill='%23F4C95D' d='M16 4v24M10 10l6-4 6 4'/%3E%3C/svg%3E">
+</head>
+<body data-brand="innsegall">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="beam-bg" aria-hidden="true"></div>
+  <div class="page">
+    <header class="site-header">
+      <a class="brand-lockup" href="/"><span><span class="brand-word">Innsegall</span><span class="brand-pronounce">IN-sheh-gal</span></span></a>
+      <a class="header-cta" href="/alpha">Sound the Horn</a>
+    </header>
+    <main id="main">
+      <section class="hero" aria-labelledby="clan-h1">
+        <p class="hero-eyebrow">Clan plan · household protection</p>
+        <h1 id="clan-h1">Recruit your clan. Shield the household.</h1>
+        <p class="hero-manifesto">With Innsegall, no one is your enemy · you have no foe. But <em>not knowing</em> still steals sleep. The clan shares Battle Scouts, unlimited Voyages, and the Horn when the mist thickens.</p>
+        <div class="hero-actions">
+          <button type="button" class="btn-horn innsegall-checkout" data-sku="clan">Bring your clan · $6.67/mo</button>
+          <a class="btn-link" href="/alpha">Start free · 2 Voyages/mo</a>
+        </div>
+      </section>
+
+      <section class="section">
+        <p class="section-label">Why clan</p>
+        <h2>Free is honest. Clan is when love needs more than two calendar days.</h2>
+        <p class="clan-fomo">Solo installers get clarity on the 1st and 15th. Clan members get unlimited panic runs — for the parent who forwards scareware, the partner who clicked the tax email, the teen's school Mac, and the freelancer client who needs a receipt.</p>
+        <div class="clan-shield-grid">
+          <div class="clan-shield"><strong>Unlimited scouts</strong>No stacking $4.20 extras in a bad month</div>
+          <div class="clan-shield"><strong>5 seats</strong>One subscription · whole household</div>
+          <div class="clan-shield"><strong>Battle Scout sharing</strong>HTML receipts · family IT without fear</div>
+          <div class="clan-shield"><strong>Voyage chart</strong>See drift before popups return</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <p class="section-label">Who recruits first</p>
+        <h2>Your first clan is already around you.</h2>
+        <div class="card-grid">
+          <article class="card"><h3>Family IT</h3><p>You fix everyone's Mac. Give them scouts instead of lectures.</p></article>
+          <article class="card"><h3>Creators</h3><p>Client handoff · "here's the Battle Scout" beats a screenshot.</p></article>
+          <article class="card"><h3>Couples &amp; roommates</h3><p>One bad link shouldn't mean two Genius Bar trips.</p></article>
+        </div>
+        <div class="recruit-banner">
+          <div>
+            <strong>Sound the Horn tonight.</strong>
+            <p style="margin:0.5rem 0 0">Install free · upgrade when the household needs you.</p>
+          </div>
+          <a class="btn-horn btn-horn--compact" href="/alpha">Install Innsegall</a>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <p>© 2026 Innsegall · <a href="/">Home</a> · <a href="/warriors">Agent warriors</a></p>
+    </footer>
+  </div>
+  <script>
+    document.querySelectorAll(".innsegall-checkout").forEach((btn) => {
+      btn.style.cursor = "pointer";
+      btn.addEventListener("click", async () => {
+        btn.disabled = true;
+        try {
+          const res = await fetch("/api/stripe/checkout", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ sku: "clan" }) });
+          const data = await res.json();
+          if (data.url) location.href = data.url;
+          else throw new Error();
+        } catch {
+          btn.disabled = false;
+          alert("Checkout unavailable · waiting on Stripe keys.");
+        }
+      });
+    });
+  </script>
+</body>
+</html>

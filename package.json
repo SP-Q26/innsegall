@@ -1,0 +1,25 @@
+{
+  "name": "innsegall",
+  "version": "0.4.0-alpha",
+  "description": "Innsegall · post-scare Macintosh hygiene check and Battle Scout · alpha",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "innsegall": "./bin/innsegall.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "run": "node bin/innsegall.mjs run",
+    "check": "node bin/innsegall.mjs check",
+    "runes": "node bin/innsegall.mjs runes",
+    "doctor": "node bin/innsegall.mjs runes",
+    "plan": "node bin/innsegall.mjs plan",
+    "test": "node scripts/self-test.mjs",
+    "smoke": "node scripts/smoke.mjs",
+    "field-report": "node scripts/field-report.mjs",
+    "sync-gospel": "node scripts/sync-gospel-web.mjs",
+    "predeploy": "node scripts/sync-gospel-web.mjs"
+  }
+}

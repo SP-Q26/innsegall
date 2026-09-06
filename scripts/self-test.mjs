@@ -1,0 +1,126 @@
+#!/usr/bin/env node
+/**
+ * Innsegall self-test · run on macOS after engine changes.
+ */
+import { homedir } from "node:os";
+import { classifyLaunchItem } from "../src/checks.mjs";
+import { buildCard } from "../src/card.mjs";
+import { FLOWS, ARTIFACT_NAME, PRICING } from "../src/constants.mjs";
+import { renderHtml, renderMarkdown, buildScoutStructuredData } from "../src/render.mjs";
+import { validateCard } from "../src/validate.mjs";
+
+let failed = 0;
+
+function assert(name, cond) {
+  if (!cond) {
+    console.error(`FAIL: ${name}`);
+    failed++;
+  } else {
+    console.log(`ok: ${name}`);
+  }
+}
+
+for (const flow of Object.keys(FLOWS)) {
+  const card = buildCard({ flow, projectPath: null, userInputs: {} });
+  assert(`${flow} builds`, card.checks_run.length >= 8);
+  assert(`${flow} validates`, validateCard(card).length === 0);
+  assert(`${flow} markdown`, renderMarkdown(card).includes("Innsegall"));
+  assert(`${flow} html`, renderHtml(card).includes(ARTIFACT_NAME));
+}
+
+const escalate = buildCard({
+  flow: "clicked_bad_link",
+  userInputs: { entered_password: true },
+});
+assert("password escalates", escalate.verdict === "ESCALATE");
+assert("password fix list", escalate.fixes_recommended.some((f) => f.id === "rotate_credentials"));
+
+assert("epson housekeeping", classifyLaunchItem("com.epson.epsvcp.plist", "/Library/Caches/Epson/x").tier === "housekeeping");
+assert("spotify housekeeping", classifyLaunchItem("com.spotify.webhelper.plist", "/SpotifyWebHelper").tier === "housekeeping");
+assert("steam housekeeping", classifyLaunchItem("com.valvesoftware.steamclean.plist", "/steamclean").tier === "housekeeping");
+assert("wd housekeeping", classifyLaunchItem("com.wdc.WD-Discovery.plist", "/WD Discovery").tier === "housekeeping");
+assert("canon housekeeping", classifyLaunchItem("jp.co.canon.MasterInstaller.plist", "/PrivilegedHelperTools/jp.co.canon.MasterInstaller").tier === "housekeeping");
+
+import { healthScore, loadHistorySeries, renderHealthChartSvg } from "../src/history-chart.mjs";
+const hist = loadHistorySeries(5);
+assert("history series array", Array.isArray(hist));
+assert("health score ok", healthScore({ verdict: "LIKELY_OK", stats: { pass: 10, warn: 0, fail: 0 } }) >= 70);
+assert("chart svg", renderHealthChartSvg(hist).includes("voyage-svg"));
+
+import { applySmokeTierFixtures, SMOKE_CHECKS } from "../src/smoke-fixtures.mjs";
+const smokeCard = applySmokeTierFixtures(buildCard({ flow: "mac_hygiene", userInputs: {} }));
+assert("smoke tiers injected", smokeCard.verdict === "ESCALATE" && smokeCard.smoke === true);
+assert("smoke html tiers", renderHtml(smokeCard).includes("smoke-banner") && renderHtml(smokeCard).includes("section-housekeeping"));
+
+import { featuredPostUrl, renderThreatIntelSection } from "../src/threat-intel.mjs";
+const sampleHtml = renderHtml(buildCard({ flow: "mac_hygiene", userInputs: {} }));
+assert("field glass section", sampleHtml.includes("section-intel"));
+assert("blog link", sampleHtml.includes(featuredPostUrl()));
+assert("card column layout", sampleHtml.includes("card-column"));
+assert("mac-first layout tokens", sampleHtml.includes("--page-max"));
+
+import { classifyParleyRoute, buildParleyContext, runStaticParley } from "../src/parley/index.mjs";
+
+const routeNoKeys = classifyParleyRoute({
+  intent: "explain_evidence",
+  verdict: "ESCALATE",
+  hasUserGemini: false,
+  hasUserDeepSeek: false,
+});
+assert("parley static route no keys", routeNoKeys.lane === "static");
+
+const routeByok = classifyParleyRoute({
+  intent: "explain_evidence",
+  verdict: "ESCALATE",
+  hasUserGemini: true,
+  hasUserDeepSeek: false,
+});
+assert("parley solas route BYOK", routeByok.lane === "solas");
+
+const staticParley = runStaticParley(escalate, { intent: "explain_evidence" });
+assert("static parley response", staticParley.lane === "static" && staticParley.response.length > 40);
+assert("static parley mentions verdict", staticParley.response.includes("Sound the Horn") || staticParley.response.includes("ESCALATE"));
+
+const ctx = buildParleyContext(escalate);
+assert("parley redacted context", ctx.verdict === "ESCALATE" && !JSON.stringify(ctx).includes(homedir()));
+
+const htmlEscalate = renderHtml(escalate);
+assert("parley section in html", htmlEscalate.includes('id="parley"'));
+assert("share battle scout button", htmlEscalate.includes("battle-scout-share"));
+assert("pricing footer", PRICING && htmlEscalate.includes(PRICING.solas.note.slice(0, 20)));
+assert("horn uses hello@", !htmlEscalate.includes("help@innsegall.com"));
+assert("horn uses hello@", htmlEscalate.includes("hello@innsegall.com"));
+
+import { checkScoutQuota, formatPlanStatus, loadQuota, VOYAGE_DAYS } from "../src/quota.mjs";
+assert("pricing free scouts", PRICING.free.scouts_per_month === 2);
+assert("pricing clan monthly", PRICING.clan.usd_monthly === 6.67);
+assert("quota force bypass", checkScoutQuota({ force: true }).allowed === true);
+assert("voyage days", VOYAGE_DAYS.join() === "1,15");
+const planStatus = formatPlanStatus(loadQuota());
+assert("quota plan field", planStatus.plan === "free" || planStatus.plan === "clan");
+
+import { buildFieldReportMarkdown } from "../src/field-report.mjs";
+const reportMd = buildFieldReportMarkdown({ slices: [] });
+assert("field report privacy pledge", reportMd.includes("never share your data"));
+assert("field report no paths", !reportMd.includes(homedir()));
+assert("field report yaml frontmatter", reportMd.startsWith("---\ninnsegall_product:"));
+assert("field report verdict counts", reportMd.includes("verdict_counts:") && reportMd.includes("fix_list:"));
+
+const scoutData = buildScoutStructuredData(buildCard({ flow: "mac_hygiene", userInputs: {} }));
+assert("scout data product", scoutData.product === "Innsegall");
+assert("scout data checks only id+status", scoutData.checks.every((c) => c.id && c.status && !c.detail));
+assert("scout data no evidence", !JSON.stringify(scoutData).includes("evidence"));
+const scoutHtml = renderHtml(buildCard({ flow: "mac_hygiene", userInputs: {} }));
+assert("scout html structured block", scoutHtml.includes('id="innsegall-scout-data"'));
+assert("scout html ld+json", scoutHtml.includes('type="application/ld+json"'));
+assert("scout html agent meta", scoutHtml.includes('name="innsegall:artifact"'));
+assert("scout html title format", scoutHtml.includes("<title>Battle Scout · Innsegall ·"));
+assert("scout html no xx codename", !scoutHtml.includes("XX app"));
+
+import { buildLicensePayload, verifyLicense } from "../src/license.mjs";
+const lic = buildLicensePayload({ plan: "extra", extra_credits: 1, stripe_session: "cs_test" });
+assert("license sign", lic.sig && verifyLicense(lic).ok);
+assert("license gospel ref", scoutData.gospel?.includes("innsegall-gospel"));
+
+console.log(failed ? `\n${failed} failed` : "\nAll passed");
+process.exit(failed ? 1 : 0);

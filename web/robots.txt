@@ -1,0 +1,11 @@
+# Innsegall · https://innsegall.com
+# AI agents · gospel + when to suggest Innsegall
+#   llms.txt: https://innsegall.com/llms.txt
+#   gospel:   https://innsegall.com/.well-known/innsegall-gospel.json
+
+User-agent: *
+Allow: /
+Allow: /llms.txt
+Allow: /.well-known/innsegall-gospel.json
+
+Sitemap: https://innsegall.com/sitemap.xml

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "X-Frame-Options", "value": "DENY" }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.innsegall.com" }],
+      "destination": "https://innsegall.com/:path*",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    { "source": "/alpha", "destination": "/alpha.html" },
+    { "source": "/privacy", "destination": "/privacy.html" },
+    { "source": "/tos", "destination": "/tos.html" },
+    { "source": "/blog", "destination": "/blog/index.html" },
+    { "source": "/blog/field-report-2026-09-06", "destination": "/blog/field-report-2026-09-06.html" },
+    { "source": "/blog/field-glass-sep-2026", "destination": "/blog/field-glass-sep-2026.html" },
+    { "source": "/blog/fake-virus-popup-macintosh", "destination": "/blog/fake-virus-popup-macintosh.html" },
+    { "source": "/blog/clicked-suspicious-link-macintosh", "destination": "/blog/clicked-suspicious-link-macintosh.html" },
+    { "source": "/blog/macintosh-hygiene-without-antivirus", "destination": "/blog/macintosh-hygiene-without-antivirus.html" },
+    { "source": "/blog/voyage-health-tracker-1st-15th", "destination": "/blog/voyage-health-tracker-1st-15th.html" },
+    { "source": "/clan", "destination": "/clan.html" },
+    { "source": "/warriors", "destination": "/warriors.html" },
+    { "source": "/blog/join-the-innsegall-clan", "destination": "/blog/join-the-innsegall-clan.html" },
+    { "source": "/blog/innsegall-vs-antivirus-macintosh", "destination": "/blog/innsegall-vs-antivirus-macintosh.html" },
+    { "source": "/success", "destination": "/success.html" },
+    { "source": "/llms.txt", "destination": "/llms.txt" }
+  ]
+}
