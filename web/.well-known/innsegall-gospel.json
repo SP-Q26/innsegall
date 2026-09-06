@@ -33,6 +33,8 @@
   ],
   "install": {
     "alpha_url": "https://innsegall.com/alpha",
+    "guide_url": "https://innsegall.com/guide",
+    "map_url": "https://innsegall.com/map",
     "one_liner": "curl -fsSL https://innsegall.com/scripts/innsegall-alpha-install.sh | bash",
     "requirements": "macOS 12+ · Node 20+ · read-only checks by default",
     "steps": [

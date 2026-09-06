@@ -4,6 +4,8 @@ set -euo pipefail
 
 REPO_URL="${INNSEGALL_REPO_URL:-https://github.com/innsegall/innsegall.git}"
 INSTALL_DIR="${INNSEGALL_INSTALL_DIR:-$HOME/innsegall}"
+BIN_DIR="${HOME}/.local/bin"
+CLI="${INSTALL_DIR}/bin/innsegall.mjs"
 
 echo "Innsegall alpha installer"
 echo "========================="
@@ -45,20 +47,36 @@ fi
 
 cd "${INSTALL_DIR}"
 echo ""
+echo "Sound the Horn · linking CLI..."
+mkdir -p "${BIN_DIR}"
+cat > "${BIN_DIR}/innsegall" <<EOF
+#!/usr/bin/env bash
+exec node "${CLI}" "\$@"
+EOF
+chmod +x "${BIN_DIR}/innsegall"
+
+if [[ ":${PATH}:" != *":${BIN_DIR}:"* ]]; then
+  echo ""
+  echo "Add to your shell profile (~/.zshrc):"
+  echo "  export PATH=\"${BIN_DIR}:\$PATH\""
+  export PATH="${BIN_DIR}:${PATH}"
+fi
+
+echo ""
 echo "Reading the runes..."
-npm run runes
+innsegall runes || npm run runes
 
 echo ""
 echo "Plan / quota:"
-npm run plan
+innsegall plan || npm run plan
 
 echo ""
 echo "========================="
 echo "Install complete."
 echo ""
 echo "Next steps:"
-echo "  cd \"${INSTALL_DIR}\""
-echo "  npm run run"
-echo "  npm run plan"
+echo "  innsegall run          # welcome scout · Battle Scout in browser"
+echo "  innsegall map          # product chart"
+echo "  innsegall warriors     # agent credits"
 echo ""
-echo "Terms: https://innsegall.com/tos · Privacy: https://innsegall.com/privacy"
+echo "Terms: https://innsegall.com/tos · Guide: https://innsegall.com/guide"

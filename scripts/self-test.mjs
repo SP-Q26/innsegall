@@ -91,10 +91,25 @@ assert("pricing footer", PRICING && htmlEscalate.includes(PRICING.solas.note.sli
 assert("horn uses hello@", !htmlEscalate.includes("help@innsegall.com"));
 assert("horn uses hello@", htmlEscalate.includes("hello@innsegall.com"));
 
-import { checkScoutQuota, formatPlanStatus, loadQuota, VOYAGE_DAYS } from "../src/quota.mjs";
+import { checkScoutQuota, formatPlanStatus, loadQuota, saveQuota, VOYAGE_DAYS } from "../src/quota.mjs";
 assert("pricing free scouts", PRICING.free.scouts_per_month === 2);
 assert("pricing clan monthly", PRICING.clan.usd_monthly === 6.67);
 assert("quota force bypass", checkScoutQuota({ force: true }).allowed === true);
+const quotaBefore = loadQuota();
+const offVoyage = new Date("2026-09-06T12:00:00");
+if (!quotaBefore.welcome_scout_redeemed) {
+  assert("welcome scout off-voyage", checkScoutQuota({ date: offVoyage }).reason === "welcome_scout");
+}
+saveQuota({
+  ...quotaBefore,
+  welcome_scout_redeemed: true,
+  voyage_completed: [],
+  extra_credits: 0,
+  extra_used: 0,
+});
+const blocked = checkScoutQuota({ date: offVoyage });
+assert("off voyage day reason", !blocked.allowed && blocked.reason === "off_voyage_day");
+saveQuota(quotaBefore);
 assert("voyage days", VOYAGE_DAYS.join() === "1,15");
 const planStatus = formatPlanStatus(loadQuota());
 assert("quota plan field", planStatus.plan === "free" || planStatus.plan === "clan");

@@ -28,6 +28,17 @@ import { listCards, loadCardById, saveCard, supportPath } from "../src/storage.m
 import { runParley } from "../src/parley/index.mjs";
 import { validateCard } from "../src/validate.mjs";
 import { importLicenseFile } from "../src/license.mjs";
+import {
+  formatQuotaTerminal,
+  hornBanner,
+  paint,
+  ansi,
+  printPlanStatus,
+  printProductMap,
+  printRunesHeader,
+  printScoutResult,
+  printWarriorsLedger,
+} from "../src/terminal.mjs";
 
 function usage() {
   console.log(`Innsegall ${ENGINE_VERSION} · know you're okay.
@@ -44,7 +55,8 @@ function usage() {
   innsegall flows                   List flow names
   innsegall runes                    Read the runes · Macintosh ready for a scout?
   innsegall plan [options]          Scout quota · free 2/mo · clan unlimited
-    --import-license <file.json>    Apply Stripe license after checkout
+  innsegall map                     Product map · mist road (terminal)
+  innsegall warriors                Agent credits · enlist ledger
 
 Check / run options:
   --flow <name>        mac_hygiene | clicked_bad_link | project_safe
@@ -63,6 +75,7 @@ Render options:
   --force              Bypass scout quota (dev only)
 
 Plan options:
+  --import-license <file>  Apply innsegall-license.json after Stripe checkout
   --clan               Activate clan plan locally (alpha · after purchase)
   --credit <n>         Grant extra scout credits (alpha · after $4.20 payment)
   --free               Reset to free tier
@@ -142,8 +155,11 @@ function cmdCheck(flags) {
   };
   const gate = checkScoutQuota(quotaOpts);
   if (!gate.allowed) {
-    console.error(gate.message || "Scout quota exceeded.");
+    console.error(formatQuotaTerminal(gate.quota, gate.reason));
     process.exit(2);
+  }
+  if (gate.reason === "welcome_scout" && !flags.quiet) {
+    console.log(paint(ansi.aurora, "Welcome scout · one free run any day · solas to you.\n"));
   }
 
   const project = flags.project ? expandHome(flags.project) : null;
@@ -172,13 +188,13 @@ function cmdCheck(flags) {
   }
   if (!flags.quiet) {
     const status = formatPlanStatus(loadQuota());
-    console.log(`Innsegall ${ENGINE_VERSION} · ${card.verdict}`);
-    console.log(card.summary);
-    console.log(
-      `Scouts this month: ${status.scouts_used}/${status.scouts_limit} (${status.plan})`
-    );
-    if (out) console.log(`Wrote ${out}`);
-    if (saved) console.log(`Saved ${saved}`);
+    printScoutResult({
+      verdict: card.verdict,
+      summary: card.summary,
+      status,
+      out,
+      saved,
+    });
   } else if (!out) {
     console.log(JSON.stringify(card, null, 2));
   }
@@ -191,7 +207,17 @@ function cmdRun(flags) {
   const html = expandHome(flags.html || defaultHtmlPath(flags._outPath || flags.out));
   writeParent(html);
   writeFileSync(html, renderHtml(card), "utf8");
-  console.log(`Wrote ${html}`);
+  if (!flags.quiet) {
+    const status = formatPlanStatus(loadQuota());
+    printScoutResult({
+      verdict: card.verdict,
+      summary: card.summary,
+      status,
+      html,
+    });
+  } else {
+    console.log(`Wrote ${html}`);
+  }
   if (process.platform === "darwin") {
     execSync(`open "${html}"`, { stdio: "ignore" });
   }
@@ -352,14 +378,7 @@ function cmdPlan(flags) {
   }
   const q = loadQuota();
   const status = formatPlanStatus(q);
-  console.log(`Innsegall ${ENGINE_VERSION} · plan`);
-  console.log(JSON.stringify(status, null, 2));
-  console.log("");
-  console.log(`Free: ${PRICING.free.scouts_per_month} voyages/mo on days ${VOYAGE_DAYS.join(" & ")}`);
-  console.log(`Extra run: $${PRICING.extra_run.usd.toFixed(2)} · credits remaining: ${status.extra_credits_remaining}`);
-  console.log(`Clan: $${PRICING.clan.usd_monthly.toFixed(2)}/mo · ${PRICING.clan.seats} seats · unlimited`);
-  console.log(`Next voyage: ${status.next_voyage}`);
-  console.log(`Upgrade: ${PRICING.site_url}/#pricing`);
+  printPlanStatus(status);
 }
 
 function cmdVoyage(flags) {
@@ -446,13 +465,14 @@ function cmdRunes() {
   } catch {
     warn.push(`Cannot write ${supportPath()}`);
   }
-  console.log("Read the runes · Innsegall\n");
-  for (const m of ok) console.log(`  ✓ ${m}`);
-  for (const m of warn) console.log(`  ⚠ ${m}`);
+  printRunesHeader();
+  for (const m of ok) console.log(paint(ansi.aurora, `  ✓ ${m}`));
+  for (const m of warn) console.log(paint(ansi.ember, `  ⚠ ${m}`));
   if (warn.length) {
-    console.log("\nThe mist is thick · fix warnings before you send the scout.");
+    console.log(paint(ansi.ember, "\nThe mist is thick · fix warnings before you send the scout."));
   } else {
-    console.log("\nSolas on the path · you're clear to run a scout.");
+    console.log(paint(ansi.beam, "\nSolas on the path · you're clear to run a scout."));
+    console.log(paint(ansi.dim, `innsegall run · map · ${PRICING.site_url}/guide`));
   }
   process.exit(warn.length ? 1 : 0);
 }
@@ -511,6 +531,12 @@ function main() {
       break;
     case "plan":
       cmdPlan(flags);
+      break;
+    case "map":
+      printProductMap();
+      break;
+    case "warriors":
+      printWarriorsLedger();
       break;
     default:
       console.error(`Unknown command: ${cmd}`);

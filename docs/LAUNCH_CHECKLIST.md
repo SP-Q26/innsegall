@@ -75,7 +75,7 @@ Optional: `STRIPE_PRICE_EXTRA`, `STRIPE_PRICE_CLAN` if not hardcoded in API.
 1. Open `https://innsegall.com/#pricing`
 2. **Extra run** → Checkout → card `4242 4242 4242 4242` · any future expiry · any CVC
 3. Land on `/success` · download `license.json`
-4. Local: `innsegall plan --import-license ~/Downloads/license.json`
+4. Local: `innsegall plan --import-license ~/Downloads/innsegall-license.json`
 5. `innsegall plan` shows credit or clan
 6. Repeat for **Clan** subscription · cancel via Stripe Customer Portal when done testing
 

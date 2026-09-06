@@ -25,6 +25,7 @@ function defaultQuota() {
     voyage_completed: [],
     extra_credits: 0,
     extra_used: 0,
+    welcome_scout_redeemed: false,
     scouts_used: 0,
     scouts_limit: PRICING.free.scouts_per_month,
     updated_at: new Date().toISOString(),
@@ -34,7 +35,8 @@ function defaultQuota() {
 function syncScoutCount(q) {
   const voyages = (q.voyage_completed || []).length;
   const extra = q.extra_used || 0;
-  q.scouts_used = voyages + extra;
+  const welcome = q.welcome_scout_redeemed ? 1 : 0;
+  q.scouts_used = voyages + extra + welcome;
   return q;
 }
 
@@ -66,6 +68,7 @@ export function loadQuota() {
       return syncScoutCount({
         ...defaultQuota(),
         plan,
+        welcome_scout_redeemed: Boolean(raw.welcome_scout_redeemed),
         scouts_limit:
           plan === "clan" ? PRICING.clan.scouts_per_month : PRICING.free.scouts_per_month,
       });
@@ -152,11 +155,22 @@ export function checkScoutQuota(opts = {}) {
     return { allowed: true, quota: q, reason: "extra_credit", charge: { type: "extra" } };
   }
 
+  if (!q.welcome_scout_redeemed) {
+    return {
+      allowed: true,
+      quota: q,
+      reason: "welcome_scout",
+      charge: { type: "welcome" },
+    };
+  }
+
+  const reason = slot ? "limit_reached" : "off_voyage_day";
+
   return {
     allowed: false,
     quota: q,
-    reason: "limit_reached",
-    message: formatQuotaBlocked(q, d),
+    reason,
+    message: formatQuotaBlocked(q, d, reason),
     charge: null,
   };
 }
@@ -175,6 +189,8 @@ export function recordScoutUse(opts = {}) {
     }
   } else if (charge?.type === "extra") {
     q.extra_used = (q.extra_used || 0) + 1;
+  } else if (charge?.type === "welcome") {
+    q.welcome_scout_redeemed = true;
   } else {
     const d = opts.date || new Date();
     const slot = voyageSlotForDate(d);
@@ -189,16 +205,23 @@ export function recordScoutUse(opts = {}) {
   return q;
 }
 
-export function formatQuotaBlocked(q, d = new Date()) {
+export function formatQuotaBlocked(q, d = new Date(), reason = "limit_reached") {
   const next = nextVoyageDate(d);
   const nextStr = next.toLocaleDateString("en-US", { month: "short", day: "numeric" });
   const voyages = (q.voyage_completed || []).join(", ") || "none";
+  const headline =
+    reason === "off_voyage_day"
+      ? "Not a voyage day · scouts sail on the 1st & 15th."
+      : "Battle Scout limit reached for this month.";
   return [
-    `Battle Scout limit reached for this month.`,
+    headline,
     `Voyages completed (1st & 15th): ${voyages}. Next scheduled voyage: ${nextStr}.`,
+    `Welcome scout: ${q.welcome_scout_redeemed ? "used" : "still available (one free run any day)"}.`,
     `Extra run: $${PRICING.extra_run.usd.toFixed(2)} · ${PRICING.site_url}/#pricing`,
-    `Clan unlimited (5 seats): $${PRICING.clan.usd_monthly.toFixed(2)}/mo · ${PRICING.site_url}/#pricing`,
+    `Clan unlimited (5 seats): $${PRICING.clan.usd_monthly.toFixed(2)}/mo · ${PRICING.site_url}/clan`,
+    `Warriors earn credits: ${PRICING.site_url}/warriors`,
     `Pay → download license.json → innsegall plan --import-license ~/Downloads/innsegall-license.json`,
+    `Guide · ${PRICING.site_url}/guide · Map · ${PRICING.site_url}/map`,
   ].join("\n");
 }
 
@@ -216,6 +239,7 @@ export function formatPlanStatus(q) {
     voyage_days: VOYAGE_DAYS,
     extra_credits: q.extra_credits || 0,
     extra_credits_remaining: creditsLeft,
+    welcome_scout_redeemed: Boolean(q.welcome_scout_redeemed),
     remaining:
       q.plan === "clan"
         ? "unlimited"

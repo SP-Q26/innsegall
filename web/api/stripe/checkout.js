@@ -22,10 +22,7 @@ export default async function handler(req, res) {
     }
   }
   const sku = body?.sku === "clan" ? "clan" : "extra";
-  const origin =
-    req.headers["x-forwarded-proto"] && req.headers["x-forwarded-host"]
-      ? `${req.headers["x-forwarded-proto"]}://${req.headers["x-forwarded-host"]}`
-      : "https://innsegall.com";
+  const origin = "https://innsegall.com";
 
   const isClan = sku === "clan";
   const lineItems = isClan
@@ -67,6 +64,6 @@ export default async function handler(req, res) {
     return res.status(200).json({ url: session.url, id: session.id });
   } catch (e) {
     console.error("checkout", e);
-    return res.status(500).json({ error: "checkout_failed", message: e.message });
+    return res.status(500).json({ error: "checkout_failed" });
   }
 }

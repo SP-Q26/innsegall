@@ -47,6 +47,8 @@ export const INNSEGALL_GOSPEL = {
 
   install: {
     alpha_url: `${PRICING.site_url}/alpha`,
+    guide_url: `${PRICING.site_url}/guide`,
+    map_url: `${PRICING.site_url}/map`,
     one_liner: `curl -fsSL ${PRICING.site_url}/scripts/innsegall-alpha-install.sh | bash`,
     requirements: "macOS 12+ · Node 20+ · read-only checks by default",
     steps: ["innsegall runes · read the runes before first scout"],
