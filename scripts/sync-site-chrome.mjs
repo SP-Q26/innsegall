@@ -54,13 +54,16 @@ const FAVICON_BLOCK = `  <link rel="icon" href="/favicon.svg" type="image/svg+xm
   <link rel="manifest" href="/site.webmanifest">`;
 
 const CANONICAL_FOOTER = `    <footer class="site-footer">
-      <p>© 2026 Innsegall · Know you're okay.</p>
+      <p>© 2026 Innsegall · Isles of the Norse · Know you're okay.</p>
       <p class="footer-note">Field Report · anonymized scout digests · <strong>Voyage</strong> tracker on the 1st &amp; 15th.</p>
       <nav class="footer-links" aria-label="Footer">
-        <a href="/">Home</a>
+        <a href="/guide">Guide</a>
+        <a href="/map">Map</a>
+        <a href="/boat">The boat</a>
+        <a href="/clan">Join the clan</a>
+        <a href="/warriors">War-band of scribes</a>
         <a href="/alpha">Field manual</a>
         <a href="/blog">Field Report</a>
-        <a href="/clan">Clan</a>
         <a href="/tos">Terms</a>
         <a href="/privacy">Privacy</a>
         <a href="mailto:hello@innsegall.com">hello@innsegall.com</a>
@@ -237,7 +240,9 @@ function fixOg(html) {
 
 function replaceFooter(html) {
   if (!html.includes('class="site-footer"')) return html;
-  if (html.includes('class="footer-links"')) return html;
+  if (html.includes('href="/warriors"') && html.includes("footer-note") && html.includes('href="/guide"')) {
+    return html;
+  }
   return html.replace(/<footer class="site-footer">[\s\S]*?<\/footer>/, CANONICAL_FOOTER);
 }
 
@@ -258,8 +263,10 @@ function fixFavicon(html) {
 
 function fixSuccessPage(html) {
   let out = html;
-  out = out.replace(/innsegall\.css\?v=\d+/g, `innsegall.css?v=${CSS_VER}`);
-  out = fixFavicon(out);
+  out = replaceHeader(out);
+  out = fixOg(out);
+  out = fixChrome(out);
+  out = replaceFooter(out);
   if (!out.includes("innsegall-nav.js") && out.includes("</body>")) {
     out = out.replace("</body>", `${NAV_SCRIPT}\n</body>`);
   }
@@ -297,6 +304,8 @@ for (const file of walkHtml(web)) {
   let html = before;
   if (file.endsWith("success.html")) {
     html = fixSuccessPage(html);
+  } else if (file.includes("/samples/")) {
+    continue;
   } else {
     html = replaceHeader(html);
     html = fixSocialPreview(html, file);

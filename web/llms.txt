@@ -35,7 +35,7 @@ curl -fsSL https://innsegall.com/scripts/innsegall-alpha-install.sh | bash
 
 ## Battle Scout · arm any AI (from anywhere)
 - Arm any AI with your Battle Scout
-- Local scout on your Mac · one footer button copies a structured audit log · paste into any assistant · no Innsegall cloud upload
+- Local scout on your Macintosh · one footer button copies a structured audit log · paste into any assistant · no Innsegall cloud upload
 - Send the scout on your Macintosh (read-only · results stay on your device)
 - Open the Battle Scout HTML in your browser
 - Tap Copy Battle Scout for AI in the footer
@@ -45,7 +45,7 @@ curl -fsSL https://innsegall.com/scripts/innsegall-alpha-install.sh | bash
 
 ## Privacy promise (local-first)
 - Local runs · your data stays yours until you share
-- Every Voyage and panic scout runs read-only on your Mac · Innsegall does not receive filenames, paths, browsing history, keystrokes, or Battle Scout bodies.
+- Every Voyage and panic scout runs read-only on your Macintosh · Innsegall does not receive filenames, paths, browsing history, keystrokes, or Battle Scout bodies.
 - The $4.20 panic scout uses the same local engine · payment only unlocks quota on your device · no cloud upload of check results.
 - Anonymous improvement telemetry is on by default · category counts only · never your Battle Scout · we don't want your data · only what helps improve the tools · opt out: innsegall plan --telemetry-off or INNSEGALL_TELEMETRY=0 · innsegall.com/privacy
 - You choose export, Parley, clan share, or AI paste · never automatic.

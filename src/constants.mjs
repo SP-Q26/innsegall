@@ -17,7 +17,7 @@ export const CLAYMORE = " · ";
 export const CTA = {
   /** Primary onboarding action (replaces generic "run the check") */
   SEND_SCOUT: "Send the scout",
-  SEND_SCOUT_SUB: "Read the lay of the land on your Mac · two minutes · no upload",
+  SEND_SCOUT_SUB: "Read the lay of the land on your Macintosh · two minutes · no upload",
   COPY_FOR_AI: "Copy Battle Scout for AI",
   COPY_FOR_AI_HINT:
     "Paste into any assistant · ChatGPT, Claude, Gemini, Copilot, DeepSeek · phone, browser, or app",

@@ -44,6 +44,6 @@ export function buildDemoCard() {
     voyage: false,
     smoke: false,
     demo: true,
-    demo_label: "PUBLIC DEMO · sample Battle Scout · run Innsegall on your Mac for your own receipt",
+    demo_label: "PUBLIC DEMO · sample Battle Scout · run Innsegall on your Macintosh for your own receipt",
   };
 }

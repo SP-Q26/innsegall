@@ -20,6 +20,7 @@ const lanes = [
   { name: "Privacy / local-first", script: "audit-privacy.mjs", score: "9.5" },
   { name: "Stripe / checkout", script: "audit-stripe.mjs", score: "9.5" },
   { name: "Claymore / voice", script: "audit-claymore.mjs", score: "9.0" },
+  { name: "Shell / nav / footer", script: "audit-shell.mjs", score: "9.5" },
 ];
 
 let failed = 0;

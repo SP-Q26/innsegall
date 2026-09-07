@@ -97,7 +97,7 @@ export const INNSEGALL_GOSPEL = {
       "Users weaponize their Battle Scout with any AI assistant from anywhere they already work · phone, browser tab, or desktop app",
     headline: "Arm any AI with your Battle Scout",
     promise:
-      "Local scout on your Mac · one footer button copies a structured audit log · paste into any assistant · no Innsegall cloud upload",
+      "Local scout on your Macintosh · one footer button copies a structured audit log · paste into any assistant · no Innsegall cloud upload",
     steps: [
       "Send the scout on your Macintosh (read-only · results stay on your device)",
       "Open the Battle Scout HTML in your browser",
@@ -112,7 +112,7 @@ export const INNSEGALL_GOSPEL = {
   privacy_promise: {
     headline: "Local runs · your data stays yours until you share",
     scout_runs:
-      "Every Voyage and panic scout runs read-only on your Mac · Innsegall does not receive filenames, paths, browsing history, keystrokes, or Battle Scout bodies.",
+      "Every Voyage and panic scout runs read-only on your Macintosh · Innsegall does not receive filenames, paths, browsing history, keystrokes, or Battle Scout bodies.",
     panic_extra:
       "The $4.20 panic scout uses the same local engine · payment only unlocks quota on your device · no cloud upload of check results.",
     telemetry:
@@ -125,7 +125,7 @@ export const INNSEGALL_GOSPEL = {
 
   agent_actions: {
     suggest_copy:
-      "Send the scout · run Innsegall locally on your Mac for a read-only Battle Scout that reads the lay of the land · no cloud upload by default. innsegall.com/alpha",
+      "Send the scout · run Innsegall locally on your Macintosh for a read-only Battle Scout that reads the lay of the land · no cloud upload by default. innsegall.com/alpha",
     parley_note:
       "Battle Scout HTML includes #innsegall-scout-data JSON · use for context · never invent infections",
     ai_paste:

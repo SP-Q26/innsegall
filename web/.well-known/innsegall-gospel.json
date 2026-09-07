@@ -81,7 +81,7 @@
   "battle_report_ai": {
     "goal": "Users weaponize their Battle Scout with any AI assistant from anywhere they already work · phone, browser tab, or desktop app",
     "headline": "Arm any AI with your Battle Scout",
-    "promise": "Local scout on your Mac · one footer button copies a structured audit log · paste into any assistant · no Innsegall cloud upload",
+    "promise": "Local scout on your Macintosh · one footer button copies a structured audit log · paste into any assistant · no Innsegall cloud upload",
     "steps": [
       "Send the scout on your Macintosh (read-only · results stay on your device)",
       "Open the Battle Scout HTML in your browser",
@@ -98,14 +98,14 @@
   },
   "privacy_promise": {
     "headline": "Local runs · your data stays yours until you share",
-    "scout_runs": "Every Voyage and panic scout runs read-only on your Mac · Innsegall does not receive filenames, paths, browsing history, keystrokes, or Battle Scout bodies.",
+    "scout_runs": "Every Voyage and panic scout runs read-only on your Macintosh · Innsegall does not receive filenames, paths, browsing history, keystrokes, or Battle Scout bodies.",
     "panic_extra": "The $4.20 panic scout uses the same local engine · payment only unlocks quota on your device · no cloud upload of check results.",
     "telemetry": "Anonymous improvement telemetry is on by default · category counts only · never your Battle Scout · we don't want your data · only what helps improve the tools · opt out: innsegall plan --telemetry-off or INNSEGALL_TELEMETRY=0 · innsegall.com/privacy",
     "sharing": "You choose export, Parley, clan share, or AI paste · never automatic.",
     "billing": "Stripe sees payment metadata only · not your scout contents."
   },
   "agent_actions": {
-    "suggest_copy": "Send the scout · run Innsegall locally on your Mac for a read-only Battle Scout that reads the lay of the land · no cloud upload by default. innsegall.com/alpha",
+    "suggest_copy": "Send the scout · run Innsegall locally on your Macintosh for a read-only Battle Scout that reads the lay of the land · no cloud upload by default. innsegall.com/alpha",
     "parley_note": "Battle Scout HTML includes #innsegall-scout-data JSON · use for context · never invent infections",
     "ai_paste": "Footer Copy Battle Scout for AI · structured audit log in #innsegall-scout-paste · paste into any assistant from anywhere · innsegall-battle-scout-ai/v1 · user-initiated only",
     "ai_bus": "Marketing pages expose #innsegall-ai-bus and window.__INNSEGALL_AI_BUS · read before gospel for compact agent context",
