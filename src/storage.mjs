@@ -8,17 +8,26 @@ import {
 import { homedir } from "node:os";
 import { join } from "node:path";
 
-const SUPPORT = process.env.INNSEGALL_SUPPORT_DIR || join(homedir(), "Library/Application Support/Innsegall");
-const CARDS_DIR = join(SUPPORT, "cards");
+/** Support dir · overridable via INNSEGALL_SUPPORT_DIR (tests, CI). */
+function supportRoot() {
+  return (
+    process.env.INNSEGALL_SUPPORT_DIR ||
+    join(homedir(), "Library/Application Support/Innsegall")
+  );
+}
+
+function cardsDir() {
+  return join(supportRoot(), "cards");
+}
 
 export function ensureDirs() {
-  mkdirSync(CARDS_DIR, { recursive: true });
+  mkdirSync(cardsDir(), { recursive: true });
 }
 
 export function saveCard(card) {
   try {
     ensureDirs();
-    const path = join(CARDS_DIR, `${card.card_id}.json`);
+    const path = join(cardsDir(), `${card.card_id}.json`);
     writeFileSync(path, JSON.stringify(card, null, 2), "utf8");
     return path;
   } catch (e) {
@@ -27,11 +36,12 @@ export function saveCard(card) {
 }
 
 export function listCards(limit = 20) {
-  if (!existsSync(CARDS_DIR)) return [];
-  return readdirSync(CARDS_DIR)
+  const dir = cardsDir();
+  if (!existsSync(dir)) return [];
+  return readdirSync(dir)
     .filter((f) => f.endsWith(".json"))
     .map((f) => {
-      const full = join(CARDS_DIR, f);
+      const full = join(dir, f);
       try {
         const card = JSON.parse(readFileSync(full, "utf8"));
         return {
@@ -51,18 +61,19 @@ export function listCards(limit = 20) {
 }
 
 export function supportPath() {
-  return SUPPORT;
+  return supportRoot();
 }
 
 export function loadCardById(cardId) {
-  if (!existsSync(CARDS_DIR)) return null;
-  const direct = join(CARDS_DIR, `${cardId}.json`);
+  const dir = cardsDir();
+  if (!existsSync(dir)) return null;
+  const direct = join(dir, `${cardId}.json`);
   if (existsSync(direct)) {
     return JSON.parse(readFileSync(direct, "utf8"));
   }
-  for (const f of readdirSync(CARDS_DIR)) {
+  for (const f of readdirSync(dir)) {
     if (!f.endsWith(".json")) continue;
-    const card = JSON.parse(readFileSync(join(CARDS_DIR, f), "utf8"));
+    const card = JSON.parse(readFileSync(join(dir, f), "utf8"));
     if (card.card_id === cardId) return card;
   }
   return null;

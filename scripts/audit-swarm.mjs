@@ -49,7 +49,14 @@ try {
 
 console.log("── Self-test ──");
 try {
-  execSync("node scripts/self-test.mjs", { cwd: root, stdio: "inherit" });
+  execSync("node scripts/self-test.mjs", {
+    cwd: root,
+    stdio: "inherit",
+    env: {
+      ...process.env,
+      INNSEGALL_SUPPORT_DIR: process.env.INNSEGALL_SUPPORT_DIR || join(root, ".smoke", "self-test-support"),
+    },
+  });
   console.log("lane OK · CLI self-test\n");
 } catch {
   failed++;
@@ -85,5 +92,5 @@ if (failed) {
   console.error(`SWARM AUDIT FAIL · ${failed} lane(s)`);
   process.exit(1);
 }
-console.log("SWARM AUDIT PASS · visual 10 · SEO 9+ · deploy when ops ready");
-console.log("  Ops still manual: GitHub push · Vercel env · Stripe webhook");
+console.log("SWARM AUDIT PASS · repo lanes green");
+console.log("  Next: npm run smoke:live · then STRIPE LIVE flip (docs/STRIPE_LIVE_FLIP.md)");

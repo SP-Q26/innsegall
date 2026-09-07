@@ -38,6 +38,7 @@ check("webhook subscription events", webhook.includes("customer.subscription.upd
 check("webhook invoice.paid renewal", webhook.includes("subscription_cycle"));
 check("license stripe_session", license.includes("stripe_session"));
 check("license buildLicensePayload", license.includes("buildLicensePayload"));
+check("license imports web/lib", license.includes('../lib/license.mjs'));
 
 for (const [key, item] of Object.entries(STRIPE_CATALOG)) {
   check(`catalog ${key} test_price_id in docs`, priceDoc.includes(item.test_price_id));
