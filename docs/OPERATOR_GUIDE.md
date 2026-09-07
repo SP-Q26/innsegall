@@ -79,7 +79,7 @@ Same *person* can own all accounts · just **different projects/accounts**, not 
 
 ### Phase A · Code on GitHub (~15 min)
 
-1. Create **public** repo `github.com/innsegall/innsegall`.
+1. Create **public** repo `github.com/SP-Q26/innsegall`.
 2. Push the `innsegall/` folder contents as repo root (`bin/`, `src/`, `web/`, `docs/`, `package.json`).
 3. Locally: `cd innsegall && npm test && npm run smoke` (both green before push).
 4. Tag optional: `v0.4.0-alpha`.

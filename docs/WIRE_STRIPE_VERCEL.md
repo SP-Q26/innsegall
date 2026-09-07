@@ -8,7 +8,7 @@ One page for when you are back at the keyboard. Site code is ready · you wire k
 
 | Setting | Value |
 |---------|--------|
-| Repo | `github.com/innsegall/innsegall` (public for curl install) |
+| Repo | `github.com/SP-Q26/innsegall` (public for curl install) |
 | **Root directory** | `web` |
 | Framework | Other · **no build command** (static + `/api`) |
 | Domain | `innsegall.com` + `www` (www redirects to apex in `vercel.json`) |

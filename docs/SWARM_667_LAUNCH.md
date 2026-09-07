@@ -10,7 +10,7 @@
 | Phase | Duration | Owner | Done when |
 |-------|----------|-------|-----------|
 | **T+0** Code freeze + swarm fixes | ~45 min | Agent (this swarm) | Tests green · install script links `innsegall` · docs aligned |
-| **T+45** GitHub push | ~15 min | **You** | `github.com/innsegall/innsegall` public · `main` pushed |
+| **T+45** GitHub push | ~15 min | **You** | `github.com/SP-Q26/innsegall` public · `main` pushed |
 | **T+60** Vercel import | ~20 min | **You** | Project root `web` · env vars set · preview URL loads |
 | **T+80** DNS | ~15–90 min | **You** | `@` A `76.76.21.21` · `www` CNAME · SSL green |
 | **T+90** Stripe test E2E | ~30 min | **You** | 4242 → `innsegall-license.json` → `innsegall plan --import-license` |

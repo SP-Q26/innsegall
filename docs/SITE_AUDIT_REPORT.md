@@ -100,7 +100,7 @@ See `docs/BRAND_AUDIT.md` for score history.
 |----|------|-------|
 | S1 | Vercel env + redeploy | You |
 | S2 | DNS `innsegall.com` → Vercel | You |
-| S3 | Public `github.com/innsegall/innsegall` for curl install | You |
+| S3 | Public `github.com/SP-Q26/innsegall` for curl install | You |
 | S4 | Swarm 3 gospel Macintosh sync | Agent |
 
 ---

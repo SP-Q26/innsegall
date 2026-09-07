@@ -6,7 +6,7 @@ Ordered ops path from repo to paid alpha on **innsegall.com**. No SPQ coupling.
 
 ## 1 · GitHub repo `innsegall/innsegall`
 
-- [ ] Create public repo **github.com/innsegall/innsegall** (or org fork you control)
+- [ ] Create public repo **github.com/SP-Q26/innsegall** (or org fork you control)
 - [ ] Push this tree · root = product monorepo (`bin/`, `src/`, `web/`, `docs/`)
 - [ ] Tag `v0.4.0-alpha` after smoke green
 - [ ] Set `INNSEGALL_REPO_URL` in install script env if not using default org URL

@@ -4,8 +4,9 @@ web/node_modules/
 .env.*
 !.env.example
 web/.env
-web/.env.*
-!.web/.env.example
+web/.env.local
+web/.env.*.local
+!web/.env.example
 .DS_Store
 .smoke/
 *.log

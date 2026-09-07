@@ -154,7 +154,7 @@ Innsegall 0.4.0-alpha · battle blast ready.
 Site v8, gospel, Stripe webhook, refunds, Xano forward, Parley API.
 EOF
 )"
-git remote add origin https://github.com/innsegall/innsegall.git   # if missing
+git remote add origin https://github.com/SP-Q26/innsegall.git   # if missing
 git push -u origin main
 git tag v0.4.0-alpha && git push origin v0.4.0-alpha
 ```

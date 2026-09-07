@@ -115,7 +115,7 @@
 
 ## Deploy checklist
 
-1. Push `innsegall/` to `github.com/innsegall/innsegall`
+1. Push `innsegall/` to `github.com/SP-Q26/innsegall`
 2. Vercel project · root `web`
 3. DNS on Namecheap
 4. Verify `/tos` shows Innsegall legal (not SPQ)

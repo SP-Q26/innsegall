@@ -75,7 +75,7 @@ Launch-item classifier distinguishes **housekeeping** vs true ghosts (Malwarebyt
 ### Install path
 
 - Script: `web/scripts/innsegall-alpha-install.sh`
-- Target: `~/.local/bin/innsegall` → clone `github.com/innsegall/innsegall`
+- Target: `~/.local/bin/innsegall` → clone `github.com/SP-Q26/innsegall`
 - Requires: macOS 12+ · Node 20+
 
 ### Quota / license
@@ -255,7 +255,7 @@ Warrior / field credits: manual alpha · rules in `AGENT_WARRIORS.md`.
 | Step | Owner | Status |
 |------|-------|--------|
 | Commit ~71 changed files | You | ❌ uncommitted |
-| Create `github.com/innsegall/innsegall` · push · tag `v0.4.0-alpha` | You | ❌ no remote |
+| Create `github.com/SP-Q26/innsegall` · push · tag `v0.4.0-alpha` | You | ❌ no remote |
 | Vercel project · root directory `web` | You | ❌ |
 | DNS `@` A `76.76.21.21` · `www` CNAME `cname.vercel-dns.com` | You | ❌ |
 | Zoho MX / SPF / DKIM for `hello@innsegall.com` | You | ❌ |
