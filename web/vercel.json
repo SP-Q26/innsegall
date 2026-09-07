@@ -25,7 +25,8 @@
       "has": [{ "type": "host", "value": "www.innsegall.com" }],
       "destination": "https://innsegall.com/:path*",
       "permanent": true
-    }
+    },
+    { "source": "/blog/:slug.md", "destination": "/blog/:slug", "permanent": true }
   ],
   "rewrites": [
     { "source": "/alpha", "destination": "/alpha.html" },

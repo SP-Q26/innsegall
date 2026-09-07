@@ -1553,3 +1553,65 @@ button.innsegall-checkout:disabled {
 .success-onward {
   border-top: 2px solid rgba(244, 201, 93, 0.22);
 }
+
+/* Phase 3 · Field Report blog + clan compare */
+.blog-prose h2 {
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: 1px solid rgba(244, 201, 93, 0.14);
+}
+
+.blog-rune-divider {
+  margin: var(--space-3) 0 var(--space-5);
+  text-align: center;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.35em;
+  color: var(--wealth-gold, #f4c95d);
+  opacity: 0.65;
+}
+
+.blog-prose blockquote {
+  border-left: 3px solid rgba(244, 201, 93, 0.55);
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  color: var(--mist-pale, #c5d4e3);
+  font-style: italic;
+}
+
+.blog-prose table {
+  width: 100%;
+  max-width: 36rem;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.blog-prose th,
+.blog-prose td {
+  padding: 0.45rem 0.5rem 0.45rem 0;
+  border-bottom: 1px solid rgba(168, 216, 255, 0.18);
+}
+
+.clan-compare {
+  display: grid;
+  gap: var(--space-4);
+  margin: var(--space-5) 0;
+}
+
+@media (min-width: 48rem) {
+  .clan-compare {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.clan-compare-card {
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(168, 216, 255, 0.14);
+  background: rgba(11, 29, 46, 0.55);
+}
+
+.clan-compare-card--clan {
+  border-top: 2px solid rgba(244, 201, 93, 0.45);
+  box-shadow: 0 0 24px rgba(244, 201, 93, 0.08);
+}

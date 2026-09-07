@@ -65,11 +65,14 @@ try {
 
 const index = readFileSync(join(web, "index.html"), "utf8");
 const visualChecks = [
-  ["CSS v12 sitewide", index.includes("innsegall.css?v=12")],
+  ["CSS v13 sitewide", index.includes("innsegall.css?v=13")],
+  ["Index Battle Scout preview", index.includes("battle-scout-sample")],
   ["Guide Battle Scout sample", readFileSync(join(web, "guide.html"), "utf8").includes("battle-scout-sample")],
   ["Sample scout HTML", existsSync(join(web, "samples/battle-scout-demo.html"))],
   ["OG SVG master", existsSync(join(web, "og/innsegall-card.svg"))],
+  ["OG PNG raster", existsSync(join(web, "og/innsegall-card.png"))],
   ["Hosted OG", index.includes("/og/innsegall-card.png")],
+  ["Blog rune divider", readFileSync(join(web, "blog/what-is-a-battle-scout.html"), "utf8").includes("blog-rune-divider")],
   ["Skip link", index.includes('class="skip-link"')],
   ["Beam background", index.includes('class="beam-bg"')],
   ["Brand mark SVG", index.includes('class="brand-mark"')],

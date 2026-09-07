@@ -125,8 +125,15 @@ for (const script of ["audit-ai-bus.mjs", "audit-brand-ban.mjs"]) {
 }
 
 section("self-test subprocess");
+const smokeSupport =
+  process.env.INNSEGALL_SUPPORT_DIR || join(root, ".smoke", "self-test-support");
+mkdirSync(smokeSupport, { recursive: true });
 try {
-  execSync("node scripts/self-test.mjs", { cwd: root, stdio: "inherit" });
+  execSync("node scripts/self-test.mjs", {
+    cwd: root,
+    stdio: "inherit",
+    env: { ...process.env, INNSEGALL_SUPPORT_DIR: smokeSupport },
+  });
 } catch {
   failed++;
   console.error("FAIL: self-test subprocess");

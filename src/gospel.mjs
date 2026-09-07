@@ -59,8 +59,8 @@ export const INNSEGALL_GOSPEL = {
     name: "Voyage health tracker",
     schedule: "1st and 15th of each month",
     what_happens:
-      "Twice-monthly scheduled hygiene · read-only scout · Battle Scout opens in your browser · Voyage chart tracks Macintosh health over time",
-    chart: "Sea-map history of verdicts and health score · spot drift before panic",
+      "Twice-monthly scheduled hygiene · read-only scout · Battle Scout opens in your browser · Voyage chart tracks triage rhythm over time",
+    chart: "Sea-map history of verdicts and triage score · spot drift before panic",
     install_schedule: "innsegall voyage --install-schedule · 10:00 local on voyage days via launchd",
   },
 
@@ -69,7 +69,7 @@ export const INNSEGALL_GOSPEL = {
       usd: 0,
       voyages_per_month: 2,
       voyage_days: [1, 15],
-      note: "Twice-monthly Voyage on the 1st & 15th · Battle Scout in browser · Voyage chart tracks Macintosh health",
+      note: "Twice-monthly Voyage on the 1st & 15th · Battle Scout in browser · Voyage chart tracks triage rhythm",
     },
     extra_run: {
       usd: PRICING.extra_run.usd,

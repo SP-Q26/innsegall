@@ -820,15 +820,29 @@ function cardJumpScript(shareCopiedToast) {
       function copied() {
         showToast('${toast}');
       }
+      var canNativeShare = navigator.share && pasteText;
+      var preferShare = canNativeShare && window.matchMedia("(max-width: 768px)").matches;
+      if (preferShare) {
+        navigator.share({ title: title, text: pasteText }).then(copied).catch(function () {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(pasteText).then(copied).catch(function () {
+              showToast("Select the report text and copy manually");
+            });
+          } else {
+            showToast("Share cancelled · use Parley below");
+          }
+        });
+        return;
+      }
       if (pasteText && navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(pasteText).then(copied).catch(function () {
           showToast("Select the report text and copy manually");
         });
         return;
       }
-      if (pasteText && navigator.share) {
-        navigator.share({ title: title, text: pasteText }).catch(function () {
-          showToast("Copy failed · use Parley in the card");
+      if (canNativeShare) {
+        navigator.share({ title: title, text: pasteText }).then(copied).catch(function () {
+          showToast("Copy unavailable · open Parley below");
         });
         return;
       }
