@@ -1,10 +1,12 @@
-/* Innsegall · brand tokens · v10 calm sea */
+/* Innsegall · brand tokens · v11 rune shield */
 :root {
   --fjord-deep: #0b1d2e;
   --fjord-mid: #122a42;
   --aurora-green: #3daa8c;
   --beam-gold: #f4c95d;
   --beam-gold-dim: #d4a84a;
+  --wealth-gold: #e8c872;
+  --spirit-silver: #c5d4e3;
   --laser-edge: #a8d8ff;
   --ember-warm: #e8a87c;
   --gremlin-smoke: #8b9cb3;
@@ -12,6 +14,9 @@
   --text-primary: #e8eef4;
   --alert-ember: #d97757;
   --mist: rgba(168, 216, 255, 0.08);
+  --shield-glow: rgba(244, 201, 93, 0.12);
+  --rune-fade: rgba(168, 216, 255, 0.38);
+  --leading-relaxed: 1.68;
   --page-max: 68rem;
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -44,7 +49,8 @@ body {
   margin: 0;
   font-family: var(--font-ui);
   font-size: 1.0625rem;
-  line-height: 1.6;
+  line-height: 1.62;
+  letter-spacing: 0.01em;
   color: var(--text-primary);
   background: var(--fjord-deep);
   -webkit-font-smoothing: antialiased;
@@ -241,8 +247,9 @@ a:focus-visible {
   font-family: var(--font-display);
   font-size: 1.5rem;
   font-weight: 600;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
   line-height: 1.1;
+  color: var(--spirit-silver);
 }
 
 .brand-pronounce {
@@ -397,13 +404,26 @@ a:focus-visible {
 /* Hero */
 .hero {
   text-align: center;
-  padding: clamp(2rem, 6vw, 4rem) 0 clamp(3rem, 8vw, 5rem);
+  padding: clamp(2rem, 6vw, 4rem) 0 clamp(2.5rem, 6vw, 4rem);
+  position: relative;
+}
+
+.hero::after {
+  content: "ᚠ  ᚢ  ᚦ  ᚨ  ᚱ";
+  display: block;
+  margin: clamp(1.75rem, 4vw, 2.5rem) auto 0;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.42em;
+  color: var(--rune-fade);
+  opacity: 0.7;
+  user-select: none;
 }
 
 .hero-eyebrow {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--aurora-green);
   margin: 0 0 1.25rem;
@@ -413,12 +433,13 @@ a:focus-visible {
   font-family: var(--font-display);
   font-size: clamp(2.5rem, 6.5vw, 3.85rem);
   font-weight: 600;
-  line-height: 1.08;
+  line-height: 1.06;
   margin: 0 0 var(--space-4);
-  max-width: 16ch;
+  max-width: 17ch;
   margin-left: auto;
   margin-right: auto;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.01em;
+  text-wrap: balance;
 }
 
 .hero-tag {
@@ -431,8 +452,16 @@ a:focus-visible {
 .hero-manifesto {
   font-size: 1.05rem;
   color: var(--gremlin-smoke);
-  max-width: 42ch;
+  max-width: 44ch;
   margin: 0 auto 2rem;
+  line-height: var(--leading-relaxed);
+  text-wrap: pretty;
+}
+
+.hero-manifesto em[lang="gd"] {
+  color: var(--spirit-silver);
+  font-style: italic;
+  letter-spacing: 0.02em;
 }
 
 .hero-actions {
@@ -617,26 +646,57 @@ a:focus-visible {
 }
 
 .trust-strip li::before {
+  content: "ᚠ";
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  background: none;
+  font-size: 0.55rem;
+  color: var(--beam-gold-dim);
+  opacity: 0.75;
+}
+
+.rune-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin: 0 auto var(--space-6);
+  max-width: 12rem;
+  color: var(--rune-fade);
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  opacity: 0.55;
+  user-select: none;
+}
+
+.rune-divider::before,
+.rune-divider::after {
   content: "";
-  width: 0.4rem;
-  height: 0.4rem;
-  border-radius: 50%;
-  background: var(--aurora-green);
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(244, 201, 93, 0.35), transparent);
 }
 
 /* Sections */
 .section {
-  padding: clamp(2.5rem, 5vw, 4rem) 0;
+  padding: clamp(2.75rem, 5.5vw, 4.25rem) 0;
   border-top: 1px solid var(--mist);
 }
 
 .section-label {
   font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--aurora-green);
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.85rem;
+}
+
+.section-label::before {
+  content: "ᚠ ";
+  color: var(--beam-gold-dim);
+  opacity: 0.7;
 }
 
 .section h2 {
@@ -650,8 +710,11 @@ a:focus-visible {
 
 .section-lead {
   color: var(--gremlin-smoke);
-  max-width: 52ch;
-  margin: 0 0 2rem;
+  max-width: 54ch;
+  margin: 0 0 2.25rem;
+  line-height: var(--leading-relaxed);
+  font-size: 1.02rem;
+  text-wrap: pretty;
 }
 
 /* Cards grid */
@@ -664,9 +727,12 @@ a:focus-visible {
 .card {
   background: rgba(18, 42, 66, 0.65);
   border: 1px solid var(--mist);
+  border-top: 2px solid rgba(244, 201, 93, 0.2);
   border-radius: 0.75rem;
-  padding: 1.35rem 1.25rem;
-  box-shadow: 0 2px 8px rgba(8, 21, 33, 0.35);
+  padding: 1.45rem 1.35rem;
+  box-shadow:
+    0 2px 8px rgba(8, 21, 33, 0.35),
+    inset 0 1px 0 var(--shield-glow);
   transition:
     border-color 0.2s ease,
     background 0.2s ease,
@@ -705,6 +771,7 @@ a:focus-visible {
 .card p {
   margin: 0;
   font-size: 0.95rem;
+  line-height: 1.58;
   color: var(--gremlin-smoke);
 }
 

@@ -65,7 +65,7 @@ try {
 
 const index = readFileSync(join(web, "index.html"), "utf8");
 const visualChecks = [
-  ["CSS v10 sitewide", index.includes("innsegall.css?v=10")],
+  ["CSS v11 sitewide", index.includes("innsegall.css?v=11")],
   ["Hosted OG", index.includes("/og/innsegall-card.png")],
   ["Skip link", index.includes('class="skip-link"')],
   ["Beam background", index.includes('class="beam-bg"')],

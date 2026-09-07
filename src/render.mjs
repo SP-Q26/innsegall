@@ -1067,6 +1067,9 @@ export function renderHtml(card) {
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>${esc(pageTitle)}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 ${scoutDataBlocks}
   <style>
     :root {
@@ -1098,8 +1101,8 @@ ${scoutDataBlocks}
       --ink: #0f1a24;
       --ink-soft: #3d4f5f;
       --border: #d4dee8;
-      --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
-      --font-ui: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", system-ui, sans-serif;
+      --font-display: "Cormorant Garamond", "Iowan Old Style", Palatino, Georgia, serif;
+      --font-ui: "DM Sans", -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
       --font-mono: "SF Mono", ui-monospace, Menlo, Monaco, monospace;
       --text-xs: .6875rem;
       --text-sm: .8125rem;
@@ -1107,8 +1110,9 @@ ${scoutDataBlocks}
       --text-lg: 1.125rem;
       --text-xl: 1.375rem;
       --text-2xl: 1.75rem;
-      --leading-tight: 1.2;
-      --leading-normal: 1.5;
+      --leading-tight: 1.18;
+      --leading-normal: 1.58;
+      --leading-relaxed: 1.68;
       --tracking-wide: .12em;
       --tracking-wider: .18em;
       /* Mac-first layout · laptop default · mobile tightens below 768px */
@@ -1315,12 +1319,14 @@ ${scoutDataBlocks}
     }
     .verdict-band h1 {
       font-family: var(--font-display);
-      font-size: clamp(1.2rem, 3.5vw, 1.65rem);
+      font-size: clamp(1.25rem, 3.5vw, 1.75rem);
       font-weight: 700;
       margin: 0;
       line-height: var(--leading-tight);
       color: inherit;
-      max-width: 22ch;
+      max-width: 26ch;
+      letter-spacing: 0.01em;
+      text-wrap: balance;
     }
     .verdict-band .verdict-pill {
       margin: 0;
@@ -1817,6 +1823,17 @@ ${scoutDataBlocks}
       line-height: 1.45;
     }
     .mission-brief { border-bottom: 1px solid rgba(168,216,255,.08); }
+    .mission-brief .hero-summary {
+      font-size: var(--text-lg);
+      line-height: var(--leading-relaxed);
+      letter-spacing: 0.01em;
+    }
+    .mission-brief .hero-meta {
+      letter-spacing: 0.03em;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
     .mission-leader {
       margin: .65rem 0 0;
       font-size: var(--text-sm);
@@ -2240,29 +2257,58 @@ ${scoutDataBlocks}
       color: var(--ink);
     }
     .parley-cap-note { margin: .65rem 0 0; font-size: var(--text-xs); color: var(--smoke); }
+    .share-dock {
+      margin: 1.5rem auto 1.25rem;
+      padding: 1.15rem 1.25rem;
+      max-width: 28rem;
+      text-align: center;
+      border-radius: 12px;
+      border: 1px solid rgba(244, 201, 93, 0.28);
+      background: linear-gradient(180deg, rgba(244, 201, 93, 0.1), rgba(7, 20, 32, 0.55));
+      box-shadow: 0 0 0 1px rgba(168, 216, 255, 0.06) inset;
+    }
+    .share-dock-label {
+      margin: 0 0 0.35rem;
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.02em;
+    }
     .share-btn {
       font-family: var(--font-ui);
-      font-size: var(--text-xs);
+      font-size: var(--text-sm);
       font-weight: 700;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      padding: .4rem .75rem;
-      border-radius: 8px;
-      border: 1px solid rgba(168,216,255,.25);
-      background: rgba(255,255,255,.06);
-      color: var(--mist);
+      letter-spacing: 0.04em;
+      padding: 0.65rem 1.15rem;
+      border-radius: 10px;
+      border: none;
+      background: linear-gradient(180deg, #f8d574 0%, var(--gold) 50%, #c9962e 100%);
+      color: #0f1a24;
       cursor: pointer;
-      margin-top: .5rem;
+      margin-top: 0.75rem;
+      min-height: var(--touch-min);
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.15) inset,
+        0 3px 0 #8f6420,
+        0 10px 28px rgba(232, 184, 77, 0.28);
+      transition: transform 0.12s ease, filter 0.12s ease;
     }
-    .share-btn:hover { background: rgba(255,255,255,.12); color: #fff; }
+    .share-btn:hover {
+      filter: brightness(1.04);
+      transform: translateY(-1px);
+      color: #0f1a24;
+    }
     .share-hint {
       display: block;
       font-family: var(--font-ui);
-      font-size: var(--text-xs);
-      color: var(--smoke);
-      margin-top: .65rem;
-      line-height: 1.45;
-      max-width: 36rem;
+      font-size: var(--text-sm);
+      color: var(--mist);
+      margin: 0;
+      line-height: var(--leading-relaxed);
+      max-width: 32rem;
+      margin-left: auto;
+      margin-right: auto;
     }
     .scout-paste-store {
       position: absolute;
@@ -2382,9 +2428,9 @@ ${scoutDataBlocks}
 
     @media print {
       .battlefield { display: none; }
-      body { background: #fff; }
+      body { background: #fff; color: #111; }
       .page { padding: 0; }
-      .card-column { box-shadow: none; }
+      .card-column { box-shadow: none; border: 1px solid #ccc; }
       .armory { background: #f5f5f5; border-color: #ccc; }
       .armory-kicker, .armory-sub { color: #666; }
       .hero { background: #1a2332; }
@@ -2392,6 +2438,15 @@ ${scoutDataBlocks}
       details.clear-fold { background: #f9f9f9; border-color: #ddd; }
       .clear-name { color: #111; }
       .horn-note { display: none; }
+      .share-dock {
+        border-color: #ccc;
+        background: #faf8f3;
+        break-inside: avoid;
+      }
+      .share-btn { display: none; }
+      .share-hint { color: #444; font-size: 10pt; }
+      .footer { color: #333; }
+      .footer strong { color: #111; }
     }
 
     /* Large Mac · 13–16" comfortable read width */
@@ -2524,12 +2579,15 @@ ${scoutDataBlocks}
       </details>
 
       <footer class="footer">
+        <div class="share-dock">
+          <p class="share-dock-label">Share this Battle Scout</p>
+          <p class="share-hint">Copy a clean audit log for family, IT, or any AI assistant · you control every paste.</p>
+          <button type="button" class="share-btn" id="battle-scout-share">${esc(CTA.COPY_FOR_AI)}</button>
+        </div>
+        <textarea id="innsegall-scout-paste" class="scout-paste-store" readonly aria-hidden="true">${embedTextareaContent(renderAiPaste(card))}</textarea>
         <strong>With Innsegall, no one is your enemy · you have no foe.</strong>
         <span class="footer-id">innsegall.com · ${esc(card.card_id)} · engine ${esc(card.engine_version)}</span>
         ${pricingFooter}
-        <p class="share-hint">No family IT? ${esc(CTA.COPY_FOR_AI)} · full audit log below · ${esc(CTA.COPY_FOR_AI_HINT)}.</p>
-        <button type="button" class="share-btn" id="battle-scout-share">${esc(CTA.COPY_FOR_AI)}</button>
-        <textarea id="innsegall-scout-paste" class="scout-paste-store" readonly aria-hidden="true">${embedTextareaContent(renderAiPaste(card))}</textarea>
       </footer>
     </div>
   </div>
