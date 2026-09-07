@@ -1,4 +1,4 @@
-/* Innsegall · brand tokens · v11 rune shield */
+/* Innsegall · brand tokens · v12 onward */
 :root {
   --fjord-deep: #0b1d2e;
   --fjord-mid: #122a42;
@@ -1524,4 +1524,32 @@ button.innsegall-checkout:disabled {
 
 .lane-table {
   min-width: 36rem;
+}
+
+/* Phase 2 · Battle Scout preview + success onward */
+.scout-preview {
+  margin: var(--space-5) 0 var(--space-6);
+}
+
+.scout-preview-frame {
+  width: 100%;
+  min-height: 28rem;
+  height: clamp(22rem, 52vh, 36rem);
+  border: 1px solid rgba(244, 201, 93, 0.28);
+  border-radius: var(--radius-md);
+  background: #060e18;
+  box-shadow:
+    0 0 0 1px rgba(168, 216, 255, 0.08) inset,
+    0 20px 48px rgba(0, 0, 0, 0.45);
+}
+
+.scout-preview-note {
+  margin: var(--space-3) 0 0;
+  font-size: 0.88rem;
+  color: var(--gremlin-smoke);
+  text-align: center;
+}
+
+.success-onward {
+  border-top: 2px solid rgba(244, 201, 93, 0.22);
 }

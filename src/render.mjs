@@ -1050,6 +1050,10 @@ export function renderHtml(card) {
     ? `<div class="smoke-banner" role="note">${esc(card.smoke_label || "SMOKE DEMO · not a live scan")}<br /><code>innsegall smoke --open</code></div>`
     : "";
 
+  const demoBanner = card.demo
+    ? `<div class="demo-banner" role="note">${esc(card.demo_label || "PUBLIC DEMO · sample Battle Scout")}</div>`
+    : "";
+
   const voyageBanner = card.voyage
     ? `<div class="voyage-banner" role="note">Voyage day · scheduled Macintosh hygiene · ${esc(INNSEGALL_GOSPEL.voyage.schedule)}</div>`
     : "";
@@ -1067,7 +1071,7 @@ export function renderHtml(card) {
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>${esc(pageTitle)}</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
+${card.demo ? '  <meta name="robots" content="noindex,nofollow" />\n' : ""}  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 ${scoutDataBlocks}
@@ -1266,6 +1270,20 @@ ${scoutDataBlocks}
       text-transform: none;
       letter-spacing: 0;
       opacity: .9;
+    }
+
+    .demo-banner {
+      margin: 0 0 .75rem;
+      padding: .65rem .9rem;
+      border-radius: 10px;
+      background: linear-gradient(90deg, rgba(244,201,93,.14), rgba(61,170,140,.1));
+      border: 1px solid rgba(244,201,93,.35);
+      color: #e8eef4;
+      font-size: var(--text-xs);
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-align: center;
+      line-height: 1.5;
     }
 
     .voyage-banner {
@@ -2538,6 +2556,7 @@ ${scoutDataBlocks}
   <div class="page">
     <div class="wrap">
       ${smokeBanner}
+      ${demoBanner}
       ${voyageBanner}
       <div class="card-column">
       <div class="verdict-band ${verdictClass}">

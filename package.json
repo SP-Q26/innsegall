@@ -24,6 +24,7 @@
     "audit": "node scripts/audit-launch.mjs",
     "audit:swarm": "node scripts/audit-swarm.mjs",
     "gate:launch": "node scripts/audit-swarm.mjs && node scripts/smoke-live.mjs --base=https://innsegall.com",
+    "export:sample-scout": "node scripts/export-sample-scout.mjs",
     "dry-test:license": "node scripts/dry-test-license.mjs",
     "sync-gospel": "node scripts/sync-gospel-web.mjs",
     "smoke:live": "node scripts/smoke-live.mjs --base=https://innsegall.com"

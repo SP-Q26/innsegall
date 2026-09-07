@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" role="img" aria-label="Innsegall">
+  <defs>
+    <linearGradient id="brand-beam" x1="20" y1="0" x2="20" y2="40" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F4C95D" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#A8D8FF" stop-opacity="0.25"/>
+    </linearGradient>
+    <linearGradient id="shield-rim" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F4C95D" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#3DAA8C" stop-opacity="0.2"/>
+    </linearGradient>
+  </defs>
+  <rect width="40" height="40" rx="8" fill="#122A42"/>
+  <rect x="1.5" y="1.5" width="37" height="37" rx="7" fill="none" stroke="url(#shield-rim)" stroke-width="1"/>
+  <text x="6" y="11" fill="#F4C95D" font-size="5" font-family="Georgia, serif" opacity="0.55"> </text>
+  <text x="30" y="11" fill="#A8D8FF" font-size="5" font-family="Georgia, serif" opacity="0.45">¦</text>
+  <path d="M20 6v28" stroke="url(#brand-beam)" stroke-width="2" stroke-linecap="round"/>
+  <ellipse cx="20" cy="30" rx="8" ry="3" fill="#E8A87C" opacity="0.85"/>
+  <path d="M14 22c2-4 10-4 12 0" stroke="#A8D8FF" stroke-width="1.5" fill="none" opacity="0.7"/>
+  <text x="7" y="36" fill="#C5D4E3" font-size="4.5" font-family="Georgia, serif" opacity="0.4">¨</text>
+  <text x="28" y="36" fill="#C5D4E3" font-size="4.5" font-family="Georgia, serif" opacity="0.4">±</text>
+</svg>

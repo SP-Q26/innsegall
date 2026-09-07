@@ -65,7 +65,10 @@ try {
 
 const index = readFileSync(join(web, "index.html"), "utf8");
 const visualChecks = [
-  ["CSS v11 sitewide", index.includes("innsegall.css?v=11")],
+  ["CSS v12 sitewide", index.includes("innsegall.css?v=12")],
+  ["Guide Battle Scout sample", readFileSync(join(web, "guide.html"), "utf8").includes("battle-scout-sample")],
+  ["Sample scout HTML", existsSync(join(web, "samples/battle-scout-demo.html"))],
+  ["OG SVG master", existsSync(join(web, "og/innsegall-card.svg"))],
   ["Hosted OG", index.includes("/og/innsegall-card.png")],
   ["Skip link", index.includes('class="skip-link"')],
   ["Beam background", index.includes('class="beam-bg"')],

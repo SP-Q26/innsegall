@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Innsegall · Know you're okay">
+  <defs>
+    <linearGradient id="fjord" x1="600" y1="0" x2="600" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1D2E"/>
+      <stop offset="0.55" stop-color="#071018"/>
+      <stop offset="1" stop-color="#081521"/>
+    </linearGradient>
+    <linearGradient id="beam" x1="600" y1="0" x2="600" y2="400" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F4C95D" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#A8D8FF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#F8D574"/>
+      <stop offset="1" stop-color="#D4A84A"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#fjord)"/>
+  <rect width="1200" height="630" fill="url(#beam)"/>
+  <rect x="48" y="48" width="1104" height="534" rx="24" fill="none" stroke="#F4C95D" stroke-opacity="0.22" stroke-width="2"/>
+  <text x="600" y="88" text-anchor="middle" fill="#3DAA8C" font-family="Georgia, serif" font-size="22" letter-spacing="12" opacity="0.7">   ¢  ¦  ¨  ±</text>
+  <text x="600" y="280" text-anchor="middle" fill="#E8EEF4" font-family="Georgia, serif" font-size="92" font-weight="600">Innsegall</text>
+  <text x="600" y="340" text-anchor="middle" fill="#A8D8FF" font-family="Arial, sans-serif" font-size="34" letter-spacing="2">Know you're okay</text>
+  <text x="600" y="390" text-anchor="middle" fill="#8B9CB3" font-family="Arial, sans-serif" font-size="22">Macintosh triage · Battle Scout receipts · local-first</text>
+  <rect x="420" y="430" width="360" height="56" rx="28" fill="url(#gold)" opacity="0.95"/>
+  <text x="600" y="466" text-anchor="middle" fill="#0B1D2E" font-family="Arial, sans-serif" font-size="22" font-weight="700">Send the scout</text>
+  <text x="600" y="560" text-anchor="middle" fill="#C5D4E3" font-family="Arial, sans-serif" font-size="18" opacity="0.75">innsegall.com · ancient calm · modern shield</text>
+</svg>
