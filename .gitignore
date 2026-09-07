@@ -11,3 +11,5 @@ web/.env.*.local
 .smoke/
 *.log
 .npm-cache/
+.vercel
+.env*
