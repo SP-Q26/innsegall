@@ -41,7 +41,8 @@ import {
   printWarriorsLedger,
   printBoatLane,
 } from "../src/terminal.mjs";
-import { pingInstall } from "../src/telemetry-client.mjs";
+import { runBootOps } from "../src/ops-boot.mjs";
+import { savePrefs } from "../src/preferences.mjs";
 
 function usage() {
   console.log(`Innsegall ${ENGINE_VERSION} · know you're okay.
@@ -83,6 +84,12 @@ Plan options:
   --clan               Activate clan plan locally (alpha · after purchase)
   --credit <n>         Grant extra scout credits (alpha · after $4.20 payment)
   --free               Reset to free tier
+  --telemetry-off      Opt out of anonymous improvement telemetry (saved locally)
+  --telemetry-on       Re-enable anonymous category-count telemetry
+
+Telemetry / updates:
+  --no-telemetry       Skip telemetry for this command only
+  (default on · category counts only · never your scout · INNSEGALL_TELEMETRY=0 to disable)
 
 Voyage options:
   --install-schedule   Install launchd job (1st & 15th at 10:00)
@@ -127,6 +134,9 @@ function parseFlags(argv, start = 2) {
     else if (a === "--no-open") flags.noOpen = true;
     else if (a === "--import-license" && argv[i + 1]) flags.importLicense = argv[++i];
     else if (a === "--share") flags.share = true;
+    else if (a === "--no-telemetry") flags.noTelemetry = true;
+    else if (a === "--telemetry-off") flags.telemetryOff = true;
+    else if (a === "--telemetry-on") flags.telemetryOn = true;
     else if (a === "--help" || a === "-h") flags.help = true;
     else if (!a.startsWith("-")) flags._.push(a);
   }
@@ -206,9 +216,15 @@ function cmdCheck(flags) {
   return card;
 }
 
-function cmdRun(flags) {
+async function cmdRun(flags) {
   flags.out = flags.out || defaultOutPath(flags.flow || "mac_hygiene");
   const card = cmdCheck({ ...flags, quiet: false });
+  await runBootOps({
+    trigger: "scan",
+    card,
+    quiet: flags.quiet,
+    noTelemetry: flags.noTelemetry,
+  });
   const html = expandHome(flags.html || defaultHtmlPath(flags._outPath || flags.out));
   writeParent(html);
   writeFileSync(html, renderHtml(card), "utf8");
@@ -391,6 +407,16 @@ function cmdPlan(flags) {
     console.log(JSON.stringify(formatPlanStatus(q), null, 2));
     return;
   }
+  if (flags.telemetryOff) {
+    savePrefs({ telemetry_opt_out: true });
+    console.log("Anonymous improvement telemetry off · scout runs stay local · category counts not sent.");
+    return;
+  }
+  if (flags.telemetryOn) {
+    savePrefs({ telemetry_opt_out: false });
+    console.log("Anonymous improvement telemetry on · category counts only · never your Battle Scout.");
+    return;
+  }
   if (flags.credit && flags.credit > 0) {
     const blocked = requireOperator("innsegall plan --credit");
     if (blocked) {
@@ -408,7 +434,7 @@ function cmdPlan(flags) {
   printPlanStatus(status);
 }
 
-function cmdVoyage(flags) {
+async function cmdVoyage(flags) {
   const slot = voyageSlotForDate();
   if (!slot && !flags.force && !flags.smoke) {
     const next = nextVoyageDate();
@@ -460,6 +486,12 @@ function cmdVoyage(flags) {
   flags.voyage = true;
   flags.out = flags.out || defaultOutPath("voyage");
   const card = cmdCheck({ ...flags, quiet: Boolean(flags.quiet) });
+  await runBootOps({
+    trigger: "scan",
+    card,
+    quiet: flags.quiet,
+    noTelemetry: flags.noTelemetry,
+  });
   const html = expandHome(flags.html || defaultHtmlPath(flags._outPath || flags.out));
   writeParent(html);
   writeFileSync(html, renderHtml(card), "utf8");
@@ -502,15 +534,16 @@ async function cmdRunes(flags) {
   } else {
     console.log(paint(ansi.beam, "\nSolas on the path · you're clear to run a scout."));
     console.log(paint(ansi.dim, `innsegall run · boat · ${PRICING.site_url}/guide`));
-    const ping = await pingInstall({ share: flags.share, quiet: true });
-    if (ping.ok && flags.share) {
-      console.log(paint(ansi.dim, "Install ping sent (anonymized) · thank you scout."));
-    }
+    await runBootOps({
+      trigger: "runes",
+      quiet: flags.quiet,
+      noTelemetry: flags.noTelemetry,
+    });
   }
   process.exit(warn.length ? 1 : 0);
 }
 
-function main() {
+async function main() {
   const [cmd, ...rest] = process.argv.slice(2);
   const flags = parseFlags(["_", ...rest], 1);
 
@@ -526,10 +559,18 @@ function main() {
 
   switch (cmd) {
     case "run":
-      cmdRun(flags);
+      await cmdRun(flags);
       break;
     case "check":
-      cmdCheck(flags);
+      {
+        const card = cmdCheck(flags);
+        await runBootOps({
+          trigger: "scan",
+          card,
+          quiet: flags.quiet,
+          noTelemetry: flags.noTelemetry,
+        });
+      }
       break;
     case "render":
       cmdRender(flags);
@@ -544,7 +585,7 @@ function main() {
       cmdChart(flags);
       break;
     case "voyage":
-      cmdVoyage(flags);
+      await cmdVoyage(flags);
       break;
     case "parley":
       cmdParley(flags);
@@ -557,7 +598,7 @@ function main() {
       break;
     case "runes":
     case "doctor":
-      cmdRunes(flags);
+      await cmdRunes(flags);
       break;
     case "plan":
       cmdPlan(flags);
@@ -578,4 +619,7 @@ function main() {
   }
 }
 
-main();
+main().catch((e) => {
+  console.error(e);
+  process.exit(1);
+});

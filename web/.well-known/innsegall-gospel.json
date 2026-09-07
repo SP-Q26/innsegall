@@ -100,7 +100,7 @@
     "headline": "Local runs · your data stays yours until you share",
     "scout_runs": "Every Voyage and panic scout runs read-only on your Mac · Innsegall does not receive filenames, paths, browsing history, keystrokes, or Battle Scout bodies.",
     "panic_extra": "The $4.20 panic scout uses the same local engine · payment only unlocks quota on your device · no cloud upload of check results.",
-    "telemetry": "Telemetry is off by default · if enabled later, only anonymized category counts · never full cards · innsegall.com/privacy",
+    "telemetry": "Anonymous improvement telemetry is on by default · category counts only · never your Battle Scout · we don't want your data · only what helps improve the tools · opt out: innsegall plan --telemetry-off or INNSEGALL_TELEMETRY=0 · innsegall.com/privacy",
     "sharing": "You choose export, Parley, clan share, or AI paste · never automatic.",
     "billing": "Stripe sees payment metadata only · not your scout contents."
   },

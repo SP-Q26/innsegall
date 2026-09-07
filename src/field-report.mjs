@@ -86,6 +86,25 @@ export function loadLocalCardsForReport(max = 500) {
   return out;
 }
 
+/** Today's anonymized slices from local cards (no upload of raw cards). */
+export function slicesForDay(day = new Date().toISOString().slice(0, 10)) {
+  return loadLocalCardsForReport().filter((s) => s.day === day);
+}
+
+/** Payload shape for POST /api/telemetry scout_aggregate */
+export function buildScoutAggregatePayload(day = new Date().toISOString().slice(0, 10)) {
+  const slices = slicesForDay(day);
+  if (!slices.length) return null;
+  const agg = aggregateSlices(slices);
+  return {
+    day,
+    total_scouts: agg.total_scouts,
+    by_verdict: agg.by_verdict,
+    by_flow: agg.by_flow,
+    engine_version: ENGINE_VERSION,
+  };
+}
+
 export function aggregateSlices(slices) {
   const byVerdict = { clear: 0, fix_list: 0, escalate: 0, unknown: 0 };
   const byFlow = { mac_hygiene: 0, clicked_bad_link: 0, project_safe: 0, other: 0 };

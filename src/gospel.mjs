@@ -116,7 +116,7 @@ export const INNSEGALL_GOSPEL = {
     panic_extra:
       "The $4.20 panic scout uses the same local engine · payment only unlocks quota on your device · no cloud upload of check results.",
     telemetry:
-      "Telemetry is off by default · if enabled later, only anonymized category counts · never full cards · innsegall.com/privacy",
+      "Anonymous improvement telemetry is on by default · category counts only · never your Battle Scout · we don't want your data · only what helps improve the tools · opt out: innsegall plan --telemetry-off or INNSEGALL_TELEMETRY=0 · innsegall.com/privacy",
     sharing:
       "You choose export, Parley, clan share, or AI paste · never automatic.",
     billing:

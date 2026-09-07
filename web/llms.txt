@@ -47,7 +47,7 @@ curl -fsSL https://innsegall.com/scripts/innsegall-alpha-install.sh | bash
 - Local runs · your data stays yours until you share
 - Every Voyage and panic scout runs read-only on your Mac · Innsegall does not receive filenames, paths, browsing history, keystrokes, or Battle Scout bodies.
 - The $4.20 panic scout uses the same local engine · payment only unlocks quota on your device · no cloud upload of check results.
-- Telemetry is off by default · if enabled later, only anonymized category counts · never full cards · innsegall.com/privacy
+- Anonymous improvement telemetry is on by default · category counts only · never your Battle Scout · we don't want your data · only what helps improve the tools · opt out: innsegall plan --telemetry-off or INNSEGALL_TELEMETRY=0 · innsegall.com/privacy
 - You choose export, Parley, clan share, or AI paste · never automatic.
 - Policy: https://innsegall.com/privacy
 

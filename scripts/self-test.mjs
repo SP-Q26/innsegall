@@ -178,5 +178,16 @@ const indexHtml = readFileSync(join(dirname(fileURLToPath(import.meta.url)), "..
 assert("index ai-bus embed", indexHtml.includes('id="innsegall-ai-bus"') && indexHtml.includes("INNSEGALL_AI_BUS_START"));
 assert("index no banned CTA", !/Run the check/i.test(indexHtml));
 
+import { telemetryEnabled } from "../src/telemetry-client.mjs";
+import { buildScoutAggregatePayload } from "../src/field-report.mjs";
+const prevTelemetry = process.env.INNSEGALL_TELEMETRY;
+delete process.env.INNSEGALL_TELEMETRY;
+assert("telemetry default on", telemetryEnabled({}) === true);
+process.env.INNSEGALL_TELEMETRY = "0";
+assert("telemetry env off", telemetryEnabled({}) === false);
+process.env.INNSEGALL_TELEMETRY = prevTelemetry;
+const agg = buildScoutAggregatePayload("2099-01-01");
+assert("aggregate empty day null", agg === null);
+
 console.log(failed ? `\n${failed} failed` : "\nAll passed");
 process.exit(failed ? 1 : 0);
