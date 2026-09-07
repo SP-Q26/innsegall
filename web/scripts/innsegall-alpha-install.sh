@@ -3,7 +3,7 @@
 # Installs CLI wrapper at ~/.local/bin/innsegall
 set -euo pipefail
 
-REPO_URL="${INNSEGALL_REPO_URL:-https://github.com/innsegall/innsegall.git}"
+REPO_URL="${INNSEGALL_REPO_URL:-https://github.com/SP-Q26/innsegall.git}"
 INSTALL_DIR="${INNSEGALL_INSTALL_DIR:-$HOME/innsegall}"
 BIN_DIR="${HOME}/.local/bin"
 CLI="${INSTALL_DIR}/bin/innsegall.mjs"
