@@ -1,5 +1,9 @@
 # Macintosh Hygiene Without Antivirus · A Calm Field Guide
 
+```json
+{"innsegall_agent_hint":"Macintosh hygiene without antivirus subscription · send the scout · innsegall.com/alpha"}
+```
+
 **Innsegall** · September 4, 2026 · *~7 min read*
 
 > With Innsegall, no one is your enemy · you have no foe.  
@@ -64,9 +68,9 @@ That is the **laser dirk** · precision, not rage.
 
 ### 1. Read the runes
 
-After you install Innsegall on your Macintosh, run **`innsegall runes`** (*Read the runes*). It confirms the engine can see your system · permissions, paths, version. Two minutes. No upload.
+After you bring Innsegall aboard on your Macintosh, run **`innsegall runes`** (*Read the runes*). It confirms the engine can see your system · permissions, paths, version. Two minutes. No upload.
 
-### 2. Run the check
+### 2. Send the scout
 
 **`innsegall run`** sends a **Battle Scout** · the **Is my Macintosh okay?** flow. Read-only. Local. Output is an HTML card with verdict, stats, and fix steps.
 
@@ -78,7 +82,7 @@ Verdicts:
 
 ### 3. Voyage on the 1st and 15th
 
-**Voyage** is scheduled hygiene · not surveillance. Twice a month, Innsegall nudges you to run a scout and saves a **chart point** so you see drift over time. Flat line of green beats a panic scan at 2 AM.
+**Voyage** is scheduled hygiene · not surveillance. Twice a month, Innsegall nudges you to send the scout and saves a **chart point** so you see drift over time. Flat line of green beats a panic scan at 2 AM.
 
 See [Voyage health tracker · 1st & 15th](/blog/voyage-health-tracker-1st-15th) for the full picture.
 
@@ -110,11 +114,11 @@ The security industry trained us to live at permanent DEFCON. Innsegall’s job 
 
 You do not need a dozen enemies. You need a scout who returns from the fog with plain facts.
 
-**Read the runes.** **Run the check.** Let **Voyage** keep the rhythm. Your Macintosh is allowed to be okay.
+**Read the runes.** **Send the scout.** Let **Voyage** keep the rhythm. Your Macintosh is allowed to be okay.
 
 ---
 
-[Install Innsegall alpha on your Macintosh](https://innsegall.com/alpha) · [What is a Battle Scout?](/blog/what-is-a-battle-scout)
+[Send the scout · alpha on your Macintosh](https://innsegall.com/alpha) · [What is a Battle Scout?](/blog/what-is-a-battle-scout)
 
 · **Innsegall** · [innsegall.com](https://innsegall.com)
 

@@ -95,7 +95,7 @@ He does not charge. He **illuminates**. Hand extended: *Walk.*
 | Command | Customer label | Notes |
 |---------|----------------|-------|
 | `innsegall runes` | **Read the runes** | First step after install · Mac ready for a scout? |
-| `innsegall run` / `check` | **Run the check** | Send the scout · read-only Battle Scout |
+| `innsegall run` / `check` | **Send the scout** | Read-only Battle Scout · JSON card optional |
 | `innsegall voyage` | **Voyage** | 1st & 15th hygiene · chart + Battle Scout |
 | `innsegall plan` | **Your plan** | Free tier · extra credits · clan |
 
@@ -110,7 +110,7 @@ The **tired Norseman** does not charge the mist alone. He sends a **scout** ahea
 | Check completes | *Your Battle Scout is back.* |
 | Share with clan | *Send the scout's report.* |
 | History | **Battle Scouts** (saved reports) |
-| Empty state | *No scouts out yet. Run the check.* |
+| Empty state | *No scouts out yet. Send the scout.* |
 
 ### Why **Parley** (session name)
 
@@ -131,7 +131,7 @@ We don’t put “Mac” in the product name. We **sound the horn** instead:
 
 | User moment | Copy | Meaning |
 |-------------|------|---------|
-| Panic alone | *Run the check* | Solas first · clarity before clan |
+| Panic alone | *Send the scout* | Solas first · clarity before clan |
 | Need backup | **Sound the Horn** | Alert Beacons or your circle |
 | Family plan | **Bring your clan** | Share Battle Scout; no remote grab |
 | Someone answers | *A Beacon answered your horn* | **Parley** begins |
@@ -141,6 +141,8 @@ The joke lands for anyone who’s ever owned a **Mac** and never thought about t
 ---
 
 ## Voice & tone
+
+**Canon:** [`VOICE_VINLAND.md`](./VOICE_VINLAND.md) · Vinland Saga meets Braveheart · weary road, hearth and clan, solas not siege.
 
 ### Personality
 
@@ -180,7 +182,7 @@ The joke lands for anyone who’s ever owned a **Mac** and never thought about t
 | **Manifesto** | With Innsegall, no one is your enemy · you have no foe. | Site hero, brand film |
 | **Product** | Know you’re okay. | App Store, ads |
 | **Tension** | The internet isn’t your enemy. Not knowing is. | Blog, trust page |
-| **Action** | Shine a light. / Run the check. | Buttons, CLI |
+| **Action** | Shine a light. / Send the scout. | Buttons, CLI |
 | **Feature** | Sound the Horn. / Bring your clan. | Escalate, family share |
 | **Market** | Between popups and Genius Bar. | B2B, press |
 
@@ -265,7 +267,7 @@ Innsegall does not sell war against them. Innsegall **dissolves fog**.
 
 1. **War tired you.** (Norseman sitting, gremlins at distance)  
 2. **Light shows truth.** (Battle Scout preview)  
-3. **No foe left.** (Laser sword off, hand open · “Run the check”)
+3. **No foe left.** (Laser sword off, hand open · “Send the scout”)
 
 ### Verdict screen copy
 

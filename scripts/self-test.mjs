@@ -3,10 +3,14 @@
  * Innsegall self-test · run on macOS after engine changes.
  */
 import { homedir } from "node:os";
+import { readFileSync } from "node:fs";
+import { execSync } from "node:child_process";
+import { join, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
 import { classifyLaunchItem } from "../src/checks.mjs";
 import { buildCard } from "../src/card.mjs";
 import { FLOWS, ARTIFACT_NAME, PRICING } from "../src/constants.mjs";
-import { renderHtml, renderMarkdown, buildScoutStructuredData } from "../src/render.mjs";
+import { renderHtml, renderMarkdown, buildScoutStructuredData, renderAiPaste, buildScoutAiPayload } from "../src/render.mjs";
 import { validateCard } from "../src/validate.mjs";
 
 let failed = 0;
@@ -86,7 +90,19 @@ assert("parley redacted context", ctx.verdict === "ESCALATE" && !JSON.stringify(
 
 const htmlEscalate = renderHtml(escalate);
 assert("parley section in html", htmlEscalate.includes('id="parley"'));
+assert("parley live body in html", htmlEscalate.includes('id="parley-live-body"'));
+assert("horn sound button in html", htmlEscalate.includes('id="horn-sound-btn"'));
+assert("parley embed in html", htmlEscalate.includes('id="innsegall-parley-embed"'));
 assert("share battle scout button", htmlEscalate.includes("battle-scout-share"));
+assert("ai paste textarea", htmlEscalate.includes('id="innsegall-scout-paste"'));
+assert("copy for ai label", htmlEscalate.includes("Copy Battle Scout for AI"));
+const aiPaste = renderAiPaste(escalate);
+assert("ai paste instructions", aiPaste.includes("Instructions for the AI reading this"));
+assert("ai paste json block", aiPaste.includes("innsegall-battle-scout-ai/v1"));
+assert("ai paste audit log", aiPaste.includes("Audit log"));
+const aiPayload = buildScoutAiPayload(smokeCard);
+assert("ai payload format", aiPayload.format === "innsegall-battle-scout-ai/v1");
+assert("ai payload attention", aiPayload.attention_checks.length >= 1);
 assert("pricing footer", PRICING && htmlEscalate.includes(PRICING.solas.note.slice(0, 20)));
 assert("horn uses hello@", !htmlEscalate.includes("help@innsegall.com"));
 assert("horn uses hello@", htmlEscalate.includes("hello@innsegall.com"));
@@ -136,6 +152,31 @@ import { buildLicensePayload, verifyLicense } from "../src/license.mjs";
 const lic = buildLicensePayload({ plan: "extra", extra_credits: 1, stripe_session: "cs_test" });
 assert("license sign", lic.sig && verifyLicense(lic).ok);
 assert("license gospel ref", scoutData.gospel?.includes("innsegall-gospel"));
+
+try {
+  execSync("node scripts/audit-claymore.mjs", { cwd: join(dirname(fileURLToPath(import.meta.url)), ".."), stdio: "pipe" });
+  assert("claymore audit no em dash", true);
+} catch {
+  assert("claymore audit no em dash", false);
+}
+
+try {
+  execSync("node scripts/audit-brand-ban.mjs", { cwd: join(dirname(fileURLToPath(import.meta.url)), ".."), stdio: "pipe" });
+  assert("brand ban audit", true);
+} catch {
+  assert("brand ban audit", false);
+}
+
+try {
+  execSync("node scripts/audit-ai-bus.mjs", { cwd: join(dirname(fileURLToPath(import.meta.url)), ".."), stdio: "pipe" });
+  assert("ai-bus audit", true);
+} catch {
+  assert("ai-bus audit", false);
+}
+
+const indexHtml = readFileSync(join(dirname(fileURLToPath(import.meta.url)), "..", "web", "index.html"), "utf8");
+assert("index ai-bus embed", indexHtml.includes('id="innsegall-ai-bus"') && indexHtml.includes("INNSEGALL_AI_BUS_START"));
+assert("index no banned CTA", !/Run the check/i.test(indexHtml));
 
 console.log(failed ? `\n${failed} failed` : "\nAll passed");
 process.exit(failed ? 1 : 0);

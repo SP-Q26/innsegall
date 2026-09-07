@@ -1,8 +1,34 @@
 import Stripe from "stripe";
+import { catalogForSku, siteOrigin } from "../../lib/stripe-catalog.mjs";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "", {
   apiVersion: "2024-11-20.acacia",
 });
+
+function priceEnvKey(sku) {
+  return sku === "clan" ? "STRIPE_PRICE_CLAN" : "STRIPE_PRICE_EXTRA";
+}
+
+function lineItemForSku(sku) {
+  const catalog = catalogForSku(sku);
+  const priceId = process.env[priceEnvKey(sku)];
+  if (priceId) {
+    return { price: priceId, quantity: 1 };
+  }
+  const priceData = {
+    currency: catalog.currency,
+    product_data: {
+      name: catalog.name,
+      description: catalog.description,
+      metadata: catalog.metadata,
+    },
+    unit_amount: catalog.unit_amount,
+  };
+  if (catalog.recurring) {
+    priceData.recurring = catalog.recurring;
+  }
+  return { price_data: priceData, quantity: 1 };
+}
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
@@ -22,44 +48,39 @@ export default async function handler(req, res) {
     }
   }
   const sku = body?.sku === "clan" ? "clan" : "extra";
-  const origin = "https://innsegall.com";
-
-  const isClan = sku === "clan";
-  const lineItems = isClan
-    ? [
-        process.env.STRIPE_PRICE_CLAN
-          ? { price: process.env.STRIPE_PRICE_CLAN, quantity: 1 }
-          : {
-              price_data: {
-                currency: "usd",
-                product_data: { name: "Innsegall Clan · 5 seats" },
-                unit_amount: 667,
-                recurring: { interval: "month" },
-              },
-              quantity: 1,
-            },
-      ]
-    : [
-        process.env.STRIPE_PRICE_EXTRA
-          ? { price: process.env.STRIPE_PRICE_EXTRA, quantity: 1 }
-          : {
-              price_data: {
-                currency: "usd",
-                product_data: { name: "Innsegall Extra Scout" },
-                unit_amount: 420,
-              },
-              quantity: 1,
-            },
-      ];
+  const catalog = catalogForSku(sku);
+  const origin = siteOrigin();
+  const isClan = catalog.mode === "subscription";
 
   try {
     const session = await stripe.checkout.sessions.create({
-      mode: isClan ? "subscription" : "payment",
-      line_items: lineItems,
+      mode: catalog.mode,
+      line_items: [lineItemForSku(sku)],
       success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/#pricing`,
       metadata: { innsegall_sku: sku },
+      client_reference_id: `innsegall_${sku}`,
       allow_promotion_codes: false,
+      ...(isClan
+        ? {
+            subscription_data: {
+              metadata: { innsegall_sku: "clan", innsegall_plan: "clan" },
+            },
+          }
+        : {}),
+      custom_text: isClan
+        ? {
+            submit: {
+              message:
+                "Clan renews monthly. Cancel anytime in Stripe Customer Portal. No prorated refunds for partial months unless required by law.",
+            },
+          }
+        : {
+            submit: {
+              message:
+                "Extra scout fee is final and non-refundable once your license.json is delivered. Worth the calm · no manual loop.",
+            },
+          },
     });
     return res.status(200).json({ url: session.url, id: session.id });
   } catch (e) {

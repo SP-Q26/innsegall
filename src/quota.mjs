@@ -4,6 +4,7 @@
  */
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { isOperatorMode } from "./operator.mjs";
 import { PRICING } from "./constants.mjs";
 import { ensureDirs, supportPath } from "./storage.mjs";
 
@@ -119,7 +120,7 @@ export function addExtraCredits(n = 1) {
 }
 
 function isClanBypass() {
-  return process.env.INNSEGALL_CLAN === "1" || process.env.INNSEGALL_PLAN === "clan";
+  return isOperatorMode() && (process.env.INNSEGALL_CLAN === "1" || process.env.INNSEGALL_PLAN === "clan");
 }
 
 /**
@@ -211,18 +212,29 @@ export function formatQuotaBlocked(q, d = new Date(), reason = "limit_reached") 
   const voyages = (q.voyage_completed || []).join(", ") || "none";
   const headline =
     reason === "off_voyage_day"
-      ? "Not a voyage day · scouts sail on the 1st & 15th."
-      : "Battle Scout limit reached for this month.";
+      ? "The scout waits for voyage tide."
+      : "This moon's free scouts have sailed.";
   return [
     headline,
-    `Voyages completed (1st & 15th): ${voyages}. Next scheduled voyage: ${nextStr}.`,
-    `Welcome scout: ${q.welcome_scout_redeemed ? "used" : "still available (one free run any day)"}.`,
-    `Extra run: $${PRICING.extra_run.usd.toFixed(2)} · ${PRICING.site_url}/#pricing`,
-    `Clan unlimited (5 seats): $${PRICING.clan.usd_monthly.toFixed(2)}/mo · ${PRICING.site_url}/clan`,
-    `Warriors earn credits: ${PRICING.site_url}/warriors`,
-    `Pay → download license.json → innsegall plan --import-license ~/Downloads/innsegall-license.json`,
-    `Guide · ${PRICING.site_url}/guide · Map · ${PRICING.site_url}/map`,
-  ].join("\n");
+    reason === "off_voyage_day"
+      ? "Today is not a voyage day · free scouts sail the 1st & 15th."
+      : "",
+    `Voyage days · ${VOYAGE_DAYS.join(" & ")} of each month`,
+    `Voyages sailed · ${voyages}`,
+    `Next voyage · ${nextStr}`,
+    `Welcome scout · ${q.welcome_scout_redeemed ? "redeemed" : "ready (one free run any day)"}`,
+    `Horn credits · ${Math.max(0, (q.extra_credits || 0) - (q.extra_used || 0))}`,
+    "",
+    "Roads forward:",
+    `  [1] Panic scout · $${PRICING.extra_run.usd.toFixed(2)} · ${PRICING.site_url}/#pricing`,
+    `  [2] Clan · $${PRICING.clan.usd_monthly.toFixed(2)}/mo · 5 seats · unlimited`,
+    `  [3] War-band · earn credits · ${PRICING.site_url}/warriors`,
+    "",
+    `Toll gate → license.json → innsegall plan --import-license ~/Downloads/innsegall-license.json`,
+    `Field manual · ${PRICING.site_url}/guide · Map · ${PRICING.site_url}/map`,
+  ]
+    .filter(Boolean)
+    .join("\n");
 }
 
 export function formatPlanStatus(q) {

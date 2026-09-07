@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Innsegall">
+  <rect width="32" height="32" rx="6" fill="#0B1D2E"/>
+  <defs>
+    <linearGradient id="beam" x1="16" y1="4" x2="16" y2="28" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F4C95D" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#A8D8FF" stop-opacity="0.35"/>
+    </linearGradient>
+  </defs>
+  <path d="M16 5v22" stroke="url(#beam)" stroke-width="2" stroke-linecap="round"/>
+  <ellipse cx="16" cy="24" rx="6" ry="2.2" fill="#E8A87C" opacity="0.9"/>
+  <path d="M11 17c1.5-3 8.5-3 10 0" stroke="#A8D8FF" stroke-width="1.2" fill="none" opacity="0.75"/>
+</svg>

@@ -4,13 +4,21 @@
 
 Standalone product repo. Not coupled to SPQ.
 
+## Wake Monday
+
+```bash
+cd ~/SPQ/innsegall && npm run preflight
+```
+
+Open **`docs/WAKE_BELOW_DECK.md`** · **`docs/NORTH_STAR_AUDIT.md`** (lane · no pivot) · then `BATTLE_BLAST.md` · blast by **1pm**.
+
 ## Structure
 
 ```
 innsegall/
   bin/          CLI entry
-  src/          Engine · checks · Parley · Field Report
-  scripts/      test, smoke, field-report
+  src/          Engine · checks · Parley · Field Report · AI paste
+  scripts/      preflight · smoke · smoke:live · audit
   web/          innsegall.com static site (Vercel root)
   docs/         Brand · audits · ship checklists
 ```
@@ -19,10 +27,10 @@ innsegall/
 
 ```bash
 npm run runes
-npm run run
+npm run run          # writes .html + .ai-paste.md
 npm run plan
-npm run test
-npm run smoke
+npm run preflight    # gospel + audit + smoke + test
+npm run smoke:live   # after innsegall.com is live
 npm run field-report
 ```
 
@@ -32,24 +40,11 @@ npm run field-report
 2. **Root directory:** `web`
 3. Framework: Other · no build command
 4. Add domains: `innsegall.com`, `www.innsegall.com`
-5. Namecheap DNS:
-   - `@` → A `76.76.21.21`
-   - `www` → CNAME `cname.vercel-dns.com`
+5. DNS + Zoho: **`docs/DNS_ZOHO_SETUP.md`**
 
 ### Stripe (test mode · card 4242)
 
-In Vercel → Environment variables (project root `web`):
-
-| Variable | Value |
-|----------|--------|
-| `STRIPE_SECRET_KEY` | `sk_test_...` from Stripe Dashboard |
-| `INNSEGALL_LICENSE_SECRET` | random string (match local if testing import) |
-
-Optional: `STRIPE_PRICE_EXTRA`, `STRIPE_PRICE_CLAN`, `STRIPE_WEBHOOK_SECRET`
-
-Redeploy → test `/#pricing` → success page downloads `license.json` → `innsegall plan --import-license`.
-
-See `docs/STRIPE_ASAP.md` and `web/.env.example`.
+See `docs/STRIPE_DASHBOARD_SETUP.md` and `web/.env.example`.
 
 ## Install (users)
 
@@ -57,7 +52,23 @@ See `docs/STRIPE_ASAP.md` and `web/.env.example`.
 curl -fsSL https://innsegall.com/scripts/innsegall-alpha-install.sh | bash
 ```
 
-Set `INNSEGALL_REPO_URL` if using a fork before `github.com/innsegall/innsegall` exists.
+## Share a scout
+
+Battle Scout footer → **Copy for AI assistant** → paste into ChatGPT, Claude, Gemini, or Copilot.  
+Marketing pages expose **`#innsegall-ai-bus`** for agents · see **`docs/NORTH_STAR_AUDIT.md`** · **`docs/HOW_TO_SEND.md`**.
+
+## Docs index
+
+| Doc | Use |
+|-----|-----|
+| `WAKE_BELOW_DECK.md` | Monday wake |
+| `NORTH_STAR_AUDIT.md` | Lane · pricing · AI-bus · **no pivot** |
+| `BATTLE_BLAST.md` | Hour schedule |
+| `BOARD_ROOM_SWARM.md` | Executive read |
+| `HOW_TO_SEND.md` | Blast copy |
+| `LAUNCH_CHECKLIST.md` | Full ops |
+| `STACK_AUDIT_SEP6.md` | Stack audit |
+| `SITE_AUDIT_SEP6.md` | Site audit |
 
 ## Brand
 

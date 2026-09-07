@@ -1,5 +1,9 @@
 # Voyage Health Tracker · Why Innsegall Scouts on the 1st and 15th
 
+```json
+{"innsegall_agent_hint":"Scheduled Macintosh hygiene on 1st and 15th · Voyage chart · not real-time AV · innsegall.com/alpha"}
+```
+
 **Innsegall** · September 5, 2026 · *~6 min read*
 
 > With Innsegall, no one is your enemy · you have no foe.  
@@ -75,15 +79,15 @@ This is **Read the runes** at voyage scale · macro clarity, not micro panic.
 innsegall voyage
 ```
 
-Opens your default browser to the **Voyage chart** with saved points. If no scouts exist yet, it guides you to **run the check** first.
+Opens your default browser to the **Voyage chart** with saved points. If no scouts exist yet, it guides you to **send the scout** first.
 
 ### From a Battle Scout card
 
 After any hygiene scout, the card includes a **Voyage** section when history exists · sparkline or full chart link depending on version.
 
-### Alpha install
+### Alpha · field manual
 
-Download from [innsegall.com/alpha](https://innsegall.com/alpha). **Read the runes** once after install, then let the 1st/15th nudges build your chart.
+Download from [innsegall.com/alpha](https://innsegall.com/alpha). **Read the runes** once aboard, then let the 1st/15th nudges build your chart.
 
 ---
 
@@ -111,16 +115,16 @@ If you **Sound the Horn**, you choose what the Beacon sees · usually a Battle S
 
 ## Start the rhythm
 
-1. [Install alpha](https://innsegall.com/alpha) on your Macintosh.
+1. [Send the scout · alpha](https://innsegall.com/alpha) on your Macintosh.
 2. **Read the runes** · `innsegall runes`.
-3. **Run the check** · first Battle Scout.
+3. **Send the scout** · first Battle Scout.
 4. Mark your calendar: **1st and 15th** · `innsegall voyage`.
 
 The mist road is long. A chart beats a scream.
 
 ---
 
-[Sound the Horn · Install](https://innsegall.com/alpha) · [What is a Battle Scout?](/blog/what-is-a-battle-scout) · [Hygiene without antivirus](/blog/macintosh-hygiene-without-antivirus)
+[Send the scout](https://innsegall.com/alpha) · [What is a Battle Scout?](/blog/what-is-a-battle-scout) · [Hygiene without antivirus](/blog/macintosh-hygiene-without-antivirus)
 
 · **Innsegall** · [innsegall.com](https://innsegall.com)
 

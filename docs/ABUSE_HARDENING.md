@@ -10,6 +10,8 @@
 |--------|------|------------|
 | Forge `license.json` | High (alpha default HMAC secret in repo) | **Prod:** unique `INNSEGALL_LICENSE_SECRET` on Vercel only · rotate quarterly |
 | Replay same Stripe session on many Macs | Medium | **Shipped:** local `license-redemptions.json` blocks duplicate `stripe_session` · **Next:** Xano `redeemed_sessions` table |
+| Forge `license.json` without `stripe_session` | Medium | **Shipped:** extra/clan import requires paid `stripe_session` (or subscription for clan) |
+| Import >1 credit from tampered server bug | Low | **Shipped:** `Math.min(..., 1)` cap on extra import |
 | `INNSEGALL_CLAN=1` env bypass | Medium (dev) | Document only · strip from release builds · telemetry anomaly flag |
 | `innsegall plan --clan` without pay | High (alpha) | Remove or gate behind signed license in prod CLI |
 | Share one Clan license across >5 seats | Medium | Honor system alpha · future: seat tokens from Stripe quantity |
@@ -20,10 +22,15 @@
 
 ## Shipped (Swarm 6)
 
-- **License replay guard** — `importLicenseFile` rejects already-redeemed `stripe_session` / `stripe_subscription` locally
-- **Default secret warning** — CLI warns if verifying with baked alpha secret in production-like env
-- **Telemetry** — forbidden keys + path-like strings rejected (`web/api/telemetry.js`)
-- **Checkout** — license only via paid Stripe session retrieve (server-side)
+- **License replay guard** · `importLicenseFile` rejects already-redeemed `stripe_session` / `stripe_subscription` locally
+- **Extra license gate** · `stripe_session` required · max 1 credit per import
+- **Default secret warning** · CLI warns if verifying with baked alpha secret in production-like env
+- **Telemetry** · forbidden keys + path-like strings rejected (`web/api/telemetry.js`)
+- **Checkout** · license only via paid Stripe session retrieve (server-side)
+- **Operator gate** · `plan --credit` and `plan --clan` require `INNSEGALL_OPERATOR=1` · users must `plan --import-license` after Stripe
+- **Clan env bypass** · `INNSEGALL_CLAN=1` only works with operator mode
+- **Parley rate limit** · 40 POST/hour per IP when live Gemini is enabled
+- **AI discovery** · `/ai.txt` · `/.well-known/ai-discovery.json` · favicon + web manifest
 
 ---
 
@@ -31,7 +38,7 @@
 
 1. Set `INNSEGALL_LICENSE_SECRET` (32+ random bytes) on Vercel · **never** commit
 2. Set matching `INNSEGALL_LICENSE_VERIFY_SECRET` in notarized CLI build (or asymmetric upgrade)
-3. Implement **`POST /api/redeem`** — one redemption per `stripe_session` in Xano
+3. Implement **`POST /api/redeem`** · one redemption per `stripe_session` in Xano
 4. Remove or password-gate `plan --clan` local bypass
 5. Stripe webhook → `checkout_complete` telemetry + Xano row
 6. Monitor: credits issued vs Stripe payments (weekly)

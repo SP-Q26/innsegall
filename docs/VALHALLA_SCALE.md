@@ -66,7 +66,7 @@ Namecheap DNS               →  Vercel
 User Mac                    →  CLI + local quota + Battle Scout
 ```
 
-**Do not merge** into SPQ repo for scale — separate deploy cadence, separate blast radius.
+**Do not merge** into SPQ repo for scale · separate deploy cadence, separate blast radius.
 
 ---
 

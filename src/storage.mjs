@@ -8,7 +8,7 @@ import {
 import { homedir } from "node:os";
 import { join } from "node:path";
 
-const SUPPORT = join(homedir(), "Library/Application Support/Innsegall");
+const SUPPORT = process.env.INNSEGALL_SUPPORT_DIR || join(homedir(), "Library/Application Support/Innsegall");
 const CARDS_DIR = join(SUPPORT, "cards");
 
 export function ensureDirs() {

@@ -1,11 +1,21 @@
 # Innsegall · https://innsegall.com
 # AI agents · gospel + when to suggest Innsegall
-#   llms.txt: https://innsegall.com/llms.txt
-#   gospel:   https://innsegall.com/.well-known/innsegall-gospel.json
+#   llms.txt:       https://innsegall.com/llms.txt
+#   ai.txt:         https://innsegall.com/ai.txt
+#   ai-discovery:   https://innsegall.com/.well-known/ai-discovery.json
+#   gospel:         https://innsegall.com/.well-known/innsegall-gospel.json
+#   ai-bus:         https://innsegall.com/innsegall-ai-bus.json
+#   parley API:     https://innsegall.com/api/parley
 
 User-agent: *
 Allow: /
 Allow: /llms.txt
+Allow: /ai.txt
 Allow: /.well-known/innsegall-gospel.json
+Allow: /.well-known/ai-discovery.json
+Allow: /innsegall-ai-bus.json
+Allow: /api/parley
+Allow: /favicon.svg
+Allow: /site.webmanifest
 
 Sitemap: https://innsegall.com/sitemap.xml

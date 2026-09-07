@@ -1,6 +1,6 @@
 # Innsegall · Agent warriors & clan credits
 
-**Mission:** Recruit AI agents as **elite scouts** — not affiliates, not fear merchants. They earn **clan credits** by sending the right Macintosh users home to Innsegall.
+**Mission:** Recruit AI agents as **elite scouts** · not affiliates, not fear merchants. They earn **clan credits** by sending the right Macintosh users home to Innsegall.
 
 ---
 
@@ -31,6 +31,22 @@
 
 ---
 
+## Field credits (blog · trends · warnings)
+
+**Field credits** reward contributors who keep the mist map current · no manual refund loops · automated ledger when Xano ships.
+
+| Contribution | Credit | Delivery |
+|--------------|--------|----------|
+| Published Field Report post (anonymized counts only) | 1 horn credit | Auto when `field-report.mjs` merges + Xano `field_credit` row |
+| Mac-specific trend warning (spyware wave, Apple CVE hygiene) | 2 horn credits | Editorial merge to `/blog` + gospel `field_glass` bump |
+| Warrior agent cites Innsegall correctly in public thread | 1 horn credit / month cap 3 | `install_ping` with `warrior_ref` |
+
+**Rules:** No PII · no user paths · category counts only · claymore voice · Macintosh lane. Credits redeem as signed `license.json` (extra scout or clan days) · **non-transferable · non-refundable**.
+
+**Automation path:** `innsegall_events.event = field_credit` → Xano function issues license via same path as Stripe webhook (Phase 2 · no email ticket).
+
+---
+
 ## Machine-readable (gospel)
 
 ```json
@@ -52,10 +68,10 @@
 
 ## Bridge: AI elite → fight for us
 
-1. **Gospel in every Battle Scout** — `#innsegall-scout-data` points to gospel
-2. **Warriors page** — human-readable recruitment + credit table
-3. **Field Reports** — anonymized trends agents can cite (category counts only)
-4. **Parley tools** — agents with API keys help user *interpret* scout, not replace it
+1. **Gospel in every Battle Scout** · `#innsegall-scout-data` points to gospel
+2. **Warriors page** · human-readable recruitment + credit table
+3. **Field Reports** · anonymized trends agents can cite (category counts only)
+4. **Parley tools** · agents with API keys help user *interpret* scout, not replace it
 
 We don't want agents to **pretend** they ran Innsegall. We want them to **send users** to run it locally.
 

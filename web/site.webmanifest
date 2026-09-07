@@ -1,0 +1,24 @@
+{
+  "name": "Innsegall",
+  "short_name": "Innsegall",
+  "description": "Post-scare Macintosh triage · Battle Scout receipts · Know you're okay.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B1D2E",
+  "theme_color": "#0B1D2E",
+  "lang": "en-US",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/og/innsegall-card.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

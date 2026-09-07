@@ -1,14 +1,14 @@
 # Innsegall · Full site audit report · Sep 6, 2026 (post-swarm 2)
 
 **Scope:** `innsegall/web/` + deploy path + Stripe readiness (code only)  
-**Engine smoke:** `npm test` + `npm run smoke` — **ALL PASSED** (~112s)  
+**Engine smoke:** `npm test` + `npm run smoke` · **ALL PASSED** (~112s)  
 **Overall site score:** **8.6 / 10** · ship-ready · wire Stripe + Vercel on return
 
 ---
 
 ## Executive summary
 
-The site is **on-brand**, **SEO/AI-ready**, and **Stripe-wired in code**. Legal pages match the Voyage model. Remaining gaps are **blog markdown links**, **gospel “Mac health” drift**, **success page polish**, and **ops** (Vercel env, DNS, public GitHub repo) — all assigned to swarm 3–4 or your return checklist.
+The site is **on-brand**, **SEO/AI-ready**, and **Stripe-wired in code**. Legal pages match the Voyage model. Remaining gaps are **blog markdown links**, **gospel “Mac health” drift**, **success page polish**, and **ops** (Vercel env, DNS, public GitHub repo) · all assigned to swarm 3–4 or your return checklist.
 
 **Deploy verdict:** **GO** after swarm 3–4 land · then wire `STRIPE_SECRET_KEY` + DNS.
 
@@ -165,7 +165,7 @@ Detail: `docs/LAUNCH_CHECKLIST.md` · `docs/WIRE_STRIPE_VERCEL.md` (swarm 4)
 | **3** | Gospel Macintosh health · PRICING.free.note · voyage banner on Battle Scout · field-report hint · sync-gospel |
 | **4** | Blog HTML posts · success page brand shell · WIRE_STRIPE_VERCEL.md · sitemap · legal mailto subjects |
 
-**Post-swarm engine:** `npm test` + `npm run smoke` — re-run on your machine before deploy.
+**Post-swarm engine:** `npm test` + `npm run smoke` · re-run on your machine before deploy.
 
 ---
 

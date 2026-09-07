@@ -114,6 +114,16 @@ try {
   console.warn("History save skipped");
 }
 
+section("launch audits");
+for (const script of ["audit-ai-bus.mjs", "audit-brand-ban.mjs"]) {
+  try {
+    execSync(`node scripts/${script}`, { cwd: root, stdio: "inherit" });
+  } catch {
+    failed++;
+    console.error(`FAIL: ${script}`);
+  }
+}
+
 section("self-test subprocess");
 try {
   execSync("node scripts/self-test.mjs", { cwd: root, stdio: "inherit" });

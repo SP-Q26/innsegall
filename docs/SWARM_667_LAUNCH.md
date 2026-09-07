@@ -15,7 +15,7 @@
 | **T+80** DNS | ~15–90 min | **You** | `@` A `76.76.21.21` · `www` CNAME · SSL green |
 | **T+90** Stripe test E2E | ~30 min | **You** | 4242 → `innsegall-license.json` → `innsegall plan --import-license` |
 | **T+120** curl install smoke | ~15 min | **You** | `curl …install.sh \| bash` → `innsegall run` |
-| **T+180** **ALPHA LIVE** | — | Clan | Homepage + alpha + guide/map/clan/warriors · blog indexed |
+| **T+180** **ALPHA LIVE** | · | Clan | Homepage + alpha + guide/map/clan/warriors · blog indexed |
 
 **Honest ETA:** If you start GitHub+Vercel **now**, **~2–3 hours** to alpha (DNS is the variable).  
 **If Stripe still waiting:** Site can go live **today** without checkout; pricing buttons show “unavailable” until keys land.

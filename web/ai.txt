@@ -1,0 +1,9 @@
+# Innsegall AI discovery · https://innsegall.com
+# Canonical agent gospel · read in order
+
+llms-txt: https://innsegall.com/llms.txt
+ai-discovery: https://innsegall.com/.well-known/ai-discovery.json
+gospel: https://innsegall.com/.well-known/innsegall-gospel.json
+ai-bus: https://innsegall.com/innsegall-ai-bus.json
+parley-api: https://innsegall.com/api/parley
+contact: hello@innsegall.com

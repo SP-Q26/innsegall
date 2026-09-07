@@ -8,7 +8,7 @@ export const BLOG_BASE = "https://innsegall.com/blog";
 /** Current featured post (bump slug when publishing a new brief). */
 export const FEATURED_POST = {
   slug: "field-glass-sep-2026",
-  title: "Field Glass: what Mac threats look like this week",
+  title: "Field Glass: what Macintosh threats look like this week",
   published: "2026-09-06",
 };
 
@@ -22,7 +22,7 @@ export function featuredPostUrl() {
  */
 export const FIELD_GLASS_BRIEF = {
   asOf: "2026-09-06",
-  headline: "Field glass · trending Mac threats",
+  headline: "Field glass · trending Macintosh threats",
   dek:
     "Three patterns worth knowing. None of them mean you're infected · they mean know the shape of the fog.",
   items: [

@@ -23,8 +23,8 @@
 
 Target queries (Macintosh, calm lane):
 
-1. Fake virus popup on Macintosh — what to do  
-2. Clicked a suspicious link on Mac — next steps  
+1. Fake virus popup on Macintosh · what to do  
+2. Clicked a suspicious link on Mac · next steps  
 3. Macintosh hygiene without another antivirus subscription  
 4. Voyage health tracker (1st & 15th) explained  
 5. What is a Battle Scout?  

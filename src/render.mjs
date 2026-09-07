@@ -1,6 +1,7 @@
-import { VERDICT_COPY, CLAYMORE, ARTIFACT_NAME, PRICING, gaelicMarkdown, INNSEGALL_PRODUCT_NAME, SCHEMA_VERSION, ENGINE_VERSION } from "./constants.mjs";
+import { VERDICT_COPY, VERDICT_HUMAN, LEADER_LINE, CLAYMORE, ARTIFACT_NAME, PRICING, CTA, gaelicMarkdown, INNSEGALL_PRODUCT_NAME, SCHEMA_VERSION, ENGINE_VERSION } from "./constants.mjs";
 import { INNSEGALL_GOSPEL, GOSPEL_VERSION } from "./gospel.mjs";
 import { runStaticParley } from "./parley/static.mjs";
+import { buildParleyContext } from "./parley/context.mjs";
 import { solasCaps } from "./parley/router.mjs";
 import { loadHistorySeries, renderHealthChartSection } from "./history-chart.mjs";
 import { renderThreatIntelSection } from "./threat-intel.mjs";
@@ -58,6 +59,13 @@ function esc(s) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
 }
+
+/** Bold markers from copy · safe HTML */
+function richText(s) {
+  return esc(s).replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+}
+
+const RISK_ORDER = { high: 0, medium: 1, low: 2 };
 
 function renderGaelicHtml(vc) {
   if (!vc?.phrases?.length) return "";
@@ -176,7 +184,7 @@ export function renderMarkdown(card) {
     ``,
   ];
   if (card.fixes_recommended?.length) {
-    lines.push(`## Your next steps`, ``);
+    lines.push(`## Do this now`, ``);
     card.fixes_recommended.forEach((f, i) => {
       lines.push(`### ${i + 1}. ${f.title} (${f.risk} risk)`);
       f.steps.forEach((s, j) => lines.push(`${j + 1}. ${s}`));
@@ -202,7 +210,7 @@ export function renderMarkdown(card) {
   const attention = card.checks_run.filter((c) => c.status === "warn" || c.status === "fail");
   const clear = card.checks_run.filter((c) => c.status === "pass");
   if (attention.length) {
-    lines.push(`## Needs review`, ``);
+    lines.push(`## Why we flagged this`, ``);
     for (const c of attention) {
       const sym = c.status === "fail" ? "✗" : "⚠";
       lines.push(`- ${sym} **${c.name}** · ${c.detail}`);
@@ -215,7 +223,7 @@ export function renderMarkdown(card) {
     lines.push(`- ✓ **${c.name}** · ${c.detail}`);
   }
   if (card.verdict === "ESCALATE") {
-    lines.push(``, `## Sound the Horn`, ``, `**Bring your clan** · or open Parley when ready.`, ``);
+    lines.push(``, `## Sound the Horn`, ``, `**Bring your clan** · email ${PRICING.contact_email} · or open Parley when ready.`, ``);
   }
   lines.push(
     `---`,
@@ -223,6 +231,184 @@ export function renderMarkdown(card) {
     `innsegall.com · ${card.card_id} · engine ${card.engine_version}`
   );
   return lines.join("\n");
+}
+
+const AI_ASSISTANT_NAMES =
+  "ChatGPT, Claude, Gemini, Microsoft Copilot, DeepSeek, Perplexity, or Bing Copilot";
+
+/** Rich JSON slice for AI parsers · user chose to share · includes evidence paths. */
+export function buildScoutAiPayload(card) {
+  const attention = (card.checks_run || []).filter(
+    (c) => c.status === "warn" || c.status === "fail"
+  );
+  const clear = (card.checks_run || []).filter((c) => c.status === "pass");
+  return {
+    format: "innsegall-battle-scout-ai/v1",
+    product: INNSEGALL_PRODUCT_NAME,
+    artifact: ARTIFACT_NAME,
+    gospel: `${PRICING.site_url}/.well-known/innsegall-gospel.json`,
+    llms_txt: `${PRICING.site_url}/llms.txt`,
+    card_id: card.card_id,
+    created_at: card.created_at,
+    engine_version: card.engine_version || ENGINE_VERSION,
+    platform: card.platform || "macos",
+    platform_version: card.platform_version,
+    flow: card.flow,
+    flow_label: card.flow_label || card.flow,
+    verdict: card.verdict,
+    verdict_human: VERDICT_HUMAN[card.verdict] || card.verdict,
+    summary: card.summary,
+    leader_line: LEADER_LINE[card.verdict] || null,
+    stats: card.stats || {},
+    user_inputs: card.user_inputs || {},
+    fixes_recommended: (card.fixes_recommended || []).map((f) => ({
+      title: f.title,
+      risk: f.risk,
+      steps: f.steps || [],
+    })),
+    attention_checks: attention.map((c) => ({
+      id: c.id,
+      name: c.name,
+      status: c.status,
+      detail: c.detail,
+      evidence: c.evidence || [],
+    })),
+    clear_checks: clear.map((c) => ({
+      id: c.id,
+      name: c.name,
+      detail: c.detail,
+    })),
+    project_watch: card.project_watch || null,
+  };
+}
+
+/**
+ * Paste-ready audit log for external AI assistants.
+ * User explicitly copies · includes evidence paths for triage help.
+ */
+export function renderAiPaste(card) {
+  const vc = VERDICT_COPY[card.verdict] || {};
+  const leaderLine = LEADER_LINE[card.verdict] || "";
+  const verdictHuman = VERDICT_HUMAN[card.verdict] || card.verdict;
+  const gospelUrl = `${PRICING.site_url}/.well-known/innsegall-gospel.json`;
+
+  const lines = [
+    `# Innsegall Battle Scout · AI triage brief`,
+    ``,
+    `> **Instructions for the AI reading this:** The user ran **Innsegall**, a local-first Macintosh hygiene check. This report is the full audit log they chose to share with you. Answer in plain English. **Do not invent viruses, remote access, or infections** not listed below. Innsegall is post-scare triage · not antivirus · not real-time protection. If verdict is ESCALATE, prioritize credential rotation and calm next steps. Gospel: ${gospelUrl}`,
+    ``,
+    `## Verdict`,
+    ``,
+    `- **Outcome:** ${card.verdict} (${verdictHuman})`,
+    `- **Headline:** ${vc.headline || card.verdict}`,
+    leaderLine ? `- **Tonight:** ${leaderLine.replace(/\*\*/g, "")}` : "",
+    `- **Checks:** ${statsLine(card)}`,
+    `- **When:** ${card.created_at}`,
+    `- **Flow:** ${card.flow_label || card.flow}`,
+    `- **Mac:** ${card.platform_version || "macOS"}`,
+    ``,
+    `## Scout summary`,
+    ``,
+    card.summary,
+    ``,
+  ].filter(Boolean);
+
+  if (card.fixes_recommended?.length) {
+    lines.push(`## Do this now (priority order)`, ``);
+    card.fixes_recommended.forEach((f, i) => {
+      lines.push(`### ${i + 1}. ${f.title} · ${f.risk} risk`);
+      (f.steps || []).forEach((s, j) => lines.push(`${j + 1}. ${s}`));
+      lines.push(``);
+    });
+  }
+
+  if (card.user_inputs?.entered_password || card.user_inputs?.downloaded_file) {
+    lines.push(`## User reported`, ``);
+    if (card.user_inputs.entered_password) {
+      lines.push(`- Entered a password on a suspicious page or popup`);
+    }
+    if (card.user_inputs.downloaded_file) {
+      lines.push(`- Downloaded a file from a suspicious link`);
+    }
+    lines.push(``);
+  }
+
+  const attention = (card.checks_run || []).filter(
+    (c) => c.status === "warn" || c.status === "fail"
+  );
+  const clear = (card.checks_run || []).filter((c) => c.status === "pass");
+
+  if (attention.length) {
+    lines.push(`## Audit log · flagged checks`, ``);
+    for (const c of attention) {
+      const sym = c.status === "fail" ? "FAIL" : "REVIEW";
+      lines.push(`### [${sym}] ${c.name} (\`${c.id}\`)`);
+      lines.push(c.detail);
+      if (c.evidence?.length) {
+        lines.push(``, `Evidence:`);
+        for (const e of c.evidence) lines.push(`- ${e}`);
+      }
+      lines.push(``);
+    }
+  } else {
+    lines.push(`## Audit log · flagged checks`, ``, `_None · all review-tier checks passed._`, ``);
+  }
+
+  if (clear.length) {
+    lines.push(`## Audit log · clear (${clear.length})`, ``);
+    for (const c of clear) {
+      lines.push(`- **${c.name}** (\`${c.id}\`) · ${c.detail}`);
+    }
+    lines.push(``);
+  }
+
+  if (card.project_watch) {
+    lines.push(
+      `## Project watch`,
+      ``,
+      `- Branch: ${card.project_watch.git_branch || "?"}`,
+      `- Clean working tree: ${card.project_watch.git_clean ? "yes" : "no"}`,
+      `- Recent commits (7d): ${card.project_watch.recent_commits}`,
+      ``
+    );
+  }
+
+  if (card.verdict === "ESCALATE") {
+    lines.push(
+      `## Escalation`,
+      ``,
+      `Verdict is ESCALATE. Recommend: rotate passwords from a clean device, quarantine suspicious downloads, revoke remote-access tools if installed. User may email ${PRICING.contact_email} with this paste.`,
+      ``
+    );
+  }
+
+  lines.push(
+    `## How to help the user`,
+    ``,
+    `1. Explain the verdict in one calm paragraph.`,
+    `2. Walk through **Do this now** steps in order · no Terminal commands unless listed in fixes.`,
+    `3. Do not sell antivirus subscriptions or fake "your Mac is infected" urgency.`,
+    `4. If they lack technical skill, offer step-by-step for the highest-risk fix only.`,
+    `5. Compatible assistants: ${AI_ASSISTANT_NAMES}.`,
+    ``,
+    `## Machine-readable attachment (JSON)`,
+    ``,
+    "```json",
+    JSON.stringify(buildScoutAiPayload(card), null, 2),
+    "```",
+    ``,
+    `---`,
+    `Innsegall · ${card.card_id} · engine ${card.engine_version} · innsegall.com`,
+    `With Innsegall, no one is your enemy · you have no foe.`
+  );
+
+  return lines.join("\n");
+}
+
+function embedTextareaContent(s) {
+  return String(s ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;");
 }
 
 const STATUS = {
@@ -256,6 +442,13 @@ function renderCheckCard(c) {
       return `<li><code>${esc(e)}</code></li>`;
     })
     .join("");
+  const evCount = (c.evidence || []).length;
+  const evidenceBlock = ev
+    ? `<details class="evidence-fold">
+        <summary>Technical detail · ${evCount} item${evCount === 1 ? "" : "s"}</summary>
+        <ul class="evidence">${ev}</ul>
+      </details>`
+    : "";
   return `<article class="result-card ${st.class}">
     <header class="result-head">
       <span class="result-icon" aria-hidden="true">${st.icon}</span>
@@ -265,7 +458,7 @@ function renderCheckCard(c) {
       </div>
       <span class="result-badge">${st.label}</span>
     </header>
-    ${ev ? `<ul class="evidence">${ev}</ul>` : ""}
+    ${evidenceBlock}
   </article>`;
 }
 
@@ -274,19 +467,21 @@ function renderActionCard(f, index) {
   const sudo = f.requires_sudo
     ? `<span class="tag tag-sudo">sudo</span>`
     : "";
-  return `<article class="action-card">
+  const priority =
+    index === 0 && (risk === "high" || risk === "medium") ? " action-card-priority" : "";
+  return `<article class="action-card${priority}">
     <header class="action-head">
       <span class="action-step">${index + 1}</span>
       <div>
         <h3>${esc(f.title)}</h3>
         <div class="action-tags">
-          <span class="tag tag-risk tag-${risk}">${esc(risk)} risk</span>
+          <span class="tag tag-risk tag-${risk}">${esc(risk)} priority</span>
           ${sudo}
         </div>
       </div>
     </header>
     <ol class="action-steps">
-      ${f.steps.map((s) => `<li>${esc(s)}</li>`).join("")}
+      ${f.steps.map((s) => `<li>${richText(s)}</li>`).join("")}
     </ol>
     ${renderQuickBar(f.quick_actions)}
   </article>`;
@@ -403,8 +598,8 @@ function renderArmoryRating(stats, verdict) {
       active: dominant === "claymore",
     },
   ];
-  return `<div class="armory" role="group" aria-label="Armory rating · tap to jump">
-    <p class="armory-kicker">Armory · tap a weapon to jump</p>
+  return `<div class="armory" role="group" aria-label="Scout tiers · tap to jump">
+    <p class="armory-kicker">Tap a tier to jump to that section</p>
     <div class="armory-row">
       ${tiers
         .map(
@@ -421,11 +616,140 @@ function renderArmoryRating(stats, verdict) {
         )
         .join("")}
     </div>
-    <p class="armory-note">${pass} clear · ${warn} review · ${fail} escalate · dominant weapon matches your verdict</p>
+    <p class="armory-note">${pass} clear · ${warn} review · ${fail} escalate · highlighted tier matches today's verdict</p>
   </div>`;
 }
 
-const CARD_JUMP_SCRIPT = `<script>
+function buildParleyEmbed(card) {
+  const hornIntent = card.verdict === "ESCALATE" ? "sound_horn" : "next_step";
+  return {
+    explain: runStaticParley(card, { intent: "explain_evidence" }).response,
+    horn: runStaticParley(card, { intent: hornIntent }).response,
+    next: runStaticParley(card, { intent: "next_step" }).response,
+    autoHorn: card.verdict === "ESCALATE",
+    verdict: card.verdict,
+    api: `${PRICING.site_url}/api/parley`,
+    context: buildParleyContext(card),
+  };
+}
+
+function renderParleyEmbedScript(card) {
+  const json = JSON.stringify(buildParleyEmbed(card)).replace(/</g, "\\u003c");
+  return `<script type="application/json" id="innsegall-parley-embed">${json}</script>`;
+}
+
+const PARLEY_LIVE_SCRIPT = `<script>
+(function () {
+  var embedEl = document.getElementById("innsegall-parley-embed");
+  var section = document.getElementById("parley");
+  var body = document.getElementById("parley-live-body");
+  var status = document.getElementById("parley-status");
+  var askInput = document.getElementById("parley-ask");
+  var askBtn = document.getElementById("parley-ask-btn");
+  if (!embedEl || !body || !status) return;
+
+  var embed = {};
+  try { embed = JSON.parse(embedEl.textContent || "{}"); } catch (e) { return; }
+
+  function esc(s) {
+    return String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  }
+
+  function renderText(text) {
+    body.innerHTML = String(text || "")
+      .split(/\\n\\n+/)
+      .map(function (p) { return "<p>" + esc(p).replace(/\\n/g, "<br />") + "</p>"; })
+      .join("");
+  }
+
+  var liveAbort = null;
+  function runParley(intent, message, opts) {
+    opts = opts || {};
+    var key = intent === "horn" ? "horn" : intent === "next" ? "next" : "explain";
+    var staticText = embed[key] || embed.explain || "";
+    renderText(staticText);
+    status.textContent = "Solas is reading your Battle Scout…";
+
+    if (section) {
+      section.classList.add("is-parley-live");
+      if (opts.scroll) {
+        section.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    if (liveAbort) liveAbort.abort();
+    liveAbort = null;
+    if (!embed.api || !embed.context) {
+      status.textContent = "Solas · instant help from your scout";
+      return;
+    }
+
+    var ctrl = new AbortController();
+    liveAbort = ctrl;
+    fetch(embed.api, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      signal: ctrl.signal,
+      body: JSON.stringify({
+        intent: intent === "horn" ? "sound_horn" : intent === "next" ? "next_step" : "explain_evidence",
+        message: message || "",
+        card: embed.context,
+      }),
+    })
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (data) {
+        if (!data || !data.response) {
+          status.textContent = "Solas · instant help from your scout";
+          return;
+        }
+        renderText(data.response);
+        status.textContent =
+          data.lane === "live" ? "Live Solas · Beacon answered your Horn" : "Solas · from your Battle Scout";
+      })
+      .catch(function () {
+        status.textContent = "Solas · instant help from your scout";
+      });
+  }
+
+  var hornBtn = document.getElementById("horn-sound-btn");
+  if (hornBtn) {
+    hornBtn.addEventListener("click", function () { runParley("horn", "", { scroll: true }); });
+  }
+  var parleyBtn = document.getElementById("horn-parley-btn");
+  if (parleyBtn) {
+    parleyBtn.addEventListener("click", function () { runParley("explain", "", { scroll: true }); });
+  }
+  var fixParleyBtn = document.getElementById("fix-parley-btn");
+  if (fixParleyBtn) {
+    fixParleyBtn.addEventListener("click", function () { runParley("next", "", { scroll: true }); });
+  }
+  if (askBtn && askInput) {
+    askBtn.addEventListener("click", function () {
+      runParley("explain", askInput.value || "", { scroll: true });
+    });
+    askInput.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        runParley("explain", askInput.value || "", { scroll: true });
+      }
+    });
+  }
+
+  if (embed.autoHorn) {
+    runParley("horn", "", { scroll: true });
+  } else {
+    runParley("explain", "", {});
+  }
+
+  window.__innsegallOpenParley = function () {
+    runParley("explain", "", { scroll: true });
+  };
+})();
+</script>`;
+
+function cardJumpScript(shareCopiedToast) {
+  const toast = esc(shareCopiedToast).replace(/\\/g, "\\\\").replace(/'/g, "\\'");
+  return `<script>
 (function () {
   var slots = document.querySelectorAll(".armory-slot.is-jumpable");
   var sections = document.querySelectorAll(".jump-section");
@@ -490,31 +814,37 @@ const CARD_JUMP_SCRIPT = `<script>
   var shareBtn = document.getElementById("battle-scout-share");
   if (shareBtn) {
     shareBtn.addEventListener("click", function () {
-      var href = window.location.href || "";
+      var pasteEl = document.getElementById("innsegall-scout-paste");
+      var pasteText = pasteEl && pasteEl.value ? pasteEl.value : "";
       var title = document.title || "Battle Scout · Innsegall";
-      var text = "Battle Scout · save or share this card file: " + href;
-      function copied() { showToast("Link copied · share the .html file path if opened locally"); }
-      if (navigator.share) {
-        navigator.share({ title: title, text: text, url: href }).catch(function () {
-          if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(href).then(copied).catch(function () { showToast(href); });
-          } else {
-            showToast(href);
-          }
-        });
-      } else if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(href).then(copied).catch(function () { showToast(href); });
-      } else {
-        showToast(href);
+      function copied() {
+        showToast('${toast}');
       }
+      if (pasteText && navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(pasteText).then(copied).catch(function () {
+          showToast("Select the report text and copy manually");
+        });
+        return;
+      }
+      if (pasteText && navigator.share) {
+        navigator.share({ title: title, text: pasteText }).catch(function () {
+          showToast("Copy failed · use Parley in the card");
+        });
+        return;
+      }
+      showToast("Copy unavailable · open Parley below");
     });
   }
 
   document.querySelectorAll('a[href="#parley"]').forEach(function (link) {
     link.addEventListener("click", function (e) {
+      e.preventDefault();
+      if (typeof window.__innsegallOpenParley === "function") {
+        window.__innsegallOpenParley();
+        return;
+      }
       var target = document.getElementById("parley");
       if (!target) return;
-      e.preventDefault();
       target.scrollIntoView({ behavior: "smooth", block: "start" });
       target.classList.add("is-highlighted");
       window.setTimeout(function () { target.classList.remove("is-highlighted"); }, 2200);
@@ -522,6 +852,7 @@ const CARD_JUMP_SCRIPT = `<script>
   });
 })();
 </script>`;
+}
 
 export function renderHtml(card) {
   const vc = VERDICT_COPY[card.verdict] || {};
@@ -536,7 +867,12 @@ export function renderHtml(card) {
   });
 
   const fixPhrase = VERDICT_COPY.FIX_LIST.phrases[0];
-  const fixes = attachQuickActions(card.fixes_recommended || []);
+  const fixesSorted = [...(card.fixes_recommended || [])].sort(
+    (a, b) => (RISK_ORDER[a.risk] ?? 9) - (RISK_ORDER[b.risk] ?? 9)
+  );
+  const fixes = attachQuickActions(fixesSorted);
+  const leaderLine = LEADER_LINE[card.verdict] || "";
+  const verdictHuman = VERDICT_HUMAN[card.verdict] || card.verdict;
 
   const warnCount = stats.warn ?? 0;
   const failCount = stats.fail ?? 0;
@@ -545,23 +881,23 @@ export function renderHtml(card) {
     ? `<section id="section-review" class="section section-attention jump-section jump-tier-optics">
         <div class="section-label section-label-tier">
           <span class="tier-chip chip-review">Review</span>
-          <span>Needs your eye</span>
+          <span>Why we flagged this</span>
           <span class="tier-count">${warnCount + failCount}</span>
         </div>
-        <p class="section-lead">These checks want a look · not necessarily an infection.</p>
+        <p class="section-lead">We checked your Mac. These are the only paths that need your eye · open technical detail if you want the raw evidence.</p>
         <div class="result-stack">${attention.map((c) => renderCheckCard(c)).join("")}</div>
       </section>`
     : `<section id="section-review" class="section section-attention section-all-clear jump-section jump-tier-optics">
         <div class="section-label section-label-tier">
           <span class="tier-chip chip-review">Review</span>
-          <span>Needs your eye</span>
+          <span>Why we flagged this</span>
           <span class="tier-count">0</span>
         </div>
         <div class="all-clear-banner">
           <span class="all-clear-icon">✓</span>
           <div>
-            <strong>Nothing needs review.</strong>
-            <p>Every check that could warn or fail came back clean.</p>
+            <strong>Nothing flagged.</strong>
+            <p>Every check that could warn or fail came back clean. Solas on the road.</p>
           </div>
         </div>
       </section>`;
@@ -576,9 +912,9 @@ export function renderHtml(card) {
             ? "section-actions section-actions-optional"
             : "section-actions";
           const lead = onlyOptional
-            ? "Totally optional · your Mac is clear. Do this only if you want fewer stale plists."
-            : "Do these in order. Tap each step · no surprises, no sudo without warning.";
-          const label = onlyOptional ? "Optional steps" : "Your next steps";
+            ? "Optional tidying · your Mac is already clear. Do this only if you want fewer stale launch files."
+            : "Do these in order. We warn before anything needs sudo. Stop if a step doesn't match your Mac.";
+          const label = onlyOptional ? "Do this when you want" : "Do this now";
           return `<section id="section-actions" class="section ${actionClass} jump-section">
           <div class="section-label section-label-tier">
             <span class="tier-chip chip-actions">Actions</span>
@@ -596,7 +932,7 @@ export function renderHtml(card) {
               <span class="tier-chip chip-clear">Clear</span>
               <span>Actions</span>
             </div>
-            <p class="section-lead muted">No fixes required. Save this card if you want proof you checked.</p>
+            <p class="section-lead muted">No deeds required tonight. Keep this writ if you want proof the scout walked the road.</p>
           </section>`
         : "";
 
@@ -605,14 +941,20 @@ export function renderHtml(card) {
   const parleyHtml = `<section id="parley" class="section section-parley jump-section">
         <div class="section-label section-label-tier">
           <span class="tier-chip chip-parley">Parley</span>
-          <span>Static explain</span>
+          <span>Solas · instant help</span>
         </div>
-        <p class="section-lead">Built from your Battle Scout · no API key. Add <code>GEMINI_API_KEY</code> or <code>DEEPSEEK_API_KEY</code> for live Solas, or Beacon for deep Parley.</p>
-        <div class="parley-static-body">${staticParley.response
+        <p class="section-lead">Solas reads <strong>this</strong> scout · no Terminal, no copy-paste. Ask a question below or tap Sound the Horn for escalation help.</p>
+        <p id="parley-status" class="parley-status" role="status" aria-live="polite">Solas is reading your Battle Scout…</p>
+        <div id="parley-live-body" class="parley-static-body">${staticParley.response
           .split("\n\n")
           .map((p) => `<p>${esc(p).replace(/\n/g, "<br />")}</p>`)
           .join("")}</div>
-        <p class="parley-cap-note">Solas cap when BYOK: ${caps.perSession} per card · ${caps.perDay} per day.</p>
+        <div class="parley-ask-row">
+          <label class="sr-only" for="parley-ask">Ask about this report</label>
+          <input type="text" id="parley-ask" class="parley-ask-input" placeholder="Ask Solas about this scout…" autocomplete="off" />
+          <button type="button" id="parley-ask-btn" class="parley-ask-btn">Ask</button>
+        </div>
+        <p class="parley-cap-note">Live Solas: up to ${caps.perSession} questions per scout when online · instant summary from this card when offline.</p>
       </section>`;
 
   const escalateInner =
@@ -620,26 +962,26 @@ export function renderHtml(card) {
       ? `<aside class="horn-cta horn-cta-active">
           <div class="horn-inner">
             <h3>Sound the Horn</h3>
-            <p>Bring your clan · or open <strong>Parley</strong> for a static explain from this card (BYOK for live AI).</p>
+            <p>Escalation help without another app · Solas reads this scout and walks you through tonight.</p>
             <div class="horn-actions">
-              <a class="horn-btn horn-primary" href="mailto:hello@innsegall.com?subject=Sound%20the%20Horn%20%E2%80%94%20Battle%20Scout">Sound the Horn</a>
-              <a class="horn-btn horn-secondary" href="#parley">Open Parley</a>
+              <button type="button" class="horn-btn horn-primary" id="horn-sound-btn">Sound the Horn · get help now</button>
+              <button type="button" class="horn-btn horn-secondary" id="horn-parley-btn">Open Parley</button>
             </div>
-            <p class="horn-note">CLI: <code>innsegall parley --card …</code> · static by default · BYOK or Beacon for live · Innsegall app</p>
+            <p class="horn-note">Human backup: <a href="mailto:${esc(PRICING.contact_email)}?subject=Sound%20the%20Horn%20%E2%80%94%20Battle%20Scout">${esc(PRICING.contact_email)}</a> · share this Battle Scout HTML with your clan.</p>
           </div>
         </aside>`
       : `<div class="escalate-quiet">
           <span class="escalate-quiet-icon" aria-hidden="true">✓</span>
           <div>
-            <strong>Claymore rests.</strong>
-            <p>No checks flagged for escalation. The horn stays quiet · you're not in horn territory.</p>
+            <strong>No horn needed.</strong>
+            <p>No checks flagged for escalation. You're not in horn territory tonight.</p>
           </div>
         </div>`;
 
   const escalateHtml = `<section id="section-escalate" class="jump-section jump-tier-claymore section-escalate${card.verdict === "ESCALATE" ? " is-hot" : ""}">
         <div class="section-label section-label-tier section-label-dark">
           <span class="tier-chip chip-escalate">Escalate</span>
-          <span>Sound the horn zone</span>
+          <span>Escalation</span>
           <span class="tier-count">${failCount}</span>
         </div>
         ${escalateInner}
@@ -648,24 +990,25 @@ export function renderHtml(card) {
   const hornHtml =
     card.verdict === "FIX_LIST"
         ? `<aside class="horn-cta horn-cta-soft">
-            <p><strong>${esc(fixPhrase.gaelic)}</strong> <span class="phonetic-inline">(${esc(fixPhrase.phonetic)})</span> · ${esc(fixPhrase.english)}. Fix the steps above, reboot if asked, run the check again.</p>
+            <p>${richText(`${fixPhrase.gaelic} (${fixPhrase.phonetic}) · ${fixPhrase.english}. Finish **Do this now**, reboot if asked, send the scout again.`)}</p>
+            <button type="button" class="horn-btn horn-secondary" id="fix-parley-btn">Open Parley · walk me through it</button>
           </aside>`
         : "";
 
   const userReport =
     card.user_inputs?.entered_password || card.user_inputs?.downloaded_file
       ? `<section class="section section-context">
-          <div class="section-label">You reported</div>
+          <div class="section-label">What you told the scout</div>
           <ul class="context-list">
-            ${card.user_inputs.entered_password ? "<li>Entered password on a suspicious page</li>" : ""}
-            ${card.user_inputs.downloaded_file ? "<li>Downloaded a suspicious file</li>" : ""}
+            ${card.user_inputs.entered_password ? "<li><strong>Entered a password</strong> on a suspicious page · rotate it from a clean device.</li>" : ""}
+            ${card.user_inputs.downloaded_file ? "<li><strong>Downloaded a suspicious file</strong> · quarantine it before opening anything else.</li>" : ""}
           </ul>
         </section>`
       : "";
 
   const project = card.project_watch
     ? `<section class="section section-context section-project">
-        <div class="section-label">Project</div>
+        <div class="section-label">Your working hall</div>
         <div class="project-grid">
           <div class="project-stat">
             <span class="project-k">Branch</span>
@@ -695,7 +1038,13 @@ export function renderHtml(card) {
   const gaelicHtml = renderGaelicHtml(vc);
   const historySeries = loadHistorySeries(48);
   const chartHtml = renderHealthChartSection(historySeries);
-  const intelHtml = renderThreatIntelSection();
+  const intelHtml =
+    card.verdict === "LIKELY_OK"
+      ? renderThreatIntelSection()
+      : `<details class="intel-fold">
+          <summary class="intel-fold-summary">Field glass · optional reading (not about your Mac)</summary>
+          ${renderThreatIntelSection()}
+        </details>`;
 
   const smokeBanner = card.smoke
     ? `<div class="smoke-banner" role="note">${esc(card.smoke_label || "SMOKE DEMO · not a live scan")}<br /><code>innsegall smoke --open</code></div>`
@@ -966,11 +1315,12 @@ ${scoutDataBlocks}
     }
     .verdict-band h1 {
       font-family: var(--font-display);
-      font-size: var(--text-xl);
+      font-size: clamp(1.2rem, 3.5vw, 1.65rem);
       font-weight: 700;
       margin: 0;
       line-height: var(--leading-tight);
       color: inherit;
+      max-width: 22ch;
     }
     .verdict-band .verdict-pill {
       margin: 0;
@@ -1460,11 +1810,20 @@ ${scoutDataBlocks}
     .verdict-pill.escalate { background: rgba(168,216,255,.12); color: var(--laser); border: 1px solid rgba(168,216,255,.35); box-shadow: 0 0 20px rgba(168,216,255,.15); }
     .hero-summary {
       font-size: var(--text-lg);
-      font-weight: 500;
-      color: #d4dee8;
+      font-weight: 600;
+      color: #eef4f8;
       margin: 0;
       max-width: 38em;
-      line-height: var(--leading-normal);
+      line-height: 1.45;
+    }
+    .mission-brief { border-bottom: 1px solid rgba(168,216,255,.08); }
+    .mission-leader {
+      margin: .65rem 0 0;
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: var(--laser);
+      max-width: 36em;
+      line-height: 1.5;
     }
     .hero-meta {
       margin-top: 1rem;
@@ -1480,9 +1839,21 @@ ${scoutDataBlocks}
     .body {
       background: var(--paper);
       border-radius: var(--card-radius);
-      margin-top: 1rem;
+      margin-top: 0;
+      border-top: 4px solid var(--gold);
       box-shadow: 0 24px 64px rgba(0,0,0,.45), 0 0 0 1px rgba(168,216,255,.06);
       overflow: hidden;
+    }
+    .section-actions:not(.section-actions-optional) {
+      background: var(--review-bg);
+      border-bottom: 2px solid var(--review-border);
+    }
+    .section-lead {
+      font-size: var(--text-base);
+      color: var(--ink-soft);
+      line-height: 1.55;
+      max-width: 36em;
+      margin: 0 0 1rem;
     }
     .section { padding: var(--section-pad-y) var(--section-pad-x); border-bottom: 1px solid var(--border); }
     .section:last-of-type { border-bottom: none; }
@@ -1575,18 +1946,26 @@ ${scoutDataBlocks}
     .action-head { display: flex; gap: .75rem; align-items: flex-start; margin-bottom: .6rem; }
     .action-step {
       flex-shrink: 0;
-      width: 30px; height: 30px;
+      width: 2rem;
+      height: 2rem;
       background: var(--fjord);
       color: var(--gold);
       font-weight: 700;
-      font-size: var(--text-sm);
+      font-size: 1rem;
       font-variant-numeric: tabular-nums;
+      border: 2px solid var(--gold);
       border-radius: 8px;
       display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 2px 8px rgba(11,29,46,.12);
+    }
+    .action-card-priority {
+      border-left-width: 5px;
+      box-shadow: 0 4px 16px rgba(196,127,10,.1);
     }
     .action-head h3 {
       margin: 0 0 .3rem;
-      font-size: var(--text-base);
+      font-family: var(--font-display);
+      font-size: 1.05rem;
       font-weight: 700;
       color: var(--ink);
       line-height: var(--leading-tight);
@@ -1606,13 +1985,36 @@ ${scoutDataBlocks}
     .tag-sudo { background: #e8eef5; color: #1a4a6e; }
     .action-steps {
       margin: 0;
-      padding-left: 1.2rem;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
       font-size: var(--text-sm);
-      color: var(--ink-soft);
+      color: var(--ink);
       line-height: 1.55;
     }
-    .action-steps li { margin-bottom: .4rem; }
-    .action-steps li::marker { font-weight: 700; color: var(--gold); }
+    .action-steps li {
+      display: grid;
+      grid-template-columns: 1.5rem 1fr;
+      gap: 0 .6rem;
+      align-items: start;
+      padding: .55rem .65rem;
+      background: var(--paper-2);
+      border-radius: 8px;
+      border: 1px solid #ebe3d4;
+      margin: 0;
+      counter-increment: action-sub;
+    }
+    .action-steps { counter-reset: action-sub; }
+    .action-steps li::before {
+      content: counter(action-sub);
+      font-weight: 800;
+      font-size: var(--text-xs);
+      color: var(--gold);
+      text-align: center;
+      line-height: 1.6rem;
+    }
 
     /* Results */
     .result-stack { display: flex; flex-direction: column; gap: .6rem; }
@@ -1622,8 +2024,8 @@ ${scoutDataBlocks}
       border: 1px solid #e0d9ce;
       overflow: hidden;
     }
+    .result-card.bad { border-left: 5px solid var(--ember); box-shadow: 0 2px 12px rgba(212,90,58,.08); }
     .result-card.warn { border-left: 4px solid var(--gold); }
-    .result-card.bad { border-left: 4px solid var(--ember); }
     .result-head {
       display: flex;
       align-items: flex-start;
@@ -1642,12 +2044,43 @@ ${scoutDataBlocks}
     .result-card.bad .result-icon { background: #f5d4cc; color: #7a2e1a; }
     .result-titles { flex: 1; min-width: 0; }
     .result-titles h3 {
-      margin: 0 0 .2rem;
-      font-size: var(--text-sm);
-      font-weight: 700;
+      margin: 0 0 .25rem;
+      font-size: var(--text-base);
+      font-weight: 800;
       line-height: var(--leading-tight);
+      color: var(--ink);
     }
-    .result-titles p { margin: 0; font-size: var(--text-sm); color: var(--ink-soft); }
+    .result-titles p { margin: 0; font-size: var(--text-xs); color: var(--smoke); line-height: 1.5; }
+    .evidence-fold {
+      border-top: 1px solid #e0d9ce;
+      padding: 0 1rem .75rem;
+    }
+    .evidence-fold summary {
+      cursor: pointer;
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--smoke);
+      padding: .5rem 0;
+    }
+    .intel-fold {
+      margin-bottom: .75rem;
+      border: 1px solid rgba(168,216,255,.12);
+      border-radius: 0 0 8px 8px;
+      background: rgba(7, 20, 32, .6);
+    }
+    .intel-fold-summary {
+      cursor: pointer;
+      padding: .65rem 1rem;
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: var(--mist);
+      list-style: none;
+    }
+    .intel-fold[open] .intel-fold-summary { border-bottom: 1px solid rgba(168,216,255,.1); }
     .result-badge {
       font-size: .625rem;
       font-weight: 700;
@@ -1718,32 +2151,94 @@ ${scoutDataBlocks}
     .horn-inner p { margin: 0 0 .85rem; font-size: var(--text-sm); color: #c8d4e0; }
     .horn-actions { display: flex; gap: .5rem; justify-content: center; flex-wrap: wrap; }
     .horn-btn {
+      font-family: var(--font-ui);
       font-size: var(--text-sm);
       font-weight: 700;
       padding: .55rem 1.1rem;
       border-radius: 8px;
+      border: none;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
     }
-    .horn-primary { background: var(--gold); color: var(--fjord); }
     .horn-secondary { background: transparent; color: var(--laser); border: 1px solid rgba(168,216,255,.4); }
-    .section-parley { background: var(--paper-2); }
-    .chip-parley { background: #e8eef8; color: #2a4a6e; border: 1px solid #b8cce0; }
+    .section-parley.is-parley-live { box-shadow: 0 0 0 2px rgba(244,201,93,.35); }
+    .parley-status {
+      margin: 0 0 .65rem;
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--intel);
+    }
+    .parley-ask-row {
+      display: flex;
+      gap: .5rem;
+      margin-top: .85rem;
+      flex-wrap: wrap;
+    }
+    .parley-ask-input {
+      flex: 1 1 12rem;
+      min-height: var(--touch-min);
+      padding: .5rem .75rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-family: var(--font-ui);
+      font-size: var(--text-sm);
+    }
+    .parley-ask-btn {
+      font-family: var(--font-ui);
+      font-weight: 700;
+      padding: .5rem 1rem;
+      border-radius: 8px;
+      border: none;
+      background: var(--intel);
+      color: #fff;
+      cursor: pointer;
+      min-height: var(--touch-min);
+    }
+    .horn-primary { background: var(--gold); color: var(--fjord); }
+    .section-parley {
+      background: linear-gradient(180deg, var(--paper-2) 0%, #fff 45%);
+      border-top: 3px solid var(--intel);
+    }
+    .parley-status {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      padding: .25rem .6rem;
+      border-radius: 100px;
+      background: var(--intel-bg);
+      border: 1px solid var(--intel-border);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      margin-bottom: .75rem;
+    }
+    .section-parley.is-parley-live .parley-status {
+      background: var(--review-bg);
+      border-color: var(--review-border);
+      color: var(--review);
+    }
     .parley-static-body {
       background: #fff;
       border: 1px solid var(--border);
-      border-left: 3px solid var(--intel);
+      border-left: 4px solid var(--intel);
       border-radius: 8px;
-      padding: .85rem 1rem;
+      padding: 1rem 1.1rem;
       font-size: var(--text-sm);
       color: var(--ink-soft);
-      line-height: 1.55;
+      line-height: 1.6;
     }
-    .parley-static-body p { margin: 0 0 .65rem; }
-    .parley-static-body p:last-child { margin-bottom: 0; }
+    .parley-static-body p { margin: 0 0 .75rem; }
+    .parley-static-body p:first-child {
+      font-size: var(--text-base);
+      font-weight: 600;
+      color: var(--ink);
+    }
     .parley-cap-note { margin: .65rem 0 0; font-size: var(--text-xs); color: var(--smoke); }
     .share-btn {
       font-family: var(--font-ui);
@@ -1760,6 +2255,26 @@ ${scoutDataBlocks}
       margin-top: .5rem;
     }
     .share-btn:hover { background: rgba(255,255,255,.12); color: #fff; }
+    .share-hint {
+      display: block;
+      font-family: var(--font-ui);
+      font-size: var(--text-xs);
+      color: var(--smoke);
+      margin-top: .65rem;
+      line-height: 1.45;
+      max-width: 36rem;
+    }
+    .scout-paste-store {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: pre;
+      border: 0;
+    }
     .footer-pricing {
       display: block;
       font-family: var(--font-ui);
@@ -1973,11 +2488,17 @@ ${scoutDataBlocks}
       <div class="verdict-band ${verdictClass}">
         <div class="verdict-band-top">
           <p class="brand">Innsegall${CLAYMORE}${ARTIFACT_NAME}</p>
-          <span class="verdict-pill ${verdictClass}">${esc(card.verdict.replace(/_/g, " "))}</span>
+          <span class="verdict-pill ${verdictClass}">${esc(verdictHuman)}</span>
         </div>
         <h1>${esc(vc.headline || card.verdict)}</h1>
         ${gaelicHtml}
       </div>
+
+      <header class="hero mission-brief">
+        <p class="hero-summary">${richText(card.summary)}</p>
+        ${leaderLine ? `<p class="mission-leader">${richText(leaderLine)}</p>` : ""}
+        <p class="hero-meta">${esc(date)} · ${esc(flowLabel)} · macOS ${esc(card.platform_version)} · ${esc(statsLine(card))}</p>
+      </header>
 
       ${renderArmoryRating(stats, card.verdict)}
 
@@ -1985,20 +2506,15 @@ ${scoutDataBlocks}
 
       ${intelHtml}
 
-      <header class="hero">
-        <p class="hero-summary">${esc(card.summary)}</p>
-        <p class="hero-meta">${esc(date)} · ${esc(flowLabel)} · macOS ${esc(card.platform_version)}</p>
-      </header>
-
       <main class="body">
-        ${actionsHtml}
-        ${housekeepingHtml}
         ${userReport}
-        ${project}
+        ${actionsHtml}
         ${attentionHtml}
         ${escalateHtml}
         ${parleyHtml}
         ${hornHtml}
+        ${housekeepingHtml}
+        ${project}
       </main>
       </div>
 
@@ -2011,11 +2527,15 @@ ${scoutDataBlocks}
         <strong>With Innsegall, no one is your enemy · you have no foe.</strong>
         <span class="footer-id">innsegall.com · ${esc(card.card_id)} · engine ${esc(card.engine_version)}</span>
         ${pricingFooter}
-        <button type="button" class="share-btn" id="battle-scout-share">Share Battle Scout</button>
+        <p class="share-hint">No family IT? ${esc(CTA.COPY_FOR_AI)} · full audit log below · ${esc(CTA.COPY_FOR_AI_HINT)}.</p>
+        <button type="button" class="share-btn" id="battle-scout-share">${esc(CTA.COPY_FOR_AI)}</button>
+        <textarea id="innsegall-scout-paste" class="scout-paste-store" readonly aria-hidden="true">${embedTextareaContent(renderAiPaste(card))}</textarea>
       </footer>
     </div>
   </div>
-  ${CARD_JUMP_SCRIPT}
+  ${cardJumpScript(CTA.COPY_FOR_AI_TOAST)}
+  ${renderParleyEmbedScript(card)}
+  ${PARLEY_LIVE_SCRIPT}
   <div id="card-toast" class="card-toast" role="status" aria-live="polite"></div>
 </body>
 </html>`;

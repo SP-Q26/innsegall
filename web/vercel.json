@@ -32,6 +32,7 @@
     { "source": "/blog/clicked-suspicious-link-macintosh", "destination": "/blog/clicked-suspicious-link-macintosh.html" },
     { "source": "/blog/macintosh-hygiene-without-antivirus", "destination": "/blog/macintosh-hygiene-without-antivirus.html" },
     { "source": "/blog/voyage-health-tracker-1st-15th", "destination": "/blog/voyage-health-tracker-1st-15th.html" },
+    { "source": "/boat", "destination": "/boat.html" },
     { "source": "/guide", "destination": "/guide.html" },
     { "source": "/map", "destination": "/map.html" },
     { "source": "/clan", "destination": "/clan.html" },
@@ -39,6 +40,7 @@
     { "source": "/blog/join-the-innsegall-clan", "destination": "/blog/join-the-innsegall-clan.html" },
     { "source": "/blog/innsegall-vs-antivirus-macintosh", "destination": "/blog/innsegall-vs-antivirus-macintosh.html" },
     { "source": "/success", "destination": "/success.html" },
-    { "source": "/llms.txt", "destination": "/llms.txt" }
+    { "source": "/llms.txt", "destination": "/llms.txt" },
+    { "source": "/ai.txt", "destination": "/ai.txt" }
   ]
 }

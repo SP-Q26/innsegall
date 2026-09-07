@@ -6,7 +6,7 @@
 
 ## Who they are (primary persona)
 
-**The Tired Norseman on a Mac** — not IT staff. Someone who:
+**The Tired Norseman on a Mac** · not IT staff. Someone who:
 
 - Saw a fake virus popup, “Apple Security” alert, or “call this number” screen in the last 90 days
 - Clicked a phishing link and wonders if they typed a password

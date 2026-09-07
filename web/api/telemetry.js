@@ -4,6 +4,8 @@
  * Never accepts Battle Scout bodies, paths, emails, or checkout_complete from clients.
  */
 
+import { forwardToXano } from "../lib/xano-forward.mjs";
+
 const ALLOWED_EVENTS = new Set(["install_ping", "scout_aggregate", "checkout_complete"]);
 const CLIENT_EVENTS = new Set(["install_ping", "scout_aggregate"]);
 
@@ -47,7 +49,6 @@ function isPlainObject(v) {
   return v !== null && typeof v === "object" && !Array.isArray(v);
 }
 
-/** Reject payloads that carry PII keys or path-like strings anywhere in the tree. */
 function findPiiViolation(value, path = "payload") {
   if (value === null || value === undefined) return null;
 
@@ -97,6 +98,11 @@ function validateInstallPing(payload) {
   if (typeof install_id !== "string" || install_id.length > 64) {
     return "install_id required (max 64 chars)";
   }
+  if (payload.warrior_ref != null) {
+    if (typeof payload.warrior_ref !== "string" || payload.warrior_ref.length > 64) {
+      return "warrior_ref max 64 chars";
+    }
+  }
   return null;
 }
 
@@ -119,34 +125,6 @@ function validatePayload(event, payload) {
   if (event === "scout_aggregate") return validateScoutAggregate(payload);
   if (event === "checkout_complete") return "checkout_complete is server-only";
   return "unknown event";
-}
-
-async function forwardToXano(event, payload) {
-  const url = process.env.XANO_EVENTS_URL;
-  if (!url) return { forwarded: false };
-
-  const headers = { "Content-Type": "application/json" };
-  if (process.env.XANO_API_KEY) {
-    headers.Authorization = `Bearer ${process.env.XANO_API_KEY}`;
-  }
-
-  const res = await fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify({
-      event,
-      payload,
-      source: "vercel_telemetry",
-      received_at: new Date().toISOString(),
-    }),
-  });
-
-  if (!res.ok) {
-    const text = await res.text().catch(() => "");
-    throw new Error(`xano_forward_failed ${res.status} ${text.slice(0, 200)}`);
-  }
-
-  return { forwarded: true };
 }
 
 export default async function handler(req, res) {
@@ -190,7 +168,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    await forwardToXano(event, payload);
+    await forwardToXano(event, payload, "vercel_telemetry");
     return res.status(202).json({ ok: true, forwarded: true });
   } catch (e) {
     console.error("telemetry", e.message);

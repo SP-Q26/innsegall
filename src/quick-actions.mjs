@@ -102,7 +102,7 @@ export function plistEvidenceActions(plistPath, home = homedir()) {
   } else {
     actions.push({
       id: "copy_remove",
-      label: "Copy remove",
+      label: "Copy delete cmd",
       type: "copy",
       command: `sudo rm ${quoted}`,
       hint: "Copied · paste in Terminal",
@@ -131,7 +131,7 @@ export function tierSubActions(tier, home = homedir()) {
     ];
   }
   return [
-    { id: "jump_escalate", label: "Horn zone", type: "jump", jump: "section-escalate" },
+    { id: "jump_escalate", label: "Horn help", type: "jump", jump: "section-escalate" },
     { id: "open_helpers", label: "Helpers", type: "open", path: "/Library/PrivilegedHelperTools" },
     { id: "open_mb", label: "Malwarebytes", type: "open", path: "/Applications/Malwarebytes.app" },
   ];

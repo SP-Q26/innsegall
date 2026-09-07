@@ -31,6 +31,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://innsegall.com/boat</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://innsegall.com/guide</loc>
     <lastmod>2026-09-06</lastmod>
     <changefreq>weekly</changefreq>
@@ -109,7 +115,31 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://innsegall.com/ai.txt</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://innsegall.com/.well-known/ai-discovery.json</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://innsegall.com/api/parley</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.25</priority>
+  </url>
+  <url>
     <loc>https://innsegall.com/llms.txt</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://innsegall.com/innsegall-ai-bus.json</loc>
     <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
@@ -119,5 +149,11 @@
     <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://innsegall.com/og/innsegall-card.png</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
   </url>
 </urlset>

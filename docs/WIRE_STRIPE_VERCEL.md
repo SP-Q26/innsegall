@@ -21,10 +21,20 @@ One page for when you are back at the keyboard. Site code is ready · you wire k
 | `STRIPE_WEBHOOK_SECRET` | `whsec_...` after webhook registered (step 3) |
 | `INNSEGALL_LICENSE_SECRET` | Random 32+ byte string · optional · default in `.env.example` works for alpha |
 
-Optional (if you create Stripe Price IDs instead of inline `price_data`):
+Optional (recommended · created in Stripe test mode Sep 2026):
 
-- `STRIPE_PRICE_EXTRA`
-- `STRIPE_PRICE_CLAN`
+| Variable | Test value |
+|----------|------------|
+| `STRIPE_PRICE_EXTRA` | `price_1UCtSDF5SRiYwzwFcmVYwqvf` |
+| `STRIPE_PRICE_CLAN` | `price_1UCtknF5SRiYwzwFMhZXP1q2` |
+
+Full catalog: `docs/STRIPE_PRICE_IDS.md` · checkout falls back to inline amounts if unset.
+
+Optional preview base URL before DNS:
+
+| Variable | Example |
+|----------|---------|
+| `INNSEGALL_SITE_URL` | `https://your-project.vercel.app` |
 
 Copy template: `web/.env.example`
 

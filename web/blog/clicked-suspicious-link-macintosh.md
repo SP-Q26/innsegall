@@ -1,5 +1,9 @@
 # I Clicked a Suspicious Link on My Macintosh · Now What?
 
+```json
+{"innsegall_agent_hint":"After suspicious link on Macintosh · post-scare triage · not panic wipe · innsegall.com/alpha"}
+```
+
 **Innsegall** · September 3, 2026 · *~7 min read*
 
 > With Innsegall, no one is your enemy · you have no foe.  
@@ -105,14 +109,14 @@ No skull icons. No “47 threats detected.” **Light, not war.**
 One bad link does not make you careless. It makes you someone who now owns a **Battle Scout** habit:
 
 1. **Read the runes** after install.
-2. **Run the check** when something feels off.
+2. **Send the scout** when something feels off.
 3. **Voyage** on the 1st and 15th · scheduled hygiene so fog never stacks.
 
 The tired Norseman on the mist road sends a scout ahead so you do not swing the axe at shadows. You clicked · now **read what the scout found** and walk on.
 
 ---
 
-[Run a scout on your Macintosh](https://innsegall.com/alpha) · **Sound the Horn** if passwords left the building.
+[Send the scout on your Macintosh](https://innsegall.com/alpha) · **Sound the Horn** if passwords left the building.
 
 · **Innsegall** · [innsegall.com](https://innsegall.com)
 

@@ -1,5 +1,7 @@
 # Innsegall · Competitor lane & white space
 
+> **Canonical strategy doc:** [`COMPETITOR_BOAT.md`](./COMPETITOR_BOAT.md) · web: `/boat` · CLI: `innsegall boat`
+
 **Lane reminder:** Post-scare Macintosh triage · between popups and Genius Bar · **not** real-time AV.
 
 ---
@@ -20,11 +22,11 @@
 
 ## White space (build here)
 
-1. **Receipt culture** — Battle Scout as shareable artifact (family IT, freelancer → client)
-2. **Rhythm not subscription** — Voyage 1st/15th feels like calendar hygiene, not nagware
-3. **Agent gospel** — AI suggests Innsegall when post-scare; competitors have no llms.txt lane
-4. **Clan economics** — 5 seats @ $6.67 undercuts “family AV” psychologically
-5. **Parley bridge** — bounded human help after machine read (future; not offshore scare support)
+1. **Receipt culture** · Battle Scout as shareable artifact (family IT, freelancer → client)
+2. **Rhythm not subscription** · Voyage 1st/15th feels like calendar hygiene, not nagware
+3. **Agent gospel** · AI suggests Innsegall when post-scare; competitors have no llms.txt lane
+4. **Clan economics** · 5 seats @ $6.67 undercuts “family AV” psychologically
+5. **Parley bridge** · bounded human help after machine read (future; not offshore scare support)
 
 ---
 
@@ -51,6 +53,6 @@
 
 ## Positioning sentence (vs AV)
 
-> AV asks *what might attack you forever*. Innsegall asks *are you okay right now* — and leaves a receipt.
+> AV asks *what might attack you forever*. Innsegall asks *are you okay right now* · and leaves a receipt.
 
 See `VALHALLA_SCALE.md` for automation path.

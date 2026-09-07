@@ -189,7 +189,7 @@ export function buildFieldReportMarkdown(opts = {}) {
   if (total === 0) {
     lines.push(
       "No anonymized local scouts were available when this report was generated.",
-      "The mist is quiet · run a check on your Mac when you need clarity.",
+      "The mist is quiet · send the scout on your Macintosh when you need clarity.",
       ""
     );
   } else {
@@ -204,7 +204,7 @@ export function buildFieldReportMarkdown(opts = {}) {
       "",
       `| Flow | Count |`,
       `|------|-------|`,
-      `| Mac hygiene | ${agg.by_flow.mac_hygiene} |`,
+      `| Macintosh hygiene | ${agg.by_flow.mac_hygiene} |`,
       `| Bad link | ${agg.by_flow.clicked_bad_link} |`,
       `| Project safe | ${agg.by_flow.project_safe} |`,
       ""
@@ -242,7 +242,7 @@ export function buildFieldReportMarkdown(opts = {}) {
     "",
     "---",
     "",
-    `[Run a scout](https://innsegall.com/alpha) · [Privacy](https://innsegall.com/privacy) · Digest hash \`${agg.report_hash}\``,
+    `[Send the scout](https://innsegall.com/alpha) · [Privacy](https://innsegall.com/privacy) · Digest hash \`${agg.report_hash}\``,
     ""
   );
 

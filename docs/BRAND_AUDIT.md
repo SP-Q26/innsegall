@@ -26,7 +26,7 @@
 ## What’s on brand (keep)
 
 - Hero: *Know you're okay* · *Between popups and Genius Bar*
-- CTAs: **Sound the Horn** · **Bring your clan** · **Run the check**
+- CTAs: **Send the scout** · **Sound the Horn** · **Bring your clan**
 - Manifesto in hero, org schema, Battle Scout footer
 - **Not antivirus** · read-only · local-first · no fake viruses
 - Voyage = 1st & 15th health tracker + browser Battle Scout

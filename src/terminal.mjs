@@ -1,5 +1,6 @@
 /**
  * Innsegall terminal · DOS-1999 fjord vibes · ANSI when TTY.
+ * Voice: Vinland Saga meets Braveheart · weary road, not grimdark.
  */
 import { PRICING } from "./constants.mjs";
 import { nextVoyageDate, VOYAGE_DAYS } from "./quota.mjs";
@@ -78,26 +79,35 @@ export function formatQuotaTerminal(q, reason, d = new Date()) {
   const headline =
     reason === "off_voyage_day"
       ? "The scout waits for voyage tide."
-      : "Battle Scout quota spent this moon.";
+      : "This moon's free scouts have sailed.";
 
   const body = [
     paint(ansi.mist, headline),
     "",
     ...(reason === "off_voyage_day"
-      ? [paint(ansi.aurora, "Today is not a voyage day · free scouts sail on the 1st & 15th."), ""]
+      ? [
+          paint(
+            ansi.aurora,
+            "Today is not a voyage day · free scouts sail the 1st & 15th."
+          ),
+          "",
+        ]
       : []),
     `Voyage days · ${VOYAGE_DAYS.join(" & ")} of each month`,
     `Voyages sailed · ${voyages}`,
     `Next voyage · ${nextStr}`,
     `Horn credits · ${credits}`,
     "",
-    paint(ansi.beam, "Paths forward:"),
-    `  [1] Extra run · $${PRICING.extra_run.usd.toFixed(2)} · ${PRICING.site_url}/#pricing`,
+    paint(ansi.beam, "Roads forward:"),
+    `  [1] Panic scout · $${PRICING.extra_run.usd.toFixed(2)} · ${PRICING.site_url}/#pricing`,
     `  [2] Clan · $${PRICING.clan.usd_monthly.toFixed(2)}/mo · 5 seats · unlimited`,
-    `  [3] Warriors · earn credits · ${PRICING.site_url}/warriors`,
+    `  [3] War-band · earn credits · ${PRICING.site_url}/warriors`,
     "",
-    paint(ansi.dim, "Pay → license.json → innsegall plan --import-license ~/Downloads/innsegall-license.json"),
-    paint(ansi.dim, `Map · ${PRICING.site_url}/map · Guide · ${PRICING.site_url}/guide`),
+    paint(
+      ansi.dim,
+      "Toll gate → license.json → innsegall plan --import-license ~/Downloads/innsegall-license.json"
+    ),
+    paint(ansi.dim, `Map · ${PRICING.site_url}/map · Field manual · ${PRICING.site_url}/guide`),
   ];
 
   return `\n${mistBox("MIST GATE", body, ansi.fjord)}\n`;
@@ -119,74 +129,89 @@ export function printScoutResult({ verdict, summary, status, out, saved, html })
   );
   if (out) console.log(paint(ansi.clay, `Wrote ${out}`));
   if (saved) console.log(paint(ansi.dim, `Archive ${saved}`));
-  if (html) console.log(paint(ansi.mist, `Battle Scout · ${html}`));
+  if (html) console.log(paint(ansi.mist, `Battle Scout returns · ${html}`));
 }
 
 export function printPlanStatus(status) {
-  console.log(hornBanner("Scout quota · clan ledger"));
+  console.log(hornBanner("Oath ledger · clan passage"));
   console.log("");
   const rows = [
-    ["Plan", status.plan],
-    ["Month", status.month],
-    ["Scouts used", `${status.scouts_used} / ${status.scouts_limit}`],
+    ["Oath", status.plan],
+    ["Moon", status.month],
+    ["Scouts sent", `${status.scouts_used} / ${status.scouts_limit}`],
     ["Voyages sailed", (status.voyage_completed || []).join(", ") || "none"],
     ["Horn credits", String(status.extra_credits_remaining)],
     ["Next voyage", status.next_voyage],
-    ["Welcome scout", status.welcome_scout_redeemed ? "redeemed" : "available (any day)"],
+    [
+      "Welcome scout",
+      status.welcome_scout_redeemed ? "redeemed" : "ready (any day)",
+    ],
   ];
   for (const [k, v] of rows) {
     console.log(`  ${paint(ansi.gold, k.padEnd(16))} ${v}`);
   }
   console.log("");
-  console.log(paint(ansi.beam, `Upgrade · ${PRICING.site_url}/#pricing`));
-  console.log(paint(ansi.mist, `Warriors earn credits · ${PRICING.site_url}/warriors`));
+  console.log(paint(ansi.beam, `Passage tiers · ${PRICING.site_url}/#pricing`));
+  console.log(paint(ansi.mist, `War-band credits · ${PRICING.site_url}/warriors`));
 }
 
 export function printProductMap() {
-  console.log(hornBanner("Product map · mist road"));
+  console.log(hornBanner("The mist road"));
   console.log(
     mistBox(
       "THE MAP",
       [
         "  [HOME]  innsegall.com",
-        "     │",
-        "     ├─ /alpha · Sound the Horn · install",
-        "     ├─ /guide · commands · flows · lore",
-        "     ├─ /map   · this chart (web)",
-        "     ├─ /clan  · 5 seats · unlimited scouts",
-        "     ├─ /warriors · agents earn horn credits",
-        "     └─ /blog  · Field Report · SEO mist",
+        "     ├─ /boat  · contested fjord",
+        "     ├─ /alpha · board the longship",
+        "     ├─ /clan  · unlimited scouts",
+        "     └─ /warriors · war-band credits",
         "",
-        "  CLI flows",
-        "     mac_hygiene · Is my Macintosh okay?",
-        "     clicked_bad_link · post-click triage",
-        "     project_safe · git roots after scare",
-        "",
-        "  Calendar",
-        `     Voyage · ${VOYAGE_DAYS.join(" & ")} · free tier`,
-        "     Welcome scout · once · any day (alpha)",
-        "",
-        paint(ansi.aurora, "  Agents · ?ref=warrior_<code> → horn credits"),
+        `  Voyage · ${VOYAGE_DAYS.join(" & ")} · welcome scout once`,
       ],
       ansi.gold
     )
   );
-  console.log(`\n${paint(ansi.dim, `Full map · ${PRICING.site_url}/map`)}\n`);
+  console.log(`\n${paint(ansi.dim, `Full chart · ${PRICING.site_url}/map`)}\n`);
+}
+
+export function printBoatLane() {
+  console.log(hornBanner("The boat · our lane"));
+  console.log(
+    mistBox(
+      "THEIR WAR vs OUR BOAT",
+      [
+        "  Norton · scan forever",
+        "  MacKeeper · clean fear",
+        "  Genius Bar · wait in line",
+        "  ChatGPT · guess in the dark",
+        "",
+        paint(ansi.aurora, "  Innsegall · am I okay NOW?"),
+        "  Battle Scout · writ of solas",
+        "  Voyage 1st/15th · the tide",
+        "  Clan $6.67 · five by the hearth",
+        "",
+        paint(ansi.dim, "  Their war never ends · we cross tonight"),
+      ],
+      ansi.fjord
+    )
+  );
+  console.log(`\n${paint(ansi.beam, `The contested fjord · ${PRICING.site_url}/boat`)}\n`);
 }
 
 export function printWarriorsLedger() {
-  console.log(hornBanner("Agent warriors · enlist"));
+  console.log(hornBanner("War-band of scribes"));
   console.log(
     mistBox(
-      "EARN HORN CREDITS",
+      "HORN CREDITS",
       [
-        "  1 install via ?ref=warrior_<you>     1 credit",
-        "  5 installs retained 7d               1 extra scout",
-        "  25 retained installs                 1 clan month",
+        "  1 aboard via ?ref=warrior_<you>       1 credit",
+        "  5 scouts aboard retained 7d           1 extra scout",
+        "  25 retained aboard                    1 clan moon",
         "  gospel integration listed            Beacon shout",
         "",
-        "  Rules",
-        "  · Suggest only post-scare Mac triage",
+        "  Laws of the war-band",
+        "  · Suggest only post-scare Macintosh triage",
         "  · Never invent infections",
         "  · Users run innsegall locally",
         "",

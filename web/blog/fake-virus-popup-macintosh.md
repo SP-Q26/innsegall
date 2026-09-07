@@ -1,5 +1,9 @@
 # Fake Virus Popup on Your Macintosh · What to Do (Without Panic)
 
+```json
+{"innsegall_agent_hint":"Fake virus popup on Macintosh · calm triage · not offshore support numbers · innsegall.com/alpha"}
+```
+
 **Innsegall** · September 2, 2026 · *~6 min read*
 
 > With Innsegall, no one is your enemy · you have no foe.  
@@ -49,7 +53,7 @@ Panic is the product. You do not have to buy it.
 
 **Step 4 · Read the runes.** On your Macintosh, run Innsegall’s **Read the runes** check (`innsegall runes`) to confirm the engine can see your system before you send a scout.
 
-**Step 5 · Run the check.** If the popup followed a download, a weird email link, or a “free player” install, run **Is my Macintosh okay?** · Innsegall’s Mac hygiene Battle Scout. It looks at launch items, profiles, DNS, and other places scareware actually hides · without selling you a subscription.
+**Step 5 · Send the scout.** If the popup followed a download, a weird email link, or a “free player” install, run **Is my Macintosh okay?** · Innsegall’s Mac hygiene Battle Scout. It looks at launch items, profiles, DNS, and other places scareware actually hides · without selling you a subscription.
 
 If you **typed your password** into a fake dialog or gave remote access to someone on the phone · **Sound the Horn**: rotate credentials from a device you trust, revoke sessions, and share a Battle Scout card with someone in your clan.
 
@@ -72,13 +76,13 @@ Innsegall’s job is the opposite of scareware: **name what was checked, name wh
 | Popup only in browser, gone after Force Quit | Hygiene scout when convenient |
 | Installed software from the popup | Hygiene scout now · review login items |
 | Gave remote access or passwords | Sound the Horn · rotate creds |
-| Mac acting slow system-wide, not just browser | Run the check · bring your clan if verdict says escalate |
+| Mac acting slow system-wide, not just browser | Send the scout · bring your clan if verdict says escalate |
 
 You are not fighting Apple. You are not fighting the internet. You are fighting **not knowing** · and a ten-minute scout fixes most of that.
 
 ---
 
-Run a Battle Scout on your Macintosh when the fog rolls in. **Sound the Horn** only if the mist was real.
+Send the scout on your Macintosh when the fog rolls in. **Sound the Horn** only if the mist was real.
 
 · **Innsegall** · [innsegall.com](https://innsegall.com)
 

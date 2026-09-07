@@ -10,7 +10,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { buildCard } from "../src/card.mjs";
 import { ENGINE_VERSION, FLOWS, PRICING } from "../src/constants.mjs";
-import { renderHtml, renderMarkdown } from "../src/render.mjs";
+import { renderHtml, renderMarkdown, renderAiPaste } from "../src/render.mjs";
 import { loadHistorySeries, renderChartPage } from "../src/history-chart.mjs";
 import { expandHome, platformVersion, sh } from "../src/shell.mjs";
 import {
@@ -28,6 +28,7 @@ import { listCards, loadCardById, saveCard, supportPath } from "../src/storage.m
 import { runParley } from "../src/parley/index.mjs";
 import { validateCard } from "../src/validate.mjs";
 import { importLicenseFile } from "../src/license.mjs";
+import { isOperatorMode, requireOperator } from "../src/operator.mjs";
 import {
   formatQuotaTerminal,
   hornBanner,
@@ -38,33 +39,36 @@ import {
   printRunesHeader,
   printScoutResult,
   printWarriorsLedger,
+  printBoatLane,
 } from "../src/terminal.mjs";
+import { pingInstall } from "../src/telemetry-client.mjs";
 
 function usage() {
   console.log(`Innsegall ${ENGINE_VERSION} · know you're okay.
 
-  innsegall run [options]           Check + HTML card + open (full send)
-  innsegall check [options]         Run read-only check → Battle Scout JSON
+  innsegall run [options]           Send the scout · Battle Scout HTML
+  innsegall check [options]         Send the scout · read-only · JSON writ
   innsegall render <card.json>      Export markdown / HTML
-  innsegall show <card_id>          Show saved card from history
-  innsegall history                 List saved cards
-  innsegall voyage [options]         Scheduled hygiene (1st & 15th) · opens Battle Scout in browser
-  innsegall chart [options]         Sea-map health history (HTML)
-  innsegall parley [options]        Plan AI Parley assist (dry-run default)
-  innsegall smoke [options]          Full smoke sweep (tier fixtures + gates)
-  innsegall flows                   List flow names
-  innsegall runes                    Read the runes · Macintosh ready for a scout?
-  innsegall plan [options]          Scout quota · free 2/mo · clan unlimited
-  innsegall map                     Product map · mist road (terminal)
-  innsegall warriors                Agent credits · enlist ledger
+  innsegall show <card_id>          Open a saved Battle Scout
+  innsegall history                 Scroll of past scouts
+  innsegall voyage [options]        Voyage tide · send the scout (1st & 15th)
+  innsegall chart [options]         Sea-map health history
+  innsegall parley [options]        Parley assist (dry-run default)
+  innsegall smoke [options]         Full smoke sweep
+  innsegall flows                   Name the roads (flows)
+  innsegall runes                   Read the runes · Macintosh ready?
+  innsegall plan [options]          Oath ledger · quota · clan
+  innsegall map                     The mist road (terminal chart)
+  innsegall boat                    Contested fjord · our lane
+  innsegall warriors                War-band credits ledger
 
-Check / run options:
+Scout options:
   --flow <name>        mac_hygiene | clicked_bad_link | project_safe
   --project <path>     Watch a git repo (Flow C)
   --out <file.json>    Write card JSON
   --entered-password   ESCALATE: password entered on suspicious page
-  --downloaded-file    Flag suspicious download + scan Downloads
-  --quiet              JSON only on stdout (check)
+  --downloaded-file    Flag suspicious download · read Downloads folder
+  --quiet              JSON only on stdout (read-only scout)
 
 Render options:
   --md <file.md>       Markdown export
@@ -75,7 +79,7 @@ Render options:
   --force              Bypass scout quota (dev only)
 
 Plan options:
-  --import-license <file>  Apply innsegall-license.json after Stripe checkout
+  --import-license <file>  Apply innsegall-license.json after the toll gate
   --clan               Activate clan plan locally (alpha · after purchase)
   --credit <n>         Grant extra scout credits (alpha · after $4.20 payment)
   --free               Reset to free tier
@@ -122,6 +126,7 @@ function parseFlags(argv, start = 2) {
     else if (a === "--install-schedule") flags.installSchedule = true;
     else if (a === "--no-open") flags.noOpen = true;
     else if (a === "--import-license" && argv[i + 1]) flags.importLicense = argv[++i];
+    else if (a === "--share") flags.share = true;
     else if (a === "--help" || a === "-h") flags.help = true;
     else if (!a.startsWith("-")) flags._.push(a);
   }
@@ -175,7 +180,7 @@ function cmdCheck(flags) {
   });
   const errors = validateCard(card);
   if (errors.length) {
-    console.error("Card validation failed:", errors.join("; "));
+    console.error("Battle Scout writ invalid:", errors.join("; "));
     process.exit(1);
   }
   recordScoutUse({ ...quotaOpts, charge: gate.charge });
@@ -207,6 +212,8 @@ function cmdRun(flags) {
   const html = expandHome(flags.html || defaultHtmlPath(flags._outPath || flags.out));
   writeParent(html);
   writeFileSync(html, renderHtml(card), "utf8");
+  const aiPastePath = html.replace(/\.html$/i, ".ai-paste.md");
+  writeFileSync(aiPastePath, renderAiPaste(card), "utf8");
   if (!flags.quiet) {
     const status = formatPlanStatus(loadQuota());
     printScoutResult({
@@ -226,7 +233,7 @@ function cmdRun(flags) {
 function cmdRender(flags) {
   const input = flags._[0];
   if (!input) {
-    console.error("Usage: innsegall render <card.json> [--md] [--html] [--open]");
+    console.error("Usage: innsegall render <card.json> [--md] [--html] [--ai-paste] [--open]");
     process.exit(1);
   }
   let card;
@@ -251,11 +258,20 @@ function cmdRender(flags) {
     writeParent(p);
     writeFileSync(p, renderHtml(card), "utf8");
     if (!flags.quiet) console.log(`Wrote ${p}`);
+    const aiPath = p.replace(/\.html$/i, ".ai-paste.md");
+    writeFileSync(aiPath, renderAiPaste(card), "utf8");
+    if (!flags.quiet) console.log(`Wrote ${aiPath}`);
     if (flags.open && process.platform === "darwin") {
       execSync(`open "${p}"`, { stdio: "ignore" });
     }
   }
-  if (!flags.md && !flags.html) {
+  if (flags["ai-paste"]) {
+    const p = expandHome(flags["ai-paste"]);
+    writeParent(p);
+    writeFileSync(p, renderAiPaste(card), "utf8");
+    if (!flags.quiet) console.log(`Wrote ${p}`);
+  }
+  if (!flags.md && !flags.html && !flags["ai-paste"]) {
     console.log(renderMarkdown(card));
   }
 }
@@ -268,7 +284,7 @@ function cmdShow(flags) {
   }
   const card = loadCardById(id);
   if (!card) {
-    console.error(`Card not found: ${id}`);
+    console.error(`Battle Scout not found: ${id}`);
     process.exit(1);
   }
   console.log(renderMarkdown(card));
@@ -277,7 +293,7 @@ function cmdShow(flags) {
 function cmdHistory() {
   const cards = listCards(30);
   if (!cards.length) {
-    console.log(`No cards yet. Run: innsegall run`);
+    console.log(`No scouts out yet. Send the scout: innsegall run`);
     console.log(`Storage: ${supportPath()}/cards/`);
     return;
   }
@@ -289,14 +305,14 @@ function cmdHistory() {
 function cmdChart(flags) {
   const series = loadHistorySeries(48);
   if (!series.length) {
-    console.log("No voyages yet. Run: innsegall run");
+    console.log("No voyages yet. Send the scout: innsegall run");
     return;
   }
   const stamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
   const html = expandHome(flags.html || join(homedir(), "Desktop", `innsegall-voyage-chart-${stamp}.html`));
   writeParent(html);
   writeFileSync(html, renderChartPage(series), "utf8");
-  console.log(`Voyage chart · ${series.length} checks · mean health ${Math.round(series.reduce((a, p) => a + p.score, 0) / series.length)}`);
+  console.log(`Voyage chart · ${series.length} scouts · mean health ${Math.round(series.reduce((a, p) => a + p.score, 0) / series.length)}`);
   console.log(`Wrote ${html}`);
   if (flags.open && process.platform === "darwin") {
     execSync(`open "${html}"`, { stdio: "ignore" });
@@ -359,6 +375,11 @@ function cmdPlan(flags) {
     return;
   }
   if (flags.clan) {
+    const blocked = requireOperator("innsegall plan --clan");
+    if (blocked) {
+      console.error(blocked);
+      process.exit(1);
+    }
     const q = setPlan("clan");
     console.log("Clan plan activated locally (alpha). Unlimited scouts · 5 seats.");
     console.log(JSON.stringify(formatPlanStatus(q), null, 2));
@@ -371,6 +392,12 @@ function cmdPlan(flags) {
     return;
   }
   if (flags.credit && flags.credit > 0) {
+    const blocked = requireOperator("innsegall plan --credit");
+    if (blocked) {
+      console.error(blocked);
+      console.error("After Stripe checkout: innsegall plan --import-license ~/Downloads/innsegall-license.json");
+      process.exit(1);
+    }
     const q = addExtraCredits(flags.credit);
     console.log(`Added ${flags.credit} extra scout credit(s).`);
     console.log(JSON.stringify(formatPlanStatus(q), null, 2));
@@ -386,8 +413,8 @@ function cmdVoyage(flags) {
   if (!slot && !flags.force && !flags.smoke) {
     const next = nextVoyageDate();
     const nextStr = next.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
-    console.error(`Today is not a voyage day. Innsegall runs on the ${VOYAGE_DAYS.join(" and ")} of each month.`);
-    console.error(`Next voyage: ${nextStr}. Need one now? Extra run $${PRICING.extra_run.usd.toFixed(2)} · innsegall plan --credit 1 after purchase.`);
+    console.error(`Today is not a voyage day · free scouts sail the ${VOYAGE_DAYS.join(" and ")} of each month.`);
+    console.error(`Next voyage · ${nextStr}. Need one now? Panic scout $${PRICING.extra_run.usd.toFixed(2)} · checkout at ${PRICING.site_url}/#pricing → innsegall plan --import-license.`);
     process.exit(1);
   }
 
@@ -436,6 +463,8 @@ function cmdVoyage(flags) {
   const html = expandHome(flags.html || defaultHtmlPath(flags._outPath || flags.out));
   writeParent(html);
   writeFileSync(html, renderHtml(card), "utf8");
+  const aiPastePath = html.replace(/\.html$/i, ".ai-paste.md");
+  writeFileSync(aiPastePath, renderAiPaste(card), "utf8");
   if (!flags.quiet) {
     console.log(`Your voyage · ${card.verdict} · ${html}`);
   }
@@ -447,7 +476,7 @@ function cmdVoyage(flags) {
   }
 }
 
-function cmdRunes() {
+async function cmdRunes(flags) {
   const ok = [];
   const warn = [];
   if (process.platform !== "darwin") warn.push("Not macOS · scout commands need a Macintosh");
@@ -458,7 +487,7 @@ function cmdRunes() {
   if (sh("which git", { allowFail: true })) ok.push("git available");
   else warn.push("git not found · project_safe limited");
   if (sh("which plutil", { allowFail: true })) ok.push("plutil available");
-  else warn.push("plutil missing · launch ghost scan degraded");
+  else warn.push("plutil missing · launch ghost read degraded");
   try {
     mkdirSync(supportPath(), { recursive: true });
     ok.push(`Storage writable: ${supportPath()}`);
@@ -472,7 +501,11 @@ function cmdRunes() {
     console.log(paint(ansi.ember, "\nThe mist is thick · fix warnings before you send the scout."));
   } else {
     console.log(paint(ansi.beam, "\nSolas on the path · you're clear to run a scout."));
-    console.log(paint(ansi.dim, `innsegall run · map · ${PRICING.site_url}/guide`));
+    console.log(paint(ansi.dim, `innsegall run · boat · ${PRICING.site_url}/guide`));
+    const ping = await pingInstall({ share: flags.share, quiet: true });
+    if (ping.ok && flags.share) {
+      console.log(paint(ansi.dim, "Install ping sent (anonymized) · thank you scout."));
+    }
   }
   process.exit(warn.length ? 1 : 0);
 }
@@ -487,7 +520,7 @@ function main() {
   }
 
   if (process.platform !== "darwin" && ["check", "run", "runes", "doctor"].includes(cmd)) {
-    console.error("Innsegall check requires macOS.");
+    console.error("Innsegall scouts sail on Macintosh only.");
     process.exit(1);
   }
 
@@ -524,10 +557,7 @@ function main() {
       break;
     case "runes":
     case "doctor":
-      if (cmd === "doctor") {
-        console.error("Note: doctor → runes · read the runes before your scout.\n");
-      }
-      cmdRunes();
+      cmdRunes(flags);
       break;
     case "plan":
       cmdPlan(flags);
@@ -537,6 +567,9 @@ function main() {
       break;
     case "warriors":
       printWarriorsLedger();
+      break;
+    case "boat":
+      printBoatLane();
       break;
     default:
       console.error(`Unknown command: ${cmd}`);

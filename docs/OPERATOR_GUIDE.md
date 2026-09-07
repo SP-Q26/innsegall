@@ -1,7 +1,9 @@
 # Innsegall · Operator guide · stack + your steps
 
 **Purpose:** Everything **you** must provision · separate from **spquant.com / SPQ**.  
-**Code status (Sep 6, 2026):** tests + smoke green · site + Stripe API in repo · waiting on your accounts.
+**Code status (Sep 6 night):** `npm run preflight` = sync-gospel · audit-launch · smoke · self-test · AI-bus + paste shipped · uncommitted · no remote · push Monday AM.
+
+**Wake:** `WAKE_BELOW_DECK.md` · **North star:** `NORTH_STAR_AUDIT.md` · **Board:** `BOARD_ROOM_SWARM.md` · **Send:** `HOW_TO_SEND.md`
 
 ---
 
@@ -9,16 +11,14 @@
 
 | Area | Score | Status |
 |------|-------|--------|
-| Brand / copy | 8.5/10 | Manifesto, Voyage, runes, no XX on site |
-| Site (`innsegall/web/`) | 8.6/10 | index, alpha, legal, blog HTML, success page |
-| Engine (CLI) | 9/10 | Battle Scout, voyage browser open, quota, license import |
-| SEO / AI gospel | 9/10 | llms.txt, `.well-known`, JSON-LD, scout data |
-| Stripe (code) | 8/10 | Checkout + license API · **needs your keys** |
-| Deploy ops | 5/10 | **Blocked on you:** GitHub, Vercel, DNS, Stripe |
+| Brand / copy | 8.5/10 | Manifesto, Voyage, runes, Send the scout |
+| Site (`innsegall/web/`) | 8.4/10 | 20 pages · v8 CSS · not live until Vercel |
+| Engine (CLI) | 9/10 | Battle Scout · AI paste · voyage · license |
+| SEO / AI gospel | 9.5/10 | llms.txt · gospel · **ai-bus** · scout-data · ai-paste |
+| Stripe (code) | 8/10 | Checkout + webhook · **needs your keys** |
+| Deploy ops | 4/10 | **Blocked:** GitHub, Vercel, DNS, Stripe |
 
-**SPQ separation:** Innsegall is **not** in SPQ `vercel.json`. Own repo, own Vercel project, own domain, own Stripe.
-
-Detail: `SITE_AUDIT_REPORT.md` · `BRAND_AUDIT.md` · **`STACK_AND_DATA.md`** (Vercel/Git/Xano · what to combine)
+Detail: `NORTH_STAR_AUDIT.md` · `STACK_AUDIT_SEP6.md` · `SITE_AUDIT_SEP6.md` · `FULL_SWARM_AUDIT.md`
 
 ---
 
@@ -67,9 +67,9 @@ Detail: `SITE_AUDIT_REPORT.md` · `BRAND_AUDIT.md` · **`STACK_AND_DATA.md`** (V
 
 | | Recommendation |
 |--|----------------|
-| **Vercel** | **Yes — new project.** Import `innsegall/innsegall` · root directory **`web`**. Do not add innsegall.com to the SPQ/spquant Vercel project. |
-| **Stripe** | **Yes — new Stripe account** (or new business under Stripe if you already use it for SPQ). Keeps payouts, tax, and branding separate. Start in **test mode** · activate business later. |
-| **GitHub** | **Yes — new repo** `innsegall/innsegall` (public for install script). Can live in same GitHub org as SPQ but **different repository**. |
+| **Vercel** | **Yes · new project.** Import `innsegall/innsegall` · root directory **`web`**. Do not add innsegall.com to the SPQ/spquant Vercel project. |
+| **Stripe** | **Yes · new Stripe account** (or new business under Stripe if you already use it for SPQ). Keeps payouts, tax, and branding separate. Start in **test mode** · activate business later. |
+| **GitHub** | **Yes · new repo** `innsegall/innsegall` (public for install script). Can live in same GitHub org as SPQ but **different repository**. |
 
 Same *person* can own all accounts · just **different projects/accounts**, not shared Vercel env or domain.
 
@@ -97,7 +97,7 @@ Same *person* can own all accounts · just **different projects/accounts**, not 
 ### Phase C · Stripe test mode (~15 min)
 
 8. [stripe.com](https://stripe.com) → **new account** for Innsegall → stay in **Test mode**.
-9. You do **not** need to create products manually — code uses inline prices ($4.20 / $6.67). Optional: create products later for reporting.
+9. You do **not** need to create products manually · code uses inline prices ($4.20 / $6.67). Optional: create products later for reporting.
 10. Developers → **API keys** → copy **Secret key** `sk_test_...`.
 
 ### Phase D · Wire Vercel env + redeploy (~5 min)
@@ -176,6 +176,7 @@ License downloads on `/success` without webhook. Webhook = ops logging + future 
 | File | Use |
 |------|-----|
 | **This file** | Stack + your steps |
+| `NORTH_STAR_AUDIT.md` | Lane · pricing · AI-bus · no pivot |
 | `WIRE_STRIPE_VERCEL.md` | Stripe/Vercel detail |
 | `LAUNCH_CHECKLIST.md` | Full launch phases |
 | `SITE_AUDIT_REPORT.md` | Technical site audit |

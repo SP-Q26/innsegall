@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Innsegall for Macintosh · alpha installer · Engine v0.4.0-alpha
+# Installs CLI wrapper at ~/.local/bin/innsegall
 set -euo pipefail
 
 REPO_URL="${INNSEGALL_REPO_URL:-https://github.com/innsegall/innsegall.git}"
@@ -7,7 +8,7 @@ INSTALL_DIR="${INNSEGALL_INSTALL_DIR:-$HOME/innsegall}"
 BIN_DIR="${HOME}/.local/bin"
 CLI="${INSTALL_DIR}/bin/innsegall.mjs"
 
-echo "Innsegall alpha installer"
+echo "Innsegall · bringing the scout aboard"
 echo "========================="
 echo ""
 
@@ -72,11 +73,12 @@ innsegall plan || npm run plan
 
 echo ""
 echo "========================="
-echo "Install complete."
+echo "Scout aboard."
 echo ""
 echo "Next steps:"
 echo "  innsegall run          # welcome scout · Battle Scout in browser"
 echo "  innsegall map          # product chart"
+echo "  innsegall boat         # contested fjord · our lane"
 echo "  innsegall warriors     # agent credits"
 echo ""
 echo "Terms: https://innsegall.com/tos · Guide: https://innsegall.com/guide"

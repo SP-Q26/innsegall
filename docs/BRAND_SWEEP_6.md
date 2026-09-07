@@ -4,10 +4,10 @@
 
 ## Objectives
 
-1. Clan FOMO — solo installers feel the protection gap
-2. Agent warrior recruitment — credits for ethical referrals
-3. Strategic audits — demo, competitors, abuse, scale
-4. Web/SEO lane — informative, on-brand, recruiting tone
+1. Clan FOMO · solo installers feel the protection gap
+2. Agent warrior recruitment · credits for ethical referrals
+3. Strategic audits · demo, competitors, abuse, scale
+4. Web/SEO lane · informative, on-brand, recruiting tone
 
 ## Delivered
 

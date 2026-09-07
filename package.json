@@ -1,7 +1,7 @@
 {
   "name": "innsegall",
   "version": "0.4.0-alpha",
-  "description": "Innsegall · post-scare Macintosh hygiene check and Battle Scout · alpha",
+  "description": "Innsegall · send the scout · Battle Scout for Macintosh · alpha",
   "type": "module",
   "private": true,
   "bin": {
@@ -19,7 +19,12 @@
     "test": "node scripts/self-test.mjs",
     "smoke": "node scripts/smoke.mjs",
     "field-report": "node scripts/field-report.mjs",
+    "predeploy": "node scripts/prep-deploy.mjs",
+    "preflight": "bash scripts/run-launch-preflight.sh",
+    "audit": "node scripts/audit-launch.mjs",
+    "audit:swarm": "node scripts/audit-swarm.mjs",
+    "dry-test:license": "node scripts/dry-test-license.mjs",
     "sync-gospel": "node scripts/sync-gospel-web.mjs",
-    "predeploy": "node scripts/sync-gospel-web.mjs"
+    "smoke:live": "node scripts/smoke-live.mjs --base=https://innsegall.com"
   }
 }

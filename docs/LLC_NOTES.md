@@ -36,7 +36,7 @@ Consult a CPA or attorney licensed in your state before filing. Stripe does not 
 - Lawyers/investors already said "DE C-Corp"
 - You expect complex equity, board, or acquisition in DE-friendly courts
 
-**Delaware LLC** alone is a common mistake for tiny SaaS — you pay DE fees **and** often home-state foreign LLC fees without the VC benefits of a DE corp.
+**Delaware LLC** alone is a common mistake for tiny SaaS · you pay DE fees **and** often home-state foreign LLC fees without the VC benefits of a DE corp.
 
 ---
 

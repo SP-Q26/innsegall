@@ -24,9 +24,14 @@ export const PARLEY_INTENTS = {
     maxTokens: 700,
   },
   deep_parley: {
-    label: "Multi-step reasoning / escalation prep",
+    label: "Sound the Horn · escalation help",
     lane: "beacon",
     maxTokens: 4000,
+  },
+  sound_horn: {
+    label: "Sound the Horn · what to do now",
+    lane: "solas",
+    maxTokens: 900,
   },
   agent_help: {
     label: "Another agent needs bounded Mac hygiene context",

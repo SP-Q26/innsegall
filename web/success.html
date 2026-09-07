@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Payment complete · Innsegall</title>
-  <meta name="description" content="Your Innsegall license is ready. Download license.json and import with innsegall plan --import-license.">
+  <title>Oath sealed · Innsegall</title>
+  <meta name="description" content="Your Innsegall writ is ready. Download license.json and bind it with innsegall plan --import-license.">
   <meta name="robots" content="noindex">
   <meta name="theme-color" content="#0B1D2E">
 
@@ -14,9 +14,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/innsegall.css?v=6">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect fill='%230B1D2E' width='32' height='32' rx='6'/%3E%3Cpath fill='%23F4C95D' d='M16 4v24M10 10l6-4 6 4'/%3E%3C/svg%3E">
-</head>
+                      <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="/innsegall.css?v=10">
+  </head>
 <body data-brand="innsegall" data-product="innsegall-for-macintosh">
   <a class="skip-link" href="#main">Skip to content</a>
   <div class="beam-bg" aria-hidden="true"></div>
@@ -41,28 +43,29 @@
           <span class="brand-pronounce">IN-sheh-gal · built for Macintosh</span>
         </span>
       </a>
-      <a class="header-cta" href="/alpha">Sound the Horn · Install</a>
+      <nav class="header-nav" aria-label="Site"><a href="/">Home</a><a href="/alpha">Field manual</a><a href="/clan">Clan</a></nav>
     </header>
 
     <main id="main" class="section" style="border-top:none">
-      <p class="section-label">Payment received</p>
+      <p class="section-label">Oath sealed</p>
       <h1>The horn heard you · you're covered.</h1>
-      <p class="hero-manifesto" style="margin:1rem 0 1.5rem;">You did the hard part tonight. With Innsegall, no one is your enemy · you have no foe. <em lang="gd">Chan eil nàmhaid agad.</em></p>
+      <p class="hero-manifesto" style="margin:1rem 0 1.5rem;">You stood your ground tonight. With Innsegall, no one is your enemy · you have no foe. <em lang="gd">Chan eil nàmhaid agad.</em></p>
 
-      <p id="status">Fetching your Innsegall license for Macintosh…</p>
+      <p id="status">The skald fetches your writ…</p>
+      <p class="footer-note" style="margin-top:0.75rem;max-width:52ch;">Extra scout fees are <strong>final and non-refundable</strong> once this license delivers · Clan subscriptions cancel anytime from your billing portal · see <a href="/tos#refunds-title">Terms</a>.</p>
 
       <div id="actions" hidden>
-        <button type="button" class="btn-horn btn-horn--compact" id="download-btn">Download license.json</button>
+        <button type="button" class="btn-horn btn-horn--compact" id="download-btn">Take your writ (license.json)</button>
 
-        <p class="section-label" style="margin-top:2rem;">Import on your Mac</p>
+        <p class="section-label" style="margin-top:2rem;">Bind the oath on your Mac</p>
         <ol class="steps" style="margin:1rem 0 1.5rem;">
           <li>
             <span class="step-num" aria-hidden="true">1</span>
-            <div><strong>Save</strong> the downloaded <code>innsegall-license.json</code> file.</div>
+            <div><strong>Save</strong> the writ · <code>innsegall-license.json</code>.</div>
           </li>
           <li>
             <span class="step-num" aria-hidden="true">2</span>
-            <div><strong>Import</strong> in Terminal:</div>
+            <div><strong>Bind</strong> in Terminal:</div>
           </li>
         </ol>
         <div class="code-block">
@@ -70,11 +73,11 @@
           <button type="button" class="btn-copy" data-copy-target="cli-cmd" aria-label="Copy import command">Copy</button>
         </div>
         <p class="section-lead" style="margin-top:1.5rem;">
-          Import on your Mac · then <a href="/alpha">run your first scout</a>. <a href="/blog">Field Report</a> · <a href="/">Home</a>
+          Bind on your Mac · then <a href="/alpha">send your first scout</a>. <a href="/blog">Field Report</a> · <a href="/">Home</a>
         </p>
       </div>
 
-      <p id="error" hidden style="color:#f4a5a5;">Something went wrong. <a href="/#pricing">Try again</a> or email <a href="mailto:hello@innsegall.com">hello@</a> with your receipt.</p>
+      <p id="error" hidden style="color:#f4a5a5;">The writ would not come. <a href="/#pricing">Try the toll gate again</a> or email <a href="mailto:hello@innsegall.com">hello@</a> with your receipt.</p>
     </main>
 
     <footer class="site-footer">
@@ -82,7 +85,7 @@
       <p class="footer-note">Field Report · anonymized scout digests · <strong>Voyage</strong> tracker on the 1st &amp; 15th.</p>
       <nav class="footer-links" aria-label="Footer">
         <a href="/">Home</a>
-        <a href="/alpha">Install</a>
+        <a href="/alpha">Send the scout</a>
         <a href="/blog">Field Report</a>
         <a href="/tos">Terms</a>
         <a href="/privacy">Privacy</a>
@@ -113,7 +116,7 @@
       if (!sessionId) {
         status.hidden = true;
         err.hidden = false;
-        err.textContent = 'Missing checkout session.';
+        err.textContent = 'No session on the road · return from the toll gate.';
         return;
       }
       try {
@@ -121,8 +124,8 @@
         var data = await res.json();
         if (!res.ok) throw new Error(data.error || 'license_failed');
         status.textContent = data.plan === 'clan'
-          ? 'Clan plan active · your household has unlimited scouts. Welcome to the longship.'
-          : 'Extra scout credit unlocked · run Innsegall on your Macintosh anytime this month. Onward.';
+          ? 'Clan oath bound · your household sails with unlimited scouts. Welcome aboard the longship.'
+          : 'Panic scout unlocked · run Innsegall on your Macintosh anytime this moon. Onward.';
         var blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
         var url = URL.createObjectURL(blob);
         document.getElementById('download-btn').onclick = function () {
@@ -139,5 +142,6 @@
       }
     })();
   </script>
+  <script src="/innsegall-nav.js?v=10" defer></script>
 </body>
 </html>

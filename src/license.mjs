@@ -127,11 +127,17 @@ export function importLicenseFile(filePath) {
   }
 
   if (license.plan === "clan") {
+    if (!license.stripe_session && !license.stripe_subscription) {
+      throw new Error("clan license requires stripe_session or stripe_subscription");
+    }
     setPlan("clan");
     return { plan: "clan", message: "Clan plan activated · unlimited scouts" };
   }
   if (license.plan === "extra" || license.extra_credits > 0) {
-    const n = license.extra_credits || 1;
+    if (!license.stripe_session) {
+      throw new Error("extra license requires paid stripe_session");
+    }
+    const n = Math.min(Math.max(0, license.extra_credits || 1), 1);
     addExtraCredits(n);
     return { plan: "extra", credits: n, message: `Added ${n} extra scout credit(s)` };
   }

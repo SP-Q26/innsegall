@@ -4,14 +4,14 @@ export function fixesFromChecks(checks, userInputs = {}) {
   if (userInputs.entered_password) {
     fixes.push({
       id: "rotate_credentials",
-      title: "Rotate passwords you entered on the suspicious page",
+      title: "Rotate passwords you typed on the suspicious page",
       risk: "high",
       requires_sudo: false,
       automatable: false,
       steps: [
-        "Change that site’s password from a clean browser session.",
-        "If it was your Apple or email password, change those too.",
-        "Enable 2FA where available.",
+        "On a Mac or phone you trust, sign in and change that site's password.",
+        "If it was your Apple ID or email password, change those too · from the same clean device.",
+        "Turn on two-factor authentication where you can.",
       ],
     });
   }
@@ -24,9 +24,9 @@ export function fixesFromChecks(checks, userInputs = {}) {
       requires_sudo: false,
       automatable: false,
       steps: [
-        "Move the file from Downloads to Trash (do not open it).",
-        "Empty Trash after confirming the filename in this card.",
-        "Re-run the check.",
+        "Open Downloads. Move the suspicious file to Trash · do not open it.",
+        "Empty Trash after you confirm the filename matches this card.",
+        "Send the scout again when you're done.",
       ],
     });
   }
@@ -35,14 +35,14 @@ export function fixesFromChecks(checks, userInputs = {}) {
   if (ghosts?.status === "warn") {
     fixes.push({
       id: "review_launch_ghosts",
-      title: "Remove or fix broken launch items",
+      title: "Fix broken launch items",
       risk: "low",
       requires_sudo: true,
       automatable: false,
       steps: [
-        "Open each non-optional plist listed in Needs review.",
-        "If the app is gone, delete the plist or run the vendor uninstaller.",
-        "Reboot once after cleanup.",
+        "Open **Why we flagged this** and find Launch item health.",
+        "For each plist listed (skip rows marked Optional): if the app is gone, delete the plist or run the vendor uninstaller.",
+        "Reboot once, then send the scout again.",
       ],
     });
   } else if (
@@ -52,14 +52,14 @@ export function fixesFromChecks(checks, userInputs = {}) {
   ) {
     fixes.push({
       id: "optional_launch_cleanup",
-      title: "Optional: clean vendor launch leftovers",
+      title: "Optional: tidy vendor launch leftovers",
       risk: "low",
       requires_sudo: true,
       automatable: false,
       steps: [
         "These are stale Epson, Spotify, Steam, WD, Canon, or Malwarebytes helpers · not malware.",
         "Malwarebytes: use Help → Repair; don't delete its helper plist by hand.",
-        "Others: delete the plist if you removed the app, then reboot once.",
+        "Other vendors: delete the plist only if you already removed the app, then reboot once.",
       ],
     });
   }
@@ -73,9 +73,9 @@ export function fixesFromChecks(checks, userInputs = {}) {
       requires_sudo: false,
       automatable: false,
       steps: [
-        "Quit browsers. Remove listed folders/files (or use Malwarebytes scan).",
-        "Restart the Mac once.",
-        "Re-run Innsegall check.",
+        "Quit all browsers.",
+        "Remove the folders or files listed under **Why we flagged this** (or run a Malwarebytes scan).",
+        "Restart your Mac once, then send the scout again.",
       ],
     });
   }
@@ -84,14 +84,14 @@ export function fixesFromChecks(checks, userInputs = {}) {
   if (ff?.status === "warn") {
     fixes.push({
       id: "firefox_hardening",
-      title: "Review Firefox profile settings",
+      title: "Review Firefox settings",
       risk: "low",
       requires_sudo: false,
       automatable: false,
       steps: [
-        "Firefox → Settings → Search → confirm default search engine.",
-        "Keep protective user.js if present (see docs/house-call).",
-        "Remove unknown extensions.",
+        "Firefox → Settings → Search · confirm the default search engine is one you chose.",
+        "Settings → Extensions · remove anything you don't remember adding.",
+        "Keep protective user.js if this card says it's present.",
       ],
     });
   }
@@ -105,8 +105,8 @@ export function fixesFromChecks(checks, userInputs = {}) {
       requires_sudo: false,
       automatable: false,
       steps: [
-        "Safari → Settings → Extensions → remove anything unfamiliar.",
-        "Safari → Settings → Search → confirm provider.",
+        "Safari → Settings → Extensions · remove anything unfamiliar.",
+        "Safari → Settings → Search · confirm the search provider.",
       ],
     });
   }

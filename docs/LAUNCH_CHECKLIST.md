@@ -17,6 +17,7 @@ Ordered ops path from repo to paid alpha on **innsegall.com**. No SPQ coupling.
 ```bash
 npm test
 npm run smoke
+npm run preflight   # gospel sync + audit + smoke + test
 ```
 
 ---
@@ -119,6 +120,10 @@ innsegall voyage --install-schedule   # launchd plist · optional on ship machin
 | Doc | Use |
 |-----|-----|
 | `STRIPE_ASAP.md` | Checkout + webhook + license shape |
+| `STRIPE_DASHBOARD_SETUP.md` | Stripe Dashboard paste (forked from nexus-ops) |
+| `STRIPE_SMOKE.md` | 4242 E2E after deploy |
+| `DNS_ZOHO_SETUP.md` | Vercel DNS + hello@ Zoho |
+| `INFRA_FORK_AUDIT.md` | What we forked from SPQ / nexus-ops |
 | `MONETIZATION.md` | Pricing · quota · phases |
 | `README.md` | Vercel root `web` · env table |
 | `web/.env.example` | Local / Vercel env template |
