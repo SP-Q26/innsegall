@@ -25,6 +25,17 @@ if (/href="\/alpha"[^>]*>Sound the Horn</.test(map)) {
   console.log("ok: map CTA Send the scout");
 }
 
+for (const legal of ["privacy.html", "tos.html"]) {
+  const prose = readFileSync(join(web, legal), "utf8");
+  const body = prose.split("</header>")[1] || prose;
+  if (/\byour Mac\b/.test(body)) {
+    console.error(`FAIL: ${legal} still uses "your Mac" in body copy`);
+    failed++;
+  } else {
+    console.log(`ok: ${legal} Macintosh naming`);
+  }
+}
+
 for (const file of walkHtml(web)) {
   const rel = file.replace(web + "/", "");
   const html = readFileSync(file, "utf8");

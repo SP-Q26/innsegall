@@ -66,7 +66,7 @@ try {
 
 const index = readFileSync(join(web, "index.html"), "utf8");
 const visualChecks = [
-  ["CSS v13 sitewide", index.includes("innsegall.css?v=13")],
+  ["CSS v14 sitewide", index.includes("innsegall.css?v=14")],
   ["Index Battle Scout preview", index.includes("battle-scout-sample")],
   ["Guide Battle Scout sample", readFileSync(join(web, "guide.html"), "utf8").includes("battle-scout-sample")],
   ["Sample scout HTML", existsSync(join(web, "samples/battle-scout-demo.html"))],
@@ -78,6 +78,7 @@ const visualChecks = [
   ["Beam background", index.includes('class="beam-bg"')],
   ["Brand mark SVG", index.includes('class="brand-mark"')],
   ["Footer nav", index.includes('class="footer-links"')],
+  ["Field echoes scout-for-you", index.includes("We send the scout") && index.includes("Innsegall is that scout")],
 ];
 console.log("── License dry-test ──");
 try {

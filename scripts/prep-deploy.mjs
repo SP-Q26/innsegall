@@ -14,5 +14,5 @@ execSync("node scripts/export-sample-scout.mjs", { cwd: root, stdio: "inherit" }
 execSync("node scripts/export-og-png.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-brand.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-site-chrome.mjs", { cwd: root, stdio: "inherit" });
-execSync("node scripts/audit-launch.mjs", { cwd: root, stdio: "inherit" });
+execSync("node scripts/audit-swarm.mjs", { cwd: root, stdio: "inherit" });
 console.log("prep-deploy OK");

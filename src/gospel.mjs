@@ -165,6 +165,11 @@ export const INNSEGALL_GOSPEL = {
     lane: "Post-scare Macintosh triage · between popups and Genius Bar",
     we_are_not: "Antivirus · always-on scanner · scareware marketing",
     vs_av: "AV asks what might attack forever · Innsegall asks are you okay right now",
+    scout_for_you:
+      "Most households have no security scout · Innsegall runs read-only triage for you · paid tiers buy the decision layer with plain options · not DIY panic theater",
+    platform_order: ["Macintosh (alpha)", "iOS", "Windows"],
+    endgame:
+      "Partner with a niche consumer-security firm for escalation · or strategic fit inside a larger AV · post-scare receipts without another scareware funnel",
     moat: [
       "Battle Scout receipt culture",
       "Voyage rhythm 1st and 15th",

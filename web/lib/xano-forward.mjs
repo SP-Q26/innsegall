@@ -6,8 +6,9 @@ export async function forwardToXano(event, payload, source = "vercel") {
   if (!url) return { forwarded: false };
 
   const headers = { "Content-Type": "application/json" };
+  // Custom handshake · Xano env vercel_prod_key / vercel_preview_key precondition (not Meta API key).
   if (process.env.XANO_API_KEY) {
-    headers.Authorization = `Bearer ${process.env.XANO_API_KEY}`;
+    headers["X-API-Key"] = process.env.XANO_API_KEY;
   }
 
   const day =
