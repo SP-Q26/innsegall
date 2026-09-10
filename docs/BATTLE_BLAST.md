@@ -61,7 +61,7 @@
 | `POST /api/telemetry` | ✅ · fixed handler |
 | `POST /api/parley` | ✅ · GEMINI optional |
 
-**Gaps:** `XANO_EVENTS_URL` not set until you paste table (optional for 1pm).
+**Gaps:** `XANO_EVENTS_URL` not set until you paste `innsegall-events-post.xs` + keys (optional for 1pm).
 
 ### Legal / abuse · 8.5/10
 
@@ -106,7 +106,7 @@ Pricing buttons may 503 until Stripe env is set · **say “alpha · scouts free
 
 ### Tier C · Not tomorrow
 
-- Xano `innsegall_events` (paste from `XANO_PASTES.md` when you have 20 min)
+- Xano `innsegall_events` (paste `docs/pastes/innsegall-events-post.xs` · keys `XANO_KEYS_LEFT.md` · ~15 min)
 - Live Stripe keys
 - Field Report auto-publish cron
 - iOS / Windows ports
@@ -266,7 +266,7 @@ open "https://innsegall.com/#pricing"
 | `WIRE_STRIPE_VERCEL.md` · `STRIPE_DASHBOARD_SETUP.md` | Stripe wiring |
 | `DNS_ZOHO_SETUP.md` | DNS + hello@ |
 | `INFRA_FORK_AUDIT.md` | SPQ/nexus forks |
-| `XANO_PASTES.md` | When Xano ready |
+| `pastes/innsegall-events-post.xs` · `XANO_PASTES.md` · `XANO_KEYS_LEFT.md` | When Xano ready |
 | `FULL_SWARM_AUDIT.md` | Deep scorecard |
 
 ---

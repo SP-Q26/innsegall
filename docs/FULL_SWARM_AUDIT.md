@@ -172,7 +172,7 @@ Launch-item classifier distinguishes **housekeeping** vs true ghosts (Malwarebyt
 
 Webhook: forwards `checkout_complete` · `clan_subscription` · `clan_renewal` to Xano; **502** if Xano URL set and forward fails (Stripe retries).
 
-Telemetry: PII key denylist · path-like rejection · client events limited to `install_ping` · `scout_aggregate`.
+Telemetry: PII key denylist · path-like rejection · client events `install_ping` · `scout_aggregate` · `marketing_ping` · `issue_spotlight` · Xano paste `docs/pastes/innsegall-events-post.xs` (auth + 7-event whitelist).
 
 **Gaps:**
 
@@ -219,7 +219,7 @@ See `ABUSE_HARDENING.md`. Summary:
 |-----|------|
 | `BATTLE_BLAST.md` | Monday 1pm playbook |
 | `LAUNCH_CHECKLIST.md` · `WIRE_STRIPE_VERCEL.md` | Ops |
-| `XANO_PASTES.md` | Table + API pastes |
+| `pastes/innsegall-events-post.xs` · `XANO_PASTES.md` · `XANO_KEYS_LEFT.md` | Table + API paste + keys |
 | `AGENT_WARRIORS.md` | Field credits · warrior refs |
 | `VOICE_VINLAND.md` | Lexicon |
 | `COMPETITOR_BOAT.md` + `/boat` | Lane clarity |
@@ -284,7 +284,7 @@ Warrior / field credits: manual alpha · rules in `AGENT_WARRIORS.md`.
 ### P1 (week of launch)
 
 1. Rotate `INNSEGALL_LICENSE_SECRET`  
-2. `POST /api/redeem` + Xano table (`XANO_PASTES.md`)  
+2. `POST /api/redeem` + Xano table (`pastes/innsegall-events-post.xs` · `XANO_PASTES.md`)  
 3. Add `web/api/parley.js` to `audit-launch.mjs`  
 4. Hosted OG image on index  
 5. Stripe Customer Portal link in footer  

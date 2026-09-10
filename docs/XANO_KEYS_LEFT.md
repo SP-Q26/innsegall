@@ -9,10 +9,9 @@
 
 - [x] Table `innsegall_events`
 - [x] API group `innsegall_ops` · endpoint `POST /innsegall/events`
-- [x] Validation stack (event whitelist · forbidden payload keys)
-- [ ] Whitelist includes **`marketing_ping`** (site page-category pings · see `docs/PLATFORM_TRACKING.md`)
-- [ ] Whitelist includes **`issue_spotlight`** (identify/resolve category signals · see `docs/ISSUE_SPOTLIGHT_LOOP.md`)
-- [x] Run & Debug insert works
+- [ ] Stack matches **`docs/pastes/innsegall-events-post.xs`** (auth + all 7 events + forbidden keys)
+- [ ] **`marketing_ping`** + **`issue_spotlight`** in whitelist (included in paste)
+- [x] Run & Debug insert works (with correct key)
 
 ---
 
@@ -22,35 +21,44 @@
 
 ```bash
 openssl rand -base64 32   # prod
-openssl rand -base64 32   # preview (optional but recommended)
+openssl rand -base64 32   # preview (optional)
 ```
 
-Prefix optional: `sk_live_innsegall_ops_…` / `sk_test_innsegall_ops_…`
+Prefix when you store the value: `sk_live_innsegall_ops_…` / `sk_test_innsegall_ops_…`
 
 ### 2 · Xano → Settings → Environment variables
 
-| Name | Value |
-|------|--------|
-| `vercel_prod_key` | prod string |
-| `vercel_preview_key` | preview string |
+**Variable names in Xano** (must match the paste `$env.*` paths):
 
-### 3 · Precondition (top of `POST /innsegall/events` stack)
+| Xano env var name | Used for |
+|-------------------|----------|
+| `sk_live_innsegall_ops_` | Production · Vercel Production `XANO_API_KEY` |
+| `sk_test_innsegall_ops_` | Preview (optional) · Vercel Preview `XANO_API_KEY` |
+
+The **value** is your random secret (often prefixed `sk_live_innsegall_ops_` for readability). The **name** is literally `sk_live_innsegall_ops_` in Xano.
+
+If you only run production, create `sk_live_innsegall_ops_` only and edit the paste precondition to drop the `|| sk_test…` branch.
+
+### 3 · Replace endpoint stack
+
+Paste **`docs/pastes/innsegall-events-post.xs`** · publish draft → live.
+
+Auth precondition (no backticks):
 
 ```text
-(http.headers.x_api_key == $env.vercel_prod_key) || (http.headers.x_api_key == $env.vercel_preview_key)
+(http.headers.x_api_key == $env.sk_live_innsegall_ops_) || (http.headers.x_api_key == $env.sk_test_innsegall_ops_)
 ```
 
-- Error: `Unauthorized: Invalid Vercel Handshake Token` · **401**
-- Turn **off** default user/JWT auth on this endpoint
+- Turn **off** default user/JWT auth on this route
 
 ### 4 · Publish Xano draft → live
 
-### 5 · Vercel (`spq/innsegall_fe`)
+### 5 · Vercel (`spq/innsegall_fe` or Innsegall project)
 
 | Variable | Production | Preview |
 |----------|------------|---------|
 | `XANO_EVENTS_URL` | `https://x8ki-letl-twmt.n7.xano.io/api:innsegall_ops/innsegall/events` | same or preview instance |
-| `XANO_API_KEY` | same as `vercel_prod_key` | same as `vercel_preview_key` |
+| `XANO_API_KEY` | same **value** as Xano `sk_live_innsegall_ops_` | same **value** as Xano `sk_test_innsegall_ops_` |
 
 **Redeploy** after save (env does not apply until new deploy).
 
@@ -59,17 +67,18 @@ Prefix optional: `sk_live_innsegall_ops_…` / `sk_test_innsegall_ops_…`
 ```bash
 cd innsegall
 export XANO_EVENTS_URL='https://x8ki-letl-twmt.n7.xano.io/api:innsegall_ops/innsegall/events'
-export XANO_API_KEY='your_prod_key'
+export XANO_API_KEY='<exact value stored in Xano sk_live_innsegall_ops_>'
 npm run smoke:xano
 npm run smoke:xano -- --base=https://innsegall.com
 ```
 
 | Result | Meaning |
 |--------|---------|
-| Direct Xano `ok` | Precondition + table wired |
+| `rejects missing X-API-Key (403)` | Auth precondition wired · good |
+| Direct Xano `ok` + `response ok/id` | Key matches · insert works |
 | Prod `202` + `forwarded:true` | Vercel → Xano live |
-| Prod `204` | `XANO_EVENTS_URL` missing on Vercel |
-| Direct without header → 401 | Lock is working |
+| Prod `204` | `XANO_EVENTS_URL` missing on Vercel (redeploy after env) |
+| Direct with key → 403 | `XANO_API_KEY` ≠ value in `sk_live_innsegall_ops_` |
 
 ---
 
@@ -78,7 +87,7 @@ npm run smoke:xano -- --base=https://innsegall.com
 - `web/lib/xano-forward.mjs` sends **`X-API-Key`** (matches precondition)
 - `web/api/telemetry.js` → `vercel_telemetry`
 - `web/api/stripe/webhook.js` → `stripe_webhook`
-- Full paste reference: `docs/XANO_PASTES.md`
+- Full paste: `docs/pastes/innsegall-events-post.xs` · guide: `docs/XANO_PASTES.md`
 
 ---
 
@@ -87,7 +96,8 @@ npm run smoke:xano -- --base=https://innsegall.com
 - Xano **Metadata / backend** API key (workspace admin)
 - Auth **user JWT** on this route
 - Public endpoint without precondition
+- Same env var twice in the OR branch (both sides must be different vars if you use two keys)
 
 ---
 
-*Table built · API tested · keys + Vercel redeploy · smoke · onward.*
+*Table built · paste stack · keys + Vercel redeploy · smoke · onward.*

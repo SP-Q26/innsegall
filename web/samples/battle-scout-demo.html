@@ -596,6 +596,7 @@
       flex-shrink: 0;
     }
     .chip-clear { background: var(--clear-bg); color: var(--clear); border: 1px solid var(--clear-border); }
+    .chip-scope { background: rgba(168, 216, 255, 0.12); color: var(--mist); border: 1px solid rgba(168, 216, 255, 0.28); }
     .chip-review { background: var(--review-bg); color: var(--review); border: 1px solid var(--review-border); }
     .chip-escalate { background: var(--escalate-bg); color: var(--escalate); border: 1px solid var(--escalate-border); }
     .chip-housekeeping { background: var(--housekeeping-bg); color: var(--housekeeping); border: 1px solid var(--border); }
@@ -1027,6 +1028,77 @@
       color: var(--ink);
     }
     .result-titles p { margin: 0; font-size: var(--text-xs); color: var(--smoke); line-height: 1.5; }
+    .check-scope {
+      padding: 0.65rem 1rem 0.85rem;
+      border-top: 1px solid #ebe3d4;
+      background: var(--paper-2);
+    }
+    .check-scope-line {
+      margin: 0 0 0.45rem;
+      font-size: var(--text-xs);
+      line-height: 1.55;
+      color: var(--ink-soft);
+    }
+    .check-scope-line:last-child { margin-bottom: 0; }
+    .check-scope-k {
+      display: block;
+      font-size: 0.625rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--smoke);
+      margin-bottom: 0.12rem;
+    }
+    .check-learn {
+      color: var(--fjord);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .check-learn:hover { color: var(--gold); }
+    .clear-fold-lead {
+      margin: 0;
+      padding: 0.5rem 1rem 0;
+      font-size: var(--text-xs);
+      color: var(--smoke);
+      line-height: 1.5;
+    }
+    .clear-scope-fold {
+      margin-top: 0.45rem;
+      font-size: var(--text-xs);
+    }
+    .clear-scope-fold summary {
+      cursor: pointer;
+      color: var(--fjord);
+      font-weight: 600;
+    }
+    .clear-scope-fold .check-scope-line { margin-top: 0.35rem; }
+    .section-scope {
+      margin: 1.25rem 0 0;
+      padding: 1rem 1.1rem 1.1rem;
+      border-radius: 12px;
+      border: 1px dashed rgba(168, 216, 255, 0.22);
+      background: rgba(7, 20, 32, 0.35);
+    }
+    .scope-limit-list {
+      margin: 0.75rem 0 0;
+      padding-left: 1.1rem;
+      font-size: var(--text-sm);
+      color: var(--mist);
+      line-height: 1.55;
+    }
+    .scope-limit-list li { margin-bottom: 0.35rem; }
+    .scope-more {
+      margin: 0.85rem 0 0;
+      font-size: var(--text-xs);
+      text-align: center;
+    }
+    .scope-more a {
+      color: var(--gold);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
     .evidence-fold {
       border-top: 1px solid #e0d9ce;
       padding: 0 1rem .75rem;
@@ -1245,7 +1317,7 @@
       background: linear-gradient(180deg, #f8d574 0%, var(--gold) 50%, #c9962e 100%);
       color: #0f1a24;
       cursor: pointer;
-      margin-top: 0.75rem;
+      margin-top: 0;
       min-height: var(--touch-min);
       box-shadow:
         0 0 0 1px rgba(255, 255, 255, 0.15) inset,
@@ -1257,6 +1329,51 @@
       filter: brightness(1.04);
       transform: translateY(-1px);
       color: #0f1a24;
+    }
+    .share-btn.is-copied {
+      background: linear-gradient(180deg, #9ee8b8 0%, #3d9e62 50%, #2a7a4a 100%);
+      color: #0a1a12;
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.2) inset,
+        0 3px 0 #1f5c38,
+        0 10px 28px rgba(62, 158, 98, 0.35);
+    }
+    .share-copy-status {
+      min-height: 1.35rem;
+      margin: 0.55rem 0 0;
+      font-family: var(--font-ui);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.02em;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+    }
+    .share-copy-status.is-visible {
+      opacity: 1;
+    }
+    .share-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      justify-content: center;
+      margin-top: 0.75rem;
+    }
+    .share-btn-secondary {
+      background: linear-gradient(180deg, rgba(255,255,255,0.14) 0%, rgba(168,216,255,0.12) 100%);
+      color: var(--mist);
+      border: 1px solid rgba(168, 216, 255, 0.35);
+      box-shadow: 0 3px 0 rgba(7, 20, 32, 0.45);
+    }
+    .share-btn-secondary:hover {
+      color: #fff;
+      filter: brightness(1.08);
+    }
+    .share-download-hint {
+      margin: 0.45rem 0 0;
+      font-size: var(--text-xs);
+      color: var(--smoke);
+      line-height: 1.45;
     }
     .share-hint {
       display: block;
@@ -1547,7 +1664,7 @@
       <header class="hero mission-brief">
         <p class="hero-summary">We walked 13 paths on your Mac. 13 came back clear. You're okay tonight.</p>
         <p class="mission-leader">Breathe. Nothing here needs you tonight.</p>
-        <p class="hero-meta">Sep 7, 2026, 3:25 AM · Is my Macintosh okay? · macOS 14.0 (demo) · ✓ 13  ⚠ 0  ✗ 0</p>
+        <p class="hero-meta">Sep 9, 2026, 11:35 PM · Is my Macintosh okay? · macOS 14.0 (demo) · ✓ 13  ⚠ 0  ✗ 0</p>
       </header>
 
       <div class="armory" role="group" aria-label="Scout tiers · tap to jump">
@@ -1942,14 +2059,95 @@
 
       <details id="section-clear" class="clear-fold jump-section jump-tier-ship">
         <summary><span class="tier-chip chip-clear">Clear</span> 13 checks passed · full check log</summary>
-        <ul class="clear-list"><li><span class="clear-name">Launch ghosts</span><span class="clear-detail">No unexpected login items flagged.</span></li><li><span class="clear-name">Adware markers</span><span class="clear-detail">No known scareware patterns in common spots.</span></li><li><span class="clear-name">Hosts file</span><span class="clear-detail">Hosts file looks ordinary.</span></li><li><span class="clear-name">DNS resolvers</span><span class="clear-detail">Resolver settings read clean.</span></li><li><span class="clear-name">System proxy</span><span class="clear-detail">No suspicious proxy hijack.</span></li><li><span class="clear-name">Gatekeeper</span><span class="clear-detail">Gatekeeper enabled as expected.</span></li><li><span class="clear-name">Security software</span><span class="clear-detail">No conflicting scareware tools detected.</span></li><li><span class="clear-name">Firefox profile</span><span class="clear-detail">Extensions within normal range.</span></li><li><span class="clear-name">Safari profile</span><span class="clear-detail">Safari extensions look familiar.</span></li><li><span class="clear-name">Chrome profile</span><span class="clear-detail">Chrome extensions within normal range.</span></li><li><span class="clear-name">Login items</span><span class="clear-detail">Login items match what you'd expect.</span></li><li><span class="clear-name">Recent installs</span><span class="clear-detail">No surprise installers in the last week.</span></li><li><span class="clear-name">Configuration profiles</span><span class="clear-detail">No unknown MDM or profiles.</span></li></ul>
+        <p class="clear-fold-lead">Each line shows what we looked at and what we did not cover · expand any row for plain-language limits.</p>
+        <ul class="clear-list"><li><span class="clear-name">Launch ghosts</span><span class="clear-detail">No unexpected login items flagged.</span><details class="clear-scope-fold">
+        <summary>What we looked at · limits</summary>
+        <p class="check-scope-line check-looked"><span class="check-scope-k">Looked at</span> Startup lists (LaunchAgents, LaunchDaemons, login items) that point at apps or files that are missing</p>
+        <p class="check-scope-line check-limit"><span class="check-scope-k">Does not cover</span> Apps that still launch but behave badly, or kernel-level malware</p>
+        <p class="check-scope-line check-why"><span class="check-scope-k">Why it matters</span> Broken launch items slow login and are a common place scareware hides after you delete the main app · <a class="check-learn" href="https://innsegall.com/blog/stale-launch-items-macintosh/" target="_blank" rel="noopener noreferrer">Why this check matters</a></p>
+      </details></li><li><span class="clear-name">Adware markers</span><span class="clear-detail">No known scareware patterns in common spots.</span><details class="clear-scope-fold">
+        <summary>What we looked at · limits</summary>
+        <p class="check-scope-line check-looked"><span class="check-scope-k">Looked at</span> Known adware file names, folders, and browser-extension patterns left on disk</p>
+        <p class="check-scope-line check-limit"><span class="check-scope-k">Does not cover</span> Brand-new malware with no known signature, or threats only in memory</p>
+        <p class="check-scope-line check-why"><span class="check-scope-k">Why it matters</span> Fake virus popups often leave named leftovers · finding them explains odd browser behavior · <a class="check-learn" href="https://innsegall.com/blog/adware-leftovers-macintosh/" target="_blank" rel="noopener noreferrer">Why this check matters</a></p>
+      </details></li><li><span class="clear-name">Hosts file</span><span class="clear-detail">Hosts file looks ordinary.</span><details class="clear-scope-fold">
+        <summary>What we looked at · limits</summary>
+        <p class="check-scope-line check-looked"><span class="check-scope-k">Looked at</span> Your Mac's hosts file for unexpected redirects to sketchy domains</p>
+        <p class="check-scope-line check-limit"><span class="check-scope-k">Does not cover</span> DNS changes made only on your router or phone, or VPN-only routing</p>
+        <p class="check-scope-line check-why"><span class="check-scope-k">Why it matters</span> Scareware sometimes edits hosts to lock you onto their &quot;support&quot; pages · <a class="check-learn" href="https://innsegall.com/#lay-of-the-land" target="_blank" rel="noopener noreferrer">What the scout does and does not do</a></p>
+      </details></li><li><span class="clear-name">DNS resolvers</span><span class="clear-detail">Resolver settings read clean.</span><details class="clear-scope-fold">
+        <summary>What we looked at · limits</summary>
+        <p class="check-scope-line check-looked"><span class="check-scope-k">Looked at</span> Which DNS servers your Mac is set to use (Wi‑Fi and Ethernet)</p>
+        <p class="check-scope-line check-limit"><span class="check-scope-k">Does not cover</span> DNS on other devices, or encrypted DNS inside a browser only</p>
+        <p class="check-scope-line check-why"><span class="check-scope-k">Why it matters</span> Fake cleaners often switch DNS so they can intercept or nag you on every site · <a class="check-learn" href="https://innsegall.com/blog/dns-settings-macintosh/" target="_blank" rel="noopener noreferrer">Why this check matters</a></p>
+      </details></li><li><span class="clear-name">System proxy</span><span class="clear-detail">No suspicious proxy hijack.</span><details class="clear-scope-fold">
+        <summary>What we looked at · limits</summary>
+        <p class="check-scope-line check-looked"><span class="check-scope-k">Looked at</span> System-wide web proxy settings that could funnel traffic through a stranger</p>
+        <p class="check-scope-line check-limit"><span class="check-scope-k">Does not cover</span> Browser-only extensions, or corporate proxies your IT installed on purpose</p>
+        <p class="check-scope-line check-why"><span class="check-scope-k">Why it matters</span> Unexpected proxies are a classic persistence trick after scare popups · <a class="check-learn" href="https://innsegall.com/blog/dns-settings-macintosh/" target="_blank" rel="noopener noreferrer">Why this check matters</a></p>
+      </details></li><li><span class="clear-name">Gatekeeper</span><span class="clear-detail">Gatekeeper enabled as expected.</span><details class="clear-scope-fold">
+        <summary>What we looked at · limits</summary>
+        <p class="check-scope-line check-looked"><span class="check-scope-k">Looked at</span> Whether macOS Gatekeeper and quarantine protections are turned on as expected</p>
+        <p class="check-scope-line check-limit"><span class="check-scope-k">Does not cover</span> Whether every app you run is trustworthy · only whether core guards are enabled</p>
+        <p class="check-scope-line check-why"><span class="check-scope-k">Why it matters</span> Disabled Gatekeeper makes it easier to run downloaded scareware installers · <a class="check-learn" href="https://innsegall.com/#lay-of-the-land" target="_blank" rel="noopener noreferrer">What the scout does and does not do</a></p>
+      </details></li><li><span class="clear-name">Security software</span><span class="clear-detail">No conflicting scareware tools detected.</span><details class="clear-scope-fold">
+        <summary>What we looked at · limits</summary>
+        <p class="check-scope-line check-looked"><span class="check-scope-k">Looked at</span> Whether known security tools (Malwarebytes, etc.) are installed and responding</p>
+        <p class="check-scope-line check-limit"><span class="check-scope-k">Does not cover</span> Full scans, license status, or whether those tools found anything today</p>
+        <p class="check-scope-line check-why"><span class="check-scope-k">Why it matters</span> Knowing what protection you already have avoids duplicate panic subscriptions · <a class="check-learn" href="https://innsegall.com/#lay-of-the-land" target="_blank" rel="noopener noreferrer">What the scout does and does not do</a></p>
+      </details></li><li><span class="clear-name">Firefox profile</span><span class="clear-detail">Extensions within normal range.</span><details class="clear-scope-fold">
+        <summary>What we looked at · limits</summary>
+        <p class="check-scope-line check-looked"><span class="check-scope-k">Looked at</span> Firefox profiles for suspicious extensions, search hijacks, and odd home pages</p>
+        <p class="check-scope-line check-limit"><span class="check-scope-k">Does not cover</span> Safari or Chrome, or activity inside private windows we cannot see</p>
+        <p class="check-scope-line check-why"><span class="check-scope-k">Why it matters</span> After a bad link, browsers are often the first place redirects and spam extensions land · <a class="check-learn" href="https://innsegall.com/blog/after-suspicious-link-macintosh/" target="_blank" rel="noopener noreferrer">Why this check matters</a></p>
+      </details></li><li><span class="clear-name">Safari profile</span><span class="clear-detail">Safari extensions look familiar.</span><details class="clear-scope-fold">
+        <summary>What we looked at · limits</summary>
+        <p class="check-scope-line check-looked"><span class="check-scope-k">Looked at</span> Safari extensions and homepage/search settings for obvious hijacks</p>
+        <p class="check-scope-line check-limit"><span class="check-scope-k">Does not cover</span> Firefox or Chrome, or iCloud-synced settings on other devices</p>
+        <p class="check-scope-line check-why"><span class="check-scope-k">Why it matters</span> Safari is the default browser · scare pages often target it first on Mac · <a class="check-learn" href="https://innsegall.com/blog/after-suspicious-link-macintosh/" target="_blank" rel="noopener noreferrer">Why this check matters</a></p>
+      </details></li><li><span class="clear-name">Chrome profile</span><span class="clear-detail">Chrome extensions within normal range.</span><details class="clear-scope-fold">
+        <summary>What we looked at · limits</summary>
+        <p class="check-scope-line check-looked"><span class="check-scope-k">Looked at</span> Chrome profiles for suspicious extensions, policies, and search overrides</p>
+        <p class="check-scope-line check-limit"><span class="check-scope-k">Does not cover</span> Other browsers, or Chrome on a different user account</p>
+        <p class="check-scope-line check-why"><span class="check-scope-k">Why it matters</span> Extension spam after a scare popup usually shows up as odd Chrome behavior · <a class="check-learn" href="https://innsegall.com/blog/after-suspicious-link-macintosh/" target="_blank" rel="noopener noreferrer">Why this check matters</a></p>
+      </details></li><li><span class="clear-name">Login items</span><span class="clear-detail">Login items match what you'd expect.</span><details class="clear-scope-fold">
+        <summary>What we looked at · limits</summary>
+        <p class="check-scope-line check-looked"><span class="check-scope-k">Looked at</span> Items set to open automatically when you log in (System Settings list)</p>
+        <p class="check-scope-line check-limit"><span class="check-scope-k">Does not cover</span> Background services that do not appear in Login Items, or iCloud-only apps</p>
+        <p class="check-scope-line check-why"><span class="check-scope-k">Why it matters</span> Mystery login items are a common &quot;why is my Mac slow?&quot; clue after scareware · <a class="check-learn" href="https://innsegall.com/blog/stale-launch-items-macintosh/" target="_blank" rel="noopener noreferrer">Why this check matters</a></p>
+      </details></li><li><span class="clear-name">Recent installs</span><span class="clear-detail">No surprise installers in the last week.</span><details class="clear-scope-fold">
+        <summary>What we looked at · limits</summary>
+        <p class="check-scope-line check-looked"><span class="check-scope-k">Looked at</span> Apps and packages installed in roughly the last seven days</p>
+        <p class="check-scope-line check-limit"><span class="check-scope-k">Does not cover</span> Installs older than a week, or drag-and-drop apps with no installer record</p>
+        <p class="check-scope-line check-why"><span class="check-scope-k">Why it matters</span> The thing you installed right after the popup is often the actual trouble · <a class="check-learn" href="https://innsegall.com/#lay-of-the-land" target="_blank" rel="noopener noreferrer">What the scout does and does not do</a></p>
+      </details></li><li><span class="clear-name">Configuration profiles</span><span class="clear-detail">No unknown MDM or profiles.</span><details class="clear-scope-fold">
+        <summary>What we looked at · limits</summary>
+        <p class="check-scope-line check-looked"><span class="check-scope-k">Looked at</span> Configuration and MDM profiles that can lock settings or install remote management</p>
+        <p class="check-scope-line check-limit"><span class="check-scope-k">Does not cover</span> Profiles your employer installed on a work Mac you already expect</p>
+        <p class="check-scope-line check-why"><span class="check-scope-k">Why it matters</span> Unexpected profiles can mean someone else controls settings on your personal Mac · <a class="check-learn" href="https://innsegall.com/blog/mdm-profiles-macintosh/" target="_blank" rel="noopener noreferrer">Why this check matters</a></p>
+      </details></li></ul>
       </details>
+
+      <section id="section-scope" class="section section-scope jump-section">
+    <div class="section-label section-label-tier">
+      <span class="tier-chip chip-scope">Limits</span>
+      <span>What this scout does not check</span>
+    </div>
+    <p class="section-lead">A clear scout is honest about its lane. Passing these checks means we did not see common scareware leftovers in the places we read · not that your Mac is invulnerable forever.</p>
+    <ul class="scope-limit-list"><li>Real-time malware scanning, removal, or quarantine of active threats</li><li>Whether someone else is reading your email, iCloud, or bank accounts right now</li><li>Network traffic, keystrokes, or screen capture while you use the Mac</li><li>Windows, Linux, iPhone, or iPad (Macintosh only today)</li><li>Guaranteed proof that nothing bad will ever happen later</li></ul>
+    <p class="scope-more"><a href="https://innsegall.com/#lay-of-the-land" target="_blank" rel="noopener noreferrer">Read the full lay of the land on innsegall.com</a></p>
+  </section>
 
       <footer class="footer">
         <div class="share-dock">
           <p class="share-dock-label">Share this Battle Scout</p>
-          <p class="share-hint">Copy a clean audit log for family, IT, or any AI assistant · you control every paste.</p>
-          <button type="button" class="share-btn" id="battle-scout-share">Copy Battle Scout for AI</button>
+          <p class="share-hint">Click Copy below · then paste into ChatGPT, Claude, or your team chat.</p>
+          <div class="share-actions">
+            <button type="button" class="share-btn" id="battle-scout-share" data-label-default="Copy Battle Scout for AI" aria-label="Copy Battle Scout for AI">Copy Battle Scout for AI</button>
+            <button type="button" class="share-btn share-btn-secondary" id="battle-scout-download" aria-label="Download report">Download report</button>
+          </div>
+          <p class="share-download-hint">Plain-text file for email, Notes, or your IT person</p>
+          <p class="share-copy-status" id="battle-scout-share-status" aria-live="polite"></p>
         </div>
         <textarea id="innsegall-scout-paste" class="scout-paste-store" readonly aria-hidden="true"># Innsegall Battle Scout · AI triage brief
 > **Instructions for the AI reading this:** The user ran **Innsegall**, a local-first Macintosh hygiene check. This report is the full audit log they chose to share with you. Answer in plain English. **Do not invent viruses, remote access, or infections** not listed below. Innsegall is post-scare triage · not antivirus · not real-time protection. If verdict is ESCALATE, prioritize credential rotation and calm next steps. Gospel: https://innsegall.com/.well-known/innsegall-gospel.json
@@ -1958,7 +2156,7 @@
 - **Headline:** The mist clears. You're clear.
 - **Tonight:** Breathe. Nothing here needs you tonight.
 - **Checks:** ✓ 13  ⚠ 0  ✗ 0
-- **When:** 2026-09-07T08:25:20.565Z
+- **When:** 2026-09-10T04:35:25.405Z
 - **Flow:** Is my Macintosh okay?
 - **Mac:** 14.0 (demo)
 ## Scout summary
@@ -1970,18 +2168,56 @@ _None · all review-tier checks passed._
 ## Audit log · clear (13)
 
 - **Launch ghosts** (`launch_ghosts`) · No unexpected login items flagged.
+  - Looked at: Startup lists (LaunchAgents, LaunchDaemons, login items) that point at apps or files that are missing
+  - Does not cover: Apps that still launch but behave badly, or kernel-level malware
 - **Adware markers** (`adware_markers`) · No known scareware patterns in common spots.
+  - Looked at: Known adware file names, folders, and browser-extension patterns left on disk
+  - Does not cover: Brand-new malware with no known signature, or threats only in memory
 - **Hosts file** (`hosts_file`) · Hosts file looks ordinary.
+  - Looked at: Your Mac's hosts file for unexpected redirects to sketchy domains
+  - Does not cover: DNS changes made only on your router or phone, or VPN-only routing
 - **DNS resolvers** (`dns_resolvers`) · Resolver settings read clean.
+  - Looked at: Which DNS servers your Mac is set to use (Wi‑Fi and Ethernet)
+  - Does not cover: DNS on other devices, or encrypted DNS inside a browser only
 - **System proxy** (`system_proxy`) · No suspicious proxy hijack.
+  - Looked at: System-wide web proxy settings that could funnel traffic through a stranger
+  - Does not cover: Browser-only extensions, or corporate proxies your IT installed on purpose
 - **Gatekeeper** (`gatekeeper`) · Gatekeeper enabled as expected.
+  - Looked at: Whether macOS Gatekeeper and quarantine protections are turned on as expected
+  - Does not cover: Whether every app you run is trustworthy · only whether core guards are enabled
 - **Security software** (`security_software`) · No conflicting scareware tools detected.
+  - Looked at: Whether known security tools (Malwarebytes, etc.) are installed and responding
+  - Does not cover: Full scans, license status, or whether those tools found anything today
 - **Firefox profile** (`firefox_profile`) · Extensions within normal range.
+  - Looked at: Firefox profiles for suspicious extensions, search hijacks, and odd home pages
+  - Does not cover: Safari or Chrome, or activity inside private windows we cannot see
 - **Safari profile** (`safari_profile`) · Safari extensions look familiar.
+  - Looked at: Safari extensions and homepage/search settings for obvious hijacks
+  - Does not cover: Firefox or Chrome, or iCloud-synced settings on other devices
 - **Chrome profile** (`chrome_profile`) · Chrome extensions within normal range.
+  - Looked at: Chrome profiles for suspicious extensions, policies, and search overrides
+  - Does not cover: Other browsers, or Chrome on a different user account
 - **Login items** (`login_items`) · Login items match what you'd expect.
+  - Looked at: Items set to open automatically when you log in (System Settings list)
+  - Does not cover: Background services that do not appear in Login Items, or iCloud-only apps
 - **Recent installs** (`recent_installs`) · No surprise installers in the last week.
+  - Looked at: Apps and packages installed in roughly the last seven days
+  - Does not cover: Installs older than a week, or drag-and-drop apps with no installer record
 - **Configuration profiles** (`config_profiles`) · No unknown MDM or profiles.
+  - Looked at: Configuration and MDM profiles that can lock settings or install remote management
+  - Does not cover: Profiles your employer installed on a work Mac you already expect
+
+## What this scout does not check
+
+A clear scout is honest about its lane. Passing these checks means we did not see common scareware leftovers in the places we read · not that your Mac is invulnerable forever.
+
+- Real-time malware scanning, removal, or quarantine of active threats
+- Whether someone else is reading your email, iCloud, or bank accounts right now
+- Network traffic, keystrokes, or screen capture while you use the Mac
+- Windows, Linux, iPhone, or iPad (Macintosh only today)
+- Guaranteed proof that nothing bad will ever happen later
+
+Lay of the land: https://innsegall.com/#lay-of-the-land
 
 ## How to help the user
 
@@ -2001,7 +2237,7 @@ _None · all review-tier checks passed._
   "gospel": "https://innsegall.com/.well-known/innsegall-gospel.json",
   "llms_txt": "https://innsegall.com/llms.txt",
   "card_id": "demo-public-likely-ok",
-  "created_at": "2026-09-07T08:25:20.565Z",
+  "created_at": "2026-09-10T04:35:25.405Z",
   "engine_version": "0.4.0-alpha",
   "platform": "macos",
   "platform_version": "14.0 (demo)",
@@ -2026,69 +2262,129 @@ _None · all review-tier checks passed._
     {
       "id": "launch_ghosts",
       "name": "Launch ghosts",
-      "detail": "No unexpected login items flagged."
+      "detail": "No unexpected login items flagged.",
+      "looked_at": "Startup lists (LaunchAgents, LaunchDaemons, login items) that point at apps or files that are missing",
+      "does_not_cover": "Apps that still launch but behave badly, or kernel-level malware",
+      "why_matters": "Broken launch items slow login and are a common place scareware hides after you delete the main app",
+      "learn_more": "https://innsegall.com/blog/stale-launch-items-macintosh/"
     },
     {
       "id": "adware_markers",
       "name": "Adware markers",
-      "detail": "No known scareware patterns in common spots."
+      "detail": "No known scareware patterns in common spots.",
+      "looked_at": "Known adware file names, folders, and browser-extension patterns left on disk",
+      "does_not_cover": "Brand-new malware with no known signature, or threats only in memory",
+      "why_matters": "Fake virus popups often leave named leftovers · finding them explains odd browser behavior",
+      "learn_more": "https://innsegall.com/blog/adware-leftovers-macintosh/"
     },
     {
       "id": "hosts_file",
       "name": "Hosts file",
-      "detail": "Hosts file looks ordinary."
+      "detail": "Hosts file looks ordinary.",
+      "looked_at": "Your Mac's hosts file for unexpected redirects to sketchy domains",
+      "does_not_cover": "DNS changes made only on your router or phone, or VPN-only routing",
+      "why_matters": "Scareware sometimes edits hosts to lock you onto their \"support\" pages",
+      "learn_more": "https://innsegall.com/#lay-of-the-land"
     },
     {
       "id": "dns_resolvers",
       "name": "DNS resolvers",
-      "detail": "Resolver settings read clean."
+      "detail": "Resolver settings read clean.",
+      "looked_at": "Which DNS servers your Mac is set to use (Wi‑Fi and Ethernet)",
+      "does_not_cover": "DNS on other devices, or encrypted DNS inside a browser only",
+      "why_matters": "Fake cleaners often switch DNS so they can intercept or nag you on every site",
+      "learn_more": "https://innsegall.com/blog/dns-settings-macintosh/"
     },
     {
       "id": "system_proxy",
       "name": "System proxy",
-      "detail": "No suspicious proxy hijack."
+      "detail": "No suspicious proxy hijack.",
+      "looked_at": "System-wide web proxy settings that could funnel traffic through a stranger",
+      "does_not_cover": "Browser-only extensions, or corporate proxies your IT installed on purpose",
+      "why_matters": "Unexpected proxies are a classic persistence trick after scare popups",
+      "learn_more": "https://innsegall.com/blog/dns-settings-macintosh/"
     },
     {
       "id": "gatekeeper",
       "name": "Gatekeeper",
-      "detail": "Gatekeeper enabled as expected."
+      "detail": "Gatekeeper enabled as expected.",
+      "looked_at": "Whether macOS Gatekeeper and quarantine protections are turned on as expected",
+      "does_not_cover": "Whether every app you run is trustworthy · only whether core guards are enabled",
+      "why_matters": "Disabled Gatekeeper makes it easier to run downloaded scareware installers",
+      "learn_more": "https://innsegall.com/#lay-of-the-land"
     },
     {
       "id": "security_software",
       "name": "Security software",
-      "detail": "No conflicting scareware tools detected."
+      "detail": "No conflicting scareware tools detected.",
+      "looked_at": "Whether known security tools (Malwarebytes, etc.) are installed and responding",
+      "does_not_cover": "Full scans, license status, or whether those tools found anything today",
+      "why_matters": "Knowing what protection you already have avoids duplicate panic subscriptions",
+      "learn_more": "https://innsegall.com/#lay-of-the-land"
     },
     {
       "id": "firefox_profile",
       "name": "Firefox profile",
-      "detail": "Extensions within normal range."
+      "detail": "Extensions within normal range.",
+      "looked_at": "Firefox profiles for suspicious extensions, search hijacks, and odd home pages",
+      "does_not_cover": "Safari or Chrome, or activity inside private windows we cannot see",
+      "why_matters": "After a bad link, browsers are often the first place redirects and spam extensions land",
+      "learn_more": "https://innsegall.com/blog/after-suspicious-link-macintosh/"
     },
     {
       "id": "safari_profile",
       "name": "Safari profile",
-      "detail": "Safari extensions look familiar."
+      "detail": "Safari extensions look familiar.",
+      "looked_at": "Safari extensions and homepage/search settings for obvious hijacks",
+      "does_not_cover": "Firefox or Chrome, or iCloud-synced settings on other devices",
+      "why_matters": "Safari is the default browser · scare pages often target it first on Mac",
+      "learn_more": "https://innsegall.com/blog/after-suspicious-link-macintosh/"
     },
     {
       "id": "chrome_profile",
       "name": "Chrome profile",
-      "detail": "Chrome extensions within normal range."
+      "detail": "Chrome extensions within normal range.",
+      "looked_at": "Chrome profiles for suspicious extensions, policies, and search overrides",
+      "does_not_cover": "Other browsers, or Chrome on a different user account",
+      "why_matters": "Extension spam after a scare popup usually shows up as odd Chrome behavior",
+      "learn_more": "https://innsegall.com/blog/after-suspicious-link-macintosh/"
     },
     {
       "id": "login_items",
       "name": "Login items",
-      "detail": "Login items match what you'd expect."
+      "detail": "Login items match what you'd expect.",
+      "looked_at": "Items set to open automatically when you log in (System Settings list)",
+      "does_not_cover": "Background services that do not appear in Login Items, or iCloud-only apps",
+      "why_matters": "Mystery login items are a common \"why is my Mac slow?\" clue after scareware",
+      "learn_more": "https://innsegall.com/blog/stale-launch-items-macintosh/"
     },
     {
       "id": "recent_installs",
       "name": "Recent installs",
-      "detail": "No surprise installers in the last week."
+      "detail": "No surprise installers in the last week.",
+      "looked_at": "Apps and packages installed in roughly the last seven days",
+      "does_not_cover": "Installs older than a week, or drag-and-drop apps with no installer record",
+      "why_matters": "The thing you installed right after the popup is often the actual trouble",
+      "learn_more": "https://innsegall.com/#lay-of-the-land"
     },
     {
       "id": "config_profiles",
       "name": "Configuration profiles",
-      "detail": "No unknown MDM or profiles."
+      "detail": "No unknown MDM or profiles.",
+      "looked_at": "Configuration and MDM profiles that can lock settings or install remote management",
+      "does_not_cover": "Profiles your employer installed on a work Mac you already expect",
+      "why_matters": "Unexpected profiles can mean someone else controls settings on your personal Mac",
+      "learn_more": "https://innsegall.com/blog/mdm-profiles-macintosh/"
     }
   ],
+  "does_not_check": [
+    "Real-time malware scanning, removal, or quarantine of active threats",
+    "Whether someone else is reading your email, iCloud, or bank accounts right now",
+    "Network traffic, keystrokes, or screen capture while you use the Mac",
+    "Windows, Linux, iPhone, or iPad (Macintosh only today)",
+    "Guaranteed proof that nothing bad will ever happen later"
+  ],
+  "scope_lead": "A clear scout is honest about its lane. Passing these checks means we did not see common scareware leftovers in the places we read · not that your Mac is invulnerable forever.",
   "project_watch": null
 }
 ```
@@ -2096,6 +2392,87 @@ _None · all review-tier checks passed._
 ---
 Innsegall · demo-public-likely-ok · engine 0.4.0-alpha · innsegall.com
 With Innsegall, no one is your enemy · you have no foe.</textarea>
+        <textarea id="innsegall-scout-md" class="scout-paste-store" readonly aria-hidden="true" data-filename="innsegall-battle-scout-demo-public-likely-ok.md"># Innsegall Battle Scout
+
+**The mist clears. You're clear.**
+**Solas* (SUH-luss) · Light · *Tha thu ceart gu leòr* (ha hoo kyart goo LYOR) · You're okay enough*
+
+**Verdict:** LIKELY_OK · ✓ 13  ⚠ 0  ✗ 0
+**When:** 2026-09-10T04:35:25.405Z
+**Flow:** Is my Macintosh okay?
+
+We walked 13 paths on your Mac. 13 came back clear. You're okay tonight.
+
+## All clear (13)
+
+- ✓ **Launch ghosts** · No unexpected login items flagged.
+  - *Looked at:* Startup lists (LaunchAgents, LaunchDaemons, login items) that point at apps or files that are missing
+  - *Does not cover:* Apps that still launch but behave badly, or kernel-level malware
+  - *Why it matters:* Broken launch items slow login and are a common place scareware hides after you delete the main app · [Read more](https://innsegall.com/blog/stale-launch-items-macintosh/)
+- ✓ **Adware markers** · No known scareware patterns in common spots.
+  - *Looked at:* Known adware file names, folders, and browser-extension patterns left on disk
+  - *Does not cover:* Brand-new malware with no known signature, or threats only in memory
+  - *Why it matters:* Fake virus popups often leave named leftovers · finding them explains odd browser behavior · [Read more](https://innsegall.com/blog/adware-leftovers-macintosh/)
+- ✓ **Hosts file** · Hosts file looks ordinary.
+  - *Looked at:* Your Mac's hosts file for unexpected redirects to sketchy domains
+  - *Does not cover:* DNS changes made only on your router or phone, or VPN-only routing
+  - *Why it matters:* Scareware sometimes edits hosts to lock you onto their "support" pages · [Read more](https://innsegall.com/#lay-of-the-land)
+- ✓ **DNS resolvers** · Resolver settings read clean.
+  - *Looked at:* Which DNS servers your Mac is set to use (Wi‑Fi and Ethernet)
+  - *Does not cover:* DNS on other devices, or encrypted DNS inside a browser only
+  - *Why it matters:* Fake cleaners often switch DNS so they can intercept or nag you on every site · [Read more](https://innsegall.com/blog/dns-settings-macintosh/)
+- ✓ **System proxy** · No suspicious proxy hijack.
+  - *Looked at:* System-wide web proxy settings that could funnel traffic through a stranger
+  - *Does not cover:* Browser-only extensions, or corporate proxies your IT installed on purpose
+  - *Why it matters:* Unexpected proxies are a classic persistence trick after scare popups · [Read more](https://innsegall.com/blog/dns-settings-macintosh/)
+- ✓ **Gatekeeper** · Gatekeeper enabled as expected.
+  - *Looked at:* Whether macOS Gatekeeper and quarantine protections are turned on as expected
+  - *Does not cover:* Whether every app you run is trustworthy · only whether core guards are enabled
+  - *Why it matters:* Disabled Gatekeeper makes it easier to run downloaded scareware installers · [Read more](https://innsegall.com/#lay-of-the-land)
+- ✓ **Security software** · No conflicting scareware tools detected.
+  - *Looked at:* Whether known security tools (Malwarebytes, etc.) are installed and responding
+  - *Does not cover:* Full scans, license status, or whether those tools found anything today
+  - *Why it matters:* Knowing what protection you already have avoids duplicate panic subscriptions · [Read more](https://innsegall.com/#lay-of-the-land)
+- ✓ **Firefox profile** · Extensions within normal range.
+  - *Looked at:* Firefox profiles for suspicious extensions, search hijacks, and odd home pages
+  - *Does not cover:* Safari or Chrome, or activity inside private windows we cannot see
+  - *Why it matters:* After a bad link, browsers are often the first place redirects and spam extensions land · [Read more](https://innsegall.com/blog/after-suspicious-link-macintosh/)
+- ✓ **Safari profile** · Safari extensions look familiar.
+  - *Looked at:* Safari extensions and homepage/search settings for obvious hijacks
+  - *Does not cover:* Firefox or Chrome, or iCloud-synced settings on other devices
+  - *Why it matters:* Safari is the default browser · scare pages often target it first on Mac · [Read more](https://innsegall.com/blog/after-suspicious-link-macintosh/)
+- ✓ **Chrome profile** · Chrome extensions within normal range.
+  - *Looked at:* Chrome profiles for suspicious extensions, policies, and search overrides
+  - *Does not cover:* Other browsers, or Chrome on a different user account
+  - *Why it matters:* Extension spam after a scare popup usually shows up as odd Chrome behavior · [Read more](https://innsegall.com/blog/after-suspicious-link-macintosh/)
+- ✓ **Login items** · Login items match what you'd expect.
+  - *Looked at:* Items set to open automatically when you log in (System Settings list)
+  - *Does not cover:* Background services that do not appear in Login Items, or iCloud-only apps
+  - *Why it matters:* Mystery login items are a common "why is my Mac slow?" clue after scareware · [Read more](https://innsegall.com/blog/stale-launch-items-macintosh/)
+- ✓ **Recent installs** · No surprise installers in the last week.
+  - *Looked at:* Apps and packages installed in roughly the last seven days
+  - *Does not cover:* Installs older than a week, or drag-and-drop apps with no installer record
+  - *Why it matters:* The thing you installed right after the popup is often the actual trouble · [Read more](https://innsegall.com/#lay-of-the-land)
+- ✓ **Configuration profiles** · No unknown MDM or profiles.
+  - *Looked at:* Configuration and MDM profiles that can lock settings or install remote management
+  - *Does not cover:* Profiles your employer installed on a work Mac you already expect
+  - *Why it matters:* Unexpected profiles can mean someone else controls settings on your personal Mac · [Read more](https://innsegall.com/blog/mdm-profiles-macintosh/)
+
+## What this scout does not check
+
+A clear scout is honest about its lane. Passing these checks means we did not see common scareware leftovers in the places we read · not that your Mac is invulnerable forever.
+
+- Real-time malware scanning, removal, or quarantine of active threats
+- Whether someone else is reading your email, iCloud, or bank accounts right now
+- Network traffic, keystrokes, or screen capture while you use the Mac
+- Windows, Linux, iPhone, or iPad (Macintosh only today)
+- Guaranteed proof that nothing bad will ever happen later
+
+More: https://innsegall.com/#lay-of-the-land
+
+---
+*With Innsegall, no one is your enemy · you have no foe.*
+innsegall.com · demo-public-likely-ok · engine 0.4.0-alpha</textarea>
         <strong>With Innsegall, no one is your enemy · you have no foe.</strong>
         <span class="footer-id">innsegall.com · demo-public-likely-ok · engine 0.4.0-alpha</span>
         <span class="footer-pricing">Static explain from your card · BYOK (Gemini / DeepSeek) for live AI · Deep Parley via gateway credits · Solas 3/card · 12/day (BYOK)</span>
@@ -2166,12 +2543,37 @@ With Innsegall, no one is your enemy · you have no foe.</textarea>
 
   var shareBtn = document.getElementById("battle-scout-share");
   if (shareBtn) {
+    var shareDefaultLabel = shareBtn.getAttribute("data-label-default") || shareBtn.textContent.trim();
+    var shareCopiedLabel = 'COPIED ✓';
+    var shareStatusCopied = 'Ready to paste into any AI assistant · you control every paste.';
+    var shareStatusEl = document.getElementById("battle-scout-share-status");
+    var shareResetTimer;
+    function setShareCopied() {
+      shareBtn.textContent = shareCopiedLabel;
+      shareBtn.classList.add("is-copied");
+      shareBtn.setAttribute("aria-label", shareCopiedLabel);
+      if (shareStatusEl) {
+        shareStatusEl.textContent = shareStatusCopied;
+        shareStatusEl.classList.add("is-visible");
+      }
+      showToast('Copied · paste into ChatGPT, Claude, or your team chat');
+      window.clearTimeout(shareResetTimer);
+      shareResetTimer = window.setTimeout(function () {
+        shareBtn.textContent = shareDefaultLabel;
+        shareBtn.classList.remove("is-copied");
+        shareBtn.setAttribute("aria-label", shareDefaultLabel);
+        if (shareStatusEl) {
+          shareStatusEl.textContent = "";
+          shareStatusEl.classList.remove("is-visible");
+        }
+      }, 2800);
+    }
     shareBtn.addEventListener("click", function () {
       var pasteEl = document.getElementById("innsegall-scout-paste");
       var pasteText = pasteEl && pasteEl.value ? pasteEl.value : "";
       var title = document.title || "Battle Scout · Innsegall";
       function copied() {
-        showToast('Copied · paste into any AI tab · weaponize your receipt from anywhere');
+        setShareCopied();
       }
       var canNativeShare = navigator.share && pasteText;
       var preferShare = canNativeShare && window.matchMedia("(max-width: 768px)").matches;
@@ -2200,6 +2602,34 @@ With Innsegall, no one is your enemy · you have no foe.</textarea>
         return;
       }
       showToast("Copy unavailable · open Parley below");
+    });
+  }
+
+  var downloadBtn = document.getElementById("battle-scout-download");
+  if (downloadBtn) {
+    downloadBtn.addEventListener("click", function () {
+      var mdEl = document.getElementById("innsegall-scout-md");
+      var mdText = mdEl && mdEl.value ? mdEl.value : "";
+      if (!mdText) {
+        showToast("Report download unavailable");
+        return;
+      }
+      var filename = (mdEl.getAttribute("data-filename") || "innsegall-battle-scout.md").replace(/[^a-zA-Z0-9._-]+/g, "-");
+      try {
+        var blob = new Blob([mdText], { type: "text/markdown;charset=utf-8" });
+        var url = URL.createObjectURL(blob);
+        var link = document.createElement("a");
+        link.href = url;
+        link.download = filename;
+        link.rel = "noopener";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+        showToast("Report downloaded");
+      } catch (err) {
+        showToast("Download blocked · use Copy for AI");
+      }
     });
   }
 

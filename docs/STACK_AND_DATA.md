@@ -53,9 +53,11 @@ Your paid Xano can host **operator analytics** for Innsegall in a **dedicated AP
 |-------|--------|-----|
 | `install_ping` | version, macos_major, day, random_install_id | Count installs · no IP required |
 | `scout_aggregate` | verdict_bucket, flow, check_buckets[], engine_version, day | Same shape as Field Report blog |
+| `marketing_ping` | page, ref_channel, session_id, day | Top-of-funnel · no ad pixels (`PLATFORM_TRACKING.md`) |
+| `issue_spotlight` | issue_key, event_type, buckets, content_hash | Issue flywheel · no PII (`ISSUE_SPOTLIGHT_LOOP.md`) |
 | `checkout_complete` | sku, amount, stripe_session_id (no card) | Revenue ops |
-| `license_issued` | plan, day | Quota analytics |
-| `blog_view` | slug, day | SEO (optional · or use Vercel Analytics later) |
+| `clan_subscription` | Stripe sub status | MRR |
+| `clan_renewal` | invoice id, amount | Renewals |
 
 ### ❌ NEVER send to Xano (brand + privacy)
 
@@ -70,7 +72,7 @@ Your paid Xano can host **operator analytics** for Innsegall in a **dedicated AP
 ```
 Mac CLI (opt-in later) ──► POST innsegall.com/api/telemetry
                               │
-                              ▼ (if XANO_WEBHOOK_URL set)
+                              ▼ (if XANO_EVENTS_URL set)
                          Xano innsegall_events table
                               │
                               ▼
@@ -85,8 +87,8 @@ Env (Vercel Innsegall project only):
 
 | Variable | Purpose |
 |----------|---------|
-| `XANO_EVENTS_URL` | POST anonymized JSON |
-| `XANO_API_KEY` | Bearer if required |
+| `XANO_EVENTS_URL` | POST anonymized JSON to `innsegall/events` |
+| `XANO_API_KEY` | `X-API-Key` handshake · same value as Xano `sk_live_innsegall_ops_` / `sk_test_innsegall_ops_` |
 
 See `docs/XANO_DATA.md` for table schema (swarm 5).
 
@@ -132,4 +134,6 @@ Detail: `OPERATOR_GUIDE.md` · `WIRE_STRIPE_VERCEL.md`
 
 ## Xano detail (Swarm 5C)
 
-Table schema, example `innsegall_events` rows, forbidden fields, optional Stripe→Xano wiring, and the CLI Phase 2 `telemetry --share` plan live in **[`XANO_DATA.md`](./XANO_DATA.md)**. The live route is `POST /api/telemetry` (`web/api/telemetry.js`): it accepts `install_ping` and `scout_aggregate` only, rejects PII-shaped payloads, and forwards to `XANO_EVENTS_URL` when set · otherwise **204 no-op** so alpha ships without a backend.
+Table schema, example rows, forbidden fields, Stripe→Xano wiring, and CLI telemetry plan live in **[`XANO_DATA.md`](./XANO_DATA.md)**. Endpoint paste: **[`pastes/innsegall-events-post.xs`](./pastes/innsegall-events-post.xs)**.
+
+The live route is `POST /api/telemetry` (`web/api/telemetry.js`): client events `install_ping` · `scout_aggregate` · `marketing_ping` · `issue_spotlight` · PII denylist · forwards to `XANO_EVENTS_URL` when set · otherwise **204 no-op**. Stripe webhook forwards `checkout_complete` · `clan_*` server-side only.

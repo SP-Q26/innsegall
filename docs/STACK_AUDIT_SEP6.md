@@ -96,7 +96,7 @@ See `INFRA_FORK_AUDIT.md` · preflight · smoke-live · Stripe/DNS docs.
 | Item | File |
 |------|------|
 | Server redeem | `ABUSE_HARDENING.md` |
-| Xano events | `XANO_PASTES.md` |
+| Xano events | `pastes/innsegall-events-post.xs` · `XANO_PASTES.md` · `XANO_KEYS_LEFT.md` |
 | Payment log | `XANO_PAYMENTS_TABLE.md` |
 | Seat tokens | `MONETIZATION.md` § Phase 2 |
 | OG asset | CDN or `/public/og/` |

@@ -79,7 +79,7 @@ Persona: **caretaker with no scout** · not family IT DIY.
 
 | Day | Action |
 |-----|--------|
-| Mon | Xano: install_ping + marketing_ping by channel |
+| Mon | Xano: paste `innsegall-events-post.xs` · roll up install_ping + marketing_ping by channel |
 | Wed | Stripe: new clans · churn |
 | Fri | `npm run audit:swarm` before any deploy |
 | 1st & 15th | Field Report post · tie to Voyage theme |

@@ -2,6 +2,8 @@
 
 Copy-paste setup for **innsegall_events** · Stripe webhook lines · no PII.
 
+**Paste files:** [`docs/pastes/`](./pastes/README.md) · canonical endpoint stack → [`innsegall-events-post.xs`](./pastes/innsegall-events-post.xs)
+
 ---
 
 ## 1 · Table `innsegall_events`
@@ -34,8 +36,8 @@ Xano does not issue per–API-group runtime keys on all plans. You **invent** th
 
 | Where | Name | Role |
 |-------|------|------|
-| **Xano** → Settings → Environment variables | `vercel_prod_key` · `vercel_preview_key` | Precondition compares incoming header |
-| **Vercel** → `XANO_API_KEY` | prod value on Production · preview value on Preview | Server sends header on forward |
+| **Xano** → Settings → Environment variables | `sk_live_innsegall_ops_` · `sk_test_innsegall_ops_` (optional) | Precondition compares incoming header |
+| **Vercel** → `XANO_API_KEY` | same secret **value** as live (prod) / test (preview) env | Server sends `X-API-Key` on forward |
 
 Generate (operator terminal):
 
@@ -46,17 +48,31 @@ openssl rand -base64 32   # preview → sk_test_innsegall_ops_…
 
 **Do not use:** Metadata / backend API keys (workspace admin) · Auth user tokens (JWT).
 
-**Endpoint settings:** turn **off** default user authentication on this route.
+**Endpoint settings:** turn **off** default user/JWT authentication on this route.
 
-**Function stack · position 1 · Precondition:**
+**Key naming (operator convention):**
+
+| Xano env var | Example value |
+|--------------|----------------|
+| `sk_live_innsegall_ops_` | prod secret (e.g. `sk_live_innsegall_ops_<random>`) |
+| `sk_test_innsegall_ops_` | preview secret (optional) |
+
+Vercel `XANO_API_KEY` must equal the matching env string. Forward uses header **`X-API-Key`** (`web/lib/xano-forward.mjs`).
+
+**Full XanoScript paste** (auth precondition is **step 0** inside `stack` · not a separate UI-only precondition):
+
+→ [`docs/pastes/innsegall-events-post.xs`](./pastes/innsegall-events-post.xs)
 
 ```text
-(http.headers.x_api_key == $env.vercel_prod_key) || (http.headers.x_api_key == $env.vercel_preview_key)
+// stack order:
+// 0. precondition · X-API-Key == sk_live_innsegall_ops_ OR sk_test_innsegall_ops_ → else 403
+// 1. precondition · event in allowed list (includes marketing_ping · issue_spotlight)
+// 2. precondition · payload keys ∩ forbidden = ∅
+// 3. db.add innsegall_events
+// response { ok: true, id }
 ```
 
-(Error: `Unauthorized: Invalid Vercel Handshake Token` · type **401**.)
-
-Vercel / smoke send header `X-API-Key: <same string as XANO_API_KEY>` via `web/lib/xano-forward.mjs`.
+If you already built the endpoint without auth, **replace the whole stack** with the paste file above (your live stack was missing `marketing_ping` / `issue_spotlight` and the API-key precondition).
 
 **Input (JSON body):**
 
@@ -77,25 +93,13 @@ Vercel / smoke send header `X-API-Key: <same string as XANO_API_KEY>` via `web/l
 }
 ```
 
-**Xano function stack (paste logic):**
+**Allowed `event` values (must match paste):**
 
-1. **Input** · accept `event`, `payload`, `day`, `engine_version`, `source`, `received_at` (optional)
-2. **Conditional** · reject if `payload` contains forbidden keys: `email`, `path`, `hostname`, `html`, `card_json`, `customer_email`
-3. **Conditional** · allow `event` in:
-   - `install_ping`
-   - `scout_aggregate`
-   - `marketing_ping`
-   - `issue_spotlight`
-   - `checkout_complete`
-   - `clan_subscription`
-   - `clan_renewal`
-4. **Add record** → `innsegall_events`
-   - `event` = input.event
-   - `payload` = input.payload
-   - `day` = input.day OR today UTC
-   - `engine_version` = input.engine_version OR payload.engine_version
-   - `source` = input.source
-5. **Response** · `201` `{ "ok": true, "id": record.id }`
+`install_ping` · `scout_aggregate` · `marketing_ping` · `issue_spotlight` · `checkout_complete` · `clan_subscription` · `clan_renewal`
+
+**Forbidden `payload` keys:** `email`, `path`, `hostname`, `html`, `card_json`, `customer_email`
+
+**Response:** `{ "ok": true, "id": <row id> }` (200 or 201 both fine)
 
 ---
 
@@ -103,7 +107,7 @@ Vercel / smoke send header `X-API-Key: <same string as XANO_API_KEY>` via `web/l
 
 ```env
 XANO_EVENTS_URL=https://x8ki-letl-twmt.n7.xano.io/api:innsegall_ops/innsegall/events
-XANO_API_KEY=sk_live_innsegall_ops_...   # must match vercel_prod_key in Xano env
+XANO_API_KEY=sk_live_innsegall_ops_...   # same value as Xano env sk_live_innsegall_ops_
 STRIPE_SECRET_KEY=sk_test_...
 STRIPE_WEBHOOK_SECRET=whsec_...
 INNSEGALL_LICENSE_SECRET=random-32-byte-string
@@ -190,7 +194,7 @@ https://{instance}.xano.io/api:innsegall_ops/innsegall/events
 | Variable | Value |
 |----------|--------|
 | `XANO_EVENTS_URL` | Full POST URL from step A (no trailing slash) |
-| `XANO_API_KEY` | Same string as `vercel_prod_key` / `vercel_preview_key` in Xano env (`X-API-Key` header) |
+| `XANO_API_KEY` | Same secret as Xano `sk_live_innsegall_ops_` / `sk_test_innsegall_ops_` (`X-API-Key` header) |
 
 Redeploy after save.
 

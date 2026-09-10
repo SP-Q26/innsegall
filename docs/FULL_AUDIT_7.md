@@ -115,7 +115,7 @@ See `ABUSE_HARDENING.md`.
 1. Push GitHub → Vercel (30 min)
 2. DNS + SSL (15–90 min)
 3. Stripe test + one 4242 clan sub (20 min)
-4. Set `XANO_EVENTS_URL` (15 min) → instant dashboard
+4. Paste `docs/pastes/innsegall-events-post.xs` · set `XANO_EVENTS_URL` + `XANO_API_KEY` (`XANO_KEYS_LEFT.md`) → dashboard
 5. `INNSEGALL_TELEMETRY=1` on your Mac → verify pipe
 
 **Do not spend time on:** Windows port, kernel scanner, custom email stack.

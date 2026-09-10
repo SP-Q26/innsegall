@@ -55,9 +55,10 @@ Fired from `web/innsegall-nav.js` on marketing pages.
 
 ## Xano operator checklist
 
-1. Add `marketing_ping` to allowed-events whitelist on `POST /innsegall/events`
-2. Ensure `vercel_prod_key` / `vercel_preview_key` + Vercel `XANO_API_KEY` (see `XANO_KEYS_LEFT.md`)
-3. Redeploy Vercel after env change
+1. Paste **`docs/pastes/innsegall-events-post.xs`** into `POST /innsegall/events` (includes `marketing_ping` in whitelist + API-key auth precondition)
+2. Set Xano env `sk_live_innsegall_ops_` (+ optional `sk_test_innsegall_ops_`) and matching Vercel `XANO_API_KEY` (see `XANO_KEYS_LEFT.md`)
+3. Publish Xano draft → live · redeploy Vercel after env change
+4. `npm run smoke:xano` (direct + prod telemetry)
 
 ---
 
@@ -97,6 +98,7 @@ Join `marketing_ping` page=`alpha` with `install_ping` counts · not 1:1 (instal
 | `checkout_complete` | Stripe | Revenue |
 | `clan_subscription` | Stripe | MRR |
 | `marketing_ping` | Site nav | Top-of-funnel |
+| `issue_spotlight` | CLI after scout | Issue identify/resolve · blog flywheel (`ISSUE_SPOTLIGHT_LOOP.md`) |
 
 ---
 

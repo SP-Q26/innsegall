@@ -54,7 +54,7 @@ After every `innsegall run` / `check` / `voyage`:
 }
 ```
 
-Add **`issue_spotlight`** to Xano allowed-events whitelist (`docs/XANO_PASTES.md`).
+**Xano:** paste **`docs/pastes/innsegall-events-post.xs`** (includes `issue_spotlight` + auth precondition) · checklist `docs/XANO_KEYS_LEFT.md`.
 
 ---
 

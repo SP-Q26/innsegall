@@ -53,7 +53,7 @@ Innsegall is **ancient calm**, not a rune font. Runes belong on the **shield** (
 | ID | Item | Owner |
 |----|------|-------|
 | O1 | Live $4.20 E2E on Mac | Operator · `docs/E2E_LIVE_CHECKLIST.md` |
-| O2 | `XANO_EVENTS_URL` in Vercel | You · `docs/XANO_PASTES.md` |
+| O2 | `XANO_EVENTS_URL` + `XANO_API_KEY` in Vercel | You · `docs/pastes/innsegall-events-post.xs` · `XANO_KEYS_LEFT.md` |
 | O3 | Legal pages batch “your Mac” → Macintosh | ✅ privacy + tos · `audit-shell` gate |
 | O4 | Per-post OG for top blog URLs | P2 · growth |
 | O5 | Repo-local git noreply | Operator one-liner |

@@ -43,7 +43,7 @@ Vercel webhook already logs to `innsegall_events` · this table is for **finance
 
 ## Optional endpoint
 
-`POST /innsegall/payments` (internal · API key) · same auth as `innsegall/events` in `XANO_PASTES.md`.
+`POST /innsegall/payments` (internal) · same **`X-API-Key`** precondition as `innsegall/events` · see [`pastes/innsegall-events-post.xs`](./pastes/innsegall-events-post.xs) step 0 · [`XANO_PASTES.md`](./XANO_PASTES.md).
 
 Or: extend Vercel webhook to dual-write (second fetch) · only after table exists.
 
@@ -58,4 +58,4 @@ Or: extend Vercel webhook to dual-write (second fetch) · only after table exist
 | `user_id` | No accounts |
 | `email` | Stripe receipt only · not stored in Xano alpha |
 
-See `XANO_PASTES.md` for `innsegall_events` (required for telemetry aggregates).
+See `pastes/innsegall-events-post.xs` and `XANO_PASTES.md` for `innsegall_events` (required for telemetry aggregates).

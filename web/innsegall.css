@@ -670,32 +670,36 @@ a:focus-visible {
 
 .field-echo {
   margin: 0;
-  padding: 1.25rem 1.35rem;
-  border: 1px solid rgba(244, 201, 93, 0.18);
+  padding: 1.35rem 1.4rem;
+  border: 1px solid rgba(244, 201, 93, 0.28);
   border-radius: var(--radius-md);
-  background: linear-gradient(145deg, rgba(8, 21, 33, 0.55), rgba(12, 32, 48, 0.35));
-  box-shadow: 0 4px 18px rgba(8, 21, 33, 0.28);
+  background: linear-gradient(145deg, rgba(18, 42, 66, 0.92), rgba(12, 32, 48, 0.88));
+  box-shadow: 0 4px 18px rgba(8, 21, 33, 0.35);
 }
 
 .field-echo p {
   margin: 0;
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-weight: 500;
-  font-style: italic;
-  line-height: 1.5;
-  color: var(--mist);
+  font-family: var(--font-body);
+  font-size: 1.02rem;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.65;
+  color: var(--mist-pale);
+  text-wrap: pretty;
 }
 
 .field-echo footer {
-  margin-top: 0.85rem;
-  font-size: 0.78rem;
-  color: var(--gremlin-smoke);
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(168, 216, 255, 0.12);
+  font-size: 0.82rem;
+  color: #9eb4cc;
   font-style: normal;
+  line-height: 1.45;
 }
 
 .field-echo-role {
-  color: var(--laser-edge);
+  color: var(--beam-gold);
   font-weight: 600;
 }
 

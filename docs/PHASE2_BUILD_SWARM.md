@@ -10,8 +10,8 @@
 
 | Task | Doc | Effort |
 |------|-----|--------|
-| Xano `innsegall_events` live | `XANO_PASTES.md` | 20 min |
-| Vercel `XANO_EVENTS_URL` + key | same | 5 min |
+| Xano `innsegall_events` + paste stack | `pastes/innsegall-events-post.xs` · `XANO_PASTES.md` | 15 min |
+| Vercel `XANO_EVENTS_URL` + `XANO_API_KEY` | `XANO_KEYS_LEFT.md` | 5 min |
 | Stripe webhook → Xano verified | `STRIPE_SMOKE.md` | 10 min |
 | `innsegall_payments` table (optional) | `XANO_PAYMENTS_TABLE.md` | 30 min |
 

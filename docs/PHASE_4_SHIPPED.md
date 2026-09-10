@@ -13,7 +13,7 @@
 | Positioning | Field echoes · **we are the scout** · fee = decision layer with options |
 | Boat | Platform order Mac → iOS → Windows · endgame partner/AV note |
 | Gospel | `scout_for_you` · `platform_order` · `endgame` in `competitor_boat` |
-| Xano | `X-API-Key` forwarder · `smoke-xano.mjs` · `XANO_PASTES.md` · **`XANO_KEYS_LEFT.md`** |
+| Xano | `pastes/innsegall-events-post.xs` · `X-API-Key` forwarder · `smoke-xano.mjs` · `XANO_PASTES.md` · **`XANO_KEYS_LEFT.md`** |
 | CI | `predeploy` runs full swarm · `launch-gate.yml` on push |
 
 ---

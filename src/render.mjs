@@ -11,6 +11,15 @@ import {
   plistEvidenceActions,
   tierSubActions,
 } from "./quick-actions.mjs";
+import {
+  checkMeta,
+  learnMoreUrl,
+  learnMoreLabel,
+  formatCheckScopeMarkdown,
+  GLOBAL_DOES_NOT_CHECK,
+  GLOBAL_SCOPE_LEAD,
+  LAY_OF_LAND_URL,
+} from "./check-catalog.mjs";
 
 function parsePlistEvidence(line) {
   const clean = line.replace(/^\[optional\]\s*/, "");
@@ -214,6 +223,7 @@ export function renderMarkdown(card) {
     for (const c of attention) {
       const sym = c.status === "fail" ? "✗" : "⚠";
       lines.push(`- ${sym} **${c.name}** · ${c.detail}`);
+      lines.push(...formatCheckScopeMarkdown(c, card.flow));
       for (const e of c.evidence || []) lines.push(`  - \`${e}\``);
     }
     lines.push(``);
@@ -221,7 +231,19 @@ export function renderMarkdown(card) {
   lines.push(`## All clear (${clear.length})`, ``);
   for (const c of clear) {
     lines.push(`- ✓ **${c.name}** · ${c.detail}`);
+    lines.push(...formatCheckScopeMarkdown(c, card.flow));
   }
+  lines.push(
+    ``,
+    `## What this scout does not check`,
+    ``,
+    GLOBAL_SCOPE_LEAD,
+    ``,
+    ...GLOBAL_DOES_NOT_CHECK.map((item) => `- ${item}`),
+    ``,
+    `More: ${LAY_OF_LAND_URL}`,
+    ``
+  );
   if (card.verdict === "ESCALATE") {
     lines.push(``, `## Sound the Horn`, ``, `**Bring your clan** · email ${PRICING.contact_email} · or open Parley when ready.`, ``);
   }
@@ -266,18 +288,34 @@ export function buildScoutAiPayload(card) {
       risk: f.risk,
       steps: f.steps || [],
     })),
-    attention_checks: attention.map((c) => ({
-      id: c.id,
-      name: c.name,
-      status: c.status,
-      detail: c.detail,
-      evidence: c.evidence || [],
-    })),
-    clear_checks: clear.map((c) => ({
-      id: c.id,
-      name: c.name,
-      detail: c.detail,
-    })),
+    attention_checks: attention.map((c) => {
+      const meta = checkMeta(c.id);
+      return {
+        id: c.id,
+        name: c.name,
+        status: c.status,
+        detail: c.detail,
+        evidence: c.evidence || [],
+        looked_at: meta?.looked_at || null,
+        does_not_cover: meta?.does_not_cover || null,
+        why_matters: meta?.why_matters || null,
+        learn_more: learnMoreUrl(c.id, card.flow),
+      };
+    }),
+    clear_checks: clear.map((c) => {
+      const meta = checkMeta(c.id);
+      return {
+        id: c.id,
+        name: c.name,
+        detail: c.detail,
+        looked_at: meta?.looked_at || null,
+        does_not_cover: meta?.does_not_cover || null,
+        why_matters: meta?.why_matters || null,
+        learn_more: learnMoreUrl(c.id, card.flow),
+      };
+    }),
+    does_not_check: GLOBAL_DOES_NOT_CHECK,
+    scope_lead: GLOBAL_SCOPE_LEAD,
     project_watch: card.project_watch || null,
   };
 }
@@ -344,6 +382,13 @@ export function renderAiPaste(card) {
       const sym = c.status === "fail" ? "FAIL" : "REVIEW";
       lines.push(`### [${sym}] ${c.name} (\`${c.id}\`)`);
       lines.push(c.detail);
+      const meta = checkMeta(c.id);
+      if (meta) {
+        lines.push(`- **Looked at:** ${meta.looked_at}`);
+        lines.push(`- **Does not cover:** ${meta.does_not_cover}`);
+        lines.push(`- **Why it matters:** ${meta.why_matters}`);
+        lines.push(`- **Read more:** ${learnMoreUrl(c.id, card.flow)}`);
+      }
       if (c.evidence?.length) {
         lines.push(``, `Evidence:`);
         for (const e of c.evidence) lines.push(`- ${e}`);
@@ -358,9 +403,25 @@ export function renderAiPaste(card) {
     lines.push(`## Audit log · clear (${clear.length})`, ``);
     for (const c of clear) {
       lines.push(`- **${c.name}** (\`${c.id}\`) · ${c.detail}`);
+      const meta = checkMeta(c.id);
+      if (meta) {
+        lines.push(`  - Looked at: ${meta.looked_at}`);
+        lines.push(`  - Does not cover: ${meta.does_not_cover}`);
+      }
     }
     lines.push(``);
   }
+
+  lines.push(
+    `## What this scout does not check`,
+    ``,
+    GLOBAL_SCOPE_LEAD,
+    ``,
+    ...GLOBAL_DOES_NOT_CHECK.map((item) => `- ${item}`),
+    ``,
+    `Lay of the land: ${LAY_OF_LAND_URL}`,
+    ``
+  );
 
   if (card.project_watch) {
     lines.push(
@@ -425,7 +486,19 @@ function groupChecks(checks) {
   };
 }
 
-function renderCheckCard(c) {
+function renderCheckScopeHtml(c, flow) {
+  const meta = checkMeta(c.id);
+  if (!meta) return "";
+  const url = learnMoreUrl(c.id, flow);
+  const linkLabel = learnMoreLabel(c.id, flow);
+  return `<div class="check-scope">
+    <p class="check-scope-line check-looked"><span class="check-scope-k">Looked at</span> ${esc(meta.looked_at)}</p>
+    <p class="check-scope-line check-limit"><span class="check-scope-k">Does not cover</span> ${esc(meta.does_not_cover)}</p>
+    <p class="check-scope-line check-why"><span class="check-scope-k">Why it matters</span> ${esc(meta.why_matters)} · <a class="check-learn" href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(linkLabel)}</a></p>
+  </div>`;
+}
+
+function renderCheckCard(c, flow) {
   const st = STATUS[c.status] || STATUS.skipped;
   const isLaunch = c.id === "launch_ghosts";
   const ev = (c.evidence || [])
@@ -458,8 +531,35 @@ function renderCheckCard(c) {
       </div>
       <span class="result-badge">${st.label}</span>
     </header>
+    ${renderCheckScopeHtml(c, flow)}
     ${evidenceBlock}
   </article>`;
+}
+
+function renderClearListItem(c, flow) {
+  const meta = checkMeta(c.id);
+  const scopeFold = meta
+    ? `<details class="clear-scope-fold">
+        <summary>What we looked at · limits</summary>
+        <p class="check-scope-line check-looked"><span class="check-scope-k">Looked at</span> ${esc(meta.looked_at)}</p>
+        <p class="check-scope-line check-limit"><span class="check-scope-k">Does not cover</span> ${esc(meta.does_not_cover)}</p>
+        <p class="check-scope-line check-why"><span class="check-scope-k">Why it matters</span> ${esc(meta.why_matters)} · <a class="check-learn" href="${esc(learnMoreUrl(c.id, flow))}" target="_blank" rel="noopener noreferrer">${esc(learnMoreLabel(c.id, flow))}</a></p>
+      </details>`
+    : "";
+  return `<li><span class="clear-name">${esc(c.name)}</span><span class="clear-detail">${esc(c.detail)}</span>${scopeFold}</li>`;
+}
+
+function renderScopeLimitsSection() {
+  const items = GLOBAL_DOES_NOT_CHECK.map((item) => `<li>${esc(item)}</li>`).join("");
+  return `<section id="section-scope" class="section section-scope jump-section">
+    <div class="section-label section-label-tier">
+      <span class="tier-chip chip-scope">Limits</span>
+      <span>What this scout does not check</span>
+    </div>
+    <p class="section-lead">${esc(GLOBAL_SCOPE_LEAD)}</p>
+    <ul class="scope-limit-list">${items}</ul>
+    <p class="scope-more"><a href="${esc(LAY_OF_LAND_URL)}" target="_blank" rel="noopener noreferrer">Read the full lay of the land on innsegall.com</a></p>
+  </section>`;
 }
 
 function renderActionCard(f, index) {
@@ -747,8 +847,14 @@ const PARLEY_LIVE_SCRIPT = `<script>
 })();
 </script>`;
 
-function cardJumpScript(shareCopiedToast) {
-  const toast = esc(shareCopiedToast).replace(/\\/g, "\\\\").replace(/'/g, "\\'");
+function jsStrLiteral(s) {
+  return esc(s).replace(/\\/g, "\\\\").replace(/'/g, "\\'");
+}
+
+function cardJumpScript(shareCopy) {
+  const toast = jsStrLiteral(shareCopy.toast);
+  const copiedLabel = jsStrLiteral(shareCopy.copied);
+  const statusCopied = jsStrLiteral(shareCopy.status);
   return `<script>
 (function () {
   var slots = document.querySelectorAll(".armory-slot.is-jumpable");
@@ -813,12 +919,37 @@ function cardJumpScript(shareCopiedToast) {
 
   var shareBtn = document.getElementById("battle-scout-share");
   if (shareBtn) {
+    var shareDefaultLabel = shareBtn.getAttribute("data-label-default") || shareBtn.textContent.trim();
+    var shareCopiedLabel = '${copiedLabel}';
+    var shareStatusCopied = '${statusCopied}';
+    var shareStatusEl = document.getElementById("battle-scout-share-status");
+    var shareResetTimer;
+    function setShareCopied() {
+      shareBtn.textContent = shareCopiedLabel;
+      shareBtn.classList.add("is-copied");
+      shareBtn.setAttribute("aria-label", shareCopiedLabel);
+      if (shareStatusEl) {
+        shareStatusEl.textContent = shareStatusCopied;
+        shareStatusEl.classList.add("is-visible");
+      }
+      showToast('${toast}');
+      window.clearTimeout(shareResetTimer);
+      shareResetTimer = window.setTimeout(function () {
+        shareBtn.textContent = shareDefaultLabel;
+        shareBtn.classList.remove("is-copied");
+        shareBtn.setAttribute("aria-label", shareDefaultLabel);
+        if (shareStatusEl) {
+          shareStatusEl.textContent = "";
+          shareStatusEl.classList.remove("is-visible");
+        }
+      }, 2800);
+    }
     shareBtn.addEventListener("click", function () {
       var pasteEl = document.getElementById("innsegall-scout-paste");
       var pasteText = pasteEl && pasteEl.value ? pasteEl.value : "";
       var title = document.title || "Battle Scout · Innsegall";
       function copied() {
-        showToast('${toast}');
+        setShareCopied();
       }
       var canNativeShare = navigator.share && pasteText;
       var preferShare = canNativeShare && window.matchMedia("(max-width: 768px)").matches;
@@ -847,6 +978,34 @@ function cardJumpScript(shareCopiedToast) {
         return;
       }
       showToast("Copy unavailable · open Parley below");
+    });
+  }
+
+  var downloadBtn = document.getElementById("battle-scout-download");
+  if (downloadBtn) {
+    downloadBtn.addEventListener("click", function () {
+      var mdEl = document.getElementById("innsegall-scout-md");
+      var mdText = mdEl && mdEl.value ? mdEl.value : "";
+      if (!mdText) {
+        showToast("Report download unavailable");
+        return;
+      }
+      var filename = (mdEl.getAttribute("data-filename") || "innsegall-battle-scout.md").replace(/[^a-zA-Z0-9._-]+/g, "-");
+      try {
+        var blob = new Blob([mdText], { type: "text/markdown;charset=utf-8" });
+        var url = URL.createObjectURL(blob);
+        var link = document.createElement("a");
+        link.href = url;
+        link.download = filename;
+        link.rel = "noopener";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+        showToast("Report downloaded");
+      } catch (err) {
+        showToast("Download blocked · use Copy for AI");
+      }
     });
   }
 
@@ -898,8 +1057,8 @@ export function renderHtml(card) {
           <span>Why we flagged this</span>
           <span class="tier-count">${warnCount + failCount}</span>
         </div>
-        <p class="section-lead">We checked your Mac. These are the only paths that need your eye · open technical detail if you want the raw evidence.</p>
-        <div class="result-stack">${attention.map((c) => renderCheckCard(c)).join("")}</div>
+        <p class="section-lead">We checked your Mac. Each item shows what we looked at, what we did not cover, and why the check matters · open technical detail for raw paths.</p>
+        <div class="result-stack">${attention.map((c) => renderCheckCard(c, card.flow)).join("")}</div>
       </section>`
     : `<section id="section-review" class="section section-attention section-all-clear jump-section jump-tier-optics">
         <div class="section-label section-label-tier">
@@ -1041,11 +1200,9 @@ export function renderHtml(card) {
       </section>`
     : "";
 
-  const clearList = clear
-    .map(
-      (c) => `<li><span class="clear-name">${esc(c.name)}</span><span class="clear-detail">${esc(c.detail)}</span></li>`
-    )
-    .join("");
+  const clearList = clear.map((c) => renderClearListItem(c, card.flow)).join("");
+  const scopeSectionHtml = renderScopeLimitsSection();
+  const markdownExport = renderMarkdown(card);
 
   const housekeepingItems = launchHousekeepingItems(card.checks_run || []);
   const housekeepingHtml = renderHousekeepingSection(housekeepingItems);
@@ -1669,6 +1826,7 @@ ${scoutDataBlocks}
       flex-shrink: 0;
     }
     .chip-clear { background: var(--clear-bg); color: var(--clear); border: 1px solid var(--clear-border); }
+    .chip-scope { background: rgba(168, 216, 255, 0.12); color: var(--mist); border: 1px solid rgba(168, 216, 255, 0.28); }
     .chip-review { background: var(--review-bg); color: var(--review); border: 1px solid var(--review-border); }
     .chip-escalate { background: var(--escalate-bg); color: var(--escalate); border: 1px solid var(--escalate-border); }
     .chip-housekeeping { background: var(--housekeeping-bg); color: var(--housekeeping); border: 1px solid var(--border); }
@@ -2100,6 +2258,77 @@ ${scoutDataBlocks}
       color: var(--ink);
     }
     .result-titles p { margin: 0; font-size: var(--text-xs); color: var(--smoke); line-height: 1.5; }
+    .check-scope {
+      padding: 0.65rem 1rem 0.85rem;
+      border-top: 1px solid #ebe3d4;
+      background: var(--paper-2);
+    }
+    .check-scope-line {
+      margin: 0 0 0.45rem;
+      font-size: var(--text-xs);
+      line-height: 1.55;
+      color: var(--ink-soft);
+    }
+    .check-scope-line:last-child { margin-bottom: 0; }
+    .check-scope-k {
+      display: block;
+      font-size: 0.625rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--smoke);
+      margin-bottom: 0.12rem;
+    }
+    .check-learn {
+      color: var(--fjord);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .check-learn:hover { color: var(--gold); }
+    .clear-fold-lead {
+      margin: 0;
+      padding: 0.5rem 1rem 0;
+      font-size: var(--text-xs);
+      color: var(--smoke);
+      line-height: 1.5;
+    }
+    .clear-scope-fold {
+      margin-top: 0.45rem;
+      font-size: var(--text-xs);
+    }
+    .clear-scope-fold summary {
+      cursor: pointer;
+      color: var(--fjord);
+      font-weight: 600;
+    }
+    .clear-scope-fold .check-scope-line { margin-top: 0.35rem; }
+    .section-scope {
+      margin: 1.25rem 0 0;
+      padding: 1rem 1.1rem 1.1rem;
+      border-radius: 12px;
+      border: 1px dashed rgba(168, 216, 255, 0.22);
+      background: rgba(7, 20, 32, 0.35);
+    }
+    .scope-limit-list {
+      margin: 0.75rem 0 0;
+      padding-left: 1.1rem;
+      font-size: var(--text-sm);
+      color: var(--mist);
+      line-height: 1.55;
+    }
+    .scope-limit-list li { margin-bottom: 0.35rem; }
+    .scope-more {
+      margin: 0.85rem 0 0;
+      font-size: var(--text-xs);
+      text-align: center;
+    }
+    .scope-more a {
+      color: var(--gold);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
     .evidence-fold {
       border-top: 1px solid #e0d9ce;
       padding: 0 1rem .75rem;
@@ -2318,7 +2547,7 @@ ${scoutDataBlocks}
       background: linear-gradient(180deg, #f8d574 0%, var(--gold) 50%, #c9962e 100%);
       color: #0f1a24;
       cursor: pointer;
-      margin-top: 0.75rem;
+      margin-top: 0;
       min-height: var(--touch-min);
       box-shadow:
         0 0 0 1px rgba(255, 255, 255, 0.15) inset,
@@ -2330,6 +2559,51 @@ ${scoutDataBlocks}
       filter: brightness(1.04);
       transform: translateY(-1px);
       color: #0f1a24;
+    }
+    .share-btn.is-copied {
+      background: linear-gradient(180deg, #9ee8b8 0%, #3d9e62 50%, #2a7a4a 100%);
+      color: #0a1a12;
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.2) inset,
+        0 3px 0 #1f5c38,
+        0 10px 28px rgba(62, 158, 98, 0.35);
+    }
+    .share-copy-status {
+      min-height: 1.35rem;
+      margin: 0.55rem 0 0;
+      font-family: var(--font-ui);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.02em;
+      opacity: 0;
+      transition: opacity 0.15s ease;
+    }
+    .share-copy-status.is-visible {
+      opacity: 1;
+    }
+    .share-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      justify-content: center;
+      margin-top: 0.75rem;
+    }
+    .share-btn-secondary {
+      background: linear-gradient(180deg, rgba(255,255,255,0.14) 0%, rgba(168,216,255,0.12) 100%);
+      color: var(--mist);
+      border: 1px solid rgba(168, 216, 255, 0.35);
+      box-shadow: 0 3px 0 rgba(7, 20, 32, 0.45);
+    }
+    .share-btn-secondary:hover {
+      color: #fff;
+      filter: brightness(1.08);
+    }
+    .share-download-hint {
+      margin: 0.45rem 0 0;
+      font-size: var(--text-xs);
+      color: var(--smoke);
+      line-height: 1.45;
     }
     .share-hint {
       display: block;
@@ -2608,23 +2882,36 @@ ${scoutDataBlocks}
 
       <details id="section-clear" class="clear-fold jump-section jump-tier-ship">
         <summary><span class="tier-chip chip-clear">Clear</span> ${clear.length} checks passed · full check log</summary>
+        <p class="clear-fold-lead">Each line shows what we looked at and what we did not cover · expand any row for plain-language limits.</p>
         <ul class="clear-list">${clearList}</ul>
       </details>
+
+      ${scopeSectionHtml}
 
       <footer class="footer">
         <div class="share-dock">
           <p class="share-dock-label">Share this Battle Scout</p>
-          <p class="share-hint">Copy a clean audit log for family, IT, or any AI assistant · you control every paste.</p>
-          <button type="button" class="share-btn" id="battle-scout-share">${esc(CTA.COPY_FOR_AI)}</button>
+          <p class="share-hint">${esc(CTA.COPY_FOR_AI_HINT)}</p>
+          <div class="share-actions">
+            <button type="button" class="share-btn" id="battle-scout-share" data-label-default="${esc(CTA.COPY_FOR_AI)}" aria-label="${esc(CTA.COPY_FOR_AI)}">${esc(CTA.COPY_FOR_AI)}</button>
+            <button type="button" class="share-btn share-btn-secondary" id="battle-scout-download" aria-label="${esc(CTA.DOWNLOAD_REPORT)}">${esc(CTA.DOWNLOAD_REPORT)}</button>
+          </div>
+          <p class="share-download-hint">${esc(CTA.DOWNLOAD_REPORT_HINT)}</p>
+          <p class="share-copy-status" id="battle-scout-share-status" aria-live="polite"></p>
         </div>
         <textarea id="innsegall-scout-paste" class="scout-paste-store" readonly aria-hidden="true">${embedTextareaContent(renderAiPaste(card))}</textarea>
+        <textarea id="innsegall-scout-md" class="scout-paste-store" readonly aria-hidden="true" data-filename="innsegall-battle-scout-${esc(card.card_id)}.md">${embedTextareaContent(markdownExport)}</textarea>
         <strong>With Innsegall, no one is your enemy · you have no foe.</strong>
         <span class="footer-id">innsegall.com · ${esc(card.card_id)} · engine ${esc(card.engine_version)}</span>
         ${pricingFooter}
       </footer>
     </div>
   </div>
-  ${cardJumpScript(CTA.COPY_FOR_AI_TOAST)}
+  ${cardJumpScript({
+    toast: CTA.COPY_FOR_AI_TOAST,
+    copied: CTA.COPY_FOR_AI_COPIED,
+    status: CTA.COPY_FOR_AI_STATUS,
+  })}
   ${renderParleyEmbedScript(card)}
   ${PARLEY_LIVE_SCRIPT}
   <div id="card-toast" class="card-toast" role="status" aria-live="polite"></div>

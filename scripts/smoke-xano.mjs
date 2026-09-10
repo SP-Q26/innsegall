@@ -30,8 +30,6 @@ async function smokeDirectXano() {
     console.log("skip direct Xano (set XANO_EVENTS_URL)");
     return;
   }
-  const headers = { "Content-Type": "application/json" };
-  if (xanoKey) headers["X-API-Key"] = xanoKey;
 
   const body = {
     event: "install_ping",
@@ -46,6 +44,25 @@ async function smokeDirectXano() {
     source: "manual_smoke",
     received_at: new Date().toISOString(),
   };
+
+  // Auth lock · no key must be rejected (proves precondition is wired)
+  const noKey = await fetch(xanoUrl, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  if (noKey.status === 401 || noKey.status === 403) {
+    ok(`direct Xano rejects missing X-API-Key (${noKey.status})`);
+  } else {
+    fail("direct Xano auth lock", `expected 401/403 without key, got ${noKey.status}`);
+  }
+
+  if (!xanoKey) {
+    console.log("skip direct Xano insert (set XANO_API_KEY = value in Xano sk_live_innsegall_ops_)");
+    return;
+  }
+
+  const headers = { "Content-Type": "application/json", "X-API-Key": xanoKey };
 
   const res = await fetch(xanoUrl, { method: "POST", headers, body: JSON.stringify(body) });
   const text = await res.text();

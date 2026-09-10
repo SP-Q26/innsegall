@@ -100,7 +100,7 @@ Vercel: root web · no build command · /api serverless
 | `sp_payment_log` | Optional `innsegall_payments` (P1) · see `XANO_PAYMENTS_TABLE.md` |
 | `sp_consent_log` | Skip · TOS acceptance on site only |
 | Stripe webhook in Xano | **Skip** · Vercel owns Stripe |
-| Telemetry / events | `innsegall_events` · `XANO_PASTES.md` ✅ |
+| Telemetry / events | `innsegall_events` · `pastes/innsegall-events-post.xs` · `XANO_PASTES.md` ✅ |
 
 **Reuse from nexus XanoScript quirks:** idempotency query on `stripe_session_id` before insert · flat preconditions · no secrets in git.
 

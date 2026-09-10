@@ -69,7 +69,7 @@ try {
 
 const index = readFileSync(join(web, "index.html"), "utf8");
 const visualChecks = [
-  ["CSS v15 sitewide", index.includes("innsegall.css?v=15")],
+  ["CSS v16 sitewide", index.includes("innsegall.css?v=16")],
   ["Index Battle Scout preview", index.includes("battle-scout-sample")],
   ["Guide Battle Scout sample", readFileSync(join(web, "guide.html"), "utf8").includes("battle-scout-sample")],
   ["Sample scout HTML", existsSync(join(web, "samples/battle-scout-demo.html"))],

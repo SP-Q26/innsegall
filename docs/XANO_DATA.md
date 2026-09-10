@@ -14,7 +14,7 @@ Single append-only log. Rollups and Field Report backfill read from here in Phas
 |--------|------|----------|-------|
 | `id` | int (auto) | ✓ | Primary key |
 | `created_at` | timestamp | ✓ | Default `now()` |
-| `event` | text | ✓ | One of: `install_ping`, `scout_aggregate`, `checkout_complete` |
+| `event` | text | ✓ | See **Allowed events** below (seven types) |
 | `payload` | json | ✓ | Event-specific · validated before insert |
 | `day` | date | ✓ | UTC day bucket · index for rollups |
 | `engine_version` | text | | From payload when present |
@@ -22,7 +22,23 @@ Single append-only log. Rollups and Field Report backfill read from here in Phas
 
 **Indexes:** `(day)`, `(event, day)`, `(created_at DESC)`.
 
-**Xano API group:** `innsegall_ops` · POST endpoint e.g. `/innsegall/events` that inserts one row after middleware validates `event` + `payload` shape (mirror Vercel rules below).
+**Xano API group:** `innsegall_ops` · POST **`/innsegall/events`**
+
+- **Paste stack:** [`pastes/innsegall-events-post.xs`](./pastes/innsegall-events-post.xs) · guide [`XANO_PASTES.md`](./XANO_PASTES.md)
+- **Auth:** `X-API-Key` header · must match Xano env `sk_live_innsegall_ops_` or `sk_test_innsegall_ops_` (first precondition in paste)
+- **Validation:** event whitelist · forbidden payload keys (mirror `web/api/telemetry.js` + Stripe forwarder)
+
+### Allowed events (Xano whitelist)
+
+| `event` | Typical `source` | Who may POST |
+|---------|------------------|--------------|
+| `install_ping` | `vercel_telemetry` | CLI via `/api/telemetry` |
+| `scout_aggregate` | `vercel_telemetry` | CLI via `/api/telemetry` |
+| `marketing_ping` | `vercel_telemetry` | Site nav via `/api/telemetry` |
+| `issue_spotlight` | `vercel_telemetry` | CLI via `/api/telemetry` |
+| `checkout_complete` | `stripe_webhook` | Vercel Stripe webhook only |
+| `clan_subscription` | `stripe_webhook` | Vercel Stripe webhook only |
+| `clan_renewal` | `stripe_webhook` | Vercel Stripe webhook only |
 
 ---
 
@@ -77,6 +93,43 @@ Same anonymized buckets as local Field Report · one row per share, not per scou
 
 Bucket names must match `field-report.mjs` anonymization map · never raw check IDs from cards.
 
+### `marketing_ping` (site · via `/api/telemetry`)
+
+Page-category + channel only · no ad pixels. See [`PLATFORM_TRACKING.md`](./PLATFORM_TRACKING.md).
+
+```json
+{
+  "event": "marketing_ping",
+  "payload": {
+    "day": "2026-09-09",
+    "page": "clan",
+    "ref_channel": "search",
+    "session_id": "uuid-v4"
+  }
+}
+```
+
+### `issue_spotlight` (CLI · via `/api/telemetry`)
+
+Category-level identify/resolve · no paths or card bodies. See [`ISSUE_SPOTLIGHT_LOOP.md`](./ISSUE_SPOTLIGHT_LOOP.md).
+
+```json
+{
+  "event": "issue_spotlight",
+  "payload": {
+    "day": "2026-09-09",
+    "event_type": "identified",
+    "issue_key": "clicked_bad_link:browser_profile",
+    "issue_slug": "after-suspicious-link-macintosh",
+    "flow": "clicked_bad_link",
+    "attention_buckets": ["browser_profile"],
+    "fix_categories": ["credential_rotation"],
+    "engine_version": "0.4.0-alpha",
+    "content_hash": "abc123..."
+  }
+}
+```
+
 ### `checkout_complete` (server only)
 
 **Not accepted on `/api/telemetry`.** Emitted from Vercel Stripe webhook (or Xano Stripe addon) after verified `checkout.session.completed`.
@@ -110,6 +163,10 @@ Bucket names must match `field-report.mjs` anonymization map · never raw check 
 | `install_ping` | 2026-09-06 | `{ engine_version, macos_major, install_id }` |
 | `scout_aggregate` | 2026-09-06 | `{ total_scouts: 12, by_verdict, report_hash }` |
 | `checkout_complete` | 2026-09-06 | `{ sku: "clan", amount_cents: 667, stripe_session_id }` |
+| `marketing_ping` | 2026-09-09 | `{ page: "alpha", ref_channel: "agent", session_id }` |
+| `issue_spotlight` | 2026-09-09 | `{ event_type: "identified", issue_key, content_hash }` |
+| `clan_subscription` | 2026-09-06 | `{ status, stripe_subscription_id }` (Stripe webhook) |
+| `clan_renewal` | 2026-10-06 | `{ stripe_invoice_id, amount_cents }` (Stripe webhook) |
 
 ---
 
@@ -128,54 +185,23 @@ Applies to Xano **and** anything POSTed through `web/api/telemetry.js`.
 
 **Flags are OK as counts only:** `password_flags`, `download_flags` in aggregates · not tied to session IDs.
 
-If a payload contains forbidden keys (`email`, `path`, `hostname`, `username`, `card`, `html`, …) or path-like strings, **drop the request** · do not sanitize and forward.
+If a payload contains forbidden keys (`email`, `path`, `hostname`, `html`, `card_json`, `customer_email`, …) or path-like strings, **drop the request** · do not sanitize and forward.
+
+Xano paste enforces top-level payload key denylist; Vercel telemetry also scans nested values (`web/api/telemetry.js`).
 
 ---
 
-## Wire Stripe webhook → Xano (optional)
+## Wire Stripe webhook → Xano (live)
 
-Phase 1 revenue ops without changing checkout UX.
+**Shipped:** `web/api/stripe/webhook.js` calls `forwardToXano()` from `web/lib/xano-forward.mjs` with header **`X-API-Key`** (not Bearer · not Xano Meta API key).
 
-### Option A · Vercel forwards (recommended)
+Events: `checkout_complete` · `clan_subscription` · `clan_renewal` · `source: stripe_webhook`.
 
-1. Create Xano POST endpoint → insert `innsegall_events` with `source: stripe_webhook`.
-2. Set Vercel env: `XANO_EVENTS_URL`, optional `XANO_API_KEY`.
-3. Extend `web/api/stripe/webhook.js` on `checkout.session.completed`:
-
-```js
-// After stripe signature verify · inside checkout.session.completed handler:
-if (process.env.XANO_EVENTS_URL) {
-  const session = event.data.object;
-  await fetch(process.env.XANO_EVENTS_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      ...(process.env.XANO_API_KEY
-        ? { Authorization: `Bearer ${process.env.XANO_API_KEY}` }
-        : {}),
-    },
-    body: JSON.stringify({
-      event: "checkout_complete",
-      payload: {
-        day: new Date().toISOString().slice(0, 10),
-        sku: session.metadata?.innsegall_sku || "extra",
-        amount_cents: session.amount_total,
-        currency: session.currency,
-        stripe_session_id: session.id,
-      },
-      source: "stripe_webhook",
-    }),
-  });
-}
-```
-
-4. Redeploy · test with Stripe CLI `stripe trigger checkout.session.completed`.
-
-### Option B · Stripe → Xano direct
-
-Stripe Dashboard → Webhooks → Xano public URL. Duplicate validation in Xano middleware · same payload shape. Use when you want checkout events even if Vercel function is cold-skipped (rare).
+If `XANO_EVENTS_URL` is set and forward fails · webhook returns **502** (Stripe retries).
 
 **Do not** point Stripe at `/api/telemetry` · that route rejects `checkout_complete` from clients by design.
+
+Setup: paste [`pastes/innsegall-events-post.xs`](./pastes/innsegall-events-post.xs) · env per [`XANO_KEYS_LEFT.md`](./XANO_KEYS_LEFT.md) · smoke `npm run smoke:xano`.
 
 ---
 
@@ -188,9 +214,11 @@ Stripe Dashboard → Webhooks → Xano public URL. Duplicate validation in Xano 
 | Env | Purpose |
 |-----|---------|
 | `XANO_EVENTS_URL` | Forward target · if unset, **204 no-op** (privacy-preserving default) |
-| `XANO_API_KEY` | Optional Bearer for Xano |
+| `XANO_API_KEY` | Same secret as Xano `sk_live_innsegall_ops_` / `sk_test_innsegall_ops_` · sent as **`X-API-Key`** |
 
-**Public-allowed events:** `install_ping`, `scout_aggregate` only.
+**Client-allowed on `/api/telemetry`:** `install_ping` · `scout_aggregate` · `marketing_ping` · `issue_spotlight`.
+
+**Server-only via Stripe webhook → Xano:** `checkout_complete` · `clan_subscription` · `clan_renewal`.
 
 ---
 
@@ -215,10 +243,11 @@ Goal: opt-in aggregate sharing after local scout · default **off**.
 
 ## Quick Xano setup checklist
 
-1. New table `innsegall_events` (columns above).
-2. API group `innsegall_ops` · POST insert + GET rollup by `day` (auth: API key).
-3. Paste `XANO_EVENTS_URL` into Vercel Innsegall project.
-4. curl smoke:
+1. Table `innsegall_events` (columns above).
+2. API group `innsegall_ops` · paste **`pastes/innsegall-events-post.xs`** · turn off user/JWT auth on route.
+3. Xano env: `sk_live_innsegall_ops_` · optional `sk_test_innsegall_ops_`.
+4. Vercel: `XANO_EVENTS_URL` + `XANO_API_KEY` · redeploy.
+5. curl smoke:
 
 ```bash
 curl -sS -X POST https://innsegall.com/api/telemetry \

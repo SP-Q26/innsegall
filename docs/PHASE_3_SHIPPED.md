@@ -49,6 +49,6 @@ See `docs/E2E_LIVE_CHECKLIST.md` · one live $4.20 checkout on Mac:
 
 | Item | When |
 |------|------|
-| `XANO_EVENTS_URL` | Paste from `docs/XANO_PASTES.md` · telemetry auto-forwards |
+| `XANO_EVENTS_URL` + `XANO_API_KEY` | Paste `docs/pastes/innsegall-events-post.xs` · see `XANO_KEYS_LEFT.md` · telemetry auto-forwards |
 
 *Onward.*

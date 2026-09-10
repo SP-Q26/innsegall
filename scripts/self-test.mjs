@@ -11,6 +11,7 @@ import { classifyLaunchItem } from "../src/checks.mjs";
 import { buildCard } from "../src/card.mjs";
 import { FLOWS, ARTIFACT_NAME, PRICING } from "../src/constants.mjs";
 import { renderHtml, renderMarkdown, buildScoutStructuredData, renderAiPaste, buildScoutAiPayload } from "../src/render.mjs";
+import { ALL_CHECK_IDS, CHECK_CATALOG } from "../src/check-catalog.mjs";
 import { validateCard } from "../src/validate.mjs";
 
 let failed = 0;
@@ -96,6 +97,18 @@ assert("parley embed in html", htmlEscalate.includes('id="innsegall-parley-embed
 assert("share battle scout button", htmlEscalate.includes("battle-scout-share"));
 assert("ai paste textarea", htmlEscalate.includes('id="innsegall-scout-paste"'));
 assert("copy for ai label", htmlEscalate.includes("Copy Battle Scout for AI"));
+assert("scope limits section", htmlEscalate.includes('id="section-scope"'));
+assert("check looked at copy", htmlEscalate.includes("Looked at"));
+assert("check does not cover copy", htmlEscalate.includes("Does not cover"));
+assert("why check matters link", htmlEscalate.includes("check-learn"));
+assert("download report button", htmlEscalate.includes("battle-scout-download"));
+assert("markdown export store", htmlEscalate.includes('id="innsegall-scout-md"'));
+for (const id of ALL_CHECK_IDS) {
+  const meta = CHECK_CATALOG[id];
+  assert(`catalog ${id} looked_at`, Boolean(meta?.looked_at && meta?.does_not_cover && meta?.why_matters));
+}
+const mdEscalate = renderMarkdown(escalate);
+assert("markdown scope footer", mdEscalate.includes("What this scout does not check"));
 const aiPaste = renderAiPaste(escalate);
 assert("ai paste instructions", aiPaste.includes("Instructions for the AI reading this"));
 assert("ai paste json block", aiPaste.includes("innsegall-battle-scout-ai/v1"));
@@ -103,6 +116,11 @@ assert("ai paste audit log", aiPaste.includes("Audit log"));
 const aiPayload = buildScoutAiPayload(smokeCard);
 assert("ai payload format", aiPayload.format === "innsegall-battle-scout-ai/v1");
 assert("ai payload attention", aiPayload.attention_checks.length >= 1);
+const launchScope = aiPayload.clear_checks.find((c) => c.id === "launch_ghosts");
+assert(
+  "ai payload scope fields",
+  launchScope?.looked_at && launchScope?.does_not_cover && aiPayload.does_not_check?.length >= 3
+);
 assert("pricing footer", PRICING && htmlEscalate.includes(PRICING.solas.note.slice(0, 20)));
 assert("horn uses hello@", !htmlEscalate.includes("help@innsegall.com"));
 assert("horn uses hello@", htmlEscalate.includes("hello@innsegall.com"));

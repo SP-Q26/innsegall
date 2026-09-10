@@ -20,9 +20,14 @@ export const CTA = {
   SEND_SCOUT_SUB: "Read the lay of the land on your Macintosh · two minutes · no upload",
   COPY_FOR_AI: "Copy Battle Scout for AI",
   COPY_FOR_AI_HINT:
-    "Paste into any assistant · ChatGPT, Claude, Gemini, Copilot, DeepSeek · phone, browser, or app",
+    "Click Copy below · then paste into ChatGPT, Claude, or your team chat.",
+  COPY_FOR_AI_COPIED: "COPIED ✓",
+  COPY_FOR_AI_STATUS:
+    "Ready to paste into any AI assistant · you control every paste.",
   COPY_FOR_AI_TOAST:
-    "Copied · paste into any AI tab · weaponize your receipt from anywhere",
+    "Copied · paste into ChatGPT, Claude, or your team chat",
+  DOWNLOAD_REPORT: "Download report",
+  DOWNLOAD_REPORT_HINT: "Plain-text file for email, Notes, or your IT person",
   FIELD_MANUAL: "Field manual",
   ALPHA_TITLE: "Bring the scout aboard",
   SCOUT_FREE: "Scout free",
