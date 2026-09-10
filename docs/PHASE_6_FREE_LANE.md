@@ -35,4 +35,10 @@ Apple Developer Program · notarized zip · `smoke:live` signed line **ok** · s
 
 ---
 
+## Next phase
+
+**Phase 7 (planned):** [`PHASE_7_PLAN.md`](./PHASE_7_PLAN.md) · swarm outline [`PHASE_7_SWARM_PLAN.md`](./PHASE_7_SWARM_PLAN.md) · meta-audit [`PHASE_7_PLAN_AUDIT.md`](./PHASE_7_PLAN_AUDIT.md).
+
+---
+
 *Innsegall only · separate entity and Stripe from other products.*
