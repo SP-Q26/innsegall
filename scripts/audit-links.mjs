@@ -17,6 +17,7 @@ const PAGE_ROUTES = new Set([
   "/map",
   "/boat",
   "/clan",
+  "/msp",
   "/warriors",
   "/blog",
   "/privacy",

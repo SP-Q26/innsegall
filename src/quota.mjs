@@ -58,6 +58,15 @@ export function nextVoyageDate(d = new Date()) {
   return new Date(y, m + 1, VOYAGE_DAYS[0]);
 }
 
+function isUnlimitedPlan(plan) {
+  return plan === "clan" || plan === "msp";
+}
+
+function scoutsLimitForPlan(plan) {
+  if (isUnlimitedPlan(plan)) return PRICING.clan.scouts_per_month;
+  return PRICING.free.scouts_per_month;
+}
+
 export function loadQuota() {
   ensureDirs();
   const path = quotaPath();
@@ -65,18 +74,16 @@ export function loadQuota() {
   try {
     const raw = JSON.parse(readFileSync(path, "utf8"));
     if (raw.month !== monthKey()) {
-      const plan = raw.plan === "clan" ? "clan" : "free";
+      const plan = isUnlimitedPlan(raw.plan) ? raw.plan : "free";
       return syncScoutCount({
         ...defaultQuota(),
         plan,
         welcome_scout_redeemed: Boolean(raw.welcome_scout_redeemed),
-        scouts_limit:
-          plan === "clan" ? PRICING.clan.scouts_per_month : PRICING.free.scouts_per_month,
+        scouts_limit: scoutsLimitForPlan(plan),
       });
     }
     const q = syncScoutCount({ ...defaultQuota(), ...raw });
-    q.scouts_limit =
-      q.plan === "clan" ? PRICING.clan.scouts_per_month : PRICING.free.scouts_per_month;
+    q.scouts_limit = scoutsLimitForPlan(q.plan);
     return q;
   } catch {
     return defaultQuota();
@@ -98,9 +105,10 @@ export function saveQuota(q) {
 /** @param {{ plan?: string, extra_credits?: number }} opts */
 export function setPlan(plan, opts = {}) {
   const q = loadQuota();
-  if (plan === "clan") {
-    q.plan = "clan";
+  if (plan === "clan" || plan === "msp") {
+    q.plan = plan;
     q.scouts_limit = PRICING.clan.scouts_per_month;
+    if (typeof opts.seats === "number") q.roster_seats = opts.seats;
   } else {
     q.plan = "free";
     q.scouts_limit = PRICING.free.scouts_per_month;
@@ -135,8 +143,8 @@ export function checkScoutQuota(opts = {}) {
   }
 
   const q = loadQuota();
-  if (q.plan === "clan") {
-    return { allowed: true, quota: q, reason: "clan_plan", charge: null };
+  if (isUnlimitedPlan(q.plan)) {
+    return { allowed: true, quota: q, reason: "roster_plan", charge: null };
   }
 
   const d = opts.date || new Date();
@@ -181,7 +189,7 @@ export function recordScoutUse(opts = {}) {
   if (isClanBypass()) return loadQuota();
 
   const q = loadQuota();
-  if (q.plan === "clan") return q;
+  if (isUnlimitedPlan(q.plan)) return q;
 
   const charge = opts.charge || opts._charge;
   if (charge?.type === "voyage" && charge.slot) {
@@ -238,8 +246,9 @@ export function formatQuotaBlocked(q, d = new Date(), reason = "limit_reached") 
 }
 
 export function formatPlanStatus(q) {
-  const limit =
-    q.plan === "clan" ? "unlimited" : String(q.scouts_limit ?? PRICING.free.scouts_per_month);
+  const limit = isUnlimitedPlan(q.plan)
+    ? "unlimited"
+    : String(q.scouts_limit ?? PRICING.free.scouts_per_month);
   const used = q.scouts_used ?? 0;
   const creditsLeft = Math.max(0, (q.extra_credits || 0) - (q.extra_used || 0));
   return {
@@ -252,10 +261,9 @@ export function formatPlanStatus(q) {
     extra_credits: q.extra_credits || 0,
     extra_credits_remaining: creditsLeft,
     welcome_scout_redeemed: Boolean(q.welcome_scout_redeemed),
-    remaining:
-      q.plan === "clan"
-        ? "unlimited"
-        : Math.max(0, (q.scouts_limit ?? PRICING.free.scouts_per_month) - used),
+    remaining: isUnlimitedPlan(q.plan)
+      ? "unlimited"
+      : Math.max(0, (q.scouts_limit ?? PRICING.free.scouts_per_month) - used),
     next_voyage: nextVoyageDate().toISOString().slice(0, 10),
   };
 }

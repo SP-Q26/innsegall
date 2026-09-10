@@ -2651,6 +2651,30 @@ ${scoutDataBlocks}
     }
     .passage-tier-list { margin: 0.5rem 0 0; padding-left: 1.25rem; }
     .passage-tier-list li { margin: 0.35rem 0; }
+    .passage-tier-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 1rem;
+    }
+    .passage-checkout-btn {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      padding: 0.55rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      background: var(--horn-gold, #f4c95d);
+      color: var(--ink, #0b1d2e);
+      border: 1px solid rgba(244, 201, 93, 0.5);
+    }
+    .passage-checkout-btn--secondary {
+      background: var(--paper-2, #f5f0e6);
+      color: var(--ink-soft, #3d4f5f);
+      border-color: #d4cbb8;
+    }
     .horn-cta-soft {
       background: var(--paper-2);
       border: 1px dashed #d4cbb8;

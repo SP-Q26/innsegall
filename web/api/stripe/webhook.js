@@ -21,6 +21,8 @@ function checkoutPayload(session) {
     currency: session.currency ?? "usd",
     stripe_session_id: session.id,
     mode: session.mode,
+    seats: session.metadata?.innsegall_seats ?? null,
+    warrior_ref: session.metadata?.warrior_ref ?? null,
   };
 }
 

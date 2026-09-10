@@ -25,7 +25,9 @@ When a Mac user panics after a scareware popup or bad link, they rarely need ano
 - Footer **Copy for AI** · structured paste for ChatGPT/Claude (client-controlled)  
 - **Voyage** rhythm · optional hygiene on the 1st & 15th  
 
-**Clan plan ($6.67/mo)** · built for small rosters:
+**Clan ($6.67/mo)** · households and tiny rosters (5 seats). **MSP pack ($3/seat/mo · 10+ seats)** · [innsegall.com/msp](https://innsegall.com/msp) for boutique IT.
+
+**Clan plan** · built for small rosters:
 
 | | |
 |---|---|

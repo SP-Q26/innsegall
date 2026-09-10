@@ -1,19 +1,41 @@
 import Stripe from "stripe";
-import { catalogForSku, siteOrigin } from "../../lib/stripe-catalog.mjs";
+import { catalogForSku, siteOrigin, STRIPE_CATALOG } from "../../lib/stripe-catalog.mjs";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "", {
   apiVersion: "2024-11-20.acacia",
 });
 
 function priceEnvKey(sku) {
-  return sku === "clan" ? "STRIPE_PRICE_CLAN" : "STRIPE_PRICE_EXTRA";
+  if (sku === "clan") return "STRIPE_PRICE_CLAN";
+  if (sku === "msp") return "STRIPE_PRICE_MSP_SEAT";
+  return "STRIPE_PRICE_EXTRA";
 }
 
-function lineItemForSku(sku) {
+function normalizeSku(raw) {
+  if (raw === "clan" || raw === "msp") return raw;
+  return "extra";
+}
+
+function mspQuantity(raw) {
+  const min = STRIPE_CATALOG.msp.seats_min;
+  const max = STRIPE_CATALOG.msp.seats_max;
+  const n = parseInt(raw, 10);
+  if (!Number.isFinite(n)) return min;
+  return Math.min(max, Math.max(min, n));
+}
+
+function sanitizeWarriorRef(raw) {
+  if (!raw || typeof raw !== "string") return "";
+  const s = raw.trim();
+  if (s.length > 64) return s.slice(0, 64);
+  return s;
+}
+
+function lineItemForSku(sku, quantity = 1) {
   const catalog = catalogForSku(sku);
   const priceId = process.env[priceEnvKey(sku)];
   if (priceId) {
-    return { price: priceId, quantity: 1 };
+    return { price: priceId, quantity };
   }
   const priceData = {
     currency: catalog.currency,
@@ -27,7 +49,15 @@ function lineItemForSku(sku) {
   if (catalog.recurring) {
     priceData.recurring = catalog.recurring;
   }
-  return { price_data: priceData, quantity: 1 };
+  return { price_data: priceData, quantity };
+}
+
+function sessionMetadata(sku, warriorRef, seatCount) {
+  const meta = { innsegall_sku: sku };
+  if (warriorRef) meta.warrior_ref = warriorRef;
+  if (sku === "msp") meta.innsegall_seats = String(seatCount);
+  if (sku === "clan") meta.innsegall_seats = "5";
+  return meta;
 }
 
 export default async function handler(req, res) {
@@ -47,40 +77,58 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "invalid_json" });
     }
   }
-  const sku = body?.sku === "clan" ? "clan" : "extra";
+
+  const sku = normalizeSku(body?.sku);
   const catalog = catalogForSku(sku);
   const origin = siteOrigin();
-  const isClan = catalog.mode === "subscription";
+  const isSubscription = catalog.mode === "subscription";
+  const warriorRef = sanitizeWarriorRef(body?.warrior_ref);
+  const seatCount = sku === "msp" ? mspQuantity(body?.quantity) : 1;
+  const lineQty = sku === "msp" ? seatCount : 1;
+  const cancelUrl =
+    sku === "msp" ? `${origin}/msp` : sku === "clan" ? `${origin}/clan` : `${origin}/#pricing`;
 
   try {
     const session = await stripe.checkout.sessions.create({
       mode: catalog.mode,
-      line_items: [lineItemForSku(sku)],
+      line_items: [lineItemForSku(sku, lineQty)],
       success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${origin}/#pricing`,
-      metadata: { innsegall_sku: sku },
-      client_reference_id: `innsegall_${sku}`,
+      cancel_url: cancelUrl,
+      metadata: sessionMetadata(sku, warriorRef, seatCount),
+      client_reference_id: warriorRef
+        ? `innsegall_${sku}_${warriorRef.replace(/[^a-zA-Z0-9_-]/g, "").slice(0, 40)}`
+        : `innsegall_${sku}`,
       allow_promotion_codes: false,
-      ...(isClan
+      ...(isSubscription
         ? {
             subscription_data: {
-              metadata: { innsegall_sku: "clan", innsegall_plan: "clan" },
+              metadata: {
+                ...sessionMetadata(sku, warriorRef, seatCount),
+                innsegall_plan: sku,
+              },
             },
           }
         : {}),
-      custom_text: isClan
+      custom_text: sku === "msp"
         ? {
             submit: {
               message:
-                "Clan renews monthly. Cancel anytime in Stripe Customer Portal. No prorated refunds for partial months unless required by law.",
+                "MSP roster renews monthly per seat. Cancel anytime in Customer Portal. Battle Scouts stay local-first on each Mac.",
             },
           }
-        : {
-            submit: {
-              message:
-                "Extra scout fee is final and non-refundable once your license.json is delivered. Worth the calm · no manual loop.",
+        : sku === "clan"
+          ? {
+              submit: {
+                message:
+                  "Clan renews monthly. Cancel anytime in Stripe Customer Portal. No prorated refunds for partial months unless required by law.",
+              },
+            }
+          : {
+              submit: {
+                message:
+                  "Extra scout fee is final and non-refundable once your license.json is delivered. Worth the calm · no manual loop.",
+              },
             },
-          },
     });
     return res.status(200).json({ url: session.url, id: session.id });
   } catch (e) {

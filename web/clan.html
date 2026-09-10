@@ -151,25 +151,7 @@
       </nav>
     </footer>
   </div>
-  <script>
-    document.querySelectorAll(".innsegall-checkout").forEach((btn) => {
-      const label = btn.textContent;
-      btn.addEventListener("click", async () => {
-        btn.disabled = true;
-        btn.textContent = "Opening the toll gate…";
-        try {
-          const res = await fetch("/api/stripe/checkout", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ sku: "clan" }) });
-          const data = await res.json();
-          if (data.url) location.href = data.url;
-          else throw new Error();
-        } catch {
-          btn.disabled = false;
-          btn.textContent = label;
-          alert("The toll gate stands shut · paid passages are not open on this host yet. Scout free on the alpha field manual.");
-        }
-      });
-    });
-  </script>
+  <script src="/innsegall-checkout.js?v=1" defer></script>
   <script src="/innsegall-nav.js?v=16" defer></script>
 </body>
 </html>

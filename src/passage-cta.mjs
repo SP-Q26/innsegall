@@ -42,9 +42,13 @@ export function renderPassageUpsellSection(card) {
         <p class="section-lead">${dek}</p>
         <ul class="passage-tier-list">
           <li><strong>Free</strong> · 2 Voyages on the 1st &amp; 15th · welcome scout once</li>
-          <li><strong>Extra scout</strong> · $${PRICING.extra_run.usd.toFixed(2)} one-time · <a href="${site}/#pricing">unlock at the toll gate</a></li>
-          <li><strong>Clan</strong> · $${PRICING.clan.usd_monthly.toFixed(2)}/mo · ${PRICING.clan.seats} seats · unlimited · <a href="${site}/clan">bring your clan</a></li>
+          <li><strong>Extra scout</strong> · $${PRICING.extra_run.usd.toFixed(2)} one-time</li>
+          <li><strong>Clan</strong> · $${PRICING.clan.usd_monthly.toFixed(2)}/mo · ${PRICING.clan.seats} seats · unlimited</li>
         </ul>
+        <div class="passage-tier-actions">
+          <a class="passage-checkout-btn passage-checkout-btn--secondary" href="${site}/?buy=extra">Panic scout · $${PRICING.extra_run.usd.toFixed(2)}</a>
+          <a class="passage-checkout-btn" href="${site}/clan?buy=clan">Clan · $${PRICING.clan.usd_monthly.toFixed(2)}/mo</a>
+        </div>
         <p class="muted" style="margin-top:0.75rem;font-size:0.9rem">Not antivirus · read-only triage · you import <code>innsegall-license.json</code> locally after Stripe.</p>
       </section>`;
 }

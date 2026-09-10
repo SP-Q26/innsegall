@@ -21,7 +21,9 @@ export function buildLicensePayload(opts) {
     product: "Innsegall",
     plan: opts.plan,
     extra_credits: opts.extra_credits ?? 0,
-    seats: opts.seats ?? (opts.plan === "clan" ? 5 : 1),
+    seats:
+      opts.seats ??
+      (opts.plan === "msp" ? 10 : opts.plan === "clan" ? 5 : 1),
     issued_at: opts.issued_at || new Date().toISOString(),
     valid_until: opts.valid_until ?? null,
     stripe_session: opts.stripe_session || null,
@@ -126,12 +128,19 @@ export function importLicenseFile(filePath) {
     saveRedemptions(redeemed);
   }
 
-  if (license.plan === "clan") {
+  if (license.plan === "clan" || license.plan === "msp") {
     if (!license.stripe_session && !license.stripe_subscription) {
-      throw new Error("clan license requires stripe_session or stripe_subscription");
+      throw new Error("paid roster license requires stripe_session or stripe_subscription");
     }
-    setPlan("clan");
-    return { plan: "clan", message: "Clan plan activated · unlimited scouts" };
+    setPlan(license.plan, { seats: license.seats });
+    const seats = license.seats || (license.plan === "msp" ? 10 : 5);
+    return {
+      plan: license.plan,
+      message:
+        license.plan === "msp"
+          ? `MSP roster activated · unlimited scouts · ${seats} seats billed`
+          : "Clan plan activated · unlimited scouts",
+    };
   }
   if (license.plan === "extra" || license.extra_credits > 0) {
     if (!license.stripe_session) {

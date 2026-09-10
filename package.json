@@ -44,7 +44,8 @@
     "sync:battle-scout-sample": "node scripts/sync-battle-scout-sample.mjs",
     "dry-run:lanes": "node scripts/dry-run-lanes.mjs",
     "smoke:live": "node scripts/smoke-live.mjs --base=https://innsegall.com",
-    "smoke:xano": "node scripts/smoke-xano.mjs"
+    "smoke:xano": "node scripts/smoke-xano.mjs",
+    "report:funnel": "node scripts/report-funnel.mjs"
   },
   "devDependencies": {
     "@resvg/resvg-js": "^2.6.2"

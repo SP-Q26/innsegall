@@ -553,29 +553,7 @@
       </nav>
     </footer>
   </div>
-  <script>
-    document.querySelectorAll(".innsegall-checkout").forEach((btn) => {
-      btn.addEventListener("click", async () => {
-        const sku = btn.getAttribute("data-sku") || "extra";
-        btn.disabled = true;
-        btn.textContent = "Opening the toll gate…";
-        try {
-          const res = await fetch("/api/stripe/checkout", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ sku }),
-          });
-          const data = await res.json();
-          if (data.url) location.href = data.url;
-          else throw new Error(data.error || "checkout_failed");
-        } catch (e) {
-          btn.disabled = false;
-          btn.textContent = sku === "clan" ? "Bring your clan" : "One panic scout · $4.20";
-          alert("The toll gate stands shut · paid passages are not open on this host yet. Scout free on the alpha field manual.");
-        }
-      });
-    });
-  </script>
+  <script src="/innsegall-checkout.js?v=1" defer></script>
   <script src="/innsegall-nav.js?v=16" defer></script>
 </body>
 </html>

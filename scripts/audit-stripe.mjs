@@ -31,6 +31,8 @@ check("checkout SITE_URL helper", checkout.includes("siteOrigin"));
 check("checkout metadata innsegall_sku", checkout.includes("innsegall_sku"));
 check("checkout extra amount 420", checkout.includes("420") || checkout.includes("STRIPE_PRICE_EXTRA"));
 check("checkout clan amount 667", checkout.includes("667") || checkout.includes("STRIPE_PRICE_CLAN"));
+check("checkout msp sku", checkout.includes('"msp"') && checkout.includes("STRIPE_PRICE_MSP_SEAT"));
+check("checkout warrior_ref metadata", checkout.includes("warrior_ref"));
 check("checkout subscription mode", checkout.includes('"subscription"'));
 check("webhook raw body parser off", webhook.includes("bodyParser: false"));
 check("webhook checkout.session.completed", webhook.includes("checkout.session.completed"));
@@ -41,9 +43,21 @@ check("license buildLicensePayload", license.includes("buildLicensePayload"));
 check("license imports web/lib", license.includes('../lib/license.mjs'));
 
 for (const [key, item] of Object.entries(STRIPE_CATALOG)) {
-  check(`catalog ${key} test_price_id in docs`, priceDoc.includes(item.test_price_id));
-  check(`catalog ${key} amount`, item.unit_amount === (key === "extra" ? 420 : 667));
+  if (item.test_price_id) {
+    check(`catalog ${key} test_price_id in docs`, priceDoc.includes(item.test_price_id));
+  }
+  const amountOk =
+    key === "extra"
+      ? item.unit_amount === 420
+      : key === "clan"
+        ? item.unit_amount === 667
+        : item.unit_amount === 300;
+  check(`catalog ${key} amount`, amountOk);
 }
+check("catalog msp seats_min", STRIPE_CATALOG.msp.seats_min === 10);
+check("innsegall-checkout.js shared", existsSync(join(web, "innsegall-checkout.js")));
+check("msp page", existsSync(join(web, "msp.html")));
+check("STRIPE_MSP_PACK doc", existsSync(join(root, "docs/STRIPE_MSP_PACK.md")));
 
 const gospel = readFileSync(join(web, ".well-known/innsegall-gospel.json"), "utf8");
 const bus = readFileSync(join(web, "innsegall-ai-bus.json"), "utf8");
@@ -56,7 +70,10 @@ check("env example INNSEGALL_LICENSE_SECRET", envExample.includes("INNSEGALL_LIC
 
 const index = readFileSync(join(web, "index.html"), "utf8");
 check("index checkout buttons", index.includes('data-sku="extra"') && index.includes('data-sku="clan"'));
-check("index checkout fetch", index.includes("/api/stripe/checkout"));
+check(
+  "index checkout script",
+  index.includes("innsegall-checkout.js") || index.includes("/api/stripe/checkout")
+);
 
 if (failed) {
   console.error(`\n${failed} Stripe audit failure(s)`);

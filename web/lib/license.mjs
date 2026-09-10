@@ -24,7 +24,9 @@ export function buildLicensePayload(opts) {
     product: "Innsegall",
     plan: opts.plan,
     extra_credits: opts.extra_credits ?? 0,
-    seats: opts.seats ?? (opts.plan === "clan" ? 5 : 1),
+    seats:
+      opts.seats ??
+      (opts.plan === "msp" ? 10 : opts.plan === "clan" ? 5 : 1),
     issued_at: opts.issued_at || new Date().toISOString(),
     valid_until: opts.valid_until ?? null,
     stripe_session: opts.stripe_session || null,

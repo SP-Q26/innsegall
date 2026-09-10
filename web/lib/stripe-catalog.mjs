@@ -31,10 +31,28 @@ export const STRIPE_CATALOG = {
     lookup_key: "innsegall_clan",
     metadata: { innsegall_sku: "clan", innsegall_plan: "clan", innsegall_seats: "5" },
   },
+  msp: {
+    sku: "msp",
+    name: "Innsegall MSP · per seat",
+    description:
+      "Monthly MSP roster · unlimited Battle Scouts per billed seat · post-scare Mac triage for client Macs · 10 seat minimum.",
+    unit_amount: 300,
+    currency: "usd",
+    mode: "subscription",
+    recurring: { interval: "month" },
+    seats_min: 10,
+    seats_max: 100,
+    test_product_id: null,
+    test_price_id: null,
+    lookup_key: "innsegall_msp_seat",
+    metadata: { innsegall_sku: "msp", innsegall_plan: "msp" },
+  },
 };
 
 export function catalogForSku(sku) {
-  return STRIPE_CATALOG[sku === "clan" ? "clan" : "extra"];
+  if (sku === "clan") return STRIPE_CATALOG.clan;
+  if (sku === "msp") return STRIPE_CATALOG.msp;
+  return STRIPE_CATALOG.extra;
 }
 
 export function siteOrigin() {

@@ -52,6 +52,7 @@
     { "source": "/samples/battle-scout-demo", "destination": "/samples/battle-scout-demo.html" },
     { "source": "/map", "destination": "/map.html" },
     { "source": "/clan", "destination": "/clan.html" },
+    { "source": "/msp", "destination": "/msp.html" },
     { "source": "/warriors", "destination": "/warriors.html" },
     { "source": "/blog/join-the-innsegall-clan", "destination": "/blog/join-the-innsegall-clan.html" },
     { "source": "/blog/innsegall-vs-antivirus-macintosh", "destination": "/blog/innsegall-vs-antivirus-macintosh.html" },

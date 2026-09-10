@@ -95,6 +95,14 @@
           <p class="section-label" style="margin-bottom:0.5rem;">Onward</p>
           <p style="margin:0;color:var(--mist-pale);line-height:1.6;">Writ bound · quota unlocked · the mist clears when you choose to share. <em lang="gd">Chan eil nàmhaid agad.</em></p>
         </div>
+        <div id="clan-upsell" class="card" style="margin-top:1.5rem;display:none" hidden>
+          <p class="section-label">Household or client roster</p>
+          <p style="margin:0 0 1rem;line-height:1.6;color:var(--mist-pale);">Panic months repeat. <strong>Clan</strong> gives unlimited scouts and five seats · <strong>MSP</strong> scales per Mac you support.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:0.65rem">
+            <button type="button" class="btn-horn btn-horn--compact innsegall-checkout" data-sku="clan">Clan · $6.67/mo</button>
+            <a class="btn-link" href="/msp">MSP roster · from $30/mo</a>
+          </div>
+        </div>
         <div class="scout-preview" style="margin-top:2rem;">
           <p class="section-label">Your receipt style</p>
           <iframe
@@ -160,9 +168,18 @@
         var res = await fetch('/api/license?session_id=' + encodeURIComponent(sessionId));
         var data = await res.json();
         if (!res.ok) throw new Error(data.error || 'license_failed');
-        status.textContent = data.plan === 'clan'
-          ? 'Clan oath bound · your roster sails with unlimited scouts. Welcome aboard the longship.'
-          : 'Panic scout unlocked · run Innsegall on your Macintosh anytime this moon. Onward.';
+        if (data.plan === 'msp') {
+          status.textContent = 'MSP roster bound · unlimited scouts for your billed seats. Send clients innsegall.com/install.';
+        } else if (data.plan === 'clan') {
+          status.textContent = 'Clan oath bound · your roster sails with unlimited scouts. Welcome aboard the longship.';
+        } else {
+          status.textContent = 'Panic scout unlocked · run Innsegall on your Macintosh anytime this moon. Onward.';
+        }
+        var upsell = document.getElementById('clan-upsell');
+        if (upsell && data.plan === 'extra') {
+          upsell.hidden = false;
+          upsell.style.display = 'block';
+        }
         var blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
         var url = URL.createObjectURL(blob);
         document.getElementById('download-btn').onclick = function () {
@@ -179,6 +196,7 @@
       }
     })();
   </script>
+  <script src="/innsegall-checkout.js?v=1" defer></script>
   <script src="/innsegall-nav.js?v=16" defer></script>
 </body>
 </html>

@@ -108,6 +108,14 @@ export const PRICING = {
     scouts_per_month: Infinity,
     note: "Unlimited scouts · 5 seats · share with family",
   },
+  msp: {
+    label: "MSP roster",
+    usd_per_seat_monthly: 3,
+    seats_min: 10,
+    seats_max: 100,
+    scouts_per_month: Infinity,
+    note: "Unlimited scouts · per-seat billing · 10+ Mac client roster",
+  },
   solas: {
     label: "Solas",
     note: "Static explain from your card · BYOK (Gemini / DeepSeek) for live AI",

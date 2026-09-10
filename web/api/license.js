@@ -28,9 +28,11 @@ export default async function handler(req, res) {
     }
 
     const sku = session.metadata?.innsegall_sku || "extra";
-    const isClan = sku === "clan" || session.mode === "subscription";
+    const isMsp = sku === "msp";
+    const isClan = sku === "clan" || (session.mode === "subscription" && !isMsp);
+    const isSub = isClan || isMsp;
     let validUntil = null;
-    if (isClan && session.subscription) {
+    if (isSub && session.subscription) {
       const sub =
         typeof session.subscription === "string"
           ? await stripe.subscriptions.retrieve(session.subscription)
@@ -38,9 +40,16 @@ export default async function handler(req, res) {
       validUntil = new Date(sub.current_period_end * 1000).toISOString();
     }
 
+    const seats = isMsp
+      ? Math.min(100, Math.max(10, parseInt(session.metadata?.innsegall_seats, 10) || 10))
+      : isClan
+        ? 5
+        : 1;
+
     const license = buildLicensePayload({
-      plan: isClan ? "clan" : "extra",
-      extra_credits: isClan ? 0 : 1,
+      plan: isMsp ? "msp" : isClan ? "clan" : "extra",
+      extra_credits: isSub ? 0 : 1,
+      seats,
       valid_until: validUntil,
       stripe_session: session.id,
       stripe_subscription:

@@ -106,7 +106,7 @@ check("install absolute node wrapper", install.includes("NODE_BIN"));
 check("one-click installer", existsSync(join(web, "scripts", "Innsegall-Install.command")));
 
 const sitemap = readFileSync(join(web, "sitemap.xml"), "utf8");
-const sitemapRoutes = ["/alpha", "/guide", "/map", "/boat", "/clan", "/warriors", "/privacy", "/tos", "/blog"];
+const sitemapRoutes = ["/alpha", "/guide", "/map", "/boat", "/clan", "/msp", "/warriors", "/privacy", "/tos", "/blog"];
 for (const route of sitemapRoutes) {
   check(`sitemap ${route}`, sitemap.includes(`https://innsegall.com${route}`));
 }

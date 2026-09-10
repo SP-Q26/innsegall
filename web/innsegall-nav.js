@@ -18,6 +18,7 @@
     "/map": "map",
     "/boat": "boat",
     "/clan": "clan",
+    "/msp": "msp",
     "/warriors": "warriors",
     "/blog": "blog",
     "/privacy": "privacy",
