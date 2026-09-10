@@ -3,7 +3,7 @@
 import { PRICING } from "../src/constants.mjs";
 
 const OG_URL = "https://innsegall.com/og/innsegall-card.png";
-const CSS_VER = 15;
+const CSS_VER = 16;
 
 /**
  * @param {{
@@ -123,7 +123,7 @@ export function renderBlogPostHtml(opts) {
     </main>
     <section class="blog-cta-strip section" aria-label="Next step">
       <p class="section-label">We send the scout</p>
-      <p class="section-lead">Most households have no security scout. <strong>Innsegall scouts for you</strong> · <a href="/alpha">Send the scout</a> on your Macintosh · or <a href="/clan">bring your clan</a> for unlimited scouts and shared receipts.</p>
+      <p class="section-lead">Most operators have no local scout after a scare. <strong>Innsegall runs read-only triage</strong> on your Macintosh · <a href="/alpha">Send the scout</a> · <a href="/boat">our lane vs theirs</a> · or <a href="/clan">bring your clan</a> for unlimited scouts and shared Battle Scouts.</p>
     </section>
     <footer class="site-footer">
       <p>© 2026 Innsegall · Isles of the Norse · Know you're okay.</p>
@@ -200,7 +200,7 @@ export function issueSpotlightBodyHtml(stats, meta) {
           <li><a href="/alpha">Send the scout</a> · read-only on your Macintosh</li>
           <li>Read your Battle Scout verdict · LIKELY_OK · FIX_LIST · ESCALATE</li>
           <li>Copy for AI if you want a second opinion from ChatGPT or Claude</li>
-          <li><a href="/clan">Bring your clan</a> for unlimited household scouts</li>
+          <li><a href="/clan">Bring your clan</a> for unlimited scouts across five seats</li>
         </ol>
       </section>`;
 }

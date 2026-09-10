@@ -268,11 +268,11 @@ export const INNSEGALL_GOSPEL = {
       { id: "after_link", player: "After suspicious link", blog_slug: "after-suspicious-link-macintosh", status: "shipped" },
       { id: "hygiene_no_av", player: "Hygiene without AV", blog_slug: "macintosh-hygiene-without-antivirus", status: "shipped" },
       { id: "battle_scout", player: "What is a Battle Scout", blog_slug: "what-is-a-battle-scout", status: "shipped" },
-      { id: "cleaner_pup", player: "CleanMyMac / MacKeeper / Intego", blog_slug: "innsegall-vs-mac-cleaners", status: "queued" },
-      { id: "etrecheck_power", player: "EtreCheck / Objective-See depth", blog_slug: "innsegall-vs-etrecheck-macintosh", status: "queued" },
-      { id: "apple_builtin", player: "Apple built-in security", blog_slug: "macintosh-xprotect-after-scare", status: "queued" },
-      { id: "virustotal", player: "VirusTotal / URL scan", blog_slug: "virustotal-vs-local-mac-scout", status: "queued" },
-      { id: "network_tools", player: "Little Snitch / LuLu", blog_slug: "network-monitor-vs-post-scare-triage", status: "queued" },
+      { id: "cleaner_pup", player: "CleanMyMac / MacKeeper / Intego", blog_slug: "innsegall-vs-mac-cleaners", status: "shipped" },
+      { id: "etrecheck_power", player: "EtreCheck / Objective-See depth", blog_slug: "innsegall-vs-etrecheck-macintosh", status: "shipped" },
+      { id: "apple_builtin", player: "Apple built-in security", blog_slug: "macintosh-xprotect-after-scare", status: "shipped" },
+      { id: "virustotal", player: "VirusTotal / URL scan", blog_slug: "virustotal-vs-local-mac-scout", status: "shipped" },
+      { id: "network_tools", player: "Little Snitch / LuLu", blog_slug: "network-monitor-vs-post-scare-triage", status: "shipped" },
       { id: "raw_ai", player: "ChatGPT / Claude without scout", blog_slug: null, status: "shipped", absorb_via: "boat" },
     ],
     cargo: [
@@ -505,6 +505,11 @@ ${INNSEGALL_GOSPEL.competitor_boat.mac_lane_absorption.map((row) => `- ${row.pla
 - ${PRICING.site_url}/blog/macintosh-hygiene-without-antivirus
 - ${PRICING.site_url}/blog/what-is-a-battle-scout
 - ${PRICING.site_url}/blog/innsegall-vs-antivirus-macintosh
+- ${PRICING.site_url}/blog/innsegall-vs-mac-cleaners
+- ${PRICING.site_url}/blog/innsegall-vs-etrecheck-macintosh
+- ${PRICING.site_url}/blog/macintosh-xprotect-after-scare
+- ${PRICING.site_url}/blog/virustotal-vs-local-mac-scout
+- ${PRICING.site_url}/blog/network-monitor-vs-post-scare-triage
 - Index: ${PRICING.site_url}/blog
 
 ## Platform order

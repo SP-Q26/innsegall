@@ -335,31 +335,31 @@
         "id": "cleaner_pup",
         "player": "CleanMyMac / MacKeeper / Intego",
         "blog_slug": "innsegall-vs-mac-cleaners",
-        "status": "queued"
+        "status": "shipped"
       },
       {
         "id": "etrecheck_power",
         "player": "EtreCheck / Objective-See depth",
         "blog_slug": "innsegall-vs-etrecheck-macintosh",
-        "status": "queued"
+        "status": "shipped"
       },
       {
         "id": "apple_builtin",
         "player": "Apple built-in security",
         "blog_slug": "macintosh-xprotect-after-scare",
-        "status": "queued"
+        "status": "shipped"
       },
       {
         "id": "virustotal",
         "player": "VirusTotal / URL scan",
         "blog_slug": "virustotal-vs-local-mac-scout",
-        "status": "queued"
+        "status": "shipped"
       },
       {
         "id": "network_tools",
         "player": "Little Snitch / LuLu",
         "blog_slug": "network-monitor-vs-post-scare-triage",
-        "status": "queued"
+        "status": "shipped"
       },
       {
         "id": "raw_ai",

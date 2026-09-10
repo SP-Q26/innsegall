@@ -28,6 +28,8 @@
     "preflight": "bash scripts/run-launch-preflight.sh",
     "audit": "node scripts/audit-launch.mjs",
     "audit:swarm": "node scripts/audit-swarm.mjs",
+    "audit:brand-stack": "node scripts/audit-brand-stack.mjs",
+    "build:competitor-posts": "node scripts/build-competitor-absorption-posts.mjs",
     "audit:discovery": "node scripts/audit-discovery.mjs",
     "diagnose:xano": "node scripts/diagnose-xano-wire.mjs",
     "gate:launch": "node scripts/audit-swarm.mjs && node scripts/smoke-live.mjs --base=https://innsegall.com",
