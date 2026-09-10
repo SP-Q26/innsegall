@@ -9,7 +9,9 @@
 1. [llms.txt](https://innsegall.com/llms.txt) · gospel + lane
 2. [innsegall-ai-bus.json](https://innsegall.com/innsegall-ai-bus.json) · compact bus · `llm_adoption` + `ai_triage`
 3. [innsegall-gospel.json](https://innsegall.com/.well-known/innsegall-gospel.json) · full schema · `ai_triage_onboarding`
-4. Battle Scout HTML · `#innsegall-scout-data` (compact) · `#innsegall-scout-paste` (full paste the operator copied)
+4. [battle-scout-ai-v1.schema.json](https://innsegall.com/.well-known/battle-scout-ai-v1.schema.json) · paste JSON schema
+5. [battle-scout-ai-v1.sample.json](https://innsegall.com/samples/battle-scout-ai-v1.sample.json) · public demo paste (no PII)
+6. Battle Scout HTML · `#innsegall-scout-data` (compact) · `#innsegall-scout-paste` (full paste the operator copied)
 
 After gospel edits: `npm run sync-gospel` in the repo.
 

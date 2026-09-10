@@ -154,6 +154,8 @@
     "paste_format": "innsegall-battle-scout-ai/v1",
     "paste_dom_id": "#innsegall-scout-paste",
     "sample_fixture": "fixtures/battle-scout-ai-v1.sample.json",
+    "sample_url": "https://innsegall.com/samples/battle-scout-ai-v1.sample.json",
+    "json_schema_url": "https://innsegall.com/.well-known/battle-scout-ai-v1.schema.json",
     "triage_levels": [
       "LIKELY_OK",
       "FIX_LIST",

@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://innsegall.com/.well-known/battle-scout-ai-v1.schema.json",
+  "title": "innsegall-battle-scout-ai/v1",
+  "description": "Structured Battle Scout paste for AI triage assignment. Local scout on Macintosh · user-initiated share only.",
+  "type": "object",
+  "required": [
+    "format",
+    "verdict",
+    "triage_level",
+    "flow",
+    "summary",
+    "stats",
+    "does_not_check"
+  ],
+  "properties": {
+    "format": { "const": "innsegall-battle-scout-ai/v1" },
+    "product": { "type": "string" },
+    "artifact": { "type": "string" },
+    "gospel": { "type": "string", "format": "uri" },
+    "llms_txt": { "type": "string", "format": "uri" },
+    "card_id": { "type": "string" },
+    "created_at": { "type": "string" },
+    "engine_version": { "type": "string" },
+    "platform": { "type": "string" },
+    "flow": { "type": "string" },
+    "flow_label": { "type": "string" },
+    "verdict": {
+      "type": "string",
+      "enum": ["LIKELY_OK", "FIX_LIST", "ESCALATE"]
+    },
+    "triage_level": {
+      "type": "string",
+      "enum": ["LIKELY_OK", "FIX_LIST", "ESCALATE"]
+    },
+    "verdict_human": { "type": "string" },
+    "summary": { "type": "string" },
+    "leader_line": { "type": ["string", "null"] },
+    "stats": {
+      "type": "object",
+      "properties": {
+        "pass": { "type": "integer", "minimum": 0 },
+        "warn": { "type": "integer", "minimum": 0 },
+        "fail": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "fixes_recommended": { "type": "array" },
+    "attention_checks": { "type": "array" },
+    "clear_checks": { "type": "array" },
+    "does_not_check": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "scope_lead": { "type": "string" }
+  },
+  "additionalProperties": true
+}

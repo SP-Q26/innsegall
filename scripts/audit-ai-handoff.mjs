@@ -65,6 +65,21 @@ check(
     INNSEGALL_GOSPEL.ai_triage_onboarding.triage_levels.length === 3
 );
 
+const schemaPath = join(root, "web/.well-known/battle-scout-ai-v1.schema.json");
+check("battle-scout-ai v1 json schema", existsSync(schemaPath));
+if (existsSync(schemaPath)) {
+  const schema = JSON.parse(readFileSync(schemaPath, "utf8"));
+  check("schema format const", schema.properties?.format?.const === "innsegall-battle-scout-ai/v1");
+}
+
+const webSample = join(root, "web/samples/battle-scout-ai-v1.sample.json");
+check("web samples battle-scout-ai v1", existsSync(webSample));
+
+check(
+  "gospel json_schema_url",
+  INNSEGALL_GOSPEL.ai_triage_onboarding?.json_schema_url?.includes("battle-scout-ai-v1.schema.json")
+);
+
 const guide = readFileSync(join(root, "web/guide.html"), "utf8");
 check("guide AI handoff section", guide.includes('id="ai-handoff"') && guide.includes("AI handoff"));
 

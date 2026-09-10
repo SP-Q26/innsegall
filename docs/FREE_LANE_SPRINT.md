@@ -135,9 +135,10 @@ Parallel workstreams that **do not** require Apple Developer Program enrollment 
 ```bash
 npm run audit:swarm
 npm run gate:launch
+npm run dry-run:lanes
 npm run diagnose:xano
-node scripts/dry-test-license.mjs
-npm run sync-gospel   # after gospel edits
+npm run sync-gospel              # after gospel edits
+npm run sync:battle-scout-sample # after fixture edits
 ```
 
 ---

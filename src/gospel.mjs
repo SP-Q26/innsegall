@@ -108,6 +108,8 @@ export const INNSEGALL_GOSPEL = {
     paste_format: "innsegall-battle-scout-ai/v1",
     paste_dom_id: "#innsegall-scout-paste",
     sample_fixture: "fixtures/battle-scout-ai-v1.sample.json",
+    sample_url: `${PRICING.site_url}/samples/battle-scout-ai-v1.sample.json`,
+    json_schema_url: `${PRICING.site_url}/.well-known/battle-scout-ai-v1.schema.json`,
     triage_levels: ["LIKELY_OK", "FIX_LIST", "ESCALATE"],
     rubric: {
       LIKELY_OK:

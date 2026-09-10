@@ -37,6 +37,8 @@
     "check:git-identity": "node scripts/check-git-identity.mjs",
     "dry-test:license": "node scripts/dry-test-license.mjs",
     "sync-gospel": "node scripts/sync-gospel-web.mjs",
+    "sync:battle-scout-sample": "node scripts/sync-battle-scout-sample.mjs",
+    "dry-run:lanes": "node scripts/dry-run-lanes.mjs",
     "smoke:live": "node scripts/smoke-live.mjs --base=https://innsegall.com",
     "smoke:xano": "node scripts/smoke-xano.mjs"
   },

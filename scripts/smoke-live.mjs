@@ -21,6 +21,8 @@ const PATHS = [
   "/llms.txt",
   "/innsegall-ai-bus.json",
   "/.well-known/innsegall-gospel.json",
+  "/.well-known/battle-scout-ai-v1.schema.json",
+  "/samples/battle-scout-ai-v1.sample.json",
   "/scripts/innsegall-alpha-install.sh",
   "/scripts/Innsegall-Install.command",
   "/innsegall.css",
@@ -67,6 +69,30 @@ async function check(path) {
         const bus = JSON.parse(text);
         if (bus.schema !== "innsegall-ai-bus" || bus.primary_cta !== "Send the scout") {
           failMsg(`${path} invalid ai-bus schema or CTA`);
+          return;
+        }
+      } catch {
+        failMsg(`${path} invalid JSON`);
+        return;
+      }
+    }
+    if (path === "/.well-known/battle-scout-ai-v1.schema.json") {
+      try {
+        const schema = JSON.parse(text);
+        if (schema.properties?.format?.const !== "innsegall-battle-scout-ai/v1") {
+          failMsg(`${path} missing format const`);
+          return;
+        }
+      } catch {
+        failMsg(`${path} invalid JSON`);
+        return;
+      }
+    }
+    if (path === "/samples/battle-scout-ai-v1.sample.json") {
+      try {
+        const sample = JSON.parse(text);
+        if (sample.format !== "innsegall-battle-scout-ai/v1" || sample.triage_level !== sample.verdict) {
+          failMsg(`${path} invalid battle-scout sample`);
           return;
         }
       } catch {

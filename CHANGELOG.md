@@ -9,6 +9,12 @@ Versioning follows [Semantic Versioning](https://semver.org/) during alpha (`0.x
 
 ## [0.4.0-alpha] · 2026-09-10
 
+### Added (AI triage · Phase 6 wave 1)
+- `docs/AI_HANDOFF_ONBOARDING.md` · `docs/IOS_PRODUCT.md` · `docs/FREE_LANE_SPRINT.md` · `docs/PHASE_6_FREE_LANE.md`.
+- Public `/.well-known/battle-scout-ai-v1.schema.json` · `/samples/battle-scout-ai-v1.sample.json`.
+- `npm run dry-run:lanes` · `npm run sync:battle-scout-sample` · gospel `triage_level` on AI paste payload.
+- Swarm lane `audit-ai-handoff.mjs` · live smoke probes for schema + sample.
+
 ### Added (Developer ID)
 - `packaging/macos/InnsegallInstaller.app` template · `npm run pack:macos-installer` · `npm run release:macos-installer`.
 - `docs/APPLE_DEVELOPER_ID.md` · GitHub Actions `macos-release.yml` for sign + notarize on tag.

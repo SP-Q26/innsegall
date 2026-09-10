@@ -10,6 +10,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 
 console.log("innsegall prep-deploy");
 execSync("node scripts/sync-gospel-web.mjs", { cwd: root, stdio: "inherit" });
+execSync("node scripts/sync-battle-scout-sample.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/export-sample-scout.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/export-og-png.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-brand.mjs", { cwd: root, stdio: "inherit" });

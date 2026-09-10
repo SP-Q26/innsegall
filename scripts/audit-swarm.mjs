@@ -110,6 +110,10 @@ const visualChecks = [
       !/caretaker/i.test(readFileSync(join(root, "docs", "PHASE_5_SHIPPED.md"), "utf8")),
   ],
   ["AI handoff onboarding doc", existsSync(join(root, "docs", "AI_HANDOFF_ONBOARDING.md"))],
+  ["PHASE_6 free lane doc", existsSync(join(root, "docs", "PHASE_6_FREE_LANE.md"))],
+  ["battle-scout-ai schema", existsSync(join(web, ".well-known", "battle-scout-ai-v1.schema.json"))],
+  ["battle-scout sample on web", existsSync(join(web, "samples", "battle-scout-ai-v1.sample.json"))],
+  ["dry-run-lanes script", existsSync(join(root, "scripts", "dry-run-lanes.mjs"))],
 ];
 console.log("── License dry-test ──");
 try {
