@@ -52,6 +52,12 @@ export const INNSEGALL_GOSPEL = {
     map_url: `${PRICING.site_url}/map`,
     one_liner: `curl -fsSL ${PRICING.site_url}/scripts/innsegall-alpha-install.sh | bash`,
     one_click: `${PRICING.site_url}/scripts/Innsegall-Install.command`,
+    signed_app_url:
+      "https://github.com/SP-Q26/innsegall/releases/latest/download/InnsegallInstaller.zip",
+    signed_app_note:
+      "Developer ID signed + notarized InnsegallInstaller.app · preferred for Firefox/Safari download · build: docs/APPLE_DEVELOPER_ID.md",
+    gatekeeper_note:
+      "Unsigned .command may show unidentified developer · use signed_app_url or Terminal one_liner · innsegall.com/alpha#gatekeeper",
     requirements: "macOS 12+ · Node 20+ · read-only checks by default",
     steps: [
       "Download Innsegall-Install.command from /alpha · double-click · or curl one_liner",

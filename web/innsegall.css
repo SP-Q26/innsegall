@@ -1059,7 +1059,8 @@ a:focus-visible {
   margin: 0 0 2rem;
 }
 
-.legal-doc .alpha-notice {
+.legal-doc .alpha-notice,
+.section .alpha-notice {
   padding: 1rem 1.15rem;
   margin-bottom: 2rem;
   background: rgba(217, 119, 87, 0.12);
@@ -1067,6 +1068,15 @@ a:focus-visible {
   border-radius: 0.65rem;
   font-size: 0.92rem;
   color: #f0d4c8;
+}
+
+.section .alpha-notice ol {
+  margin: 0.75rem 0 0 1.1rem;
+  padding: 0;
+}
+
+.section .alpha-notice li {
+  margin-bottom: 0.35rem;
 }
 
 .legal-doc section {

@@ -15,6 +15,8 @@
     "check": "node bin/innsegall.mjs check",
     "runes": "node bin/innsegall.mjs runes",
     "bootstrap": "node bin/innsegall.mjs bootstrap",
+    "pack:macos-installer": "bash scripts/build-macos-installer-app.sh",
+    "release:macos-installer": "bash scripts/sign-notarize-macos-installer.sh",
     "doctor": "node bin/innsegall.mjs runes",
     "plan": "node bin/innsegall.mjs plan",
     "test": "node scripts/self-test.mjs",

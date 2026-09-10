@@ -53,6 +53,8 @@ const requiredFiles = [
   "web/api/parley.js",
   "web/scripts/innsegall-alpha-install.sh",
   "web/scripts/Innsegall-Install.command",
+  "web/scripts/Innsegall-Install-Paste.txt",
+  "docs/APPLE_DEVELOPER_ID.md",
   "src/voyage-schedule.mjs",
   "src/bootstrap.mjs",
   "web/.well-known/innsegall-gospel.json",

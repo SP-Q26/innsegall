@@ -102,6 +102,23 @@ for (const p of PATHS) {
   await check(p);
 }
 
+const SIGNED_INSTALLER_URL =
+  "https://github.com/SP-Q26/innsegall/releases/latest/download/InnsegallInstaller.zip";
+
+console.log("── Signed installer (GitHub release) ──");
+try {
+  const res = await fetch(SIGNED_INSTALLER_URL, { method: "HEAD", redirect: "follow" });
+  if (res.status >= 200 && res.status < 400) {
+    pass(`signed InnsegallInstaller.zip (${res.status})`);
+  } else {
+    console.log(
+      `warn signed installer ${res.status} · run docs/APPLE_DEVELOPER_ID.md · upload release asset`
+    );
+  }
+} catch (e) {
+  console.log(`warn signed installer probe ${e.message}`);
+}
+
 console.log("── www apex redirect ──");
 try {
   const res = await fetch("https://www.innsegall.com/", { redirect: "manual" });

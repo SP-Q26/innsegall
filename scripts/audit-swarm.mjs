@@ -89,6 +89,10 @@ const visualChecks = [
   ["Stability page", existsSync(join(web, "stability.html"))],
   ["Distribution playbook", existsSync(join(root, "docs/DISTRIBUTION_PLAYBOOK.md"))],
   ["CHANGELOG", existsSync(join(root, "CHANGELOG.md"))],
+  ["APPLE_DEVELOPER_ID doc", existsSync(join(root, "docs", "APPLE_DEVELOPER_ID.md"))],
+  ["PHASE_5 shipped doc", existsSync(join(root, "docs", "PHASE_5_SHIPPED.md"))],
+  ["macos installer packaging", existsSync(join(root, "packaging/macos/app-template/Contents/MacOS/install"))],
+  ["Gospel signed_app_url", readFileSync(join(web, ".well-known", "innsegall-gospel.json"), "utf8").includes("signed_app_url")],
 ];
 console.log("── License dry-test ──");
 try {

@@ -1,0 +1,11 @@
+#!/bin/bash
+# Innsegall Installer · opens Terminal and runs the hosted alpha install script.
+set -euo pipefail
+
+export PATH="/usr/local/bin:/opt/homebrew/bin:${PATH:-/usr/bin:/bin}"
+
+INSTALL_URL="${INNSEGALL_INSTALL_URL:-https://innsegall.com/scripts/innsegall-alpha-install.sh}"
+
+/usr/bin/osascript \
+  -e 'tell application "Terminal" to activate' \
+  -e "tell application \"Terminal\" to do script \"curl -fsSL '${INSTALL_URL}' | bash\""

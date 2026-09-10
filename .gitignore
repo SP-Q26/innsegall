@@ -9,6 +9,7 @@ web/.env.*.local
 !web/.env.example
 .DS_Store
 .smoke/
+dist/
 *.log
 .npm-cache/
 .vercel

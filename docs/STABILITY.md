@@ -29,6 +29,20 @@ For **three minor engine versions** after `0.4.0-alpha` (i.e. through `0.7.x-alp
 
 ---
 
+## Scout depth · how many checks?
+
+**Default `mac_hygiene` runs 13 read-only checks** (launch ghosts, adware markers, hosts, DNS, proxy, Gatekeeper, security software, three browsers, login items, recent installs, config profiles). Flow-specific checks add only when relevant (`recent_downloads` on bad-link flow · `project_watch` on project_safe).
+
+**Keep the core light on purpose:**
+
+- Caretakers need a **fast, honest receipt** after a scare · not a 40-minute AV theater.
+- Each check has **scope copy** (looked at · does not cover · why it matters) · more checks = more reading, not more trust.
+- Voyage rhythm (1st & 15th) should stay **under ~2 minutes** on a typical Mac.
+
+**When we add checks (Phase 5+ rule):** one at a time · must map to a **post-scare question** · catalog + issue spotlight · no duplicate of an existing probe. Candidates later (not shipped): remote-management profile hints · Screen Time / parental lock oddities · **not** full disk scan or memory forensics.
+
+---
+
 ## What may change without a major version
 
 - New checks added to flows (backward compatible).

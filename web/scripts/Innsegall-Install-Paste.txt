@@ -1,0 +1,19 @@
+Innsegall · install without Gatekeeper (Macintosh alpha)
+======================================================
+
+Firefox/Safari may block Innsegall-Install.command as "unidentified developer".
+That is normal for unsigned alpha software · use Terminal instead.
+
+1) Open Terminal (Applications → Utilities → Terminal)
+
+2) Paste this entire line and press Return:
+
+curl -fsSL https://innsegall.com/scripts/innsegall-alpha-install.sh | bash
+
+3) Your welcome Battle Scout should open in the browser.
+   Free Voyages run on the 1st and 15th at 10:00 local.
+
+Already downloaded Innsegall-Install.command?
+  Right-click the file in Downloads → Open → Open again (one time).
+
+Help: https://innsegall.com/alpha#gatekeeper

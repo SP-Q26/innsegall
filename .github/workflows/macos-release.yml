@@ -1,0 +1,86 @@
+name: macos-release
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  sign-notarize:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Import signing certificate
+        env:
+          APPLE_CERTIFICATE_BASE64: ${{ secrets.APPLE_CERTIFICATE_BASE64 }}
+          APPLE_CERTIFICATE_PASSWORD: ${{ secrets.APPLE_CERTIFICATE_PASSWORD }}
+        run: |
+          if [[ -z "${APPLE_CERTIFICATE_BASE64}" ]]; then
+            echo "APPLE_CERTIFICATE_BASE64 not set · skipping sign job."
+            exit 1
+          fi
+          CERT_PATH="$RUNNER_TEMP/innsegall-signing.p12"
+          echo "$APPLE_CERTIFICATE_BASE64" | base64 --decode > "$CERT_PATH"
+          security create-keychain -p actions innsegall-build.keychain
+          security default-keychain -s innsegall-build.keychain
+          security unlock-keychain -p actions innsegall-build.keychain
+          security import "$CERT_PATH" -k innsegall-build.keychain -P "$APPLE_CERTIFICATE_PASSWORD" -T /usr/bin/codesign -T /usr/bin/security
+          security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k actions innsegall-build.keychain
+
+      - name: Write notary API key
+        env:
+          NOTARY_API_KEY_P8: ${{ secrets.NOTARY_API_KEY_P8 }}
+        run: |
+          if [[ -n "${NOTARY_API_KEY_P8}" ]]; then
+            mkdir -p "$HOME/.innsegall-notary"
+            echo "$NOTARY_API_KEY_P8" > "$HOME/.innsegall-notary/AuthKey.p8"
+            echo "NOTARY_API_KEY_PATH=$HOME/.innsegall-notary/AuthKey.p8" >> "$GITHUB_ENV"
+            echo "NOTARY_API_KEY_ID=${{ secrets.NOTARY_API_KEY_ID }}" >> "$GITHUB_ENV"
+            echo "NOTARY_API_ISSUER_ID=${{ secrets.NOTARY_API_ISSUER_ID }}" >> "$GITHUB_ENV"
+          fi
+
+      - name: Build installer app
+        run: npm run pack:macos-installer
+
+      - name: Sign and notarize
+        env:
+          SIGNING_IDENTITY: ${{ secrets.APPLE_SIGNING_IDENTITY }}
+          NOTARY_KEYCHAIN_PROFILE: innsegall-notary
+        run: npm run release:macos-installer
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: InnsegallInstaller
+          path: dist/InnsegallInstaller.zip
+
+      - name: Attach to GitHub Release (tag)
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/InnsegallInstaller.zip
+          make_latest: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Attach to GitHub Release (manual)
+        if: github.event_name == 'workflow_dispatch'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v0.4.0-alpha
+          target_commitish: ${{ github.sha }}
+          name: v0.4.0-alpha · signed Macintosh installer
+          files: dist/InnsegallInstaller.zip
+          make_latest: true
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

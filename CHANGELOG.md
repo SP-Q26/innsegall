@@ -9,6 +9,10 @@ Versioning follows [Semantic Versioning](https://semver.org/) during alpha (`0.x
 
 ## [0.4.0-alpha] · 2026-09-10
 
+### Added (Developer ID)
+- `packaging/macos/InnsegallInstaller.app` template · `npm run pack:macos-installer` · `npm run release:macos-installer`.
+- `docs/APPLE_DEVELOPER_ID.md` · GitHub Actions `macos-release.yml` for sign + notarize on tag.
+
 ### Added (install automation)
 - `innsegall bootstrap` / `onboard` · welcome scout + launchd Voyage schedule (1st & 15th 10:00).
 - `Innsegall-Install.command` one-click installer · alpha page primary CTA.

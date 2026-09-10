@@ -9,7 +9,10 @@ echo ""
 echo "Innsegall · sending the scout aboard"
 echo "===================================="
 echo ""
-echo "Tip: if macOS says the file is from the internet, right-click this file → Open (once)."
+echo "If macOS blocked this file before it opened, use Terminal instead (no Gatekeeper):"
+echo "  curl -fsSL https://innsegall.com/scripts/innsegall-alpha-install.sh | bash"
+echo "Or right-click Innsegall-Install.command in Downloads → Open → Open again."
+echo "Help: https://innsegall.com/alpha#gatekeeper"
 echo ""
 
 if [[ "$(uname -s)" != "Darwin" ]]; then
