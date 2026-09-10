@@ -24,6 +24,7 @@ const lanes = [
   { name: "Competitor / lane", script: "audit-lane.mjs", score: "9.0" },
   { name: "Internal links", script: "audit-links.mjs", score: "9.5" },
   { name: "Issue spotlight loop", script: "audit-issue-spotlight.mjs", score: "9.0" },
+  { name: "Discovery / trust", script: "audit-discovery.mjs", score: "9.0" },
 ];
 
 let failed = 0;
@@ -84,6 +85,9 @@ const visualChecks = [
   ["Field echoes scout-for-you", index.includes("We send the scout") && index.includes("Innsegall is that scout")],
   ["Marketing ping in nav", readFileSync(join(web, "innsegall-nav.js"), "utf8").includes("marketing_ping")],
   ["Telemetry marketing_ping", readFileSync(join(web, "api/telemetry.js"), "utf8").includes("marketing_ping")],
+  ["Stability page", existsSync(join(web, "stability.html"))],
+  ["Distribution playbook", existsSync(join(root, "docs/DISTRIBUTION_PLAYBOOK.md"))],
+  ["CHANGELOG", existsSync(join(root, "CHANGELOG.md"))],
 ];
 console.log("── License dry-test ──");
 try {

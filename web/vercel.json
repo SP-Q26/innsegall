@@ -42,6 +42,7 @@
     { "source": "/blog/voyage-health-tracker-1st-15th", "destination": "/blog/voyage-health-tracker-1st-15th.html" },
     { "source": "/boat", "destination": "/boat.html" },
     { "source": "/guide", "destination": "/guide.html" },
+    { "source": "/stability", "destination": "/stability.html" },
     { "source": "/samples/battle-scout-demo", "destination": "/samples/battle-scout-demo.html" },
     { "source": "/map", "destination": "/map.html" },
     { "source": "/clan", "destination": "/clan.html" },

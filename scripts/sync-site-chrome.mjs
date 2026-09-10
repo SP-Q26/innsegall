@@ -64,6 +64,8 @@ const CANONICAL_FOOTER = `    <footer class="site-footer">
         <a href="/warriors">War-band of scribes</a>
         <a href="/alpha">Field manual</a>
         <a href="/blog">Field Report</a>
+        <a href="/stability">Stability</a>
+        <a href="https://github.com/SP-Q26/innsegall" rel="noopener noreferrer">Open engine</a>
         <a href="/tos">Terms</a>
         <a href="/privacy">Privacy</a>
         <a href="mailto:hello@innsegall.com">hello@innsegall.com</a>
@@ -240,7 +242,13 @@ function fixOg(html) {
 
 function replaceFooter(html) {
   if (!html.includes('class="site-footer"')) return html;
-  if (html.includes('href="/warriors"') && html.includes("footer-note") && html.includes('href="/guide"')) {
+  if (
+    html.includes('href="/warriors"') &&
+    html.includes("footer-note") &&
+    html.includes('href="/guide"') &&
+    html.includes('href="/stability"') &&
+    html.includes("github.com/SP-Q26/innsegall")
+  ) {
     return html;
   }
   return html.replace(/<footer class="site-footer">[\s\S]*?<\/footer>/, CANONICAL_FOOTER);

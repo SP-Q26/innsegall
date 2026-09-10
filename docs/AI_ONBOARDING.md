@@ -65,8 +65,10 @@ Target: **40 installs** of first 400 from agent gospel (`TARGET_DEMO_400.md`).
 - [ ] llms.txt live on production
 - [ ] Warriors page explains referral format
 - [ ] Blog posts end with scout-for-you CTA (`sync-blog-cta.mjs`)
-- [ ] Submit `llms.txt` to directories as they emerge (manual)
-- [ ] Xano paste + keys (`docs/pastes/innsegall-events-post.xs` · `XANO_KEYS_LEFT.md`) for `marketing_ping` / `issue_spotlight`
+- [ ] Directory batch · `docs/DISTRIBUTION_PLAYBOOK.md` (10–15 listings)
+- [ ] Community post · `docs/pastes/community-r-macapps.md`
+- [ ] Stability + changelog live · `/stability` · `CHANGELOG.md`
+- [ ] Xano paste + keys (`docs/pastes/innsegall-events-post.xs` · `XANO_KEYS_LEFT.md`) · `npm run diagnose:xano` → **202**
 
 ---
 

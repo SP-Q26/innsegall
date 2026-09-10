@@ -274,6 +274,11 @@ export default async function handler(req, res) {
     return res.status(202).json({ ok: true, forwarded: true });
   } catch (e) {
     console.error("telemetry", e.message);
-    return res.status(502).json({ error: "forward_failed" });
+    const hint = e.code === "xano_key_mismatch" ? "xano_key_mismatch" : "xano_forward_failed";
+    return res.status(502).json({
+      error: "forward_failed",
+      hint,
+      fix: "Vercel XANO_API_KEY must match Xano sk_live_innsegall_ops_ value · see innsegall.com/stability",
+    });
   }
 }

@@ -9,6 +9,7 @@ const PATHS = [
   "/",
   "/alpha",
   "/guide",
+  "/stability",
   "/map",
   "/boat",
   "/clan",
@@ -180,8 +181,18 @@ try {
       },
     }),
   });
-  if (res.status === 204 || res.status === 202) {
-    pass(`telemetry accepts install_ping (${res.status})`);
+  if (res.status === 204) {
+    pass(`telemetry accepts install_ping (${res.status} · XANO_EVENTS_URL not on Vercel)`);
+  } else if (res.status === 202) {
+    const data = await res.json().catch(() => ({}));
+    if (data.forwarded) pass(`telemetry forwards to Xano (${res.status})`);
+    else failMsg(`telemetry ${res.status} forwarded:false`);
+  } else if (res.status === 502) {
+    const data = await res.json().catch(() => ({}));
+    console.error(
+      "hint: XANO_API_KEY must match Xano sk_live_innsegall_ops_ · npm run diagnose:xano · docs/XANO_KEYS_LEFT.md"
+    );
+    failMsg(`telemetry ${res.status} ${data.hint || "forward_failed"}`);
   } else {
     failMsg(`telemetry ${res.status}`);
   }

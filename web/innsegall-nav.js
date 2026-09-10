@@ -23,6 +23,7 @@
     "/privacy": "privacy",
     "/tos": "tos",
     "/success": "success",
+    "/stability": "other",
   };
 
   function pageCategory() {

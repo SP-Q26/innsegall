@@ -30,7 +30,11 @@ export async function forwardToXano(event, payload, source = "vercel") {
 
   if (!res.ok) {
     const text = await res.text().catch(() => "");
-    throw new Error(`xano_forward_failed ${res.status} ${text.slice(0, 200)}`);
+    const err = new Error(`xano_forward_failed ${res.status} ${text.slice(0, 200)}`);
+    if (res.status === 401 || res.status === 403) {
+      err.code = "xano_key_mismatch";
+    }
+    throw err;
   }
   return { forwarded: true };
 }

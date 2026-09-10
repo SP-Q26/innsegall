@@ -6,13 +6,12 @@
 //   sk_live_innsegall_ops_  = <prod secret · e.g. sk_live_innsegall_ops_<openssl rand -base64 32>>
 //   sk_test_innsegall_ops_  = <preview secret · optional>
 //
-// If you ONLY have sk_live_innsegall_ops_, replace the auth precondition with:
-//   precondition (http.headers.x_api_key == $env.sk_live_innsegall_ops_) { ... }
+// If you ONLY have sk_live_innsegall_ops_, drop the || $env.sk_test… branch in step 0.
 //
 // Vercel XANO_API_KEY = same secret string as the matching Xano env value.
 // Header: X-API-Key (see web/lib/xano-forward.mjs)
 //
-// No backticks on the precondition line.
+// Headers: $env.$http_headers|get:"x-api-key" — NOT http.headers (parser error).
 
 query "innsegall/events" verb=POST {
   api_group = "innsegall_ops"
@@ -27,8 +26,12 @@ query "innsegall/events" verb=POST {
   }
 
   stack {
-    // 0. Auth · custom handshake (not Xano Meta API key · not user JWT)
-    precondition ((http.headers.x_api_key == $env.sk_live_innsegall_ops_) || (http.headers.x_api_key == $env.sk_test_innsegall_ops_)) {
+    // 0. Auth · X-API-Key handshake (not Meta API key · not user JWT)
+    var $api_key {
+      value = ($env.$http_headers|get:"x-api-key"|to_text|trim)|first_notempty:($env.$http_headers|get:"X-API-Key"|to_text|trim)
+    }
+
+    precondition (($api_key == $env.sk_live_innsegall_ops_) || ($api_key == $env.sk_test_innsegall_ops_)) {
       error_type = "accessdenied"
       error = "Unauthorized: Invalid Vercel Handshake Token"
     }

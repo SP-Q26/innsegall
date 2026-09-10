@@ -25,6 +25,8 @@
     "preflight": "bash scripts/run-launch-preflight.sh",
     "audit": "node scripts/audit-launch.mjs",
     "audit:swarm": "node scripts/audit-swarm.mjs",
+    "audit:discovery": "node scripts/audit-discovery.mjs",
+    "diagnose:xano": "node scripts/diagnose-xano-wire.mjs",
     "gate:launch": "node scripts/audit-swarm.mjs && node scripts/smoke-live.mjs --base=https://innsegall.com",
     "export:sample-scout": "node scripts/export-sample-scout.mjs",
     "export:og-png": "node scripts/export-og-png.mjs",

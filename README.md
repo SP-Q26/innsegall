@@ -67,6 +67,9 @@ Marketing pages expose **`#innsegall-ai-bus`** for agents · see **`docs/NORTH_S
 | `BOARD_ROOM_SWARM.md` | Executive read |
 | `HOW_TO_SEND.md` | Blast copy |
 | `LAUNCH_CHECKLIST.md` | Full ops |
+| `DISTRIBUTION_PLAYBOOK.md` | Directories · communities · Homebrew |
+| `STABILITY.md` | Stability contract · trust |
+| `XANO_KEYS_LEFT.md` | Telemetry wire · fix 502 |
 | `STACK_AUDIT_SEP6.md` | Stack audit |
 | `SITE_AUDIT_SEP6.md` | Site audit |
 

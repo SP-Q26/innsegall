@@ -47,6 +47,7 @@ const keyPages = [
   "clan.html",
   "boat.html",
   "guide.html",
+  "stability.html",
   "map.html",
   "warriors.html",
   "blog/index.html",

@@ -43,10 +43,13 @@ If you only run production, create `sk_live_innsegall_ops_` only and edit the pa
 
 Paste **`docs/pastes/innsegall-events-post.xs`** · publish draft → live.
 
-Auth precondition (no backticks):
+Auth step 0 (from paste · uses `$env.$http_headers`, not `http.headers`):
 
 ```text
-(http.headers.x_api_key == $env.sk_live_innsegall_ops_) || (http.headers.x_api_key == $env.sk_test_innsegall_ops_)
+var $api_key {
+  value = ($env.$http_headers|get:"x-api-key"|to_text|trim)|first_notempty:($env.$http_headers|get:"X-API-Key"|to_text|trim)
+}
+precondition (($api_key == $env.sk_live_innsegall_ops_) || ($api_key == $env.sk_test_innsegall_ops_)) { ... }
 ```
 
 - Turn **off** default user/JWT auth on this route
@@ -78,7 +81,10 @@ npm run smoke:xano -- --base=https://innsegall.com
 | Direct Xano `ok` + `response ok/id` | Key matches · insert works |
 | Prod `202` + `forwarded:true` | Vercel → Xano live |
 | Prod `204` | `XANO_EVENTS_URL` missing on Vercel (redeploy after env) |
+| Prod `502` + `hint: xano_key_mismatch` | `XANO_API_KEY` ≠ value in `sk_live_innsegall_ops_` · or JWT still on route |
 | Direct with key → 403 | `XANO_API_KEY` ≠ value in `sk_live_innsegall_ops_` |
+
+**502 quick diagnose:** `npm run diagnose:xano` (from `innsegall/`).
 
 ---
 
