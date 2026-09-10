@@ -90,6 +90,14 @@ for (const url of urls) {
     continue;
   }
   if (path.startsWith("/.well-known/") || path.startsWith("/og/") || path.startsWith("/api/")) continue;
+  if (path.startsWith("/samples/")) {
+    const samplePath = join(web, path.slice(1));
+    if (!existsSync(samplePath)) {
+      console.error(`FAIL sitemap file: ${path}`);
+      failed++;
+    }
+    continue;
+  }
   if (path === "/blog") {
     if (!existsSync(join(web, "blog/index.html"))) failed++;
     continue;

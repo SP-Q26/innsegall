@@ -37,7 +37,7 @@ check("boat scout-for-you", boat.includes("no scout"));
 check("boat platform order", boat.includes("Platform order"));
 check("boat endgame", boat.includes("Endgame"));
 
-check("index field echoes", index.includes("Innsegall is that scout"));
+check("index field echoes", index.includes("read-only triage"));
 check("index decision layer", index.includes("decision layer"));
 
 check("llms scout-for-you", llms.includes("Scout-for-you"));

@@ -152,7 +152,19 @@
   </url>
   <url>
     <loc>https://innsegall.com/.well-known/innsegall-gospel.json</loc>
-    <lastmod>2026-09-09</lastmod>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://innsegall.com/.well-known/battle-scout-ai-v1.schema.json</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.35</priority>
+  </url>
+  <url>
+    <loc>https://innsegall.com/samples/battle-scout-ai-v1.sample.json</loc>
+    <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
