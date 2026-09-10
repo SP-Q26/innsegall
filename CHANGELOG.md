@@ -9,6 +9,12 @@ Versioning follows [Semantic Versioning](https://semver.org/) during alpha (`0.x
 
 ## [0.4.0-alpha] · 2026-09-10
 
+### Added (install automation)
+- `innsegall bootstrap` / `onboard` · welcome scout + launchd Voyage schedule (1st & 15th 10:00).
+- `Innsegall-Install.command` one-click installer · alpha page primary CTA.
+- `scripts/audit-install-flow.mjs` · swarm lane for bootstrap wiring.
+- Install script: Homebrew `node` fallback · absolute-path CLI wrapper · `install_ping` on bootstrap.
+
 ### Added
 - Per-check scope copy on Battle Scout: looked at · does not cover · why it matters (`src/check-catalog.mjs`).
 - Global “What this scout does not check” section on Battle Scout footer.

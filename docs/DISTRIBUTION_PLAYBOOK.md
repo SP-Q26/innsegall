@@ -21,7 +21,9 @@
 ## Directory batch (submit same blurb)
 
 **One-liner:** Post-scare Macintosh triage · local Battle Scout · not antivirus.  
-**Install:** `curl -fsSL https://innsegall.com/scripts/innsegall-alpha-install.sh | bash`  
+**One-click (caretakers):** https://innsegall.com/scripts/Innsegall-Install.command · double-click · auto bootstrap.  
+**Install (Terminal):** `curl -fsSL https://innsegall.com/scripts/innsegall-alpha-install.sh | bash`  
+**After install:** welcome scout opens · Voyages on **1st & 15th at 10:00** via launchd (no extra steps).  
 **Demo:** https://innsegall.com/samples/battle-scout-demo  
 **Agent gospel:** https://innsegall.com/llms.txt  
 **GitHub:** https://github.com/SP-Q26/innsegall  

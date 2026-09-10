@@ -47,15 +47,15 @@ export function voyageSlotForDate(d = new Date()) {
   return null;
 }
 
-/** Next voyage calendar day (1 or 15) for messaging. */
+/** Next upcoming voyage calendar day (1 or 15) · nearest future slot. */
 export function nextVoyageDate(d = new Date()) {
   const y = d.getFullYear();
   const m = d.getMonth();
   const day = d.getDate();
-  if (day < 15) {
-    return new Date(y, m, 15);
+  for (const vd of VOYAGE_DAYS) {
+    if (vd > day) return new Date(y, m, vd);
   }
-  return new Date(y, m + 1, 1);
+  return new Date(y, m + 1, VOYAGE_DAYS[0]);
 }
 
 export function loadQuota() {

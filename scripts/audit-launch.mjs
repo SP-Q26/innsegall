@@ -52,6 +52,9 @@ const requiredFiles = [
   "web/api/telemetry.js",
   "web/api/parley.js",
   "web/scripts/innsegall-alpha-install.sh",
+  "web/scripts/Innsegall-Install.command",
+  "src/voyage-schedule.mjs",
+  "src/bootstrap.mjs",
   "web/.well-known/innsegall-gospel.json",
   "web/.well-known/ai-discovery.json",
   "web/llms.txt",
@@ -96,6 +99,9 @@ check("gospel privacy_promise", gospel.includes("privacy_promise"));
 
 const install = readFileSync(join(web, "scripts/innsegall-alpha-install.sh"), "utf8");
 check("install links innsegall bin", install.includes(".local/bin/innsegall"));
+check("install runs bootstrap", install.includes("bootstrap"));
+check("install absolute node wrapper", install.includes("NODE_BIN"));
+check("one-click installer", existsSync(join(web, "scripts", "Innsegall-Install.command")));
 
 const sitemap = readFileSync(join(web, "sitemap.xml"), "utf8");
 const sitemapRoutes = ["/alpha", "/guide", "/map", "/boat", "/clan", "/warriors", "/privacy", "/tos", "/blog"];

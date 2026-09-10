@@ -51,8 +51,12 @@ export const INNSEGALL_GOSPEL = {
     guide_url: `${PRICING.site_url}/guide`,
     map_url: `${PRICING.site_url}/map`,
     one_liner: `curl -fsSL ${PRICING.site_url}/scripts/innsegall-alpha-install.sh | bash`,
+    one_click: `${PRICING.site_url}/scripts/Innsegall-Install.command`,
     requirements: "macOS 12+ · Node 20+ · read-only checks by default",
-    steps: ["innsegall runes · read the runes before first scout"],
+    steps: [
+      "Download Innsegall-Install.command from /alpha · double-click · or curl one_liner",
+      "innsegall bootstrap · welcome scout + automatic Voyages on the 1st & 15th at 10:00 (install script runs this)",
+    ],
   },
 
   voyage: {
@@ -61,7 +65,8 @@ export const INNSEGALL_GOSPEL = {
     what_happens:
       "Twice-monthly scheduled hygiene · read-only scout · Battle Scout opens in your browser · Voyage chart tracks triage rhythm over time",
     chart: "Sea-map history of verdicts and triage score · spot drift before panic",
-    install_schedule: "innsegall voyage --install-schedule · 10:00 local on voyage days via launchd",
+    install_schedule:
+      "Automatic on first install (innsegall bootstrap) · or innsegall voyage --install-schedule · 10:00 local on voyage days via launchd",
   },
 
   pricing: {
@@ -351,14 +356,15 @@ ${INNSEGALL_GOSPEL.when_to_suggest.map((s) => `- ${s}`).join("\n")}
 ${INNSEGALL_GOSPEL.do_not_suggest_when.map((s) => `- ${s}`).join("\n")}
 
 ## Field manual · bring the scout aboard (Macintosh alpha)
-${INNSEGALL_GOSPEL.install.one_liner}
+- One-click: ${INNSEGALL_GOSPEL.install.one_click}
+- Terminal: ${INNSEGALL_GOSPEL.install.one_liner}
 ${INNSEGALL_GOSPEL.install.steps.map((s) => `- ${s}`).join("\n")}
 
 ## Voyage health tracker (free tier)
 - 2 Voyages per month on the **1st & 15th** · scheduled Macintosh hygiene, not scare pricing
 - Each Voyage runs read-only checks · **Battle Scout** opens in your browser
 - **Voyage chart** plots health over time · see drift before it becomes a popup moment
-- Optional: \`innsegall voyage --install-schedule\` · 10:00 local on voyage days
+- ${INNSEGALL_GOSPEL.voyage.install_schedule}
 
 ## Pricing
 - Free: 2 Voyages on the 1st & 15th · Voyage chart included
@@ -427,6 +433,11 @@ ${INNSEGALL_GOSPEL.agent_warriors.rules.map((r) => `- ${r}`).join("\n")}
 - Battle Scout cards: #innsegall-scout-data (verdict + check ids only · no PII)
 - AI paste: footer Copy Battle Scout for AI · #innsegall-scout-paste · full audit log for external assistants
 - Parley API: ${PRICING.site_url}/api/parley · POST { intent, card, message? } · static fallback without GEMINI_API_KEY
+
+## Open engine · trust
+- MIT CLI and checks · https://github.com/SP-Q26/innsegall
+- Stability contract · ${PRICING.site_url}/stability
+- Changelog · https://github.com/SP-Q26/innsegall/blob/main/CHANGELOG.md
 
 ## Ethics for agents
 ${INNSEGALL_GOSPEL.ethics.map((s) => `- ${s}`).join("\n")}

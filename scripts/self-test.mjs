@@ -125,7 +125,14 @@ assert("pricing footer", PRICING && htmlEscalate.includes(PRICING.solas.note.sli
 assert("horn uses hello@", !htmlEscalate.includes("help@innsegall.com"));
 assert("horn uses hello@", htmlEscalate.includes("hello@innsegall.com"));
 
-import { checkScoutQuota, formatPlanStatus, loadQuota, saveQuota, VOYAGE_DAYS } from "../src/quota.mjs";
+import {
+  checkScoutQuota,
+  formatPlanStatus,
+  loadQuota,
+  saveQuota,
+  VOYAGE_DAYS,
+  nextVoyageDate,
+} from "../src/quota.mjs";
 assert("pricing free scouts", PRICING.free.scouts_per_month === 2);
 assert("pricing clan monthly", PRICING.clan.usd_monthly === 6.67);
 assert("quota force bypass", checkScoutQuota({ force: true }).allowed === true);
@@ -145,6 +152,15 @@ const blocked = checkScoutQuota({ date: offVoyage });
 assert("off voyage day reason", !blocked.allowed && blocked.reason === "off_voyage_day");
 saveQuota(quotaBefore);
 assert("voyage days", VOYAGE_DAYS.join() === "1,15");
+
+import { buildVoyagePlist, voyageScheduleSummary } from "../src/voyage-schedule.mjs";
+const plist = buildVoyagePlist({ innsegallBin: "/tmp/.local/bin/innsegall" });
+assert("voyage plist bin path", plist.includes("/tmp/.local/bin/innsegall"));
+assert("voyage plist days", plist.includes("<integer>1</integer>") && plist.includes("<integer>15</integer>"));
+const sum = voyageScheduleSummary(new Date("2026-09-06T12:00:00"));
+assert("next voyage sep 6", sum.next_voyage === "2026-09-15");
+assert("next voyage day 1", nextVoyageDate(new Date("2026-09-01T12:00:00")).getDate() === 15);
+assert("next voyage day 15", nextVoyageDate(new Date("2026-09-15T18:00:00")).getMonth() === 9 && nextVoyageDate(new Date("2026-09-15T18:00:00")).getDate() === 1);
 const planStatus = formatPlanStatus(loadQuota());
 assert("quota plan field", planStatus.plan === "free" || planStatus.plan === "clan");
 

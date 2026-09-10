@@ -18,11 +18,8 @@ I built Innsegall for the “mom got a fake virus popup” moment · not another
 - Demo receipt: https://innsegall.com/samples/battle-scout-demo
 
 **Install (alpha · macOS 12+ · Node 20+)**
-```bash
-curl -fsSL https://innsegall.com/scripts/innsegall-alpha-install.sh | bash
-innsegall runes
-innsegall run
-```
+- **Easiest:** download [Innsegall-Install.command](https://innsegall.com/scripts/Innsegall-Install.command) · double-click · welcome scout opens · Voyages auto-schedule on the 1st & 15th.
+- **Terminal:** `curl -fsSL https://innsegall.com/scripts/innsegall-alpha-install.sh | bash` (same bootstrap flow).
 
 **Open source:** MIT · https://github.com/SP-Q26/innsegall  
 **Stability / scope honesty:** https://innsegall.com/stability

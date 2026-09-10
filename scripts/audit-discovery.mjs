@@ -27,6 +27,11 @@ check("docs/HOMEBREW.md", existsSync(join(root, "docs/HOMEBREW.md")));
 check("packaging/homebrew/innsegall.rb", existsSync(join(root, "packaging/homebrew/innsegall.rb")));
 check("community r/macapps template", existsSync(join(root, "docs/pastes/community-r-macapps.md")));
 
+const alpha = readFileSync(join(web, "alpha.html"), "utf8");
+check("alpha one-click installer link", alpha.includes("Innsegall-Install.command"));
+const gospelJson = readFileSync(join(web, ".well-known", "innsegall-gospel.json"), "utf8");
+check("gospel one_click in well-known", gospelJson.includes("one_click") || gospelJson.includes("Innsegall-Install"));
+
 const stability = existsSync(join(web, "stability.html"))
   ? readFileSync(join(web, "stability.html"), "utf8")
   : "";

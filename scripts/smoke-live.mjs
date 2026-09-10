@@ -22,6 +22,7 @@ const PATHS = [
   "/innsegall-ai-bus.json",
   "/.well-known/innsegall-gospel.json",
   "/scripts/innsegall-alpha-install.sh",
+  "/scripts/Innsegall-Install.command",
   "/innsegall.css",
 ];
 

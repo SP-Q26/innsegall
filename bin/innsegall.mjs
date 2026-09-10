@@ -43,6 +43,13 @@ import {
 } from "../src/terminal.mjs";
 import { runBootOps } from "../src/ops-boot.mjs";
 import { savePrefs } from "../src/preferences.mjs";
+import { bootstrapOnboard } from "../src/bootstrap.mjs";
+import {
+  installVoyageSchedule,
+  defaultInnsegallBin,
+  voyageScheduleSummary,
+  voyagePlistPath,
+} from "../src/voyage-schedule.mjs";
 
 function usage() {
   console.log(`Innsegall ${ENGINE_VERSION} · know you're okay.
@@ -62,6 +69,7 @@ function usage() {
   innsegall map                     The mist road (terminal chart)
   innsegall boat                    Contested fjord · our lane
   innsegall warriors                War-band credits ledger
+  innsegall bootstrap [options]     First install · welcome scout + Voyage schedule
 
 Scout options:
   --flow <name>        mac_hygiene | clicked_bad_link | project_safe
@@ -96,7 +104,13 @@ Voyage options:
   --quiet              Less console output (scheduled voyage still opens browser)
   --no-open            Skip opening Battle Scout in browser
 
+Bootstrap options:
+  --skip-scout         Only install the 1st & 15th schedule
+  --skip-schedule      Only run welcome scout (no launchd)
+  --force-scout        Run welcome scout even if already redeemed
+
 Examples:
+  innsegall bootstrap
   innsegall voyage
   innsegall voyage --install-schedule
   innsegall plan --credit 1
@@ -131,6 +145,9 @@ function parseFlags(argv, start = 2) {
     else if (a === "--free") flags.free = true;
     else if (a === "--credit" && argv[i + 1]) flags.credit = Number(argv[++i]);
     else if (a === "--install-schedule") flags.installSchedule = true;
+    else if (a === "--skip-scout") flags.skipScout = true;
+    else if (a === "--skip-schedule") flags.skipSchedule = true;
+    else if (a === "--force-scout") flags.forceScout = true;
     else if (a === "--no-open") flags.noOpen = true;
     else if (a === "--import-license" && argv[i + 1]) flags.importLicense = argv[++i];
     else if (a === "--share") flags.share = true;
@@ -446,40 +463,14 @@ async function cmdVoyage(flags) {
   }
 
   if (flags.installSchedule) {
-    const bin = join(dirname(fileURLToPath(import.meta.url)), "innsegall.mjs");
-    const plistPath = join(homedir(), "Library/LaunchAgents/com.innsegall.voyage.plist");
-    const plist = `<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-  <key>Label</key><string>com.innsegall.voyage</string>
-  <key>ProgramArguments</key>
-  <array>
-    <string>${process.execPath}</string>
-    <string>${bin}</string>
-    <string>voyage</string>
-    <string>--quiet</string>
-    <string>--open</string>
-  </array>
-  <key>StartCalendarInterval</key>
-  <array>
-    <dict><key>Day</key><integer>1</integer><key>Hour</key><integer>10</integer><key>Minute</key><integer>0</integer></dict>
-    <dict><key>Day</key><integer>15</integer><key>Hour</key><integer>10</integer><key>Minute</key><integer>0</integer></dict>
-  </array>
-  <key>StandardOutPath</key><string>${join(supportPath(), "voyage.log")}</string>
-  <key>StandardErrorPath</key><string>${join(supportPath(), "voyage.err")}</string>
-</dict>
-</plist>`;
-    mkdirSync(dirname(plistPath), { recursive: true });
-    writeFileSync(plistPath, plist, "utf8");
-    try {
-      execSync(`launchctl unload "${plistPath}" 2>/dev/null; launchctl load "${plistPath}"`, { stdio: "ignore" });
-      console.log(`Voyage schedule installed · ${plistPath}`);
-      console.log(`Runs 10:00 local on the 1st and 15th · logs in ${supportPath()}`);
-    } catch (e) {
-      console.log(`Wrote ${plistPath}`);
-      console.log(`Run: launchctl load "${plistPath}"`);
+    const { plistPath, loaded } = installVoyageSchedule({ innsegallBin: defaultInnsegallBin() });
+    const sum = voyageScheduleSummary();
+    console.log(`Voyage schedule installed · ${plistPath}`);
+    console.log(`Runs ${sum.schedule} · next voyage · ${sum.next_voyage_label}`);
+    if (!loaded) {
+      console.log(`Run: launchctl bootstrap gui/$(id -u) "${plistPath}"`);
     }
+    console.log(`Logs · ${supportPath()}`);
     return;
   }
 
@@ -508,6 +499,44 @@ async function cmdVoyage(flags) {
   } else if (!flags.quiet && !shouldOpen) {
     console.log(`Open in browser: open "${html}"`);
   }
+}
+
+async function cmdBootstrap(flags) {
+  console.log(paint(ansi.aurora, "Innsegall bootstrap · welcome scout · Voyage rhythm on autopilot\n"));
+
+  const { summary, schedule } = bootstrapOnboard({
+    skipScout: Boolean(flags.skipScout),
+    skipSchedule: Boolean(flags.skipSchedule),
+    innsegallBin: defaultInnsegallBin(),
+  });
+
+  if (!flags.skipSchedule && schedule) {
+    console.log(paint(ansi.beam, `✓ Voyage schedule · ${schedule.plistPath}`));
+    console.log(paint(ansi.dim, `  ${summary.schedule} · next · ${summary.next_voyage_label}`));
+    if (!schedule.loaded) {
+      console.log(paint(ansi.ember, `  launchctl could not load · run: launchctl bootstrap gui/$(id -u) "${voyagePlistPath()}"`));
+    }
+  }
+
+  const q = loadQuota();
+  const skipWelcome = Boolean(flags.skipScout) || (q.welcome_scout_redeemed && !flags.forceScout);
+
+  if (!skipWelcome) {
+    console.log(paint(ansi.beam, "\n✓ Welcome scout · opening Battle Scout…\n"));
+    await cmdRun({ ...flags, flow: "mac_hygiene" });
+  } else if (!flags.skipScout && q.welcome_scout_redeemed) {
+    console.log(paint(ansi.dim, "\nWelcome scout already sailed · use innsegall run or wait for the next Voyage."));
+    console.log(paint(ansi.beam, `Next free Voyage · ${summary.next_voyage_label}`));
+  } else {
+    console.log(paint(ansi.dim, "\nSkipped welcome scout (--skip-scout)."));
+    console.log(paint(ansi.beam, `Next free Voyage · ${summary.next_voyage_label} · ${PRICING.site_url}/guide`));
+  }
+
+  await runBootOps({
+    trigger: "bootstrap",
+    quiet: flags.quiet,
+    noTelemetry: flags.noTelemetry,
+  });
 }
 
 async function cmdRunes(flags) {
@@ -554,7 +583,7 @@ async function main() {
     return;
   }
 
-  if (process.platform !== "darwin" && ["check", "run", "runes", "doctor"].includes(cmd)) {
+  if (process.platform !== "darwin" && ["check", "run", "runes", "doctor", "bootstrap"].includes(cmd)) {
     console.error("Innsegall scouts sail on Macintosh only.");
     process.exit(1);
   }
@@ -614,6 +643,10 @@ async function main() {
       break;
     case "boat":
       printBoatLane();
+      break;
+    case "bootstrap":
+    case "onboard":
+      await cmdBootstrap(flags);
       break;
     default:
       console.error(`Unknown command: ${cmd}`);

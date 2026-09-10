@@ -25,6 +25,7 @@ const lanes = [
   { name: "Internal links", script: "audit-links.mjs", score: "9.5" },
   { name: "Issue spotlight loop", script: "audit-issue-spotlight.mjs", score: "9.0" },
   { name: "Discovery / trust", script: "audit-discovery.mjs", score: "9.0" },
+  { name: "Install / bootstrap flow", script: "audit-install-flow.mjs", score: "9.5" },
 ];
 
 let failed = 0;

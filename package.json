@@ -14,6 +14,7 @@
     "run": "node bin/innsegall.mjs run",
     "check": "node bin/innsegall.mjs check",
     "runes": "node bin/innsegall.mjs runes",
+    "bootstrap": "node bin/innsegall.mjs bootstrap",
     "doctor": "node bin/innsegall.mjs runes",
     "plan": "node bin/innsegall.mjs plan",
     "test": "node scripts/self-test.mjs",

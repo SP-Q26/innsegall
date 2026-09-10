@@ -23,7 +23,7 @@ function bootOpts(opts = {}) {
 }
 
 /**
- * @param {{ trigger: 'runes'|'scan'|'boot', card?: object, previousCard?: object|null, quiet?: boolean, noTelemetry?: boolean, force?: boolean }} opts
+ * @param {{ trigger: 'runes'|'scan'|'boot'|'bootstrap', card?: object, previousCard?: object|null, quiet?: boolean, noTelemetry?: boolean, force?: boolean }} opts
  */
 export async function runBootOps(opts = {}) {
   const o = bootOpts(opts);
@@ -32,7 +32,7 @@ export async function runBootOps(opts = {}) {
   results.update = await checkForUpdates(o);
 
   if (telemetryEnabled(o)) {
-    if (opts.trigger === "runes" || opts.trigger === "scan") {
+    if (opts.trigger === "runes" || opts.trigger === "scan" || opts.trigger === "bootstrap") {
       results.ping = await pingInstall(o);
     }
     if (opts.trigger === "scan" && opts.card) {
