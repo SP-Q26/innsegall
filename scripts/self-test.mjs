@@ -137,6 +137,27 @@ assert("field report no paths", !reportMd.includes(homedir()));
 assert("field report yaml frontmatter", reportMd.startsWith("---\ninnsegall_product:"));
 assert("field report verdict counts", reportMd.includes("verdict_counts:") && reportMd.includes("fix_list:"));
 
+import {
+  buildIssueSpotlightMarkdown,
+  buildIssueSpotlightPayload,
+  detectIssueEvent,
+  aggregateIssueSpotlightEvents,
+} from "../src/issue-spotlight.mjs";
+const issueFixtures = JSON.parse(
+  readFileSync(join(dirname(fileURLToPath(import.meta.url)), "..", "fixtures", "issue-spotlight-cards.json"), "utf8")
+);
+assert("issue detect identified", detectIssueEvent(issueFixtures.current_identified, null)?.event_type === "identified");
+assert("issue detect resolved", detectIssueEvent(issueFixtures.current_clear, issueFixtures.previous)?.event_type === "resolved");
+const issuePayload = buildIssueSpotlightPayload(issueFixtures.current_clear, issueFixtures.previous);
+assert("issue payload resolved", issuePayload?.event_type === "resolved" && issuePayload.issue_slug);
+const issueEvents = JSON.parse(
+  readFileSync(join(dirname(fileURLToPath(import.meta.url)), "..", "fixtures", "issue-spotlight-events.json"), "utf8")
+);
+const issueAgg = aggregateIssueSpotlightEvents(issueEvents);
+const issueMd = buildIssueSpotlightMarkdown(issueAgg[0]);
+assert("issue markdown type", issueMd.includes("report_type: issue_spotlight"));
+assert("issue markdown no paths", !issueMd.includes(homedir()));
+
 const scoutData = buildScoutStructuredData(buildCard({ flow: "mac_hygiene", userInputs: {} }));
 assert("scout data product", scoutData.product === "Innsegall");
 assert("scout data checks only id+status", scoutData.checks.every((c) => c.id && c.status && !c.detail));

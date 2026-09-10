@@ -17,7 +17,7 @@ import { supportPath } from "./storage.mjs";
 const CARDS_DIR = () => join(supportPath(), "cards");
 
 /** Strip anything that could identify a user or machine */
-function anonymizeCheckId(id) {
+export function anonymizeCheckId(id) {
   const map = {
     launch_ghosts: "launch_items",
     adware_markers: "adware_leftovers",
@@ -38,20 +38,20 @@ function anonymizeCheckId(id) {
   return map[id] || "other_check";
 }
 
-function bucketVerdict(v) {
+export function bucketVerdict(v) {
   if (v === "LIKELY_OK") return "clear";
   if (v === "FIX_LIST") return "fix_list";
   if (v === "ESCALATE") return "escalate";
   return "unknown";
 }
 
-function bucketFlow(flow) {
+export function bucketFlow(flow) {
   const allowed = ["mac_hygiene", "clicked_bad_link", "project_safe"];
   return allowed.includes(flow) ? flow : "other";
 }
 
 /** @param {object} card */
-function safeCardSlice(card) {
+export function safeCardSlice(card) {
   if (card.smoke) return null;
   const checks = (card.checks_run || []).map((c) => ({
     bucket: anonymizeCheckId(c.id),

@@ -6,8 +6,48 @@
 
 import { forwardToXano } from "../lib/xano-forward.mjs";
 
-const ALLOWED_EVENTS = new Set(["install_ping", "scout_aggregate", "checkout_complete"]);
-const CLIENT_EVENTS = new Set(["install_ping", "scout_aggregate"]);
+const ALLOWED_EVENTS = new Set([
+  "install_ping",
+  "scout_aggregate",
+  "marketing_ping",
+  "issue_spotlight",
+  "checkout_complete",
+]);
+const CLIENT_EVENTS = new Set([
+  "install_ping",
+  "scout_aggregate",
+  "marketing_ping",
+  "issue_spotlight",
+]);
+
+const ISSUE_EVENT_TYPES = new Set(["identified", "resolved"]);
+
+const MARKETING_PAGES = new Set([
+  "home",
+  "alpha",
+  "guide",
+  "map",
+  "boat",
+  "clan",
+  "warriors",
+  "blog",
+  "blog_post",
+  "privacy",
+  "tos",
+  "success",
+  "sample",
+  "other",
+]);
+
+const REF_CHANNELS = new Set([
+  "direct",
+  "search",
+  "agent",
+  "social",
+  "warrior",
+  "internal",
+  "unknown",
+]);
 
 const FORBIDDEN_KEYS = new Set([
   "email",
@@ -106,6 +146,66 @@ function validateInstallPing(payload) {
   return null;
 }
 
+function validateMarketingPing(payload) {
+  if (!isPlainObject(payload)) return "payload must be an object";
+  if (typeof payload.day !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(payload.day)) {
+    return "day required (YYYY-MM-DD)";
+  }
+  if (typeof payload.page !== "string" || !MARKETING_PAGES.has(payload.page)) {
+    return "page required (known category enum)";
+  }
+  if (typeof payload.ref_channel !== "string" || !REF_CHANNELS.has(payload.ref_channel)) {
+    return "ref_channel required (known enum)";
+  }
+  if (typeof payload.session_id !== "string" || payload.session_id.length > 64) {
+    return "session_id required (max 64 chars)";
+  }
+  if (payload.warrior_ref != null) {
+    if (typeof payload.warrior_ref !== "string" || payload.warrior_ref.length > 64) {
+      return "warrior_ref max 64 chars";
+    }
+  }
+  return null;
+}
+
+function validateIssueSpotlight(payload) {
+  if (!isPlainObject(payload)) return "payload must be an object";
+  if (typeof payload.day !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(payload.day)) {
+    return "day required (YYYY-MM-DD)";
+  }
+  if (typeof payload.event_type !== "string" || !ISSUE_EVENT_TYPES.has(payload.event_type)) {
+    return "event_type required (identified|resolved)";
+  }
+  if (typeof payload.issue_key !== "string" || payload.issue_key.length > 64) {
+    return "issue_key required (max 64 chars)";
+  }
+  if (typeof payload.issue_slug !== "string" || payload.issue_slug.length > 80) {
+    return "issue_slug required (max 80 chars)";
+  }
+  if (typeof payload.flow !== "string" || payload.flow.length > 32) {
+    return "flow required (max 32 chars)";
+  }
+  if (!Array.isArray(payload.attention_buckets) || payload.attention_buckets.length > 8) {
+    return "attention_buckets required (array, max 8)";
+  }
+  if (!Array.isArray(payload.fix_categories) || payload.fix_categories.length > 8) {
+    return "fix_categories required (array, max 8)";
+  }
+  for (const b of payload.attention_buckets) {
+    if (typeof b !== "string" || b.length > 48) return "attention_buckets items max 48 chars";
+  }
+  for (const f of payload.fix_categories) {
+    if (typeof f !== "string" || f.length > 48) return "fix_categories items max 48 chars";
+  }
+  if (typeof payload.engine_version !== "string" || payload.engine_version.length > 32) {
+    return "engine_version required (max 32 chars)";
+  }
+  if (typeof payload.content_hash !== "string" || payload.content_hash.length > 24) {
+    return "content_hash required (max 24 chars)";
+  }
+  return null;
+}
+
 function validateScoutAggregate(payload) {
   if (!isPlainObject(payload)) return "payload must be an object";
   if (typeof payload.day !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(payload.day)) {
@@ -123,6 +223,8 @@ function validateScoutAggregate(payload) {
 function validatePayload(event, payload) {
   if (event === "install_ping") return validateInstallPing(payload);
   if (event === "scout_aggregate") return validateScoutAggregate(payload);
+  if (event === "marketing_ping") return validateMarketingPing(payload);
+  if (event === "issue_spotlight") return validateIssueSpotlight(payload);
   if (event === "checkout_complete") return "checkout_complete is server-only";
   return "unknown event";
 }

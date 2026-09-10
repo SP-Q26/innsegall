@@ -7,6 +7,7 @@ import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { ENGINE_VERSION, PRICING } from "./constants.mjs";
 import { buildScoutAggregatePayload } from "./field-report.mjs";
+import { buildIssueSpotlightPayload } from "./issue-spotlight.mjs";
 import { loadPrefs, savePrefs, utcDay } from "./preferences.mjs";
 import { ensureDirs, supportPath } from "./storage.mjs";
 import { platformVersion } from "./shell.mjs";
@@ -115,6 +116,31 @@ export async function sendScoutAggregate(card, opts = {}) {
   const result = await postTelemetry("scout_aggregate", payload, opts);
   if (result.ok) savePrefs({ last_aggregate_day: day });
   return result;
+}
+
+/** @param {object} card @param {object|null} previousCard @param {{ quiet?: boolean, noTelemetry?: boolean, force?: boolean }} opts */
+export async function sendIssueSpotlight(card, previousCard, opts = {}) {
+  if (!telemetryEnabled(opts)) return { skipped: true, reason: "disabled" };
+  if (card?.smoke) return { skipped: true, reason: "smoke" };
+
+  const day = utcDay();
+  const payload = buildIssueSpotlightPayload(card, previousCard, day);
+  if (!payload) return { skipped: true, reason: "no_issue_event" };
+
+  const prefs = loadPrefs();
+  const dedupeKey = `issue_${payload.issue_key}_${payload.event_type}`;
+  const sent = prefs.issue_spotlight_sent || {};
+  if (sent[dedupeKey] === day && !opts.force) {
+    return { skipped: true, reason: "already_sent_today" };
+  }
+
+  const result = await postTelemetry("issue_spotlight", payload, opts);
+  if (result.ok) {
+    savePrefs({
+      issue_spotlight_sent: { ...sent, [dedupeKey]: day },
+    });
+  }
+  return { ...result, payload };
 }
 
 /** Check gospel for a newer engine_version · once per UTC day unless force. */

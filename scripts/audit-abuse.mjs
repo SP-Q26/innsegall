@@ -23,6 +23,8 @@ const telemetry = readFileSync(join(web, "api/telemetry.js"), "utf8");
 check("telemetry blocks checkout_complete client", telemetry.includes('error: "server_only"'));
 check("telemetry PII denylist", telemetry.includes("FORBIDDEN_KEYS"));
 check("telemetry path rejection", telemetry.includes("PATH_LIKE"));
+check("telemetry marketing_ping enum", telemetry.includes("marketing_ping") && telemetry.includes("MARKETING_PAGES"));
+check("telemetry issue_spotlight enum", telemetry.includes("issue_spotlight") && telemetry.includes("validateIssueSpotlight"));
 
 const parley = readFileSync(join(web, "api/parley.js"), "utf8");
 check("parley rate limit", parley.includes("rate_limited") && parley.includes("checkParleyRateLimit"));

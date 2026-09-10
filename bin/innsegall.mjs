@@ -24,7 +24,7 @@ import {
   nextVoyageDate,
   VOYAGE_DAYS,
 } from "../src/quota.mjs";
-import { listCards, loadCardById, saveCard, supportPath } from "../src/storage.mjs";
+import { listCards, loadCardById, loadPreviousCard, saveCard, supportPath } from "../src/storage.mjs";
 import { runParley } from "../src/parley/index.mjs";
 import { validateCard } from "../src/validate.mjs";
 import { importLicenseFile } from "../src/license.mjs";
@@ -222,6 +222,7 @@ async function cmdRun(flags) {
   await runBootOps({
     trigger: "scan",
     card,
+    previousCard: loadPreviousCard(card.card_id),
     quiet: flags.quiet,
     noTelemetry: flags.noTelemetry,
   });
@@ -489,6 +490,7 @@ async function cmdVoyage(flags) {
   await runBootOps({
     trigger: "scan",
     card,
+    previousCard: loadPreviousCard(card.card_id),
     quiet: flags.quiet,
     noTelemetry: flags.noTelemetry,
   });
@@ -567,6 +569,7 @@ async function main() {
         await runBootOps({
           trigger: "scan",
           card,
+          previousCard: loadPreviousCard(card.card_id),
           quiet: flags.quiet,
           noTelemetry: flags.noTelemetry,
         });

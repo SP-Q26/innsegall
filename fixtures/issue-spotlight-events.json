@@ -1,0 +1,46 @@
+[
+  {
+    "day": "2026-09-09",
+    "event_type": "identified",
+    "issue_key": "clicked_bad_link:browser_profile",
+    "issue_slug": "after-suspicious-link-macintosh",
+    "flow": "clicked_bad_link",
+    "attention_buckets": ["browser_profile", "dns"],
+    "fix_categories": ["credential_rotation"],
+    "engine_version": "0.4.0-alpha",
+    "content_hash": "demo0001ident"
+  },
+  {
+    "day": "2026-09-09",
+    "event_type": "identified",
+    "issue_key": "clicked_bad_link:browser_profile",
+    "issue_slug": "after-suspicious-link-macintosh",
+    "flow": "clicked_bad_link",
+    "attention_buckets": ["browser_profile"],
+    "fix_categories": ["credential_rotation"],
+    "engine_version": "0.4.0-alpha",
+    "content_hash": "demo0002ident"
+  },
+  {
+    "day": "2026-09-09",
+    "event_type": "resolved",
+    "issue_key": "clicked_bad_link:browser_profile",
+    "issue_slug": "after-suspicious-link-macintosh",
+    "flow": "clicked_bad_link",
+    "attention_buckets": ["browser_profile"],
+    "fix_categories": ["credential_rotation"],
+    "engine_version": "0.4.0-alpha",
+    "content_hash": "demo0003resolve"
+  },
+  {
+    "day": "2026-09-09",
+    "event_type": "identified",
+    "issue_key": "mac_hygiene:launch_items",
+    "issue_slug": "stale-launch-items-macintosh",
+    "flow": "mac_hygiene",
+    "attention_buckets": ["launch_items"],
+    "fix_categories": ["launch_cleanup"],
+    "engine_version": "0.4.0-alpha",
+    "content_hash": "demo0004ident"
+  }
+]

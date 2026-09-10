@@ -9,7 +9,7 @@ import { fileURLToPath } from "node:url";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const web = join(root, "web");
 const OG_URL = "https://innsegall.com/og/innsegall-card.png";
-const CSS_VER = 14;
+const CSS_VER = 15;
 
 const CANONICAL_HEADER = `<header class="site-header">
       <a class="brand-lockup" href="/" aria-label="Innsegall home">

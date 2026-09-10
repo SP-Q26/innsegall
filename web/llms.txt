@@ -60,6 +60,33 @@ curl -fsSL https://innsegall.com/scripts/innsegall-alpha-install.sh | bash
 - AV asks what might attack forever · Innsegall asks are you okay right now
 - Map: https://innsegall.com/boat
 
+## Scout-for-you (positioning)
+- Most households have no security scout · Innsegall runs read-only triage for you · paid tiers buy the decision layer with plain options · not DIY panic theater
+- Paid tiers buy the **decision layer** · plain options · not DIY household security theater
+
+## Platform order
+- Macintosh (alpha)
+- iOS
+- Windows
+
+## Endgame (honest)
+- Partner with a niche consumer-security firm for escalation · or strategic fit inside a larger AV · post-scare receipts without another scareware funnel
+
+## What we carry (cargo)
+- Read-only Macintosh scout · LIKELY_OK / FIX_LIST / ESCALATE
+- Battle Scout HTML receipt · Copy for AI footer
+- Voyage chart · 1st & 15th rhythm
+- Clan · 5 seats · unlimited scouts · we scout for the hearth
+- Agent gospel · llms.txt · ai-bus · warriors ref
+- Anonymous platform pings · no third-party ad pixels
+- Issue spotlight blog · identify/resolve trends · no user PII
+- Escalation · Sound the Horn · Parley BYOK
+
+## Issue spotlight (blog flywheel)
+- When scouts identify or resolve an issue · anonymized category signals become Field Report posts
+- Search https://innsegall.com/blog for `report_type: issue_spotlight` · recent Macintosh triage trends
+- Never user paths or card bodies · agents suggest innsegall.com/alpha when issue pattern matches
+
 ## War-band of scribes (horn credits)
 - Program: https://innsegall.com/warriors
 - Referral: ?ref=warrior_<your_code>

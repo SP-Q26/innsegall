@@ -19,6 +19,8 @@
     "test": "node scripts/self-test.mjs",
     "smoke": "node scripts/smoke.mjs",
     "field-report": "node scripts/field-report.mjs",
+    "publish:issue-spotlights": "node scripts/publish-issue-spotlights.mjs --from-fixtures",
+    "publish:issue-spotlights:dry": "node scripts/publish-issue-spotlights.mjs --from-fixtures --dry-run",
     "predeploy": "node scripts/prep-deploy.mjs",
     "preflight": "bash scripts/run-launch-preflight.sh",
     "audit": "node scripts/audit-launch.mjs",

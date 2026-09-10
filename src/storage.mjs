@@ -64,6 +64,17 @@ export function supportPath() {
   return supportRoot();
 }
 
+/** Most recent card before cardId (by created_at). */
+export function loadPreviousCard(currentCardId) {
+  const list = listCards(20);
+  for (const meta of list) {
+    if (meta.card_id !== currentCardId) {
+      return loadCardById(meta.card_id);
+    }
+  }
+  return null;
+}
+
 export function loadCardById(cardId) {
   const dir = cardsDir();
   if (!existsSync(dir)) return null;

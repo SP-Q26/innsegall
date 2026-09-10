@@ -79,30 +79,66 @@ async function smokeDirectXano() {
 }
 
 async function smokeProdTelemetry() {
-  const res = await fetch(`${base}/api/telemetry`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      event: "install_ping",
-      payload: {
-        engine_version: "0.4.0-alpha",
-        macos_major: "14",
-        day,
-        install_id: "00000000-0000-4000-8000-smoke0002",
+  for (const [label, body] of [
+    [
+      "install_ping",
+      {
+        event: "install_ping",
+        payload: {
+          engine_version: "0.4.0-alpha",
+          macos_major: "14",
+          day,
+          install_id: "00000000-0000-4000-8000-smoke0002",
+        },
       },
-    }),
-  });
-  if (res.status === 204) {
-    ok("prod telemetry 204 (XANO_EVENTS_URL not set on Vercel yet)");
-    return;
+    ],
+    [
+      "marketing_ping",
+      {
+        event: "marketing_ping",
+        payload: {
+          day,
+          page: "home",
+          ref_channel: "direct",
+          session_id: "00000000-0000-4000-8000-smoke0003",
+        },
+      },
+    ],
+    [
+      "issue_spotlight",
+      {
+        event: "issue_spotlight",
+        payload: {
+          day,
+          event_type: "identified",
+          issue_key: "clicked_bad_link:browser_profile",
+          issue_slug: "after-suspicious-link-macintosh",
+          flow: "clicked_bad_link",
+          attention_buckets: ["browser_profile"],
+          fix_categories: ["credential_rotation"],
+          engine_version: "0.4.0-alpha",
+          content_hash: "smoke0004issue",
+        },
+      },
+    ],
+  ]) {
+    const res = await fetch(`${base}/api/telemetry`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
+    if (res.status === 204) {
+      ok(`prod ${label} 204 (XANO_EVENTS_URL not set on Vercel yet)`);
+      continue;
+    }
+    if (res.status === 202) {
+      const j = await res.json().catch(() => ({}));
+      if (j.forwarded) ok(`prod ${label} 202 forwarded to Xano`);
+      else fail(`prod ${label} 202`, "forwarded:false");
+      continue;
+    }
+    fail(`prod ${label}`, `status ${res.status}`);
   }
-  if (res.status === 202) {
-    const j = await res.json().catch(() => ({}));
-    if (j.forwarded) ok("prod telemetry 202 forwarded to Xano");
-    else fail("prod telemetry 202", "forwarded:false");
-    return;
-  }
-  fail("prod telemetry", `status ${res.status}`);
 }
 
 console.log(`innsegall smoke-xano · ${base}\n`);

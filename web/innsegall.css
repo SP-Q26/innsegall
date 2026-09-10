@@ -760,6 +760,25 @@ a:focus-visible {
   text-wrap: pretty;
 }
 
+.blog-cta-strip {
+  margin-top: 2rem;
+  padding: 1.5rem 1.25rem;
+  border: 1px solid var(--mist);
+  border-radius: var(--radius-md);
+  background: rgba(18, 42, 66, 0.45);
+}
+
+.blog-cta-strip .section-lead {
+  margin-bottom: 0;
+  max-width: 62ch;
+}
+
+.blog-cta-strip a {
+  color: var(--beam-gold);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
 /* Cards grid */
 .card-grid {
   display: grid;

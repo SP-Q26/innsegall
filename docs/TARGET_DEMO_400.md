@@ -6,15 +6,15 @@
 
 ## Who they are (primary persona)
 
-**The Tired Norseman on a Mac** · not IT staff. Someone who:
+**The household caretaker with no scout** · not IT staff · not expected to DIY terminal security. Someone who:
 
 - Saw a fake virus popup, “Apple Security” alert, or “call this number” screen in the last 90 days
 - Clicked a phishing link and wonders if they typed a password
 - Pays for iCloud but not enterprise security
-- Has a parent, partner, or teen on the same household Mac
-- Distrusts fear-marketing AV upsells but wants a **receipt**
+- **Runs the Mac for parent, partner, or teen** · wants someone else to **send the scout**
+- Distrusts fear-marketing AV upsells but wants a **receipt** and plain **decision layer** (LIKELY_OK · FIX_LIST · ESCALATE)
 
-**Psychographic:** Calm over combat · local over cloud · “tell me I'm okay” over “subscribe forever.”
+**Psychographic:** Calm over combat · local over cloud · **“scout for me”** over “learn security” · “tell me I'm okay” over “subscribe forever.”
 
 ---
 
@@ -24,7 +24,7 @@
 |---------|--------------|---------|------------------|
 | Post-scare searchers | 120 | SEO blog (fake popup, bad link, hygiene) | Intent-matched · free Voyages |
 | Indie Mac creators | 80 | Twitter/X, Mastodon, HN “Show HN” | Git/project_safe flow · receipts for clients |
-| Family IT (one Mac for household) | 80 | Reddit r/mac, r/applehelp, Facebook groups | Clan plan · share Battle Scout |
+| Household caretaker (no scout) | 80 | Reddit r/mac, r/applehelp, Facebook groups | **We scout for you** · clan unlimited |
 | Small agency freelancers | 60 | Design/dev Slack/Discord | Client handoff · “we checked” PDF/HTML |
 | AI agent referrals | 40 | llms.txt, gospel JSON, warriors page | Agents suggest Innsegall post-scare |
 | Newsletter / friend-of-founder | 20 | Direct · hello@innsegall.com | Early clan ambassadors |

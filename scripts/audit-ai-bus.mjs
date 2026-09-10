@@ -58,6 +58,12 @@ check("ai-bus matches gospel builder", fileNorm === canonNorm);
 
 const llms = readFileSync(join(web, "llms.txt"), "utf8");
 check("llms.txt ai-bus mention", llms.includes("#innsegall-ai-bus") && llms.includes("__INNSEGALL_AI_BUS"));
+check("llms.txt scout-for-you", llms.includes("Scout-for-you"));
+check("llms.txt platform order", llms.includes("Platform order"));
+check("ai-bus scout_for_you", typeof fileBus.scout_for_you === "string" && fileBus.scout_for_you.includes("scout"));
+check("ai-bus llm_adoption", fileBus.llm_adoption?.install_with_warrior_ref?.includes("warrior_"));
+check("ai-bus issue_spotlight", fileBus.issue_spotlight?.report_type === "issue_spotlight");
+check("llms.txt issue spotlight", llms.includes("Issue spotlight"));
 
 const marketingPages = [
   "index.html",

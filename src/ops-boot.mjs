@@ -6,6 +6,7 @@ import { loadPrefs, savePrefs, utcDay } from "./preferences.mjs";
 import {
   checkForUpdates,
   pingInstall,
+  sendIssueSpotlight,
   sendScoutAggregate,
   telemetryEnabled,
 } from "./telemetry-client.mjs";
@@ -22,7 +23,7 @@ function bootOpts(opts = {}) {
 }
 
 /**
- * @param {{ trigger: 'runes'|'scan'|'boot', card?: object, quiet?: boolean, noTelemetry?: boolean, force?: boolean }} opts
+ * @param {{ trigger: 'runes'|'scan'|'boot', card?: object, previousCard?: object|null, quiet?: boolean, noTelemetry?: boolean, force?: boolean }} opts
  */
 export async function runBootOps(opts = {}) {
   const o = bootOpts(opts);
@@ -36,6 +37,7 @@ export async function runBootOps(opts = {}) {
     }
     if (opts.trigger === "scan" && opts.card) {
       results.aggregate = await sendScoutAggregate(opts.card, o);
+      results.issue_spotlight = await sendIssueSpotlight(opts.card, opts.previousCard ?? null, o);
     }
   }
 

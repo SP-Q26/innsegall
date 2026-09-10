@@ -1,0 +1,37 @@
+{
+  "previous": {
+    "card_id": "fixture-prev-001",
+    "created_at": "2026-09-09T10:00:00.000Z",
+    "verdict": "FIX_LIST",
+    "flow": "clicked_bad_link",
+    "engine_version": "0.4.0-alpha",
+    "user_inputs": { "entered_password": true },
+    "checks_run": [
+      { "id": "firefox_profile", "status": "warn" },
+      { "id": "dns_resolvers", "status": "pass" }
+    ],
+    "fixes_recommended": [{ "id": "rotate_credentials", "title": "Rotate passwords", "risk": "high" }]
+  },
+  "current_clear": {
+    "card_id": "fixture-curr-002",
+    "created_at": "2026-09-09T11:00:00.000Z",
+    "verdict": "LIKELY_OK",
+    "flow": "clicked_bad_link",
+    "engine_version": "0.4.0-alpha",
+    "user_inputs": {},
+    "checks_run": [
+      { "id": "firefox_profile", "status": "pass" },
+      { "id": "dns_resolvers", "status": "pass" }
+    ],
+    "fixes_recommended": []
+  },
+  "current_identified": {
+    "card_id": "fixture-curr-003",
+    "created_at": "2026-09-09T12:00:00.000Z",
+    "verdict": "FIX_LIST",
+    "flow": "mac_hygiene",
+    "engine_version": "0.4.0-alpha",
+    "checks_run": [{ "id": "launch_ghosts", "status": "warn" }],
+    "fixes_recommended": [{ "id": "review_launch_ghosts", "title": "Fix launch items", "risk": "low" }]
+  }
+}

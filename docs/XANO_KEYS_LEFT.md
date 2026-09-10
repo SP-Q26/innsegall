@@ -10,6 +10,8 @@
 - [x] Table `innsegall_events`
 - [x] API group `innsegall_ops` · endpoint `POST /innsegall/events`
 - [x] Validation stack (event whitelist · forbidden payload keys)
+- [ ] Whitelist includes **`marketing_ping`** (site page-category pings · see `docs/PLATFORM_TRACKING.md`)
+- [ ] Whitelist includes **`issue_spotlight`** (identify/resolve category signals · see `docs/ISSUE_SPOTLIGHT_LOOP.md`)
 - [x] Run & Debug insert works
 
 ---

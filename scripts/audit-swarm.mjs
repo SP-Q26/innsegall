@@ -21,6 +21,9 @@ const lanes = [
   { name: "Stripe / checkout", script: "audit-stripe.mjs", score: "9.5" },
   { name: "Claymore / voice", script: "audit-claymore.mjs", score: "9.0" },
   { name: "Shell / nav / footer", script: "audit-shell.mjs", score: "9.5" },
+  { name: "Competitor / lane", script: "audit-lane.mjs", score: "9.0" },
+  { name: "Internal links", script: "audit-links.mjs", score: "9.5" },
+  { name: "Issue spotlight loop", script: "audit-issue-spotlight.mjs", score: "9.0" },
 ];
 
 let failed = 0;
@@ -66,7 +69,7 @@ try {
 
 const index = readFileSync(join(web, "index.html"), "utf8");
 const visualChecks = [
-  ["CSS v14 sitewide", index.includes("innsegall.css?v=14")],
+  ["CSS v15 sitewide", index.includes("innsegall.css?v=15")],
   ["Index Battle Scout preview", index.includes("battle-scout-sample")],
   ["Guide Battle Scout sample", readFileSync(join(web, "guide.html"), "utf8").includes("battle-scout-sample")],
   ["Sample scout HTML", existsSync(join(web, "samples/battle-scout-demo.html"))],
@@ -79,6 +82,8 @@ const visualChecks = [
   ["Brand mark SVG", index.includes('class="brand-mark"')],
   ["Footer nav", index.includes('class="footer-links"')],
   ["Field echoes scout-for-you", index.includes("We send the scout") && index.includes("Innsegall is that scout")],
+  ["Marketing ping in nav", readFileSync(join(web, "innsegall-nav.js"), "utf8").includes("marketing_ping")],
+  ["Telemetry marketing_ping", readFileSync(join(web, "api/telemetry.js"), "utf8").includes("marketing_ping")],
 ];
 console.log("── License dry-test ──");
 try {

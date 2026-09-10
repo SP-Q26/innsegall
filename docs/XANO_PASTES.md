@@ -12,11 +12,11 @@ Create table in Xano (editor DB):
 |--------|------|---------|-------|
 | `id` | integer | auto | PK |
 | `created_at` | timestamp | now() | |
-| `event` | text | | `install_ping` · `scout_aggregate` · `checkout_complete` · `clan_subscription` · `clan_renewal` |
+| `event` | text | | `install_ping` · `scout_aggregate` · `marketing_ping` · `issue_spotlight` · `checkout_complete` · `clan_subscription` · `clan_renewal` |
 | `payload` | json | | Event body |
 | `day` | date | | UTC bucket `YYYY-MM-DD` |
 | `engine_version` | text | nullable | |
-| `source` | text | | `vercel_telemetry` · `stripe_webhook` · `cli` |
+| `source` | text | | `vercel_telemetry` · `stripe_webhook` · `cli` · `vercel_marketing` |
 
 **Indexes:** `day` · `(event, day)` · `created_at DESC`
 
@@ -84,6 +84,8 @@ Vercel / smoke send header `X-API-Key: <same string as XANO_API_KEY>` via `web/l
 3. **Conditional** · allow `event` in:
    - `install_ping`
    - `scout_aggregate`
+   - `marketing_ping`
+   - `issue_spotlight`
    - `checkout_complete`
    - `clan_subscription`
    - `clan_renewal`
@@ -213,6 +215,8 @@ node scripts/smoke-xano.mjs --base=https://innsegall.com   # after Vercel redepl
 |---------|------------------|----------------|
 | `install_ping` | `POST /api/telemetry` | `vercel_telemetry` |
 | `scout_aggregate` | `POST /api/telemetry` (CLI) | `vercel_telemetry` |
+| `marketing_ping` | `POST /api/telemetry` (site nav) | `vercel_telemetry` |
+| `issue_spotlight` | `POST /api/telemetry` (CLI after scout) | `vercel_telemetry` |
 | `checkout_complete` | Stripe webhook | `stripe_webhook` |
 | `clan_subscription` | Stripe sub updated/deleted | `stripe_webhook` |
 | `clan_renewal` | Stripe `invoice.paid` cycle | `stripe_webhook` |
