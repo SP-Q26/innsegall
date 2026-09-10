@@ -161,7 +161,7 @@
         var data = await res.json();
         if (!res.ok) throw new Error(data.error || 'license_failed');
         status.textContent = data.plan === 'clan'
-          ? 'Clan oath bound · your household sails with unlimited scouts. Welcome aboard the longship.'
+          ? 'Clan oath bound · your roster sails with unlimited scouts. Welcome aboard the longship.'
           : 'Panic scout unlocked · run Innsegall on your Macintosh anytime this moon. Onward.';
         var blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
         var url = URL.createObjectURL(blob);

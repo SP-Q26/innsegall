@@ -25,6 +25,8 @@ const lanes = [
   { name: "Shell / nav / footer", script: "audit-shell.mjs", score: "9.5" },
   { name: "Competitor / lane", script: "audit-lane.mjs", score: "9.0" },
   { name: "Mac lane absorption", script: "audit-competitor-absorption.mjs", score: "9.5" },
+  { name: "Operator voice (P8)", script: "audit-operator-voice.mjs", score: "9.5" },
+  { name: "Voyage onboarding (P8)", script: "audit-voyage-onboarding.mjs", score: "9.0" },
   { name: "Internal links", script: "audit-links.mjs", score: "9.5" },
   { name: "Issue spotlight loop", script: "audit-issue-spotlight.mjs", score: "9.0" },
   { name: "Discovery / trust", script: "audit-discovery.mjs", score: "9.0" },

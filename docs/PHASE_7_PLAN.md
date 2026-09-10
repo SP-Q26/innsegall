@@ -124,5 +124,6 @@ flowchart TD
 
 - Swarm expansion (planned, **not executed**): [`PHASE_7_SWARM_PLAN.md`](./PHASE_7_SWARM_PLAN.md)
 - Meta-review of this plan: [`PHASE_7_PLAN_AUDIT.md`](./PHASE_7_PLAN_AUDIT.md)
+- **Next (rough):** [`PHASE_8_PLAN.md`](./PHASE_8_PLAN.md) · [`PHASE_8_SWARM_PLAN.md`](./PHASE_8_SWARM_PLAN.md) · [`PHASE_8_PLAN_AUDIT.md`](./PHASE_8_PLAN_AUDIT.md)
 
 *Innsegall only · separate entity and Stripe from other products.*
