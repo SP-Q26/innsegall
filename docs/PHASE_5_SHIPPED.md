@@ -1,4 +1,4 @@
-# Phase 5 · trust install + caretaker flow · Sep 2026
+# Phase 5 · trust install + alpha onboarding · Sep 2026
 
 **Theme:** Real one-click aboard (signed) · bootstrap automation · honest scout depth.  
 **Gate:** `npm run audit:swarm` · `npm run gate:launch` · `npm run smoke:live`
@@ -26,7 +26,7 @@
 | A1 | Apple Developer Program · **Developer ID Application** cert | Keychain identity |
 | A2 | `npm run release:macos-installer` · notary **Accepted** | Stapled `.app` in zip |
 | A3 | GitHub Release **`InnsegallInstaller.zip`** on `latest` | `smoke:live` signed line **ok** |
-| A4 | `/alpha` primary download · no Gatekeeper block on clean Mac | Caretaker smoke |
+| A4 | `/alpha` primary download · no Gatekeeper block on clean Mac | Alpha install smoke |
 
 Xano + Stripe live are **green** · this phase is **Apple trust**, not backend.
 

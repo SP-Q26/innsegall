@@ -278,6 +278,7 @@ export function buildScoutAiPayload(card) {
     flow: card.flow,
     flow_label: card.flow_label || card.flow,
     verdict: card.verdict,
+    triage_level: card.verdict,
     verdict_human: VERDICT_HUMAN[card.verdict] || card.verdict,
     summary: card.summary,
     leader_line: LEADER_LINE[card.verdict] || null,

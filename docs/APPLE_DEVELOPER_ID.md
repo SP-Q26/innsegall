@@ -1,6 +1,6 @@
 # Apple Developer ID · signed Macintosh installer
 
-**Goal:** Caretakers double-click **Innsegall Installer** without Firefox Gatekeeper (“unidentified developer”).
+**Goal:** Operators double-click **Innsegall Installer** without Firefox Gatekeeper (“unidentified developer”).
 
 **Artifact:** `dist/InnsegallInstaller.zip` → `InnsegallInstaller.app` (Developer ID signed + notarized).
 

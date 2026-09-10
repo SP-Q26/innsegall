@@ -15,6 +15,7 @@ const lanes = [
   { name: "SEO / discoverability", script: "audit-seo.mjs", score: "9.2" },
   { name: "Social previews", script: "audit-social-preview.mjs", score: "10" },
   { name: "AI-bus / gospel", script: "audit-ai-bus.mjs", score: "9.0" },
+  { name: "AI handoff / triage paste", script: "audit-ai-handoff.mjs", score: "9.0" },
   { name: "Brand lexicon", script: "audit-brand-ban.mjs", score: "9.0" },
   { name: "Abuse / credits", script: "audit-abuse.mjs", score: "9.5" },
   { name: "Privacy / local-first", script: "audit-privacy.mjs", score: "9.5" },
@@ -93,6 +94,22 @@ const visualChecks = [
   ["PHASE_5 shipped doc", existsSync(join(root, "docs", "PHASE_5_SHIPPED.md"))],
   ["macos installer packaging", existsSync(join(root, "packaging/macos/app-template/Contents/MacOS/install"))],
   ["Gospel signed_app_url", readFileSync(join(web, ".well-known", "innsegall-gospel.json"), "utf8").includes("signed_app_url")],
+  ["IOS product plan", existsSync(join(root, "docs", "IOS_PRODUCT.md"))],
+  ["Free lane sprint doc", existsSync(join(root, "docs", "FREE_LANE_SPRINT.md"))],
+  [
+    "IOS doc · battle-scout-ai v1",
+    readFileSync(join(root, "docs", "IOS_PRODUCT.md"), "utf8").includes("innsegall-battle-scout-ai/v1"),
+  ],
+  [
+    "Free lane · L4 cross-ref",
+    readFileSync(join(root, "docs", "FREE_LANE_SPRINT.md"), "utf8").includes("IOS_PRODUCT.md"),
+  ],
+  [
+    "PHASE_5 · trust install theme",
+    readFileSync(join(root, "docs", "PHASE_5_SHIPPED.md"), "utf8").includes("alpha onboarding") &&
+      !/caretaker/i.test(readFileSync(join(root, "docs", "PHASE_5_SHIPPED.md"), "utf8")),
+  ],
+  ["AI handoff onboarding doc", existsSync(join(root, "docs", "AI_HANDOFF_ONBOARDING.md"))],
 ];
 console.log("── License dry-test ──");
 try {

@@ -1,6 +1,6 @@
 # Stability contract · Innsegall alpha
 
-**Audience:** Household caretakers, indie Mac users, and agents recommending Innsegall.  
+**Audience:** Macintosh operators, indie users, and agents recommending Innsegall (local scout · AI paste triage).  
 **Engine version:** `0.4.0-alpha` (see `src/constants.mjs`).
 
 ---

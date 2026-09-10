@@ -1,0 +1,158 @@
+{
+  "format": "innsegall-battle-scout-ai/v1",
+  "product": "Innsegall",
+  "artifact": "Battle Scout",
+  "gospel": "https://innsegall.com/.well-known/innsegall-gospel.json",
+  "llms_txt": "https://innsegall.com/llms.txt",
+  "card_id": "demo-public-likely-ok",
+  "created_at": "2026-09-10T09:42:36.067Z",
+  "engine_version": "0.4.0-alpha",
+  "platform": "macos",
+  "platform_version": "14.0 (demo)",
+  "flow": "mac_hygiene",
+  "flow_label": "Is my Macintosh okay?",
+  "verdict": "LIKELY_OK",
+  "triage_level": "LIKELY_OK",
+  "verdict_human": "You're clear",
+  "summary": "We walked 13 paths on your Mac. 13 came back clear. You're okay tonight.",
+  "leader_line": "Breathe. Nothing here needs you tonight.",
+  "stats": {
+    "pass": 13,
+    "warn": 0,
+    "fail": 0
+  },
+  "user_inputs": {
+    "entered_password": false,
+    "downloaded_file": false
+  },
+  "fixes_recommended": [],
+  "attention_checks": [],
+  "clear_checks": [
+    {
+      "id": "launch_ghosts",
+      "name": "Launch ghosts",
+      "detail": "No unexpected login items flagged.",
+      "looked_at": "Startup lists (LaunchAgents, LaunchDaemons, login items) that point at apps or files that are missing",
+      "does_not_cover": "Apps that still launch but behave badly, or kernel-level malware",
+      "why_matters": "Broken launch items slow login and are a common place scareware hides after you delete the main app",
+      "learn_more": "https://innsegall.com/blog/stale-launch-items-macintosh/"
+    },
+    {
+      "id": "adware_markers",
+      "name": "Adware markers",
+      "detail": "No known scareware patterns in common spots.",
+      "looked_at": "Known adware file names, folders, and browser-extension patterns left on disk",
+      "does_not_cover": "Brand-new malware with no known signature, or threats only in memory",
+      "why_matters": "Fake virus popups often leave named leftovers · finding them explains odd browser behavior",
+      "learn_more": "https://innsegall.com/blog/adware-leftovers-macintosh/"
+    },
+    {
+      "id": "hosts_file",
+      "name": "Hosts file",
+      "detail": "Hosts file looks ordinary.",
+      "looked_at": "Your Mac's hosts file for unexpected redirects to sketchy domains",
+      "does_not_cover": "DNS changes made only on your router or phone, or VPN-only routing",
+      "why_matters": "Scareware sometimes edits hosts to lock you onto their \"support\" pages",
+      "learn_more": "https://innsegall.com/#lay-of-the-land"
+    },
+    {
+      "id": "dns_resolvers",
+      "name": "DNS resolvers",
+      "detail": "Resolver settings read clean.",
+      "looked_at": "Which DNS servers your Mac is set to use (Wi‑Fi and Ethernet)",
+      "does_not_cover": "DNS on other devices, or encrypted DNS inside a browser only",
+      "why_matters": "Fake cleaners often switch DNS so they can intercept or nag you on every site",
+      "learn_more": "https://innsegall.com/blog/dns-settings-macintosh/"
+    },
+    {
+      "id": "system_proxy",
+      "name": "System proxy",
+      "detail": "No suspicious proxy hijack.",
+      "looked_at": "System-wide web proxy settings that could funnel traffic through a stranger",
+      "does_not_cover": "Browser-only extensions, or corporate proxies your IT installed on purpose",
+      "why_matters": "Unexpected proxies are a classic persistence trick after scare popups",
+      "learn_more": "https://innsegall.com/blog/dns-settings-macintosh/"
+    },
+    {
+      "id": "gatekeeper",
+      "name": "Gatekeeper",
+      "detail": "Gatekeeper enabled as expected.",
+      "looked_at": "Whether macOS Gatekeeper and quarantine protections are turned on as expected",
+      "does_not_cover": "Whether every app you run is trustworthy · only whether core guards are enabled",
+      "why_matters": "Disabled Gatekeeper makes it easier to run downloaded scareware installers",
+      "learn_more": "https://innsegall.com/#lay-of-the-land"
+    },
+    {
+      "id": "security_software",
+      "name": "Security software",
+      "detail": "No conflicting scareware tools detected.",
+      "looked_at": "Whether known security tools (Malwarebytes, etc.) are installed and responding",
+      "does_not_cover": "Full scans, license status, or whether those tools found anything today",
+      "why_matters": "Knowing what protection you already have avoids duplicate panic subscriptions",
+      "learn_more": "https://innsegall.com/#lay-of-the-land"
+    },
+    {
+      "id": "firefox_profile",
+      "name": "Firefox profile",
+      "detail": "Extensions within normal range.",
+      "looked_at": "Firefox profiles for suspicious extensions, search hijacks, and odd home pages",
+      "does_not_cover": "Safari or Chrome, or activity inside private windows we cannot see",
+      "why_matters": "After a bad link, browsers are often the first place redirects and spam extensions land",
+      "learn_more": "https://innsegall.com/blog/after-suspicious-link-macintosh/"
+    },
+    {
+      "id": "safari_profile",
+      "name": "Safari profile",
+      "detail": "Safari extensions look familiar.",
+      "looked_at": "Safari extensions and homepage/search settings for obvious hijacks",
+      "does_not_cover": "Firefox or Chrome, or iCloud-synced settings on other devices",
+      "why_matters": "Safari is the default browser · scare pages often target it first on Mac",
+      "learn_more": "https://innsegall.com/blog/after-suspicious-link-macintosh/"
+    },
+    {
+      "id": "chrome_profile",
+      "name": "Chrome profile",
+      "detail": "Chrome extensions within normal range.",
+      "looked_at": "Chrome profiles for suspicious extensions, policies, and search overrides",
+      "does_not_cover": "Other browsers, or Chrome on a different user account",
+      "why_matters": "Extension spam after a scare popup usually shows up as odd Chrome behavior",
+      "learn_more": "https://innsegall.com/blog/after-suspicious-link-macintosh/"
+    },
+    {
+      "id": "login_items",
+      "name": "Login items",
+      "detail": "Login items match what you'd expect.",
+      "looked_at": "Items set to open automatically when you log in (System Settings list)",
+      "does_not_cover": "Background services that do not appear in Login Items, or iCloud-only apps",
+      "why_matters": "Mystery login items are a common \"why is my Mac slow?\" clue after scareware",
+      "learn_more": "https://innsegall.com/blog/stale-launch-items-macintosh/"
+    },
+    {
+      "id": "recent_installs",
+      "name": "Recent installs",
+      "detail": "No surprise installers in the last week.",
+      "looked_at": "Apps and packages installed in roughly the last seven days",
+      "does_not_cover": "Installs older than a week, or drag-and-drop apps with no installer record",
+      "why_matters": "The thing you installed right after the popup is often the actual trouble",
+      "learn_more": "https://innsegall.com/#lay-of-the-land"
+    },
+    {
+      "id": "config_profiles",
+      "name": "Configuration profiles",
+      "detail": "No unknown MDM or profiles.",
+      "looked_at": "Configuration and MDM profiles that can lock settings or install remote management",
+      "does_not_cover": "Profiles your employer installed on a work Mac you already expect",
+      "why_matters": "Unexpected profiles can mean someone else controls settings on your personal Mac",
+      "learn_more": "https://innsegall.com/blog/mdm-profiles-macintosh/"
+    }
+  ],
+  "does_not_check": [
+    "Real-time malware scanning, removal, or quarantine of active threats",
+    "Whether someone else is reading your email, iCloud, or bank accounts right now",
+    "Network traffic, keystrokes, or screen capture while you use the Mac",
+    "Windows, Linux, iPhone, or iPad (Macintosh only today)",
+    "Guaranteed proof that nothing bad will ever happen later"
+  ],
+  "scope_lead": "A clear scout is honest about its lane. Passing these checks means we did not see common scareware leftovers in the places we read · not that your Mac is invulnerable forever.",
+  "project_watch": null
+}
