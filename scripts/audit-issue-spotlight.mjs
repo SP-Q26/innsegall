@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /** Issue spotlight loop gate · detect · telemetry · publish. */
-import { readFileSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
@@ -53,6 +53,9 @@ check("telemetry validateIssueSpotlight", telemetry.includes("validateIssueSpotl
 
 const ops = readFileSync(join(root, "src", "ops-boot.mjs"), "utf8");
 check("ops-boot wires spotlight", ops.includes("sendIssueSpotlight"));
+check("fetch-issue-spotlight-events script", existsSync(join(root, "scripts", "fetch-issue-spotlight-events.mjs")));
+check("publish-issue-spotlight-pipeline script", existsSync(join(root, "scripts", "publish-issue-spotlight-pipeline.mjs")));
+check("issue-spotlight GH workflow", existsSync(join(root, ".github", "workflows", "issue-spotlight-publish.yml")));
 
 console.log(failed ? `\n${failed} issue-spotlight failure(s)` : "\nIssue spotlight audit passed");
 process.exit(failed ? 1 : 0);

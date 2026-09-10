@@ -4,6 +4,7 @@
  */
 import { PRICING } from "./constants.mjs";
 import { nextVoyageDate, VOYAGE_DAYS } from "./quota.mjs";
+import { formatPassageUpsellTerminal } from "./passage-cta.mjs";
 
 const supports =
   process.stdout.isTTY &&
@@ -100,7 +101,7 @@ export function formatQuotaTerminal(q, reason, d = new Date()) {
     "",
     paint(ansi.beam, "Roads forward:"),
     `  [1] Panic scout · $${PRICING.extra_run.usd.toFixed(2)} · ${PRICING.site_url}/#pricing`,
-    `  [2] Clan · $${PRICING.clan.usd_monthly.toFixed(2)}/mo · 5 seats · unlimited`,
+    `  [2] Clan · $${PRICING.clan.usd_monthly.toFixed(2)}/mo · ${PRICING.clan.seats} seats · ${PRICING.site_url}/clan`,
     `  [3] War-band · earn credits · ${PRICING.site_url}/warriors`,
     "",
     paint(
@@ -130,6 +131,8 @@ export function printScoutResult({ verdict, summary, status, out, saved, html })
   if (out) console.log(paint(ansi.clay, `Wrote ${out}`));
   if (saved) console.log(paint(ansi.dim, `Archive ${saved}`));
   if (html) console.log(paint(ansi.mist, `Battle Scout returns · ${html}`));
+  const upsell = formatPassageUpsellTerminal(verdict);
+  if (upsell) console.log(paint(ansi.beam, upsell));
 }
 
 export function printPlanStatus(status) {

@@ -122,6 +122,8 @@ assert(
   launchScope?.looked_at && launchScope?.does_not_cover && aiPayload.does_not_check?.length >= 3
 );
 assert("pricing footer", PRICING && htmlEscalate.includes(PRICING.solas.note.slice(0, 20)));
+assert("passage upsell on escalate", htmlEscalate.includes('id="passage-tier"'));
+assert("passage upsell clan link", htmlEscalate.includes("/clan"));
 assert("horn uses hello@", !htmlEscalate.includes("help@innsegall.com"));
 assert("horn uses hello@", htmlEscalate.includes("hello@innsegall.com"));
 

@@ -60,6 +60,17 @@ After every `innsegall run` / `check` / `voyage`:
 
 ## Publish (operator / cron)
 
+**Pipeline (recommended):**
+
+```bash
+# Xano env set → fetch + publish · else fixtures fallback
+npm run publish:issue-spotlights:telemetry
+npm run publish:issue-spotlights:telemetry:dry
+
+# GitHub Actions: .github/workflows/issue-spotlight-publish.yml
+# Secrets: XANO_ISSUE_SPOTLIGHT_URL · XANO_API_KEY
+```
+
 Aggregate Xano rows (or local fixtures) · write blog HTML + markdown:
 
 ```bash
@@ -68,6 +79,10 @@ npm run publish:issue-spotlights
 
 # Preview only
 npm run publish:issue-spotlights:dry
+
+# Manual fetch → publish
+node scripts/fetch-issue-spotlight-events.mjs --from-file exports/events.json --out .tmp/issue-events.json
+node scripts/publish-issue-spotlights.mjs --from-events .tmp/issue-events.json
 
 # From local card history (operator machine)
 node scripts/publish-issue-spotlights.mjs --from-cards

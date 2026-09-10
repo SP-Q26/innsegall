@@ -60,6 +60,8 @@ check("vercel install rewrite", vercel.includes('"/install"'));
 
 const changelog = readFileSync(join(root, "CHANGELOG.md"), "utf8");
 check("changelog 0.4.0-alpha", changelog.includes("0.4.0-alpha"));
+check("MSP_OUTREACH_BRIEF", existsSync(join(root, "docs", "MSP_OUTREACH_BRIEF.md")));
+check("L5_OPERATOR_RUNBOOK", existsSync(join(root, "docs", "L5_OPERATOR_RUNBOOK.md")));
 
 if (failed) {
   console.error(`\n${failed} discovery/trust audit failure(s)`);

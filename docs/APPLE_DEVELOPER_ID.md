@@ -2,6 +2,8 @@
 
 **L5 deferred:** Without an active Apple Developer Program membership (~$99/year), macOS will block or warn on unsigned downloads. **Canonical install today:** Terminal one-liner on `/alpha` · see `docs/INSTALL_WITHOUT_SIGNED_ZIP.md`. Swarm treats missing signed zip as **warn-only**.
 
+**When enrolled:** follow **`docs/L5_OPERATOR_RUNBOOK.md`** · GitHub Actions `macos-release` · tag `v*` push.
+
 **Goal (when enrolled):** Operators double-click **Innsegall Installer** without Firefox Gatekeeper (“unidentified developer”).
 
 **Artifact:** `dist/InnsegallInstaller.zip` → `InnsegallInstaller.app` (Developer ID signed + notarized).

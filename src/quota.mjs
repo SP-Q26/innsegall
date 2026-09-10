@@ -227,7 +227,7 @@ export function formatQuotaBlocked(q, d = new Date(), reason = "limit_reached") 
     "",
     "Roads forward:",
     `  [1] Panic scout · $${PRICING.extra_run.usd.toFixed(2)} · ${PRICING.site_url}/#pricing`,
-    `  [2] Clan · $${PRICING.clan.usd_monthly.toFixed(2)}/mo · 5 seats · unlimited`,
+    `  [2] Clan · $${PRICING.clan.usd_monthly.toFixed(2)}/mo · ${PRICING.clan.seats} seats · ${PRICING.site_url}/clan`,
     `  [3] War-band · earn credits · ${PRICING.site_url}/warriors`,
     "",
     `Toll gate → license.json → innsegall plan --import-license ~/Downloads/innsegall-license.json`,

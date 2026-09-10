@@ -20,6 +20,7 @@ import {
   GLOBAL_SCOPE_LEAD,
   LAY_OF_LAND_URL,
 } from "./check-catalog.mjs";
+import { renderPassageUpsellSection } from "./passage-cta.mjs";
 
 function parsePlistEvidence(line) {
   const clean = line.replace(/^\[optional\]\s*/, "");
@@ -1141,7 +1142,7 @@ export function renderHtml(card) {
               <button type="button" class="horn-btn horn-primary" id="horn-sound-btn">Sound the Horn · get help now</button>
               <button type="button" class="horn-btn horn-secondary" id="horn-parley-btn">Open Parley</button>
             </div>
-            <p class="horn-note">Human backup: <a href="mailto:${esc(PRICING.contact_email)}?subject=Sound%20the%20Horn%20%E2%80%94%20Battle%20Scout">${esc(PRICING.contact_email)}</a> · share this Battle Scout HTML with your clan.</p>
+            <p class="horn-note">Share this HTML with your roster · <a href="${esc(PRICING.site_url)}/clan">Clan ($${PRICING.clan.usd_monthly.toFixed(2)}/mo · ${PRICING.clan.seats} seats)</a> · human backup <a href="mailto:${esc(PRICING.contact_email)}?subject=Sound%20the%20Horn%20%E2%80%94%20Battle%20Scout">${esc(PRICING.contact_email)}</a></p>
           </div>
         </aside>`
       : `<div class="escalate-quiet">
@@ -2638,6 +2639,18 @@ ${scoutDataBlocks}
       letter-spacing: .02em;
     }
     .horn-note { margin: .75rem 0 0 !important; font-size: var(--text-xs) !important; color: var(--smoke) !important; }
+    .passage-upsell {
+      margin: 1.25rem 0;
+      padding: 1rem 1.25rem;
+      border: 1px solid rgba(244, 201, 93, 0.25);
+      border-radius: 12px;
+      background: rgba(18, 42, 66, 0.55);
+    }
+    .passage-upsell--hot {
+      border-color: rgba(232, 168, 124, 0.45);
+    }
+    .passage-tier-list { margin: 0.5rem 0 0; padding-left: 1.25rem; }
+    .passage-tier-list li { margin: 0.35rem 0; }
     .horn-cta-soft {
       background: var(--paper-2);
       border: 1px dashed #d4cbb8;
@@ -2876,6 +2889,7 @@ ${scoutDataBlocks}
         ${escalateHtml}
         ${parleyHtml}
         ${hornHtml}
+        ${renderPassageUpsellSection(card)}
         ${housekeepingHtml}
         ${project}
       </main>

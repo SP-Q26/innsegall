@@ -46,6 +46,7 @@ check("voyage-schedule module", existsSync(join(root, "src", "voyage-schedule.mj
 check("bootstrap module", existsSync(join(root, "src", "bootstrap.mjs")));
 check("APPLE_DEVELOPER_ID doc", existsSync(join(root, "docs", "APPLE_DEVELOPER_ID.md")));
 check("INSTALL_WITHOUT_SIGNED_ZIP doc", existsSync(join(root, "docs", "INSTALL_WITHOUT_SIGNED_ZIP.md")));
+check("L5_OPERATOR_RUNBOOK doc", existsSync(join(root, "docs", "L5_OPERATOR_RUNBOOK.md")));
 check("alpha documents unsigned zip defer", alpha.includes("gatekeeper") || alpha.includes("Terminal"));
 check("install.html page", existsSync(join(web, "install.html")));
 check("vercel /install rewrite", readFileSync(join(web, "vercel.json"), "utf8").includes('"/install"'));

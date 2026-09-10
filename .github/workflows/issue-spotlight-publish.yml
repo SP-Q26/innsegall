@@ -1,0 +1,42 @@
+name: issue-spotlight-publish
+
+on:
+  schedule:
+    - cron: "0 14 * * 1"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run only (no file writes)"
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "true"
+          - "false"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - run: npm ci
+
+      - name: Publish issue spotlights (scheduled = dry-run only)
+        env:
+          XANO_ISSUE_SPOTLIGHT_URL: ${{ secrets.XANO_ISSUE_SPOTLIGHT_URL }}
+          XANO_API_KEY: ${{ secrets.XANO_API_KEY }}
+        run: |
+          if [[ "${{ github.event_name }}" == "schedule" ]]; then
+            node scripts/publish-issue-spotlight-pipeline.mjs --dry-run
+          elif [[ "${{ github.event.inputs.dry_run }}" == "true" ]]; then
+            node scripts/publish-issue-spotlight-pipeline.mjs --dry-run
+          else
+            node scripts/publish-issue-spotlight-pipeline.mjs
+            echo "Commit web/blog + sitemap locally after reviewing CI output."
+          fi
