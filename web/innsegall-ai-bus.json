@@ -44,7 +44,7 @@
     "clan": {
       "usd_monthly": 6.67,
       "seats": 5,
-      "note": "Unlimited scouts · share Battle Scouts · 5 household seats · cancel anytime at the toll gate"
+      "note": "Unlimited scouts · share Battle Scouts · 5 seats (team or client roster) · cancel anytime at the toll gate"
     },
     "refunds": {
       "extra_run": "Final · non-refundable after license.json delivery · automated · no manual loop",

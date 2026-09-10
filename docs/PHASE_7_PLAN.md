@@ -26,7 +26,7 @@ Phase 7 is **not** a new product lane. It is **distribution + ops depth** on the
 
 | # | Objective | Done when |
 |---|-----------|-----------|
-| O1 | **Blog → alpha** | Top SEO slugs share one CTA block · internal links audited · optional UTM/ref on warriors |
+| O1 | **Blog → alpha** | Top SEO slugs share one CTA block · **5 queued competitor posts** (`COMPETITOR_ABSORPTION.md`) · `audit-competitor-absorption` green |
 | O2 | **Agent routing** | `llms.txt` + ai-bus + FAQ/schema answer “what is Innsegall?” without human support |
 | O3 | **CLI agent pipe** | B1: `innsegall check --json` documented · sample in guide + llms |
 | O4 | **Seats design** | B2: `docs/REDEEM_SEATS.md` signed · no live redeem until Phase 7b if scoped |

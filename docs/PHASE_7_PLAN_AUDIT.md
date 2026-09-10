@@ -19,6 +19,8 @@ This document audits the **plan**, not the product. No Phase 7 builds were execu
 
 **Recommendation:** Approve Phase 7 planning docs · start **Wave 1** only after explicit kickoff · do not register new swarm lanes until first script has real checks.
 
+**Update 2026-09-10:** Competitor sweep shipped · `audit-competitor-absorption.mjs` live · see [`BRAND_COMPETITOR_AUDIT_2026-09-10.md`](./BRAND_COMPETITOR_AUDIT_2026-09-10.md).
+
 ---
 
 ## Strengths

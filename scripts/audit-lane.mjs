@@ -27,6 +27,9 @@ const boatPlayers = [
   "Geek Squad",
   "Offshore scareware",
   "EtreCheck",
+  "VirusTotal",
+  "XProtect",
+  "Little Snitch",
 ];
 for (const p of boatPlayers) {
   check(`boat lists ${p}`, boat.includes(p));
@@ -45,6 +48,7 @@ check("llms platform order", llms.includes("Platform order"));
 check("llms cargo", llms.includes("What we carry"));
 
 check("nav marketing_ping", nav.includes("marketing_ping"));
+check("llms mac lane absorption", llms.includes("Mac lane absorption"));
 
 console.log(failed ? `\n${failed} lane audit failure(s)` : "\nLane audit passed");
 process.exit(failed ? 1 : 0);

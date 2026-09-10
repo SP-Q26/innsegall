@@ -34,11 +34,17 @@ Plus: engine smoke · self-test · visual checklist.
 
 ---
 
+## Shipped in pre-Wave 1 (competitor press)
+
+| Lane | Script | Wave | Checks |
+|------|--------|------|--------|
+| **Mac lane absorption** | `audit-competitor-absorption.mjs` | now | `mac_lane_absorption` in gospel · boat markers · shipped blogs exist · queued blogs absent · llms section |
+
 ## Proposed new lanes (Phase 7)
 
 | Lane | Script (new) | Target score | Wave | Checks (summary) |
 |------|----------------|-------------|------|------------------|
-| **Blog funnel** | `audit-blog-funnel.mjs` | 9.5 | W1 | Every `web/blog/*.html` (except index): canonical · `/alpha` CTA · lane phrase · no banned lexicon · links to hub slugs |
+| **Blog funnel** | `audit-blog-funnel.mjs` | 9.5 | W1 | Every `web/blog/*.html` (except index): canonical · `/alpha` CTA · lane phrase · `/boat` on comparison posts · no banned lexicon |
 | **Structured data** | `audit-structured-data.mjs` | 9.0 | W1 | Home FAQ JSON-LD valid keys · blog Article where template marks `data-structured=article` · no duplicate `@type` conflicts |
 | **Gospel coverage** | `audit-gospel-coverage.mjs` | 9.5 | W1 | All `KEY_PAGES` + blog index + stability · `INNSEGALL_AI_BUS_START` · `window.__INNSEGALL_AI_BUS` |
 | **CLI JSON export** | `audit-check-json.mjs` | 9.0 | W2 | Guide mentions `--json` · llms one-liner · optional: spawn `innsegall check` in self-test support dir |
