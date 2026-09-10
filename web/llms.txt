@@ -29,10 +29,16 @@
 - User wants guaranteed malware removal or 100% safety promise
 
 ## Field manual · bring the scout aboard (Macintosh alpha)
+- Install help (unsigned zip OK): https://innsegall.com/install
 - One-click: https://innsegall.com/scripts/Innsegall-Install.command
 - Terminal: curl -fsSL https://innsegall.com/scripts/innsegall-alpha-install.sh | bash
 - Download Innsegall-Install.command from /alpha · double-click · or curl one_liner
 - innsegall bootstrap · welcome scout + automatic Voyages on the 1st & 15th at 10:00 (install script runs this)
+
+## CLI agent pipe (local scout JSON)
+- After install on Mac: `innsegall check --json` prints Battle Scout card JSON to stdout (use `--smoke --force` only for fixtures in dev)
+- Full run with HTML: `innsegall run`
+- Guide: https://innsegall.com/guide
 
 ## Voyage health tracker (free tier)
 - 2 Voyages per month on the **1st & 15th** · scheduled Macintosh hygiene, not scare pricing

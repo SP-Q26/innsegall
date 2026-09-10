@@ -20,6 +20,7 @@ const KEY_PAGES = [
   "warriors.html",
   "map.html",
   "stability.html",
+  "install.html",
   "blog/index.html",
 ];
 

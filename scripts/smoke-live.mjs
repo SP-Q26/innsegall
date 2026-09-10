@@ -26,6 +26,12 @@ const PATHS = [
   "/scripts/innsegall-alpha-install.sh",
   "/scripts/Innsegall-Install.command",
   "/innsegall.css",
+  "/install",
+  "/blog/innsegall-vs-mac-cleaners",
+  "/blog/innsegall-vs-etrecheck-macintosh",
+  "/blog/macintosh-xprotect-after-scare",
+  "/blog/virustotal-vs-local-mac-scout",
+  "/blog/network-monitor-vs-post-scare-triage",
 ];
 
 function getArg(name, fallback) {

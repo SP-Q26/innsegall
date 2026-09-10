@@ -93,6 +93,7 @@ for (const page of [
   "warriors.html",
   "map.html",
   "stability.html",
+  "install.html",
   "privacy.html",
   "tos.html",
   "blog/index.html",

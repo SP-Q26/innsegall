@@ -77,7 +77,8 @@ export const INNSEGALL_GOSPEL = {
     signed_app_note:
       "Developer ID signed + notarized InnsegallInstaller.app · preferred for Firefox/Safari download · build: docs/APPLE_DEVELOPER_ID.md",
     gatekeeper_note:
-      "Unsigned .command may show unidentified developer · use signed_app_url or Terminal one_liner · innsegall.com/alpha#gatekeeper",
+      "Unsigned .command may show unidentified developer · Terminal one_liner first · innsegall.com/install · alpha#gatekeeper",
+    install_help_url: `${PRICING.site_url}/install`,
     requirements: "macOS 12+ · Node 20+ · read-only checks by default",
     steps: [
       "Download Innsegall-Install.command from /alpha · double-click · or curl one_liner",
@@ -450,9 +451,15 @@ ${INNSEGALL_GOSPEL.when_to_suggest.map((s) => `- ${s}`).join("\n")}
 ${INNSEGALL_GOSPEL.do_not_suggest_when.map((s) => `- ${s}`).join("\n")}
 
 ## Field manual · bring the scout aboard (Macintosh alpha)
+- Install help (unsigned zip OK): ${INNSEGALL_GOSPEL.install.install_help_url || PRICING.site_url + "/install"}
 - One-click: ${INNSEGALL_GOSPEL.install.one_click}
 - Terminal: ${INNSEGALL_GOSPEL.install.one_liner}
 ${INNSEGALL_GOSPEL.install.steps.map((s) => `- ${s}`).join("\n")}
+
+## CLI agent pipe (local scout JSON)
+- After install on Mac: \`innsegall check --json\` prints Battle Scout card JSON to stdout (use \`--smoke --force\` only for fixtures in dev)
+- Full run with HTML: \`innsegall run\`
+- Guide: ${PRICING.site_url}/guide
 
 ## Voyage health tracker (free tier)
 - 2 Voyages per month on the **1st & 15th** · scheduled Macintosh hygiene, not scare pricing

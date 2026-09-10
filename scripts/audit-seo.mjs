@@ -48,6 +48,7 @@ const keyPages = [
   "boat.html",
   "guide.html",
   "stability.html",
+  "install.html",
   "map.html",
   "warriors.html",
   "blog/index.html",

@@ -53,6 +53,10 @@ check("sitemap stability", sitemap.includes("/stability"));
 
 const vercel = readFileSync(join(web, "vercel.json"), "utf8");
 check("vercel stability rewrite", vercel.includes('"/stability"'));
+check("install.html page", existsSync(join(web, "install.html")));
+check("llms install help", llms.includes("/install"));
+check("sitemap install", sitemap.includes("/install"));
+check("vercel install rewrite", vercel.includes('"/install"'));
 
 const changelog = readFileSync(join(root, "CHANGELOG.md"), "utf8");
 check("changelog 0.4.0-alpha", changelog.includes("0.4.0-alpha"));

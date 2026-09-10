@@ -78,6 +78,7 @@ Scout options:
   --entered-password   ESCALATE: password entered on suspicious page
   --downloaded-file    Flag suspicious download · read Downloads folder
   --quiet              JSON only on stdout (read-only scout)
+  --json               Same as --quiet · agent piping (stdout Battle Scout card)
 
 Render options:
   --md <file.md>       Markdown export
@@ -174,6 +175,7 @@ function defaultHtmlPath(jsonPath) {
 }
 
 function cmdCheck(flags) {
+  if (flags.json) flags.quiet = true;
   const flow = flags.flow || "mac_hygiene";
   if (!FLOWS[flow]) {
     console.error(`Unknown flow: ${flow}`);

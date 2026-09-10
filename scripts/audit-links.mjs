@@ -13,6 +13,7 @@ const PAGE_ROUTES = new Set([
   "/alpha",
   "/guide",
   "/stability",
+  "/install",
   "/map",
   "/boat",
   "/clan",
