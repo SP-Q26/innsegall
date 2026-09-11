@@ -5,7 +5,7 @@
 import { readFileSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { STRIPE_CATALOG } from "../web/lib/stripe-catalog.mjs";
+import { STRIPE_CATALOG, stripeProductImageUrl } from "../web/lib/stripe-catalog.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const web = join(root, "web");
@@ -28,6 +28,8 @@ const priceDoc = readFileSync(join(root, "docs/STRIPE_PRICE_IDS.md"), "utf8");
 
 check("checkout uses stripe-catalog", checkout.includes("stripe-catalog.mjs"));
 check("checkout SITE_URL helper", checkout.includes("siteOrigin"));
+const catalogSrc = readFileSync(join(web, "lib/stripe-catalog.mjs"), "utf8");
+check("siteOrigin production canonical", catalogSrc.includes("VERCEL_ENV") && catalogSrc.includes("innsegall.com"));
 check("checkout metadata innsegall_sku", checkout.includes("innsegall_sku"));
 check("checkout extra amount 420", checkout.includes("420") || checkout.includes("STRIPE_PRICE_EXTRA"));
 check("checkout clan amount 667", checkout.includes("667") || checkout.includes("STRIPE_PRICE_CLAN"));
@@ -58,6 +60,12 @@ check("catalog msp seats_min", STRIPE_CATALOG.msp.seats_min === 10);
 check("innsegall-checkout.js shared", existsSync(join(web, "innsegall-checkout.js")));
 check("msp page", existsSync(join(web, "msp.html")));
 check("STRIPE_MSP_PACK doc", existsSync(join(root, "docs/STRIPE_MSP_PACK.md")));
+check("STRIPE_CATALOG_STATE doc", existsSync(join(root, "docs/STRIPE_CATALOG_STATE.md")));
+check("catalog msp test_price_id set", Boolean(STRIPE_CATALOG.msp.test_price_id));
+check("sync-stripe-product-images script", existsSync(join(root, "scripts/sync-stripe-product-images.mjs")));
+for (const key of Object.keys(STRIPE_CATALOG)) {
+  check(`catalog ${key} checkout_image`, Boolean(stripeProductImageUrl(key)));
+}
 
 const gospel = readFileSync(join(web, ".well-known/innsegall-gospel.json"), "utf8");
 const bus = readFileSync(join(web, "innsegall-ai-bus.json"), "utf8");

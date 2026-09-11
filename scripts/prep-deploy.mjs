@@ -13,6 +13,7 @@ execSync("node scripts/sync-gospel-web.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-battle-scout-sample.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/export-sample-scout.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/export-og-png.mjs", { cwd: root, stdio: "inherit" });
+execSync("node scripts/export-stripe-product-images.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-brand.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-cta.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-site-chrome.mjs", { cwd: root, stdio: "inherit" });

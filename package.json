@@ -45,7 +45,10 @@
     "dry-run:lanes": "node scripts/dry-run-lanes.mjs",
     "smoke:live": "node scripts/smoke-live.mjs --base=https://innsegall.com",
     "smoke:xano": "node scripts/smoke-xano.mjs",
-    "report:funnel": "node scripts/report-funnel.mjs"
+    "report:funnel": "node scripts/report-funnel.mjs",
+    "audit:stripe-sandbox": "node scripts/audit-stripe-sandbox.mjs",
+    "export:stripe-images": "node scripts/export-stripe-product-images.mjs",
+    "sync:stripe-images": "node scripts/sync-stripe-product-images.mjs"
   },
   "devDependencies": {
     "@resvg/resvg-js": "^2.6.2"

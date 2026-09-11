@@ -30,11 +30,13 @@ Optional (recommended · created in Stripe test mode Sep 2026):
 
 Full catalog: `docs/STRIPE_PRICE_IDS.md` · checkout falls back to inline amounts if unset.
 
-Optional preview base URL before DNS:
+Optional preview base URL (Preview deploys only · **not** needed on Production):
 
 | Variable | Example |
 |----------|---------|
 | `INNSEGALL_SITE_URL` | `https://your-project.vercel.app` |
+
+Production Stripe redirects use **`https://innsegall.com`** automatically (`VERCEL_ENV=production` · `web/lib/stripe-catalog.mjs`).
 
 Copy template: `web/.env.example`
 

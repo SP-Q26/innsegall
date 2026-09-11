@@ -25,10 +25,14 @@ Expect:
 
 Toggle **Live** (top-right) · create **new** live objects (do not reuse test IDs):
 
-| SKU | Type | Amount | Vercel env |
-|-----|------|--------|------------|
-| Extra scout | One-time | $4.20 | `STRIPE_PRICE_EXTRA` = `price_live_…` |
-| Clan | Monthly | $6.67 | `STRIPE_PRICE_CLAN` = `price_live_…` |
+| SKU | Type | Amount | Vercel env (live IDs · 2026-09-10) |
+|-----|------|--------|-------------------------------------|
+| Extra scout | One-time | $4.20 | `STRIPE_PRICE_EXTRA` = `price_1UEKtpFDJKTJlxOcJn43NZI2` |
+| Clan | Monthly | $6.67 | `STRIPE_PRICE_CLAN` = `price_1UEKu4FDJKTJlxOcooxy8Zv5` |
+| MSP seat | Monthly | $3.00/seat | `STRIPE_PRICE_MSP_SEAT` = `price_1UEKu6FDJKTJlxOcMJmWUzim` |
+
+Full product IDs and lookup keys: `docs/STRIPE_CATALOG_STATE.md`.  
+Product images: deploy `web/stripe/*.png` then `STRIPE_SECRET_KEY=sk_live_… npm run sync:stripe-images` · `docs/STRIPE_PRODUCT_IMAGES.md`.
 
 Developers → API keys:
 
@@ -38,10 +42,11 @@ Developers → API keys:
 | `STRIPE_WEBHOOK_SECRET` | `whsec_…` from **live** endpoint |
 | `INNSEGALL_LICENSE_SECRET` | **Rotate** · `openssl rand -base64 32` |
 
-New webhook endpoint (live):
+New webhook endpoint (live) · **required** (none registered as of 2026-09-10):
 
 - URL: `https://innsegall.com/api/stripe/webhook`
 - Events: `checkout.session.completed` · `customer.subscription.updated` · `customer.subscription.deleted` · `invoice.paid`
+- After save: Stripe → **Send test event** → Vercel logs show **200**
 
 ---
 
@@ -63,12 +68,14 @@ npm run smoke:live
 
 Checkout line should say `(live)` not `(test)`.
 
-**One real panic scout:**
+**Minimum live matrix:**
 
-1. `innsegall.com` → Extra run $4.20 → pay with real card
-2. `/success` → download `license.json`
-3. Mac: `innsegall plan --import-license ~/Downloads/innsegall-license.json`
-4. `innsegall run` · credit consumed once
+1. **Extra** · `innsegall.com` → Extra run $4.20 → real card → import license → one scout
+2. **Clan** · `/clan?buy=clan` → subscribe → `innsegall plan` shows clan + `valid_until`
+3. **MSP** · `/msp` → 10 seats checkout → license `plan: msp` + `seats: 10`
+4. **Warrior ref** · checkout with `?ref=warrior_test` or POST `warrior_ref` · webhook metadata includes ref
+
+Decline card `4000 0000 0000 0002` on one SKU · confirm no license issued.
 
 ---
 

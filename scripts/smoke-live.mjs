@@ -163,24 +163,71 @@ try {
   failMsg(`www redirect ${e.message}`);
 }
 
-console.log("── Stripe checkout probe ──");
-try {
-  const res = await fetch(`${base}/api/stripe/checkout`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ sku: "extra" }),
-  });
-  const data = await res.json().catch(() => ({}));
-  if (res.status === 503 && data.error === "stripe_not_configured") {
-    console.log("warn checkout 503 stripe_not_configured · set STRIPE_SECRET_KEY on Vercel");
-  } else if (res.status === 200 && data.url?.includes("checkout.stripe.com")) {
-    const mode = data.url.includes("/test/") ? "test" : "live";
-    pass(`checkout returns Stripe hosted URL (${mode})`);
-  } else {
-    failMsg(`checkout ${res.status} ${JSON.stringify(data).slice(0, 120)}`);
+console.log("── Stripe product images (hosted) ──");
+for (const sku of ["extra", "clan", "msp"]) {
+  try {
+    const res = await fetch(`${base}/stripe/${sku}.png`, { method: "HEAD", redirect: "follow" });
+    if (res.status >= 200 && res.status < 400) {
+      pass(`stripe image /stripe/${sku}.png (${res.status})`);
+    } else {
+      console.log(
+        `warn /stripe/${sku}.png ${res.status} · deploy web/stripe/*.png then npm run sync:stripe-images`
+      );
+    }
+  } catch (e) {
+    console.log(`warn stripe image ${sku} ${e.message}`);
   }
-} catch (e) {
-  failMsg(`checkout probe ${e.message}`);
+}
+
+console.log("── Stripe checkout probe ──");
+const CHECKOUT_SKUS = [
+  { label: "extra", body: { sku: "extra" } },
+  { label: "clan", body: { sku: "clan" } },
+  { label: "msp×10", body: { sku: "msp", quantity: 10 } },
+];
+let stripeConfigured = true;
+for (const { label, body } of CHECKOUT_SKUS) {
+  try {
+    const res = await fetch(`${base}/api/stripe/checkout`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (res.status === 503 && data.error === "stripe_not_configured") {
+      if (label === "extra") {
+        console.log("warn checkout 503 stripe_not_configured · set STRIPE_SECRET_KEY on Vercel");
+      }
+      stripeConfigured = false;
+      break;
+    }
+    if (res.status === 200 && data.url?.includes("checkout.stripe.com")) {
+      const mode =
+        data.url.includes("cs_test_") || data.url.includes("/test/") ? "test" : "live";
+      pass(`checkout ${label} → Stripe URL (${mode})`);
+    } else {
+      failMsg(`checkout ${label} ${res.status} ${JSON.stringify(data).slice(0, 120)}`);
+    }
+  } catch (e) {
+    failMsg(`checkout ${label} ${e.message}`);
+  }
+}
+if (stripeConfigured) {
+  try {
+    const res = await fetch(`${base}/api/stripe/checkout`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ sku: "extra", warrior_ref: "warrior_smoke_probe" }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (res.status === 200 && data.url?.includes("checkout.stripe.com")) {
+      pass("checkout extra + warrior_ref accepted");
+    } else {
+      failMsg(`checkout warrior_ref ${res.status} ${JSON.stringify(data).slice(0, 80)}`);
+    }
+  } catch (e) {
+    failMsg(`checkout warrior_ref ${e.message}`);
+  }
 }
 
 console.log("── License API shape ──");

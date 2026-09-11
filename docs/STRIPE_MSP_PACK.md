@@ -8,10 +8,13 @@ Not EDR · complements XProtect and existing tools · see `docs/MSP_OUTREACH_BRI
 
 ## Dashboard (test or live)
 
+**Test (sandbox):** `prod_VEoW9HK9Jun9It` · `price_1UEKt7F5SRiYwzwFEgfNLWJw` · lookup `innsegall_msp_seat`  
+**Live:** `prod_VEoX9hJDYQTlck` · `price_1UEKu6FDJKTJlxOcMJmWUzim` · see `docs/STRIPE_CATALOG_STATE.md`
+
 1. **Product:** Innsegall MSP · per seat  
 2. **Price:** recurring monthly · **$3.00** · usage type **licensed** (per-seat quantity at checkout)  
 3. Copy **Price ID** → Vercel `STRIPE_PRICE_MSP_SEAT`  
-4. Optional **lookup_key:** `innsegall_msp_seat` (matches `web/lib/stripe-catalog.mjs`)
+4. **lookup_key:** `innsegall_msp_seat` (matches `web/lib/stripe-catalog.mjs`)
 
 If env is unset, checkout uses inline `price_data` at **300** cents (same as catalog).
 
@@ -46,7 +49,7 @@ Seat redeem for end clients remains **design-only** (`docs/REDEEM_SEATS.md`) · 
 ## Vercel env
 
 ```text
-STRIPE_PRICE_MSP_SEAT=price_…   # optional · inline fallback OK for test
+STRIPE_PRICE_MSP_SEAT=price_1UEKt7F5SRiYwzwFEgfNLWJw   # test · live ID in STRIPE_CATALOG_STATE.md
 ```
 
 Same webhook events as Clan · `customer.subscription.*` · `invoice.paid`.

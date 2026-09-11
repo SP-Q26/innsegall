@@ -8,12 +8,13 @@
 
 ## 1 · Products + prices
 
-| Product | Billing | Amount | Test IDs |
-|---------|---------|--------|----------|
-| **Extra scout** | One-time | **$4.20 USD** | `prod_VDK62giZUcpP6x` · `price_1UCtSDF5SRiYwzwFcmVYwqvf` |
-| **Clan** | Recurring monthly | **$6.67 USD** | `prod_VDKPAidRCPD8vW` · `price_1UCtknF5SRiYwzwFMhZXP1q2` |
+| Product | Billing | Amount | Test IDs · lookup_key |
+|---------|---------|--------|------------------------|
+| **Extra scout** | One-time | **$4.20 USD** | `prod_VDK62giZUcpP6x` · `price_1UCtSDF5SRiYwzwFcmVYwqvf` · `innsegall_extra` |
+| **Clan** | Recurring monthly | **$6.67 USD** | `prod_VDKPAidRCPD8vW` · `price_1UCtknF5SRiYwzwFMhZXP1q2` · `innsegall_clan` |
+| **MSP seat** | Recurring monthly | **$3.00 USD** | `prod_VEoW9HK9Jun9It` · `price_1UEKt7F5SRiYwzwFEgfNLWJw` · `innsegall_msp_seat` |
 
-Vercel env: `STRIPE_PRICE_EXTRA` · `STRIPE_PRICE_CLAN` · full paste in `docs/STRIPE_PRICE_IDS.md`. Checkout falls back to inline `price_data` if env unset.
+Vercel env: `STRIPE_PRICE_EXTRA` · `STRIPE_PRICE_CLAN` · `STRIPE_PRICE_MSP_SEAT` · full paste in `docs/STRIPE_PRICE_IDS.md`. Live IDs: `docs/STRIPE_CATALOG_STATE.md`. Checkout falls back to inline `price_data` if env unset.
 
 ---
 
@@ -37,8 +38,10 @@ Developers → Webhooks → Add endpoint:
 | Field | Value |
 |-------|--------|
 | URL | `https://innsegall.com/api/stripe/webhook` |
+| Test endpoint ID | `we_1UCuYlF5SRiYwzwF20nJM9fT` (registered) |
 | Events | `checkout.session.completed` · `customer.subscription.updated` · `customer.subscription.deleted` · `invoice.paid` |
 | Signing secret | Vercel env `STRIPE_WEBHOOK_SECRET` |
+| Live | Create a **separate** live endpoint before flip · none registered yet |
 
 After first test payment: open event → confirm **200** · body `{ "received": true, ... }`.
 
