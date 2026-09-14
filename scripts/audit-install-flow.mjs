@@ -33,6 +33,10 @@ if (existsSync(commandPath)) {
 }
 
 check("install.sh bootstrap step", installSh.includes(" bootstrap"));
+check("install.sh auto zshrc path", installSh.includes("ensure_path_in_shell") && installSh.includes("PATH_MARKER"));
+check("install.sh panic buy hint", installSh.includes("?buy=extra") && installSh.includes("import-license"));
+check("self-update module", existsSync(join(root, "src", "self-update.mjs")));
+check("CLI self-update hook", cli.includes("tryGitFastForward"));
 check("install.sh absolute node in wrapper", installSh.includes('NODE_BIN="$(command -v node)"'));
 check("install.sh PATH for brew", installSh.includes("/opt/homebrew/bin"));
 check(

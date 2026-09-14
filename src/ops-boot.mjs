@@ -57,6 +57,7 @@ function printBootMessages(results, opts) {
       )
     );
     console.log(paint(ansi.dim, `  curl -fsSL ${INSTALL_SCRIPT} | bash`));
+    console.log(paint(ansi.dim, `  Or · innsegall run (git pull before each scout when installed from git)`));
   }
 
   if (!telemetryEnabled(opts)) return;

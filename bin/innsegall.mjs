@@ -50,6 +50,7 @@ import {
   voyageScheduleSummary,
   voyagePlistPath,
 } from "../src/voyage-schedule.mjs";
+import { tryGitFastForward } from "../src/self-update.mjs";
 
 function usage() {
   console.log(`Innsegall ${ENGINE_VERSION} · know you're okay.
@@ -236,6 +237,9 @@ function cmdCheck(flags) {
 }
 
 async function cmdRun(flags) {
+  if (!flags.smoke && !flags.force) {
+    tryGitFastForward({ quiet: flags.quiet });
+  }
   flags.out = flags.out || defaultOutPath(flags.flow || "mac_hygiene");
   const card = cmdCheck({ ...flags, quiet: false });
   await runBootOps({
@@ -455,12 +459,16 @@ function cmdPlan(flags) {
 }
 
 async function cmdVoyage(flags) {
+  if (!flags.smoke && !flags.force) {
+    tryGitFastForward({ quiet: flags.quiet });
+  }
   const slot = voyageSlotForDate();
   if (!slot && !flags.force && !flags.smoke) {
     const next = nextVoyageDate();
     const nextStr = next.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
     console.error(`Today is not a voyage day · free scouts sail the ${VOYAGE_DAYS.join(" and ")} of each month.`);
-    console.error(`Next voyage · ${nextStr}. Need one now? Panic scout $${PRICING.extra_run.usd.toFixed(2)} · checkout at ${PRICING.site_url}/#pricing → innsegall plan --import-license.`);
+    console.error(`Next voyage · ${nextStr}.`);
+    console.error(`Panic now · open "${PRICING.site_url}/?buy=extra" · then innsegall plan --import-license ~/Downloads/innsegall-license.json · innsegall run`);
     process.exit(1);
   }
 
@@ -527,8 +535,19 @@ async function cmdBootstrap(flags) {
     console.log(paint(ansi.beam, "\n✓ Welcome scout · opening Battle Scout…\n"));
     await cmdRun({ ...flags, flow: "mac_hygiene" });
   } else if (!flags.skipScout && q.welcome_scout_redeemed) {
-    console.log(paint(ansi.dim, "\nWelcome scout already sailed · use innsegall run or wait for the next Voyage."));
-    console.log(paint(ansi.beam, `Next free Voyage · ${summary.next_voyage_label}`));
+    const credits = Math.max(0, (q.extra_credits || 0) - (q.extra_used || 0));
+    console.log(paint(ansi.dim, "\nWelcome scout already sailed."));
+    if (credits > 0) {
+      console.log(paint(ansi.beam, `Horn credits · ${credits} · innsegall run`));
+    } else {
+      console.log(paint(ansi.beam, `Next free Voyage · ${summary.next_voyage_label}`));
+      console.log(
+        paint(
+          ansi.ember,
+          `Panic now · open "${PRICING.site_url}/?buy=extra" · then import license · innsegall run`
+        )
+      );
+    }
   } else {
     console.log(paint(ansi.dim, "\nSkipped welcome scout (--skip-scout)."));
     console.log(paint(ansi.beam, `Next free Voyage · ${summary.next_voyage_label} · ${PRICING.site_url}/guide`));

@@ -99,15 +99,12 @@ export function formatQuotaTerminal(q, reason, d = new Date()) {
     `Next voyage · ${nextStr}`,
     `Horn credits · ${credits}`,
     "",
-    paint(ansi.beam, "Roads forward:"),
-    `  [1] Panic scout · $${PRICING.extra_run.usd.toFixed(2)} · ${PRICING.site_url}/#pricing`,
-    `  [2] Clan · $${PRICING.clan.usd_monthly.toFixed(2)}/mo · ${PRICING.clan.seats} seats · ${PRICING.site_url}/clan`,
-    `  [3] War-band · earn credits · ${PRICING.site_url}/warriors`,
+    paint(ansi.beam, `Panic scout · $${PRICING.extra_run.usd.toFixed(2)} · need one now:`),
+    `  open "${PRICING.site_url}/?buy=extra"`,
+    `  innsegall plan --import-license ~/Downloads/innsegall-license.json`,
+    `  innsegall run`,
     "",
-    paint(
-      ansi.dim,
-      "Toll gate → license.json → innsegall plan --import-license ~/Downloads/innsegall-license.json"
-    ),
+    paint(ansi.dim, `Clan · ${PRICING.site_url}/clan · War-band · ${PRICING.site_url}/warriors`),
     paint(ansi.dim, `Map · ${PRICING.site_url}/map · Field manual · ${PRICING.site_url}/guide`),
   ];
 
@@ -153,9 +150,26 @@ export function printPlanStatus(status) {
   for (const [k, v] of rows) {
     console.log(`  ${paint(ansi.gold, k.padEnd(16))} ${v}`);
   }
+  const credits = status.extra_credits_remaining ?? 0;
+  const voyageCount = (status.voyage_completed || []).length;
+  const canRunFree =
+    !status.welcome_scout_redeemed || voyageCount < VOYAGE_DAYS.length;
   console.log("");
-  console.log(paint(ansi.beam, `Passage tiers · ${PRICING.site_url}/#pricing`));
-  console.log(paint(ansi.mist, `War-band credits · ${PRICING.site_url}/warriors`));
+  if (credits > 0) {
+    console.log(paint(ansi.beam, "Horn credits ready · innsegall run"));
+  } else if (!canRunFree && status.plan === "free") {
+    console.log(
+      paint(
+        ansi.ember,
+        `Quota full until next voyage · panic: open "${PRICING.site_url}/?buy=extra"`
+      )
+    );
+  } else {
+    console.log(paint(ansi.beam, "Send the scout · innsegall run"));
+  }
+  console.log(
+    paint(ansi.dim, `Passage · ${PRICING.site_url}/#pricing · War-band · ${PRICING.site_url}/warriors`)
+  );
 }
 
 export function printProductMap() {
