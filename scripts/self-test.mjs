@@ -57,9 +57,11 @@ const smokeCard = applySmokeTierFixtures(buildCard({ flow: "mac_hygiene", userIn
 assert("smoke tiers injected", smokeCard.verdict === "ESCALATE" && smokeCard.smoke === true);
 assert("smoke html tiers", renderHtml(smokeCard).includes("smoke-banner") && renderHtml(smokeCard).includes("section-housekeeping"));
 
-import { featuredPostUrl, renderThreatIntelSection } from "../src/threat-intel.mjs";
+import { featuredPostUrl, INTEL_TRENDING_DISCLAIMER } from "../src/threat-intel.mjs";
 const sampleHtml = renderHtml(buildCard({ flow: "mac_hygiene", userInputs: {} }));
-assert("field glass section", sampleHtml.includes("section-intel"));
+assert("trending intel section", sampleHtml.includes("section-intel"));
+assert("trending intel disclaimer", sampleHtml.includes(INTEL_TRENDING_DISCLAIMER));
+assert("trending not scan finding", sampleHtml.includes("not a scan finding on this Mac"));
 assert("blog link", sampleHtml.includes(featuredPostUrl()));
 assert("card column layout", sampleHtml.includes("card-column"));
 assert("mac-first layout tokens", sampleHtml.includes("--page-max"));

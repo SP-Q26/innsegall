@@ -20,11 +20,15 @@ export function featuredPostUrl() {
  * Short bullets for the card · not scare copy; tie to Innsegall flows.
  * Sources: Jamf, NCSC-NL, Elastic, IRU (Sep 2026).
  */
+/** Shown on every scout card above the brief · not a scan result. */
+export const INTEL_TRENDING_DISCLAIMER =
+  "Trending news from the Mac threat landscape · not found on your Mac · not part of this scout’s checks.";
+
 export const FIELD_GLASS_BRIEF = {
   asOf: "2026-09-06",
-  headline: "Field glass · trending Macintosh threats",
+  headline: "Trending news · Mac threat landscape",
   dek:
-    "Three patterns worth knowing. None of them mean you're infected · they mean know the shape of the fog.",
+    "Editorial brief · three patterns worth knowing. None of these mean this Mac is infected · they help you tell shadow from substance.",
   items: [
     {
       id: "contagious-interview",
@@ -74,6 +78,7 @@ export function renderThreatIntelSection() {
     .map(
       (item) => `
         <article class="intel-item">
+          <p class="intel-item-kicker">Trending story · not a scan finding on this Mac</p>
           <h3 class="intel-item-title">${esc(item.title)}</h3>
           <p class="intel-body">${esc(item.body)}</p>
           <p class="intel-innsegall"><strong>Innsegall:</strong> ${formatInline(item.innsegall)}</p>
@@ -84,15 +89,17 @@ export function renderThreatIntelSection() {
 
   const evergreen = brief.evergreen;
 
-  return `<section id="section-intel" class="section section-intel jump-section">
+  return `<section id="section-intel" class="section section-intel jump-section" aria-labelledby="intel-section-title">
         <div class="section-label section-label-tier">
-          <span class="tier-chip chip-intel">Field glass</span>
-          <span class="section-label-text">${esc(brief.headline)}</span>
+          <span class="tier-chip chip-intel">Trending news</span>
+          <span id="intel-section-title" class="section-label-text">${esc(brief.headline)}</span>
         </div>
+        <p class="intel-disclaimer" role="note">${esc(INTEL_TRENDING_DISCLAIMER)}</p>
         <p class="intel-dek">${esc(brief.dek)}</p>
         <p class="intel-asof">As of ${esc(brief.asOf)} · <a class="intel-blog-link" href="${esc(blogUrl)}" target="_blank" rel="noopener noreferrer">Read on the Innsegall blog →</a></p>
         <div class="intel-grid">${itemsHtml}</div>
         <aside class="intel-evergreen">
+          <p class="intel-item-kicker">Trending context · not a scan finding on this Mac</p>
           <h3 class="intel-item-title">${esc(evergreen.title)}</h3>
           <p class="intel-body">${esc(evergreen.body)}</p>
           <p class="intel-innsegall"><strong>Innsegall:</strong> ${formatInline(evergreen.innsegall)}</p>

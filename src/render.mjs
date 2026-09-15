@@ -685,7 +685,7 @@ function renderArmoryRating(stats, verdict) {
       key: "optics",
       count: warn,
       label: "Review",
-      sub: "Field glass",
+      sub: "Optics",
       jump: "section-review",
       icon: ICON_OPTICS,
       active: dominant === "optics",
@@ -1225,7 +1225,7 @@ export function renderHtml(card, opts = {}) {
     card.verdict === "LIKELY_OK"
       ? renderThreatIntelSection()
       : `<details class="intel-fold">
-          <summary class="intel-fold-summary">Field glass · optional reading (not about your Mac)</summary>
+          <summary class="intel-fold-summary">Trending news · optional reading (not your Mac · not scan findings)</summary>
           ${renderThreatIntelSection()}
         </details>`;
 
@@ -2118,9 +2118,29 @@ ${scoutDataBlocks}
     }
     .housekeeping-list span { color: var(--ink-soft); font-size: var(--text-xs); line-height: 1.45; }
 
-    /* Field glass / threat intel */
+    /* Field glass / trending threat intel (editorial · not scan results) */
     .chip-intel { background: var(--intel-bg); color: var(--intel); border: 1px solid var(--intel-border); }
     .section-intel { background: var(--intel-bg); border: 1px solid var(--intel-border); }
+    .intel-disclaimer {
+      margin: 0 0 .65rem;
+      padding: .55rem .7rem;
+      font-size: var(--text-xs);
+      font-weight: 600;
+      line-height: 1.45;
+      color: var(--ink);
+      background: #fff;
+      border: 1px solid var(--intel-border);
+      border-left: 3px solid var(--intel);
+      border-radius: 8px;
+    }
+    .intel-item-kicker {
+      margin: 0 0 .35rem;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--intel);
+    }
     .intel-dek { margin: 0 0 .5rem; color: var(--ink-soft); font-size: var(--text-sm); line-height: 1.5; }
     .intel-asof { margin: 0 0 1rem; font-size: var(--text-xs); color: var(--smoke); }
     .intel-blog-link { color: var(--intel); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--intel-border); }

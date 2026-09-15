@@ -17,7 +17,7 @@ export const SMOKE_CHECKS = {
   },
   review: {
     id: "smoke_review_tier",
-    name: "[SMOKE] Review field glass",
+    name: "[SMOKE] Review optics tier",
     status: "warn",
     detail: "Demo warn · optics tier · not a real finding on your Mac.",
     evidence: ["smoke://fixture/optics-tier"],
