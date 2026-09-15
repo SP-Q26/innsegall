@@ -79,6 +79,7 @@ He does not charge. He **illuminates**. Hand extended: *Walk.*
 |-------|------|-----|
 | **Brand** | Innsegall | Logo, innsegall.com, manifesto |
 | **Pronunciation** | *IN-sheh-gal* | First mention: **Innsegall** (*IN-sheh-gal*) |
+| **Header tagline** | Mac clan · family · iPad & iOS | Under logo: *built for your Macintosh clan* · scout on Mac · receipt everywhere |
 | **Mac app** | **XX** (internal codename only) | Customer-facing: **Innsegall** · App Store TBD |
 | **Feature** | **Sound the Horn** | Escalate, share card, call Beacons / family |
 | **Family / circle** | **Bring your clan** | Trusted people, family plan, Battle Scout share |

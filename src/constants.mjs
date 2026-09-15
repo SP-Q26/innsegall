@@ -18,9 +18,9 @@ export const CTA = {
   /** Primary onboarding action (replaces generic "run the check") */
   SEND_SCOUT: "Send the scout",
   SEND_SCOUT_SUB: "Read the lay of the land on your Macintosh · two minutes · no upload",
-  COPY_FOR_AI: "Copy Battle Scout for AI",
+  COPY_FOR_AI: "Copy for LLM",
   COPY_FOR_AI_HINT:
-    "Click Copy below · then paste into ChatGPT, Claude, or your team chat.",
+    "One click · paste into ChatGPT, Claude, Gemini, or any assistant.",
   COPY_FOR_AI_COPIED: "COPIED ✓",
   COPY_FOR_AI_STATUS:
     "Ready to paste into any AI assistant · you control every paste.",

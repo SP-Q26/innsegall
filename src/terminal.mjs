@@ -99,12 +99,8 @@ export function formatQuotaTerminal(q, reason, d = new Date()) {
     `Next voyage · ${nextStr}`,
     `Horn credits · ${credits}`,
     "",
-    paint(ansi.beam, `Panic scout · $${PRICING.extra_run.usd.toFixed(2)} · need one now:`),
-    `  open "${PRICING.site_url}/?buy=extra"`,
-    `  innsegall plan --import-license ~/Downloads/innsegall-license.json`,
-    `  innsegall run`,
-    "",
-    paint(ansi.dim, `Clan · ${PRICING.site_url}/clan · War-band · ${PRICING.site_url}/warriors`),
+    paint(ansi.beam, `Need a scout now · Stripe opens automatically (or innsegall buy extra)`),
+    paint(ansi.dim, `Clan · innsegall buy clan · War-band · ${PRICING.site_url}/warriors`),
     paint(ansi.dim, `Map · ${PRICING.site_url}/map · Field manual · ${PRICING.site_url}/guide`),
   ];
 

@@ -23,7 +23,7 @@
 |-------|--------|-------|
 | Display | Cormorant (ok) | `--font-display` token |
 | UI | DM Sans (ok) | `--font-ui` token · `optimizeLegibility` |
-| Pronounce line | "for Mac" | **built for Macintosh** |
+| Pronounce line | "for Mac" | **built for your Macintosh clan · family · iPad & iOS** |
 | Hero H1 | 3.75rem max | 3.85rem · tighter line-height |
 | Section H2 | generic | display scale + letter-spacing |
 

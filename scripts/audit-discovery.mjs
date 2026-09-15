@@ -57,6 +57,17 @@ check("install.html page", existsSync(join(web, "install.html")));
 check("llms install help", llms.includes("/install"));
 check("sitemap install", sitemap.includes("/install"));
 check("vercel install rewrite", vercel.includes('"/install"'));
+check("ios.html page", existsSync(join(web, "ios.html")));
+check("tablet.html page", existsSync(join(web, "tablet.html")));
+check("llms ios guide", llms.includes("/ios"));
+check("llms tablet guide", llms.includes("/tablet"));
+check("sitemap ios", sitemap.includes("/ios"));
+check("sitemap tablet", sitemap.includes("/tablet"));
+check("sitemap ios blog", sitemap.includes("/blog/innsegall-ios-companion-i0"));
+check("vercel ios rewrite", vercel.includes('"/ios"'));
+check("vercel tablet rewrite", vercel.includes('"/tablet"'));
+check("guide ios link", guide.includes('href="/ios"'));
+check("guide tablet link", guide.includes('href="/tablet"'));
 
 const changelog = readFileSync(join(root, "CHANGELOG.md"), "utf8");
 check("changelog 0.4.0-alpha", changelog.includes("0.4.0-alpha"));

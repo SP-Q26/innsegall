@@ -9,7 +9,7 @@ import { fileURLToPath } from "node:url";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const web = join(root, "web");
 const OG_URL = "https://innsegall.com/og/innsegall-card.png";
-const CSS_VER = 18;
+const CSS_VER = 19;
 
 const CANONICAL_HEADER = `<header class="site-header">
       <a class="brand-lockup" href="/" aria-label="Innsegall home">
@@ -30,7 +30,7 @@ const CANONICAL_HEADER = `<header class="site-header">
         </svg>
         <span>
           <span class="brand-word">Innsegall</span>
-          <span class="brand-pronounce">IN-sheh-gal · built for Macintosh</span>
+          <span class="brand-pronounce">IN-sheh-gal · built for your Macintosh clan · family · iPad &amp; iOS</span>
         </span>
       </a>
       <nav class="header-nav" aria-label="Site">
@@ -58,6 +58,8 @@ const CANONICAL_FOOTER = `    <footer class="site-footer">
       <p class="footer-note">Field Report · anonymized scout digests · <strong>Voyage</strong> tracker on the 1st &amp; 15th.</p>
       <nav class="footer-links" aria-label="Footer">
         <a href="/guide">Guide</a>
+        <a href="/ios">iOS (i0)</a>
+        <a href="/tablet">Tablet</a>
         <a href="/map">Map</a>
         <a href="/boat">The boat</a>
         <a href="/clan">Join the clan</a>
@@ -247,6 +249,7 @@ function replaceFooter(html) {
     html.includes("footer-note") &&
     html.includes('href="/guide"') &&
     html.includes('href="/stability"') &&
+    html.includes('href="/ios"') &&
     html.includes("github.com/SP-Q26/innsegall")
   ) {
     return html;

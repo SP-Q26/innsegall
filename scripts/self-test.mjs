@@ -96,7 +96,7 @@ assert("horn sound button in html", htmlEscalate.includes('id="horn-sound-btn"')
 assert("parley embed in html", htmlEscalate.includes('id="innsegall-parley-embed"'));
 assert("share battle scout button", htmlEscalate.includes("battle-scout-share"));
 assert("ai paste textarea", htmlEscalate.includes('id="innsegall-scout-paste"'));
-assert("copy for ai label", htmlEscalate.includes("Copy Battle Scout for AI"));
+assert("copy for ai label", htmlEscalate.includes("Copy for LLM"));
 assert("scope limits section", htmlEscalate.includes('id="section-scope"'));
 assert("check looked at copy", htmlEscalate.includes("Looked at"));
 assert("check does not cover copy", htmlEscalate.includes("Does not cover"));
@@ -135,6 +135,8 @@ import {
   saveQuota,
   VOYAGE_DAYS,
   nextVoyageDate,
+  nextVoyageDateForPlan,
+  isVoyageDayForPlan,
 } from "../src/quota.mjs";
 assert("pricing free scouts", PRICING.free.scouts_per_month === 2);
 assert("pricing clan monthly", PRICING.clan.usd_monthly === 6.67);
@@ -159,11 +161,16 @@ assert("voyage days", VOYAGE_DAYS.join() === "1,15");
 import { buildVoyagePlist, voyageScheduleSummary } from "../src/voyage-schedule.mjs";
 const plist = buildVoyagePlist({ innsegallBin: "/tmp/.local/bin/innsegall" });
 assert("voyage plist bin path", plist.includes("/tmp/.local/bin/innsegall"));
-assert("voyage plist days", plist.includes("<integer>1</integer>") && plist.includes("<integer>15</integer>"));
+assert("voyage plist scheduled", plist.includes("--scheduled"));
+assert("voyage plist daily hour", plist.includes("<key>Hour</key>") && !plist.includes("<key>Day</key>"));
 const sum = voyageScheduleSummary(new Date("2026-09-06T12:00:00"));
 assert("next voyage sep 6", sum.next_voyage === "2026-09-15");
 assert("next voyage day 1", nextVoyageDate(new Date("2026-09-01T12:00:00")).getDate() === 15);
 assert("next voyage day 15", nextVoyageDate(new Date("2026-09-15T18:00:00")).getMonth() === 9 && nextVoyageDate(new Date("2026-09-15T18:00:00")).getDate() === 1);
+assert("clan voyage mon", isVoyageDayForPlan("clan", new Date("2026-09-14T10:00:00")));
+assert("clan voyage thu", isVoyageDayForPlan("msp", new Date("2026-09-17T10:00:00")));
+assert("clan not voyage sat", !isVoyageDayForPlan("clan", new Date("2026-09-12T10:00:00")));
+assert("clan next voyage mon", nextVoyageDateForPlan("clan", new Date("2026-09-12T10:00:00")).getDay() === 1);
 const planStatus = formatPlanStatus(loadQuota());
 assert("quota plan field", planStatus.plan === "free" || planStatus.plan === "clan");
 

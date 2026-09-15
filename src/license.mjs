@@ -3,10 +3,12 @@
  * Alpha: HMAC-SHA256 with INNSEGALL_LICENSE_SECRET (server) embedded verify key in CLI.
  */
 import { createHmac, timingSafeEqual } from "node:crypto";
-import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
+import { homedir } from "node:os";
 import { join } from "node:path";
 import { expandHome } from "./shell.mjs";
 import { setPlan, addExtraCredits } from "./quota.mjs";
+import { ensureVoyageScheduleInstalled, defaultInnsegallBin } from "./voyage-schedule.mjs";
 import { ensureDirs, supportPath } from "./storage.mjs";
 
 const REDEMPTIONS_FILE = "license-redemptions.json";
@@ -106,6 +108,77 @@ export function verifyLicense(license) {
   return { ok: true };
 }
 
+const LICENSE_BASENAMES = [
+  "innsegall-license.json",
+  "license.json",
+  "innsegall-license",
+];
+
+function looksLikeInnsegallLicense(raw) {
+  try {
+    const o = JSON.parse(raw);
+    return o && o.product === "Innsegall" && Boolean(o.plan);
+  } catch {
+    return false;
+  }
+}
+
+/** Resolve license path · explicit arg · Downloads · Desktop · newest match. */
+export function resolveLicensePath(filePath) {
+  if (filePath) {
+    const p = expandHome(filePath);
+    if (!existsSync(p)) throw new Error(`license file not found: ${p}`);
+    return p;
+  }
+
+  const candidates = [];
+  const dirs = [join(homedir(), "Downloads"), join(homedir(), "Desktop")];
+  for (const dir of dirs) {
+    if (!existsSync(dir)) continue;
+    for (const name of LICENSE_BASENAMES) {
+      const p = join(dir, name);
+      if (existsSync(p)) candidates.push(p);
+    }
+    try {
+      for (const name of readdirSync(dir)) {
+        if (!name.endsWith(".json")) continue;
+        if (!/innsegall|license/i.test(name)) continue;
+        const p = join(dir, name);
+        try {
+          if (statSync(p).isFile()) candidates.push(p);
+        } catch {
+          /* skip */
+        }
+      }
+    } catch {
+      /* skip */
+    }
+  }
+
+  const unique = [...new Set(candidates)];
+  const valid = unique.filter((p) => {
+    try {
+      return looksLikeInnsegallLicense(readFileSync(p, "utf8"));
+    } catch {
+      return false;
+    }
+  });
+  if (!valid.length) {
+    throw new Error(
+      "no innsegall-license.json found · save from innsegall.com/success or pass a path"
+    );
+  }
+  valid.sort((a, b) => statSync(b).mtimeMs - statSync(a).mtimeMs);
+  return valid[0];
+}
+
+/** One-step bind after Stripe · no path required when file is in Downloads. */
+export function importLicenseAuto(filePath) {
+  const path = resolveLicensePath(filePath);
+  const result = importLicenseFile(path);
+  return { ...result, path };
+}
+
 export function importLicenseFile(filePath) {
   const raw = readFileSync(expandHome(filePath), "utf8");
   const license = JSON.parse(raw);
@@ -134,12 +207,16 @@ export function importLicenseFile(filePath) {
     }
     setPlan(license.plan, { seats: license.seats });
     const seats = license.seats || (license.plan === "msp" ? 10 : 5);
+    const schedule = ensureVoyageScheduleInstalled({ innsegallBin: defaultInnsegallBin() });
+    const scheduleNote = schedule.loaded
+      ? " · Voyage auto Mon & Thu 10:00 (checks for updates first)"
+      : " · run: innsegall voyage --install-schedule";
     return {
       plan: license.plan,
       message:
         license.plan === "msp"
-          ? `MSP roster activated · unlimited scouts · ${seats} seats billed`
-          : "Clan plan activated · unlimited scouts",
+          ? `MSP roster activated · unlimited scouts · ${seats} seats billed${scheduleNote}`
+          : `Clan plan activated · unlimited scouts${scheduleNote}`,
     };
   }
   if (license.plan === "extra" || license.extra_credits > 0) {

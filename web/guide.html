@@ -41,10 +41,10 @@
     (function(){try{var el=document.getElementById("innsegall-ai-bus");if(el)window.__INNSEGALL_AI_BUS=JSON.parse(el.textContent);}catch(e){}})();
   </script>
   <!-- INNSEGALL_AI_BUS_END -->
-                                                  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+                                                      <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/favicon.svg">
   <link rel="manifest" href="/site.webmanifest">
-  <link rel="stylesheet" href="/innsegall.css?v=18">
+  <link rel="stylesheet" href="/innsegall.css?v=19">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body data-brand="innsegall">
@@ -70,7 +70,7 @@
         </svg>
         <span>
           <span class="brand-word">Innsegall</span>
-          <span class="brand-pronounce">IN-sheh-gal · built for Macintosh</span>
+          <span class="brand-pronounce">IN-sheh-gal · built for your Macintosh clan · family · iPad &amp; iOS</span>
         </span>
       </a>
       <nav class="header-nav" aria-label="Site">
@@ -86,6 +86,15 @@
 
       <h2>One click aboard</h2>
       <p><strong>Recommended:</strong> <a href="/install">Install help</a> · <a href="/alpha#install">Terminal one-liner</a> on <a href="/alpha">/alpha</a> (avoids Gatekeeper). Optional: <a href="/scripts/Innsegall-Install.command" download="Innsegall-Install.command">Innsegall-Install.command</a> · <a href="/alpha#gatekeeper">Gatekeeper</a> (right-click → Open).</p>
+
+      <h2 id="platforms">iPhone · iPad · tablet</h2>
+      <p>Innsegall runs the read-only scout on your <strong>Mac</strong>. Phones and tablets are for reading the Battle Scout and pasting <code>innsegall-battle-scout-ai/v1</code> into an assistant · not a pocket antivirus.</p>
+      <ul>
+        <li><a href="/ios">iOS companion (i0)</a> · import workflow · future inbox app</li>
+        <li><a href="/tablet">iPad &amp; tablet guide</a> · split-view reading</li>
+        <li>Field Report: <a href="/blog/innsegall-ios-companion-i0">iOS companion i0 plan</a></li>
+        <li>Spec: <a href="https://github.com/SP-Q26/innsegall/blob/main/docs/IOS_PRODUCT.md" rel="noopener noreferrer">IOS_PRODUCT.md</a> on GitHub</li>
+      </ul>
 
       <h2 id="agent-pipe">Agent piping (CLI JSON)</h2>
       <p>On the operator Mac after install:</p>
@@ -117,7 +126,12 @@
       </table>
 
       <h2 id="voyage-rhythm">Voyage rhythm after install</h2>
-      <p><code>innsegall bootstrap</code> runs a welcome scout and installs a <strong>launchd</strong> schedule: read-only hygiene on the <strong>1st and 15th</strong> at 10:00 local. Each Voyage opens a Battle Scout and updates your Voyage chart.</p>
+      <p><code>innsegall bootstrap</code> runs a welcome scout and installs a <strong>launchd</strong> job at <strong>10:00 local</strong>. Each Voyage <strong>checks for Innsegall updates</strong> (git fast-forward) then sends a read-only scout.</p>
+      <ul>
+        <li><strong>Free:</strong> automated voyages on the <strong>1st and 15th</strong>.</li>
+        <li><strong>Clan / MSP:</strong> automated voyages <strong>Monday &amp; Thursday</strong> (2× per week) after license import.</li>
+      </ul>
+      <p>Each Voyage opens a Battle Scout and updates your Voyage chart.</p>
       <ul>
         <li>Re-install schedule only: <code>innsegall voyage --install-schedule</code></li>
         <li>Run a scheduled hygiene now: <code>innsegall voyage</code></li>
@@ -157,7 +171,7 @@
       <ol>
         <li>Install from <a href="/alpha">/alpha</a> · <code>innsegall bootstrap</code> on first run</li>
         <li><code>innsegall run</code> or <code>innsegall voyage</code> · Battle Scout opens in the browser</li>
-        <li>Footer · <strong>Copy Battle Scout for AI</strong> · contents land in <code>#innsegall-scout-paste</code></li>
+        <li>Footer · <strong>Copy for LLM</strong> · one click · or <code>innsegall copy</code> · paste block in <code>#innsegall-scout-paste</code></li>
         <li>Paste into any assistant · phone or desktop · markdown + <code>innsegall-battle-scout-ai/v1</code> JSON</li>
       </ol>
       <h3>Triage levels (for the assistant reading the paste)</h3>
@@ -197,6 +211,6 @@
       </nav>
     </footer>
   </div>
-  <script src="/innsegall-nav.js?v=18" defer></script>
+  <script src="/innsegall-nav.js?v=19" defer></script>
 </body>
 </html>

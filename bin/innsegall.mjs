@@ -22,12 +22,16 @@ import {
   addExtraCredits,
   voyageSlotForDate,
   nextVoyageDate,
+  nextVoyageDateForPlan,
+  isVoyageDayForPlan,
+  isUnlimitedPlan,
   VOYAGE_DAYS,
 } from "../src/quota.mjs";
 import { listCards, loadCardById, loadPreviousCard, saveCard, supportPath } from "../src/storage.mjs";
 import { runParley } from "../src/parley/index.mjs";
 import { validateCard } from "../src/validate.mjs";
-import { importLicenseFile } from "../src/license.mjs";
+import { importLicenseFile, importLicenseAuto } from "../src/license.mjs";
+import { copyBattleScoutForAi } from "../src/clipboard.mjs";
 import { isOperatorMode, requireOperator } from "../src/operator.mjs";
 import {
   formatQuotaTerminal,
@@ -49,6 +53,7 @@ import {
   defaultInnsegallBin,
   voyageScheduleSummary,
   voyagePlistPath,
+  ensureVoyageScheduleInstalled,
 } from "../src/voyage-schedule.mjs";
 import { tryGitFastForward } from "../src/self-update.mjs";
 
@@ -67,6 +72,8 @@ function usage() {
   innsegall flows                   Name the roads (flows)
   innsegall runes                   Read the runes · Macintosh ready?
   innsegall plan [options]          Oath ledger · quota · clan
+  innsegall import [license.json]   One-click bind · finds ~/Downloads/innsegall-license.json
+  innsegall copy [options]          Copy latest Battle Scout for LLM (clipboard)
   innsegall map                     The mist road (terminal chart)
   innsegall boat                    Contested fjord · our lane
   innsegall warriors                War-band credits ledger
@@ -81,6 +88,8 @@ Scout options:
   --downloaded-file    Flag suspicious download · read Downloads folder
   --quiet              JSON only on stdout (read-only scout)
   --json               Same as --quiet · agent piping (stdout Battle Scout card)
+  --copy-ai            After run/voyage · copy LLM paste to clipboard (default on run)
+  --no-copy-ai         Skip clipboard copy on run/voyage
 
 Render options:
   --md <file.md>       Markdown export
@@ -91,7 +100,7 @@ Render options:
   --force              Bypass scout quota (dev only)
 
 Plan options:
-  --import-license <file>  Apply innsegall-license.json after the toll gate
+  --import-license <file>  Apply innsegall-license.json (optional path · else Downloads)
   --clan               Activate clan plan locally (alpha · after purchase)
   --credit <n>         Grant extra scout credits (alpha · after $4.20 payment)
   --free               Reset to free tier
@@ -103,7 +112,8 @@ Telemetry / updates:
   (default on · category counts only · never your scout · INNSEGALL_TELEMETRY=0 to disable)
 
 Voyage options:
-  --install-schedule   Install launchd job (1st & 15th at 10:00)
+  --install-schedule   Install launchd job (daily 10:00 · plan-aware voyage days)
+  --scheduled          launchd hook · free 1st/15th · clan/MSP Mon & Thu
   --quiet              Less console output (scheduled voyage still opens browser)
   --no-open            Skip opening Battle Scout in browser
 
@@ -121,6 +131,8 @@ Examples:
   innsegall parley --card ~/Desktop/card.json --intent explain_evidence
   innsegall check --flow project_safe --project ~/SPQ --out ~/Desktop/card.json
   innsegall render ~/Desktop/card.json --html ~/Desktop/battle-scout.html --open
+  innsegall import
+  innsegall copy
 `);
 }
 
@@ -148,15 +160,21 @@ function parseFlags(argv, start = 2) {
     else if (a === "--free") flags.free = true;
     else if (a === "--credit" && argv[i + 1]) flags.credit = Number(argv[++i]);
     else if (a === "--install-schedule") flags.installSchedule = true;
+    else if (a === "--scheduled") flags.scheduled = true;
     else if (a === "--skip-scout") flags.skipScout = true;
     else if (a === "--skip-schedule") flags.skipSchedule = true;
     else if (a === "--force-scout") flags.forceScout = true;
     else if (a === "--no-open") flags.noOpen = true;
-    else if (a === "--import-license" && argv[i + 1]) flags.importLicense = argv[++i];
+    else if (a === "--import-license") {
+      const next = argv[i + 1];
+      flags.importLicense = next && !next.startsWith("-") ? argv[++i] : true;
+    }
     else if (a === "--share") flags.share = true;
     else if (a === "--no-telemetry") flags.noTelemetry = true;
     else if (a === "--telemetry-off") flags.telemetryOff = true;
     else if (a === "--telemetry-on") flags.telemetryOn = true;
+    else if (a === "--copy-ai") flags.copyAi = true;
+    else if (a === "--no-copy-ai") flags.copyAi = false;
     else if (a === "--help" || a === "-h") flags.help = true;
     else if (!a.startsWith("-")) flags._.push(a);
   }
@@ -165,6 +183,28 @@ function parseFlags(argv, start = 2) {
 
 function writeParent(path) {
   mkdirSync(dirname(path), { recursive: true });
+}
+
+function shouldCopyAiToClipboard(flags, { defaultOn = false } = {}) {
+  if (flags.copyAi === false || flags.noCopyAi) return false;
+  if (flags.copyAi === true) return true;
+  return defaultOn && !flags.quiet && !flags.smoke;
+}
+
+function writeBattleScoutArtifacts(card, htmlPath, { autoCopyAi = false } = {}) {
+  writeParent(htmlPath);
+  writeFileSync(htmlPath, renderHtml(card, { autoCopyAi }), "utf8");
+  const aiPastePath = htmlPath.replace(/\.html$/i, ".ai-paste.md");
+  writeFileSync(aiPastePath, renderAiPaste(card), "utf8");
+  return htmlPath;
+}
+
+function maybeCopyAiPaste(card, flags, opts = {}) {
+  if (!shouldCopyAiToClipboard(flags, opts)) return;
+  const r = copyBattleScoutForAi(card);
+  if (r.ok && !flags.quiet) {
+    console.log(paint(ansi.beam, "Copied for LLM · paste into ChatGPT, Claude, or Gemini"));
+  }
 }
 
 function defaultOutPath(flow) {
@@ -251,10 +291,9 @@ async function cmdRun(flags) {
     noTelemetry: flags.noTelemetry,
   });
   const html = expandHome(flags.html || defaultHtmlPath(flags._outPath || flags.out));
-  writeParent(html);
-  writeFileSync(html, renderHtml(card), "utf8");
-  const aiPastePath = html.replace(/\.html$/i, ".ai-paste.md");
-  writeFileSync(aiPastePath, renderAiPaste(card), "utf8");
+  const autoCopyAi = shouldCopyAiToClipboard(flags, { defaultOn: true });
+  writeBattleScoutArtifacts(card, html, { autoCopyAi });
+  maybeCopyAiPaste(card, flags, { defaultOn: true });
   if (!flags.quiet) {
     const status = formatPlanStatus(loadQuota());
     printScoutResult({
@@ -406,8 +445,10 @@ function cmdSmoke(flags) {
 function cmdPlan(flags) {
   if (flags.importLicense) {
     try {
-      const result = importLicenseFile(flags.importLicense);
+      const pathArg = flags.importLicense === true ? undefined : flags.importLicense;
+      const result = importLicenseAuto(pathArg);
       console.log(result.message);
+      console.log(paint(ansi.dim, `Bound · ${result.path}`));
       console.log(JSON.stringify(formatPlanStatus(loadQuota()), null, 2));
     } catch (e) {
       console.error(`License import failed: ${e.message}`);
@@ -422,7 +463,11 @@ function cmdPlan(flags) {
       process.exit(1);
     }
     const q = setPlan("clan");
+    const schedule = ensureVoyageScheduleInstalled({ innsegallBin: defaultInnsegallBin() });
     console.log("Clan plan activated locally (alpha). Unlimited scouts · 5 seats.");
+    if (schedule.loaded) {
+      console.log("Voyage auto · Mon & Thu 10:00 · checks for updates before each scout.");
+    }
     console.log(JSON.stringify(formatPlanStatus(q), null, 2));
     return;
   }
@@ -459,18 +504,29 @@ function cmdPlan(flags) {
   printPlanStatus(status);
 }
 
+function runVoyageUpdateCheck(flags) {
+  if (flags.smoke) return;
+  tryGitFastForward({ quiet: flags.quiet });
+}
+
 async function cmdVoyage(flags) {
-  if (!flags.smoke && !flags.force) {
-    tryGitFastForward({ quiet: flags.quiet });
-  }
-  const slot = voyageSlotForDate();
-  if (!slot && !flags.force && !flags.smoke) {
-    const next = nextVoyageDate();
-    const nextStr = next.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
-    console.error(`Today is not a voyage day · free scouts sail the ${VOYAGE_DAYS.join(" and ")} of each month.`);
-    console.error(`Next voyage · ${nextStr}.`);
-    console.error(`Panic now · open "${PRICING.site_url}/?buy=extra" · then innsegall plan --import-license ~/Downloads/innsegall-license.json · innsegall run`);
-    process.exit(1);
+  runVoyageUpdateCheck(flags);
+
+  const q = loadQuota();
+  if (flags.scheduled && !flags.force && !flags.smoke) {
+    if (!isVoyageDayForPlan(q.plan)) {
+      process.exit(0);
+    }
+  } else if (!flags.force && !flags.smoke && !isUnlimitedPlan(q.plan)) {
+    const slot = voyageSlotForDate();
+    if (!slot) {
+      const next = nextVoyageDateForPlan(q.plan);
+      const nextStr = next.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
+      console.error(`Today is not a voyage day · free scouts sail the ${VOYAGE_DAYS.join(" and ")} of each month.`);
+      console.error(`Next voyage · ${nextStr}.`);
+      console.error(`Panic now · open "${PRICING.site_url}/?buy=extra" · then innsegall plan --import-license ~/Downloads/innsegall-license.json · innsegall run`);
+      process.exit(1);
+    }
   }
 
   if (flags.installSchedule) {
@@ -497,10 +553,9 @@ async function cmdVoyage(flags) {
     noTelemetry: flags.noTelemetry,
   });
   const html = expandHome(flags.html || defaultHtmlPath(flags._outPath || flags.out));
-  writeParent(html);
-  writeFileSync(html, renderHtml(card), "utf8");
-  const aiPastePath = html.replace(/\.html$/i, ".ai-paste.md");
-  writeFileSync(aiPastePath, renderAiPaste(card), "utf8");
+  const autoCopyAi = shouldCopyAiToClipboard(flags, { defaultOn: !flags.scheduled });
+  writeBattleScoutArtifacts(card, html, { autoCopyAi });
+  maybeCopyAiPaste(card, flags, { defaultOn: !flags.scheduled });
   if (!flags.quiet) {
     console.log(`Your voyage · ${card.verdict} · ${html}`);
   }
@@ -521,6 +576,46 @@ const OPEN_TARGETS = {
   install: `${PRICING.site_url}/install`,
   warriors: `${PRICING.site_url}/warriors`,
 };
+
+function cmdImport(flags) {
+  const pathArg = flags._[0] || flags.importLicense || null;
+  try {
+    const result = importLicenseAuto(pathArg);
+    console.log(result.message);
+    console.log(paint(ansi.dim, `Bound · ${result.path}`));
+    console.log(JSON.stringify(formatPlanStatus(loadQuota()), null, 2));
+  } catch (e) {
+    console.error(`License import failed: ${e.message}`);
+    console.error(`Save innsegall-license.json to Downloads · or: innsegall import ~/path/to/license.json`);
+    process.exit(1);
+  }
+}
+
+function cmdCopy(flags) {
+  let card;
+  const cardPath = flags.card || flags._[0];
+  if (cardPath) {
+    try {
+      card = JSON.parse(readFileSync(expandHome(cardPath), "utf8"));
+    } catch (e) {
+      console.error(`Could not read card: ${e.message}`);
+      process.exit(1);
+    }
+  } else {
+    const latest = listCards(1)[0];
+    if (!latest) {
+      console.error("No saved scouts · run innsegall run first");
+      process.exit(1);
+    }
+    card = loadCardById(latest.card_id);
+  }
+  const r = copyBattleScoutForAi(card);
+  if (!r.ok) {
+    console.error(`Copy failed · ${r.reason || "unknown"}`);
+    process.exit(1);
+  }
+  console.log(paint(ansi.beam, "Copied for LLM · paste into any assistant"));
+}
 
 function cmdOpen(flags) {
   const key = (flags._[0] || "panic").toLowerCase();
@@ -682,6 +777,15 @@ async function main() {
       break;
     case "plan":
       cmdPlan(flags);
+      break;
+    case "import":
+    case "bind":
+      cmdImport(flags);
+      break;
+    case "copy":
+    case "copy-ai":
+    case "llm":
+      cmdCopy(flags);
       break;
     case "map":
       printProductMap();

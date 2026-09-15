@@ -117,6 +117,13 @@
 - iOS
 - Windows
 
+## iOS companion (i0 · documentation)
+- iPhone guide: https://innsegall.com/ios
+- iPad / tablet guide: https://innsegall.com/tablet
+- Field Report: https://innsegall.com/blog/innsegall-ios-companion-i0
+- Mac still runs the scout · iOS imports innsegall-battle-scout-ai/v1 · no on-device scan in i0
+- Product spec: https://github.com/SP-Q26/innsegall/blob/main/docs/IOS_PRODUCT.md
+
 ## Endgame (honest)
 - Partner with a niche consumer-security firm for escalation · or strategic fit inside a larger AV · post-scare receipts without another scareware funnel
 

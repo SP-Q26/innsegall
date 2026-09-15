@@ -25,6 +25,9 @@
     "/tos": "tos",
     "/success": "success",
     "/stability": "other",
+    "/install": "other",
+    "/ios": "other",
+    "/tablet": "other",
   };
 
   function pageCategory() {

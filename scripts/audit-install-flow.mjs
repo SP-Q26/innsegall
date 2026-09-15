@@ -65,6 +65,9 @@ check("gospel one_click url", gospel.includes("Innsegall-Install.command"));
 check("gospel bootstrap step", gospel.includes("innsegall bootstrap"));
 
 check("smoke-live lists .command", readFileSync(join(root, "scripts", "smoke-live.mjs"), "utf8").includes("Innsegall-Install.command"));
+check("bind license .command", existsSync(join(web, "scripts", "Innsegall-Bind-License.command")));
+check("CLI innsegall import", cli.includes('case "import"'));
+check("CLI innsegall copy", cli.includes('case "copy"'));
 
 const vercel = readFileSync(join(web, "vercel.json"), "utf8");
 check("scripts served (vercel.json present)", vercel.includes("rewrites") || existsSync(join(web, "scripts")));

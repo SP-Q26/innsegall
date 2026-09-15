@@ -9,6 +9,8 @@ import { PRICING } from "./constants.mjs";
 import { ensureDirs, supportPath } from "./storage.mjs";
 
 export const VOYAGE_DAYS = [1, 15];
+/** Clan / MSP · automated hygiene Mon & Thu (local) · 2× per week. */
+export const VOYAGE_WEEKDAYS_ROSTER = [1, 4];
 const QUOTA_FILE = "quota.json";
 
 function monthKey(d = new Date()) {
@@ -47,6 +49,18 @@ export function voyageSlotForDate(d = new Date()) {
   return null;
 }
 
+export function isUnlimitedPlan(plan) {
+  return plan === "clan" || plan === "msp";
+}
+
+/** Whether today is an automated voyage day for this plan. */
+export function isVoyageDayForPlan(plan, d = new Date()) {
+  if (isUnlimitedPlan(plan)) {
+    return VOYAGE_WEEKDAYS_ROSTER.includes(d.getDay());
+  }
+  return voyageSlotForDate(d) !== null;
+}
+
 /** Next upcoming voyage calendar day (1 or 15) · nearest future slot. */
 export function nextVoyageDate(d = new Date()) {
   const y = d.getFullYear();
@@ -58,8 +72,32 @@ export function nextVoyageDate(d = new Date()) {
   return new Date(y, m + 1, VOYAGE_DAYS[0]);
 }
 
-function isUnlimitedPlan(plan) {
-  return plan === "clan" || plan === "msp";
+/** Next voyage window for plan (free · 1st/15th · clan/msp · Mon/Thu). */
+export function nextVoyageDateForPlan(plan, d = new Date()) {
+  if (!isUnlimitedPlan(plan)) return nextVoyageDate(d);
+  const targets = [...VOYAGE_WEEKDAYS_ROSTER].sort((a, b) => a - b);
+  const cur = d.getDay();
+  for (const wd of targets) {
+    if (wd > cur) {
+      const out = new Date(d);
+      out.setDate(d.getDate() + (wd - cur));
+      out.setHours(0, 0, 0, 0);
+      return out;
+    }
+  }
+  const first = targets[0];
+  const daysUntil = (7 - cur + first) % 7 || 7;
+  const out = new Date(d);
+  out.setDate(d.getDate() + daysUntil);
+  out.setHours(0, 0, 0, 0);
+  return out;
+}
+
+export function voyageScheduleLabelForPlan(plan) {
+  if (isUnlimitedPlan(plan)) {
+    return "10:00 local · Monday & Thursday (clan / MSP auto)";
+  }
+  return "10:00 local on the 1st and 15th";
 }
 
 function scoutsLimitForPlan(plan) {
@@ -215,7 +253,7 @@ export function recordScoutUse(opts = {}) {
 }
 
 export function formatQuotaBlocked(q, d = new Date(), reason = "limit_reached") {
-  const next = nextVoyageDate(d);
+  const next = nextVoyageDateForPlan(q.plan, d);
   const nextStr = next.toLocaleDateString("en-US", { month: "short", day: "numeric" });
   const voyages = (q.voyage_completed || []).join(", ") || "none";
   const headline =
@@ -233,13 +271,13 @@ export function formatQuotaBlocked(q, d = new Date(), reason = "limit_reached") 
     `Welcome scout · ${q.welcome_scout_redeemed ? "redeemed" : "ready (one free run any day)"}`,
     `Horn credits · ${Math.max(0, (q.extra_credits || 0) - (q.extra_used || 0))}`,
     "",
-    "Need a scout right now:",
-    `  open "${PRICING.site_url}/?buy=extra"`,
-    `  After pay · innsegall plan --import-license ~/Downloads/innsegall-license.json`,
+    "Need a scout right now · Stripe Checkout opens from the CLI:",
+    `  innsegall buy extra   (or re-run innsegall run after this message)`,
+    `  After pay · innsegall import  (or innsegall plan --import-license)`,
     `  Then · innsegall run`,
     "",
-    "Or wait for the next free Voyage · or Clan / War-band:",
-    `  Clan · ${PRICING.site_url}/clan`,
+    "Or wait for the next free Voyage · or Clan:",
+    `  innsegall buy clan`,
     `  War-band · ${PRICING.site_url}/warriors`,
     `Field manual · ${PRICING.site_url}/guide · Map · ${PRICING.site_url}/map`,
   ]
@@ -266,6 +304,7 @@ export function formatPlanStatus(q) {
     remaining: isUnlimitedPlan(q.plan)
       ? "unlimited"
       : Math.max(0, (q.scouts_limit ?? PRICING.free.scouts_per_month) - used),
-    next_voyage: nextVoyageDate().toISOString().slice(0, 10),
+    next_voyage: nextVoyageDateForPlan(q.plan).toISOString().slice(0, 10),
+    voyage_schedule: voyageScheduleLabelForPlan(q.plan),
   };
 }

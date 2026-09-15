@@ -103,7 +103,7 @@ export function renderBlogPostHtml(opts) {
         </svg>
         <span>
           <span class="brand-word">Innsegall</span>
-          <span class="brand-pronounce">IN-sheh-gal · built for Macintosh</span>
+          <span class="brand-pronounce">IN-sheh-gal · built for your Macintosh clan · family · iPad &amp; iOS</span>
         </span>
       </a>
       <nav class="header-nav" aria-label="Site">

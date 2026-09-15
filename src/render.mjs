@@ -981,6 +981,15 @@ function cardJumpScript(shareCopy) {
       }
       showToast("Copy unavailable · open Parley below");
     });
+    if (document.body && document.body.getAttribute("data-innsegall-auto-copy-ai") === "1") {
+      var autoPaste = document.getElementById("innsegall-scout-paste");
+      var autoText = autoPaste && autoPaste.value ? autoPaste.value : "";
+      if (autoText && navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(autoText).then(function () {
+          setShareCopied();
+        }).catch(function () {});
+      }
+    }
   }
 
   var downloadBtn = document.getElementById("battle-scout-download");
@@ -1029,7 +1038,8 @@ function cardJumpScript(shareCopy) {
 </script>`;
 }
 
-export function renderHtml(card) {
+export function renderHtml(card, opts = {}) {
+  const autoCopyAi = Boolean(opts.autoCopyAi);
   const vc = VERDICT_COPY[card.verdict] || {};
   const verdictClass = card.verdict.toLowerCase().replace(/_/g, "-");
   const stats = card.stats || {};
@@ -2877,7 +2887,7 @@ ${scoutDataBlocks}
     }
   </style>
 </head>
-<body>
+<body${autoCopyAi ? ' data-innsegall-auto-copy-ai="1"' : ""}>
   ${BATTLEFIELD_BG}
   <div class="page">
     <div class="wrap">

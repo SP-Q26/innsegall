@@ -7,7 +7,13 @@ import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { homedir } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { nextVoyageDate, VOYAGE_DAYS } from "./quota.mjs";
+import {
+  nextVoyageDate,
+  nextVoyageDateForPlan,
+  VOYAGE_DAYS,
+  voyageScheduleLabelForPlan,
+  loadQuota,
+} from "./quota.mjs";
 import { supportPath } from "./storage.mjs";
 
 export const VOYAGE_PLIST_LABEL = "com.innsegall.voyage";
@@ -35,14 +41,15 @@ export function buildVoyagePlist(opts = {}) {
   <array>
     <string>${innsegallBin}</string>
     <string>voyage</string>
+    <string>--scheduled</string>
     <string>--quiet</string>
     <string>--open</string>
   </array>
   <key>StartCalendarInterval</key>
-  <array>
-    <dict><key>Day</key><integer>1</integer><key>Hour</key><integer>${hour}</integer><key>Minute</key><integer>${minute}</integer></dict>
-    <dict><key>Day</key><integer>15</integer><key>Hour</key><integer>${hour}</integer><key>Minute</key><integer>${minute}</integer></dict>
-  </array>
+  <dict>
+    <key>Hour</key><integer>${hour}</integer>
+    <key>Minute</key><integer>${minute}</integer>
+  </dict>
   <key>StandardOutPath</key><string>${join(logDir, "voyage.log")}</string>
   <key>StandardErrorPath</key><string>${join(logDir, "voyage.err")}</string>
 </dict>
@@ -85,7 +92,8 @@ export function installVoyageSchedule(opts = {}) {
 }
 
 export function voyageScheduleSummary(d = new Date()) {
-  const next = nextVoyageDate(d);
+  const plan = loadQuota().plan;
+  const next = nextVoyageDateForPlan(plan, d);
   const nextStr = next.toLocaleDateString("en-US", {
     weekday: "short",
     month: "short",
@@ -93,10 +101,17 @@ export function voyageScheduleSummary(d = new Date()) {
   });
   return {
     voyage_days: VOYAGE_DAYS,
+    plan,
     next_voyage: next.toISOString().slice(0, 10),
     next_voyage_label: nextStr,
-    schedule: "10:00 local on the 1st and 15th",
+    schedule: voyageScheduleLabelForPlan(plan),
   };
+}
+
+/** Re-install launchd after clan / MSP license · daily job · plan-aware no-op days. */
+export function ensureVoyageScheduleInstalled(opts = {}) {
+  const bin = opts.innsegallBin || defaultInnsegallBin();
+  return installVoyageSchedule({ ...opts, innsegallBin: bin, load: opts.load !== false });
 }
 
 export function defaultInnsegallBin() {
