@@ -575,6 +575,9 @@ const OPEN_TARGETS = {
   clan: `${PRICING.site_url}/clan`,
   install: `${PRICING.site_url}/install`,
   warriors: `${PRICING.site_url}/warriors`,
+  companion: `${PRICING.site_url}/companion`,
+  ios: `${PRICING.site_url}/ios`,
+  tablet: `${PRICING.site_url}/tablet`,
 };
 
 function cmdImport(flags) {

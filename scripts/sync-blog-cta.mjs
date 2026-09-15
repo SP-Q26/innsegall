@@ -1,41 +1,44 @@
 #!/usr/bin/env node
-/** Blog posts · scout-for-you CTA strip before footer. */
+/**
+ * Normalize blog CTA strip · alpha + boat + clan + companion inbox.
+ */
 import { readFileSync, writeFileSync, readdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const blogDir = join(dirname(fileURLToPath(import.meta.url)), "..", "web", "blog");
-const CTA = `
-      <section class="blog-cta-strip section" aria-label="Next step">
-        <p class="section-label">We send the scout</p>
-        <p class="section-lead">Most operators have no local scout after a scare. <strong>Innsegall runs read-only triage</strong> on your Macintosh · <a href="/alpha">Send the scout</a> · <a href="/boat">our lane vs theirs</a> · or <a href="/clan">bring your clan</a> for unlimited scouts and shared Battle Scouts.</p>
-      </section>
-`;
 
-const OLD_LEAD =
-  /Most households have no security scout\. <strong>Innsegall scouts for you<\/strong> · <a href="\/alpha">Send the scout<\/a> on your Macintosh · or <a href="\/clan">bring your clan<\/a> for unlimited scouts and shared receipts\./g;
+const STANDARD_LEAD = `Most operators have no local scout after a scare. <strong>Innsegall runs read-only triage</strong> on your Macintosh · <a href="/alpha">Send the scout</a> · <a href="/boat">our lane vs theirs</a> · <a href="/companion">companion inbox</a> on iPhone/iPad · or <a href="/clan">bring your clan</a> for unlimited scouts and shared Battle Scouts.`;
 
-const NEW_LEAD =
-  "Most operators have no local scout after a scare. <strong>Innsegall runs read-only triage</strong> on your Macintosh · <a href=\"/alpha\">Send the scout</a> · <a href=\"/boat\">our lane vs theirs</a> · or <a href=\"/clan\">bring your clan</a> for unlimited scouts and shared Battle Scouts.";
+const IOS_LEAD = `Mac runs the scout · iPhone/iPad hold the receipt. <a href="/alpha">Send the scout</a> on your Mac · <a href="/companion">Open companion inbox</a> · <a href="/ios">iOS guide</a> · not antivirus.`;
+
 let changed = 0;
 
 for (const name of readdirSync(blogDir)) {
   if (!name.endsWith(".html") || name === "index.html") continue;
-  const path = join(blogDir, name);
-  let html = readFileSync(path, "utf8");
-  if (html.includes("Most households have no security scout")) {
-    html = html.replace(OLD_LEAD, NEW_LEAD);
-    writeFileSync(path, html);
-    changed++;
-    console.log(`blog-cta · refresh ${name}`);
-    continue;
+  let html = readFileSync(join(blogDir, name), "utf8");
+  const before = html;
+
+  if (name.includes("ios-companion")) {
+    html = html.replace(
+      /<p class="section-lead">[\s\S]*?<\/p>(\s*<\/section>\s*<footer)/,
+      `<p class="section-lead">${IOS_LEAD}</p>$1`
+    );
+  } else if (html.includes("blog-cta-strip")) {
+    html = html.replace(
+      /<section class="blog-cta-strip[^"]*"[^>]*>[\s\S]*?<p class="section-lead">[\s\S]*?<\/p>\s*<\/section>/,
+      `<section class="blog-cta-strip section" aria-label="Next step">
+        <p class="section-label">We send the scout</p>
+        <p class="section-lead">${STANDARD_LEAD}</p>
+      </section>`
+    );
   }
-  if (html.includes("blog-cta-strip")) continue;
-  if (!html.includes("<footer class=\"site-footer\">")) continue;
-  html = html.replace(/\s*<footer class="site-footer">/, `${CTA}\n        <footer class="site-footer">`);
-  writeFileSync(path, html);
-  changed++;
-  console.log(`blog-cta · ${name}`);
+
+  if (html !== before) {
+    writeFileSync(join(blogDir, name), html, "utf8");
+    changed++;
+    console.log(`blog-cta · ${name}`);
+  }
 }
 
 console.log(`sync-blog-cta done · ${changed} files`);

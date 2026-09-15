@@ -1,6 +1,6 @@
 # Phase 7 · absorb traffic · harden ops · finish Mac trust
 
-**Status:** in progress (wave 1–2 partial) · **Prior ship:** `76b7380` landing unity + LLM/SEO layer  
+**Status:** wave 1 **shipped** (blog funnel + structured-data audits · web companion i0.5) · wave 2–3 partial · **Prior ship:** `b388526` companion PWA  
 **Pre-L5:** [`PRE_L5_LEVERS.md`](./PRE_L5_LEVERS.md) · operator push + Stripe live before PH/HN  
 **Theme:** Turn blog and agent discovery into **alpha installs** · close free-lane build queue (B1–B5) · **L5** notarized Mac installer when operator enrolls Apple.
 
@@ -50,7 +50,9 @@ Phase 7 is **not** a new product lane. It is **distribution + ops depth** on the
 | W1c | `index` SEO hub stays canonical · posts link back to hub | web | Already started on home · extend audit |
 | W1d | Warriors `?ref=` smoke in docs only | ops | No PII in telemetry |
 
-**Exit:** New swarm lanes (see [`PHASE_7_SWARM_PLAN.md`](./PHASE_7_SWARM_PLAN.md)) green · `gate:launch` 0 fail.
+**Exit:** `audit-blog-funnel` + `audit-structured-data` green in swarm · `sync-blog-cta.mjs` run on copy changes · telemetry/Xano still operator.
+
+**Shipped (wave 1):** W1a/W1b audit lanes · blog CTA includes `/companion` · B4 web companion at `/companion` (no App Store).
 
 ### Wave 2 · CLI + docs ops (free)
 

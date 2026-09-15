@@ -31,6 +31,8 @@ const lanes = [
   { name: "CLI check --json (B1)", script: "audit-check-json.mjs", score: "9.0" },
   { name: "Homebrew formula (B3)", script: "audit-homebrew.mjs", score: "9.0" },
   { name: "Web companion (iPhone/iPad)", script: "audit-companion-web.mjs", score: "9.0" },
+  { name: "Blog funnel (Phase 7 W1a)", script: "audit-blog-funnel.mjs", score: "9.5" },
+  { name: "Structured data (Phase 7 W1b)", script: "audit-structured-data.mjs", score: "9.0" },
 ];
 
 let failed = 0;

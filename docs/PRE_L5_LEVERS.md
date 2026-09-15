@@ -30,8 +30,9 @@
 | T14 | DEV.to canonical (3 posts) | Operator | SEO | Playbook |
 | T15 | MSP outbound (10) | Operator | MSP | `MSP_OUTREACH_BRIEF.md` |
 | T16 | Product Hunt / Show HN | Operator | Launch | After T08–T10 |
-| T17 | `audit-blog-funnel.mjs` | Agent | Phase 7 W1a | backlog |
-| T18 | `audit-structured-data.mjs` | Agent | Phase 7 W1b | backlog |
+| T17 | `audit-blog-funnel.mjs` | Agent | Phase 7 W1a | **done** · swarm lane |
+| T18 | `audit-structured-data.mjs` | Agent | Phase 7 W1b | **done** · swarm lane |
+| T21 | Web companion i0.5 `/companion` | Agent | B4 web | **done** · `WEB_COMPANION.md` |
 | T19 | Apple enroll + L5 release | Operator | L5 | `L5_OPERATOR_RUNBOOK.md` |
 | T20 | iOS i1 binary | Operator | iOS | After T19 |
 
