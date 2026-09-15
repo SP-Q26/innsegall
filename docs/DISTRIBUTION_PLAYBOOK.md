@@ -21,9 +21,9 @@
 ## Directory batch (submit same blurb)
 
 **One-liner:** Post-scare Macintosh triage · local Battle Scout · not antivirus.  
-**Signed installer (double-click):** https://github.com/SP-Q26/innsegall/releases/latest/download/InnsegallInstaller.zip · Developer ID + notarized · build `docs/APPLE_DEVELOPER_ID.md`.  
-**Legacy one-click:** https://innsegall.com/scripts/Innsegall-Install.command (unsigned · Gatekeeper).  
-**Install (Terminal):** `curl -fsSL https://innsegall.com/scripts/innsegall-alpha-install.sh | bash`  
+**Install (Terminal · primary pre-L5):** `curl -fsSL https://innsegall.com/scripts/innsegall-alpha-install.sh | bash`  
+**One-click (unsigned):** https://innsegall.com/scripts/Innsegall-Install.command · Gatekeeper may prompt · see `/install`  
+**Signed zip (after L5 / Apple Developer):** https://github.com/SP-Q26/innsegall/releases/latest/download/InnsegallInstaller.zip · 404 until notarized · `docs/APPLE_DEVELOPER_ID.md`  
 **After install:** welcome scout opens · Voyages on **1st & 15th at 10:00** via launchd (no extra steps).  
 **Demo:** https://innsegall.com/samples/battle-scout-demo  
 **Agent gospel:** https://innsegall.com/llms.txt  

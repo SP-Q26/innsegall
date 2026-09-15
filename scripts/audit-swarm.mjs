@@ -27,6 +27,9 @@ const lanes = [
   { name: "Discovery / trust", script: "audit-discovery.mjs", score: "9.0" },
   { name: "Install / bootstrap flow", script: "audit-install-flow.mjs", score: "9.5" },
   { name: "Redeem design (doc only)", script: "audit-redeem-design.mjs", score: "9.5" },
+  { name: "Pre-L5 levers (doc + install)", script: "audit-pre-l5-levers.mjs", score: "9.5" },
+  { name: "CLI check --json (B1)", script: "audit-check-json.mjs", score: "9.0" },
+  { name: "Homebrew formula (B3)", script: "audit-homebrew.mjs", score: "9.0" },
 ];
 
 let failed = 0;
@@ -117,6 +120,8 @@ const visualChecks = [
   ["battle-scout-ai schema", existsSync(join(web, ".well-known", "battle-scout-ai-v1.schema.json"))],
   ["battle-scout sample on web", existsSync(join(web, "samples", "battle-scout-ai-v1.sample.json"))],
   ["dry-run-lanes script", existsSync(join(root, "scripts", "dry-run-lanes.mjs"))],
+  ["PRE_L5 levers doc", existsSync(join(root, "docs", "PRE_L5_LEVERS.md"))],
+  ["audit-pre-l5 script", existsSync(join(root, "scripts", "audit-pre-l5-levers.mjs"))],
 ];
 console.log("── License dry-test ──");
 try {

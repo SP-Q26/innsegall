@@ -37,6 +37,7 @@ check("install.sh auto zshrc path", installSh.includes("ensure_path_in_shell") &
 check("install.sh panic buy hint", installSh.includes("?buy=extra") && installSh.includes("import-license"));
 check("self-update module", existsSync(join(root, "src", "self-update.mjs")));
 check("CLI self-update hook", cli.includes("tryGitFastForward"));
+check("CLI open panic", cli.includes('case "open"') && cli.includes("buy=extra"));
 check("install.sh absolute node in wrapper", installSh.includes('NODE_BIN="$(command -v node)"'));
 check("install.sh PATH for brew", installSh.includes("/opt/homebrew/bin"));
 check(

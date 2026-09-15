@@ -71,6 +71,7 @@ function usage() {
   innsegall boat                    Contested fjord · our lane
   innsegall warriors                War-band credits ledger
   innsegall bootstrap [options]     First install · welcome scout + Voyage schedule
+  innsegall open <panic|alpha|pricing|clan|install|warriors>   Open site in browser (macOS)
 
 Scout options:
   --flow <name>        mac_hygiene | clicked_bad_link | project_safe
@@ -511,6 +512,32 @@ async function cmdVoyage(flags) {
   }
 }
 
+const OPEN_TARGETS = {
+  panic: `${PRICING.site_url}/?buy=extra`,
+  extra: `${PRICING.site_url}/?buy=extra`,
+  alpha: `${PRICING.site_url}/alpha`,
+  pricing: `${PRICING.site_url}/#pricing`,
+  clan: `${PRICING.site_url}/clan`,
+  install: `${PRICING.site_url}/install`,
+  warriors: `${PRICING.site_url}/warriors`,
+};
+
+function cmdOpen(flags) {
+  const key = (flags._[0] || "panic").toLowerCase();
+  const url = OPEN_TARGETS[key];
+  if (!url) {
+    console.error(`Unknown open target: ${key}`);
+    console.error(`Use: ${Object.keys(OPEN_TARGETS).join(" | ")}`);
+    process.exit(1);
+  }
+  if (process.platform === "darwin") {
+    execSync(`open "${url}"`, { stdio: "ignore" });
+    console.log(paint(ansi.dim, url));
+  } else {
+    console.log(url);
+  }
+}
+
 async function cmdBootstrap(flags) {
   console.log(paint(ansi.aurora, "Innsegall bootstrap · welcome scout · Voyage rhythm on autopilot\n"));
 
@@ -668,6 +695,9 @@ async function main() {
     case "bootstrap":
     case "onboard":
       await cmdBootstrap(flags);
+      break;
+    case "open":
+      cmdOpen(flags);
       break;
     default:
       console.error(`Unknown command: ${cmd}`);

@@ -77,7 +77,7 @@ PREDATORY (ethics + boat row):
 |-----------|----------|
 | O1 Blog funnel | Require `/boat` link on comparison posts · `mac_lane_absorption` slug coverage |
 | O2 Agent routing | `when_to_suggest` rows for cleaners, VT, Apple built-in |
-| W1c | Ship 5 queued comparison posts (Claymore + scout-for-you endings) |
+| W1c | Comparison posts · **shipped** (2026-09) · backlog = CTA/JSON-LD lanes only |
 | Swarm | **`audit-competitor-absorption.mjs`** registered (18th lane) |
 
 See [`PHASE_7_SWARM_PLAN.md`](./PHASE_7_SWARM_PLAN.md) · [`COMPETITOR_ABSORPTION.md`](./COMPETITOR_ABSORPTION.md).
@@ -90,7 +90,7 @@ See [`PHASE_7_SWARM_PLAN.md`](./PHASE_7_SWARM_PLAN.md) · [`COMPETITOR_ABSORPTIO
 |-------|--------|
 | Positioning stays not-AV | Pass |
 | No SPQ / family caretaker on boat | Pass · clan meta flagged |
-| Queued slugs documented before HTML | Pass · gospel `status: queued` |
+| Queued slugs documented before HTML | Pass (2026-09-10) · **Superseded:** all rows `shipped` in gospel · see `COMPETITOR_ABSORPTION.md` |
 | Swarm enforces shipped blogs exist | Pass · absorption audit |
 | Over-claiming vs Apple/AV | Mitigated · complementary language |
 

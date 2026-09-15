@@ -19,6 +19,13 @@ function check(name, ok, detail = "") {
   }
 }
 
+const guide = readFileSync(join(root, "web", "guide.html"), "utf8");
+const llms = readFileSync(join(root, "web", "llms.txt"), "utf8");
+
+check("guide agent-pipe section", guide.includes('id="agent-pipe"'));
+check("guide check --json", guide.includes("check --json"));
+check("llms check --json", llms.includes("check --json"));
+
 const docPath = join(root, "docs/AI_HANDOFF_ONBOARDING.md");
 check("AI_HANDOFF_ONBOARDING.md exists", existsSync(docPath));
 
@@ -80,7 +87,6 @@ check(
   INNSEGALL_GOSPEL.ai_triage_onboarding?.json_schema_url?.includes("battle-scout-ai-v1.schema.json")
 );
 
-const guide = readFileSync(join(root, "web/guide.html"), "utf8");
 check("guide AI handoff section", guide.includes('id="ai-handoff"') && guide.includes("AI handoff"));
 
 if (failed) {

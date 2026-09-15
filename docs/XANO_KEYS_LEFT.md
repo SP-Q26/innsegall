@@ -1,7 +1,8 @@
 # Xano · what's left (keys only)
 
 **Status:** Table `innsegall_events` + `POST /innsegall/events` built and tested (`{"ok":true,"id":1}`).  
-**You are here:** custom handshake keys · not Meta API · not user JWT.
+**Prod smoke (2026-09-14):** `npm run smoke:live` · telemetry **202** on `innsegall.com` when Xano + Vercel keys match.  
+**You are here:** confirm paste stack parity (§3) · optional preview key.
 
 ---
 

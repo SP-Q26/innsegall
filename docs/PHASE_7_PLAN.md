@@ -1,6 +1,7 @@
 # Phase 7 · absorb traffic · harden ops · finish Mac trust
 
-**Status:** planning (not started) · **Prior ship:** `76b7380` landing unity + LLM/SEO layer  
+**Status:** in progress (wave 1–2 partial) · **Prior ship:** `76b7380` landing unity + LLM/SEO layer  
+**Pre-L5:** [`PRE_L5_LEVERS.md`](./PRE_L5_LEVERS.md) · operator push + Stripe live before PH/HN  
 **Theme:** Turn blog and agent discovery into **alpha installs** · close free-lane build queue (B1–B5) · **L5** notarized Mac installer when operator enrolls Apple.
 
 **Gates (unchanged):** `npm run audit:swarm` · `npm run dry-run:lanes` · `npm run gate:launch` before any prod tag or Stripe policy change.
@@ -26,9 +27,9 @@ Phase 7 is **not** a new product lane. It is **distribution + ops depth** on the
 
 | # | Objective | Done when |
 |---|-----------|-----------|
-| O1 | **Blog → alpha** | Top SEO slugs share one CTA block · **5 queued competitor posts** (`COMPETITOR_ABSORPTION.md`) · `audit-competitor-absorption` green |
+| O1 | **Blog → alpha** | Top SEO slugs share one CTA block · **mac_lane_absorption shipped** (`COMPETITOR_ABSORPTION.md`) · `audit-competitor-absorption` green · W1a CTA audit backlog |
 | O2 | **Agent routing** | `llms.txt` + ai-bus + FAQ/schema answer “what is Innsegall?” without human support |
-| O3 | **CLI agent pipe** | B1: `innsegall check --json` documented · sample in guide + llms |
+| O3 | **CLI agent pipe** | B1: `innsegall check --json` documented · sample in guide + llms · **repo gate green** (`audit-check-json`) |
 | O4 | **Seats design** | B2: `docs/REDEEM_SEATS.md` signed · no live redeem until Phase 7b if scoped |
 | O5 | **Homebrew unsigned** | B3: tap published or documented blocker · swarm lane when URL live |
 | O6 | **Field Report guardrails** | B5: issue_spotlight publish rules · `audit-issue-spotlight` enforced on templates |

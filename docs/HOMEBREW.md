@@ -40,7 +40,7 @@ brew install innsegall
 ## Requirements
 
 - macOS 12+
-- Node.js 20+ (`depends_on "node"`)
+- Node.js 20+ (`depends_on "node@20"` in formula)
 
 Formula installs repo to `$(brew --prefix)/opt/innsegall` and links `innsegall` into `bin`.
 

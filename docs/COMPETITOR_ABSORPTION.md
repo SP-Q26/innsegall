@@ -12,13 +12,15 @@
 
 ## Queue (Phase 7)
 
-| Slug | Player lane | Priority |
-|------|-------------|----------|
-| `innsegall-vs-mac-cleaners` | CleanMyMac / MacKeeper / Intego | P0 |
-| `innsegall-vs-etrecheck-macintosh` | EtreCheck / Objective-See | P1 |
-| `macintosh-xprotect-after-scare` | Apple built-in | P1 |
-| `virustotal-vs-local-mac-scout` | VirusTotal / URL scan | P1 |
-| `network-monitor-vs-post-scare-triage` | Little Snitch / LuLu | P2 |
+**Status (2026-09):** All comparison slugs below are **`shipped`** in `src/gospel.mjs` with live `web/blog/*.html`. Do not add HTML for new rows until gospel `status` is `queued`.
+
+| Slug | Player lane | Status |
+|------|-------------|--------|
+| `innsegall-vs-mac-cleaners` | CleanMyMac / MacKeeper / Intego | shipped |
+| `innsegall-vs-etrecheck-macintosh` | EtreCheck / Objective-See | shipped |
+| `macintosh-xprotect-after-scare` | Apple built-in | shipped |
+| `virustotal-vs-local-mac-scout` | VirusTotal / URL scan | shipped |
+| `network-monitor-vs-post-scare-triage` | Little Snitch / LuLu | shipped |
 
 ## Post template (each)
 
