@@ -46,6 +46,7 @@
     { "source": "/install", "destination": "/install.html" },
     { "source": "/ios", "destination": "/ios.html" },
     { "source": "/tablet", "destination": "/tablet.html" },
+    { "source": "/companion", "destination": "/companion.html" },
     { "source": "/blog/innsegall-ios-companion-i0", "destination": "/blog/innsegall-ios-companion-i0.html" },
     { "source": "/blog/innsegall-vs-mac-cleaners", "destination": "/blog/innsegall-vs-mac-cleaners.html" },
     { "source": "/blog/innsegall-vs-etrecheck-macintosh", "destination": "/blog/innsegall-vs-etrecheck-macintosh.html" },

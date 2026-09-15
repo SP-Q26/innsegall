@@ -64,6 +64,7 @@ check("llms tablet guide", llms.includes("/tablet"));
 check("sitemap ios", sitemap.includes("/ios"));
 check("sitemap tablet", sitemap.includes("/tablet"));
 check("sitemap ios blog", sitemap.includes("/blog/innsegall-ios-companion-i0"));
+check("sitemap web companion", sitemap.includes("/companion"));
 check("vercel ios rewrite", vercel.includes('"/ios"'));
 check("vercel tablet rewrite", vercel.includes('"/tablet"'));
 check("guide ios link", guide.includes('href="/ios"'));

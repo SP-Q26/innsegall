@@ -9,7 +9,7 @@ import { fileURLToPath } from "node:url";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const web = join(root, "web");
 const OG_URL = "https://innsegall.com/og/innsegall-card.png";
-const CSS_VER = 19;
+const CSS_VER = 20;
 
 const CANONICAL_HEADER = `<header class="site-header">
       <a class="brand-lockup" href="/" aria-label="Innsegall home">
@@ -58,7 +58,8 @@ const CANONICAL_FOOTER = `    <footer class="site-footer">
       <p class="footer-note">Field Report · anonymized scout digests · <strong>Voyage</strong> tracker on the 1st &amp; 15th.</p>
       <nav class="footer-links" aria-label="Footer">
         <a href="/guide">Guide</a>
-        <a href="/ios">iOS (i0)</a>
+        <a href="/companion">Companion</a>
+        <a href="/ios">iOS</a>
         <a href="/tablet">Tablet</a>
         <a href="/map">Map</a>
         <a href="/boat">The boat</a>
@@ -315,7 +316,7 @@ for (const file of walkHtml(web)) {
   let html = before;
   if (file.endsWith("success.html")) {
     html = fixSuccessPage(html);
-  } else if (file.includes("/samples/")) {
+  } else if (file.includes("/samples/") || file.endsWith("companion.html")) {
     continue;
   } else {
     html = replaceHeader(html);

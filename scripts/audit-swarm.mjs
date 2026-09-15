@@ -30,6 +30,7 @@ const lanes = [
   { name: "Pre-L5 levers (doc + install)", script: "audit-pre-l5-levers.mjs", score: "9.5" },
   { name: "CLI check --json (B1)", script: "audit-check-json.mjs", score: "9.0" },
   { name: "Homebrew formula (B3)", script: "audit-homebrew.mjs", score: "9.0" },
+  { name: "Web companion (iPhone/iPad)", script: "audit-companion-web.mjs", score: "9.0" },
 ];
 
 let failed = 0;
@@ -75,7 +76,9 @@ try {
 
 const index = readFileSync(join(web, "index.html"), "utf8");
 const visualChecks = [
-  ["CSS v19 sitewide", index.includes("innsegall.css?v=19")],
+  ["CSS v20 sitewide", index.includes("innsegall.css?v=20")],
+  ["Web companion page", existsSync(join(web, "companion.html"))],
+  ["Companion PWA manifest", existsSync(join(web, "companion.webmanifest"))],
   ["Index Battle Scout preview", index.includes("battle-scout-sample")],
   ["Guide Battle Scout sample", readFileSync(join(web, "guide.html"), "utf8").includes("battle-scout-sample")],
   ["Sample scout HTML", existsSync(join(web, "samples/battle-scout-demo.html"))],

@@ -1,8 +1,9 @@
 # Innsegall iOS · product plan (Lane 4 · documentation only)
 
-**Status:** i0 · no Xcode project · free lane = spec + schema alignment only  
+**Status:** **i0.5 web companion shipped** · [`WEB_COMPANION.md`](./WEB_COMPANION.md) · `/companion` PWA (Add to Home Screen) · no App Store required  
+**Native i1:** no Xcode project yet · optional TestFlight **after** L5 Mac notarization  
 **Mac canon:** local CLI + Battle Scout engine · [`PHASE_5_SHIPPED.md`](./PHASE_5_SHIPPED.md)  
-**Apple gate:** Developer Program ($99/yr) ships with Mac notarization first · see [`APPLE_DEVELOPER_ID.md`](./APPLE_DEVELOPER_ID.md) · TestFlight is **after** L5
+**Apple gate:** Developer Program ($99/yr) · Mac signed zip first · native iOS binary optional · see [`APPLE_DEVELOPER_ID.md`](./APPLE_DEVELOPER_ID.md)
 
 ---
 

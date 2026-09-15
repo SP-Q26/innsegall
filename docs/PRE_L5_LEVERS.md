@@ -21,7 +21,7 @@
 | T05 | `innsegall open` targets | Agent | Build | **done** · panic, alpha, pricing, clan, install, warriors |
 | T06 | Distribution · no false signed zip | Agent | Build | **done** |
 | T07 | Guide · `check` vs `--json` | Agent | B1 | **done** |
-| T08 | `git push origin main` | Operator | Deploy | **next** · unblocks Vercel git deploy |
+| T08 | `git push origin main` | Operator | Deploy | **done** · `8529b9d` · iOS/tablet routes live |
 | T09 | Stripe **live** flip | Operator | Revenue | `docs/STRIPE_LIVE_FLIP.md` |
 | T10 | Xano paste checklist | Operator | Ops | `docs/XANO_KEYS_LEFT.md` |
 | T11 | Publish `SP-Q26/homebrew-innsegall` tap | Operator | Homebrew | `brew install` smoke |

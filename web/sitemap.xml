@@ -55,6 +55,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://innsegall.com/companion</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://innsegall.com/tablet</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>

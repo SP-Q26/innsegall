@@ -66,6 +66,10 @@ const requiredFiles = [
   "web/blog/index.html",
   "web/ios.html",
   "web/tablet.html",
+  "web/companion.html",
+  "web/companion.webmanifest",
+  "web/innsegall-companion.js",
+  "web/lib/companion-core.mjs",
   "web/blog/innsegall-ios-companion-i0.html",
   "docs/IOS_PRODUCT.md",
 ];
@@ -94,7 +98,7 @@ for (const dest of requiredRewrites) {
 const index = readFileSync(join(web, "index.html"), "utf8");
 check("index gospel block", index.includes("INNSEGALL_GOSPEL_START"));
 check("index ai-bus block", index.includes("INNSEGALL_AI_BUS_START"));
-check("index css cache-bust", /innsegall\.css\?v=19/.test(index));
+check("index css cache-bust", /innsegall\.css\?v=20/.test(index));
 check("guide battle scout sample", /battle-scout-sample/.test(readFileSync(join(web, "guide.html"), "utf8")));
 check("sample scout demo", existsSync(join(web, "samples/battle-scout-demo.html")));
 check("index primary CTA", index.includes("Send the scout"));

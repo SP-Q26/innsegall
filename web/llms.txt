@@ -112,8 +112,16 @@
 - https://innsegall.com/blog/network-monitor-vs-post-scare-triage
 - Index: https://innsegall.com/blog
 
+## iPhone & iPad companion (web · no App Store)
+- URL: https://innsegall.com/companion
+- Add to Home Screen in Safari · local inbox only · import innsegall-battle-scout-ai/v1
+- Mac runs scout · companion remembers receipts · Copy for LLM · not antivirus
+- Guides: https://innsegall.com/ios · https://innsegall.com/tablet
+- Spec: https://github.com/SP-Q26/innsegall/blob/main/docs/WEB_COMPANION.md
+
 ## Platform order
 - Macintosh (alpha)
+- iOS / iPad web companion (/companion)
 - iOS
 - Windows
 

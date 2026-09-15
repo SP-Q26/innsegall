@@ -1,0 +1,25 @@
+{
+  "name": "Innsegall Companion",
+  "short_name": "Innsegall",
+  "description": "Battle Scout inbox on iPhone and iPad · Mac runs the scout · paste stays on your device.",
+  "start_url": "/companion",
+  "scope": "/companion",
+  "display": "standalone",
+  "background_color": "#0B1D2E",
+  "theme_color": "#0B1D2E",
+  "lang": "en-US",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/og/innsegall-card.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

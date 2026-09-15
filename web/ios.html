@@ -25,10 +25,10 @@
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:alt" content="Innsegall · Know you're okay · Macintosh triage">
   <meta name="twitter:card" content="summary_large_image">
-      <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/favicon.svg">
   <link rel="manifest" href="/site.webmanifest">
-  <link rel="stylesheet" href="/innsegall.css?v=19">
+  <link rel="stylesheet" href="/innsegall.css?v=20">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body data-brand="innsegall" data-product="innsegall-ios-companion">
@@ -66,7 +66,8 @@
     <main class="section legal-doc article-body" id="main">
       <p class="section-label">iOS · i0</p>
       <h1>iPhone companion · remember the scout</h1>
-      <p class="article-lead"><strong>Macintosh runs the scout.</strong> iOS holds the Battle Scout you already have · triage badge · Voyage rhythm · paste to any AI. <strong>i0</strong> is spec + web workflow · no App Store binary yet.</p>
+      <p class="article-lead"><strong>Macintosh runs the scout.</strong> iOS holds the Battle Scout you already have · triage badge · Voyage rhythm · paste to any AI. <strong>Shipped now:</strong> <a href="/companion">web companion</a> · Add to Home Screen · no App Store.</p>
+      <p><a class="btn-horn" href="/companion">Open companion inbox</a></p>
 
       <div class="platform-lane" role="region" aria-label="Mac vs iOS">
         <div class="platform-lane-col">
@@ -83,22 +84,16 @@
         </div>
       </div>
 
-      <h2>What you can do today (no app required)</h2>
+      <h2>Web companion (shipped · microbrew)</h2>
+      <p><a href="/companion">innsegall.com/companion</a> · import JSON · inbox · <strong>Copy for LLM</strong> · Voyage reminder · data stays in Safari local storage. Share → <strong>Add to Home Screen</strong> for a full-screen icon.</p>
       <ol>
-        <li>On your Mac: <code>innsegall run</code> · open the Battle Scout · tap <strong>Copy Battle Scout for AI</strong>.</li>
-        <li>On iPhone: paste into ChatGPT, Claude, Gemini, or Notes · same <code>innsegall-battle-scout-ai/v1</code> block.</li>
-        <li>Practice import: download the <a href="/samples/battle-scout-ai-v1.sample.json">sample JSON</a> · open in Files · validate shape against the <a href="/.well-known/battle-scout-ai-v1.schema.json">schema</a>.</li>
-        <li>Set a Voyage reminder: 1st &amp; 15th · run the real scout on your Mac · see <a href="/blog/voyage-health-tracker-1st-15th">Voyage tracker</a>.</li>
+        <li>On your Mac: <code>innsegall run</code> · <strong>Copy for LLM</strong> from the Battle Scout.</li>
+        <li>On iPhone: open <a href="/companion">/companion</a> · paste or import from Files.</li>
+        <li>Practice: <a href="/samples/battle-scout-ai-v1.sample.json">sample JSON</a> · <a href="/.well-known/battle-scout-ai-v1.schema.json">schema</a>.</li>
       </ol>
 
-      <h2>i1 target (after Apple enrollment)</h2>
-      <ul>
-        <li><strong>Report inbox</strong> · newest imports first · swipe delete (local only).</li>
-        <li><strong>Triage badge</strong> · LIKELY_OK · FIX_LIST · ESCALATE from latest card.</li>
-        <li><strong>Voyage schedule</strong> · next 1st/15th window · “run on Mac” nudge.</li>
-        <li><strong>Alpha link</strong> · persistent footer to <a href="/alpha">innsegall.com/alpha</a>.</li>
-      </ul>
-      <p>Product spec (repo): <a href="https://github.com/SP-Q26/innsegall/blob/main/docs/IOS_PRODUCT.md" rel="noopener noreferrer">docs/IOS_PRODUCT.md</a> · TestFlight follows Mac notarization (L5).</p>
+      <h2>Native app (optional · after Apple enrollment)</h2>
+      <p>TestFlight shell reuses the same inbox UX · App Store not required for household use. Spec: <a href="https://github.com/SP-Q26/innsegall/blob/main/docs/IOS_PRODUCT.md" rel="noopener noreferrer">IOS_PRODUCT.md</a> · <a href="https://github.com/SP-Q26/innsegall/blob/main/docs/WEB_COMPANION.md" rel="noopener noreferrer">WEB_COMPANION.md</a>.</p>
 
       <h2>iPad reading layout</h2>
       <p>On a tablet, use the <a href="/tablet">iPad &amp; tablet guide</a> · wider Battle Scout reading · same paste workflow.</p>
@@ -126,6 +121,6 @@
       </nav>
     </footer>
   </div>
-  <script src="/innsegall-nav.js?v=19" defer></script>
+  <script src="/innsegall-nav.js?v=20" defer></script>
 </body>
 </html>

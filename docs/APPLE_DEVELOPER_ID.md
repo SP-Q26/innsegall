@@ -8,6 +8,20 @@
 
 **Artifact:** `dist/InnsegallInstaller.zip` → `InnsegallInstaller.app` (Developer ID signed + notarized).
 
+### Three surfaces · one Apple account (The Isles LLC)
+
+Brand is aligned sitewide (**Macintosh clan · family · iPad & iOS**). What $99/yr unlocks vs what still needs build work:
+
+| Surface | Works today (no Apple) | Unlocks with Developer Program | Still required after enroll |
+|---------|------------------------|--------------------------------|-----------------------------|
+| **macOS** | Terminal / curl install · full scout CLI | **Signed + notarized** `InnsegallInstaller.zip` on GitHub Releases · Gatekeeper-clean | `npm run release:macos-installer` + Release upload · [`L5_OPERATOR_RUNBOOK.md`](./L5_OPERATOR_RUNBOOK.md) |
+| **iPad & iPhone (web)** | [`/tablet`](https://innsegall.com/tablet) · [`/ios`](https://innsegall.com/ios) · companion copy · Battle Scout paste schema | Same site · optional **Smart App Banner** / universal links when native app exists | No binary required for web companion |
+| **iOS app (native)** | Spec + schema i0 · paste/import contract in [`IOS_PRODUCT.md`](./IOS_PRODUCT.md) | App Store Connect · distribution certs · **TestFlight** | **i1 Xcode scaffold** (inbox + import) · not automatic with Mac notary alone |
+
+**Honest sequence:** enroll → ship **Mac L5** first (revenue + trust) → **i1** companion binary on same team → TestFlight → App Store optional. Tablet in product language = **iPad** (native app is one binary for iPhone + iPad) plus **web** `/tablet` for household triage in Safari.
+
+**Not blocked on Apple:** Stripe checkout + license bind (`innsegall import`) · Xano telemetry is separate ops.
+
 ---
 
 ## 1 · Enroll (The Isles LLC)
