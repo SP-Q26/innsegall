@@ -57,6 +57,9 @@ function renderBadge(report) {
 }
 
 function renderDetail(report) {
+  const voyageTag = report.voyage
+    ? `<p class="companion-voyage-tag" role="note">Voyage receipt · from scheduled Mac hygiene · not a live scan on this device.</p>`
+    : "";
   const fixes = Array.isArray(report.fixes_recommended) ? report.fixes_recommended : [];
   const fixHtml = fixes.length
     ? `<ul class="companion-fix-list">${fixes
@@ -65,6 +68,7 @@ function renderDetail(report) {
     : '<p class="companion-muted">No fix list items on this receipt.</p>';
 
   return `
+    ${voyageTag}
     ${renderBadge(report)}
     <p class="companion-summary">${escapeHtml(report.summary)}</p>
     <p class="companion-meta">${escapeHtml(report.flow_label || report.flow)} · ${escapeHtml(
@@ -179,10 +183,18 @@ function wireVoyage() {
   const now = new Date();
   const next = nextFreeVoyageDate(now);
   const today = isFreeVoyageDay(now);
+  const list = sortInbox(loadInbox());
+  const latestVoyage = list.find((e) => e.report?.voyage);
+  const receiptLine = latestVoyage
+    ? `<p class="companion-voyage-line">Latest Voyage in inbox · ${escapeHtml(
+        latestVoyage.report.verdict_human || latestVoyage.report.verdict
+      )} · tap receipt below.</p>`
+    : "";
   el.innerHTML = `
-    <p class="companion-voyage-line">${today ? "Today is a Voyage day · run the scout on your Mac." : `Next free Voyage · ${formatVoyageLabel(next)} · 10:00 local`}</p>
-    <p class="companion-muted">Clan / MSP · Mon &amp; Thu auto on Mac after license. This app does not run checks.</p>
-    <p><a class="btn-horn btn-horn--compact" href="/alpha">Mac field manual</a></p>
+    <p class="companion-voyage-line">${today ? "Today is a Voyage day · Mac opens the Battle Scout in your browser after <code>innsegall voyage</code>." : `Next free Voyage · ${formatVoyageLabel(next)} · ~10:00 local on Mac`}</p>
+    ${receiptLine}
+    <p class="companion-muted">Import <strong>Copy for LLM</strong> JSON from the Mac scout · Clan / MSP · Mon &amp; Thu on Mac. No checks run on this device.</p>
+    <p><a class="btn-horn btn-horn--compact" href="/alpha">Mac field manual</a> · <a class="btn-horn btn-horn--compact companion-btn-ghost" href="/supplies">Supplies</a></p>
   `;
 }
 

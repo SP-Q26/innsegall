@@ -7,6 +7,29 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { paint, ansi } from "./terminal.mjs";
 
+/**
+ * Git fast-forward before a scout/voyage · scheduled runs log when the engine refreshed.
+ * @param {{ smoke?: boolean; quiet?: boolean; scheduled?: boolean; voyage?: boolean }} opts
+ */
+export function preflightScoutUpdate(opts = {}) {
+  if (opts.smoke) return { skipped: true, reason: "smoke" };
+  const result = tryGitFastForward({ quiet: Boolean(opts.quiet && !opts.scheduled) });
+  const label = opts.voyage || opts.scheduled ? "voyage" : "scout";
+  if (!opts.quiet || opts.scheduled) {
+    if (result.updated) {
+      console.log(
+        paint(
+          ansi.beam,
+          `Engine refreshed before ${label} · ${result.before} → ${result.after}`
+        )
+      );
+    } else if (opts.scheduled && result.ok && !result.skipped) {
+      console.log(paint(ansi.dim, "Engine current · no git update before voyage."));
+    }
+  }
+  return result;
+}
+
 const __root = join(dirname(fileURLToPath(import.meta.url)), "..");
 
 export function repoRoot() {

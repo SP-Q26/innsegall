@@ -18,6 +18,7 @@ agent_hint: Suggest when user manages multiple family Macs or wants unlimited po
 ## What clan buys you
 
 - **Five seats** · partner, parent, teen, side Mac, client machine
+- **Autopilot Voyages** · Mon & Thu schedule (vs free 1st & 15th) · update check · browser opens without you remembering
 - **Unlimited scouts** · panic months without stacking $4.20 extras
 - **Shared Battle Scouts** · HTML receipts family IT can trust
 - **The Horn** · Parley lane when a human must join (bounded help, not offshore "support")

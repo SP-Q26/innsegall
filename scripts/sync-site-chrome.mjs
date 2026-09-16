@@ -59,6 +59,7 @@ const CANONICAL_FOOTER = `    <footer class="site-footer">
       <nav class="footer-links" aria-label="Footer">
         <a href="/guide">Guide</a>
         <a href="/companion">Companion</a>
+        <a href="/supplies">Supplies</a>
         <a href="/ios">iOS</a>
         <a href="/tablet">Tablet</a>
         <a href="/map">Map</a>

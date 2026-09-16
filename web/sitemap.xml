@@ -55,6 +55,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://innsegall.com/supplies</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://innsegall.com/companion</loc>
     <lastmod>2026-09-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -119,6 +125,12 @@
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://innsegall.com/blog/auto-voyage-first-sail</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
   </url>
   <url>
     <loc>https://innsegall.com/blog/voyage-health-tracker-1st-15th</loc>

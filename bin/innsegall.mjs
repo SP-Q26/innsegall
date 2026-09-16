@@ -55,7 +55,9 @@ import {
   voyagePlistPath,
   ensureVoyageScheduleInstalled,
 } from "../src/voyage-schedule.mjs";
-import { tryGitFastForward } from "../src/self-update.mjs";
+import { preflightScoutUpdate } from "../src/self-update.mjs";
+import { openStripeCheckout } from "../src/checkout-open.mjs";
+import { resolveSupplySku, suppliesTerminalHelp } from "../src/supplies.mjs";
 
 function usage() {
   console.log(`Innsegall ${ENGINE_VERSION} · know you're okay.
@@ -78,7 +80,10 @@ function usage() {
   innsegall boat                    Contested fjord · our lane
   innsegall warriors                War-band credits ledger
   innsegall bootstrap [options]     First install · welcome scout + Voyage schedule
-  innsegall open <panic|alpha|pricing|clan|install|warriors>   Open site in browser (macOS)
+  innsegall supplies [extra|clan|msp]   Supplies for the road · Stripe Checkout (alias: buy)
+  innsegall open <target>           Open site in browser (macOS)
+
+Open targets: panic · extra · supplies · alpha · pricing · clan · install · warriors · companion · ios · tablet
 
 Scout options:
   --flow <name>        mac_hygiene | clicked_bad_link | project_safe
@@ -116,6 +121,7 @@ Voyage options:
   --scheduled          launchd hook · free 1st/15th · clan/MSP Mon & Thu
   --quiet              Less console output (scheduled voyage still opens browser)
   --no-open            Skip opening Battle Scout in browser
+  --no-checkout        Print Stripe URL only (supplies/buy)
 
 Bootstrap options:
   --skip-scout         Only install the 1st & 15th schedule
@@ -165,6 +171,7 @@ function parseFlags(argv, start = 2) {
     else if (a === "--skip-schedule") flags.skipSchedule = true;
     else if (a === "--force-scout") flags.forceScout = true;
     else if (a === "--no-open") flags.noOpen = true;
+    else if (a === "--no-checkout") flags.noCheckout = true;
     else if (a === "--import-license") {
       const next = argv[i + 1];
       flags.importLicense = next && !next.startsWith("-") ? argv[++i] : true;
@@ -279,7 +286,7 @@ function cmdCheck(flags) {
 
 async function cmdRun(flags) {
   if (!flags.smoke && !flags.force) {
-    tryGitFastForward({ quiet: flags.quiet });
+    preflightScoutUpdate({ quiet: flags.quiet });
   }
   flags.out = flags.out || defaultOutPath(flags.flow || "mac_hygiene");
   const card = cmdCheck({ ...flags, quiet: false });
@@ -504,13 +511,13 @@ function cmdPlan(flags) {
   printPlanStatus(status);
 }
 
-function runVoyageUpdateCheck(flags) {
-  if (flags.smoke) return;
-  tryGitFastForward({ quiet: flags.quiet });
-}
-
 async function cmdVoyage(flags) {
-  runVoyageUpdateCheck(flags);
+  preflightScoutUpdate({
+    smoke: flags.smoke,
+    quiet: flags.quiet,
+    scheduled: flags.scheduled,
+    voyage: true,
+  });
 
   const q = loadQuota();
   if (flags.scheduled && !flags.force && !flags.smoke) {
@@ -557,7 +564,18 @@ async function cmdVoyage(flags) {
   writeBattleScoutArtifacts(card, html, { autoCopyAi });
   maybeCopyAiPaste(card, flags, { defaultOn: !flags.scheduled });
   if (!flags.quiet) {
-    console.log(`Your voyage · ${card.verdict} · ${html}`);
+    console.log(
+      paint(
+        ansi.aurora,
+        `Your voyage · ${card.verdict} · Battle Scout opened in browser · ${html}`
+      )
+    );
+    console.log(
+      paint(
+        ansi.dim,
+        `Phone/tablet · Copy for LLM on the scout · or import JSON at ${PRICING.site_url}/companion`
+      )
+    );
   }
   const shouldOpen = !flags.noOpen && process.platform === "darwin";
   if (shouldOpen) {
@@ -568,17 +586,31 @@ async function cmdVoyage(flags) {
 }
 
 const OPEN_TARGETS = {
-  panic: `${PRICING.site_url}/?buy=extra`,
-  extra: `${PRICING.site_url}/?buy=extra`,
+  panic: `${PRICING.site_url}/supplies?buy=extra`,
+  extra: `${PRICING.site_url}/supplies?buy=extra`,
+  supplies: `${PRICING.site_url}/supplies`,
+  buy: `${PRICING.site_url}/supplies`,
   alpha: `${PRICING.site_url}/alpha`,
   pricing: `${PRICING.site_url}/#pricing`,
-  clan: `${PRICING.site_url}/clan`,
+  clan: `${PRICING.site_url}/supplies?buy=clan`,
   install: `${PRICING.site_url}/install`,
   warriors: `${PRICING.site_url}/warriors`,
   companion: `${PRICING.site_url}/companion`,
   ios: `${PRICING.site_url}/ios`,
   tablet: `${PRICING.site_url}/tablet`,
 };
+
+async function cmdSupplies(flags) {
+  const sku = resolveSupplySku(flags._[0] || "extra");
+  if (flags.help) {
+    console.log(suppliesTerminalHelp());
+    return;
+  }
+  await openStripeCheckout(sku, {
+    quiet: flags.quiet,
+    noCheckout: flags.noCheckout,
+  });
+}
 
 function cmdImport(flags) {
   const pathArg = flags._[0] || flags.importLicense || null;
@@ -805,6 +837,10 @@ async function main() {
       break;
     case "open":
       cmdOpen(flags);
+      break;
+    case "buy":
+    case "supplies":
+      await cmdSupplies(flags);
       break;
     default:
       console.error(`Unknown command: ${cmd}`);

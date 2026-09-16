@@ -31,6 +31,10 @@ const lanes = [
   { name: "CLI check --json (B1)", script: "audit-check-json.mjs", score: "9.0" },
   { name: "Homebrew formula (B3)", script: "audit-homebrew.mjs", score: "9.0" },
   { name: "Web companion (iPhone/iPad)", script: "audit-companion-web.mjs", score: "9.0" },
+  { name: "Brand mobile (iOS/tablet/companion)", script: "audit-brand-mobile.mjs", score: "9.0" },
+  { name: "Voyage preflight (git + browser)", script: "audit-voyage-preflight.mjs", score: "9.0" },
+  { name: "Supplies / checkout routes", script: "audit-supplies-routes.mjs", score: "9.5" },
+  { name: "Workspace hygiene", script: "audit-workspace-hygiene.mjs", score: "9.5" },
   { name: "Blog funnel (Phase 7 W1a)", script: "audit-blog-funnel.mjs", score: "9.5" },
   { name: "Structured data (Phase 7 W1b)", script: "audit-structured-data.mjs", score: "9.0" },
 ];

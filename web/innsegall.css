@@ -1887,6 +1887,66 @@ button.innsegall-checkout:disabled {
   background: rgba(11, 29, 46, 0.55);
 }
 
+.companion-voyage-tag {
+  margin: 0 0 0.5rem;
+  padding: 0.35rem 0.5rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(244, 201, 93, 0.12);
+  border-radius: 6px;
+}
+
+.companion-voyage-tag {
+  margin: 0 0 0.5rem;
+  padding: 0.35rem 0.5rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(244, 201, 93, 0.12);
+  border-radius: 6px;
+}
+
+.companion-voyage-tag {
+  margin: 0 0 0.5rem;
+  padding: 0.35rem 0.5rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(244, 201, 93, 0.12);
+  border-radius: 6px;
+}
+
+.companion-voyage-tag {
+  margin: 0 0 0.5rem;
+  padding: 0.35rem 0.5rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(244, 201, 93, 0.12);
+  border-radius: 6px;
+}
+
+.companion-voyage-tag {
+  margin: 0 0 0.5rem;
+  padding: 0.35rem 0.5rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(244, 201, 93, 0.12);
+  border-radius: 6px;
+}
+
 .companion-panel--voyage {
   border-left: 3px solid rgba(168, 216, 255, 0.4);
 }

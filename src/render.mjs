@@ -319,6 +319,8 @@ export function buildScoutAiPayload(card) {
     does_not_check: GLOBAL_DOES_NOT_CHECK,
     scope_lead: GLOBAL_SCOPE_LEAD,
     project_watch: card.project_watch || null,
+    voyage: Boolean(card.voyage),
+    companion_inbox_url: card.voyage ? `${PRICING.site_url}/companion` : null,
   };
 }
 
@@ -1238,7 +1240,7 @@ export function renderHtml(card, opts = {}) {
     : "";
 
   const voyageBanner = card.voyage
-    ? `<div class="voyage-banner" role="note">Voyage day · scheduled Macintosh hygiene · ${esc(INNSEGALL_GOSPEL.voyage.schedule)}</div>`
+    ? `<div class="voyage-banner" role="note">Voyage receipt · scheduled Macintosh hygiene · ${esc(INNSEGALL_GOSPEL.voyage.schedule)} · open on this Mac · import JSON at <a class="voyage-banner-link" href="${esc(PRICING.site_url)}/companion">companion inbox</a> on iPhone/iPad.</div>`
     : "";
 
   const pricingFooter = PRICING
@@ -1482,6 +1484,8 @@ ${scoutDataBlocks}
       text-align: center;
       line-height: 1.45;
     }
+    .voyage-banner-link { color: var(--gold); text-decoration: underline; text-underline-offset: 2px; }
+    .voyage-banner-link:hover { color: var(--beam); }
 
     /* claymore · verdict band */
     .verdict-band {
@@ -2907,7 +2911,12 @@ ${scoutDataBlocks}
     }
   </style>
 </head>
-<body${autoCopyAi ? ' data-innsegall-auto-copy-ai="1"' : ""}>
+<body${(() => {
+    const attrs = [];
+    if (autoCopyAi) attrs.push('data-innsegall-auto-copy-ai="1"');
+    if (card.voyage) attrs.push('data-innsegall-voyage="1"');
+    return attrs.length ? ` ${attrs.join(" ")}` : "";
+  })()}>
   ${BATTLEFIELD_BG}
   <div class="page">
     <div class="wrap">

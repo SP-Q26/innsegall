@@ -30,6 +30,9 @@ ok("companion module script", companionHtml.includes('type="module"') && compani
 ok("companion apple-mobile-web-app", companionHtml.includes("apple-mobile-web-app-capable"));
 ok("companion manifest link", companionHtml.includes("/companion.webmanifest"));
 ok("companion copy for LLM", companionHtml.includes("Copy for LLM"));
+const companionJs = readFileSync(join(web, "innsegall-companion.js"), "utf8");
+ok("companion voyage receipt tag", companionJs.includes("companion-voyage-tag"));
+ok("companion supplies link", companionJs.includes("/supplies"));
 ok("companion local-only copy", companionHtml.includes("stays in your browser") || companionHtml.includes("this device"));
 
 const manifest = JSON.parse(readFileSync(join(web, "companion.webmanifest"), "utf8"));

@@ -33,6 +33,7 @@ const PATHS = [
   "/companion.webmanifest",
   "/innsegall-companion.js",
   "/lib/companion-core.mjs",
+  "/blog/auto-voyage-first-sail",
   "/blog/innsegall-ios-companion-i0",
   "/blog/innsegall-vs-mac-cleaners",
   "/blog/innsegall-vs-etrecheck-macintosh",

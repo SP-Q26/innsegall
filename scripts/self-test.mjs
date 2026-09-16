@@ -58,10 +58,18 @@ assert("smoke tiers injected", smokeCard.verdict === "ESCALATE" && smokeCard.smo
 assert("smoke html tiers", renderHtml(smokeCard).includes("smoke-banner") && renderHtml(smokeCard).includes("section-housekeeping"));
 
 import { featuredPostUrl, INTEL_TRENDING_DISCLAIMER } from "../src/threat-intel.mjs";
+import { resolveSupplySku } from "../src/supplies.mjs";
+import { preflightScoutUpdate } from "../src/self-update.mjs";
 const sampleHtml = renderHtml(buildCard({ flow: "mac_hygiene", userInputs: {} }));
 assert("trending intel section", sampleHtml.includes("section-intel"));
 assert("trending intel disclaimer", sampleHtml.includes(INTEL_TRENDING_DISCLAIMER));
 assert("trending not scan finding", sampleHtml.includes("not a scan finding on this Mac"));
+assert("supplies sku panic", resolveSupplySku("panic") === "extra");
+assert("preflight smoke skip", preflightScoutUpdate({ smoke: true }).reason === "smoke");
+const voyagePayload = buildScoutAiPayload(buildCard({ flow: "mac_hygiene", userInputs: {}, voyage: true }));
+assert("ai payload voyage flag", voyagePayload.voyage === true && voyagePayload.companion_inbox_url?.includes("/companion"));
+const voyageHtml = renderHtml(buildCard({ flow: "mac_hygiene", userInputs: {}, voyage: true }));
+assert("voyage html data attr", voyageHtml.includes('data-innsegall-voyage="1"'));
 assert("blog link", sampleHtml.includes(featuredPostUrl()));
 assert("card column layout", sampleHtml.includes("card-column"));
 assert("mac-first layout tokens", sampleHtml.includes("--page-max"));

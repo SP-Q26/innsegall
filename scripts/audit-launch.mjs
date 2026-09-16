@@ -67,6 +67,7 @@ const requiredFiles = [
   "web/ios.html",
   "web/tablet.html",
   "web/companion.html",
+  "web/supplies.html",
   "web/companion.webmanifest",
   "web/innsegall-companion.js",
   "web/lib/companion-core.mjs",

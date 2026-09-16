@@ -99,8 +99,8 @@ export function formatQuotaTerminal(q, reason, d = new Date()) {
     `Next voyage · ${nextStr}`,
     `Horn credits · ${credits}`,
     "",
-    paint(ansi.beam, `Need a scout now · Stripe opens automatically (or innsegall buy extra)`),
-    paint(ansi.dim, `Clan · innsegall buy clan · War-band · ${PRICING.site_url}/warriors`),
+    paint(ansi.beam, `Need supplies · innsegall supplies extra · or innsegall open supplies`),
+    paint(ansi.dim, `Clan · innsegall supplies clan · War-band · ${PRICING.site_url}/warriors`),
     paint(ansi.dim, `Map · ${PRICING.site_url}/map · Field manual · ${PRICING.site_url}/guide`),
   ];
 

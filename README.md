@@ -4,10 +4,13 @@
 
 Standalone product repo. Not coupled to SPQ.
 
-## Wake Monday
+## Working folder
+
+**One clone:** `~/Desktop/innsegall` or `~/innsegall` · not `~/SPQ/innsegall` (legacy). See **`docs/WORKSPACE_CANON.md`**.
 
 ```bash
-cd ~/SPQ/innsegall && npm run preflight
+cd ~/Desktop/innsegall   # or ~/innsegall
+npm run audit:workspace && npm run preflight
 ```
 
 Open **`docs/WAKE_BELOW_DECK.md`** · **`docs/NORTH_STAR_AUDIT.md`** (lane · no pivot) · then `BATTLE_BLAST.md` · blast by **1pm**.

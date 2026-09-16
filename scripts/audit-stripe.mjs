@@ -78,6 +78,8 @@ check("env example INNSEGALL_LICENSE_SECRET", envExample.includes("INNSEGALL_LIC
 
 const index = readFileSync(join(web, "index.html"), "utf8");
 check("index checkout buttons", index.includes('data-sku="extra"') && index.includes('data-sku="clan"'));
+const suppliesPage = readFileSync(join(web, "supplies.html"), "utf8");
+check("supplies checkout buttons", suppliesPage.includes('data-sku="extra"') && suppliesPage.includes("innsegall-checkout"));
 check(
   "index checkout script",
   index.includes("innsegall-checkout.js") || index.includes("/api/stripe/checkout")

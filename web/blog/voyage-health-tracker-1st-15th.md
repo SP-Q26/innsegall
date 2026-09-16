@@ -71,6 +71,20 @@ This is **Read the runes** at voyage scale · macro clarity, not micro panic.
 
 ---
 
+## Autopilot · auto Voyage on voyage mornings
+
+**`innsegall bootstrap`** (or the alpha install script) can install a **launchd** job:
+
+- Runs **daily at 10:00** local · executes a voyage **only on the 1st and 15th** (clan/MSP · Mon & Thu).
+- **Checks for engine updates** before the scout ships · then runs read-only hygiene.
+- **Opens the Battle Scout in your browser** · chart point without you remembering the calendar.
+
+Off-voyage days the job exits quietly. Operators describe the first automatic sail as *“really nice”* · peace worth a few dollars a month · see [Auto Voyage · first sail](/blog/auto-voyage-first-sail).
+
+Manual install: `innsegall voyage --install-schedule`
+
+---
+
 ## How to run Voyage on your Macintosh
 
 ### CLI

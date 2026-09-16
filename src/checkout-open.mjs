@@ -4,25 +4,17 @@
  */
 import { execSync } from "node:child_process";
 import { PRICING } from "./constants.mjs";
+import { resolveSupplySku, SUPPLY_SKUS } from "./supplies.mjs";
 import { paint, ansi } from "./terminal.mjs";
 
-const SKU_ALIASES = {
-  extra: "extra",
-  panic: "extra",
-  scout: "extra",
-  clan: "clan",
-  msp: "msp",
-};
-
 export function normalizeCheckoutSku(raw) {
-  const key = String(raw || "extra").toLowerCase();
-  return SKU_ALIASES[key] || "extra";
+  return resolveSupplySku(raw);
 }
 
 export function checkoutSkuLabel(sku) {
-  if (sku === "clan") return `Clan · $${PRICING.clan.usd_monthly.toFixed(2)}/mo`;
-  if (sku === "msp") return "MSP seats";
-  return `Panic scout · $${PRICING.extra_run.usd.toFixed(2)}`;
+  const meta = SUPPLY_SKUS[normalizeCheckoutSku(sku)];
+  if (!meta) return "Supplies";
+  return `${meta.title} · ${meta.priceLabel}`;
 }
 
 /**
@@ -70,7 +62,7 @@ export async function openStripeCheckout(sku, opts = {}) {
     console.error(
       paint(
         ansi.mist,
-        `\nNext step · Stripe Checkout (${label}) · hosted by Stripe, not a mystery download.`
+        `\nSupplies for the road · Stripe Checkout (${label}) · hosted by Stripe, not a mystery download.`
       )
     );
     console.error(

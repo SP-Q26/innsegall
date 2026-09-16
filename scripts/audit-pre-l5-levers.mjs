@@ -37,7 +37,10 @@ check(
   distro.includes("After L5") || distro.includes("pre-L5") || distro.includes("404")
 );
 check("gospel no queued absorption", !gospel.includes('status: "queued"'));
-check("self-update in CLI", cli.includes("tryGitFastForward"));
+check(
+  "self-update in CLI",
+  cli.includes("preflightScoutUpdate") || cli.includes("tryGitFastForward")
+);
 check("open panic in CLI", cli.includes('case "open"') && cli.includes("buy=extra"));
 check("install.sh panic hint", installSh.includes("?buy=extra"));
 check("HOMEBREW formula", existsSync(join(root, "packaging", "homebrew", "innsegall.rb")));
