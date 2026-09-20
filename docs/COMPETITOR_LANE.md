@@ -13,7 +13,7 @@
 | **Malwarebytes / Bitdefender / Norton** | Always-on AV + upsells | Real-time protection, signatures | Calm post-popup receipt · no fear UI · local-first narrative |
 | **CleanMyMac / MacKeeper** | “Speed up / clean” utilities | One-click cleaners | Honest read-only evidence · anti-scareware ethics · no PUP installer patterns |
 | **Apple Genius Bar / AppleCare** | Human support | Trust, hardware | Fast triage at 10pm · shareable HTML receipt · $0–$7 tier |
-| **Objective-See tools** (LuLu, KnockKnock) | Free deep dives for power users | Expert-grade | Plain-language Battle Scout · household/clan · scheduled Voyage rhythm |
+| **Objective-See tools** (LuLu, KnockKnock, BlockBlock) | Free depth / monitors for power users | Expert-grade | Plain-language Battle Scout · Voyage drift · complementary routing in gospel/llms · [internal audit](./competitors/AUDIT_OBJECTIVE_SEE_KNOCKKNOCK_BLOCKBLOCK_LULU.md) |
 | **VirusTotal / online scanners** | File/hash lookup | Breadth | Whole-Mac hygiene narrative · launch agents · DNS · git roots |
 | **MSP / Huntress / add-ons** | Managed detection | Business scale | Solo Mac user after bad link · no contract |
 | **ChatGPT / generic AI** | Ad-hoc advice | Convenience | Structured checks · `#innsegall-scout-data` · gospel for agents |

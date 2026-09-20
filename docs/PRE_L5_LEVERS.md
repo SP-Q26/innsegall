@@ -6,7 +6,7 @@
 
 **Meta-audit (what was off):** Re-audit text claimed agent work **shipped** while `PHASE_7_PLAN.md` still said **5 queued** posts and `main` was **unpushed**. Gospel + blogs were truth; **plan docs lagged**. T01 is not only `COMPETITOR_ABSORPTION.md` · it includes Phase 7 plan rows.
 
-**Canon truth:** competitor absorption **shipped** in `src/gospel.mjs` · B1/B3 **repo gates** in swarm · Homebrew **tap not published** (operator).
+**Canon truth:** competitor absorption **shipped** in `src/gospel.mjs` · optional **queued** Objective-See posts (KnockKnock/BlockBlock) have no live HTML until promoted · B1/B3 **repo gates** in swarm · Homebrew **tap not published** (operator).
 
 ---
 

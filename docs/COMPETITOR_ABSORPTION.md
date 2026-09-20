@@ -22,6 +22,8 @@
 | `virustotal-vs-local-mac-scout` | VirusTotal / URL scan | shipped |
 | `network-monitor-vs-post-scare-triage` | Little Snitch / LuLu | shipped |
 
+**Deep dives (internal):** [KnockKnock · BlockBlock · LuLu](./competitors/AUDIT_OBJECTIVE_SEE_KNOCKKNOCK_BLOCKBLOCK_LULU.md) · official pages on [knockknock](https://objective-see.org/products/knockknock.html), [blockblock](https://objective-see.org/products/blockblock.html), [lulu](https://objective-see.org/products/lulu.html).
+
 ## Post template (each)
 
 - Lead: post-scare · not antivirus  

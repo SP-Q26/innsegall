@@ -21,6 +21,7 @@ import {
   LAY_OF_LAND_URL,
 } from "./check-catalog.mjs";
 import { renderPassageUpsellSection } from "./passage-cta.mjs";
+import { persistenceDriftSincePrevious } from "./voyage-drift.mjs";
 
 function parsePlistEvidence(line) {
   const clean = line.replace(/^\[optional\]\s*/, "");
@@ -260,7 +261,32 @@ const AI_ASSISTANT_NAMES =
   "ChatGPT, Claude, Gemini, Microsoft Copilot, DeepSeek, Perplexity, or Bing Copilot";
 
 /** Rich JSON slice for AI parsers · user chose to share · includes evidence paths. */
-export function buildScoutAiPayload(card) {
+function renderPersistenceDriftBanner(card, previousCard) {
+  const drift = persistenceDriftSincePrevious(card, previousCard);
+  if (!drift?.length) return "";
+  const items = drift
+    .map(
+      (d) =>
+        `<li><strong>${esc(d.id.replace(/_/g, " "))}</strong> · ${esc(d.from || "first run")} → ${esc(d.to)}</li>`
+    )
+    .join("");
+  return `<div class="voyage-banner voyage-drift-banner" role="note"><p><strong>Since your last scout</strong> · read-only drift on login and launch hygiene (not a blocker like BlockBlock):</p><ul class="voyage-drift-list">${items}</ul></div>`;
+}
+
+function renderComplementaryToolsAside(verdict) {
+  if (verdict !== "ESCALATE") return "";
+  const tools = INNSEGALL_GOSPEL.ai_triage_onboarding.complementary_tools || [];
+  if (!tools.length) return "";
+  const items = tools
+    .map(
+      (t) =>
+        `<li><a class="voyage-banner-link" href="${esc(t.url)}" rel="noopener noreferrer">${esc(t.label)}</a> · ${esc(t.note)}</li>`
+    )
+    .join("");
+  return `<aside class="complementary-tools-banner" role="note"><p><strong>Optional next tools</strong> · free third-party complements · scout verdict stands:</p><ul class="voyage-drift-list">${items}</ul></aside>`;
+}
+
+export function buildScoutAiPayload(card, opts = {}) {
   const attention = (card.checks_run || []).filter(
     (c) => c.status === "warn" || c.status === "fail"
   );
@@ -321,6 +347,7 @@ export function buildScoutAiPayload(card) {
     project_watch: card.project_watch || null,
     voyage: Boolean(card.voyage),
     companion_inbox_url: card.voyage ? `${PRICING.site_url}/companion` : null,
+    persistence_drift: persistenceDriftSincePrevious(card, opts.previousCard ?? null),
   };
 }
 
@@ -328,7 +355,8 @@ export function buildScoutAiPayload(card) {
  * Paste-ready audit log for external AI assistants.
  * User explicitly copies · includes evidence paths for triage help.
  */
-export function renderAiPaste(card) {
+export function renderAiPaste(card, opts = {}) {
+  const previousCard = opts.previousCard ?? null;
   const vc = VERDICT_COPY[card.verdict] || {};
   const leaderLine = LEADER_LINE[card.verdict] || "";
   const verdictHuman = VERDICT_HUMAN[card.verdict] || card.verdict;
@@ -379,6 +407,15 @@ export function renderAiPaste(card) {
     (c) => c.status === "warn" || c.status === "fail"
   );
   const clear = (card.checks_run || []).filter((c) => c.status === "pass");
+
+  const drift = persistenceDriftSincePrevious(card, previousCard);
+  if (drift?.length) {
+    lines.push(`## Since your last scout`, ``);
+    for (const d of drift) {
+      lines.push(`- **${d.id}** · ${d.from || "first run"} → ${d.to}`);
+    }
+    lines.push(``);
+  }
 
   if (attention.length) {
     lines.push(`## Audit log · flagged checks`, ``);
@@ -445,6 +482,14 @@ export function renderAiPaste(card) {
       `Verdict is ESCALATE. Recommend: rotate passwords from a clean device, quarantine suspicious downloads, revoke remote-access tools if installed. User may email ${PRICING.contact_email} with this paste.`,
       ``
     );
+    const tools = INNSEGALL_GOSPEL.ai_triage_onboarding.complementary_tools || [];
+    if (tools.length) {
+      lines.push(`## Optional complements (not replacements)`, ``);
+      for (const t of tools) {
+        lines.push(`- **${t.label}** · ${t.when} · ${t.url}`);
+      }
+      lines.push(``);
+    }
   }
 
   lines.push(
@@ -1042,6 +1087,7 @@ function cardJumpScript(shareCopy) {
 
 export function renderHtml(card, opts = {}) {
   const autoCopyAi = Boolean(opts.autoCopyAi);
+  const previousCard = opts.previousCard ?? null;
   const vc = VERDICT_COPY[card.verdict] || {};
   const verdictClass = card.verdict.toLowerCase().replace(/_/g, "-");
   const stats = card.stats || {};
@@ -1144,6 +1190,9 @@ export function renderHtml(card, opts = {}) {
         <p class="parley-cap-note">Live Solas: up to ${caps.perSession} questions per scout when online · instant summary from this card when offline.</p>
       </section>`;
 
+  const driftBanner = renderPersistenceDriftBanner(card, previousCard);
+  const complementaryToolsHtml = renderComplementaryToolsAside(card.verdict);
+
   const escalateInner =
     card.verdict === "ESCALATE"
       ? `<aside class="horn-cta horn-cta-active">
@@ -1172,6 +1221,7 @@ export function renderHtml(card, opts = {}) {
           <span class="tier-count">${failCount}</span>
         </div>
         ${escalateInner}
+        ${complementaryToolsHtml}
       </section>`;
 
   const hornHtml =
@@ -2923,6 +2973,7 @@ ${scoutDataBlocks}
       ${smokeBanner}
       ${demoBanner}
       ${voyageBanner}
+      ${driftBanner}
       <div class="card-column">
       <div class="verdict-band ${verdictClass}">
         <div class="verdict-band-top">
@@ -2977,7 +3028,7 @@ ${scoutDataBlocks}
           <p class="share-download-hint">${esc(CTA.DOWNLOAD_REPORT_HINT)}</p>
           <p class="share-copy-status" id="battle-scout-share-status" aria-live="polite"></p>
         </div>
-        <textarea id="innsegall-scout-paste" class="scout-paste-store" readonly aria-hidden="true">${embedTextareaContent(renderAiPaste(card))}</textarea>
+        <textarea id="innsegall-scout-paste" class="scout-paste-store" readonly aria-hidden="true">${embedTextareaContent(renderAiPaste(card, { previousCard }))}</textarea>
         <textarea id="innsegall-scout-md" class="scout-paste-store" readonly aria-hidden="true" data-filename="innsegall-battle-scout-${esc(card.card_id)}.md">${embedTextareaContent(markdownExport)}</textarea>
         <strong>With Innsegall, no one is your enemy · you have no foe.</strong>
         <span class="footer-id">innsegall.com · ${esc(card.card_id)} · engine ${esc(card.engine_version)}</span>

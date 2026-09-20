@@ -71,6 +71,10 @@ check(
   Array.isArray(INNSEGALL_GOSPEL.ai_triage_onboarding?.triage_levels) &&
     INNSEGALL_GOSPEL.ai_triage_onboarding.triage_levels.length === 3
 );
+check(
+  "gospel complementary_tools",
+  (INNSEGALL_GOSPEL.ai_triage_onboarding?.complementary_tools || []).length >= 3
+);
 
 const schemaPath = join(root, "web/.well-known/battle-scout-ai-v1.schema.json");
 check("battle-scout-ai v1 json schema", existsSync(schemaPath));

@@ -14,6 +14,7 @@ const childAudits = [
   "audit-lane.mjs",
   "audit-client-facing.mjs",
   "audit-competitor-absorption.mjs",
+  "audit-competitor-objective-see.mjs",
   "audit-landing-unity.mjs",
 ];
 

@@ -5,8 +5,10 @@
 import { readFileSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { INNSEGALL_GOSPEL } from "../src/gospel.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
+const web = join(root, "web");
 let failed = 0;
 
 function check(name, ok, detail = "") {
@@ -36,7 +38,13 @@ check(
   "DISTRIBUTION defers signed zip pre-L5",
   distro.includes("After L5") || distro.includes("pre-L5") || distro.includes("404")
 );
-check("gospel no queued absorption", !gospel.includes('status: "queued"'));
+const queuedRows = (INNSEGALL_GOSPEL.competitor_boat?.mac_lane_absorption || []).filter(
+  (r) => r.status === "queued" && r.blog_slug
+);
+check(
+  "gospel queued rows have no live blog html",
+  queuedRows.every((r) => !existsSync(join(web, "blog", `${r.blog_slug}.html`)))
+);
 check(
   "self-update in CLI",
   cli.includes("preflightScoutUpdate") || cli.includes("tryGitFastForward")

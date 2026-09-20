@@ -33,6 +33,7 @@ check("public gospel no competitor_boat", !gospel.includes("competitor_boat"));
 check("llms client lane section", llms.includes("Our lane (client-facing)"));
 check("llms no platform order section", !llms.includes("## Platform order"));
 check("llms no mac lane absorption", !llms.includes("Mac lane absorption"));
+check("llms complementary tools", llms.includes("KnockKnock (Objective-See)"));
 
 check("index read-only triage", index.includes("read-only"));
 check("index lane CTA", index.includes('href="/boat"') && !index.includes("Competitor map"));

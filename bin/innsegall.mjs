@@ -198,11 +198,12 @@ function shouldCopyAiToClipboard(flags, { defaultOn = false } = {}) {
   return defaultOn && !flags.quiet && !flags.smoke;
 }
 
-function writeBattleScoutArtifacts(card, htmlPath, { autoCopyAi = false } = {}) {
+function writeBattleScoutArtifacts(card, htmlPath, { autoCopyAi = false, previousCard = null } = {}) {
   writeParent(htmlPath);
-  writeFileSync(htmlPath, renderHtml(card, { autoCopyAi }), "utf8");
+  const renderOpts = { autoCopyAi, previousCard };
+  writeFileSync(htmlPath, renderHtml(card, renderOpts), "utf8");
   const aiPastePath = htmlPath.replace(/\.html$/i, ".ai-paste.md");
-  writeFileSync(aiPastePath, renderAiPaste(card), "utf8");
+  writeFileSync(aiPastePath, renderAiPaste(card, { previousCard }), "utf8");
   return htmlPath;
 }
 
@@ -299,7 +300,8 @@ async function cmdRun(flags) {
   });
   const html = expandHome(flags.html || defaultHtmlPath(flags._outPath || flags.out));
   const autoCopyAi = shouldCopyAiToClipboard(flags, { defaultOn: true });
-  writeBattleScoutArtifacts(card, html, { autoCopyAi });
+  const previousCard = loadPreviousCard(card.card_id);
+  writeBattleScoutArtifacts(card, html, { autoCopyAi, previousCard });
   maybeCopyAiPaste(card, flags, { defaultOn: true });
   if (!flags.quiet) {
     const status = formatPlanStatus(loadQuota());
@@ -561,7 +563,8 @@ async function cmdVoyage(flags) {
   });
   const html = expandHome(flags.html || defaultHtmlPath(flags._outPath || flags.out));
   const autoCopyAi = shouldCopyAiToClipboard(flags, { defaultOn: !flags.scheduled });
-  writeBattleScoutArtifacts(card, html, { autoCopyAi });
+  const previousCard = loadPreviousCard(card.card_id);
+  writeBattleScoutArtifacts(card, html, { autoCopyAi, previousCard });
   maybeCopyAiPaste(card, flags, { defaultOn: !flags.scheduled });
   if (!flags.quiet) {
     console.log(
