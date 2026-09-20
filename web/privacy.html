@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Privacy Policy · Innsegall</title>
-  <meta name="description" content="Innsegall Privacy Policy. Local-first Macintosh triage. Battle Scout reports stay on your device. Two free Voyages on the 1st and 15th tracked locally. No analytics on this site in v0.1.">
+  <meta name="description" content="Innsegall Privacy Policy. Local-first Macintosh triage. Battle Scout reports stay on your device. Marketing site uses Vercel Web Analytics and optional anonymous pings · not your scout data.">
   <meta name="keywords" content="Innsegall privacy, Macintosh triage privacy, Battle Scout data, local-first security">
   <meta name="author" content="Innsegall">
   <meta name="robots" content="index,follow">
@@ -47,7 +47,7 @@
     (function(){try{var el=document.getElementById("innsegall-ai-bus");if(el)window.__INNSEGALL_AI_BUS=JSON.parse(el.textContent);}catch(e){}})();
   </script>
   <!-- INNSEGALL_AI_BUS_END -->
-                                                                  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+                                                                    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/favicon.svg">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="/innsegall.css?v=21">
@@ -151,7 +151,7 @@
         </ul>
         <p><strong>Information collected automatically</strong></p>
         <ul>
-          <li><strong>Website (innsegall.com v0.1):</strong> This marketing site does <strong>not</strong> use third-party analytics, advertising pixels, or social trackers. We may send <strong>anonymous page-category pings</strong> once per page per day (for example home, clan, alpha; coarse referral channel such as search or agent; random session id) through our own API to improve the product · never your Battle Scout · never ad profiling. Our hosting provider (for example Vercel) may also process standard server logs (IP address, user agent, requested URL, timestamp) for security and reliability · as described in Section 8.</li>
+          <li><strong>Website (innsegall.com):</strong> No advertising pixels or social trackers. We use <strong>Vercel Web Analytics</strong> on this marketing site (page views and routes · privacy-oriented · no ad profiling) and may send <strong>anonymous page-category pings</strong> once per page per day through our own API (coarse channel such as search or agent; random session id) · never your Battle Scout. Vercel may also process standard server logs (IP address, user agent, requested URL, timestamp) for security and reliability · Section 8.</li>
           <li><strong>CLI improvement telemetry (default on):</strong> The Innsegall command-line scout may send once per day: an anonymized install ping (engine version, macOS major version, random install id) and category-count aggregates from your local scouts (verdict buckets, flow type, attention-check buckets) · never filenames, paths, or card bodies. Used only to improve checks and releases. Opt out: <code>innsegall plan --telemetry-off</code>.</li>
           <li><strong>Update checks:</strong> On boot and after scans, the CLI may fetch <code>/.well-known/innsegall-gospel.json</code> once per day to suggest a newer engine version · no scout data in that request.</li>
           <li><strong>App diagnostics (future):</strong> Crash reporting beyond the above will be described in an updated policy before it ships.</li>
@@ -267,5 +267,6 @@
     </footer>
   </div>
   <script src="/innsegall-nav.js?v=21" defer></script>
+  <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

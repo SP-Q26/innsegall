@@ -49,6 +49,9 @@ const OG_BLOCK = `  <meta property="og:image" content="${OG_URL}">
 
 const NAV_SCRIPT = `  <script src="/innsegall-nav.js?v=${CSS_VER}" defer></script>`;
 
+/** Vercel Web Analytics · enable in project dashboard · not @vercel/analytics (static site, not Next). */
+const VERCEL_ANALYTICS = `  <script defer src="/_vercel/insights/script.js"></script>`;
+
 const FAVICON_BLOCK = `  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/favicon.svg">
   <link rel="manifest" href="/site.webmanifest">`;
@@ -299,6 +302,10 @@ function fixChrome(html) {
 
   if (!out.includes("innsegall-nav.js") && out.includes("</body>")) {
     out = out.replace("</body>", `${NAV_SCRIPT}\n</body>`);
+  }
+
+  if (!out.includes("/_vercel/insights/script.js") && out.includes("</body>")) {
+    out = out.replace("</body>", `${VERCEL_ANALYTICS}\n</body>`);
   }
 
   return out;
