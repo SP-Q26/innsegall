@@ -36,6 +36,12 @@ npm run smoke:live
 
 ---
 
+## 2b · Namecheap forward only (quick)
+
+No mailbox · inbound only → **`docs/NAMECHEAP_EMAIL_FORWARD.md`**. Use `hello@` + optional `horn@` → your Gmail. Upgrade to Zoho below when you need **send as** `@innsegall.com`.
+
+---
+
 ## 3 · Zoho Mail · hello@innsegall.com
 
 1. Zoho Mail → add domain **innsegall.com**

@@ -8,7 +8,7 @@ import { fileURLToPath } from "node:url";
 
 const blogDir = join(dirname(fileURLToPath(import.meta.url)), "..", "web", "blog");
 
-const STANDARD_LEAD = `Most operators have no local scout after a scare. <strong>Innsegall runs read-only triage</strong> on your Macintosh · <a href="/alpha">Send the scout</a> · <a href="/boat">our lane vs theirs</a> · <a href="/companion">companion inbox</a> on iPhone/iPad · or <a href="/clan">bring your clan</a> for unlimited scouts and shared Battle Scouts.`;
+const STANDARD_LEAD = `Most operators have no local scout after a scare. <strong>Innsegall runs read-only triage</strong> on your Macintosh · <a href="/alpha">Send the scout</a> · <a href="/boat">is Innsegall for you?</a> · <a href="/companion">companion inbox</a> on iPhone/iPad · or <a href="/clan">bring your clan</a> for unlimited scouts and shared Battle Scouts.`;
 
 const IOS_LEAD = `Mac runs the scout · iPhone/iPad hold the receipt. <a href="/alpha">Send the scout</a> on your Mac · <a href="/companion">Open companion inbox</a> · <a href="/ios">iOS guide</a> · not antivirus.`;
 

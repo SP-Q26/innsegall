@@ -35,7 +35,7 @@ const POSTS = [
         <li>Plain-language receipt you can paste into any AI assistant</li>
         <li>Voyage rhythm on the 1st and 15th · habit without nagware</li>
       </ul>
-      <p><a class="btn-horn btn-horn--compact" href="/alpha">Send the scout</a> · <a href="/boat">Competitor map</a></p>`,
+      <p><a class="btn-horn btn-horn--compact" href="/alpha">Send the scout</a> · <a href="/boat">Is Innsegall for you?</a></p>`,
   },
   {
     slug: "innsegall-vs-etrecheck-macintosh",
@@ -112,7 +112,7 @@ const POSTS = [
       <h2>Keep monitors if you want them</h2>
       <p>They are not replacements for post-popup receipts. They are a different lane.</p>
       <h2>After the popup</h2>
-      <p>Send the scout · read the Battle Scout · paste to AI if you want a second opinion · <a href="/boat">see the full competitor map</a>.</p>
+      <p>Send the scout · read the Battle Scout · paste to AI if you want a second opinion · <a href="/boat">lane fit guide</a>.</p>
       <p><a class="btn-horn btn-horn--compact" href="/alpha">Send the scout</a></p>`,
   },
 ];

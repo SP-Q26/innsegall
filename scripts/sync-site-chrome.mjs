@@ -9,7 +9,7 @@ import { fileURLToPath } from "node:url";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const web = join(root, "web");
 const OG_URL = "https://innsegall.com/og/innsegall-card.png";
-const CSS_VER = 20;
+const CSS_VER = 21;
 
 const CANONICAL_HEADER = `<header class="site-header">
       <a class="brand-lockup" href="/" aria-label="Innsegall home">
@@ -30,13 +30,13 @@ const CANONICAL_HEADER = `<header class="site-header">
         </svg>
         <span>
           <span class="brand-word">Innsegall</span>
-          <span class="brand-pronounce">IN-sheh-gal · built for your Macintosh clan · family · iPad &amp; iOS</span>
+          <span class="brand-pronounce">IN-sheh-gal · Mac scout · iPad &amp; iOS read</span>
         </span>
       </a>
       <nav class="header-nav" aria-label="Site">
-        <a href="/alpha">Field manual</a>
-        <a href="/blog">Field Report</a>
-        <a href="/clan">Clan</a>
+        <a class="nav-link" href="/alpha">Field manual</a>
+        <a class="nav-link" href="/blog">Field Report</a>
+        <a class="nav-link" href="/clan">Clan</a>
       </nav>
     </header>`;
 
@@ -54,25 +54,25 @@ const FAVICON_BLOCK = `  <link rel="icon" href="/favicon.svg" type="image/svg+xm
   <link rel="manifest" href="/site.webmanifest">`;
 
 const CANONICAL_FOOTER = `    <footer class="site-footer">
-      <p>© 2026 Innsegall · Isles of the Norse · Know you're okay.</p>
-      <p class="footer-note">Field Report · anonymized scout digests · <strong>Voyage</strong> tracker on the 1st &amp; 15th.</p>
+      <p>© 2026 Innsegall · Know you're okay.</p>
+      <p class="footer-note">Field Report · category counts only · Voyage on the 1st &amp; 15th.</p>
       <nav class="footer-links" aria-label="Footer">
-        <a href="/guide">Guide</a>
-        <a href="/companion">Companion</a>
-        <a href="/supplies">Supplies</a>
-        <a href="/ios">iOS</a>
-        <a href="/tablet">Tablet</a>
-        <a href="/map">Map</a>
-        <a href="/boat">The boat</a>
-        <a href="/clan">Join the clan</a>
-        <a href="/warriors">War-band of scribes</a>
-        <a href="/alpha">Field manual</a>
-        <a href="/blog">Field Report</a>
-        <a href="/stability">Stability</a>
-        <a href="https://github.com/SP-Q26/innsegall" rel="noopener noreferrer">Open engine</a>
-        <a href="/tos">Terms</a>
-        <a href="/privacy">Privacy</a>
-        <a href="mailto:hello@innsegall.com">hello@innsegall.com</a>
+        <a class="nav-link nav-link--footer" href="/guide">Guide</a>
+        <a class="nav-link nav-link--footer" href="/companion">Companion</a>
+        <a class="nav-link nav-link--footer" href="/supplies">Supplies</a>
+        <a class="nav-link nav-link--footer" href="/ios">iOS</a>
+        <a class="nav-link nav-link--footer" href="/tablet">Tablet</a>
+        <a class="nav-link nav-link--footer" href="/map">Map</a>
+        <a class="nav-link nav-link--footer" href="/boat">Lane</a>
+        <a class="nav-link nav-link--footer" href="/clan">Clan</a>
+        <a class="nav-link nav-link--footer" href="/warriors">Warriors</a>
+        <a class="nav-link nav-link--footer" href="/alpha">Manual</a>
+        <a class="nav-link nav-link--footer" href="/blog">Report</a>
+        <a class="nav-link nav-link--footer" href="/stability">Stability</a>
+        <a class="nav-link nav-link--footer" href="https://github.com/SP-Q26/innsegall" rel="noopener noreferrer">Engine</a>
+        <a class="nav-link nav-link--footer" href="/tos">Terms</a>
+        <a class="nav-link nav-link--footer" href="/privacy">Privacy</a>
+        <a class="nav-link nav-link--footer" href="mailto:hello@innsegall.com">hello@</a>
       </nav>
     </footer>`;
 
@@ -246,14 +246,7 @@ function fixOg(html) {
 
 function replaceFooter(html) {
   if (!html.includes('class="site-footer"')) return html;
-  if (
-    html.includes('href="/warriors"') &&
-    html.includes("footer-note") &&
-    html.includes('href="/guide"') &&
-    html.includes('href="/stability"') &&
-    html.includes('href="/ios"') &&
-    html.includes("github.com/SP-Q26/innsegall")
-  ) {
+  if (html.includes('nav-link--footer') && html.includes('href="/boat">Lane</a>')) {
     return html;
   }
   return html.replace(/<footer class="site-footer">[\s\S]*?<\/footer>/, CANONICAL_FOOTER);

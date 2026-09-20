@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/** Competitor / lane gate · boat cargo + positioning surfaces. */
+/** Client-facing lane gate · /boat + public gospel surfaces. */
 import { readFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -19,36 +19,25 @@ function check(name, ok) {
 const boat = readFileSync(join(web, "boat.html"), "utf8");
 const index = readFileSync(join(web, "index.html"), "utf8");
 const llms = readFileSync(join(web, "llms.txt"), "utf8");
+const gospel = readFileSync(join(web, ".well-known", "innsegall-gospel.json"), "utf8");
 const nav = readFileSync(join(web, "innsegall-nav.js"), "utf8");
 
-const boatPlayers = [
-  "Bitdefender",
-  "Google / Reddit",
-  "Geek Squad",
-  "Offshore scareware",
-  "EtreCheck",
-  "VirusTotal",
-  "XProtect",
-  "Little Snitch",
-];
-for (const p of boatPlayers) {
-  check(`boat lists ${p}`, boat.includes(p));
-}
+check("boat client title", boat.includes("Is Innsegall for you?"));
+check("boat is / is not", boat.includes("Innsegall is not") && boat.includes("Innsegall is</h2>"));
+check("boat no war table", !boat.includes("Their weakness") && !boat.includes("Competitor map"));
+check("boat no endgame", !/Endgame/i.test(boat));
 
-check("boat cargo section", boat.includes("What we carry in the boat"));
-check("boat scout-for-you", boat.includes("no scout"));
-check("boat platform order", boat.includes("Platform order"));
-check("boat endgame", boat.includes("Endgame"));
+check("public gospel lane_guide", gospel.includes('"lane_guide"'));
+check("public gospel no competitor_boat", !gospel.includes("competitor_boat"));
 
-check("index field echoes", index.includes("read-only triage"));
-check("index decision layer", index.includes("decision layer"));
+check("llms client lane section", llms.includes("Our lane (client-facing)"));
+check("llms no platform order section", !llms.includes("## Platform order"));
+check("llms no mac lane absorption", !llms.includes("Mac lane absorption"));
 
-check("llms scout-for-you", llms.includes("Scout-for-you"));
-check("llms platform order", llms.includes("Platform order"));
-check("llms cargo", llms.includes("What we carry"));
+check("index read-only triage", index.includes("read-only"));
+check("index lane CTA", index.includes('href="/boat"') && !index.includes("Competitor map"));
 
 check("nav marketing_ping", nav.includes("marketing_ping"));
-check("llms mac lane absorption", llms.includes("Mac lane absorption"));
 
 console.log(failed ? `\n${failed} lane audit failure(s)` : "\nLane audit passed");
 process.exit(failed ? 1 : 0);

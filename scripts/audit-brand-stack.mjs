@@ -12,6 +12,7 @@ const childAudits = [
   "audit-claymore.mjs",
   "audit-operator-voice.mjs",
   "audit-lane.mjs",
+  "audit-client-facing.mjs",
   "audit-competitor-absorption.mjs",
   "audit-landing-unity.mjs",
 ];

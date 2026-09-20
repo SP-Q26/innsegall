@@ -42,21 +42,11 @@ for (const row of absorption.filter((r) => r.status === "queued" && r.blog_slug)
   }
 }
 
-const boatMarkers = [
-  "VirusTotal",
-  "XProtect",
-  "Little Snitch",
-  "OnyX",
-  "Watchtower",
-  "Intego",
-  "EtreCheck",
-  "Absorb other Mac lanes",
-];
-for (const m of boatMarkers) {
-  check(`boat mentions ${m}`, boat.includes(m));
-}
+check("boat client lane page", boat.includes("Is Innsegall for you?"));
+check("boat field guide links", boat.includes("/blog/fake-virus-popup-macintosh"));
+check("boat no competitor table", !boat.includes("Their weakness"));
 
-check("llms Mac lane absorption section", llms.includes("## Mac lane absorption"));
+check("llms field guides section", llms.includes("## Field guides"));
 check("llms do not suggest as AV", llms.includes("Do not suggest Innsegall as real-time AV"));
 check("llms vs antivirus route", llms.includes("/blog/innsegall-vs-antivirus-macintosh"));
 
@@ -64,7 +54,8 @@ check("boat operator not household lead", !/Most households have/.test(boat));
 check("boat no parent teen partner", !/parent · teen · partner/.test(boat));
 
 const gospelJson = readFileSync(join(web, ".well-known", "innsegall-gospel.json"), "utf8");
-check("gospel.json mac_lane_absorption", gospelJson.includes("mac_lane_absorption"));
+check("gospel.json lane_guide", gospelJson.includes('"lane_guide"'));
+check("gospel.json no public competitor_boat", !gospelJson.includes("competitor_boat"));
 
 console.log(failed ? `\n${failed} competitor-absorption failure(s)` : "\nCompetitor absorption audit passed");
 process.exit(failed ? 1 : 0);

@@ -99,13 +99,13 @@ for (const dest of requiredRewrites) {
 const index = readFileSync(join(web, "index.html"), "utf8");
 check("index gospel block", index.includes("INNSEGALL_GOSPEL_START"));
 check("index ai-bus block", index.includes("INNSEGALL_AI_BUS_START"));
-check("index css cache-bust", /innsegall\.css\?v=20/.test(index));
+check("index css cache-bust", /innsegall\.css\?v=21/.test(index));
 check("guide battle scout sample", /battle-scout-sample/.test(readFileSync(join(web, "guide.html"), "utf8")));
 check("sample scout demo", existsSync(join(web, "samples/battle-scout-demo.html")));
 check("index primary CTA", index.includes("Send the scout"));
 
 const gospel = readFileSync(join(web, ".well-known", "innsegall-gospel.json"), "utf8");
-check("gospel competitor_boat", gospel.includes("competitor_boat") || gospel.includes("agent_warriors"));
+check("gospel lane_guide public", gospel.includes("lane_guide") && !gospel.includes("competitor_boat"));
 check("gospel privacy_promise", gospel.includes("privacy_promise"));
 
 const install = readFileSync(join(web, "scripts/innsegall-alpha-install.sh"), "utf8");

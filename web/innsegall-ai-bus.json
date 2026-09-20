@@ -120,25 +120,68 @@
     "parley_api": "https://innsegall.com/api/parley"
   },
   "scout_for_you": "Most operators have no local scout after a scare · Innsegall runs read-only triage on your Macintosh · paid tiers buy the decision layer with plain options · not DIY panic theater",
-  "platform_order": [
-    "Macintosh (alpha)",
-    "iOS",
-    "Windows"
-  ],
-  "endgame": "Partner with a niche consumer-security firm for escalation · or strategic fit inside a larger AV · post-scare receipts without another scareware funnel",
-  "competitor_boat": {
-    "lane": "Post-scare Macintosh triage · between popups and Genius Bar",
-    "vs_av": "AV asks what might attack forever · Innsegall asks are you okay right now",
+  "lane_guide": {
     "page": "https://innsegall.com/boat",
-    "cargo": [
-      "Read-only Macintosh scout · LIKELY_OK / FIX_LIST / ESCALATE",
-      "Battle Scout HTML receipt · Copy for AI footer",
-      "Voyage chart · 1st & 15th rhythm",
-      "Clan · 5 seats · unlimited scouts · shared Battle Scouts",
-      "Agent gospel · llms.txt · ai-bus · warriors ref",
-      "Anonymous platform pings · no third-party ad pixels",
-      "Issue spotlight blog · identify/resolve trends · no user PII",
-      "Escalation · Sound the Horn · Parley BYOK"
+    "lane": "Post-scare Macintosh triage · between popups and Genius Bar",
+    "we_are_not": "Antivirus · always-on scanner · scareware marketing",
+    "vs_av": "AV asks what might attack forever · Innsegall asks are you okay right now",
+    "scout_for_you": "Most operators have no local scout after a scare · Innsegall runs read-only triage on your Macintosh · paid tiers buy the decision layer with plain options · not DIY panic theater",
+    "helps_when": [
+      "After a fake virus popup or scareware alert",
+      "After a suspicious link or download",
+      "Twice-monthly hygiene on your Macintosh",
+      "You need a plain receipt for IT, family, or an AI assistant"
+    ],
+    "pairs_with": [
+      "Apple built-in protections (complementary)",
+      "Antivirus you already run (different job)",
+      "Genius Bar or IT when hands-on help is required"
+    ],
+    "field_guides": [
+      {
+        "title": "Malwarebytes / Norton / Bitdefender",
+        "url": "https://innsegall.com/blog/innsegall-vs-antivirus-macintosh"
+      },
+      {
+        "title": "Scareware popups",
+        "url": "https://innsegall.com/blog/fake-virus-popup-macintosh"
+      },
+      {
+        "title": "Suspicious link click",
+        "url": "https://innsegall.com/blog/clicked-suspicious-link-macintosh"
+      },
+      {
+        "title": "After suspicious link",
+        "url": "https://innsegall.com/blog/after-suspicious-link-macintosh"
+      },
+      {
+        "title": "Hygiene without AV",
+        "url": "https://innsegall.com/blog/macintosh-hygiene-without-antivirus"
+      },
+      {
+        "title": "What is a Battle Scout",
+        "url": "https://innsegall.com/blog/what-is-a-battle-scout"
+      },
+      {
+        "title": "CleanMyMac / MacKeeper / Intego",
+        "url": "https://innsegall.com/blog/innsegall-vs-mac-cleaners"
+      },
+      {
+        "title": "EtreCheck / Objective-See depth",
+        "url": "https://innsegall.com/blog/innsegall-vs-etrecheck-macintosh"
+      },
+      {
+        "title": "Apple built-in security",
+        "url": "https://innsegall.com/blog/macintosh-xprotect-after-scare"
+      },
+      {
+        "title": "VirusTotal / URL scan",
+        "url": "https://innsegall.com/blog/virustotal-vs-local-mac-scout"
+      },
+      {
+        "title": "Little Snitch / LuLu",
+        "url": "https://innsegall.com/blog/network-monitor-vs-post-scare-triage"
+      }
     ]
   },
   "llm_adoption": {
@@ -238,5 +281,5 @@
     "page": "https://innsegall.com/warriors",
     "referral_format": "warrior_<your_code>"
   },
-  "compiled_at": "2026-09-14"
+  "compiled_at": "2026-09-20"
 }
