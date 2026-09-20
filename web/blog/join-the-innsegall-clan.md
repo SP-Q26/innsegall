@@ -44,10 +44,9 @@ If you are the person everyone texts when Safari acts weird, you are already **c
 
 ---
 
-## From the Field Desk · September 18, 2026
+## From the Field Desk · September 19, 2026
 
-- **Stripe checkout** goes live this weekend · panic scout **$4.20** · clan **$6.67/mo** (5 seats) · [Supplies](/supplies)
-- **Auto Voyage** · [First sail](/blog/auto-voyage-first-sail) · Battle Scout opens in the browser
-- **Companion** · [iPhone/iPad inbox](/companion) · import `innsegall-battle-scout-ai/v1`
-- **Threat brief** · [Field Glass · September](/blog/field-glass-sep-2026)
-- **Full note** · [Stripe live weekend](/blog/field-desk-stripe-live-sep-2026)
+- **Stripe live** this weekend · [Supplies](/supplies) · panic **$4.20** · clan **$6.67/mo** · [operator desk](/blog/field-desk-stripe-live-sep-2026)
+- **Field Glass update** · [Sep 19 brief](/blog/field-glass-sep-19-2026)
+- **Auto Voyage** · [First sail](/blog/auto-voyage-first-sail)
+- **Tip** · [Send the scout](/alpha) before subscription panic · [Our lane](/boat)

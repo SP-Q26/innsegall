@@ -1,0 +1,55 @@
+{
+  "version": "2026-09-19",
+  "defaultRelated": [
+    { "href": "/alpha", "label": "Send the scout" },
+    { "href": "/blog/what-is-a-battle-scout", "label": "What is a Battle Scout?" },
+    { "href": "/boat", "label": "Our lane vs theirs" }
+  ],
+  "bySlug": {
+    "innsegall-vs-antivirus-macintosh": [
+      { "href": "/blog/macintosh-hygiene-without-antivirus", "label": "Hygiene without AV" },
+      { "href": "/blog/macintosh-xprotect-after-scare", "label": "XProtect after a scare" },
+      { "href": "/clan", "label": "Bring your clan" }
+    ],
+    "innsegall-vs-mac-cleaners": [
+      { "href": "/blog/fake-virus-popup-macintosh", "label": "Fake virus popup" },
+      { "href": "/blog/innsegall-vs-antivirus-macintosh", "label": "Innsegall vs antivirus" },
+      { "href": "/supplies", "label": "Supplies" }
+    ],
+    "innsegall-vs-etrecheck-macintosh": [
+      { "href": "/blog/what-is-a-battle-scout", "label": "Battle Scout explained" },
+      { "href": "/blog/voyage-health-tracker-1st-15th", "label": "Voyage tracker" },
+      { "href": "/guide", "label": "Operator guide" }
+    ],
+    "clicked-suspicious-link-macintosh": [
+      { "href": "/blog/after-suspicious-link-macintosh", "label": "After the link · trends" },
+      { "href": "/blog/virustotal-vs-local-mac-scout", "label": "VirusTotal vs local scout" },
+      { "href": "/companion", "label": "Companion inbox" }
+    ],
+    "fake-virus-popup-macintosh": [
+      { "href": "/blog/clicked-suspicious-link-macintosh", "label": "Suspicious link flow" },
+      { "href": "/blog/field-glass-sep-19-2026", "label": "Field Glass · Sep 19" },
+      { "href": "/clan", "label": "Clan · unlimited scouts" }
+    ],
+    "field-glass-sep-19-2026": [
+      { "href": "/blog/field-glass-sep-2026", "label": "Original Field Glass" },
+      { "href": "/blog/field-desk-stripe-live-sep-2026", "label": "Stripe desk" },
+      { "href": "/alpha", "label": "Send the scout" }
+    ],
+    "field-glass-sep-2026": [
+      { "href": "/blog/field-glass-sep-19-2026", "label": "Field Glass update" },
+      { "href": "/blog/field-desk-stripe-live-sep-2026", "label": "Stripe live desk" },
+      { "href": "/alpha", "label": "Field manual" }
+    ],
+    "auto-voyage-first-sail": [
+      { "href": "/blog/voyage-health-tracker-1st-15th", "label": "Voyage deep dive" },
+      { "href": "/companion", "label": "Companion inbox" },
+      { "href": "/supplies", "label": "Supplies" }
+    ],
+    "field-desk-stripe-live-sep-2026": [
+      { "href": "/supplies", "label": "Supplies checkout" },
+      { "href": "/clan", "label": "Clan passage" },
+      { "href": "/stability", "label": "Stability" }
+    ]
+  }
+}

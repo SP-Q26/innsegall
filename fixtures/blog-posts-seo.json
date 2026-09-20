@@ -1,0 +1,68 @@
+{
+  "defaults": {
+    "image": "https://innsegall.com/og/innsegall-card.png",
+    "dateModified": "2026-09-19"
+  },
+  "posts": {
+    "after-suspicious-link-macintosh": {
+      "description": "After a suspicious link on Mac · anonymized scout trends · password and download flags counted · read-only triage · Battle Scout receipt · not antivirus."
+    },
+    "auto-voyage-first-sail": {
+      "description": "First automatic Innsegall Voyage on Mac · launchd · update check · Battle Scout in browser · calm rhythm after scare popups · not antivirus."
+    },
+    "clicked-suspicious-link-macintosh": {
+      "description": "Clicked a suspicious link on your Mac? Calm post-scare triage · read-only scout · LIKELY_OK or ESCALATE · Battle Scout for AI paste · not antivirus."
+    },
+    "fake-virus-popup-macintosh": {
+      "description": "Fake virus popup on your Macintosh · what it is · what not to do · local read-only scout · Battle Scout receipt · between popups and Genius Bar."
+    },
+    "field-desk-stripe-live-sep-2026": {
+      "description": "Innsegall Stripe checkout goes live · panic scout $4.20 · clan $6.67/mo · local Mac engine unchanged · Supplies lane · operator flip checklist."
+    },
+    "field-glass-sep-2026": {
+      "description": "September Macintosh threat brief · trojanized installers · Screen Sharing patch · Rust supply chain · ClickFix Terminal lures · calm Field Glass."
+    },
+    "field-glass-sep-19-2026": {
+      "description": "Field Glass update Sep 19 · Apple security wave · Rust maintainer scams · Stripe live weekend · three post-scare tips · Macintosh triage lane."
+    },
+    "field-report-2026-09-06": {
+      "description": "Anonymized Battle Scout digest · category counts only · no paths stored · Macintosh hygiene signals from the field · Innsegall Field Report."
+    },
+    "innsegall-ios-companion-i0": {
+      "description": "Innsegall iOS companion i0 · Mac runs the scout · import Battle Scout JSON on iPhone/iPad · Voyage reminders · honest spec · not antivirus."
+    },
+    "innsegall-vs-antivirus-macintosh": {
+      "description": "Innsegall vs antivirus on Macintosh · post-scare triage vs real-time scanning · Battle Scout receipt · complementary lanes · not a replacement AV."
+    },
+    "innsegall-vs-etrecheck-macintosh": {
+      "description": "Innsegall vs EtreCheck on Mac · plain triage after a scare vs deep diagnostic export · Battle Scout · when each tool fits · not antivirus."
+    },
+    "innsegall-vs-mac-cleaners": {
+      "description": "Innsegall vs Mac cleaners · evidence and Battle Scout vs one-click erase · read-only triage on Macintosh · anti-scareware · not destructive clean."
+    },
+    "join-the-innsegall-clan": {
+      "description": "Join the Innsegall clan · five Mac seats · unlimited scouts · shared Battle Scouts · autopilot Voyages · $6.67/mo · household post-scare protection."
+    },
+    "macintosh-hygiene-without-antivirus": {
+      "description": "Macintosh hygiene without another AV subscription · scheduled Voyage · read-only checks · Battle Scout chart · calm rhythm · not real-time scanning."
+    },
+    "macintosh-xprotect-after-scare": {
+      "description": "Apple XProtect and Gatekeeper after a scare popup · built-in blocks plus a local Battle Scout receipt · complementary triage · not antivirus replacement."
+    },
+    "network-monitor-vs-post-scare-triage": {
+      "description": "Little Snitch and LuLu vs post-scare Mac triage · monitors watch forever · Innsegall answers am I okay now · read-only Battle Scout · not antivirus."
+    },
+    "stale-launch-items-macintosh": {
+      "description": "Stale launch items on Macintosh · what anonymized scouts see · broken helpers and vendor leftovers · category counts · read-only triage · Field Report."
+    },
+    "virustotal-vs-local-mac-scout": {
+      "description": "VirusTotal vs a local Mac scout after a link scare · URL reputation then read-only evidence · Battle Scout paste for AI · not antivirus · Innsegall lane."
+    },
+    "voyage-health-tracker-1st-15th": {
+      "description": "Voyage health tracker on the 1st and 15th · free Macintosh hygiene rhythm · Battle Scout chart · launchd autopilot · read-only triage · not antivirus."
+    },
+    "what-is-a-battle-scout": {
+      "description": "What is a Battle Scout? Innsegall scout report for Macintosh · LIKELY_OK FIX_LIST ESCALATE · read-only triage artifact · Sound the Horn · not antivirus."
+    }
+  }
+}

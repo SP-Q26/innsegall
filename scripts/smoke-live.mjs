@@ -33,6 +33,7 @@ const PATHS = [
   "/companion.webmanifest",
   "/innsegall-companion.js",
   "/lib/companion-core.mjs",
+  "/blog/field-glass-sep-19-2026",
   "/blog/field-desk-stripe-live-sep-2026",
   "/blog/auto-voyage-first-sail",
   "/supplies",

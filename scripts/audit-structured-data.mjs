@@ -54,6 +54,8 @@ for (const file of readdirSync(blogDir)) {
   if (article) {
     check(`blog/${slug} headline`, typeof article.headline === "string" && article.headline.length > 5);
     check(`blog/${slug} url`, String(article.url || "").includes(slug));
+    check(`blog/${slug} image`, Boolean(article.image));
+    check(`blog/${slug} dateModified`, Boolean(article.dateModified));
   }
 }
 
