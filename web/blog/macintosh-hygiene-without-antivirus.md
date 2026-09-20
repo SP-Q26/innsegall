@@ -123,3 +123,13 @@ You do not need a dozen enemies. You need a scout who returns from the fog with 
 · **Innsegall** · [innsegall.com](https://innsegall.com)
 
 **Canonical URL:** `https://innsegall.com/blog/macintosh-hygiene-without-antivirus`
+
+---
+
+## From the Field Desk · September 18, 2026
+
+- **Stripe checkout** goes live this weekend · panic scout **$4.20** · clan **$6.67/mo** (5 seats) · [Supplies](/supplies)
+- **Auto Voyage** · [First sail](/blog/auto-voyage-first-sail) · Battle Scout opens in the browser
+- **Companion** · [iPhone/iPad inbox](/companion) · import `innsegall-battle-scout-ai/v1`
+- **Threat brief** · [Field Glass · September](/blog/field-glass-sep-2026)
+- **Full note** · [Stripe live weekend](/blog/field-desk-stripe-live-sep-2026)

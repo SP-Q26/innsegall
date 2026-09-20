@@ -46,3 +46,13 @@ Across **1** anonymized identify/resolve signal for this issue pattern:
 - Battle Scout stays on your Mac until you share it.
 - We publish **trend counts** · never your filenames or browsing history.
 [Send the scout](https://innsegall.com/alpha) · [Field Report](https://innsegall.com/blog) · [Privacy](https://innsegall.com/privacy)
+
+---
+
+## From the Field Desk · September 18, 2026
+
+- **Stripe checkout** goes live this weekend · panic scout **$4.20** · clan **$6.67/mo** (5 seats) · [Supplies](/supplies)
+- **Auto Voyage** · [First sail](/blog/auto-voyage-first-sail) · Battle Scout opens in the browser
+- **Companion** · [iPhone/iPad inbox](/companion) · import `innsegall-battle-scout-ai/v1`
+- **Threat brief** · [Field Glass · September](/blog/field-glass-sep-2026)
+- **Full note** · [Stripe live weekend](/blog/field-desk-stripe-live-sep-2026)

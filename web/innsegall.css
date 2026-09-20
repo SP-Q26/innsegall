@@ -1715,6 +1715,29 @@ button.innsegall-checkout:disabled {
   opacity: 0.65;
 }
 
+.blog-field-desk {
+  margin: 0 0 var(--space-6);
+  padding: var(--space-4) var(--space-5);
+  border: 1px solid rgba(244, 201, 93, 0.22);
+  border-radius: 10px;
+  background: rgba(18, 42, 66, 0.55);
+}
+
+.blog-field-desk ul {
+  margin: 0.75rem 0 0;
+  padding-left: 1.15rem;
+  line-height: 1.55;
+}
+
+.blog-field-desk li {
+  margin-bottom: 0.5rem;
+}
+
+.blog-field-desk-more {
+  margin: var(--space-4) 0 0;
+  font-size: 0.92rem;
+}
+
 .blog-prose blockquote {
   border-left: 3px solid rgba(244, 201, 93, 0.55);
   padding-left: 1rem;

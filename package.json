@@ -39,6 +39,7 @@
     "export:sample-scout": "node scripts/export-sample-scout.mjs",
     "export:og-png": "node scripts/export-og-png.mjs",
     "sync:blog-brand": "node scripts/sync-blog-brand.mjs",
+    "sync:blog-field-desk": "node scripts/sync-blog-field-desk.mjs",
     "sync:blog-cta": "node scripts/sync-blog-cta.mjs",
     "audit:blog-funnel": "node scripts/audit-blog-funnel.mjs",
     "audit:structured-data": "node scripts/audit-structured-data.mjs",

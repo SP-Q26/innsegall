@@ -6,7 +6,11 @@ import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
-const web = join(dirname(fileURLToPath(import.meta.url)), "..", "web", "blog");
+const root = join(dirname(fileURLToPath(import.meta.url)), "..");
+const web = join(root, "web", "blog");
+const desk = JSON.parse(
+  readFileSync(join(root, "fixtures", "blog-field-desk.json"), "utf8")
+);
 let failed = 0;
 
 function check(name, ok) {
@@ -35,6 +39,12 @@ for (const file of posts) {
   check(`${rel} canonical`, html.includes(`https://innsegall.com/blog/${slug}`));
   check(`${rel} alpha CTA`, html.includes('href="/alpha"'));
   check(`${rel} blog-cta-strip`, html.includes("blog-cta-strip"));
+  if (!desk.skip_slugs?.includes(slug)) {
+    check(
+      `${rel} field desk v${desk.version}`,
+      html.includes(`data-field-desk-version="${desk.version}"`)
+    );
+  }
   check(
     `${rel} lane phrase`,
     /read-only triage|post-scare|not antivirus/i.test(html)

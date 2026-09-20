@@ -121,3 +121,13 @@ The tired Norseman on the mist road sends a scout ahead so you do not swing the 
 · **Innsegall** · [innsegall.com](https://innsegall.com)
 
 **Canonical URL:** `https://innsegall.com/blog/clicked-suspicious-link-macintosh`
+
+---
+
+## From the Field Desk · September 18, 2026
+
+- **Stripe checkout** goes live this weekend · panic scout **$4.20** · clan **$6.67/mo** (5 seats) · [Supplies](/supplies)
+- **Auto Voyage** · [First sail](/blog/auto-voyage-first-sail) · Battle Scout opens in the browser
+- **Companion** · [iPhone/iPad inbox](/companion) · import `innsegall-battle-scout-ai/v1`
+- **Threat brief** · [Field Glass · September](/blog/field-glass-sep-2026)
+- **Full note** · [Stripe live weekend](/blog/field-desk-stripe-live-sep-2026)

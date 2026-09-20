@@ -1,6 +1,6 @@
 # Stripe LIVE flip · T-minus gate
 
-**When:** After `npm run gate:launch` is **0 fail** on test mode.
+**When:** After `npm run gate:launch` is **0 fail** on test mode. **Target:** live checkout weekend of **September 20–21, 2026** (Field Desk · [blog](https://innsegall.com/blog/field-desk-stripe-live-sep-2026)).
 
 **Order:** Stripe Dashboard → Vercel Production env → redeploy → one real $4.20 → flip checklist below.
 
