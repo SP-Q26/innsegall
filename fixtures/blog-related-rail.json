@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-19",
+  "version": "2026-09-22",
   "defaultRelated": [
     { "href": "/alpha", "label": "Send the scout" },
     { "href": "/blog/what-is-a-battle-scout", "label": "What is a Battle Scout?" },
@@ -28,16 +28,32 @@
     ],
     "fake-virus-popup-macintosh": [
       { "href": "/blog/clicked-suspicious-link-macintosh", "label": "Suspicious link flow" },
-      { "href": "/blog/field-glass-sep-19-2026", "label": "Field Glass · Sep 19" },
+      { "href": "/blog/field-glass-sep-22-2026", "label": "Field Glass · Sep 22" },
       { "href": "/clan", "label": "Clan · unlimited scouts" }
     ],
-    "field-glass-sep-19-2026": [
-      { "href": "/blog/field-glass-sep-2026", "label": "Original Field Glass" },
-      { "href": "/blog/field-desk-stripe-live-sep-2026", "label": "Stripe desk" },
+    "field-glass-sep-22-2026": [
+      { "href": "/blog/knockknock-vs-post-scare-triage", "label": "KnockKnock vs triage" },
+      { "href": "/blog/fake-virus-popup-macintosh", "label": "Fake virus popup" },
       { "href": "/alpha", "label": "Send the scout" }
     ],
+    "field-glass-sep-19-2026": [
+      { "href": "/blog/field-glass-sep-22-2026", "label": "Field Glass · Sep 22" },
+      { "href": "/blog/field-glass-sep-2026", "label": "Original Field Glass" },
+      { "href": "/blog/field-desk-stripe-live-sep-2026", "label": "Stripe desk" }
+    ],
+    "knockknock-vs-post-scare-triage": [
+      { "href": "/blog/blockblock-vs-post-scare-triage", "label": "BlockBlock vs triage" },
+      { "href": "/blog/stale-launch-items-macintosh", "label": "Stale launch items" },
+      { "href": "/boat", "label": "Our lane" }
+    ],
+    "blockblock-vs-post-scare-triage": [
+      { "href": "/blog/knockknock-vs-post-scare-triage", "label": "KnockKnock vs triage" },
+      { "href": "/blog/macintosh-xprotect-after-scare", "label": "XProtect after scare" },
+      { "href": "/boat", "label": "Our lane" }
+    ],
     "field-glass-sep-2026": [
-      { "href": "/blog/field-glass-sep-19-2026", "label": "Field Glass update" },
+      { "href": "/blog/field-glass-sep-22-2026", "label": "Field Glass · Sep 22" },
+      { "href": "/blog/field-glass-sep-19-2026", "label": "Sep 19 update" },
       { "href": "/blog/field-desk-stripe-live-sep-2026", "label": "Stripe live desk" },
       { "href": "/alpha", "label": "Field manual" }
     ],

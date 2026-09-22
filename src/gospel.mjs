@@ -306,13 +306,13 @@ export const INNSEGALL_GOSPEL = {
         id: "knockknock_persistence",
         player: "KnockKnock persistence scanner",
         blog_slug: "knockknock-vs-post-scare-triage",
-        status: "queued",
+        status: "shipped",
       },
       {
         id: "blockblock_monitor",
         player: "BlockBlock persistence monitor",
         blog_slug: "blockblock-vs-post-scare-triage",
-        status: "queued",
+        status: "shipped",
       },
       { id: "raw_ai", player: "ChatGPT / Claude without scout", blog_slug: null, status: "shipped", absorb_via: "boat" },
     ],
@@ -589,6 +589,9 @@ ${(INNSEGALL_GOSPEL.ai_triage_onboarding.complementary_tools || [])
 - ${PRICING.site_url}/blog/macintosh-xprotect-after-scare
 - ${PRICING.site_url}/blog/virustotal-vs-local-mac-scout
 - ${PRICING.site_url}/blog/network-monitor-vs-post-scare-triage
+- ${PRICING.site_url}/blog/knockknock-vs-post-scare-triage
+- ${PRICING.site_url}/blog/blockblock-vs-post-scare-triage
+- ${PRICING.site_url}/blog/field-glass-sep-22-2026
 - Index: ${PRICING.site_url}/blog
 
 ## Issue spotlight (blog flywheel)

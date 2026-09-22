@@ -6,25 +6,34 @@
 
 ## Status
 
-- Formula template: `packaging/homebrew/innsegall.rb`
-- **Not yet** in `homebrew-core` · use a personal tap until tagged releases are routine.
+- Formula: `packaging/homebrew/innsegall.rb`
+- Tap layout (publish to GitHub): `packaging/homebrew-tap/` · refresh with `npm run sync:homebrew-tap`
+- **Not** in `homebrew-core` · personal tap until tagged releases are routine.
 
 ---
 
 ## Personal tap (fastest path)
 
+**Maintainer · publish tap repo `SP-Q26/homebrew-innsegall`:**
+
 ```bash
-# On your machine (maintainer)
-brew tap-new SP-Q26/innsegall
-cp packaging/homebrew/innsegall.rb "$(brew --repository SP-Q26/innsegall)/Formula/innsegall.rb"
-brew install SP-Q26/innsegall/innsegall
+cd innsegall
+npm run sync:homebrew-tap
+# Copy packaging/homebrew-tap/* into SP-Q26/homebrew-innsegall (Formula/ + README) · push main
 ```
 
-Publish tap repo on GitHub · users run:
+**Users:**
 
 ```bash
 brew tap SP-Q26/innsegall
 brew install innsegall
+innsegall runes
+```
+
+Local smoke before push:
+
+```bash
+brew install ./packaging/homebrew-tap/Formula/innsegall.rb
 ```
 
 ---

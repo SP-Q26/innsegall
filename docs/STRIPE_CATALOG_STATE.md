@@ -1,6 +1,8 @@
 # Stripe catalog state · operator truth
 
-**Last synced:** 2026-09-10 · via Stripe MCP on **The Isles LLC** accounts.
+**Entity canon:** `docs/ISLES_PORTFOLIO.md` · **The Isles LLC** + **DBA per product** (Innsegall first). **LLC not filed yet** · **no live Isles customers** · Stripe may run as individual/sole prop until filing. Split product LLC when **~$800/mo** or **~$3–4k/year** per lane says risk is worth it. **MMI Stripe stays separate** (WWLuxe / events).
+
+**Last synced:** 2026-09-10 · via Stripe MCP on **The Isles LLC** accounts (target when Isles is live).
 
 Canonical amounts and metadata live in `web/lib/stripe-catalog.mjs`. Price IDs below are **not secrets** · still set them in Vercel env so Checkout matches Dashboard receipts.
 

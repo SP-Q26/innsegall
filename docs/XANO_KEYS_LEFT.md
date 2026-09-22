@@ -87,6 +87,16 @@ npm run smoke:xano -- --base=https://innsegall.com
 
 **502 quick diagnose:** `npm run diagnose:xano` (from `innsegall/`).
 
+### Wire health (nothing wrong when this passes)
+
+| Symptom | Cause | Fix |
+|---------|--------|-----|
+| Prod **502** + `workspace no longer exists` | Old `XANO_EVENTS_URL` pointed at a deleted Xano workspace | Set URL to live `innsegall_ops` group · redeploy Vercel |
+| Prod **502** + `xano_key_mismatch` | `XANO_API_KEY` ≠ Xano env `sk_live_innsegall_ops_` | Match values · turn off JWT on route |
+| Prod **202** + `forwarded: true` | **Healthy** · events land in `innsegall_events` | Run funnel SQL in `PLATFORM_TRACKING.md` |
+
+Historical note: brief **502**s before the URL/key fix did **not** break the site · telemetry failed silently from the browser’s perspective (install/checkout still worked).
+
 ---
 
 ## Repo already wired

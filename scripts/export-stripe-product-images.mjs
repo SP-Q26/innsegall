@@ -2,12 +2,13 @@
 /**
  * Rasterize web/stripe/*.svg → 512×512 PNG for Stripe product images.
  */
-import { readFileSync, writeFileSync, statSync, readdirSync } from "node:fs";
+import { readFileSync, writeFileSync, statSync, readdirSync, mkdirSync, copyFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const stripeDir = join(root, "web/stripe");
+const uploadDir = join(root, "docs/stripe/upload-for-stripe");
 
 let resvg;
 try {
@@ -17,20 +18,24 @@ try {
   process.exit(1);
 }
 
-const svgs = readdirSync(stripeDir).filter((f) => f.endsWith(".svg"));
+const svgs = readdirSync(stripeDir).filter((f) => f.endsWith(".svg") && !f.startsWith("_"));
 if (!svgs.length) {
   console.error("No SVG files in web/stripe/");
   process.exit(1);
 }
 
+mkdirSync(uploadDir, { recursive: true });
+
 for (const file of svgs) {
   const svgPath = join(stripeDir, file);
-  const pngPath = join(stripeDir, file.replace(/\.svg$/, ".png"));
+  const base = file.replace(/\.svg$/, ".png");
+  const pngPath = join(stripeDir, base);
   const svg = readFileSync(svgPath, "utf8");
   const renderer = new resvg.Resvg(svg, { fitTo: { mode: "width", value: 512 } });
   const pngBuffer = renderer.render().asPng();
   writeFileSync(pngPath, pngBuffer);
+  copyFileSync(pngPath, join(uploadDir, base));
   const kb = Math.round(statSync(pngPath).size / 1024);
-  console.log(`ok ${file} → ${file.replace(/\.svg$/, ".png")} (${kb} KB)`);
+  console.log(`ok ${file} → ${base} (${kb} KB)`);
 }
 console.log("export-stripe-product-images OK");

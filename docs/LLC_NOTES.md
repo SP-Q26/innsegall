@@ -1,5 +1,7 @@
 # LLC state · Delaware vs Wyoming (not legal advice)
 
+**Portfolio context:** See **`docs/ISLES_PORTFOLIO.md`** · Isles LLC + DBAs for micro-niche apps · spin-out when revenue/risk tripwire hits.
+
 **Short answer for Innsegall today:** If you're **solo, bootstrapping, not raising VC in the next 12 months**, **Wyoming** or your **home state** usually beats Delaware. If you're **raising institutional money soon**, talk to a lawyer about **Delaware C-Corp**, not an LLC.
 
 Consult a CPA or attorney licensed in your state before filing. Stripe does not require an LLC to go live.
@@ -40,10 +42,10 @@ Consult a CPA or attorney licensed in your state before filing. Stripe does not 
 
 ---
 
-## Practical path for Innsegall
+## Practical path for Innsegall (under Isles)
 
-1. **Stripe tonight:** Start as **individual** or existing entity · add LLC later in Stripe Settings → Business details.
-2. **LLC this week:** If no VC plan → **Wyoming LLC** *or* **home state** (simplest compliance if you only work from one state).
+1. **Stripe:** Start as **individual + DBA Innsegall** or **Isles LLC** when filed · update Stripe Settings → Business details.
+2. **LLC:** File **The Isles LLC** at portfolio tripwire (**~$800/mo** or **~$3–4k/year** across lanes), not panic-day-one · **Wyoming** *or* **home state** if no VC plan.
 3. **EIN:** Free from IRS after LLC approval · needed for business bank account.
 4. **Bank:** Mercury/Brex/etc. · connect to Stripe.
 

@@ -22,6 +22,8 @@ const pkg = JSON.parse(readFileSync(join(root, "package.json"), "utf8"));
 const formula = readFileSync(join(root, "packaging", "homebrew", "innsegall.rb"), "utf8");
 const doc = readFileSync(join(root, "docs", "HOMEBREW.md"), "utf8");
 
+const tapFormula = join(root, "packaging", "homebrew-tap", "Formula", "innsegall.rb");
+check("tap layout formula", existsSync(tapFormula));
 check("formula exists", formula.includes("class Innsegall"));
 check("formula node@20", formula.includes("node@20"));
 check("formula homepage", formula.includes("innsegall.com"));
@@ -33,4 +35,5 @@ if (failed) {
   console.error(`\n${failed} homebrew audit failure(s)`);
   process.exit(1);
 }
-console.log("\nHomebrew audit passed · formula ready · tap publish is operator (T11)");
+check("sync:homebrew-tap script", existsSync(join(root, "scripts", "sync-homebrew-tap.mjs")));
+console.log("\nHomebrew audit passed · tap layout ready · publish SP-Q26/homebrew-innsegall (T11)");

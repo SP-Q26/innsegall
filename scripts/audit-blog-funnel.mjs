@@ -25,7 +25,8 @@ function isComparisonPost(slug) {
   return (
     slug.includes("innsegall-vs-") ||
     slug.includes("virustotal") ||
-    slug.includes("network-monitor")
+    slug.includes("network-monitor") ||
+    slug.includes("-vs-post-scare-triage")
   );
 }
 

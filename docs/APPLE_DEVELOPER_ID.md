@@ -10,6 +10,8 @@
 
 ### Three surfaces · one Apple account (The Isles LLC)
 
+**Bundle map:** [`docs/isles/APPLE_BUNDLE_MAP.md`](./isles/APPLE_BUNDLE_MAP.md) · Innsegall + Simple Property on one enrollment.
+
 Brand is aligned sitewide (**Macintosh clan · family · iPad & iOS**). What $99/yr unlocks vs what still needs build work:
 
 | Surface | Works today (no Apple) | Unlocks with Developer Program | Still required after enroll |

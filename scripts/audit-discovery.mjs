@@ -23,6 +23,7 @@ check("CHANGELOG.md", existsSync(join(root, "CHANGELOG.md")));
 check("CODE_OF_CONDUCT.md", existsSync(join(root, "CODE_OF_CONDUCT.md")));
 check("docs/STABILITY.md", existsSync(join(root, "docs/STABILITY.md")));
 check("docs/DISTRIBUTION_PLAYBOOK.md", existsSync(join(root, "docs/DISTRIBUTION_PLAYBOOK.md")));
+check("docs/ISLES_PORTFOLIO.md", existsSync(join(root, "docs/ISLES_PORTFOLIO.md")));
 check("docs/HOMEBREW.md", existsSync(join(root, "docs/HOMEBREW.md")));
 check("docs/APPLE_DEVELOPER_ID.md", existsSync(join(root, "docs/APPLE_DEVELOPER_ID.md")));
 check("packaging/homebrew/innsegall.rb", existsSync(join(root, "packaging/homebrew/innsegall.rb")));

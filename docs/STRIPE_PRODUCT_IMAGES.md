@@ -4,12 +4,15 @@ Stripe **Product** objects show an image in hosted Checkout and the Dashboard. I
 
 ## Assets
 
+WWLuxe-style tiles: **512×512**, `rx="72"` fjord field, gold/aurora rings, **icon-only** (no checkout label text).
+
 | File | Purpose |
 |------|---------|
-| `web/stripe/extra.svg` | Source · Extra scout icon |
-| `web/stripe/clan.svg` | Source · Clan icon |
-| `web/stripe/msp.svg` | Source · MSP icon |
+| `web/stripe/extra.svg` | Source · horn / scout beam |
+| `web/stripe/clan.svg` | Source · three-seat clan rings |
+| `web/stripe/msp.svg` | Source · roster grid |
 | `web/stripe/*.png` | Rasterized 512×512 · committed · served statically |
+| `docs/stripe/upload-for-stripe/*.png` | Dashboard upload copies (same PNGs) |
 
 Canonical paths and product IDs: `web/lib/stripe-catalog.mjs` (`checkout_image` + `stripeProductImageUrl()`).
 

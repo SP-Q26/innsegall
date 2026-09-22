@@ -3,7 +3,7 @@
  * Voice: Vinland Saga meets Braveheart · weary road, not grimdark.
  */
 import { PRICING } from "./constants.mjs";
-import { nextVoyageDate, VOYAGE_DAYS } from "./quota.mjs";
+import { checkScoutQuota, nextVoyageDate } from "./quota.mjs";
 import { formatPassageUpsellTerminal } from "./passage-cta.mjs";
 
 const supports =
@@ -135,7 +135,7 @@ export function printPlanStatus(status) {
     ["Oath", status.plan],
     ["Moon", status.month],
     ["Scouts sent", `${status.scouts_used} / ${status.scouts_limit}`],
-    ["Voyages sailed", (status.voyage_completed || []).join(", ") || "none"],
+    ["Voyage slots", (status.voyage_completed || []).join(", ") || "none"],
     ["Horn credits", String(status.extra_credits_remaining)],
     ["Next voyage", status.next_voyage],
     [
@@ -147,21 +147,32 @@ export function printPlanStatus(status) {
     console.log(`  ${paint(ansi.gold, k.padEnd(16))} ${v}`);
   }
   const credits = status.extra_credits_remaining ?? 0;
-  const voyageCount = (status.voyage_completed || []).length;
-  const canRunFree =
-    !status.welcome_scout_redeemed || voyageCount < VOYAGE_DAYS.length;
+  const gate = checkScoutQuota({});
   console.log("");
   if (credits > 0) {
     console.log(paint(ansi.beam, "Horn credits ready · innsegall run"));
-  } else if (!canRunFree && status.plan === "free") {
+  } else if (gate.allowed) {
+    console.log(paint(ansi.beam, "Send the scout · innsegall run"));
+  } else if (gate.reason === "off_voyage_day") {
+    console.log(
+      paint(
+        ansi.ember,
+        `Off voyage day · free scouts sail the 1st & 15th · next voyage ${status.next_voyage}`
+      )
+    );
+    console.log(
+      paint(
+        ansi.dim,
+        `Panic · open "${PRICING.site_url}/?buy=extra" · import license · innsegall run`
+      )
+    );
+  } else {
     console.log(
       paint(
         ansi.ember,
         `Quota full until next voyage · panic: open "${PRICING.site_url}/?buy=extra"`
       )
     );
-  } else {
-    console.log(paint(ansi.beam, "Send the scout · innsegall run"));
   }
   console.log(
     paint(ansi.dim, `Passage · ${PRICING.site_url}/#pricing · War-band · ${PRICING.site_url}/warriors`)

@@ -110,4 +110,4 @@ flowchart TD
 - Swarm rough: [`PHASE_8_SWARM_PLAN.md`](./PHASE_8_SWARM_PLAN.md)  
 - Meta-audit: [`PHASE_8_PLAN_AUDIT.md`](./PHASE_8_PLAN_AUDIT.md)
 
-*Innsegall only · separate entity and Stripe.*
+*Innsegall · Isles + DBA · `docs/ISLES_PORTFOLIO.md`.*

@@ -16,6 +16,7 @@ const childAudits = [
   "audit-competitor-absorption.mjs",
   "audit-competitor-objective-see.mjs",
   "audit-landing-unity.mjs",
+  "audit-blog-quality.mjs",
 ];
 
 let failed = 0;

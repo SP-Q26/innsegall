@@ -57,6 +57,8 @@ check("INSTALL_WITHOUT_SIGNED_ZIP doc", existsSync(join(root, "docs", "INSTALL_W
 check("L5_OPERATOR_RUNBOOK doc", existsSync(join(root, "docs", "L5_OPERATOR_RUNBOOK.md")));
 check("alpha documents unsigned zip defer", alpha.includes("gatekeeper") || alpha.includes("Terminal"));
 check("install.html page", existsSync(join(web, "install.html")));
+const installPage = readFileSync(join(web, "install.html"), "utf8");
+check("install.html homebrew tap", installPage.includes("brew tap SP-Q26/innsegall"));
 check("vercel /install rewrite", readFileSync(join(web, "vercel.json"), "utf8").includes('"/install"'));
 check("macos installer template", existsSync(join(root, "packaging/macos/app-template/Contents/MacOS/install")));
 check("build-macos-installer script", existsSync(join(root, "scripts", "build-macos-installer-app.sh")));

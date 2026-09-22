@@ -41,4 +41,4 @@ Apple Developer Program · notarized zip · `smoke:live` signed line **ok** · s
 
 ---
 
-*Innsegall only · separate entity and Stripe from other products.*
+*Innsegall · Isles portfolio · `docs/ISLES_PORTFOLIO.md`.*
