@@ -36,6 +36,13 @@ check("checkout clan amount 667", checkout.includes("667") || checkout.includes(
 check("checkout msp sku", checkout.includes('"msp"') && checkout.includes("STRIPE_PRICE_MSP_SEAT"));
 check("checkout warrior_ref metadata", checkout.includes("warrior_ref"));
 check("checkout subscription mode", checkout.includes('"subscription"'));
+check("checkout isles branding", checkout.includes("branding_settings"));
+check(
+  "checkout isles metadata",
+  checkout.includes("islesMetadataFromCatalog") || checkout.includes("isles_brand")
+);
+check("checkout statement suffix", checkout.includes("statement_descriptor_suffix"));
+check("isles portfolio products module", existsSync(join(web, "lib/isles-portfolio-products.mjs")));
 check("webhook raw body parser off", webhook.includes("bodyParser: false"));
 check("webhook checkout.session.completed", webhook.includes("checkout.session.completed"));
 check("webhook subscription events", webhook.includes("customer.subscription.updated"));
@@ -63,6 +70,8 @@ check("STRIPE_MSP_PACK doc", existsSync(join(root, "docs/STRIPE_MSP_PACK.md")));
 check("STRIPE_CATALOG_STATE doc", existsSync(join(root, "docs/STRIPE_CATALOG_STATE.md")));
 check("catalog msp test_price_id set", Boolean(STRIPE_CATALOG.msp.test_price_id));
 check("sync-stripe-product-images script", existsSync(join(root, "scripts/sync-stripe-product-images.mjs")));
+check("provision-stripe-catalog script", existsSync(join(root, "scripts/provision-stripe-catalog.mjs")));
+check("STRIPE_DEEP_AUDIT doc", existsSync(join(root, "docs/STRIPE_DEEP_AUDIT_2026-09-22.md")));
 for (const key of Object.keys(STRIPE_CATALOG)) {
   check(`catalog ${key} checkout_image`, Boolean(stripeProductImageUrl(key)));
 }

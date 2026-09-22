@@ -1,57 +1,39 @@
 # Stripe catalog state · operator truth
 
-**Entity canon:** `docs/ISLES_PORTFOLIO.md` · **The Isles LLC** + **DBA per product** (Innsegall first). **LLC not filed yet** · **no live Isles customers** · Stripe may run as individual/sole prop until filing. Split product LLC when **~$800/mo** or **~$3–4k/year** per lane says risk is worth it. **MMI Stripe stays separate** (WWLuxe / events).
+**Entity (Stripe):** **The Isles Collective** · receipts **Isles Co** · Innsegall as product DBA on line items.  
+**Portfolio canon:** `docs/ISLES_PORTFOLIO.md` · metadata `docs/isles/STRIPE_METADATA.md`.  
+**Deep audit:** `docs/STRIPE_DEEP_AUDIT_2026-09-22.md` (live duplicate products · MCP test gap).
 
-**Last synced:** 2026-09-10 · via Stripe MCP on **The Isles LLC** accounts (target when Isles is live).
-
-Canonical amounts and metadata live in `web/lib/stripe-catalog.mjs`. Price IDs below are **not secrets** · still set them in Vercel env so Checkout matches Dashboard receipts.
+Canonical amounts and metadata live in `web/lib/stripe-catalog.mjs`. Price IDs are **not secrets** · set in Vercel so Checkout matches Dashboard.
 
 ---
 
 ## Accounts
 
-| Mode | Account | Stripe ID |
-|------|---------|-----------|
-| Test / sandbox | The Isles LLC sandbox | `acct_1UCtB2F5SRiYwzwF` |
-| Live | The Isles LLC | `acct_1UCtAeFDJKTJlxOc` |
+| Mode | Dashboard name | Stripe ID |
+|------|----------------|-----------|
+| Test / sandbox | The Isles Collective (test mode) | `acct_1UCtB2F5SRiYwzwF` *(historical doc ID · confirm in Dashboard)* |
+| Live | The Isles Collective | `acct_1UCtAeFDJKTJlxOc` |
+
+**Cursor Stripe MCP (2026-09-22):** only **live** `acct_1UCtAeFDJKTJlxOc` exposed · reconnect plugin for test sandbox reads.
 
 ---
 
-## Test mode (sandbox)
-
-| SKU | Product | Price | Lookup key | Amount |
-|-----|---------|-------|------------|--------|
-| `extra` | `prod_VDK62giZUcpP6x` | `price_1UCtSDF5SRiYwzwFcmVYwqvf` | `innsegall_extra` | $4.20 one-time |
-| `clan` | `prod_VDKPAidRCPD8vW` | `price_1UCtknF5SRiYwzwFMhZXP1q2` | `innsegall_clan` | $6.67/mo |
-| `msp` | `prod_VEoW9HK9Jun9It` | `price_1UEKt7F5SRiYwzwFEgfNLWJw` | `innsegall_msp_seat` | $3.00/seat/mo |
-
-**Webhook (test):** `we_1UCuYlF5SRiYwzwF20nJM9fT` → `https://innsegall.com/api/stripe/webhook`  
-Events: `checkout.session.completed` · `customer.subscription.updated` · `customer.subscription.deleted` · `invoice.paid`
-
-**Vercel (test / Preview):** paste `docs/STRIPE_PRICE_IDS.md` block including `STRIPE_PRICE_MSP_SEAT=price_1UEKt7F5SRiYwzwFEgfNLWJw`.
-
----
-
-## Live mode (created · webhook pending)
+## Live mode · canonical (use in Vercel Production)
 
 | SKU | Product | Price | Lookup key | Amount |
 |-----|---------|-------|------------|--------|
 | `extra` | `prod_VEoWuOFwUVENSz` | `price_1UEKtpFDJKTJlxOcJn43NZI2` | `innsegall_extra` | $4.20 one-time |
-| `clan` | `prod_VEoXxxCbhp5UBE` | `price_1UEKu4FDJKTJlxOcooxy8Zv5` | `innsegall_clan` *(set in Dashboard if missing)* | $6.67/mo |
-| `msp` | `prod_VEoX9hJDYQTlck` | `price_1UEKu6FDJKTJlxOcMJmWUzim` | `innsegall_msp_seat` *(set in Dashboard if missing)* | $3.00/seat/mo |
+| `clan` | `prod_VEoXxxCbhp5UBE` | `price_1UEKu4FDJKTJlxOcooxy8Zv5` | *(set optional)* | $6.67/mo |
+| `msp` | `prod_VEoX9hJDYQTlck` | `price_1UEKu6FDJKTJlxOcMJmWUzim` | *(set optional)* | $3.00/seat/mo |
 
-**Webhook (live):** **none yet** · create before live flip:
+**Live cleanup (2026-09-22):** Duplicate live products deactivated · only the three canonical rows below are **active** for checkout. Details: `STRIPE_DEEP_AUDIT_2026-09-22.md`.
 
-1. Dashboard → **Live** → Developers → Webhooks → Add endpoint  
-2. URL: `https://innsegall.com/api/stripe/webhook`  
-3. Same four events as test  
-4. Copy signing secret → Vercel Production `STRIPE_WEBHOOK_SECRET`
-
-**Vercel (Production live flip):**
+**Webhook (live):** create/verify in Dashboard → `https://innsegall.com/api/stripe/webhook` · events below · `STRIPE_WEBHOOK_SECRET` on Production.
 
 ```env
 STRIPE_SECRET_KEY=sk_live_...
-STRIPE_WEBHOOK_SECRET=whsec_...          # from live endpoint above
+STRIPE_WEBHOOK_SECRET=whsec_...
 STRIPE_PRICE_EXTRA=price_1UEKtpFDJKTJlxOcJn43NZI2
 STRIPE_PRICE_CLAN=price_1UEKu4FDJKTJlxOcooxy8Zv5
 STRIPE_PRICE_MSP_SEAT=price_1UEKu6FDJKTJlxOcMJmWUzim
@@ -60,36 +42,49 @@ INNSEGALL_LICENSE_SECRET=                # rotate · openssl rand -base64 32
 
 ---
 
-## Product images (Checkout + Dashboard)
+## Test mode (sandbox)
 
-Square **512×512 PNG** assets in git: `web/stripe/{extra,clan,msp}.png` (sources: `.svg` · `npm run export:stripe-images`).
-
-| SKU | Hosted URL (test + live products use the same URL) |
-|-----|---------------------------------------------------|
-| `extra` | `https://innsegall.com/stripe/extra.png` |
-| `clan` | `https://innsegall.com/stripe/clan.png` |
-| `msp` | `https://innsegall.com/stripe/msp.png` |
-
-After deploy (or when art changes):
+Provision fresh test objects (recommended after account rename):
 
 ```bash
-npm run export:stripe-images
-# deploy innsegall.com
+STRIPE_SECRET_KEY=sk_test_… npm run provision:stripe-catalog
+STRIPE_SECRET_KEY=sk_test_… npm run sync:stripe-images
+```
+
+Paste printed `STRIPE_PRICE_*` into **Vercel Preview** (not Production).
+
+**Historical test IDs (may be stale after reprovision):**
+
+| SKU | Product | Price | Lookup key |
+|-----|---------|-------|------------|
+| `extra` | `prod_VDK62giZUcpP6x` | `price_1UCtSDF5SRiYwzwFcmVYwqvf` | `innsegall_extra` |
+| `clan` | `prod_VDKPAidRCPD8vW` | `price_1UCtknF5SRiYwzwFMhZXP1q2` | `innsegall_clan` |
+| `msp` | `prod_VEoW9HK9Jun9It` | `price_1UEKt7F5SRiYwzwFEgfNLWJw` | `innsegall_msp_seat` |
+
+**Webhook (test):** `we_1UCuYlF5SRiYwzwF20nJM9fT` → same URL · Preview `STRIPE_WEBHOOK_SECRET`.
+
+Events: `checkout.session.completed` · `customer.subscription.updated` · `customer.subscription.deleted` · `invoice.paid`
+
+---
+
+## Product images
+
+Square PNGs: `web/stripe/{extra,clan,msp}.png` · `npm run export:stripe-images` if sources change.
+
+```bash
 STRIPE_SECRET_KEY=sk_test_… npm run sync:stripe-images
 STRIPE_SECRET_KEY=sk_live_… npm run sync:stripe-images
 ```
-
-Stripe re-fetches the URL when you run sync · updating PNG on the site updates Checkout art without recreating products.
 
 ---
 
 ## Smoke matrix
 
-| Probe | Command / action |
-|-------|------------------|
-| Repo catalog | `npm run audit:stripe` |
-| Hosted checkout (all SKUs) | `npm run smoke:live` (extra + clan + msp POST) |
-| Full E2E (4242) | `docs/STRIPE_SMOKE.md` |
-| Live flip gate | `docs/STRIPE_LIVE_FLIP.md` |
+| Probe | Command |
+|-------|---------|
+| Repo | `node scripts/audit-stripe.mjs` |
+| Deep audit doc | `docs/STRIPE_DEEP_AUDIT_2026-09-22.md` |
+| Hosted checkout | `npm run smoke:live` |
+| Live flip | `docs/STRIPE_LIVE_FLIP.md` |
 
 *Do not commit `sk_*` or `whsec_*`.*

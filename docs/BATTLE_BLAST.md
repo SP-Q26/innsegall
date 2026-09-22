@@ -1,5 +1,7 @@
 # Battle Blast · Go live before 1pm
 
+> **Archive · Sep 7 deadline.** Site shipped 2026-09 · current ops: `FLOAT_MODE_RUNBOOK.md` · `DOCS_INDEX.md`.
+
 **Wake doc:** `WAKE_BELOW_DECK.md` · **Board:** `BOARD_ROOM_SWARM.md` · **Send:** `HOW_TO_SEND.md`  
 **Mission:** Innsegall alpha on **innsegall.com** · low fruit only · back to SPQ by afternoon.  
 **Deadline:** **Monday Sep 7, 2026 · 1:00 PM** (your local, UTC-5).  

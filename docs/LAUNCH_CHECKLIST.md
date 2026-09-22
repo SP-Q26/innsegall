@@ -4,10 +4,26 @@ Ordered ops path from repo to paid alpha on **innsegall.com**. No SPQ coupling.
 
 ---
 
+## Status · 2026-09-22
+
+| Milestone | State |
+|-----------|--------|
+| GitHub `SP-Q26/innsegall` | **Done** |
+| Vercel `innsegall_fe` · root `web/` | **Done** |
+| DNS · SSL · www → apex | **Done** |
+| Production deploy | **Done** · `npm run smoke:live` target **0 fail** |
+| Xano telemetry | **202** when keys match · `XANO_KEYS_LEFT.md` |
+| Stripe | **Operator:** flip **live** · `STRIPE_LIVE_FLIP.md` |
+| Float ops | `FLOAT_MODE_RUNBOOK.md` · blog primary lever |
+
+**Current ops:** finish Stripe LIVE · one real $4.20 proof · then float on Field Glass / Field Report cadence.
+
+---
+
 ## 1 · GitHub repo `innsegall/innsegall`
 
-- [ ] Create public repo **github.com/SP-Q26/innsegall** (or org fork you control)
-- [ ] Push this tree · root = product monorepo (`bin/`, `src/`, `web/`, `docs/`)
+- [x] Create public repo **github.com/SP-Q26/innsegall** (or org fork you control)
+- [x] Push this tree · root = product monorepo (`bin/`, `src/`, `web/`, `docs/`)
 - [ ] Tag `v0.4.0-alpha` after smoke green
 - [ ] Set `INNSEGALL_REPO_URL` in install script env if not using default org URL
 - [ ] README + `docs/` ship with repo · no secrets in git
@@ -119,13 +135,19 @@ innsegall voyage --install-schedule   # launchd plist · optional on ship machin
 
 | Doc | Use |
 |-----|-----|
+| `DOCS_INDEX.md` | Full doc map |
+| `OPERATOR_GUIDE.md` | Operator stack + steps |
+| `FLOAT_MODE_RUNBOOK.md` | Post-launch low touch |
+| `FIELD_REPORT_AND_BLOG.md` | Blog pipelines |
+| `SITE_FULL_AUDIT_LATEST.md` | `npm run audit:site` |
+| `STRIPE_LIVE_FLIP.md` | Live keys gate |
 | `STRIPE_ASAP.md` | Checkout + webhook + license shape |
-| `STRIPE_DASHBOARD_SETUP.md` | Stripe Dashboard paste (forked from nexus-ops) |
+| `STRIPE_DASHBOARD_SETUP.md` | Stripe Dashboard paste |
 | `STRIPE_SMOKE.md` | 4242 E2E after deploy |
 | `DNS_ZOHO_SETUP.md` | Vercel DNS + hello@ Zoho |
 | `INFRA_FORK_AUDIT.md` | What we forked from SPQ / nexus-ops |
 | `MONETIZATION.md` | Pricing · quota · phases |
-| `README.md` | Vercel root `web` · env table |
+| `README.md` | Repo overview |
 | `web/.env.example` | Local / Vercel env template |
 
 *Repo → Vercel → DNS → Stripe test → voyage smoke → live keys.*

@@ -1,5 +1,5 @@
 /**
- * Isles portfolio Stripe metadata · every SKU on The Isles LLC account.
+ * Isles portfolio Stripe metadata · every SKU on The Isles Collective Stripe account.
  */
 export const ISLES_PORTFOLIO = "the_isles";
 
@@ -22,4 +22,11 @@ export function islesProductMetadata(appId, lane, extra = {}) {
 export function innsegallStripeMetadata(sku, base = {}) {
   const lane = `innsegall_${sku}`;
   return islesProductMetadata("innsegall", lane, base);
+}
+
+/** Per-brand SKU keys for portfolio lanes (simple_property_sku, …). */
+export function brandSkuMetadata(brandKey, sku, plan, extra = {}) {
+  const lane = `${brandKey}_${sku}`;
+  const brandMeta = { [`${brandKey}_sku`]: sku, [`${brandKey}_plan`]: plan };
+  return islesProductMetadata(brandKey, lane, { ...brandMeta, ...extra });
 }

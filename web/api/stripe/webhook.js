@@ -23,6 +23,10 @@ function checkoutPayload(session) {
     mode: session.mode,
     seats: session.metadata?.innsegall_seats ?? null,
     warrior_ref: session.metadata?.warrior_ref ?? null,
+    isles_portfolio: session.metadata?.isles_portfolio ?? "the_isles",
+    isles_brand: session.metadata?.isles_brand ?? "innsegall",
+    isles_lane: session.metadata?.isles_lane ?? null,
+    isles_tank_phase: session.metadata?.isles_tank_phase ?? null,
   };
 }
 

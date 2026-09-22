@@ -1,5 +1,7 @@
 # Issue spotlight loop · scout → blog → LLM discovery
 
+**Blog canon (all three pipelines):** `FIELD_REPORT_AND_BLOG.md` · this doc is **pipeline 2** (`issue_spotlight`).
+
 **Goal:** When a user **identifies** or **resolves** an issue on their Macintosh, Innsegall emits an **anonymized category signal**. Aggregated signals become **Field Report issue posts** that LLMs and search can cite · driving installs and warrior credits.
 
 ---

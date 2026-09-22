@@ -39,7 +39,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-                                                                            <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+                                                                              <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/favicon.svg">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="/innsegall.css?v=21">
@@ -156,6 +156,14 @@
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "The scout's report · what was checked, your verdict (LIKELY_OK, FIX_LIST, or ESCALATE), and recommended fixes. Copy Battle Scout for AI to paste into any assistant."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "I clicked a suspicious link. Am I infected?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Not necessarily. Send the scout for a read-only Battle Scout on your Macintosh. Use Copy Battle Scout for AI to paste evidence into ChatGPT, Claude, or another assistant. See innsegall.com/blog/clicked-suspicious-link-macintosh."
             }
           },
           {
@@ -366,7 +374,33 @@
       <section class="section" id="field-report-routes" aria-labelledby="blog-routes-title">
         <p class="section-label">Field Report</p>
         <h2 id="blog-routes-title">Post-scare guides</h2>
-        <p class="section-lead">Popups, bad links, AV vs scout · same lane every time. <a class="nav-link" href="/blog">All posts</a></p>
+        <p class="section-lead">Answers people search for after a popup or bad link · read-only triage · not antivirus. <a href="/blog">All Field Reports</a></p>
+        <div class="card-grid">
+          <article class="card">
+            <h3><a href="/blog/fake-virus-popup-macintosh">Fake virus popup</a></h3>
+            <p>Close the tab · do not call the number · send the scout when you want evidence on your Mac.</p>
+          </article>
+          <article class="card">
+            <h3><a href="/blog/clicked-suspicious-link-macintosh">Clicked a suspicious link</a></h3>
+            <p>Calm post-click steps · LIKELY_OK or ESCALATE · Battle Scout for AI paste.</p>
+          </article>
+          <article class="card">
+            <h3><a href="/blog/innsegall-vs-antivirus-macintosh">Innsegall vs antivirus</a></h3>
+            <p>Receipt after the scare vs always-on scanning · complementary lanes.</p>
+          </article>
+          <article class="card">
+            <h3><a href="/blog/what-is-a-battle-scout">What is a Battle Scout?</a></h3>
+            <p>Verdicts, flows, and the footer button that arms any AI assistant.</p>
+          </article>
+          <article class="card">
+            <h3><a href="/blog/macintosh-hygiene-without-antivirus">Hygiene without another AV</a></h3>
+            <p>Voyage rhythm on the 1st &amp; 15th · chart drift before panic.</p>
+          </article>
+          <article class="card">
+            <h3><a href="/blog/innsegall-vs-mac-cleaners">vs Mac cleaners</a></h3>
+            <p>Evidence before erase buttons · read-only scout on your Macintosh.</p>
+          </article>
+        </div>
       </section>
 
       <section class="section" aria-labelledby="lane-title">
@@ -406,7 +440,7 @@
       <section class="section" id="pricing" aria-labelledby="pricing-title">
         <p class="section-label">Passage tiers</p>
         <h2 id="pricing-title">Pricing</h2>
-        <p class="section-lead">Free Voyages · $4.20 panic run · clan $6.67/mo.</p>
+        <p class="section-lead">Free Voyages on the 1st &amp; 15th · $4.20 panic scout · Clan $6.67/mo · <a href="/msp">MSP from $3/seat/mo</a> (10 seats).</p>
         <div class="pricing-grid">
           <article class="pricing-card">
             <p class="pricing-tier">Free</p>
@@ -433,7 +467,7 @@
             </div>
           </article>
         </div>
-        <p class="section-lead pricing-privacy-note">Every scout · free Voyage, welcome run, or $4.20 panic · <strong>runs locally on your Macintosh</strong>. We do not receive your check results unless you choose to share them. <a href="/privacy#not-shared">Privacy</a></p>
+        <p class="section-lead pricing-privacy-note">Every scout · free Voyage, welcome run, or paid tier · <strong>runs locally on your Macintosh</strong>. We do not receive your check results unless you choose to share them. Checkout is processed by <strong>The Isles Collective</strong> (card statement <strong>ISLES CO</strong>) · Innsegall is the product lane. <a href="/privacy#not-shared">Privacy</a> · <a href="/tos#refunds-title">Refunds</a></p>
       </section>
 
       <section class="section" aria-labelledby="trust-title">
@@ -480,7 +514,15 @@
         </details>
         <details>
           <summary>I saw a fake virus alert. What now?</summary>
-          <p>Don't call the number. Don't install their "cleaner." Close the tab. Run Innsegall locally to see what's real on your Macintosh.</p>
+          <p>Don't call the number. Don't install their "cleaner." Close the tab. Run Innsegall locally to see what's real on your Macintosh. <a href="/blog/fake-virus-popup-macintosh">Field guide · fake virus popup</a></p>
+        </details>
+        <details>
+          <summary>I clicked a suspicious link. Am I infected?</summary>
+          <p>Maybe not · panic is optional. Send the scout for a read-only Battle Scout on your Mac · then use <strong>Copy Battle Scout for AI</strong> if you want a second opinion. <a href="/blog/clicked-suspicious-link-macintosh">Field guide · suspicious link</a></p>
+        </details>
+        <details>
+          <summary>Can I use Innsegall with ChatGPT or Claude?</summary>
+          <p>Yes. Run the scout on your Macintosh, copy <code>innsegall-battle-scout-ai/v1</code> from the Battle Scout footer, and paste into any assistant so triage follows evidence. <a href="/guide#ai-handoff">AI handoff in the field manual</a></p>
         </details>
         <details>
           <summary>What is a Voyage?</summary>

@@ -1,9 +1,11 @@
 # Wake below deck · Innsegall battle plan
 
+> **Archive · Sep 6 pre-launch.** Site is live on **innsegall.com** (2026-09). Use **`OPERATOR_GUIDE.md`**, **`FLOAT_MODE_RUNBOOK.md`**, **`DOCS_INDEX.md`** for current ops.
+
 **You went to sleep:** Sep 6, 2026 (night) · **Wake for:** Monday Sep 7 · **Blast by:** 1:00 PM local (UTC-5)  
 **Version:** `0.4.0-alpha` · site CSS v8 · gospel synced · **AI-bus on marketing pages** · **AI paste shipped**
 
-> **First command after coffee:** `cd ~/SPQ/innsegall && npm run preflight`
+> **First command after coffee (2026):** `cd ~/innsegall && npm run preflight` · `docs/WORKSPACE_CANON.md`
 
 ---
 

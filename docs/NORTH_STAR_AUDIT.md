@@ -1,10 +1,12 @@
 # Innsegall · North star audit · Sep 6, 2026
 
+**Still current for strategy (lane · pricing shape · no pivot).** Ops status: **`DOCS_INDEX.md`** · **`FLOAT_MODE_RUNBOOK.md`** · live inventory **`SITE_FULL_AUDIT_LATEST.md`**.
+
 **Question:** If we change direction, the time is now. Are we on true north?
 
 **Verdict:** **Stay the course on lane and pricing shape** · fix brand drift and ship a unified **AI-bus** on marketing surfaces · defer MSP flip until 400 installs.
 
-**Cross-links:** `WAKE_BELOW_DECK.md` · `BOARD_ROOM_SWARM.md` · `OPERATOR_GUIDE.md` · `SITE_AUDIT_SEP6.md` · `README.md`
+**Cross-links:** `OPERATOR_GUIDE.md` · `FIELD_REPORT_AND_BLOG.md` · `BOARD_ROOM_SWARM.md` · `README.md` · archive wake `WAKE_BELOW_DECK.md`
 
 ---
 

@@ -16,20 +16,7 @@
 | P0 inventory issues | 0 |
 | Sitemap URLs | 49 |
 
-**Operator:** Stripe LIVE flip in progress · **push `main`** (includes `bfb6519` + this audit) · blog is primary float-mode SEO lever.
-
-### Production probe (2026-09-22 · before push)
-
-| Path | HTTP |
-|------|------|
-| `/` | 200 |
-| `/blog` | 200 |
-| `/blog/field-glass-sep-22-2026` | **404** (not deployed yet) |
-| `/blog/knockknock-vs-post-scare-triage` | **404** |
-| `/blog/blockblock-vs-post-scare-triage` | **404** |
-| `/blog/after-suspicious-link-macintosh` | 200 |
-
-After `git push origin main`, re-run `npm run smoke:live` · expect **0 fail** on blog paths.
+**Operator:** Stripe LIVE flip in progress · push `main` after `npm run predeploy` · blog is primary float-mode SEO lever.
 
 ---
 
@@ -37,47 +24,47 @@ After `git push origin main`, re-run `npm run smoke:live` · expect **0 fail** o
 
 | Route | Index | Sitemap | Blog idx | Rewrite | Meta | Issues |
 |-------|:-----:|:-------:|:--------:|:-------:|-----:|--------|
-| `/` | ✓ | ✓ | · | · | 165 | — |
-| `/alpha` | ✓ | ✓ | · | · | 146 | — |
-| `/blog` | ✓ | ✓ | · | · | 120 | — |
-| `/blog/after-suspicious-link-macintosh` | ✓ | ✓ | ✓ | ✓ | 153 | — |
-| `/blog/auto-voyage-first-sail` | ✓ | ✓ | ✓ | ✓ | 140 | — |
-| `/blog/blockblock-vs-post-scare-triage` | ✓ | ✓ | ✓ | ✓ | 141 | — |
-| `/blog/clicked-suspicious-link-macintosh` | ✓ | ✓ | ✓ | ✓ | 148 | — |
-| `/blog/fake-virus-popup-macintosh` | ✓ | ✓ | ✓ | ✓ | 144 | — |
-| `/blog/field-desk-stripe-live-sep-2026` | ✓ | ✓ | ✓ | ✓ | 143 | — |
-| `/blog/field-glass-sep-19-2026` | ✓ | ✓ | ✓ | ✓ | 142 | — |
-| `/blog/field-glass-sep-2026` | ✓ | ✓ | ✓ | ✓ | 145 | — |
-| `/blog/field-glass-sep-22-2026` | ✓ | ✓ | ✓ | ✓ | 126 | — |
-| `/blog/field-report-2026-09-06` | ✓ | ✓ | ✓ | ✓ | 140 | — |
-| `/blog/innsegall-ios-companion-i0` | ✓ | ✓ | ✓ | ✓ | 139 | — |
-| `/blog/innsegall-vs-antivirus-macintosh` | ✓ | ✓ | ✓ | ✓ | 146 | — |
-| `/blog/innsegall-vs-etrecheck-macintosh` | ✓ | ✓ | ✓ | ✓ | 138 | — |
-| `/blog/innsegall-vs-mac-cleaners` | ✓ | ✓ | ✓ | ✓ | 146 | — |
-| `/blog/join-the-innsegall-clan` | ✓ | ✓ | ✓ | ✓ | 148 | — |
-| `/blog/knockknock-vs-post-scare-triage` | ✓ | ✓ | ✓ | ✓ | 140 | — |
-| `/blog/macintosh-hygiene-without-antivirus` | ✓ | ✓ | ✓ | ✓ | 148 | — |
-| `/blog/macintosh-xprotect-after-scare` | ✓ | ✓ | ✓ | ✓ | 153 | — |
-| `/blog/network-monitor-vs-post-scare-triage` | ✓ | ✓ | ✓ | ✓ | 148 | — |
-| `/blog/stale-launch-items-macintosh` | ✓ | ✓ | ✓ | ✓ | 151 | — |
-| `/blog/virustotal-vs-local-mac-scout` | ✓ | ✓ | ✓ | ✓ | 153 | — |
-| `/blog/voyage-health-tracker-1st-15th` | ✓ | ✓ | ✓ | ✓ | 150 | — |
-| `/blog/what-is-a-battle-scout` | ✓ | ✓ | ✓ | ✓ | 152 | — |
-| `/boat` | ✓ | ✓ | · | · | 151 | — |
-| `/clan` | ✓ | ✓ | · | · | 135 | — |
-| `/companion` | ✓ | ✓ | · | · | 152 | — |
-| `/guide` | ✓ | ✓ | · | · | 124 | — |
-| `/install` | ✓ | ✓ | · | · | 139 | — |
-| `/ios` | ✓ | ✓ | · | · | 147 | — |
-| `/map` | ✓ | ✓ | · | · | 144 | — |
-| `/msp` | ✓ | ✓ | · | · | 139 | — |
-| `/privacy` | ✓ | ✓ | · | · | 153 | — |
-| `/stability` | ✓ | ✓ | · | · | 125 | — |
-| `/success` | no | ✗ | · | · | 101 | — |
-| `/supplies` | ✓ | ✓ | · | · | 127 | — |
-| `/tablet` | ✓ | ✓ | · | · | 148 | — |
-| `/tos` | ✓ | ✓ | · | · | 150 | — |
-| `/warriors` | ✓ | ✓ | · | · | 146 | — |
+| `/` | ✓ | ✓ | · | · | 165 | ok |
+| `/alpha` | ✓ | ✓ | · | · | 146 | ok |
+| `/blog` | ✓ | ✓ | · | · | 145 | ok |
+| `/blog/after-suspicious-link-macintosh` | ✓ | ✓ | ✓ | ✓ | 153 | ok |
+| `/blog/auto-voyage-first-sail` | ✓ | ✓ | ✓ | ✓ | 140 | ok |
+| `/blog/blockblock-vs-post-scare-triage` | ✓ | ✓ | ✓ | ✓ | 141 | ok |
+| `/blog/clicked-suspicious-link-macintosh` | ✓ | ✓ | ✓ | ✓ | 148 | ok |
+| `/blog/fake-virus-popup-macintosh` | ✓ | ✓ | ✓ | ✓ | 144 | ok |
+| `/blog/field-desk-stripe-live-sep-2026` | ✓ | ✓ | ✓ | ✓ | 143 | ok |
+| `/blog/field-glass-sep-19-2026` | ✓ | ✓ | ✓ | ✓ | 142 | ok |
+| `/blog/field-glass-sep-2026` | ✓ | ✓ | ✓ | ✓ | 145 | ok |
+| `/blog/field-glass-sep-22-2026` | ✓ | ✓ | ✓ | ✓ | 126 | ok |
+| `/blog/field-report-2026-09-06` | ✓ | ✓ | ✓ | ✓ | 140 | ok |
+| `/blog/innsegall-ios-companion-i0` | ✓ | ✓ | ✓ | ✓ | 139 | ok |
+| `/blog/innsegall-vs-antivirus-macintosh` | ✓ | ✓ | ✓ | ✓ | 146 | ok |
+| `/blog/innsegall-vs-etrecheck-macintosh` | ✓ | ✓ | ✓ | ✓ | 138 | ok |
+| `/blog/innsegall-vs-mac-cleaners` | ✓ | ✓ | ✓ | ✓ | 146 | ok |
+| `/blog/join-the-innsegall-clan` | ✓ | ✓ | ✓ | ✓ | 148 | ok |
+| `/blog/knockknock-vs-post-scare-triage` | ✓ | ✓ | ✓ | ✓ | 140 | ok |
+| `/blog/macintosh-hygiene-without-antivirus` | ✓ | ✓ | ✓ | ✓ | 148 | ok |
+| `/blog/macintosh-xprotect-after-scare` | ✓ | ✓ | ✓ | ✓ | 153 | ok |
+| `/blog/network-monitor-vs-post-scare-triage` | ✓ | ✓ | ✓ | ✓ | 148 | ok |
+| `/blog/stale-launch-items-macintosh` | ✓ | ✓ | ✓ | ✓ | 151 | ok |
+| `/blog/virustotal-vs-local-mac-scout` | ✓ | ✓ | ✓ | ✓ | 153 | ok |
+| `/blog/voyage-health-tracker-1st-15th` | ✓ | ✓ | ✓ | ✓ | 150 | ok |
+| `/blog/what-is-a-battle-scout` | ✓ | ✓ | ✓ | ✓ | 152 | ok |
+| `/boat` | ✓ | ✓ | · | · | 151 | ok |
+| `/clan` | ✓ | ✓ | · | · | 135 | ok |
+| `/companion` | ✓ | ✓ | · | · | 152 | ok |
+| `/guide` | ✓ | ✓ | · | · | 124 | ok |
+| `/install` | ✓ | ✓ | · | · | 139 | ok |
+| `/ios` | ✓ | ✓ | · | · | 147 | ok |
+| `/map` | ✓ | ✓ | · | · | 144 | ok |
+| `/msp` | ✓ | ✓ | · | · | 139 | ok |
+| `/privacy` | ✓ | ✓ | · | · | 153 | ok |
+| `/stability` | ✓ | ✓ | · | · | 125 | ok |
+| `/success` | no | ✗ | · | · | 101 | ok |
+| `/supplies` | ✓ | ✓ | · | · | 127 | ok |
+| `/tablet` | ✓ | ✓ | · | · | 148 | ok |
+| `/tos` | ✓ | ✓ | · | · | 150 | ok |
+| `/warriors` | ✓ | ✓ | · | · | 146 | ok |
 
 ---
 

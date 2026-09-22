@@ -1,5 +1,7 @@
 # Site audit · full · Sep 6 night
 
+> **Superseded:** `docs/SITE_FULL_AUDIT_LATEST.md` · regen with `npm run audit:site` (2026-09-22+).
+
 **CSS:** v8 · **Pages:** 20 HTML · **Blog:** 9 posts · **Gate:** `npm run preflight` (audit-launch includes claymore)  
 **Strategy:** `NORTH_STAR_AUDIT.md` · stay the course · no pivot
 

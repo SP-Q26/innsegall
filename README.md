@@ -13,7 +13,8 @@ cd ~/Desktop/innsegall   # or ~/innsegall
 npm run audit:workspace && npm run preflight
 ```
 
-Open **`docs/WAKE_BELOW_DECK.md`** · **`docs/NORTH_STAR_AUDIT.md`** (lane · no pivot) · then `BATTLE_BLAST.md` · blast by **1pm**.
+**Production:** `https://innsegall.com` · float ops: **`docs/FLOAT_MODE_RUNBOOK.md`** · doc map: **`docs/DOCS_INDEX.md`**.  
+Strategy lane (no pivot): **`docs/NORTH_STAR_AUDIT.md`**. Pre-launch wake archive: **`docs/WAKE_BELOW_DECK.md`**.
 
 ## Structure
 
@@ -33,8 +34,9 @@ npm run runes
 npm run run          # writes .html + .ai-paste.md
 npm run plan
 npm run preflight    # gospel + audit + smoke + test
-npm run smoke:live   # after innsegall.com is live
-npm run field-report
+npm run smoke:live   # production probe (innsegall.com)
+npm run audit:site   # page inventory → docs/SITE_FULL_AUDIT_LATEST.md
+npm run field-report # local anonymized digest → web/blog/ (see FIELD_REPORT_AND_BLOG.md)
 ```
 
 ## Deploy site (Vercel)
@@ -45,9 +47,10 @@ npm run field-report
 4. Add domains: `innsegall.com`, `www.innsegall.com`
 5. DNS + Zoho: **`docs/DNS_ZOHO_SETUP.md`**
 
-### Stripe (test mode · card 4242)
+### Stripe
 
-See `docs/STRIPE_DASHBOARD_SETUP.md` and `web/.env.example`.
+Test mode: card `4242` · `docs/STRIPE_DASHBOARD_SETUP.md`.  
+**Live flip:** `docs/STRIPE_LIVE_FLIP.md` · env in `web/.env.example`.
 
 ## Install (users)
 
@@ -62,19 +65,20 @@ Marketing pages expose **`#innsegall-ai-bus`** for agents · see **`docs/NORTH_S
 
 ## Docs index
 
+Full map: **`docs/DOCS_INDEX.md`**
+
 | Doc | Use |
 |-----|-----|
-| `WAKE_BELOW_DECK.md` | Monday wake |
-| `NORTH_STAR_AUDIT.md` | Lane · pricing · AI-bus · **no pivot** |
-| `BATTLE_BLAST.md` | Hour schedule |
-| `BOARD_ROOM_SWARM.md` | Executive read |
-| `HOW_TO_SEND.md` | Blast copy |
-| `LAUNCH_CHECKLIST.md` | Full ops |
-| `DISTRIBUTION_PLAYBOOK.md` | Directories · communities · Homebrew |
-| `STABILITY.md` | Stability contract · trust |
-| `XANO_KEYS_LEFT.md` | Telemetry wire · fix 502 |
-| `STACK_AUDIT_SEP6.md` | Stack audit |
-| `SITE_AUDIT_SEP6.md` | Site audit |
+| `OPERATOR_GUIDE.md` | Stack · Vercel · Stripe · DNS |
+| `FLOAT_MODE_RUNBOOK.md` | Float mode · blog cadence |
+| `FIELD_REPORT_AND_BLOG.md` | Three blog pipelines |
+| `SITE_FULL_AUDIT_LATEST.md` | Live page inventory |
+| `STRIPE_LIVE_FLIP.md` | Test → live checkout |
+| `NORTH_STAR_AUDIT.md` | Lane · pricing · **no pivot** |
+| `DISTRIBUTION_PLAYBOOK.md` | SEO first · directories later |
+| `LAUNCH_CHECKLIST.md` | Launch path + status |
+| `XANO_KEYS_LEFT.md` | Telemetry · smoke **202** |
+| `STABILITY.md` | Trust contract |
 
 ## Brand
 

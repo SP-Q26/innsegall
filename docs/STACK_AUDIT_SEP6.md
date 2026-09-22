@@ -1,5 +1,7 @@
 # Stack audit · full · Sep 6 night
 
+> **Superseded for deploy ops:** site is live · see `OPERATOR_GUIDE.md` · `FLOAT_MODE_RUNBOOK.md`.
+
 **Version:** 0.4.0-alpha · **Gate:** `npm run preflight` PASS
 
 ---

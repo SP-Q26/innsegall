@@ -15,6 +15,8 @@
 
 **Parent:** [ISLES_PORTFOLIO.md](../ISLES_PORTFOLIO.md) · ethics · entity tripwires · MMI separation.
 
+**Innsegall.com ops (live site):** [DOCS_INDEX.md](../DOCS_INDEX.md) · [FLOAT_MODE_RUNBOOK.md](../FLOAT_MODE_RUNBOOK.md) · not coupled to SPQ deploy.
+
 **Visibility:** Operator-only · `docs/isles/isles-app-registry.json`. No customer-facing Isles URL on innsegall.com. Optional future hub: **`theisles.xyz`** (not deployed).
 
 **Audit:** `node scripts/audit-isles-launchpad.mjs` · `npm run audit:isles`

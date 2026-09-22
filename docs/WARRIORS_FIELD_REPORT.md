@@ -1,5 +1,7 @@
 # War-band · Field Report attribution
 
+**Blog pipelines:** `FIELD_REPORT_AND_BLOG.md` · issue loop `ISSUE_SPOTLIGHT_LOOP.md`
+
 **Program:** `/warriors` · referral `?ref=warrior_<code>`
 
 ## When to use `?ref=` in Field Report

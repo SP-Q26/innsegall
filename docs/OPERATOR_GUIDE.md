@@ -19,7 +19,21 @@
 | Deploy ops | 8/10 | Vercel `innsegall_fe` · **push `main`** after `predeploy` |
 
 **Commands:** `npm run audit:swarm` · `npm run gate:launch` · `npm run smoke:live`  
-Detail: `SITE_FULL_AUDIT_LATEST.md` · legacy `NORTH_STAR_AUDIT.md`
+Detail: `SITE_FULL_AUDIT_LATEST.md` · strategy `NORTH_STAR_AUDIT.md` · doc map `DOCS_INDEX.md`
+
+---
+
+## Blog & Field Report (float)
+
+Three pipelines · full checklist in **`FIELD_REPORT_AND_BLOG.md`**:
+
+| Pipeline | Command / trigger |
+|----------|-------------------|
+| Local digest (`field_report`) | `npm run field-report` · push md yourself |
+| Issue spotlight | CLI telemetry → `publish:issue-spotlights:telemetry` |
+| Field Glass / editorial | `web/blog/*.md` + fixtures · `npm run predeploy` |
+
+Cadence: **1–2 weeks** per `FLOAT_MODE_RUNBOOK.md`.
 
 ---
 

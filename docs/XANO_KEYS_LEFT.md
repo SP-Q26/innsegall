@@ -1,8 +1,8 @@
 # Xano · what's left (keys only)
 
 **Status:** Table `innsegall_events` + `POST /innsegall/events` built and tested (`{"ok":true,"id":1}`).  
-**Prod smoke (2026-09-14):** `npm run smoke:live` · telemetry **202** on `innsegall.com` when Xano + Vercel keys match.  
-**You are here:** confirm paste stack parity (§3) · optional preview key.
+**Prod smoke (2026-09-22):** `npm run smoke:live` · telemetry **202** on `innsegall.com` when Xano + Vercel keys match · float ops `FLOAT_MODE_RUNBOOK.md`.  
+**You are here:** optional paste stack parity audit (§3) · optional preview key · issue spotlight publish when aggregates warrant.
 
 ---
 

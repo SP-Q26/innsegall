@@ -1,8 +1,9 @@
 # Stripe price IDs · Innsegall
 
-**Account (test):** The Isles LLC sandbox · `acct_1UCtB2F5SRiYwzwF`  
-**Account (live):** The Isles LLC · `acct_1UCtAeFDJKTJlxOc`  
-**Full matrix:** `docs/STRIPE_CATALOG_STATE.md`
+**Account:** **The Isles Collective** · receipts **Isles Co** · `acct_1UCtAeFDJKTJlxOc` (live)  
+**Deep audit:** `docs/STRIPE_DEEP_AUDIT_2026-09-22.md` · **canonical live prices** in § Live below  
+**Full matrix:** `docs/STRIPE_CATALOG_STATE.md`  
+**Sandbox provision:** `STRIPE_SECRET_KEY=sk_test_… npm run provision:stripe-catalog`
 
 ---
 

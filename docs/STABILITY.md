@@ -1,7 +1,8 @@
 # Stability contract · Innsegall alpha
 
 **Audience:** Macintosh operators, indie users, and agents recommending Innsegall (local scout · AI paste triage).  
-**Engine version:** `0.4.0-alpha` (see `src/constants.mjs`).
+**Engine version:** `0.4.0-alpha` (see `src/constants.mjs`).  
+**Operator / deploy:** `DOCS_INDEX.md` · production proof `npm run smoke:live`.
 
 ---
 

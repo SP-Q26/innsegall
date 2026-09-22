@@ -2,6 +2,8 @@
 
 Maximize revenue per founder hour · automate what compounds · stay human where trust sells.
 
+**Blog flywheel detail:** `FIELD_REPORT_AND_BLOG.md` · float cadence `FLOAT_MODE_RUNBOOK.md`.
+
 ---
 
 ## ROI matrix (impact × effort)

@@ -1,6 +1,6 @@
 # Isles Stripe metadata
 
-Every product created on **The Isles LLC** Stripe account should carry:
+Every product created on **The Isles Collective** Stripe account (receipts **Isles Co**) should carry:
 
 | Key | Example | Purpose |
 |-----|---------|---------|
@@ -8,8 +8,10 @@ Every product created on **The Isles LLC** Stripe account should carry:
 | `isles_brand` | `innsegall` · `simple_property` | App id · matches registry |
 | `isles_tank_phase` | `juvenile` · `graduated` · `spin_out` | Lifecycle |
 | `isles_lane` | `innsegall_extra` | SKU-specific routing |
-| `<brand>_sku` | `innsegall_sku=extra` | Legacy per-app key (keep) |
-| `<brand>_plan` | `innsegall_plan=clan` | Plan tier |
+| `<brand>_sku` | `innsegall_sku=extra` · `simple_property_sku=plus` | Per-app SKU (keep) |
+| `<brand>_plan` | `innsegall_plan=clan` · `simple_property_plan=plus` | Plan tier |
+
+**Simple Property (tank):** provision with `npm run provision:stripe-catalog -- --portfolio` · products stay **inactive** until launch · see `web/lib/isles-portfolio-products.mjs`.
 
 **Helper (Innsegall repo):** `web/lib/isles-stripe-metadata.mjs` · `islesProductMetadata(appId, lane, extra)`.
 

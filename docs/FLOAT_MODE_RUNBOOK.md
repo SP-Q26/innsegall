@@ -45,7 +45,7 @@
 | Optional | DEV.to canonical cross-post · one r/macapps thread/month |
 | Monthly | Glance Vercel errors · Stripe webhook log |
 
-**Blog publish checklist:** rewrite in `vercel.json` · `sitemap.xml` · `blog/index.html` card · auto-covered by `smoke-live` blog glob.
+**Blog publish checklist:** `docs/FIELD_REPORT_AND_BLOG.md` · rewrite in `vercel.json` · `sitemap.xml` · `blog/index.html` card · auto-covered by `smoke-live` blog glob.
 
 ---
 
@@ -68,6 +68,8 @@
 
 ## Related
 
+- `docs/FIELD_REPORT_AND_BLOG.md`
+- `docs/DOCS_INDEX.md`
 - `docs/SITE_FULL_AUDIT_LATEST.md`
 - `docs/DISTRIBUTION_PLAYBOOK.md`
 - `docs/OPERATOR_GUIDE.md`

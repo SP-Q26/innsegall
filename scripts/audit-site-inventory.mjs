@@ -110,7 +110,7 @@ for (const p of pages) {
   if (p.route.startsWith("/samples/") && p.rel.includes("demo")) continue;
   const bi = p.inBlogIndex === null ? "·" : p.inBlogIndex ? "✓" : "✗";
   const rw = p.inRewrite === null ? "·" : p.inRewrite ? "✓" : "✗";
-  md += `| \`${p.route}\` | ${p.indexable ? "✓" : "no"} | ${p.inSitemap ? "✓" : "✗"} | ${bi} | ${rw} | ${p.descLen || "·"} | ${p.issues.join("; ") || "—"} |\n`;
+  md += `| \`${p.route}\` | ${p.indexable ? "✓" : "no"} | ${p.inSitemap ? "✓" : "✗"} | ${bi} | ${rw} | ${p.descLen || "·"} | ${p.issues.join("; ") || "ok"} |\n`;
 }
 
 md += `
