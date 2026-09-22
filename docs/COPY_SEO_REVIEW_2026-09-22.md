@@ -75,6 +75,8 @@ Queries we do **not** yet own with a dedicated post (consider one post each when
 
 1. **`web/index.html`** · six-card “Post-scare guides” hub · FAQ links + new “suspicious link” + AI assistant questions · FAQPage schema for suspicious link.
 2. **`web/blog/index.html`** · “Start here” trio · meta description expanded for search snippets.
+3. **`web/innsegall.css` v14** · `32.5rem` mobile tightening · `48rem` tablet (hero row, pricing 3-col, guides 2→3 col) · safe-area footer · `audit:responsive-spacing`.
+4. **`web/index.html` funnel** · pricing before clan · Field Report hub links `/boat` · removed thin “Lane” strip · copy tightened on hero + checkout note.
 
 ---
 

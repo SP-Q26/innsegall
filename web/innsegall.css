@@ -1,5 +1,8 @@
-/* Innsegall · brand tokens · v13 · editorial nav + estate CTA */
+/* Innsegall · brand tokens · v14 · tablet/mobile spacing canon */
 :root {
+  --bp-narrow: 32.5rem;
+  --bp-tablet: 48rem;
+  --bp-wide: 56rem;
   --fjord-deep: #0b1d2e;
   --fjord-mid: #122a42;
   --aurora-green: #3daa8c;
@@ -405,7 +408,7 @@ a.btn-link:focus-visible {
   margin-top: var(--space-5);
 }
 
-@media (min-width: 720px) {
+@media (min-width: 48rem) {
   .lay-map {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -685,7 +688,7 @@ a.btn-link:focus-visible {
   margin-top: var(--space-5);
 }
 
-@media (min-width: 720px) {
+@media (min-width: 48rem) {
   .field-echo-grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -787,6 +790,23 @@ a.btn-link:focus-visible {
   text-wrap: pretty;
 }
 
+.section-lead--tight {
+  margin-top: var(--space-5);
+  margin-bottom: var(--space-4);
+}
+
+.section-lead--center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pricing-privacy-note {
+  max-width: 62ch;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
 .blog-cta-strip {
   margin-top: 2rem;
   padding: 1.5rem 1.25rem;
@@ -811,6 +831,10 @@ a.btn-link:focus-visible {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
   gap: 1rem;
+}
+
+.card-grid--guides {
+  gap: var(--space-4);
 }
 
 .card {
@@ -1013,25 +1037,126 @@ a.btn-link:focus-visible {
   justify-content: flex-end;
 }
 
-@media (max-width: 520px) {
+@media (max-width: 32.5rem) {
+  .page {
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+    padding-bottom: calc(var(--space-8) + env(safe-area-inset-bottom, 0px));
+  }
+
   .site-header {
     flex-direction: column;
     align-items: stretch;
+    padding-bottom: var(--space-5);
+    gap: var(--space-3);
+  }
+
+  .brand-pronounce {
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    line-height: 1.35;
   }
 
   .header-nav {
     justify-content: center;
-    gap: 0.5rem 1.25rem;
+    gap: 0.35rem 0.85rem;
+  }
+
+  .header-nav a,
+  .footer-links a {
+    padding: 0.5rem 0.65rem;
+    min-height: 2.5rem;
+    font-size: 0.75rem;
   }
 
   .header-cta {
     justify-content: center;
   }
 
+  .hero {
+    padding-top: var(--space-5);
+    padding-bottom: var(--space-6);
+  }
+
+  .hero-manifesto {
+    margin-bottom: var(--space-5);
+    font-size: 1rem;
+  }
+
+  .hero-actions {
+    margin-bottom: var(--space-5);
+    gap: var(--space-3);
+  }
+
+  .trust-strip {
+    gap: 0.4rem 0.85rem;
+    font-size: 0.78rem;
+  }
+
+  .section {
+    padding: var(--space-6) 0;
+  }
+
+  .section-lead {
+    margin-bottom: var(--space-5);
+    font-size: 1rem;
+  }
+
+  .card {
+    padding: var(--space-4) var(--space-4);
+  }
+
+  .steps li {
+    padding: var(--space-4);
+    gap: var(--space-3);
+  }
+
+  .step-num {
+    font-size: 1.5rem;
+  }
+
+  .scout-preview-frame {
+    min-height: 18rem;
+    height: clamp(16rem, 42vh, 24rem);
+  }
+
+  .clan-hero {
+    padding: var(--space-5) var(--space-4);
+  }
+
+  .clan-shield-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+  }
+
+  .clan-shield {
+    padding: var(--space-4) var(--space-3);
+    font-size: 0.85rem;
+  }
+
+  .pricing-card {
+    padding: var(--space-4);
+  }
+
+  .download-panel {
+    padding: var(--space-5) var(--space-4);
+    margin-top: var(--space-5);
+  }
+
+  .article-body h2 {
+    margin-top: var(--space-6);
+  }
+
+  .article-lead {
+    margin-bottom: var(--space-5);
+  }
+
   .site-footer {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    margin-top: var(--space-6);
+    padding-top: var(--space-5);
   }
 
   .site-footer > p {
@@ -1040,6 +1165,46 @@ a.btn-link:focus-visible {
 
   .footer-links {
     justify-content: center;
+    gap: 0.2rem 0.15rem;
+  }
+}
+
+@media (min-width: 48rem) {
+  .hero-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.65rem 1.1rem;
+  }
+
+  .hero-actions .btn-horn,
+  .hero-actions .btn-secondary,
+  .hero-actions .btn-link {
+    min-width: auto;
+    width: auto;
+  }
+
+  .hero-actions .btn-horn {
+    min-width: min(100%, 14rem);
+  }
+
+  .pricing-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-4);
+  }
+
+  .card-grid--guides {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .clan-shield-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 56rem) {
+  .card-grid--guides {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -1530,6 +1695,10 @@ button.innsegall-checkout:disabled {
   font-size: 1.35rem;
   color: var(--beam-gold);
   margin-bottom: var(--space-2);
+}
+
+.clan-shield span {
+  display: block;
 }
 
 .clan-fomo {
