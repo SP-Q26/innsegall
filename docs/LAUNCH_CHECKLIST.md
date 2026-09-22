@@ -4,24 +4,20 @@ Ordered ops path from repo to paid alpha on **innsegall.com**. No SPQ coupling.
 
 ---
 
-## Status · 2026-09-22
+## Status · 2026-09-22 (post-checkout fix)
 
 | Milestone | State |
 |-----------|--------|
-| GitHub `SP-Q26/innsegall` | **Done** |
-| Git branch | **`main`** · local commit `edfa00e` (checkout branding + ops docs) **may be ahead of `origin/main`** until `git push` |
+| GitHub `SP-Q26/innsegall` · `main` | **Done** · pushed |
 | Vercel `innsegall_fe` · root `web/` | **Done** |
 | DNS · SSL · www → apex | **Done** |
-| Production deploy | **Live** · prod still on last pushed SHA until push + Vercel build |
-| `smoke:live` | **63 ok · 0 fail** (2026-09-22) |
-| `smoke:xano` | **Pass** · telemetry **202** forwarded |
-| `smoke:checkout-toll-gate` | **Pass** · extra/clan/msp×10 → Stripe **test** sessions · abort before card (`STRIPE_SMOKE.md`) |
-| `gate:launch` | swarm + smoke:live + toll-gate |
-| Xano telemetry | **202** when keys match · `XANO_KEYS_LEFT.md` |
-| Stripe Checkout | **Test mode** on prod API · flip **live** · `STRIPE_LIVE_FLIP.md` |
-| Float ops | `FLOAT_MODE_RUNBOOK.md` · blog primary lever |
+| Stripe Checkout API | **Done** · `4e075b9` · no invalid `branding_settings` |
+| `smoke:live` checkout | **Green** after deploy |
+| Xano telemetry | **202** · Pro URL · `XANO_KEYS_LEFT.md` |
+| Shared Stripe gameplan | **`isles/SHARED_STRIPE_CHECKOUT_BRANDING.md`** |
+| Float ops | `FLOAT_MODE_RUNBOOK.md` |
 
-**Current ops:** `git push origin main` → Vercel deploy → re-run `npm run gate:launch` · then Stripe LIVE · one real $4.20 proof · float on Field Report cadence.
+**Remaining operator:** Dashboard **Branding** + `sync:stripe-images` (live) · one **live** proof purchase · webhook **200** on `checkout.session.completed` · optional tag `v0.4.0-alpha` · signed installer (snuff).
 
 ---
 

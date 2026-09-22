@@ -1,6 +1,8 @@
 /**
  * The Isles Collective · shared Checkout + statement branding.
  * Card/bank: Dashboard prefix ISLES CO · per-SKU suffix on PaymentIntent / Invoice.
+ * Visual Checkout chrome: Dashboard Branding (account default) · session override later.
+ * Canon: docs/isles/SHARED_STRIPE_CHECKOUT_BRANDING.md
  */
 export const ISLES_COLLECTIVE = {
   legal_name: "The Isles Collective",
@@ -9,11 +11,15 @@ export const ISLES_COLLECTIVE = {
   support_email: "hello@innsegall.com",
 };
 
-/** Hosted Checkout accent colors (Innsegall beam palette). */
-export function checkoutBrandingSettings() {
+/**
+ * Future: session branding_settings (Stripe API 2025-09-30+).
+ * Use background_color / button_color per Stripe docs — not primary_color.
+ * Gated until checkout.js apiVersion bump · see SHARED_STRIPE_CHECKOUT_BRANDING.md Phase 2.
+ */
+export function checkoutBrandingSettingsInnsegall() {
   return {
-    primary_color: "#122A42",
-    secondary_color: "#F4C95D",
+    background_color: "#122A42",
+    button_color: "#F4C95D",
   };
 }
 

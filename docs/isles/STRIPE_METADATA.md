@@ -15,6 +15,8 @@ Every product created on **The Isles Collective** Stripe account (receipts **Isl
 
 **Helper (Innsegall repo):** `web/lib/isles-stripe-metadata.mjs` · `islesProductMetadata(appId, lane, extra)`.
 
-**Xano:** copy `isles_brand` from webhook metadata on `checkout.session.completed`.
+**Xano:** copy `isles_brand` from webhook metadata on `checkout.session.completed` · filter dashboards per lane so shared Stripe does not mix revenue.
 
-**MMI / WWLuxe:** never set `isles_portfolio` on MMI account products.
+**Shared account · branding:** one `sk_live_` · separate webhook secrets and price IDs per site · Dashboard default branding + per-session override (later). **`SHARED_STRIPE_CHECKOUT_BRANDING.md`**.
+
+**MMI / WWLuxe:** never set `isles_portfolio` on MMI account products · separate Stripe account.

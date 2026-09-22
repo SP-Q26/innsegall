@@ -36,7 +36,10 @@ check("checkout clan amount 667", checkout.includes("667") || checkout.includes(
 check("checkout msp sku", checkout.includes('"msp"') && checkout.includes("STRIPE_PRICE_MSP_SEAT"));
 check("checkout warrior_ref metadata", checkout.includes("warrior_ref"));
 check("checkout subscription mode", checkout.includes('"subscription"'));
-check("checkout isles branding", checkout.includes("branding_settings"));
+check(
+  "checkout custom_text branding",
+  checkout.includes("custom_text") && checkout.includes("isles-checkout-branding")
+);
 check(
   "checkout isles metadata",
   checkout.includes("islesMetadataFromCatalog") || checkout.includes("isles_brand")

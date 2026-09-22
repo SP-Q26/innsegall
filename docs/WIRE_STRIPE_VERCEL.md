@@ -17,8 +17,8 @@ One page for when you are back at the keyboard. Site code is ready · you wire k
 
 | Variable | Example / notes |
 |----------|-----------------|
-| `STRIPE_SECRET_KEY` | `sk_test_...` from Stripe Dashboard → Developers → API keys |
-| `STRIPE_WEBHOOK_SECRET` | `whsec_...` after webhook registered (step 3) |
+| `STRIPE_SECRET_KEY` | `sk_test_...` or `sk_live_...` · **may be shared** across Isles tank apps on The Isles Collective |
+| `STRIPE_WEBHOOK_SECRET` | `whsec_...` · **innsegall.com endpoint only** · do not reuse on Simple Property |
 | `INNSEGALL_LICENSE_SECRET` | Random 32+ byte string · optional · default in `.env.example` works for alpha |
 
 Optional (recommended · created in Stripe test mode Sep 2026):

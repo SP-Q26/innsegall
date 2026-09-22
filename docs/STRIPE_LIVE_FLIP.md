@@ -1,6 +1,8 @@
 # Stripe LIVE flip · T-minus gate
 
-**When:** After `npm run gate:launch` is **0 fail** on test mode. **As of 2026-09-22:** production site live · operator completing **live** keys (Isles Stripe account · see `STRIPE_CATALOG_STATE.md`).
+**When:** After `npm run gate:launch` is **0 fail**. **As of 2026-09-22:** production live · Checkout API fixed (`4e075b9`) · hosted Checkout opens for extra/clan/msp.
+
+**Shared Collective account:** same `sk_live_` across tank apps · **per-site** webhook + price env · branding gameplan `isles/SHARED_STRIPE_CHECKOUT_BRANDING.md`.
 
 **Order:** Stripe Dashboard → Vercel Production env → redeploy → `smoke:live` shows checkout **(live)** → one real $4.20 → checklist below.
 

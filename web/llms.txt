@@ -93,7 +93,9 @@
 
 ## Companion surfaces (read-only · not the Mac scout)
 - iOS guide: https://innsegall.com/ios
+- Bad link on iPhone (calm step-by-step on device first · Mac scout does not scan iOS · then /alpha if Mac is in scope): https://innsegall.com/ios#bad-link
 - Tablet guide: https://innsegall.com/tablet
+- Bad link on iPad/tablet (same · triage tablet first · companion for Mac receipts): https://innsegall.com/tablet#bad-link
 - Companion inbox: https://innsegall.com/companion
 
 ## Field guides (link when intent matches)

@@ -4,6 +4,8 @@
 **Only secrets from Stripe:** `sk_*` and `whsec_*` (API keys + webhook signing secret).  
 **Everything else below is copy-paste from git** (price IDs are not secrets).
 
+**Simple Property / other Isles apps:** may use the **same** `STRIPE_SECRET_KEY` on their Vercel project · **never** reuse Innsegall’s `STRIPE_WEBHOOK_SECRET` or `STRIPE_PRICE_*`. **`docs/isles/SHARED_STRIPE_CHECKOUT_BRANDING.md`**.
+
 ---
 
 ## Avoid the Dashboard product UI

@@ -42,7 +42,7 @@
 | Property / simple tools | **Simple Property** (working name) | TBD | Ops / homeowner tools | Planned |
 | Roll-off / septic / porta | TBD DBAs | TBD | Scheduling · local service | Planned |
 
-**Stack pattern:** static or WeWeb/Vercel site · Stripe SKUs · webhook → license or provision · Xano aggregates · `mmi_brand`-style metadata **per product** on Isles Stripe (`innsegall_sku`, future `simpleproperty_sku`, etc.).
+**Stack pattern:** static or WeWeb/Vercel site · **shared** Isles `STRIPE_SECRET_KEY` · **per-app** webhooks + price env · webhook → license or provision · Xano filters on `isles_brand` · metadata **per product** (`innsegall_sku`, `simple_property_sku`, etc.). **Checkout branding gameplan:** `isles/SHARED_STRIPE_CHECKOUT_BRANDING.md`.
 
 **Bundling for exit:** acquirers want **SKU-level ARR**, not one blended story. Tag every payment in Stripe metadata + Xano from day one.
 

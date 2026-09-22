@@ -8,6 +8,7 @@
 | [APP_REGISTRY.md](./APP_REGISTRY.md) | Human-readable app roster |
 | [STACK_TEMPLATE.md](./STACK_TEMPLATE.md) | Repeat stack per new app |
 | [STRIPE_METADATA.md](./STRIPE_METADATA.md) | `isles_*` keys on every SKU |
+| [SHARED_STRIPE_CHECKOUT_BRANDING.md](./SHARED_STRIPE_CHECKOUT_BRANDING.md) | One Collective account · per-app webhooks/prices · checkout branding phases |
 | [APPLE_BUNDLE_MAP.md](./APPLE_BUNDLE_MAP.md) | One $99/yr · multiple apps |
 | [GTM_MAC_FIRST.md](./GTM_MAC_FIRST.md) | Targeting · channels · slim ICP |
 | [apps/SIMPLE_PROPERTY.md](./apps/SIMPLE_PROPERTY.md) | Simple Property lane stub |

@@ -1,20 +1,23 @@
-# Checkout copy & Isles Collective branding
+# Checkout copy & Isles Collective branding (Innsegall)
 
 **Stripe account:** The Isles Collective · **statement prefix:** `ISLES CO` · **legal name on account:** The Isles Collective.  
-**Innsegall** is the first **product lane** on this account; more Isles tank apps (Simple Property, etc.) share the same processor until spin-out.
+**Innsegall** is one **product lane** on this account; Simple Property and other tanks share the **same** `sk_live_` with **separate** webhooks, price env, and (eventually) session branding. See **`docs/isles/SHARED_STRIPE_CHECKOUT_BRANDING.md`**.
 
 ---
 
-## What customers see
+## What customers see (Innsegall)
 
-| Surface | Copy / branding |
-|---------|------------------|
-| Hosted Checkout | Product name + description from `web/lib/stripe-catalog.mjs` (or Dashboard after provision) |
-| Checkout colors | Beam navy `#122A42` · horn gold `#F4C95D` via `branding_settings` in `web/api/stripe/checkout.js` |
-| Submit footer | Refund / cancel rules per SKU (`custom_text.submit`) |
-| After pay | Statement reminder: **ISLES CO** · `hello@innsegall.com` |
-| Success page | License delivery · ISLES CO note · Terms link |
-| Card / bank | Prefix **ISLES CO** + suffix **INNSEGALL** / **INNSEGALL CLAN** / **INNSEGALL MSP** on one-time / subs |
+| Surface | Source |
+|---------|--------|
+| Hosted Checkout layout · logo · default colors | **Stripe Dashboard → Settings → Branding** (account default) · optional **session** override in Phase 2 of shared gameplan |
+| Product name + description | Live **Price** → Product (from `STRIPE_PRICE_*` or catalog provision) |
+| Product image on Checkout | `https://innsegall.com/stripe/*.png` on Product · `npm run sync:stripe-images` |
+| Submit footer (refunds, Clan cancel) | **`custom_text`** in `web/api/stripe/checkout.js` |
+| After pay reminder | **`custom_text.after_submit`** · ISLES CO + `hello@innsegall.com` |
+| Success page | `/success` · license delivery · Terms |
+| Card / bank line | Prefix **ISLES CO** + suffix **INNSEGALL** / **INNSEGALL CLAN** / **INNSEGALL MSP** (code + Dashboard) |
+
+**Code does not send `branding_settings` today** (API version mismatch caused prod `checkout_failed` until removed). Visual brand = Dashboard + product art until Phase 2 in the shared gameplan.
 
 ---
 
@@ -22,59 +25,48 @@
 
 | File | Role |
 |------|------|
-| `web/lib/stripe-catalog.mjs` | Innsegall SKU names, amounts, Isles metadata |
-| `web/lib/isles-checkout-branding.mjs` | Collective constants · Checkout colors · statement suffix |
-| `web/lib/isles-portfolio-products.mjs` | Tank SKUs (Simple Property · inactive until launch) |
-| `web/api/stripe/checkout.js` | Session create · metadata · branding |
+| `web/lib/stripe-catalog.mjs` | SKU names, amounts, live/test price IDs, `checkout_image` paths |
+| `web/lib/isles-checkout-branding.mjs` | ISLES CO constants · statement suffix · metadata helper · **future** session `branding_settings` builder |
+| `web/lib/isles-stripe-metadata.mjs` | `isles_brand=innsegall` on products/sessions |
+| `web/api/stripe/checkout.js` | Session create · `custom_text` · metadata · descriptors |
 | `web/innsegall-checkout.js` | Front-end toll gate + warrior ref |
-| `scripts/provision-stripe-catalog.mjs` | Dashboard sync · `--portfolio` for tank products |
+| `scripts/provision-stripe-catalog.mjs` | Dashboard product sync |
+| `scripts/sync-stripe-product-images.mjs` | Push image URLs to Stripe Products |
 
 ---
 
-## Provision commands
+## Operator · Dashboard (Innsegall lane)
+
+1. **Settings → Business:** support `hello@innsegall.com` · `https://innsegall.com/tos` (or `/alpha`).
+2. **Settings → Branding:** logo/icon (e.g. `innsegall.com/og/innsegall-card.png` or `/favicon.svg`) · colors `#122A42` / `#F4C95D` as **account default** (other Isles apps may override per-session later).
+3. **Products:** three **active** Innsegall SKUs only · portfolio/SPT products **inactive** until launch.
+4. **Customer Portal:** cancel for subscriptions · link from receipt email if configured.
+
+---
+
+## Provision & images
 
 ```bash
-# Innsegall SKUs (test or live key)
-STRIPE_SECRET_KEY=sk_test_… npm run provision:stripe-catalog
-
-# Simple Property tank products only (inactive · metadata + optional prices)
-STRIPE_SECRET_KEY=sk_live_… npm run provision:stripe-catalog -- --portfolio
-
-# Both
-STRIPE_SECRET_KEY=sk_test_… npm run provision:stripe-catalog -- --with-portfolio
+STRIPE_SECRET_KEY=sk_live_… npm run export:stripe-images   # or predeploy
+STRIPE_SECRET_KEY=sk_live_… npm run sync:stripe-images
+STRIPE_SECRET_KEY=sk_live_… npm run provision:stripe-catalog
 ```
 
-Then `npm run sync:stripe-images` for Innsegall product art on `innsegall.com/stripe/*.png`.
+Details: `STRIPE_PRODUCT_IMAGES.md` · IDs: `STRIPE_CATALOG_STATE.md`.
 
 ---
 
-## Dashboard hygiene (operator)
+## Metadata (reporting · no cross-lane raids)
 
-1. **Settings → Business → Public details:** support email `hello@innsegall.com` · support URL `https://innsegall.com/tos` (or `/alpha` until dedicated support page).
-2. **Settings → Branding:** upload logo + icon (use `innsegall.com/og/innsegall-card.png` or favicon until Isles hub art exists). Checkout inherits account branding when session `branding_settings` is set.
-3. **Products:** only **three active** Innsegall SKUs for checkout · Simple Property rows stay **inactive** until domain launch.
-4. **Customer Portal:** enable cancel for subscriptions · link from post-purchase email if configured.
+Every Checkout session includes Isles keys + Innsegall plan keys. Webhook forwards to Xano; filter reports on **`isles_brand=innsegall`**. Full key list: `docs/isles/STRIPE_METADATA.md`.
 
 ---
 
-## Multi-lane metadata (Xano / reporting)
+## Copy checklist
 
-Every Checkout session includes:
-
-- `isles_portfolio` = `the_isles`
-- `isles_brand` = `innsegall` (future: `simple_property`, …)
-- `isles_lane` = e.g. `innsegall_extra`
-- `innsegall_sku` / `innsegall_plan` for this repo
-
-Webhook forwards Isles keys to Xano on `checkout_complete`. See `docs/isles/STRIPE_METADATA.md`.
-
----
-
-## Copy checklist before live flip
-
-- [ ] Home `#pricing` · Clan · MSP pages match catalog amounts ($4.20 · $6.67 · $3/seat)
-- [ ] Terms §9 refunds aligned with Checkout `custom_text`
-- [ ] Production `STRIPE_PRICE_*` = canonical live prices (`STRIPE_CATALOG_STATE.md`)
-- [ ] `npm run smoke:checkout-toll-gate` · manual Hosted Checkout open + back out (`STRIPE_SMOKE.md`)
-- [ ] One test checkout per SKU · confirm statement line and product image
+- [ ] Home `#pricing` · Clan · MSP match catalog ($4.20 · $6.67 · $3/seat min 10)
+- [ ] Terms §9 aligned with `custom_text`
+- [ ] Production `STRIPE_PRICE_*` = live IDs in `STRIPE_CATALOG_STATE.md`
+- [ ] `npm run smoke:checkout-toll-gate` · manual open + back out (`STRIPE_SMOKE.md`)
+- [ ] One live checkout per SKU · statement line + product image
 - [ ] `npm run gate:launch` green

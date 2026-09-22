@@ -11,7 +11,7 @@
 | Production deploy | `git push origin main` · Vercel `innsegall_fe` |
 | Live smoke | `npm run smoke:live` · **0 fail** on pages (signed zip **warn** OK) |
 | Swarm (repo) | `npm run audit:swarm` · claymore + self-test green |
-| Stripe | Operator · `docs/STRIPE_LIVE_FLIP.md` |
+| Stripe | Operator · `docs/STRIPE_LIVE_FLIP.md` · shared account branding · `docs/isles/SHARED_STRIPE_CHECKOUT_BRANDING.md` |
 | Telemetry | **202** or **204** on `/api/telemetry` · not **502** |
 
 ---
