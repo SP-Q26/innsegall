@@ -81,6 +81,25 @@ Card `4000 0000 0000 0002` → payment fails · no license file.
 
 ---
 
+## Toll gate abort (no purchase)
+
+Automated API lane (no card · no Hosted Checkout fetch):
+
+```bash
+npm run smoke:checkout-toll-gate
+```
+
+| Step | Action |
+|------|--------|
+| 1 | Script POSTs extra · clan · msp×10 → `checkout.stripe.com` URLs (**test** until live flip) |
+| 2 | Optional: `STRIPE_SECRET_KEY=sk_test_…` locally → script verifies `cancel_url` + `innsegall_sku` metadata |
+| 3 | **Manual:** open returned `url` in browser · confirm product · amount · footer copy |
+| 4 | **Back out:** browser Back or Stripe return link · expect `innsegall.com/#pricing` · `/clan` · or `/msp` · no charge |
+
+Included in `npm run gate:launch` after `smoke:live`.
+
+---
+
 ## Console checks (browser)
 
 On `/success` after pay:

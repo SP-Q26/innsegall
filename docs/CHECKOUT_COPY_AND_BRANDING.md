@@ -75,5 +75,6 @@ Webhook forwards Isles keys to Xano on `checkout_complete`. See `docs/isles/STRI
 - [ ] Home `#pricing` · Clan · MSP pages match catalog amounts ($4.20 · $6.67 · $3/seat)
 - [ ] Terms §9 refunds aligned with Checkout `custom_text`
 - [ ] Production `STRIPE_PRICE_*` = canonical live prices (`STRIPE_CATALOG_STATE.md`)
+- [ ] `npm run smoke:checkout-toll-gate` · manual Hosted Checkout open + back out (`STRIPE_SMOKE.md`)
 - [ ] One test checkout per SKU · confirm statement line and product image
-- [ ] `npm run smoke:live` green
+- [ ] `npm run gate:launch` green

@@ -9,14 +9,19 @@ Ordered ops path from repo to paid alpha on **innsegall.com**. No SPQ coupling.
 | Milestone | State |
 |-----------|--------|
 | GitHub `SP-Q26/innsegall` | **Done** |
+| Git branch | **`main`** · local commit `edfa00e` (checkout branding + ops docs) **may be ahead of `origin/main`** until `git push` |
 | Vercel `innsegall_fe` · root `web/` | **Done** |
 | DNS · SSL · www → apex | **Done** |
-| Production deploy | **Done** · `npm run smoke:live` target **0 fail** |
+| Production deploy | **Live** · prod still on last pushed SHA until push + Vercel build |
+| `smoke:live` | **63 ok · 0 fail** (2026-09-22) |
+| `smoke:xano` | **Pass** · telemetry **202** forwarded |
+| `smoke:checkout-toll-gate` | **Pass** · extra/clan/msp×10 → Stripe **test** sessions · abort before card (`STRIPE_SMOKE.md`) |
+| `gate:launch` | swarm + smoke:live + toll-gate |
 | Xano telemetry | **202** when keys match · `XANO_KEYS_LEFT.md` |
-| Stripe | **Operator:** flip **live** · `STRIPE_LIVE_FLIP.md` |
+| Stripe Checkout | **Test mode** on prod API · flip **live** · `STRIPE_LIVE_FLIP.md` |
 | Float ops | `FLOAT_MODE_RUNBOOK.md` · blog primary lever |
 
-**Current ops:** finish Stripe LIVE · one real $4.20 proof · then float on Field Glass / Field Report cadence.
+**Current ops:** `git push origin main` → Vercel deploy → re-run `npm run gate:launch` · then Stripe LIVE · one real $4.20 proof · float on Field Report cadence.
 
 ---
 
