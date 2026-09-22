@@ -1,7 +1,10 @@
 /**
  * Canonical Innsegall Stripe catalog · keep in sync with Dashboard products.
  * Test-mode IDs · rotate docs when live products are created.
+ * Isles metadata: docs/isles/STRIPE_METADATA.md · web/lib/isles-stripe-metadata.mjs
  */
+import { innsegallStripeMetadata } from "./isles-stripe-metadata.mjs";
+
 export const STRIPE_CATALOG = {
   extra: {
     sku: "extra",
@@ -17,7 +20,7 @@ export const STRIPE_CATALOG = {
     live_price_id: "price_1UEKtpFDJKTJlxOcJn43NZI2",
     lookup_key: "innsegall_extra",
     checkout_image: "/stripe/extra.png",
-    metadata: { innsegall_sku: "extra", innsegall_plan: "extra" },
+    metadata: innsegallStripeMetadata("extra", { innsegall_sku: "extra", innsegall_plan: "extra" }),
   },
   clan: {
     sku: "clan",
@@ -35,7 +38,11 @@ export const STRIPE_CATALOG = {
     live_price_id: "price_1UEKu4FDJKTJlxOcooxy8Zv5",
     lookup_key: "innsegall_clan",
     checkout_image: "/stripe/clan.png",
-    metadata: { innsegall_sku: "clan", innsegall_plan: "clan", innsegall_seats: "5" },
+    metadata: innsegallStripeMetadata("clan", {
+      innsegall_sku: "clan",
+      innsegall_plan: "clan",
+      innsegall_seats: "5",
+    }),
   },
   msp: {
     sku: "msp",
@@ -54,7 +61,7 @@ export const STRIPE_CATALOG = {
     live_price_id: "price_1UEKu6FDJKTJlxOcMJmWUzim",
     lookup_key: "innsegall_msp_seat",
     checkout_image: "/stripe/msp.png",
-    metadata: { innsegall_sku: "msp", innsegall_plan: "msp" },
+    metadata: innsegallStripeMetadata("msp", { innsegall_sku: "msp", innsegall_plan: "msp" }),
   },
 };
 

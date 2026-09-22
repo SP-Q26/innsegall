@@ -108,6 +108,9 @@
 - https://innsegall.com/blog/macintosh-xprotect-after-scare
 - https://innsegall.com/blog/virustotal-vs-local-mac-scout
 - https://innsegall.com/blog/network-monitor-vs-post-scare-triage
+- https://innsegall.com/blog/knockknock-vs-post-scare-triage
+- https://innsegall.com/blog/blockblock-vs-post-scare-triage
+- https://innsegall.com/blog/field-glass-sep-22-2026
 - Index: https://innsegall.com/blog
 
 ## Issue spotlight (blog flywheel)

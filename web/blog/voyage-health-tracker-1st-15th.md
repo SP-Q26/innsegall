@@ -146,9 +146,9 @@ The mist road is long. A chart beats a scream.
 
 ---
 
-## From the Field Desk · September 19, 2026
+## From the Field Desk · September 22, 2026
 
-- **Stripe live** this weekend · [Supplies](/supplies) · panic **$4.20** · clan **$6.67/mo** · [operator desk](/blog/field-desk-stripe-live-sep-2026)
-- **Field Glass update** · [Sep 19 brief](/blog/field-glass-sep-19-2026)
-- **Auto Voyage** · [First sail](/blog/auto-voyage-first-sail)
-- **Tip** · [Send the scout](/alpha) before subscription panic · [Our lane](/boat)
+- **Mac news map** · [Sep 22 Field Glass](/blog/field-glass-sep-22-2026)
+- **KnockKnock + BlockBlock** · [KnockKnock](/blog/knockknock-vs-post-scare-triage) · [BlockBlock](/blog/blockblock-vs-post-scare-triage)
+- **Stripe live** · [Supplies](/supplies) · [operator desk](/blog/field-desk-stripe-live-sep-2026)
+- **Tip** · [Send the scout](/alpha) · [Our lane](/boat)

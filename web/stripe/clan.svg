@@ -1,25 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="Innsegall Clan">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Innsegall Clan">
   <defs>
-    <linearGradient id="bg" x1="256" y1="0" x2="256" y2="512" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0B1D2E"/>
-      <stop offset="1" stop-color="#071018"/>
+    <linearGradient id="clan-rim" x1="96" y1="96" x2="416" y2="416" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3daa8c" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#f4c95d" stop-opacity="0.35"/>
     </linearGradient>
-    <linearGradient id="beam" x1="256" y1="80" x2="256" y2="360" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#3DAA8C" stop-opacity="0.85"/>
-      <stop offset="1" stop-color="#A8D8FF" stop-opacity="0.15"/>
-    </linearGradient>
-    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
-      <stop stop-color="#F8D574"/>
-      <stop offset="1" stop-color="#D4A84A"/>
+    <linearGradient id="clan-beam" x1="256" y1="140" x2="256" y2="360" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3daa8c" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#a8d8ff" stop-opacity="0.3"/>
     </linearGradient>
   </defs>
-  <rect width="512" height="512" fill="url(#bg)"/>
-  <rect x="24" y="24" width="464" height="464" rx="32" fill="none" stroke="#3DAA8C" stroke-opacity="0.35" stroke-width="2"/>
-  <circle cx="200" cy="220" r="36" fill="none" stroke="url(#beam)" stroke-width="6"/>
-  <circle cx="312" cy="220" r="36" fill="none" stroke="url(#beam)" stroke-width="6"/>
-  <circle cx="256" cy="300" r="40" fill="none" stroke="#F4C95D" stroke-width="5" opacity="0.9"/>
-  <path d="M220 248l36 28 36-28" stroke="#A8D8FF" stroke-width="3" fill="none" opacity="0.6"/>
-  <text x="256" y="400" text-anchor="middle" fill="#E8EEF4" font-family="Georgia, serif" font-size="40" font-weight="600">Clan</text>
-  <text x="256" y="448" text-anchor="middle" fill="#8B9CB3" font-family="Arial, sans-serif" font-size="22">5 seats monthly</text>
-  <rect x="176" y="468" width="160" height="8" rx="4" fill="url(#gold)" opacity="0.9"/>
+  <rect width="512" height="512" rx="72" fill="#0b1d2e"/>
+  <circle cx="256" cy="256" r="218" fill="none" stroke="url(#clan-rim)" stroke-width="2.5"/>
+  <circle cx="256" cy="256" r="198" fill="none" stroke="#a8d8ff" stroke-opacity="0.14" stroke-width="1.5"/>
+  <g transform="translate(256 252)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="-62" cy="-36" r="52" stroke="url(#clan-beam)" stroke-width="14"/>
+    <circle cx="62" cy="-36" r="52" stroke="url(#clan-beam)" stroke-width="14"/>
+    <circle cx="0" cy="58" r="56" stroke="#f4c95d" stroke-width="14" stroke-opacity="0.92"/>
+    <path d="M-28 2 L0 28 L28 2" stroke="#a8d8ff" stroke-width="8" stroke-opacity="0.55"/>
+    <path d="M-90 -36 H-34 M34 -36 H90 M0 2 V46" stroke="#c5d4e3" stroke-width="5" stroke-opacity="0.35"/>
+  </g>
 </svg>
