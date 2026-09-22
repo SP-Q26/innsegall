@@ -106,7 +106,7 @@ If you already built the endpoint without auth, **replace the whole stack** with
 ## 3 · Vercel env (Innsegall project)
 
 ```env
-XANO_EVENTS_URL=https://x8ki-letl-twmt.n7.xano.io/api:innsegall_ops/innsegall/events
+XANO_EVENTS_URL=https://xfog-zdyr-rbyx.n7e.xano.io/api:innsegall_ops/innsegall/events
 XANO_API_KEY=sk_live_innsegall_ops_...   # same value as Xano env sk_live_innsegall_ops_
 STRIPE_SECRET_KEY=sk_test_...
 STRIPE_WEBHOOK_SECRET=whsec_...
@@ -185,7 +185,7 @@ Dashboard → **API** → group **`innsegall_ops`** → endpoint **`POST /innseg
 Shape (one of):
 
 ```text
-https://x8ki-letl-twmt.n7.xano.io/api:innsegall_ops/innsegall/events
+https://xfog-zdyr-rbyx.n7e.xano.io/api:innsegall_ops/innsegall/events
 https://{instance}.xano.io/api:innsegall_ops/innsegall/events
 ```
 

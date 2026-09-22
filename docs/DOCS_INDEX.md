@@ -14,6 +14,7 @@
 | `STRIPE_LIVE_FLIP.md` | Test → live keys · webhook · proof purchase |
 | `STRIPE_DEEP_AUDIT_2026-09-22.md` | Live API audit · duplicates · Collective branding |
 | `CHECKOUT_COPY_AND_BRANDING.md` | Checkout copy · ISLES CO · portfolio provision |
+| `STRIPE_VERCEL_ENV_PACKAGE.md` | Copy-paste Vercel env · 3 SKUs · minimal Dashboard |
 | `SITE_FULL_AUDIT_LATEST.md` | Page inventory · regen with `npm run audit:site` |
 | `FIELD_REPORT_AND_BLOG.md` | Three blog pipelines · publish checklist |
 | `COPY_SEO_REVIEW_2026-09-22.md` | Intent map · copy/SEO review · content gaps |

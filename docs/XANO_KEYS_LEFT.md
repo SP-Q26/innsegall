@@ -61,7 +61,7 @@ precondition (($api_key == $env.sk_live_innsegall_ops_) || ($api_key == $env.sk_
 
 | Variable | Production | Preview |
 |----------|------------|---------|
-| `XANO_EVENTS_URL` | `https://x8ki-letl-twmt.n7.xano.io/api:innsegall_ops/innsegall/events` | same or preview instance |
+| `XANO_EVENTS_URL` | `https://xfog-zdyr-rbyx.n7e.xano.io/api:innsegall_ops/innsegall/events` | same or preview instance |
 | `XANO_API_KEY` | same **value** as Xano `sk_live_innsegall_ops_` | same **value** as Xano `sk_test_innsegall_ops_` |
 
 **Redeploy** after save (env does not apply until new deploy).
@@ -70,7 +70,7 @@ precondition (($api_key == $env.sk_live_innsegall_ops_) || ($api_key == $env.sk_
 
 ```bash
 cd innsegall
-export XANO_EVENTS_URL='https://x8ki-letl-twmt.n7.xano.io/api:innsegall_ops/innsegall/events'
+export XANO_EVENTS_URL='https://xfog-zdyr-rbyx.n7e.xano.io/api:innsegall_ops/innsegall/events'
 export XANO_API_KEY='<exact value stored in Xano sk_live_innsegall_ops_>'
 npm run smoke:xano
 npm run smoke:xano -- --base=https://innsegall.com
@@ -91,7 +91,7 @@ npm run smoke:xano -- --base=https://innsegall.com
 
 | Symptom | Cause | Fix |
 |---------|--------|-----|
-| Prod **502** + `workspace no longer exists` | Old `XANO_EVENTS_URL` pointed at a deleted Xano workspace | Set URL to live `innsegall_ops` group · redeploy Vercel |
+| Prod **502** + `workspace no longer exists` | Stale URL (legacy `x8ki-letl-twmt.n7.xano.io`) | `https://xfog-zdyr-rbyx.n7e.xano.io/api:innsegall_ops/innsegall/events` · redeploy Vercel |
 | Prod **502** + `xano_key_mismatch` | `XANO_API_KEY` ≠ Xano env `sk_live_innsegall_ops_` | Match values · turn off JWT on route |
 | Prod **202** + `forwarded: true` | **Healthy** · events land in `innsegall_events` | Run funnel SQL in `PLATFORM_TRACKING.md` |
 

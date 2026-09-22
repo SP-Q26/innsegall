@@ -73,7 +73,7 @@ async function main() {
     console.log("  3. Turn OFF default JWT auth on POST /innsegall/events");
     console.log("  4. Redeploy Vercel after env change");
     console.log("\nLocal verify:");
-    console.log("  export XANO_EVENTS_URL='https://x8ki-letl-twmt.n7.xano.io/api:innsegall_ops/innsegall/events'");
+    console.log("  export XANO_EVENTS_URL='https://xfog-zdyr-rbyx.n7e.xano.io/api:innsegall_ops/innsegall/events'");
     console.log("  export XANO_API_KEY='<same as Xano sk_live_innsegall_ops_ value>'");
     console.log("  npm run smoke:xano");
     if (prodJson.hint === "xano_key_mismatch") {
