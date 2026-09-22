@@ -35,7 +35,7 @@ check("privacy no upload Layer 1", privacy.includes("do <strong>not</strong> upl
 check("privacy panic scout section", privacy.includes("Panic scout") || privacy.includes("panic scout"));
 
 const index = readFileSync(join(web, "index.html"), "utf8");
-check("index pricing privacy note", index.includes("runs locally on your Mac"));
+check("index pricing privacy note", /locally on your Macintosh/i.test(index));
 
 const telemetry = readFileSync(join(web, "api/telemetry.js"), "utf8");
 check("telemetry opt-in events only", telemetry.includes("CLIENT_EVENTS"));
