@@ -1,7 +1,6 @@
 import Stripe from "stripe";
 import { catalogForSku, siteOrigin, STRIPE_CATALOG } from "../../lib/stripe-catalog.mjs";
 import {
-  checkoutBrandingSettings,
   islesMetadataFromCatalog,
   statementDescriptorSuffix,
   ISLES_COLLECTIVE,
@@ -143,13 +142,13 @@ export default async function handler(req, res) {
         ? `innsegall_${sku}_${warriorRef.replace(/[^a-zA-Z0-9_-]/g, "").slice(0, 40)}`
         : `innsegall_${sku}`,
       allow_promotion_codes: false,
-      branding_settings: checkoutBrandingSettings(),
+      // branding_settings needs Stripe API ≥ 2025-09-30 + Dashboard-shaped fields.
+      // Account-level Checkout branding (Dashboard) applies until we bump apiVersion.
       custom_text: checkoutCustomText(sku),
       ...(isSubscription
         ? {
             subscription_data: {
               metadata: meta,
-              description: `Innsegall ${sku} · ${ISLES_COLLECTIVE.legal_name}`,
             },
           }
         : {
