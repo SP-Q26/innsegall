@@ -5,6 +5,17 @@
  *   node scripts/smoke-live.mjs --base=https://innsegall.com
  *   npm run smoke:live
  */
+import { readdirSync } from "node:fs";
+import { join, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const repoRoot = join(dirname(fileURLToPath(import.meta.url)), "..");
+const blogDir = join(repoRoot, "web", "blog");
+const BLOG_PATHS = readdirSync(blogDir)
+  .filter((n) => n.endsWith(".html") && n !== "index.html")
+  .map((n) => `/blog/${n.replace(/\.html$/, "")}`)
+  .sort();
+
 const PATHS = [
   "/",
   "/alpha",
@@ -33,16 +44,9 @@ const PATHS = [
   "/companion.webmanifest",
   "/innsegall-companion.js",
   "/lib/companion-core.mjs",
-  "/blog/field-glass-sep-19-2026",
-  "/blog/field-desk-stripe-live-sep-2026",
-  "/blog/auto-voyage-first-sail",
   "/supplies",
-  "/blog/innsegall-ios-companion-i0",
-  "/blog/innsegall-vs-mac-cleaners",
-  "/blog/innsegall-vs-etrecheck-macintosh",
-  "/blog/macintosh-xprotect-after-scare",
-  "/blog/virustotal-vs-local-mac-scout",
-  "/blog/network-monitor-vs-post-scare-triage",
+  "/msp",
+  ...BLOG_PATHS,
 ];
 
 function getArg(name, fallback) {

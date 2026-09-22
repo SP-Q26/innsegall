@@ -10,6 +10,8 @@
 
 ```bash
 cd innsegall
+npm run predeploy          # optional · sync gospel + blog chrome
+npm run audit:site         # page inventory · docs/SITE_FULL_AUDIT_LATEST.md
 npm run gate:launch
 ```
 

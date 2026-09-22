@@ -1,0 +1,66 @@
+{
+  "schema": "isles-app-registry/v1",
+  "portfolio": "the_isles",
+  "visibility": "internal",
+  "public_hub_future": "theisles.xyz",
+  "public_hub_live": false,
+  "legal_entity_planned": "The Isles LLC",
+  "llc_filed": false,
+  "tank_default_days": 30,
+  "spin_out_tripwire_usd_mrr": 800,
+  "spin_out_tripwire_usd_yearly": 3500,
+  "apple_developer": {
+    "enrolled": false,
+    "org_name_planned": "The Isles LLC",
+    "annual_usd": 99
+  },
+  "apps": [
+    {
+      "app_id": "innsegall",
+      "display_name": "Innsegall",
+      "dba": "Innsegall",
+      "domain": "https://innsegall.com",
+      "tank_phase": "juvenile",
+      "tank_started": "2026-01-01",
+      "mac_primary": true,
+      "surfaces": { "macos": "cli", "ios": "companion_web", "web": true },
+      "repo": "https://github.com/SP-Q26/innsegall",
+      "stripe_brand_key": "innsegall"
+    },
+    {
+      "app_id": "simple_property",
+      "display_name": "Simple Property",
+      "dba": "Simple Property Tools",
+      "domain": null,
+      "tank_phase": "juvenile",
+      "tank_started": null,
+      "mac_primary": true,
+      "surfaces": { "macos": "planned", "ios": "planned", "web": "planned" },
+      "repo": null,
+      "stripe_brand_key": "simple_property"
+    },
+    {
+      "app_id": "isles_waste_ops",
+      "display_name": "Isles waste ops (working title)",
+      "dba": null,
+      "domain": null,
+      "tank_phase": "planned",
+      "tank_started": null,
+      "mac_primary": false,
+      "surfaces": { "macos": "optional", "ios": "planned", "web": true },
+      "repo": null,
+      "stripe_brand_key": "isles_waste_ops",
+      "notes": "Dumpster · septic · porta potty scheduling"
+    }
+  ],
+  "excluded_from_tank": [
+    {
+      "id": "spq",
+      "name": "SPQ / spquant.com",
+      "reason": "Primary engineering focus · many-headed product · not a tank app"
+    },
+    { "id": "ships_network", "name": "ships.network", "reason": "Long-horizon infra bet" },
+    { "id": "mmi_wwluxe", "name": "MMI / WWLuxe", "reason": "Separate Stripe account" }
+  ],
+  "updated_at": "2026-09-22"
+}

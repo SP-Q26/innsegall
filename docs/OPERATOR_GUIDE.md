@@ -1,9 +1,9 @@
 # Innsegall · Operator guide · stack + your steps
 
 **Purpose:** Everything **you** must provision · separate from **spquant.com / SPQ**.  
-**Code status (Sep 6 night):** `npm run preflight` = sync-gospel · audit-launch · smoke · self-test · AI-bus + paste shipped · uncommitted · no remote · push Monday AM.
+**Code status (Sep 22, 2026):** `web/` deploy commit on `main` (push from operator Mac) · **Stripe LIVE** in progress (operator) · float mode = blog cadence.
 
-**Wake:** `WAKE_BELOW_DECK.md` · **North star:** `NORTH_STAR_AUDIT.md` · **Board:** `BOARD_ROOM_SWARM.md` · **Send:** `HOW_TO_SEND.md`
+**Wake:** `WAKE_BELOW_DECK.md` · **Float ops:** `FLOAT_MODE_RUNBOOK.md` · **Full page audit:** `SITE_FULL_AUDIT_LATEST.md` · **Entity / ethics:** `ISLES_PORTFOLIO.md` (internal)
 
 ---
 
@@ -11,14 +11,15 @@
 
 | Area | Score | Status |
 |------|-------|--------|
-| Brand / copy | 8.5/10 | Manifesto, Voyage, runes, Send the scout |
-| Site (`innsegall/web/`) | 8.4/10 | 20 pages · v8 CSS · not live until Vercel |
+| Site inventory | 9.5/10 | **42 HTML** · **23 blog posts** · `npm run audit:site` |
+| Blog SEO | 9.5/10 | Quality avg **110/100** · funnel + structured data green |
 | Engine (CLI) | 9/10 | Battle Scout · AI paste · voyage · license |
-| SEO / AI gospel | 9.5/10 | llms.txt · gospel · **ai-bus** · scout-data · ai-paste |
-| Stripe (code) | 8/10 | Checkout + webhook · **needs your keys** |
-| Deploy ops | 4/10 | **Blocked:** GitHub, Vercel, DNS, Stripe |
+| SEO / AI gospel | 9.5/10 | llms.txt · gospel · ai-bus · 49 sitemap URLs |
+| Stripe (code) | 9/10 | Checkout + webhook · **operator LIVE flip** |
+| Deploy ops | 8/10 | Vercel `innsegall_fe` · **push `main`** after `predeploy` |
 
-Detail: `NORTH_STAR_AUDIT.md` · `STACK_AUDIT_SEP6.md` · `SITE_AUDIT_SEP6.md` · `FULL_SWARM_AUDIT.md`
+**Commands:** `npm run audit:swarm` · `npm run gate:launch` · `npm run smoke:live`  
+Detail: `SITE_FULL_AUDIT_LATEST.md` · legacy `NORTH_STAR_AUDIT.md`
 
 ---
 

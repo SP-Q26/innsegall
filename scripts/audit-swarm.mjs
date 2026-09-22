@@ -25,6 +25,8 @@ const lanes = [
   { name: "Internal links", script: "audit-links.mjs", score: "9.5" },
   { name: "Issue spotlight loop", script: "audit-issue-spotlight.mjs", score: "9.0" },
   { name: "Discovery / trust", script: "audit-discovery.mjs", score: "9.0" },
+  { name: "Isles portfolio + ethics canon", script: "audit-isles-ethics.mjs", score: "9.5" },
+  { name: "Isles launchpad + registry", script: "audit-isles-launchpad.mjs", score: "9.5" },
   { name: "Install / bootstrap flow", script: "audit-install-flow.mjs", score: "9.5" },
   { name: "Redeem design (doc only)", script: "audit-redeem-design.mjs", score: "9.5" },
   { name: "Pre-L5 levers (doc + install)", script: "audit-pre-l5-levers.mjs", score: "9.5" },
@@ -38,6 +40,7 @@ const lanes = [
   { name: "Blog funnel (Phase 7 W1a)", script: "audit-blog-funnel.mjs", score: "9.5" },
   { name: "Blog quality (SEO + readability)", script: "audit-blog-quality.mjs", score: "9.5" },
   { name: "Structured data (Phase 7 W1b)", script: "audit-structured-data.mjs", score: "9.0" },
+  { name: "Site inventory (all pages)", script: "audit-site-inventory.mjs", score: "9.5" },
 ];
 
 let failed = 0;
