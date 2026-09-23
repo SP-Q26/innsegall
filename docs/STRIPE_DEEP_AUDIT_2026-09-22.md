@@ -15,7 +15,7 @@
 | Live prices | **Resolved 2026-09-22** | `innsegall_*` lookup keys on **canonical** prices |
 | Product metadata | **Resolved 2026-09-22** | `isles_portfolio` / `isles_brand` / `isles_lane` on all three canonical live products |
 | Test sandbox | **P0 MCP gap** | Reconnect **test mode** in Stripe integration or run `sk_test_…` locally · see § Sandbox |
-| Docs entity name | **P2** | Git still says "The Isles LLC" in places · canon = **The Isles Collective** + **Isles Co** receipts |
+| Docs entity name | **Resolved** | Canon = **The Isles Collective** + **Isles Co** receipts |
 
 ---
 
@@ -135,10 +135,10 @@ Never put `sk_live_…` on Preview. Rotate `INNSEGALL_LICENSE_SECRET` on live fl
 
 | Doc | Issue |
 |-----|--------|
-| `STRIPE_CATALOG_STATE.md` | Says "The Isles LLC" · update to **The Isles Collective** |
+| `STRIPE_CATALOG_STATE.md` | **The Isles Collective** |
 | `STRIPE_PRICE_IDS.md` | Test account name · duplicate product warning |
 | `docs/isles/STRIPE_METADATA.md` | Account name |
-| `web/lib/isles-stripe-metadata.mjs` | Comment "The Isles LLC" |
+| `web/lib/isles-stripe-metadata.mjs` | **The Isles Collective** in comments |
 
 **Do not** change canonical `live_product_id` / `live_price_id` in code unless operator confirms Vercel migration to new prices.
 

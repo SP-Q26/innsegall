@@ -1,6 +1,6 @@
 # L5 operator runbook · signed Macintosh installer
 
-**When:** Apple Developer Program enrolled (~$99/yr) · org **The Isles LLC**.  
+**When:** Apple Developer Program enrolled (~$99/yr) · org **The Isles Collective**.  
 **Until then:** [innsegall.com/install](https://innsegall.com/install) + Terminal one-liner are canonical · `smoke-live` signed zip **warn** is expected.
 
 **Deep dive:** `docs/APPLE_DEVELOPER_ID.md` · unsigned path: `docs/INSTALL_WITHOUT_SIGNED_ZIP.md`
@@ -30,7 +30,7 @@
 |--------|---------|
 | `APPLE_CERTIFICATE_BASE64` | `.p12` export of Developer ID Application |
 | `APPLE_CERTIFICATE_PASSWORD` | p12 password |
-| `APPLE_SIGNING_IDENTITY` | e.g. `Developer ID Application: The Isles LLC (TEAMID)` |
+| `APPLE_SIGNING_IDENTITY` | e.g. `Developer ID Application: The Isles Collective (TEAMID)` |
 | `NOTARY_API_KEY_P8` | Contents of `AuthKey_*.p8` |
 | `NOTARY_API_KEY_ID` | Key ID |
 | `NOTARY_API_ISSUER_ID` | Issuer ID |

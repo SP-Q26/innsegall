@@ -112,7 +112,7 @@ Parallel workstreams that **do not** require Apple Developer Program enrollment 
 
 | Step | Done when |
 |------|-----------|
-| Enroll The Isles LLC · Team ID | Developer ID Application cert in keychain |
+| Enroll The Isles Collective · Team ID | Developer ID Application cert in keychain |
 | Notarized `InnsegallInstaller.zip` | `npm run release:macos-installer` · staple OK |
 | GitHub Release on `latest` | `smoke:live` signed line **ok** |
 | `/alpha` primary download | Clean Mac Gatekeeper smoke |

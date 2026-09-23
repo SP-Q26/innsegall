@@ -20,15 +20,15 @@
 
 ---
 
-## Entity model · Isles + DBA
+## Entity model · Collective + DBA
 
 | Layer | What it is | Today |
 |-------|------------|--------|
-| **The Isles LLC** | Planned **holding / commerce** entity · one Stripe account · one EIN when filed | **Not filed yet** · no Isles customers live |
+| **The Isles Collective** | **Commerce / holding** entity · one Stripe account · receipts **Isles Co** | **Active** · nominal acquisition ($1) · match Apple + bank to this legal name |
 | **DBA / trade names** | Customer-facing brands · separate domains · TOS/privacy per product | **Innsegall** first · Simple Property · waste/septic/porta lanes **planned** |
 | **MMI (A Space Odyssey LLC)** | **Separate** · Whispering Woods Luxe / events / keepsakes | **Do not** mix Innsegall checkout onto MMI Stripe |
 
-**Stripe without LLC:** Allowed. Start as **individual / sole prop** with **DBA on receipts** where Stripe supports it; update to Isles LLC + EIN when filed (`STRIPE_ASAP.md`).
+**Stripe:** Business profile = **The Isles Collective** (live account). Product line items carry brand DBAs (Innsegall, Simple Property, …). See `STRIPE_CATALOG_STATE.md` · `STRIPE_ASAP.md`.
 
 **DBA ≠ liability firewall.** One LLC still shares legal shell until you **spin out**. DBAs give **neutral branding**, **separate customer promises**, and **clean revenue tags** for accounting and buyers.
 
@@ -102,9 +102,8 @@ node scripts/audit-isles-ethics.mjs
 
 ## Innsegall · Stripe operator truth
 
-- **Target account:** The Isles LLC (test/live IDs in `STRIPE_CATALOG_STATE.md`).
-- **Customers:** none live on Isles yet · safe to set canon before first dollar.
-- **Branding:** Innsegall on Checkout · Isles (or DBA) on business profile as filed.
+- **Target account:** **The Isles Collective** (test/live IDs in `STRIPE_CATALOG_STATE.md`).
+- **Branding:** Innsegall on Checkout line items · **Isles Co** on card statements · Collective on Stripe business profile.
 - **Live webhook:** finish per `STRIPE_LIVE_FLIP.md` before taking money.
 
 ---
@@ -122,7 +121,7 @@ Isles micro-SaaS does **not** block SPQ work; it **shouldn’t** duplicate SPQ�
 
 ## Operator checklist · before first Isles dollar
 
-1. [ ] Stripe business profile truthful (individual or LLC as actually filed).
+1. [ ] Stripe business profile = **The Isles Collective** (legal name matches filings).
 2. [ ] DBA registered when required in your state (often after revenue, not before · confirm locally).
 3. [ ] Live webhook + `INNSEGALL_LICENSE_SECRET` rotated on Vercel prod.
 4. [ ] `innsegall.com` privacy/tos entity name matches Stripe profile.

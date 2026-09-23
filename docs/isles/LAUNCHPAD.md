@@ -38,7 +38,7 @@
 | **Innsegall wedge** | Post-scare Mac is a sharp ICP · CLI + notarized installer later |
 | **Ads** | Narrow geo + “Mac” + intent keywords · smaller burn than broad consumer |
 | **Simple Property** | Homeowner/tools audience overlaps “Mac household” early adopters |
-| **Apple $99** | One Developer Program · Isles LLC · **multiple bundle IDs** (see `APPLE_BUNDLE_MAP.md`) |
+| **Apple $99** | One Developer Program · **The Isles Collective** · **multiple bundle IDs** (see `APPLE_BUNDLE_MAP.md`) |
 
 iOS/iPad/web companion **supports** Mac; **does not replace** Mac as growth engine until native i1 ships.
 

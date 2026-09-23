@@ -1,6 +1,6 @@
 # Apple Developer · one enrollment · Isles apps
 
-**Goal:** Pay **$99/year once** under **The Isles LLC** · ship **Innsegall** + **Simple Property** (and later lanes) without duplicate org accounts.
+**Goal:** Pay **$99/year once** under **The Isles Collective** · ship **Innsegall** + **Simple Property** (and later lanes) without duplicate org accounts.
 
 | Surface | Innsegall | Simple Property |
 |---------|-----------|-----------------|
@@ -19,7 +19,7 @@ Use your actual reverse-DNS when filing · keep table updated.
 
 ## Sequence
 
-1. Enroll **The Isles LLC** in Apple Developer Program.
+1. Enroll **The Isles Collective** in Apple Developer Program.
 2. **Developer ID Application** cert → Mac notarize Innsegall (`APPLE_DEVELOPER_ID.md`).
 3. App Store Connect apps for each **customer-facing** iOS product (can share one team).
 4. Web surfaces do **not** require Apple.

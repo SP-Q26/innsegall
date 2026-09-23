@@ -4,14 +4,15 @@
   "visibility": "internal",
   "public_hub_future": "theisles.xyz",
   "public_hub_live": false,
-  "legal_entity_planned": "The Isles LLC",
-  "llc_filed": false,
+  "legal_entity": "The Isles Collective",
+  "legal_entity_note": "Nominal acquisition ($1) · commerce entity for Stripe + Apple",
+  "entity_active": true,
   "tank_default_days": 30,
   "spin_out_tripwire_usd_mrr": 800,
   "spin_out_tripwire_usd_yearly": 3500,
   "apple_developer": {
     "enrolled": false,
-    "org_name_planned": "The Isles LLC",
+    "org_name": "The Isles Collective",
     "annual_usd": 99
   },
   "apps": [
@@ -62,5 +63,5 @@
     { "id": "ships_network", "name": "ships.network", "reason": "Long-horizon infra bet" },
     { "id": "mmi_wwluxe", "name": "MMI / WWLuxe", "reason": "Separate Stripe account" }
   ],
-  "updated_at": "2026-09-22"
+  "updated_at": "2026-09-23"
 }

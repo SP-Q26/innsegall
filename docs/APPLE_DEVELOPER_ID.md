@@ -8,7 +8,7 @@
 
 **Artifact:** `dist/InnsegallInstaller.zip` → `InnsegallInstaller.app` (Developer ID signed + notarized).
 
-### Three surfaces · one Apple account (The Isles LLC)
+### Three surfaces · one Apple account (The Isles Collective)
 
 **Bundle map:** [`docs/isles/APPLE_BUNDLE_MAP.md`](./isles/APPLE_BUNDLE_MAP.md) · Innsegall + Simple Property on one enrollment.
 
@@ -26,9 +26,9 @@ Brand is aligned sitewide (**Macintosh clan · family · iPad & iOS**). What $99
 
 ---
 
-## 1 · Enroll (The Isles LLC)
+## 1 · Enroll (The Isles Collective)
 
-1. [Apple Developer Program](https://developer.apple.com/programs/) · **$99/year** · org **The Isles LLC** (match Stripe entity).
+1. [Apple Developer Program](https://developer.apple.com/programs/) · **$99/year** · org **The Isles Collective** (match Stripe legal entity).
 2. Accept agreements in [App Store Connect](https://appstoreconnect.apple.com/) and Developer portal.
 3. Note **Team ID** (10 chars) · **Developer → Membership**.
 
@@ -81,7 +81,7 @@ cd innsegall
 npm run pack:macos-installer
 
 # If multiple identities:
-export SIGNING_IDENTITY="Developer ID Application: The Isles LLC (TEAMID)"
+export SIGNING_IDENTITY="Developer ID Application: The Isles Collective (TEAMID)"
 
 # API key path (CI uses same env names)
 export NOTARY_API_KEY_ID="..."
