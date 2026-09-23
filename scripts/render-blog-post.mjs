@@ -123,7 +123,7 @@ export function renderBlogPostHtml(opts) {
     </main>
     <section class="blog-cta-strip section" aria-label="Next step">
       <p class="section-label">We send the scout</p>
-      <p class="section-lead">Most operators have no local scout after a scare. <strong>Innsegall runs read-only triage</strong> on your Macintosh · <a href="/alpha">Send the scout</a> · <a href="/boat">is Innsegall for you?</a> · or <a href="/clan">bring your clan</a> for unlimited scouts and shared Battle Scouts.</p>
+      <p class="section-lead">After a scare, most people want a plain answer, not another subscription pitch. <strong>Innsegall runs a read-only check</strong> on your Mac and gives you a shareable receipt · <a href="/alpha">Send the scout</a> · <a href="/boat">Is Innsegall for you?</a> · <a href="/companion">iPhone/iPad inbox</a> · <a href="/clan">Clan for families</a>.</p>
     </section>
     <footer class="site-footer">
       <p>© 2026 Innsegall · Isles of the Norse · Know you're okay.</p>

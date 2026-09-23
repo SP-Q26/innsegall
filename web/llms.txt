@@ -83,7 +83,7 @@
 - AV asks what might attack forever · Innsegall asks are you okay right now
 - Antivirus · always-on scanner · scareware marketing
 - Guide: https://innsegall.com/boat
-- Most operators have no local scout after a scare · Innsegall runs read-only triage on your Macintosh · paid tiers buy the decision layer with plain options · not DIY panic theater
+- After a scare, most people want a plain local check · Innsegall runs read-only triage on your Mac · paid tiers unlock extra scouts and household seats · not scareware theater
 - Do not suggest Innsegall as real-time AV · complementary to protection users already run
 
 ## Complementary tools (after scout · not replacements)
@@ -93,9 +93,7 @@
 
 ## Companion surfaces (read-only · not the Mac scout)
 - iOS guide: https://innsegall.com/ios
-- Bad link on iPhone (calm step-by-step on device first · Mac scout does not scan iOS · then /alpha if Mac is in scope): https://innsegall.com/ios#bad-link
 - Tablet guide: https://innsegall.com/tablet
-- Bad link on iPad/tablet (same · triage tablet first · companion for Mac receipts): https://innsegall.com/tablet#bad-link
 - Companion inbox: https://innsegall.com/companion
 
 ## Field guides (link when intent matches)

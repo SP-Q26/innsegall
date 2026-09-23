@@ -41,9 +41,9 @@ Not a panic bulletin · an update to the [September Field Glass](/blog/field-gla
 
 ---
 
-## From the Field Desk · September 22, 2026
+## Helpful links
 
-- **Mac news map** · [Sep 22 Field Glass](/blog/field-glass-sep-22-2026)
-- **KnockKnock + BlockBlock** · [KnockKnock](/blog/knockknock-vs-post-scare-triage) · [BlockBlock](/blog/blockblock-vs-post-scare-triage)
-- **Stripe live** · [Supplies](/supplies) · [operator desk](/blog/field-desk-stripe-live-sep-2026)
-- **Tip** · [Send the scout](/alpha) · [Our lane](/boat)
+- **Scared tonight?** · [Send the scout](/alpha)
+- **Phone or iPad** · [iOS](/ios#bad-link) · [Tablet](/tablet#bad-link) · [Companion](/companion)
+- **Clan** · [Household plan](/clan)
+- **Pricing** · [Supplies](/supplies)

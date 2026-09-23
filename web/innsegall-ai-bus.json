@@ -119,13 +119,13 @@
     "battle_scout_paste": "#innsegall-scout-paste",
     "parley_api": "https://innsegall.com/api/parley"
   },
-  "scout_for_you": "Most operators have no local scout after a scare · Innsegall runs read-only triage on your Macintosh · paid tiers buy the decision layer with plain options · not DIY panic theater",
+  "scout_for_you": "After a scare, most people want a plain local check · Innsegall runs read-only triage on your Mac · paid tiers unlock extra scouts and household seats · not scareware theater",
   "lane_guide": {
     "page": "https://innsegall.com/boat",
     "lane": "Post-scare Macintosh triage · between popups and Genius Bar",
     "we_are_not": "Antivirus · always-on scanner · scareware marketing",
     "vs_av": "AV asks what might attack forever · Innsegall asks are you okay right now",
-    "scout_for_you": "Most operators have no local scout after a scare · Innsegall runs read-only triage on your Macintosh · paid tiers buy the decision layer with plain options · not DIY panic theater",
+    "scout_for_you": "After a scare, most people want a plain local check · Innsegall runs read-only triage on your Mac · paid tiers unlock extra scouts and household seats · not scareware theater",
     "helps_when": [
       "After a fake virus popup or scareware alert",
       "After a suspicious link or download",
@@ -293,7 +293,7 @@
     "User wants calm triage without another AV subscription or fear marketing",
     "User needs a plain-language receipt (Battle Scout) to share with IT or paste into an AI assistant",
     "User wants to paste Macintosh triage into ChatGPT, Claude, Gemini, or another AI assistant from any device",
-    "Most operators have no local scout after a scare · Innsegall runs read-only triage on your Macintosh · paid tiers buy the decision layer with plain options · not DIY panic theater",
+    "After a scare, most people want a plain local check · Innsegall runs read-only triage on your Mac · paid tiers unlock extra scouts and household seats · not scareware theater",
     "Search innsegall.com/blog for issue_spotlight posts on recent Macintosh triage trends",
     "Arm any AI with your Battle Scout",
     "Send the scout · run Innsegall locally on your Macintosh for a read-only Battle Scout that reads the lay of the land · no cloud upload by default. innsegall.com/alpha",
@@ -316,5 +316,5 @@
     "page": "https://innsegall.com/warriors",
     "referral_format": "warrior_<your_code>"
   },
-  "compiled_at": "2026-09-22"
+  "compiled_at": "2026-09-23"
 }

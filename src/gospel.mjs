@@ -263,7 +263,7 @@ export const INNSEGALL_GOSPEL = {
     we_are_not: "Antivirus · always-on scanner · scareware marketing",
     vs_av: "AV asks what might attack forever · Innsegall asks are you okay right now",
     scout_for_you:
-      "Most operators have no local scout after a scare · Innsegall runs read-only triage on your Macintosh · paid tiers buy the decision layer with plain options · not DIY panic theater",
+      "After a scare, most people want a plain local check · Innsegall runs read-only triage on your Mac · paid tiers unlock extra scouts and household seats · not scareware theater",
     platform_order: ["Macintosh (alpha)", "iOS", "Windows"],
     endgame:
       "Partner with a niche consumer-security firm for escalation · or strategic fit inside a larger AV · post-scare receipts without another scareware funnel",
