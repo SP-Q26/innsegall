@@ -36,7 +36,7 @@ Never commit keys · never put in git or gospel JSON.
 **Account default (shared Isles Collective):** Settings → **Branding** · logo · background/button colors · font.  
 Innsegall targets beam navy `#122A42` and gold `#F4C95D` · logo from `innsegall.com/og/innsegall-card.png` or favicon.
 
-**Per-lane without Dashboard fights:** product images (`sync:stripe-images`) · `custom_text` in `web/api/stripe/checkout.js` · metadata `isles_brand=innsegall`. Session-level `branding_settings` is **off in code** until API version bump — see `isles/SHARED_STRIPE_CHECKOUT_BRANDING.md`.
+**Per-lane without Dashboard fights:** product images (`sync:stripe-images`) · `custom_text` in `web/api/stripe/checkout.js` · metadata `isles_brand=innsegall`. Session-level `branding_settings` is **off in code** until API version bump · see `isles/SHARED_STRIPE_CHECKOUT_BRANDING.md`.
 
 ---
 

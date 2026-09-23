@@ -34,6 +34,7 @@
     "audit:responsive-spacing": "node scripts/audit-responsive-spacing.mjs",
     "audit:workspace": "node scripts/audit-workspace-hygiene.mjs",
     "build:competitor-posts": "node scripts/build-competitor-absorption-posts.mjs",
+    "build:seo-batch-20": "node scripts/build-seo-batch-20.mjs",
     "audit:discovery": "node scripts/audit-discovery.mjs",
     "audit:isles": "node scripts/audit-isles-ethics.mjs && node scripts/audit-isles-launchpad.mjs",
     "diagnose:xano": "node scripts/diagnose-xano-wire.mjs",

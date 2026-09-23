@@ -72,6 +72,106 @@
     },
     "what-is-a-battle-scout": {
       "description": "What is a Battle Scout? Innsegall scout report for Macintosh · LIKELY_OK FIX_LIST ESCALATE · read-only triage artifact · Sound the Horn · not antivirus."
+    },
+    "safari-shift-key-scam-popup-mac": {
+      "description": "Mac Safari virus popup stuck on screen? Force quit · hold Shift when reopening · calm triage · not a real Apple alert · Innsegall field guide.",
+      "datePublished": "2026-09-23",
+      "dateModified": "2026-09-23"
+    },
+    "safari-fake-virus-notifications-mac": {
+      "description": "Mac notification says virus or McAfee expired? Often Safari website notifications · remove in Settings · read-only scout after · not antivirus.",
+      "datePublished": "2026-09-23",
+      "dateModified": "2026-09-23"
+    },
+    "safari-search-engine-hijacked-mac": {
+      "description": "Safari search engine changed on Mac? Extensions · profiles · DNS · read-only Battle Scout · post-scare triage · not antivirus.",
+      "datePublished": "2026-09-23",
+      "dateModified": "2026-09-23"
+    },
+    "safari-allowed-notifications-by-mistake-mac": {
+      "description": "Clicked Allow on Safari notifications by mistake? Deny in Websites settings · not a virus · Macintosh read-only scout · Innsegall.",
+      "datePublished": "2026-09-23",
+      "dateModified": "2026-09-23"
+    },
+    "mac-calendar-spam-invites-scam": {
+      "description": "Spam calendar invites on Mac? Decline · report junk · not antivirus · when to scout the Mac · Innsegall post-scare lane.",
+      "datePublished": "2026-09-23",
+      "dateModified": "2026-09-23"
+    },
+    "apple-support-call-popup-scam-mac": {
+      "description": "Mac popup says call Apple Support or a toll number? Scam · force quit Safari · shift reopen · never pay · Innsegall field guide.",
+      "datePublished": "2026-09-23",
+      "dateModified": "2026-09-23"
+    },
+    "clicked-bad-link-iphone-ipad-guide": {
+      "description": "Bad link on iPhone or iPad? Triage on device first · Mac scout does not scan iOS · calm steps · Innsegall companion for Mac receipts.",
+      "datePublished": "2026-09-23",
+      "dateModified": "2026-09-23"
+    },
+    "pasted-terminal-command-mac-scare": {
+      "description": "Pasted a command from a scam site into Mac Terminal? ClickFix pattern · do not run again · ESCALATE lane · read-only Battle Scout.",
+      "datePublished": "2026-09-23",
+      "dateModified": "2026-09-23"
+    },
+    "mac-configuration-profile-scam": {
+      "description": "Unknown configuration profile on Mac? VPN & Device Management · work vs scam profiles · read-only scout · Innsegall triage.",
+      "datePublished": "2026-09-23",
+      "dateModified": "2026-09-23"
+    },
+    "gatekeeper-opened-unknown-app-mac": {
+      "description": "Opened Mac app from unidentified developer? Gatekeeper bypass regret · read-only scout · not immediate wipe · Innsegall.",
+      "datePublished": "2026-09-23",
+      "dateModified": "2026-09-23"
+    },
+    "mac-dns-changed-after-scare": {
+      "description": "Mac DNS changed or sites redirect after a scare? Battle Scout reads DNS and proxy settings · adware triage on Macintosh · read-only · not antivirus.",
+      "datePublished": "2026-09-23",
+      "dateModified": "2026-09-23"
+    },
+    "downloads-folder-quarantine-mac-check": {
+      "description": "Suspicious file in Mac Downloads? Do not open · quarantine or delete · read-only Battle Scout on Macintosh · Innsegall post-scare triage · not antivirus.",
+      "datePublished": "2026-09-23",
+      "dateModified": "2026-09-23"
+    },
+    "mac-slow-after-suspicious-download": {
+      "description": "Mac slow after suspicious download? Stale launch items vs malware fear · read-only scout · link hygiene guides · not destructive clean.",
+      "datePublished": "2026-09-23",
+      "dateModified": "2026-09-23"
+    },
+    "someone-remoted-into-my-mac": {
+      "description": "Think someone remote accessed your Mac? ESCALATE · revoke access · passwords · when Genius Bar · Battle Scout evidence · Innsegall.",
+      "datePublished": "2026-09-23",
+      "dateModified": "2026-09-23"
+    },
+    "check-parent-mac-after-scare": {
+      "description": "Help a parent after a Mac virus popup? Send the scout for them · Battle Scout receipt · clan seats · household guide · not antivirus.",
+      "datePublished": "2026-09-23",
+      "dateModified": "2026-09-23"
+    },
+    "do-i-need-antivirus-mac-2026": {
+      "description": "Do you need antivirus on Mac in 2026? Apple built-ins plus post-scare Battle Scout · complementary lanes · Innsegall not replacement AV.",
+      "datePublished": "2026-09-23",
+      "dateModified": "2026-09-23"
+    },
+    "malwarebytes-vs-innsegall-after-scare": {
+      "description": "Malwarebytes vs Innsegall after Mac scare? Always-on scan vs read-only Battle Scout receipt · complementary · not antivirus replacement.",
+      "datePublished": "2026-09-23",
+      "dateModified": "2026-09-23"
+    },
+    "onyx-vs-read-only-mac-scout": {
+      "description": "OnyX or Mac maintenance vs Innsegall read-only scout? Destructive tune-up vs evidence · post-scare triage · not antivirus.",
+      "datePublished": "2026-09-23",
+      "dateModified": "2026-09-23"
+    },
+    "genius-bar-vs-battle-scout-mac": {
+      "description": "Genius Bar or home Mac check after scare? Innsegall between popup and Apple appointment · Battle Scout receipt · not antivirus.",
+      "datePublished": "2026-09-23",
+      "dateModified": "2026-09-23"
+    },
+    "paste-battle-scout-for-ai-assistant": {
+      "description": "Paste Innsegall Battle Scout JSON for ChatGPT or Claude · innsegall-battle-scout-ai/v1 · honor triage_level · Macintosh · not antivirus.",
+      "datePublished": "2026-09-23",
+      "dateModified": "2026-09-23"
     }
   }
 }

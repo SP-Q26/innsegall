@@ -3,7 +3,7 @@
 import { PRICING } from "../src/constants.mjs";
 
 const OG_URL = "https://innsegall.com/og/innsegall-card.png";
-const CSS_VER = 18;
+const CSS_VER = 23;
 
 /**
  * @param {{

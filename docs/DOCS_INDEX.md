@@ -1,6 +1,6 @@
 # Innsegall docs index
 
-**As of:** 2026-09-22 · **Production:** `https://innsegall.com` (Vercel `innsegall_fe` · repo `SP-Q26/innsegall` · root `web/`)  
+**As of:** 2026-09-23 · **Production:** `https://innsegall.com` (Vercel `innsegall_fe` · repo `SP-Q26/innsegall` · root `web/`)  
 **Mode:** **Float** · blog SEO + low-touch ops while Simple Property ships · see `FLOAT_MODE_RUNBOOK.md`
 
 ---
@@ -49,6 +49,7 @@ npm run gate:launch    # swarm + smoke:live (0 fail target)
 | Doc | Use |
 |-----|-----|
 | `FIELD_REPORT_AND_BLOG.md` | **Canon** · `field_report` vs `issue_spotlight` vs editorial |
+| `SEO_PAIN_POINTS_REDDIT_QUORA.md` | Reddit / Quora / Apple forums → **20-post batch** · `npm run build:seo-batch-20` |
 | `ISSUE_SPOTLIGHT_LOOP.md` | Scout → Xano → `publish-issue-spotlights` |
 | `WARRIORS_FIELD_REPORT.md` | `?ref=warrior_*` attribution rules |
 | `ROI_AUTOMATION.md` | Automation ROI · `npm run field-report` |

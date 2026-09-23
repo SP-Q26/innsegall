@@ -13,7 +13,7 @@ export const ISLES_COLLECTIVE = {
 
 /**
  * Future: session branding_settings (Stripe API 2025-09-30+).
- * Use background_color / button_color per Stripe docs — not primary_color.
+ * Use background_color / button_color per Stripe docs · not primary_color.
  * Gated until checkout.js apiVersion bump · see SHARED_STRIPE_CHECKOUT_BRANDING.md Phase 2.
  */
 export function checkoutBrandingSettingsInnsegall() {

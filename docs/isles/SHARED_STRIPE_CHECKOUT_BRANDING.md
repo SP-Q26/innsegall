@@ -15,10 +15,10 @@
 | Default Checkout chrome | Dashboard **Settings → Branding** (logo, colors, font) | Session override when API supports it (Phase 2) |
 | Products & prices | Same Dashboard · **separate products per brand** | `STRIPE_PRICE_*` env **only that app’s** price IDs |
 | Webhook | Same account | **Separate endpoint URL + `STRIPE_WEBHOOK_SECRET` per domain** |
-| License / fulfillment | — | `INNSEGALL_LICENSE_SECRET` (or SPT equivalent) **never shared** |
-| Success / cancel URLs | — | Each site’s `siteOrigin()` · innsegall.com vs simpleproperty… |
-| Checkout copy | — | `custom_text` + catalog names in **each repo’s** `checkout.js` |
-| Product tile art | — | `https://<brand-domain>/stripe/*.png` + `sync:stripe-images` per catalog |
+| License / fulfillment | · | `INNSEGALL_LICENSE_SECRET` (or SPT equivalent) **never shared** |
+| Success / cancel URLs | · | Each site’s `siteOrigin()` · innsegall.com vs simpleproperty… |
+| Checkout copy | · | `custom_text` + catalog names in **each repo’s** `checkout.js` |
+| Product tile art | · | `https://<brand-domain>/stripe/*.png` + `sync:stripe-images` per catalog |
 | Reporting | `isles_portfolio=the_isles` on all | **`isles_brand`** + `<brand>_sku` **required** on every product/session |
 
 **Rule:** Sharing the secret key is fine. **Never** share webhook secrets, price IDs across brands, or license signing secrets.
@@ -83,12 +83,12 @@ Customers still see **ISLES CO** on the card; line item and image carry **brand*
 
 When you want **Innsegall navy/gold** and **SPT different colors** on the same Stripe account:
 
-1. **Bump** Stripe API version in each app’s `checkout.js` to a version that supports [Checkout Session `branding_settings`](https://docs.stripe.com/changelog/clover/2025-09-30/checkout-sessions-branding-settings) (e.g. `2025-09-30.clover` or newer — confirm against `stripe` npm release notes).
+1. **Bump** Stripe API version in each app’s `checkout.js` to a version that supports [Checkout Session `branding_settings`](https://docs.stripe.com/changelog/clover/2025-09-30/checkout-sessions-branding-settings) (e.g. `2025-09-30.clover` or newer · confirm against `stripe` npm release notes).
 
 2. **Implement per-brand helper** (shared pattern, copy into each repo or shared package later):
 
 ```js
-// Example shape — verify against Stripe API docs for your pinned version.
+// Example shape · verify against Stripe API docs for your pinned version.
 branding_settings: {
   background_color: "#122A42",
   button_color: "#F4C95D",

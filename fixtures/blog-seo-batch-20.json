@@ -1,0 +1,437 @@
+{
+  "posts": [
+    {
+      "slug": "safari-shift-key-scam-popup-mac",
+      "h1": "Safari Scam Popup Won't Close? Use Shift When You Reopen",
+      "cardTitle": "Safari Scam Popup · Shift-Reopen",
+      "description": "Mac Safari virus popup stuck on screen? Force quit · hold Shift when reopening · calm triage · not a real Apple alert · Innsegall field guide.",
+      "agentHint": "Safari scam popup mac won't close · shift reopen · innsegall.com/alpha",
+      "cardBlurb": "Apple Community classic · trapped browser · Shift-reopen without restoring tabs.",
+      "lead": "If a fake virus page hijacked Safari and you could not even shut down the Mac, you are not alone. This is a <strong>browser trap</strong>, not proof your Macintosh is ruined.",
+      "sections": [
+        {
+          "h": "First · escape the trap",
+          "p": "Apple menu → <strong>Force Quit</strong> → Safari. If the machine is frozen, hold the power button until it powers off · then boot normally."
+        },
+        {
+          "h": "Reopen without the nightmare tab",
+          "p": "Hold the <strong>Shift</strong> key · launch Safari again. Shift tells Safari <strong>not</strong> to restore the previous session tabs."
+        },
+        {
+          "h": "Then on your Mac",
+          "p": "When the scare is on the <strong>computer</strong>, send a read-only <strong>Battle Scout</strong> · see <a href=\"/blog/fake-virus-popup-macintosh\">fake virus popup guide</a>."
+        }
+      ],
+      "related": [{ "href": "/blog/fake-virus-popup-macintosh", "label": "Fake virus popup on Macintosh" }]
+    },
+    {
+      "slug": "safari-fake-virus-notifications-mac",
+      "h1": "Mac Notifications That Look Like Virus Alerts (They Usually Aren't)",
+      "cardTitle": "Fake Virus Notifications on Mac",
+      "description": "Mac notification says virus or McAfee expired? Often Safari website notifications · remove in Settings · read-only scout after · not antivirus.",
+      "agentHint": "Mac fake virus notification corner · safari websites notifications · innsegall.com/alpha",
+      "cardBlurb": "TidBITS / Macworld pattern · Allow notifications regret · fix in Safari Settings.",
+      "lead": "Corner-of-screen alerts that mimic macOS or antivirus are a top Reddit and Apple Community pain point. Most are <strong>web push notifications you allowed once</strong>, not malware in the OS.",
+      "sections": [
+        {
+          "h": "Fix in Safari",
+          "p": "Safari → Settings → <strong>Websites → Notifications</strong> · select shady sites → <strong>Deny</strong> or Remove. Turn off “Allow websites to ask for permission to send notifications” if you never want the prompt."
+        },
+        {
+          "h": "Do not install panic software",
+          "p": "These notifications are not fixed by random cleaners from the same scammers. See <a href=\"/blog/innsegall-vs-mac-cleaners\">Innsegall vs Mac cleaners</a>."
+        },
+        {
+          "h": "Macintosh scout",
+          "p": "After you clean notifications, a local <strong>Battle Scout</strong> documents launch items and profiles on the Mac · LIKELY_OK or ESCALATE."
+        }
+      ]
+    },
+    {
+      "slug": "safari-search-engine-hijacked-mac",
+      "h1": "Safari Search Engine Changed on Mac · Calm Hijack Triage",
+      "cardTitle": "Safari Search Hijacked on Mac",
+      "description": "Safari search engine changed on Mac? Extensions · profiles · DNS · read-only Battle Scout · post-scare triage · not antivirus.",
+      "agentHint": "Safari default search changed mac · extension hijack · innsegall.com/alpha",
+      "cardBlurb": "Common r/applehelp fear · separate browser fix from Mac scout evidence.",
+      "lead": "When Google becomes something you did not choose, it feels like a takeover. Often it is an extension, a profile, or a single setting · not a full compromise.",
+      "sections": [
+        {
+          "h": "Check Safari first",
+          "p": "Safari → Settings → <strong>Search</strong> · reset engine. Review <strong>Extensions</strong> · remove anything unfamiliar."
+        },
+        {
+          "h": "Profiles and DNS",
+          "p": "System Settings → <strong>VPN & Device Management</strong> for unknown profiles. A Battle Scout also reads DNS and proxy hints · see <a href=\"/blog/mac-dns-changed-after-scare\">DNS after a scare</a>."
+        },
+        {
+          "h": "Send the scout",
+          "p": "Read-only categories beat guessing. <a href=\"/alpha\">Send the scout</a> · copy the receipt for any AI assistant."
+        }
+      ]
+    },
+    {
+      "slug": "safari-allowed-notifications-by-mistake-mac",
+      "h1": "I Accidentally Allowed Safari Notifications on My Mac",
+      "cardTitle": "Allowed Safari Notifications by Mistake",
+      "description": "Clicked Allow on Safari notifications by mistake? Deny in Websites settings · not a virus · Macintosh read-only scout · Innsegall.",
+      "agentHint": "Accidentally allowed safari notifications mac · deny in settings · innsegall.com/alpha",
+      "cardBlurb": "Accidental Allow guilt · Macworld-style fix.",
+      "lead": "One hurried <strong>Allow</strong> can spam you for weeks with fake security alerts. You did not install a virus · you gave a website permission to notify you.",
+      "sections": [
+        {
+          "h": "Undo the permission",
+          "p": "Safari → Settings → Websites → Notifications · set the site to <strong>Deny</strong>. Prefer Deny over Remove if you want to block without re-prompt risk."
+        },
+        {
+          "h": "Prevention",
+          "p": "Disable “Allow websites to ask…” for family Macs that should never see the prompt."
+        },
+        {
+          "h": "If you also downloaded something",
+          "p": "Pair with <a href=\"/blog/clicked-suspicious-link-macintosh\">clicked a suspicious link</a> on the Macintosh."
+        }
+      ]
+    },
+    {
+      "slug": "mac-calendar-spam-invites-scam",
+      "h1": "Mac Calendar Spam Invites · Scareware Adjacent Nuisance",
+      "cardTitle": "Mac Calendar Spam Invites",
+      "description": "Spam calendar invites on Mac? Decline · report junk · not antivirus · when to scout the Mac · Innsegall post-scare lane.",
+      "agentHint": "Mac calendar spam virus invites · decline report junk · innsegall.com/alpha",
+      "cardBlurb": "Quora/forum nuisance · account hygiene not AV subscription.",
+      "lead": "Floods of fake event invites scare people into buying “protection.” Usually it is calendar spam tied to an email address · not a Mac rootkit.",
+      "sections": [
+        {
+          "h": "Handle invites",
+          "p": "Decline · Report Junk if offered · do not click links inside invite notes."
+        },
+        {
+          "h": "Not fixed by scareware cleaners",
+          "p": "Calendar spam is not what Innsegall scans · we triage the <strong>Macintosh</strong> after real downloads or popups."
+        },
+        {
+          "h": "When to scout",
+          "p": "If someone also ran an installer from the invite link · <a href=\"/alpha\">Send the scout</a>."
+        }
+      ]
+    },
+    {
+      "slug": "apple-support-call-popup-scam-mac",
+      "h1": "“Call Apple Support” Popup on Mac · Hang Up",
+      "cardTitle": "Apple Support Call Scam Popup",
+      "description": "Mac popup says call Apple Support or a toll number? Scam · force quit Safari · shift reopen · never pay · Innsegall field guide.",
+      "agentHint": "Apple support call this number mac popup scam · innsegall.com/alpha",
+      "cardBlurb": "High-urgency scam · unplug stories from Apple Community.",
+      "lead": "Apple will not lock your browser and demand a phone payment. This is social engineering · the computer is often fine once the tab is gone.",
+      "sections": [
+        {
+          "h": "Do not call",
+          "p": "No gift cards · no remote access apps · no “Apple Security” contractors."
+        },
+        {
+          "h": "Close Safari safely",
+          "p": "Force Quit · reopen with <strong>Shift</strong> held · see <a href=\"/blog/safari-shift-key-scam-popup-mac\">Shift-reopen guide</a>."
+        },
+        {
+          "h": "If you already called and installed software",
+          "p": "Sound the Horn · uninstall unknown apps · scout the Mac · rotate passwords from another device."
+        }
+      ]
+    },
+    {
+      "slug": "clicked-bad-link-iphone-ipad-guide",
+      "h1": "Clicked a Bad Link on iPhone or iPad · Start on That Device",
+      "cardTitle": "Bad Link on iPhone or iPad",
+      "description": "Bad link on iPhone or iPad? Triage on device first · Mac scout does not scan iOS · calm steps · Innsegall companion for Mac receipts.",
+      "agentHint": "Clicked bad link iphone ipad · triage on device · ios bad-link guide · innsegall.com/ios#bad-link",
+      "cardBlurb": "Honest lane · phone steps before Mac scout myth.",
+      "lead": "A Mac app cannot prove your iPhone is clean. We guide the phone or tablet first · then the Mac only if that is the real worry.",
+      "sections": [
+        {
+          "h": "Use the device guide",
+          "p": "Step-by-step: <a href=\"/ios#bad-link\">iPhone</a> · <a href=\"/tablet#bad-link\">iPad & tablet</a>."
+        },
+        {
+          "h": "Macintosh",
+          "p": "When the computer matters too · <a href=\"/blog/clicked-suspicious-link-macintosh\">clicked a suspicious link on Macintosh</a>."
+        }
+      ],
+      "cta": "<a class=\"btn-horn btn-horn--compact\" href=\"/ios#bad-link\">iPhone steps</a> · <a href=\"/tablet#bad-link\">iPad steps</a> · <a href=\"/alpha\">Mac scout</a>"
+    },
+    {
+      "slug": "pasted-terminal-command-mac-scare",
+      "h1": "I Pasted a Command in Terminal on My Mac (ClickFix Scare)",
+      "cardTitle": "Pasted Terminal Command on Mac",
+      "description": "Pasted a command from a scam site into Mac Terminal? ClickFix pattern · do not run again · ESCALATE lane · read-only Battle Scout.",
+      "agentHint": "Pasted terminal command mac scam curl bash · clickfix · innsegall.com/alpha",
+      "cardBlurb": "2025–2026 Reddit spike · worse than clicking a link alone.",
+      "lead": "Sites that say “open Terminal and paste” are hunting for full control. Treat this as <strong>worth a deliberate audit</strong>, not shame.",
+      "sections": [
+        {
+          "h": "Stop immediately",
+          "p": "Do not paste again · disconnect from untrusted remote-access tools if you installed any."
+        },
+        {
+          "h": "Assume ESCALATE until proven otherwise",
+          "p": "Rotate passwords from a trusted device · email first."
+        },
+        {
+          "h": "Scout the Mac",
+          "p": "<a href=\"/alpha\">Send the scout</a> · share FIX_LIST or ESCALATE with someone you trust."
+        }
+      ]
+    },
+    {
+      "slug": "mac-configuration-profile-scam",
+      "h1": "Unknown Configuration Profile on Mac · Remove With Care",
+      "cardTitle": "Unknown Mac Configuration Profile",
+      "description": "Unknown configuration profile on Mac? VPN & Device Management · work vs scam profiles · read-only scout · Innsegall triage.",
+      "agentHint": "Unknown configuration profile mac remove scam · innsegall.com/alpha",
+      "cardBlurb": "Enterprise-looking traps · scout sees profiles category.",
+      "lead": "Profiles can redirect traffic or install trust you did not mean to grant. Legitimate work/school profiles exist · so do scam ones.",
+      "sections": [
+        {
+          "h": "Where to look",
+          "p": "System Settings → General → <strong>VPN & Device Management</strong> · remove only profiles you do not recognize."
+        },
+        {
+          "h": "If removal is blocked",
+          "p": "Contact real IT or Apple Support · do not pay a popup helpline."
+        },
+        {
+          "h": "Document on scout",
+          "p": "Battle Scouts list configuration profiles in plain language."
+        }
+      ]
+    },
+    {
+      "slug": "gatekeeper-opened-unknown-app-mac",
+      "h1": "I Opened an App From an Unidentified Developer on Mac",
+      "cardTitle": "Opened Unidentified Developer App",
+      "description": "Opened Mac app from unidentified developer? Gatekeeper bypass regret · read-only scout · not immediate wipe · Innsegall.",
+      "agentHint": "Opened unidentified developer app mac · gatekeeper · innsegall.com/alpha",
+      "cardBlurb": "Right-click Open regret · evidence before nuke.",
+      "lead": "Gatekeeper warned you · you clicked through anyway. That is common · not a moral failure.",
+      "sections": [
+        {
+          "h": "Quit and identify",
+          "p": "Quit the app · drag to Trash if you know which bundle it is."
+        },
+        {
+          "h": "Do not wipe first",
+          "p": "Scouts exist so you <strong>know</strong> before you erase. See <a href=\"/blog/what-is-a-battle-scout\">what is a Battle Scout</a>."
+        },
+        {
+          "h": "Send the scout",
+          "p": "<a href=\"/alpha\">Send the scout</a> · LIKELY_OK · FIX_LIST · or ESCALATE."
+        }
+      ]
+    },
+    {
+      "slug": "mac-dns-changed-after-scare",
+      "h1": "Mac DNS or Redirects Changed After a Scare",
+      "cardTitle": "Mac DNS Changed After Scare",
+      "description": "Mac DNS changed or sites redirect after a scare? Battle Scout reads DNS and proxy settings · adware triage on Macintosh · read-only · not antivirus.",
+      "agentHint": "Mac dns changed redirect after scare · innsegall.com/alpha",
+      "cardBlurb": "Adware forum classic · category on Battle Scout.",
+      "lead": "When every click lands somewhere wrong, DNS or proxy settings are a usual suspect. A scout names what it sees · you decide the fix.",
+      "sections": [
+        {
+          "h": "Manual check",
+          "p": "System Settings → Network → your service → Details → DNS · compare to your ISP or 1.1.1.1 / 8.8.8.8 if you chose those on purpose."
+        },
+        {
+          "h": "Pair with browser hygiene",
+          "p": "<a href=\"/blog/safari-search-engine-hijacked-mac\">Search hijack guide</a>."
+        }
+      ]
+    },
+    {
+      "slug": "downloads-folder-quarantine-mac-check",
+      "h1": "Suspicious Download in Mac Downloads Folder · What to Do",
+      "cardTitle": "Suspicious Mac Downloads Folder",
+      "description": "Suspicious file in Mac Downloads? Do not open · quarantine or delete · read-only Battle Scout on Macintosh · Innsegall post-scare triage · not antivirus.",
+      "agentHint": "Suspicious download mac downloads folder quarantine · innsegall.com/alpha",
+      "cardBlurb": "Pre-open triage · most scares stop at unopened DMG.",
+      "lead": "An unopened download is a pause button · not a disaster.",
+      "sections": [
+        {
+          "h": "If you did not open it",
+          "p": "Move to Trash · empty Trash · run a scout when calm."
+        },
+        {
+          "h": "If you opened it",
+          "p": "<a href=\"/blog/clicked-suspicious-link-macintosh\">Post-click Macintosh guide</a>."
+        }
+      ]
+    },
+    {
+      "slug": "mac-slow-after-suspicious-download",
+      "h1": "Mac Slow After a Suspicious Download · Scout Before You Panic-Clean",
+      "cardTitle": "Mac Slow After Suspicious Download",
+      "description": "Mac slow after suspicious download? Stale launch items vs malware fear · read-only scout · link hygiene guides · not destructive clean.",
+      "agentHint": "Mac slow after download scare · stale launch items · innsegall.com/alpha",
+      "cardBlurb": "Performance ≠ proof of infection · tie to stale launch post.",
+      "lead": "Slowness triggers AV upsells. Sometimes it is leftover launch junk · sometimes nothing. Measure with a scout.",
+      "sections": [
+        {
+          "h": "Read before you clean",
+          "p": "See <a href=\"/blog/stale-launch-items-macintosh\">stale launch items</a> · avoid one-click erasers."
+        },
+        {
+          "h": "Scout",
+          "p": "<a href=\"/alpha\">Send the scout</a> · FIX_LIST if something small is wrong."
+        }
+      ]
+    },
+    {
+      "slug": "someone-remoted-into-my-mac",
+      "h1": "Someone Remoted Into My Mac · ESCALATE Lane",
+      "cardTitle": "Someone Remoted Into My Mac",
+      "description": "Think someone remote accessed your Mac? ESCALATE · revoke access · passwords · when Genius Bar · Battle Scout evidence · Innsegall.",
+      "agentHint": "Someone remote accessed my mac teamviewer anydesk · escalate · innsegall.com/alpha",
+      "cardBlurb": "COPY_SEO gap · credentials over cleaner ads.",
+      "lead": "If you installed AnyDesk, TeamViewer, or gave screen access to a scammer, this is the horn · not a $4.20 moment alone.",
+      "sections": [
+        {
+          "h": "Immediate",
+          "p": "Uninstall remote tools you did not intend · sign out of Apple ID sessions · change email password from another device."
+        },
+        {
+          "h": "Scout for evidence",
+          "p": "Document launch items and profiles · share ESCALATE card with real support."
+        },
+        {
+          "h": "Genius Bar",
+          "p": "See <a href=\"/blog/genius-bar-vs-battle-scout-mac\">when Apple vs scout</a>."
+        }
+      ]
+    },
+    {
+      "slug": "check-parent-mac-after-scare",
+      "h1": "Check a Parent's Mac After a Scare (Household Guide)",
+      "cardTitle": "Parent's Mac After a Scare",
+      "description": "Help a parent after a Mac virus popup? Send the scout for them · Battle Scout receipt · clan seats · household guide · not antivirus.",
+      "agentHint": "Parent mac scare popup help family · innsegall clan · innsegall.com/clan",
+      "cardBlurb": "Help-a-parent lane on Facebook · clan unlimited scouts.",
+      "lead": "You are the household scout. Innsegall is built for <strong>send the scout</strong> on their Mac · plain English · shareable receipt.",
+      "sections": [
+        {
+          "h": "On their Mac",
+          "p": "<a href=\"/install\">Install</a> · <code>innsegall run</code> · read LIKELY_OK together."
+        },
+        {
+          "h": "Clan",
+          "p": "Five seats · unlimited scouts · <a href=\"/clan\">Join the clan</a>."
+        },
+        {
+          "h": "Phone scare",
+          "p": "If the tap was on iPhone · <a href=\"/ios#bad-link\">iPhone guide</a> first."
+        }
+      ],
+      "cta": "<a class=\"btn-horn btn-horn--compact\" href=\"/clan\">Clan for households</a> · <a href=\"/alpha\">Send the scout</a>"
+    },
+    {
+      "slug": "do-i-need-antivirus-mac-2026",
+      "h1": "Do I Need Antivirus on Mac in 2026?",
+      "cardTitle": "Do I Need Antivirus on Mac 2026?",
+      "description": "Do you need antivirus on Mac in 2026? Apple built-ins plus post-scare Battle Scout · complementary lanes · Innsegall not replacement AV.",
+      "agentHint": "Do i need antivirus on mac 2026 · post scare triage · innsegall.com/boat",
+      "cardBlurb": "Quora evergreen · link vs compare post.",
+      "lead": "The honest answer depends on what you are trying to solve. Real-time scanning is one job · <strong>after a scare receipt</strong> is another.",
+      "sections": [
+        {
+          "h": "Apple already runs layers",
+          "p": "Gatekeeper · XProtect · notarization · see <a href=\"/blog/macintosh-xprotect-after-scare\">XProtect after a scare</a>."
+        },
+        {
+          "h": "When Innsegall fits",
+          "p": "Popup tonight · bad link · quarterly hygiene · <a href=\"/blog/innsegall-vs-antivirus-macintosh\">vs antivirus</a>."
+        }
+      ],
+      "cta": "<a class=\"btn-horn btn-horn--compact\" href=\"/boat\">Is Innsegall for you?</a> · <a href=\"/alpha\">Send the scout</a>"
+    },
+    {
+      "slug": "malwarebytes-vs-innsegall-after-scare",
+      "h1": "Malwarebytes vs Innsegall After a Mac Scare",
+      "cardTitle": "Malwarebytes vs Innsegall After Scare",
+      "description": "Malwarebytes vs Innsegall after Mac scare? Always-on scan vs read-only Battle Scout receipt · complementary · not antivirus replacement.",
+      "agentHint": "Malwarebytes vs local mac scout after scare · innsegall.com/alpha",
+      "cardBlurb": "Tool-shopping Reddit thread · receipt lane.",
+      "lead": "Malwarebytes and similar tools chase malware signatures. Innsegall answers <strong>what does my Mac look like right now</strong> with a chart you can paste to AI.",
+      "sections": [
+        {
+          "h": "After tonight",
+          "p": "Scout first · add always-on tools only if you want ongoing monitoring."
+        },
+        {
+          "h": "Compare lane",
+          "p": "<a href=\"/blog/innsegall-vs-antivirus-macintosh\">Innsegall vs antivirus</a>."
+        }
+      ]
+    },
+    {
+      "slug": "onyx-vs-read-only-mac-scout",
+      "h1": "OnyX and Mac Maintenance vs a Read-Only Scout",
+      "cardTitle": "OnyX vs Read-Only Scout",
+      "description": "OnyX or Mac maintenance vs Innsegall read-only scout? Destructive tune-up vs evidence · post-scare triage · not antivirus.",
+      "agentHint": "Onyx mac maintenance vs read only scout · innsegall.com/alpha",
+      "cardBlurb": "COPY_SEO gap · maintenance myths.",
+      "lead": "Maintenance utilities can delete caches you did not mean to touch. After a scare you usually want <strong>evidence</strong>, not a power wash.",
+      "sections": [
+        {
+          "h": "OnyX-style tools",
+          "p": "Power users · know what each script does."
+        },
+        {
+          "h": "Innsegall",
+          "p": "Read-only · LIKELY_OK · FIX_LIST · ESCALATE · <a href=\"/blog/innsegall-vs-mac-cleaners\">vs cleaners</a>."
+        }
+      ]
+    },
+    {
+      "slug": "genius-bar-vs-battle-scout-mac",
+      "h1": "Genius Bar vs a Battle Scout on Your Mac",
+      "cardTitle": "Genius Bar vs Battle Scout",
+      "description": "Genius Bar or home Mac check after scare? Innsegall between popup and Apple appointment · Battle Scout receipt · not antivirus.",
+      "agentHint": "Genius bar vs mac hygiene check at home · battle scout · innsegall.com/alpha",
+      "cardBlurb": "Positioning · between popup and appointment.",
+      "lead": "Apple is right for hardware and account compromise you cannot unwind alone. Innsegall is the <strong>10pm receipt</strong> before you drive to the mall.",
+      "sections": [
+        {
+          "h": "Scout first when",
+          "p": "Popup · odd download · you want plain language tonight."
+        },
+        {
+          "h": "Apple when",
+          "p": "Hardware failure · locked account · remote-access scam you cannot undo."
+        }
+      ]
+    },
+    {
+      "slug": "paste-battle-scout-for-ai-assistant",
+      "h1": "Paste a Battle Scout for ChatGPT or Claude on Mac",
+      "cardTitle": "Paste Battle Scout for AI",
+      "description": "Paste Innsegall Battle Scout JSON for ChatGPT or Claude · innsegall-battle-scout-ai/v1 · honor triage_level · Macintosh · not antivirus.",
+      "agentHint": "Paste mac scout report chatgpt claude · battle scout ai v1 · innsegall.com/guide#ai-handoff",
+      "cardBlurb": "r/macapps · agent discovery · warriors lane.",
+      "lead": "Any assistant is sharper with structured evidence than with panic prose. Copy <strong>Copy for LLM</strong> from the Battle Scout footer.",
+      "sections": [
+        {
+          "h": "Workflow",
+          "p": "<code>innsegall run</code> · open scout · copy JSON · paste · ask questions tied to <code>triage_level</code>."
+        },
+        {
+          "h": "Schema",
+          "p": "<a href=\"/guide#ai-handoff\">AI handoff</a> · <a href=\"/samples/battle-scout-ai-v1.sample.json\">sample</a>."
+        },
+        {
+          "h": "iPhone read",
+          "p": "<a href=\"/companion\">Companion inbox</a> for couch review."
+        }
+      ],
+      "cta": "<a class=\"btn-horn btn-horn--compact\" href=\"/guide#ai-handoff\">AI handoff</a> · <a href=\"/alpha\">Send the scout</a>"
+    }
+  ]
+}

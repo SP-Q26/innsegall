@@ -6,71 +6,304 @@
     {
       "source": "/samples/(.*)",
       "headers": [
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
-        { "key": "Content-Security-Policy", "value": "frame-ancestors 'self' https://innsegall.com" }
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "frame-ancestors 'self' https://innsegall.com"
+        }
       ]
     },
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-        { "key": "X-Frame-Options", "value": "DENY" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        }
       ]
     }
   ],
   "redirects": [
     {
       "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.innsegall.com" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "www.innsegall.com"
+        }
+      ],
       "destination": "https://innsegall.com/:path*",
       "permanent": true
     },
-    { "source": "/blog/:slug.md", "destination": "/blog/:slug", "permanent": true }
+    {
+      "source": "/blog/:slug.md",
+      "destination": "/blog/:slug",
+      "permanent": true
+    }
   ],
   "rewrites": [
-    { "source": "/alpha", "destination": "/alpha.html" },
-    { "source": "/privacy", "destination": "/privacy.html" },
-    { "source": "/tos", "destination": "/tos.html" },
-    { "source": "/blog", "destination": "/blog/index.html" },
-    { "source": "/blog/field-report-2026-09-06", "destination": "/blog/field-report-2026-09-06.html" },
-    { "source": "/blog/what-is-a-battle-scout", "destination": "/blog/what-is-a-battle-scout.html" },
-    { "source": "/blog/field-glass-sep-2026", "destination": "/blog/field-glass-sep-2026.html" },
-    { "source": "/blog/fake-virus-popup-macintosh", "destination": "/blog/fake-virus-popup-macintosh.html" },
-    { "source": "/blog/clicked-suspicious-link-macintosh", "destination": "/blog/clicked-suspicious-link-macintosh.html" },
-    { "source": "/blog/macintosh-hygiene-without-antivirus", "destination": "/blog/macintosh-hygiene-without-antivirus.html" },
-    { "source": "/blog/voyage-health-tracker-1st-15th", "destination": "/blog/voyage-health-tracker-1st-15th.html" },
-    { "source": "/blog/auto-voyage-first-sail", "destination": "/blog/auto-voyage-first-sail.html" },
-    { "source": "/blog/field-desk-stripe-live-sep-2026", "destination": "/blog/field-desk-stripe-live-sep-2026.html" },
-    { "source": "/blog/field-glass-sep-22-2026", "destination": "/blog/field-glass-sep-22-2026.html" },
-    { "source": "/blog/knockknock-vs-post-scare-triage", "destination": "/blog/knockknock-vs-post-scare-triage.html" },
-    { "source": "/blog/blockblock-vs-post-scare-triage", "destination": "/blog/blockblock-vs-post-scare-triage.html" },
-    { "source": "/blog/field-glass-sep-19-2026", "destination": "/blog/field-glass-sep-19-2026.html" },
-    { "source": "/boat", "destination": "/boat.html" },
-    { "source": "/guide", "destination": "/guide.html" },
-    { "source": "/stability", "destination": "/stability.html" },
-    { "source": "/install", "destination": "/install.html" },
-    { "source": "/ios", "destination": "/ios.html" },
-    { "source": "/tablet", "destination": "/tablet.html" },
-    { "source": "/companion", "destination": "/companion.html" },
-    { "source": "/supplies", "destination": "/supplies.html" },
-    { "source": "/blog/after-suspicious-link-macintosh", "destination": "/blog/after-suspicious-link-macintosh.html" },
-    { "source": "/blog/stale-launch-items-macintosh", "destination": "/blog/stale-launch-items-macintosh.html" },
-    { "source": "/blog/innsegall-ios-companion-i0", "destination": "/blog/innsegall-ios-companion-i0.html" },
-    { "source": "/blog/innsegall-vs-mac-cleaners", "destination": "/blog/innsegall-vs-mac-cleaners.html" },
-    { "source": "/blog/innsegall-vs-etrecheck-macintosh", "destination": "/blog/innsegall-vs-etrecheck-macintosh.html" },
-    { "source": "/blog/macintosh-xprotect-after-scare", "destination": "/blog/macintosh-xprotect-after-scare.html" },
-    { "source": "/blog/virustotal-vs-local-mac-scout", "destination": "/blog/virustotal-vs-local-mac-scout.html" },
-    { "source": "/blog/network-monitor-vs-post-scare-triage", "destination": "/blog/network-monitor-vs-post-scare-triage.html" },
-    { "source": "/samples/battle-scout-demo", "destination": "/samples/battle-scout-demo.html" },
-    { "source": "/map", "destination": "/map.html" },
-    { "source": "/clan", "destination": "/clan.html" },
-    { "source": "/msp", "destination": "/msp.html" },
-    { "source": "/warriors", "destination": "/warriors.html" },
-    { "source": "/blog/join-the-innsegall-clan", "destination": "/blog/join-the-innsegall-clan.html" },
-    { "source": "/blog/innsegall-vs-antivirus-macintosh", "destination": "/blog/innsegall-vs-antivirus-macintosh.html" },
-    { "source": "/success", "destination": "/success.html" },
-    { "source": "/llms.txt", "destination": "/llms.txt" },
-    { "source": "/ai.txt", "destination": "/ai.txt" }
+    {
+      "source": "/alpha",
+      "destination": "/alpha.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html"
+    },
+    {
+      "source": "/tos",
+      "destination": "/tos.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog/index.html"
+    },
+    {
+      "source": "/blog/field-report-2026-09-06",
+      "destination": "/blog/field-report-2026-09-06.html"
+    },
+    {
+      "source": "/blog/what-is-a-battle-scout",
+      "destination": "/blog/what-is-a-battle-scout.html"
+    },
+    {
+      "source": "/blog/field-glass-sep-2026",
+      "destination": "/blog/field-glass-sep-2026.html"
+    },
+    {
+      "source": "/blog/fake-virus-popup-macintosh",
+      "destination": "/blog/fake-virus-popup-macintosh.html"
+    },
+    {
+      "source": "/blog/clicked-suspicious-link-macintosh",
+      "destination": "/blog/clicked-suspicious-link-macintosh.html"
+    },
+    {
+      "source": "/blog/macintosh-hygiene-without-antivirus",
+      "destination": "/blog/macintosh-hygiene-without-antivirus.html"
+    },
+    {
+      "source": "/blog/voyage-health-tracker-1st-15th",
+      "destination": "/blog/voyage-health-tracker-1st-15th.html"
+    },
+    {
+      "source": "/blog/auto-voyage-first-sail",
+      "destination": "/blog/auto-voyage-first-sail.html"
+    },
+    {
+      "source": "/blog/field-desk-stripe-live-sep-2026",
+      "destination": "/blog/field-desk-stripe-live-sep-2026.html"
+    },
+    {
+      "source": "/blog/field-glass-sep-22-2026",
+      "destination": "/blog/field-glass-sep-22-2026.html"
+    },
+    {
+      "source": "/blog/knockknock-vs-post-scare-triage",
+      "destination": "/blog/knockknock-vs-post-scare-triage.html"
+    },
+    {
+      "source": "/blog/blockblock-vs-post-scare-triage",
+      "destination": "/blog/blockblock-vs-post-scare-triage.html"
+    },
+    {
+      "source": "/blog/field-glass-sep-19-2026",
+      "destination": "/blog/field-glass-sep-19-2026.html"
+    },
+    {
+      "source": "/boat",
+      "destination": "/boat.html"
+    },
+    {
+      "source": "/guide",
+      "destination": "/guide.html"
+    },
+    {
+      "source": "/stability",
+      "destination": "/stability.html"
+    },
+    {
+      "source": "/install",
+      "destination": "/install.html"
+    },
+    {
+      "source": "/ios",
+      "destination": "/ios.html"
+    },
+    {
+      "source": "/tablet",
+      "destination": "/tablet.html"
+    },
+    {
+      "source": "/companion",
+      "destination": "/companion.html"
+    },
+    {
+      "source": "/supplies",
+      "destination": "/supplies.html"
+    },
+    {
+      "source": "/blog/after-suspicious-link-macintosh",
+      "destination": "/blog/after-suspicious-link-macintosh.html"
+    },
+    {
+      "source": "/blog/stale-launch-items-macintosh",
+      "destination": "/blog/stale-launch-items-macintosh.html"
+    },
+    {
+      "source": "/blog/innsegall-ios-companion-i0",
+      "destination": "/blog/innsegall-ios-companion-i0.html"
+    },
+    {
+      "source": "/blog/innsegall-vs-mac-cleaners",
+      "destination": "/blog/innsegall-vs-mac-cleaners.html"
+    },
+    {
+      "source": "/blog/innsegall-vs-etrecheck-macintosh",
+      "destination": "/blog/innsegall-vs-etrecheck-macintosh.html"
+    },
+    {
+      "source": "/blog/macintosh-xprotect-after-scare",
+      "destination": "/blog/macintosh-xprotect-after-scare.html"
+    },
+    {
+      "source": "/blog/virustotal-vs-local-mac-scout",
+      "destination": "/blog/virustotal-vs-local-mac-scout.html"
+    },
+    {
+      "source": "/blog/network-monitor-vs-post-scare-triage",
+      "destination": "/blog/network-monitor-vs-post-scare-triage.html"
+    },
+    {
+      "source": "/samples/battle-scout-demo",
+      "destination": "/samples/battle-scout-demo.html"
+    },
+    {
+      "source": "/map",
+      "destination": "/map.html"
+    },
+    {
+      "source": "/clan",
+      "destination": "/clan.html"
+    },
+    {
+      "source": "/msp",
+      "destination": "/msp.html"
+    },
+    {
+      "source": "/warriors",
+      "destination": "/warriors.html"
+    },
+    {
+      "source": "/blog/join-the-innsegall-clan",
+      "destination": "/blog/join-the-innsegall-clan.html"
+    },
+    {
+      "source": "/blog/innsegall-vs-antivirus-macintosh",
+      "destination": "/blog/innsegall-vs-antivirus-macintosh.html"
+    },
+    {
+      "source": "/success",
+      "destination": "/success.html"
+    },
+    {
+      "source": "/llms.txt",
+      "destination": "/llms.txt"
+    },
+    {
+      "source": "/ai.txt",
+      "destination": "/ai.txt"
+    },
+    {
+      "source": "/blog/safari-shift-key-scam-popup-mac",
+      "destination": "/blog/safari-shift-key-scam-popup-mac.html"
+    },
+    {
+      "source": "/blog/safari-fake-virus-notifications-mac",
+      "destination": "/blog/safari-fake-virus-notifications-mac.html"
+    },
+    {
+      "source": "/blog/safari-search-engine-hijacked-mac",
+      "destination": "/blog/safari-search-engine-hijacked-mac.html"
+    },
+    {
+      "source": "/blog/safari-allowed-notifications-by-mistake-mac",
+      "destination": "/blog/safari-allowed-notifications-by-mistake-mac.html"
+    },
+    {
+      "source": "/blog/mac-calendar-spam-invites-scam",
+      "destination": "/blog/mac-calendar-spam-invites-scam.html"
+    },
+    {
+      "source": "/blog/apple-support-call-popup-scam-mac",
+      "destination": "/blog/apple-support-call-popup-scam-mac.html"
+    },
+    {
+      "source": "/blog/clicked-bad-link-iphone-ipad-guide",
+      "destination": "/blog/clicked-bad-link-iphone-ipad-guide.html"
+    },
+    {
+      "source": "/blog/pasted-terminal-command-mac-scare",
+      "destination": "/blog/pasted-terminal-command-mac-scare.html"
+    },
+    {
+      "source": "/blog/mac-configuration-profile-scam",
+      "destination": "/blog/mac-configuration-profile-scam.html"
+    },
+    {
+      "source": "/blog/gatekeeper-opened-unknown-app-mac",
+      "destination": "/blog/gatekeeper-opened-unknown-app-mac.html"
+    },
+    {
+      "source": "/blog/mac-dns-changed-after-scare",
+      "destination": "/blog/mac-dns-changed-after-scare.html"
+    },
+    {
+      "source": "/blog/downloads-folder-quarantine-mac-check",
+      "destination": "/blog/downloads-folder-quarantine-mac-check.html"
+    },
+    {
+      "source": "/blog/mac-slow-after-suspicious-download",
+      "destination": "/blog/mac-slow-after-suspicious-download.html"
+    },
+    {
+      "source": "/blog/someone-remoted-into-my-mac",
+      "destination": "/blog/someone-remoted-into-my-mac.html"
+    },
+    {
+      "source": "/blog/check-parent-mac-after-scare",
+      "destination": "/blog/check-parent-mac-after-scare.html"
+    },
+    {
+      "source": "/blog/do-i-need-antivirus-mac-2026",
+      "destination": "/blog/do-i-need-antivirus-mac-2026.html"
+    },
+    {
+      "source": "/blog/malwarebytes-vs-innsegall-after-scare",
+      "destination": "/blog/malwarebytes-vs-innsegall-after-scare.html"
+    },
+    {
+      "source": "/blog/onyx-vs-read-only-mac-scout",
+      "destination": "/blog/onyx-vs-read-only-mac-scout.html"
+    },
+    {
+      "source": "/blog/genius-bar-vs-battle-scout-mac",
+      "destination": "/blog/genius-bar-vs-battle-scout-mac.html"
+    },
+    {
+      "source": "/blog/paste-battle-scout-for-ai-assistant",
+      "destination": "/blog/paste-battle-scout-for-ai-assistant.html"
+    }
   ]
 }
