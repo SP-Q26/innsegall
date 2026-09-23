@@ -14,6 +14,8 @@
 
 ```bash
 cd ~/Desktop/innsegall   # or ~/innsegall
+npm run audit:git        # identity · origin sync · workspace · before commit
+npm run clean:workspace  # optional · .smoke + dist
 npm run audit:workspace
 npm run sync:blog-brand
 node scripts/sync-site-chrome.mjs

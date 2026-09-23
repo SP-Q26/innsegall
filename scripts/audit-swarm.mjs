@@ -42,6 +42,7 @@ const lanes = [
   { name: "Blog quality (SEO + readability)", script: "audit-blog-quality.mjs", score: "9.5" },
   { name: "Structured data (Phase 7 W1b)", script: "audit-structured-data.mjs", score: "9.0" },
   { name: "Site inventory (all pages)", script: "audit-site-inventory.mjs", score: "9.5" },
+  { name: "Git · identity + workspace", script: "git-audit.mjs", score: "9.5" },
 ];
 
 let failed = 0;

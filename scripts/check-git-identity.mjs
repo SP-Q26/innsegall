@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 /** Reject commits with personal/machine git identity (repo gate). */
-import { execSync } from "node:child_process";
+import { execFileSync } from "node:child_process";
 
 const bad = /(@gmail\.|@icloud\.|@me\.com|@hotmail\.|\.lan>|\.local>)/i;
 
 try {
-  const log = execSync("git log -5 --format=%ae|%an", { encoding: "utf8" }).trim().split("\n");
+  const log = execFileSync("git", ["log", "-5", "--format=%ae|%an"], { encoding: "utf8" })
+    .trim()
+    .split("\n");
   let failed = 0;
   for (const line of log) {
     const [email, name] = line.split("|");

@@ -33,6 +33,8 @@
     "audit:brand-stack": "node scripts/audit-brand-stack.mjs",
     "audit:responsive-spacing": "node scripts/audit-responsive-spacing.mjs",
     "audit:workspace": "node scripts/audit-workspace-hygiene.mjs",
+    "audit:git": "node scripts/git-audit.mjs",
+    "clean:workspace": "rm -rf .smoke dist && echo 'cleaned .smoke dist'",
     "build:competitor-posts": "node scripts/build-competitor-absorption-posts.mjs",
     "build:seo-batch-20": "node scripts/build-seo-batch-20.mjs",
     "audit:discovery": "node scripts/audit-discovery.mjs",

@@ -25,6 +25,7 @@
 **Proof commands:**
 
 ```bash
+npm run audit:git      # identity · main vs origin · workspace · pre-commit
 npm run predeploy      # gospel + blog chrome sync
 npm run audit:site     # writes SITE_FULL_AUDIT_LATEST.md
 npm run gate:launch    # swarm + smoke:live (0 fail target)
