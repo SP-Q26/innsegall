@@ -60,7 +60,7 @@ for (const rel of keyPages) {
   check(`${rel} canonical`, html.includes('rel="canonical"'));
   check(`${rel} brand mark`, html.includes('class="brand-mark"'));
   check(`${rel} footer links`, html.includes('class="footer-links"'));
-  check(`${rel} css v22`, html.includes("innsegall.css?v=22"));
+  check(`${rel} css v23`, html.includes("innsegall.css?v=23"));
 }
 
 const robots = readFileSync(join(web, "robots.txt"), "utf8");

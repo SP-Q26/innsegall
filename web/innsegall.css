@@ -274,6 +274,57 @@ a:focus-visible {
     sea-swell 48s ease-in-out infinite;
 }
 
+/* Faint scout-map arrows · events worth a look · not UI chrome */
+.beam-signals {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.beam-signal {
+  position: absolute;
+  left: var(--bx, 50%);
+  top: var(--by, 50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  transform: translate(-50%, -50%) rotate(var(--brot, 0deg));
+  opacity: var(--bop, 0.1);
+  font-family: var(--font-sans, "DM Sans", system-ui, sans-serif);
+  animation: beam-signal-drift var(--bdur, 24s) ease-in-out infinite;
+  animation-delay: var(--bdelay, 0s);
+  user-select: none;
+}
+
+.beam-signal-arrow {
+  font-size: 1.05rem;
+  line-height: 1;
+  color: rgba(244, 201, 93, 0.55);
+  text-shadow: 0 0 18px rgba(244, 201, 93, 0.12);
+}
+
+.beam-signal-note {
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: lowercase;
+  color: rgba(168, 216, 255, 0.45);
+  opacity: 0.9;
+}
+
+@keyframes beam-signal-drift {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) rotate(var(--brot, 0deg)) translate3d(0, 0, 0);
+    opacity: calc(var(--bop, 0.1) * 0.85);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(var(--brot, 0deg)) translate3d(0, -5px, 0);
+    opacity: calc(var(--bop, 0.1) * 1.15);
+  }
+}
+
 .page {
   position: relative;
   z-index: 1;
@@ -1627,6 +1678,11 @@ button.innsegall-checkout:disabled {
   .beam-bg::after {
     animation: none;
     filter: none;
+  }
+
+  .beam-signal {
+    animation: none;
+    opacity: 0.06;
   }
 
   .btn-horn,

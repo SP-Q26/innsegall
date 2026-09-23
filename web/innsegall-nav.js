@@ -1,8 +1,90 @@
-/** Innsegall · header nav highlight + anonymous marketing_ping (page category only). */
+/** Innsegall · header nav highlight + beam signals + anonymous marketing_ping (page category only). */
 (function () {
   "use strict";
 
   var path = location.pathname.replace(/\/$/, "") || "/";
+
+  var BEAM_NOTES = ["trace", "lane", "ping", "signal", "scout", "event", "follow", "read"];
+  var BEAM_ARROWS = ["\u2197", "\u2192", "\u21e2", "\u2198"];
+
+  function beamSeed(str) {
+    var h = 2166136261;
+    for (var i = 0; i < str.length; i++) {
+      h ^= str.charCodeAt(i);
+      h = Math.imul(h, 16777619);
+    }
+    return h >>> 0;
+  }
+
+  function beamRand(state) {
+    state ^= state << 13;
+    state ^= state >>> 17;
+    state ^= state << 5;
+    return (state >>> 0) / 4294967296;
+  }
+
+  function mountBeamSignals() {
+    var beam = document.querySelector(".beam-bg");
+    if (!beam || beam.querySelector(".beam-signals")) return;
+
+    var reduced =
+      typeof matchMedia !== "undefined" && matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var narrow = typeof innerWidth !== "undefined" && innerWidth < 520;
+    var count = reduced ? 3 : narrow ? 4 : 7;
+    var layer = document.createElement("div");
+    layer.className = "beam-signals";
+    layer.setAttribute("aria-hidden", "true");
+
+    var state = beamSeed(path || "/");
+    for (var n = 0; n < count; n++) {
+      state = (state + n * 9973) >>> 0;
+      var r1 = beamRand(state);
+      state = (state + 1) >>> 0;
+      var r2 = beamRand(state);
+      state = (state + 1) >>> 0;
+      var r3 = beamRand(state);
+      state = (state + 1) >>> 0;
+      var r4 = beamRand(state);
+      state = (state + 1) >>> 0;
+      var r5 = beamRand(state);
+
+      var edge = r1 < 0.5;
+      var xPct = edge ? 6 + r2 * 26 : 68 + r2 * 24;
+      var yPct = 12 + r3 * 76;
+
+      var el = document.createElement("span");
+      el.className = "beam-signal";
+      el.style.setProperty("--bx", xPct.toFixed(1) + "%");
+      el.style.setProperty("--by", yPct.toFixed(1) + "%");
+      el.style.setProperty("--brot", (-28 + r4 * 56).toFixed(0) + "deg");
+      el.style.setProperty("--bop", (0.075 + r5 * 0.055).toFixed(3));
+      el.style.setProperty("--bdelay", (r3 * 14).toFixed(1) + "s");
+      el.style.setProperty("--bdur", (20 + r4 * 16).toFixed(0) + "s");
+
+      state = (state + 11) >>> 0;
+      var arrow = BEAM_ARROWS[Math.floor(beamRand(state) * BEAM_ARROWS.length)];
+      state = (state + 7) >>> 0;
+      var note = BEAM_NOTES[Math.floor(beamRand(state) * BEAM_NOTES.length)];
+
+      var arrowSpan = document.createElement("span");
+      arrowSpan.className = "beam-signal-arrow";
+      arrowSpan.textContent = arrow;
+      var noteSpan = document.createElement("span");
+      noteSpan.className = "beam-signal-note";
+      noteSpan.textContent = note;
+      el.appendChild(arrowSpan);
+      el.appendChild(noteSpan);
+      layer.appendChild(el);
+    }
+
+    beam.appendChild(layer);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", mountBeamSignals, { once: true });
+  } else {
+    mountBeamSignals();
+  }
   document.querySelectorAll(".header-nav a").forEach(function (a) {
     var href = a.getAttribute("href") || "";
     var target = href.replace(/\/$/, "") || "/";

@@ -87,7 +87,7 @@ try {
 
 const index = readFileSync(join(web, "index.html"), "utf8");
 const visualChecks = [
-  ["CSS v22 sitewide", index.includes("innsegall.css?v=22")],
+  ["CSS v23 sitewide", index.includes("innsegall.css?v=23")],
   ["Web companion page", existsSync(join(web, "companion.html"))],
   ["Companion PWA manifest", existsSync(join(web, "companion.webmanifest"))],
   ["Index Battle Scout preview", index.includes("battle-scout-sample")],
@@ -99,6 +99,8 @@ const visualChecks = [
   ["Blog rune divider", readFileSync(join(web, "blog/what-is-a-battle-scout.html"), "utf8").includes("blog-rune-divider")],
   ["Skip link", index.includes('class="skip-link"')],
   ["Beam background", index.includes('class="beam-bg"')],
+  ["Beam signals layer", readFileSync(join(web, "innsegall-nav.js"), "utf8").includes("mountBeamSignals")],
+  ["Beam signals CSS", readFileSync(join(web, "innsegall.css"), "utf8").includes(".beam-signals")],
   ["Brand mark SVG", index.includes('class="brand-mark"')],
   ["Footer nav", index.includes('class="footer-links"')],
   [

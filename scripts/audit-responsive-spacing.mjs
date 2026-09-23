@@ -33,7 +33,7 @@ const clanPos = index.indexOf('id="clan"');
 check("index pricing before clan", pricingPos > 0 && clanPos > pricingPos);
 check("index no orphan lane section", !index.includes('id="lane-title"'));
 check("index field guides grid class", index.includes("card-grid--guides"));
-check("index css cache v22", index.includes("innsegall.css?v=22"));
+check("index css cache v23", index.includes("innsegall.css?v=23"));
 
 const HOME_FLOW = [
   'class="hero"',
@@ -67,7 +67,7 @@ for (const rel of KEY_HTML) {
   const html = readFileSync(join(web, rel), "utf8");
   const label = rel.replace(".html", "");
   check(`${label} viewport-fit=cover`, /viewport-fit=cover/.test(html));
-  check(`${label} innsegall.css v22`, /innsegall\.css\?v=22/.test(html));
+  check(`${label} innsegall.css v23`, /innsegall\.css\?v=23/.test(html));
 }
 
 function walkHtml(dir, base = "") {
@@ -87,14 +87,14 @@ const pages = walkHtml(web).filter((p) => !p.includes("samples/"));
 let staleCss = 0;
 for (const rel of pages) {
   const html = readFileSync(join(web, rel), "utf8");
-  if (html.includes("innsegall.css") && !html.includes("innsegall.css?v=22")) {
+  if (html.includes("innsegall.css") && !html.includes("innsegall.css?v=23")) {
     staleCss++;
   }
 }
 if (staleCss) {
-  check(`all pages css v22 (${staleCss} stale)`, false);
+  check(`all pages css v23 (${staleCss} stale)`, false);
 } else {
-  check("all pages css v22", true);
+  check("all pages css v23", true);
 }
 
 console.log(failed ? `\n${failed} responsive-spacing failure(s)` : "\nResponsive spacing audit passed");
