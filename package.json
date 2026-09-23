@@ -31,6 +31,7 @@
     "audit": "node scripts/audit-launch.mjs",
     "audit:swarm": "node scripts/audit-swarm.mjs",
     "audit:brand-stack": "node scripts/audit-brand-stack.mjs",
+    "audit:copy": "node scripts/audit-brand-stack.mjs && node scripts/audit-blog-funnel.mjs && node scripts/audit-responsive-spacing.mjs",
     "audit:responsive-spacing": "node scripts/audit-responsive-spacing.mjs",
     "audit:workspace": "node scripts/audit-workspace-hygiene.mjs",
     "audit:git": "node scripts/git-audit.mjs",
