@@ -1,6 +1,6 @@
 # Innsegall.com · full site audit
 
-**Generated:** 2026-09-23 · `node scripts/audit-site-inventory.mjs`  
+**Generated:** 2026-09-25 · `node scripts/audit-site-inventory.mjs`  
 **Project:** Vercel `innsegall_fe` · root `web/`  
 **Commands:** `npm run audit:site` · `npm run gate:launch` · `npm run smoke:live`
 
@@ -38,7 +38,7 @@
 | `/blog/downloads-folder-quarantine-mac-check` | ✓ | ✓ | ✓ | ✓ | 153 | ok |
 | `/blog/fake-virus-popup-macintosh` | ✓ | ✓ | ✓ | ✓ | 144 | ok |
 | `/blog/field-desk-stripe-live-sep-2026` | ✓ | ✓ | ✓ | ✓ | 143 | ok |
-| `/blog/field-glass-sep-19-2026` | ✓ | ✓ | ✓ | ✓ | 142 | ok |
+| `/blog/field-glass-sep-19-2026` | ✓ | ✓ | ✓ | ✓ | 145 | ok |
 | `/blog/field-glass-sep-2026` | ✓ | ✓ | ✓ | ✓ | 145 | ok |
 | `/blog/field-glass-sep-22-2026` | ✓ | ✓ | ✓ | ✓ | 126 | ok |
 | `/blog/field-report-2026-09-06` | ✓ | ✓ | ✓ | ✓ | 140 | ok |
