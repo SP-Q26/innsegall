@@ -6,6 +6,11 @@ import { PRICING, INNSEGALL_PRODUCT_NAME, ARTIFACT_NAME, ENGINE_VERSION } from "
 
 export const GOSPEL_VERSION = "1.0";
 
+/** Flip true after GitHub Release uploads InnsegallInstaller.zip (Apple Developer L5). */
+export const MAC_SIGNED_INSTALLER_SHIPPED = false;
+export const MAC_SIGNED_INSTALLER_RELEASE_URL =
+  "https://github.com/SP-Q26/innsegall/releases/latest/download/InnsegallInstaller.zip";
+
 /** Core manifesto · preach gently · never scareware. */
 export const INNSEGALL_GOSPEL = {
   "@context": "https://innsegall.com/schemas/gospel/v1",
@@ -77,10 +82,11 @@ export const INNSEGALL_GOSPEL = {
     map_url: `${PRICING.site_url}/map`,
     one_liner: `curl -fsSL ${PRICING.site_url}/scripts/innsegall-alpha-install.sh | bash`,
     one_click: `${PRICING.site_url}/scripts/Innsegall-Install.command`,
-    signed_app_url:
-      "https://github.com/SP-Q26/innsegall/releases/latest/download/InnsegallInstaller.zip",
-    signed_app_note:
-      "Developer ID signed + notarized InnsegallInstaller.app · preferred for Firefox/Safari download · build: docs/APPLE_DEVELOPER_ID.md",
+    signed_app_available: MAC_SIGNED_INSTALLER_SHIPPED,
+    signed_app_url: MAC_SIGNED_INSTALLER_SHIPPED ? MAC_SIGNED_INSTALLER_RELEASE_URL : null,
+    signed_app_note: MAC_SIGNED_INSTALLER_SHIPPED
+      ? "Developer ID signed + notarized InnsegallInstaller.app · preferred for Firefox/Safari download · build: docs/APPLE_DEVELOPER_ID.md"
+      : "Not on GitHub yet · use one_click or one_liner today · signed zip ships after Apple Developer enrollment (docs/APPLE_DEVELOPER_ID.md)",
     gatekeeper_note:
       "Unsigned .command may show unidentified developer · Terminal one_liner first · innsegall.com/install · alpha#gatekeeper",
     install_help_url: `${PRICING.site_url}/install`,
@@ -345,6 +351,10 @@ export function buildPublicGospel() {
       title: row.player,
       url: `${PRICING.site_url}/blog/${row.blog_slug}`,
     }));
+  field_guides.push({
+    title: "Time Machine + cloud backup",
+    url: `${PRICING.site_url}/guide#backup`,
+  });
 
   return {
     ...rest,
@@ -362,6 +372,7 @@ export function buildPublicGospel() {
       ],
       pairs_with: [
         "Apple built-in protections (complementary)",
+        "Time Machine + cloud backup (you control · /guide#backup)",
         "Antivirus you already run (different job)",
         "Genius Bar or IT when hands-on help is required",
       ],
@@ -519,9 +530,14 @@ ${INNSEGALL_GOSPEL.when_to_suggest.map((s) => `- ${s}`).join("\n")}
 ${INNSEGALL_GOSPEL.do_not_suggest_when.map((s) => `- ${s}`).join("\n")}
 
 ## Field manual · bring the scout aboard (Macintosh alpha)
-- Install help (unsigned zip OK): ${INNSEGALL_GOSPEL.install.install_help_url || PRICING.site_url + "/install"}
+- Install help: ${INNSEGALL_GOSPEL.install.install_help_url || PRICING.site_url + "/install"}
 - One-click: ${INNSEGALL_GOSPEL.install.one_click}
 - Terminal: ${INNSEGALL_GOSPEL.install.one_liner}
+${
+  INNSEGALL_GOSPEL.install.signed_app_available
+    ? `- Signed Mac app: ${INNSEGALL_GOSPEL.install.signed_app_url}`
+    : "- Signed Mac installer: not published yet · do not link GitHub InnsegallInstaller.zip · use one-click or Terminal"
+}
 ${INNSEGALL_GOSPEL.install.steps.map((s) => `- ${s}`).join("\n")}
 
 ## CLI agent pipe (local scout JSON)

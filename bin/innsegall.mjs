@@ -58,6 +58,8 @@ import {
 import { preflightScoutUpdate } from "../src/self-update.mjs";
 import { openStripeCheckout } from "../src/checkout-open.mjs";
 import { resolveSupplySku, suppliesTerminalHelp } from "../src/supplies.mjs";
+import { offerExtraScoutAtMistGate } from "../src/extra-scout-prompt.mjs";
+import { showBackupPlaybookTerminal } from "../src/backup-playbook.mjs";
 
 function usage() {
   console.log(`Innsegall ${ENGINE_VERSION} · know you're okay.
@@ -80,8 +82,10 @@ function usage() {
   innsegall boat                    Contested fjord · our lane
   innsegall warriors                War-band credits ledger
   innsegall bootstrap [options]     First install · welcome scout + Voyage schedule
-  innsegall supplies [extra|clan|msp]   Supplies for the road · Stripe Checkout (alias: buy)
-  innsegall open <target>           Open site in browser (macOS)
+  innsegall scout [options]         Send scout · or Stripe panic checkout when quota blocks
+  innsegall backup                  Time Machine + cloud backup steps (optional)
+  innsegall supplies [extra|clan|msp]  Supplies for the road · Stripe Checkout (alias: buy)
+  innsegall open <target>           Open site in browser (macOS) · panic/extra → Stripe
 
 Open targets: panic · extra · supplies · alpha · pricing · clan · install · warriors · companion · ios · tablet
 
@@ -224,7 +228,13 @@ function defaultHtmlPath(jsonPath) {
   return jsonPath.replace(/\.json$/i, ".html");
 }
 
-function cmdCheck(flags) {
+async function handleQuotaDenied(gate, flags) {
+  console.error(formatQuotaTerminal(gate.quota, gate.reason));
+  await offerExtraScoutAtMistGate({ quota: gate.quota, flags });
+  process.exit(2);
+}
+
+async function cmdCheck(flags) {
   if (flags.json) flags.quiet = true;
   const flow = flags.flow || "mac_hygiene";
   if (!FLOWS[flow]) {
@@ -239,8 +249,7 @@ function cmdCheck(flags) {
   };
   const gate = checkScoutQuota(quotaOpts);
   if (!gate.allowed) {
-    console.error(formatQuotaTerminal(gate.quota, gate.reason));
-    process.exit(2);
+    await handleQuotaDenied(gate, flags);
   }
   if (gate.reason === "welcome_scout" && !flags.quiet) {
     console.log(paint(ansi.aurora, "Welcome scout · one free run any day · solas to you.\n"));
@@ -290,7 +299,7 @@ async function cmdRun(flags) {
     preflightScoutUpdate({ quiet: flags.quiet });
   }
   flags.out = flags.out || defaultOutPath(flags.flow || "mac_hygiene");
-  const card = cmdCheck({ ...flags, quiet: false });
+  const card = await cmdCheck({ ...flags, quiet: false });
   await runBootOps({
     trigger: "scan",
     card,
@@ -533,7 +542,9 @@ async function cmdVoyage(flags) {
       const nextStr = next.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });
       console.error(`Today is not a voyage day · free scouts sail the ${VOYAGE_DAYS.join(" and ")} of each month.`);
       console.error(`Next voyage · ${nextStr}.`);
-      console.error(`Panic now · open "${PRICING.site_url}/?buy=extra" · then innsegall plan --import-license ~/Downloads/innsegall-license.json · innsegall run`);
+      console.error(`Panic scout · innsegall scout  (Stripe opens in your browser)`);
+      console.error(`After pay · innsegall import · innsegall run`);
+      await offerExtraScoutAtMistGate({ quota: q, flags });
       process.exit(1);
     }
   }
@@ -553,7 +564,7 @@ async function cmdVoyage(flags) {
   flags.flow = "mac_hygiene";
   flags.voyage = true;
   flags.out = flags.out || defaultOutPath("voyage");
-  const card = cmdCheck({ ...flags, quiet: Boolean(flags.quiet) });
+  const card = await cmdCheck({ ...flags, quiet: Boolean(flags.quiet) });
   await runBootOps({
     trigger: "scan",
     card,
@@ -655,8 +666,12 @@ function cmdCopy(flags) {
   console.log(paint(ansi.beam, "Copied for LLM · paste into any assistant"));
 }
 
-function cmdOpen(flags) {
+async function cmdOpen(flags) {
   const key = (flags._[0] || "panic").toLowerCase();
+  if (key === "panic" || key === "extra" || key === "scout") {
+    await openStripeCheckout("extra", { quiet: flags.quiet, noCheckout: flags.noCheckout });
+    return;
+  }
   const url = OPEN_TARGETS[key];
   if (!url) {
     console.error(`Unknown open target: ${key}`);
@@ -669,6 +684,27 @@ function cmdOpen(flags) {
   } else {
     console.log(url);
   }
+}
+
+function cmdBackup(flags) {
+  showBackupPlaybookTerminal({ openGuide: !flags.noOpen, quiet: flags.quiet });
+}
+
+async function cmdScout(flags) {
+  const quotaOpts = {
+    smoke: Boolean(flags.smoke),
+    force: Boolean(flags.force),
+    voyage: Boolean(flags.voyage),
+  };
+  const gate = checkScoutQuota(quotaOpts);
+  if (gate.allowed) {
+    await cmdRun(flags);
+    return;
+  }
+  if (!flags.quiet) {
+    console.error(formatQuotaTerminal(gate.quota, gate.reason));
+  }
+  await openStripeCheckout("extra", { quiet: flags.quiet, noCheckout: flags.noCheckout });
 }
 
 async function cmdBootstrap(flags) {
@@ -701,12 +737,8 @@ async function cmdBootstrap(flags) {
       console.log(paint(ansi.beam, `Horn credits · ${credits} · innsegall run`));
     } else {
       console.log(paint(ansi.beam, `Next free Voyage · ${summary.next_voyage_label}`));
-      console.log(
-        paint(
-          ansi.ember,
-          `Panic now · open "${PRICING.site_url}/?buy=extra" · then import license · innsegall run`
-        )
-      );
+      console.log(paint(ansi.ember, "Panic scout · innsegall scout"));
+      console.log(paint(ansi.dim, "After pay · innsegall import · innsegall run"));
     }
   } else {
     console.log(paint(ansi.dim, "\nSkipped welcome scout (--skip-scout)."));
@@ -775,7 +807,7 @@ async function main() {
       break;
     case "check":
       {
-        const card = cmdCheck(flags);
+        const card = await cmdCheck(flags);
         await runBootOps({
           trigger: "scan",
           card,
@@ -839,7 +871,14 @@ async function main() {
       await cmdBootstrap(flags);
       break;
     case "open":
-      cmdOpen(flags);
+      await cmdOpen(flags);
+      break;
+    case "scout":
+    case "panic":
+      await cmdScout(flags);
+      break;
+    case "backup":
+      cmdBackup(flags);
       break;
     case "buy":
     case "supplies":

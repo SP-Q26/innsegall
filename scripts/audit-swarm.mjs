@@ -28,6 +28,7 @@ const lanes = [
   { name: "Isles portfolio + ethics canon", script: "audit-isles-ethics.mjs", score: "9.5" },
   { name: "Isles launchpad + registry", script: "audit-isles-launchpad.mjs", score: "9.5" },
   { name: "Install / bootstrap flow", script: "audit-install-flow.mjs", score: "9.5" },
+  { name: "CLI ease of use (panic scout)", script: "audit-ease-of-use.mjs", score: "9.5" },
   { name: "Redeem design (doc only)", script: "audit-redeem-design.mjs", score: "9.5" },
   { name: "Pre-L5 levers (doc + install)", script: "audit-pre-l5-levers.mjs", score: "9.5" },
   { name: "CLI check --json (B1)", script: "audit-check-json.mjs", score: "9.0" },

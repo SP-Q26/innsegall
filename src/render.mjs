@@ -21,6 +21,7 @@ import {
   LAY_OF_LAND_URL,
 } from "./check-catalog.mjs";
 import { renderPassageUpsellSection } from "./passage-cta.mjs";
+import { renderBackupPlaybookSection } from "./backup-playbook.mjs";
 import { persistenceDriftSincePrevious } from "./voyage-drift.mjs";
 
 function parsePlistEvidence(line) {
@@ -3004,6 +3005,7 @@ ${scoutDataBlocks}
         ${parleyHtml}
         ${hornHtml}
         ${renderPassageUpsellSection(card)}
+        ${renderBackupPlaybookSection()}
         ${housekeepingHtml}
         ${project}
       </main>

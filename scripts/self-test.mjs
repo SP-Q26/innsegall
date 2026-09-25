@@ -135,6 +135,8 @@ assert("pricing footer", PRICING && htmlEscalate.includes(PRICING.solas.note.sli
 assert("passage upsell on escalate", htmlEscalate.includes('id="passage-tier"'));
 assert("passage upsell clan link", htmlEscalate.includes("/clan"));
 assert("passage upsell buy links", htmlEscalate.includes("buy=extra") && htmlEscalate.includes("buy=clan"));
+assert("backup playbook section", htmlEscalate.includes('id="section-backup-playbook"'));
+assert("backup time machine copy", htmlEscalate.includes("Time Machine"));
 assert("horn uses hello@", !htmlEscalate.includes("help@innsegall.com"));
 assert("horn uses hello@", htmlEscalate.includes("hello@innsegall.com"));
 

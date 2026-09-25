@@ -39,6 +39,7 @@ const BACK_OF_HOUSE = [
   { id: "Most operators", re: /Most operators have/i },
   { id: "Xano vendor in copy", re: /\bXano\b/ },
   { id: "Stripe live aside", re: /Stripe live/i },
+  { id: "dead signed installer URL", re: /releases\/latest\/download\/InnsegallInstaller/i },
 ];
 
 const STRIPE_LIVE_ALLOW = new Set([

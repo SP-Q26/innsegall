@@ -119,7 +119,7 @@ Public URL (once uploaded):
 
 `https://github.com/SP-Q26/innsegall/releases/latest/download/InnsegallInstaller.zip`
 
-Site `/alpha` points here when `install.signed_app_url` is set in gospel.
+After upload: set `MAC_SIGNED_INSTALLER_SHIPPED = true` in `src/gospel.mjs` · run `node scripts/sync-gospel-web.mjs` · `/alpha` may link the release again.
 
 ---
 

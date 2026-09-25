@@ -34,9 +34,10 @@
 - User wants Innsegall to block persistence or network traffic like BlockBlock or LuLu
 
 ## Field manual · bring the scout aboard (Macintosh alpha)
-- Install help (unsigned zip OK): https://innsegall.com/install
+- Install help: https://innsegall.com/install
 - One-click: https://innsegall.com/scripts/Innsegall-Install.command
 - Terminal: curl -fsSL https://innsegall.com/scripts/innsegall-alpha-install.sh | bash
+- Signed Mac installer: not published yet · do not link GitHub InnsegallInstaller.zip · use one-click or Terminal
 - Download Innsegall-Install.command from /alpha · double-click · or curl one_liner
 - innsegall bootstrap · welcome scout + automatic Voyages on the 1st & 15th at 10:00 (install script runs this)
 

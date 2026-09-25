@@ -67,6 +67,7 @@
     "report:funnel": "node scripts/report-funnel.mjs",
     "audit:stripe-sandbox": "node scripts/audit-stripe-sandbox.mjs",
     "audit:pre-l5": "node scripts/audit-pre-l5-levers.mjs",
+    "audit:ease-of-use": "node scripts/audit-ease-of-use.mjs",
     "export:stripe-images": "node scripts/export-stripe-product-images.mjs",
     "sync:stripe-images": "node scripts/sync-stripe-product-images.mjs",
     "provision:stripe-catalog": "node scripts/provision-stripe-catalog.mjs",

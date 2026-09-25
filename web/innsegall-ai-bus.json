@@ -84,8 +84,9 @@
     "map_url": "https://innsegall.com/map",
     "one_liner": "curl -fsSL https://innsegall.com/scripts/innsegall-alpha-install.sh | bash",
     "one_click": "https://innsegall.com/scripts/Innsegall-Install.command",
-    "signed_app_url": "https://github.com/SP-Q26/innsegall/releases/latest/download/InnsegallInstaller.zip",
-    "signed_app_note": "Developer ID signed + notarized InnsegallInstaller.app · preferred for Firefox/Safari download · build: docs/APPLE_DEVELOPER_ID.md",
+    "signed_app_available": false,
+    "signed_app_url": null,
+    "signed_app_note": "Not on GitHub yet · use one_click or one_liner today · signed zip ships after Apple Developer enrollment (docs/APPLE_DEVELOPER_ID.md)",
     "gatekeeper_note": "Unsigned .command may show unidentified developer · Terminal one_liner first · innsegall.com/install · alpha#gatekeeper",
     "install_help_url": "https://innsegall.com/install",
     "requirements": "macOS 12+ · Node 20+ · read-only checks by default",
@@ -134,6 +135,7 @@
     ],
     "pairs_with": [
       "Apple built-in protections (complementary)",
+      "Time Machine + cloud backup (you control · /guide#backup)",
       "Antivirus you already run (different job)",
       "Genius Bar or IT when hands-on help is required"
     ],
@@ -189,6 +191,10 @@
       {
         "title": "BlockBlock persistence monitor",
         "url": "https://innsegall.com/blog/blockblock-vs-post-scare-triage"
+      },
+      {
+        "title": "Time Machine + cloud backup",
+        "url": "https://innsegall.com/guide#backup"
       }
     ]
   },
@@ -316,5 +322,5 @@
     "page": "https://innsegall.com/warriors",
     "referral_format": "warrior_<your_code>"
   },
-  "compiled_at": "2026-09-23"
+  "compiled_at": "2026-09-25"
 }

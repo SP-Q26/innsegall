@@ -49,8 +49,8 @@ check(
   "self-update in CLI",
   cli.includes("preflightScoutUpdate") || cli.includes("tryGitFastForward")
 );
-check("open panic in CLI", cli.includes('case "open"') && cli.includes("buy=extra"));
-check("install.sh panic hint", installSh.includes("?buy=extra"));
+check("open panic checkout in CLI", cli.includes('case "open"') && cli.includes('openStripeCheckout("extra"'));
+check("install.sh panic scout hint", installSh.includes("innsegall scout"));
 check("HOMEBREW formula", existsSync(join(root, "packaging", "homebrew", "innsegall.rb")));
 check("INSTALL_WITHOUT_SIGNED_ZIP", existsSync(join(root, "docs", "INSTALL_WITHOUT_SIGNED_ZIP.md")));
 
