@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-22",
+  "version": "2026-09-25",
   "defaultRelated": [
     { "href": "/alpha", "label": "Send the scout" },
     { "href": "/blog/what-is-a-battle-scout", "label": "What is a Battle Scout?" },
@@ -28,8 +28,13 @@
     ],
     "fake-virus-popup-macintosh": [
       { "href": "/blog/clicked-suspicious-link-macintosh", "label": "Suspicious link flow" },
-      { "href": "/blog/field-glass-sep-22-2026", "label": "Field Glass · Sep 22" },
+      { "href": "/blog/field-glass-sep-25-2026", "label": "Field Glass · Sep 25" },
       { "href": "/clan", "label": "Clan · unlimited scouts" }
+    ],
+    "field-glass-sep-25-2026": [
+      { "href": "/guide#backup", "label": "Time Machine + cloud" },
+      { "href": "/blog/field-glass-sep-22-2026", "label": "Field Glass · Sep 22 map" },
+      { "href": "/alpha", "label": "Send the scout" }
     ],
     "field-glass-sep-22-2026": [
       { "href": "/blog/knockknock-vs-post-scare-triage", "label": "KnockKnock vs triage" },
@@ -37,6 +42,7 @@
       { "href": "/alpha", "label": "Send the scout" }
     ],
     "field-glass-sep-19-2026": [
+      { "href": "/blog/field-glass-sep-25-2026", "label": "Field Glass · Sep 25" },
       { "href": "/blog/field-glass-sep-22-2026", "label": "Field Glass · Sep 22" },
       { "href": "/blog/field-glass-sep-2026", "label": "Original Field Glass" },
       { "href": "/blog/field-desk-stripe-live-sep-2026", "label": "Stripe desk" }
@@ -52,6 +58,7 @@
       { "href": "/boat", "label": "Our lane" }
     ],
     "field-glass-sep-2026": [
+      { "href": "/blog/field-glass-sep-25-2026", "label": "Field Glass · Sep 25" },
       { "href": "/blog/field-glass-sep-22-2026", "label": "Field Glass · Sep 22" },
       { "href": "/blog/field-glass-sep-19-2026", "label": "Sep 19 update" },
       { "href": "/blog/field-desk-stripe-live-sep-2026", "label": "Stripe live desk" },

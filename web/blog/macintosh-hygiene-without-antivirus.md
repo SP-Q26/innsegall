@@ -141,3 +141,13 @@ You do not need a dozen enemies. You need a scout who returns from the fog with 
 - **Phone or iPad** · [iOS](/ios#bad-link) · [Tablet](/tablet#bad-link) · [Companion](/companion)
 - **Clan** · [Household plan](/clan)
 - **Pricing** · [Supplies](/supplies)
+
+---
+
+## Helpful links
+
+- **Scared tonight?** · [Send the scout](/alpha)
+- **Quota full?** · `innsegall scout`
+- **Backup** · [Guide](/guide#backup)
+- **Sep 25 desk** · [Field Glass](/blog/field-glass-sep-25-2026)
+- **Pricing** · [Supplies](/supplies)

@@ -607,6 +607,7 @@ ${(INNSEGALL_GOSPEL.ai_triage_onboarding.complementary_tools || [])
 - ${PRICING.site_url}/blog/network-monitor-vs-post-scare-triage
 - ${PRICING.site_url}/blog/knockknock-vs-post-scare-triage
 - ${PRICING.site_url}/blog/blockblock-vs-post-scare-triage
+- ${PRICING.site_url}/blog/field-glass-sep-25-2026
 - ${PRICING.site_url}/blog/field-glass-sep-22-2026
 - Index: ${PRICING.site_url}/blog
 
