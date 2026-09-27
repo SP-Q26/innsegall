@@ -1,9 +1,25 @@
 import Stripe from "stripe";
+import { buffer as readStreamBuffer } from "node:stream/consumers";
 import { forwardToXano } from "../../lib/xano-forward.mjs";
+
+/** Vercel must not JSON-parse this route — see export const config below. */
+async function readStripeRawBody(req) {
+  if (typeof req.body === "string") return req.body;
+  if (Buffer.isBuffer(req.body)) return req.body.toString("utf8");
+  if (req.body === undefined || req.body === null) {
+    const buf = await readStreamBuffer(req);
+    return buf.toString("utf8");
+  }
+  throw new Error("parsed_json_body");
+}
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "", {
   apiVersion: "2024-11-20.acacia",
 });
+
+export const config = {
+  api: { bodyParser: false },
+};
 
 async function recordXano(event, payload) {
   if (!process.env.XANO_EVENTS_URL) {
@@ -42,10 +58,13 @@ export default async function handler(req, res) {
 
   let event;
   try {
-    const raw = typeof req.body === "string" ? req.body : JSON.stringify(req.body);
+    const raw = await readStripeRawBody(req);
     event = stripe.webhooks.constructEvent(raw, sig, secret);
   } catch (e) {
     console.error("webhook verify", e.message);
+    if (e.message === "parsed_json_body") {
+      return res.status(500).send("webhook_misconfigured");
+    }
     return res.status(400).send("Webhook Error");
   }
 
@@ -88,7 +107,3 @@ export default async function handler(req, res) {
 
   return res.status(200).json({ received: true, xano });
 }
-
-export const config = {
-  api: { bodyParser: false },
-};

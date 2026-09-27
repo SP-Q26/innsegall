@@ -47,6 +47,8 @@ check(
 check("checkout statement suffix", checkout.includes("statement_descriptor_suffix"));
 check("isles portfolio products module", existsSync(join(web, "lib/isles-portfolio-products.mjs")));
 check("webhook raw body parser off", webhook.includes("bodyParser: false"));
+check("webhook reads raw stream body", webhook.includes("readStripeRawBody"));
+check("webhook no JSON.stringify body fallback", !webhook.includes("JSON.stringify(req.body)"));
 check("webhook checkout.session.completed", webhook.includes("checkout.session.completed"));
 check("webhook subscription events", webhook.includes("customer.subscription.updated"));
 check("webhook invoice.paid renewal", webhook.includes("subscription_cycle"));
