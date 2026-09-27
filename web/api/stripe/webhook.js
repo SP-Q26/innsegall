@@ -1,16 +1,21 @@
 import Stripe from "stripe";
-import { buffer as readStreamBuffer } from "node:stream/consumers";
+import { buffer as microBuffer } from "micro";
 import { forwardToXano } from "../../lib/xano-forward.mjs";
 
-/** Vercel must not JSON-parse this route — see export const config below. */
+/** Raw body for Stripe signature verification (Vercel + micro buffer). */
 async function readStripeRawBody(req) {
+  try {
+    const buf = await microBuffer(req);
+    if (buf?.length) return buf.toString("utf8");
+  } catch {
+    // fall through
+  }
   if (typeof req.body === "string") return req.body;
   if (Buffer.isBuffer(req.body)) return req.body.toString("utf8");
-  if (req.body === undefined || req.body === null) {
-    const buf = await readStreamBuffer(req);
-    return buf.toString("utf8");
+  if (req.body !== undefined && req.body !== null) {
+    throw new Error("parsed_json_body");
   }
-  throw new Error("parsed_json_body");
+  return "";
 }
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "", {

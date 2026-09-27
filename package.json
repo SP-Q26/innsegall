@@ -64,6 +64,7 @@
     "smoke:live": "node scripts/smoke-live.mjs --base=https://innsegall.com",
     "smoke:checkout-toll-gate": "node scripts/smoke-checkout-toll-gate.mjs --base=https://innsegall.com",
     "smoke:xano": "node scripts/smoke-xano.mjs",
+    "smoke:webhook-signed": "node scripts/smoke-webhook-signed.mjs --base=https://innsegall.com",
     "report:funnel": "node scripts/report-funnel.mjs",
     "audit:stripe-sandbox": "node scripts/audit-stripe-sandbox.mjs",
     "audit:pre-l5": "node scripts/audit-pre-l5-levers.mjs",
