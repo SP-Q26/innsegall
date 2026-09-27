@@ -3,7 +3,7 @@
  * Signed webhook probe · requires STRIPE_WEBHOOK_SECRET (live whsec for innsegall.com endpoint).
  *   STRIPE_WEBHOOK_SECRET=whsec_… npm run smoke:webhook-signed
  */
-import Stripe from "stripe";
+import Stripe from "../web/node_modules/stripe/esm/stripe.esm.node.js";
 
 const base = process.argv.find((a) => a.startsWith("--base="))?.split("=")[1] || "https://innsegall.com";
 const secret = process.env.STRIPE_WEBHOOK_SECRET || "";

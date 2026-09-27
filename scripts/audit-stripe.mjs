@@ -49,8 +49,6 @@ check("isles portfolio products module", existsSync(join(web, "lib/isles-portfol
 check("webhook raw body parser off", webhook.includes("bodyParser: false"));
 check("webhook reads raw stream body", webhook.includes("readStripeRawBody"));
 check("webhook uses micro buffer", webhook.includes("micro"));
-check("webhook uses micro buffer", webhook.includes("micro"));
-check("webhook uses micro buffer", webhook.includes("micro"));
 check("webhook no JSON.stringify body fallback", !webhook.includes("JSON.stringify(req.body)"));
 check("webhook checkout.session.completed", webhook.includes("checkout.session.completed"));
 check("webhook subscription events", webhook.includes("customer.subscription.updated"));
