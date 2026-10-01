@@ -59,8 +59,32 @@ for (const file of readdirSync(blogDir)) {
   }
 }
 
-const companion = readFileSync(join(web, "companion.html"), "utf8");
-check("companion canonical", companion.includes('href="https://innsegall.com/companion"'));
+const root = join(dirname(fileURLToPath(import.meta.url)), "..");
+const marketingPack = JSON.parse(
+  readFileSync(join(root, "fixtures", "pages-marketing-seo.json"), "utf8")
+);
+
+for (const [file, cfg] of Object.entries(marketingPack.pages)) {
+  const html = readFileSync(join(web, file), "utf8");
+  const label = file.replace(".html", "");
+  check(`${label} page ld+json`, html.includes("INNSEGALL_PAGE_LD_START"));
+  const blocks = parseLdJsonBlocks(html).filter(Boolean);
+  const graph = blocks.find((b) => b && Array.isArray(b["@graph"]));
+  check(`${label} @graph`, Boolean(graph));
+  const types = graph ? graph["@graph"].map((n) => n["@type"]).filter(Boolean) : [];
+  check(`${label} BreadcrumbList`, types.includes("BreadcrumbList"));
+  check(`${label} WebPage`, types.includes("WebPage") || types.includes(cfg.webPageType || "WebPage"));
+  if (cfg.webApplication) {
+    check(`${label} WebApplication`, types.includes("WebApplication"));
+  }
+}
+
+const blogIndex = readFileSync(join(web, "blog", "index.html"), "utf8");
+check("blog index Blog schema", blogIndex.includes('"@type": "Blog"'));
+
+const success = readFileSync(join(web, "success.html"), "utf8");
+check("success noindex", success.includes('content="noindex"'));
+check("success canonical", success.includes('href="https://innsegall.com/success"'));
 
 console.log(failed ? `\n${failed} structured-data failure(s)` : "\nStructured data audit passed");
 process.exit(failed ? 1 : 0);

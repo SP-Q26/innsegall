@@ -1,0 +1,23 @@
+{
+  "version": "2026-09-30",
+  "defaults": {
+    "image": "https://innsegall.com/og/innsegall-card.png",
+    "inLanguage": "en-US"
+  },
+  "pages": {
+    "boat.html": { "breadcrumb": "Lane guide", "aboutSoftware": true },
+    "clan.html": { "breadcrumb": "Clan", "aboutSoftware": true },
+    "companion.html": { "breadcrumb": "Companion", "webApplication": true },
+    "guide.html": { "breadcrumb": "Field manual", "aboutSoftware": true },
+    "install.html": { "breadcrumb": "Install help", "aboutSoftware": true },
+    "ios.html": { "breadcrumb": "iOS companion", "aboutSoftware": false },
+    "tablet.html": { "breadcrumb": "iPad & tablet", "aboutSoftware": false },
+    "map.html": { "breadcrumb": "Sea map", "aboutSoftware": true },
+    "msp.html": { "breadcrumb": "MSP", "aboutSoftware": true },
+    "supplies.html": { "breadcrumb": "Supplies", "aboutSoftware": false },
+    "stability.html": { "breadcrumb": "Stability", "aboutSoftware": true },
+    "warriors.html": { "breadcrumb": "Warriors", "aboutSoftware": false },
+    "privacy.html": { "breadcrumb": "Privacy", "webPageType": "WebPage" },
+    "tos.html": { "breadcrumb": "Terms of service", "webPageType": "WebPage" }
+  }
+}

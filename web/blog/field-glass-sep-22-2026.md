@@ -76,3 +76,13 @@ Mac news without panic · **trending problem → our lane** · plus two new Obje
 - **Backup** · [Guide](/guide#backup)
 - **Sep 25 desk** · [Field Glass](/blog/field-glass-sep-25-2026)
 - **Pricing** · [Supplies](/supplies)
+
+---
+
+## Helpful links
+
+- **Scared tonight?** · [Send the scout](/alpha)
+- **Quota full?** · `innsegall scout`
+- **Backup** · [Guide](/guide#backup)
+- **Sep 30 desk** · [Field Glass](/blog/field-glass-sep-30-2026)
+- **Pricing** · [Supplies](/supplies)

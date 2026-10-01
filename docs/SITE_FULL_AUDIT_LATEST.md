@@ -1,6 +1,6 @@
 # Innsegall.com · full site audit
 
-**Generated:** 2026-09-27 · `node scripts/audit-site-inventory.mjs`  
+**Generated:** 2026-10-01 · `node scripts/audit-site-inventory.mjs`  
 **Project:** Vercel `innsegall_fe` · root `web/`  
 **Commands:** `npm run audit:site` · `npm run gate:launch` · `npm run smoke:live`
 
@@ -10,11 +10,11 @@
 
 | Metric | Count |
 |--------|------:|
-| HTML surfaces | 63 |
-| Indexable marketing + blog | 61 |
-| Blog posts | 44 |
+| HTML surfaces | 64 |
+| Indexable marketing + blog | 62 |
+| Blog posts | 45 |
 | P0 inventory issues | 0 |
-| Sitemap URLs | 70 |
+| Sitemap URLs | 71 |
 
 **Operator:** Stripe LIVE flip in progress · push `main` after `npm run predeploy` · blog is primary float-mode SEO lever.
 
@@ -42,6 +42,7 @@
 | `/blog/field-glass-sep-2026` | ✓ | ✓ | ✓ | ✓ | 145 | ok |
 | `/blog/field-glass-sep-22-2026` | ✓ | ✓ | ✓ | ✓ | 126 | ok |
 | `/blog/field-glass-sep-25-2026` | ✓ | ✓ | ✓ | ✓ | 127 | ok |
+| `/blog/field-glass-sep-30-2026` | ✓ | ✓ | ✓ | ✓ | 131 | ok |
 | `/blog/field-report-2026-09-06` | ✓ | ✓ | ✓ | ✓ | 140 | ok |
 | `/blog/gatekeeper-opened-unknown-app-mac` | ✓ | ✓ | ✓ | ✓ | 120 | ok |
 | `/blog/genius-bar-vs-battle-scout-mac` | ✓ | ✓ | ✓ | ✓ | 127 | ok |

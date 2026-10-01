@@ -57,3 +57,13 @@ Not a panic bulletin · an update to the [September Field Glass](/blog/field-gla
 - **Backup** · [Guide](/guide#backup)
 - **Sep 25 desk** · [Field Glass](/blog/field-glass-sep-25-2026)
 - **Pricing** · [Supplies](/supplies)
+
+---
+
+## Helpful links
+
+- **Scared tonight?** · [Send the scout](/alpha)
+- **Quota full?** · `innsegall scout`
+- **Backup** · [Guide](/guide#backup)
+- **Sep 30 desk** · [Field Glass](/blog/field-glass-sep-30-2026)
+- **Pricing** · [Supplies](/supplies)

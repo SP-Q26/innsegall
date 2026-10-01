@@ -1,7 +1,7 @@
 {
   "defaults": {
     "image": "https://innsegall.com/og/innsegall-card.png",
-    "dateModified": "2026-09-22"
+    "dateModified": "2026-09-30"
   },
   "posts": {
     "after-suspicious-link-macintosh": {
@@ -30,6 +30,9 @@
     },
     "field-glass-sep-25-2026": {
       "description": "Field Glass Sep 25 · innsegall scout panic checkout · Time Machine backup lane · Mac threat desk carryover · post-scare triage."
+    },
+    "field-glass-sep-30-2026": {
+      "description": "Field Glass Sep 30 · Stripe checkout webhook verified · completed vs expired sessions · scout and backup lanes · post-scare triage."
     },
     "knockknock-vs-post-scare-triage": {
       "description": "Objective-See KnockKnock vs Innsegall post-scare triage · persistence scanner depth vs Battle Scout receipt · complementary · not antivirus."

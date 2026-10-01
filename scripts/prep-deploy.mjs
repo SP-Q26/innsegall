@@ -17,6 +17,7 @@ execSync("node scripts/export-stripe-product-images.mjs", { cwd: root, stdio: "i
 execSync("node scripts/sync-blog-brand.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-field-desk.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-seo.mjs", { cwd: root, stdio: "inherit" });
+execSync("node scripts/sync-pages-seo.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-body-boosts.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-related-rail.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-cta.mjs", { cwd: root, stdio: "inherit" });

@@ -47,6 +47,8 @@
     "sync:blog-brand": "node scripts/sync-blog-brand.mjs",
     "sync:blog-field-desk": "node scripts/sync-blog-field-desk.mjs",
     "sync:blog-seo": "node scripts/sync-blog-seo.mjs",
+    "sync:pages-seo": "node scripts/sync-pages-seo.mjs",
+    "audit:seo": "node scripts/audit-seo.mjs && node scripts/audit-structured-data.mjs",
     "sync:blog-boosts": "node scripts/sync-blog-body-boosts.mjs",
     "sync:blog-related": "node scripts/sync-blog-related-rail.mjs",
     "audit:blog-quality": "node scripts/audit-blog-quality.mjs",

@@ -32,6 +32,8 @@ check("index twitter large image", index.includes('twitter:card" content="summar
 check("index twitter:image", index.includes('name="twitter:image"'));
 check("index og image dimensions", index.includes("og:image:width") && index.includes("og:image:height"));
 check("index canonical", index.includes('rel="canonical" href="https://innsegall.com/"'));
+check("index hreflang en", index.includes('hreflang="en"'));
+check("index hreflang x-default", index.includes('hreflang="x-default"'));
 check("index llms alternate", index.includes('href="https://innsegall.com/llms.txt"'));
 check("index json-ld", index.includes('type="application/ld+json"'));
 check("index faq schema", index.includes("FAQPage") || index.includes("@type\":\"FAQPage\""));
@@ -51,6 +53,13 @@ const keyPages = [
   "install.html",
   "map.html",
   "warriors.html",
+  "ios.html",
+  "tablet.html",
+  "companion.html",
+  "msp.html",
+  "supplies.html",
+  "privacy.html",
+  "tos.html",
   "blog/index.html",
 ];
 for (const rel of keyPages) {
@@ -58,9 +67,44 @@ for (const rel of keyPages) {
   check(`${rel} hosted og`, html.includes(OG_URL));
   check(`${rel} og dimensions`, html.includes("og:image:width"));
   check(`${rel} canonical`, html.includes('rel="canonical"'));
-  check(`${rel} brand mark`, html.includes('class="brand-mark"'));
-  check(`${rel} footer links`, html.includes('class="footer-links"'));
+  check(`${rel} og:url`, /property="og:url"/.test(html));
+  check(`${rel} meta description`, /name="description"/.test(html));
+  check(`${rel} page json-ld`, html.includes('type="application/ld+json"'));
+  check(`${rel} ai discovery`, html.includes("ai-discovery.json") || html.includes("/ai.txt"));
+  if (!rel.startsWith("blog/") && !rel.includes("privacy") && !rel.includes("tos")) {
+    check(`${rel} brand mark`, html.includes('class="brand-mark"'));
+    check(`${rel} footer links`, html.includes('class="footer-links"'));
+  }
   check(`${rel} css v23`, html.includes("innsegall.css?v=23"));
+}
+
+function walkHtml(dir, base = "") {
+  const out = [];
+  for (const name of readdirSync(dir)) {
+    const p = join(dir, name);
+    if (statSync(p).isDirectory()) out.push(...walkHtml(p, `${base}${name}/`));
+    else if (name.endsWith(".html")) out.push(`${base}${name}`);
+  }
+  return out;
+}
+
+for (const rel of walkHtml(web)) {
+  if (rel.includes("samples/")) continue;
+  const html = readFileSync(join(web, rel), "utf8");
+  if (/noindex/.test(html)) continue;
+  const canon = html.match(/rel="canonical" href="([^"]+)"/)?.[1];
+  const og = html.match(/property="og:url" content="([^"]+)"/)?.[1];
+  if (canon && og) {
+    check(`${rel} canon=og:url`, canon === og);
+  }
+}
+
+const smUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+const blogSlugs = walkHtml(join(web, "blog"))
+  .filter((f) => f !== "index.html")
+  .map((f) => `https://innsegall.com/blog/${f.replace(".html", "")}`);
+for (const u of blogSlugs) {
+  check(`sitemap ${u.replace("https://innsegall.com", "")}`, smUrls.includes(u));
 }
 
 const robots = readFileSync(join(web, "robots.txt"), "utf8");
