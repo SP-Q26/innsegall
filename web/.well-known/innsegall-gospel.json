@@ -60,7 +60,7 @@
     "one_click": "https://innsegall.com/scripts/Innsegall-Install.command",
     "signed_app_available": false,
     "signed_app_url": null,
-    "signed_app_note": "Not on GitHub yet · use one_click or one_liner today · signed zip ships after Apple Developer enrollment (docs/APPLE_DEVELOPER_ID.md)",
+    "signed_app_note": "Not on GitHub yet · use one_click or one_liner today · signed zip ships after Apple Developer enrollment (innsegall.com/install#signed-app)",
     "gatekeeper_note": "Unsigned .command may show unidentified developer · Terminal one_liner first · innsegall.com/install · alpha#gatekeeper",
     "install_help_url": "https://innsegall.com/install",
     "requirements": "macOS 12+ · Node 20+ · read-only checks by default",

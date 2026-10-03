@@ -1,7 +1,7 @@
 {
   "defaults": {
     "image": "https://innsegall.com/og/innsegall-card.png",
-    "dateModified": "2026-09-30"
+    "dateModified": "2026-10-02"
   },
   "posts": {
     "after-suspicious-link-macintosh": {
@@ -17,7 +17,7 @@
       "description": "Fake virus popup on your Macintosh · what it is · what not to do · local read-only scout · Battle Scout receipt · between popups and Genius Bar."
     },
     "field-desk-stripe-live-sep-2026": {
-      "description": "Innsegall Stripe checkout goes live · panic scout $4.20 · clan $6.67/mo · local Mac engine unchanged · Supplies lane · operator flip checklist."
+      "description": "Innsegall Stripe checkout goes live · panic scout $4.20 · clan $6.67/mo · local Mac engine unchanged · Supplies lane · Supplies checkout guide."
     },
     "field-glass-sep-2026": {
       "description": "September Macintosh threat brief · trojanized installers · Screen Sharing patch · Rust supply chain · ClickFix Terminal lures · calm Field Glass."
@@ -32,7 +32,10 @@
       "description": "Field Glass Sep 25 · innsegall scout panic checkout · Time Machine backup lane · Mac threat desk carryover · post-scare triage."
     },
     "field-glass-sep-30-2026": {
-      "description": "Field Glass Sep 30 · Stripe checkout webhook verified · completed vs expired sessions · scout and backup lanes · post-scare triage."
+      "description": "Field Glass Sep 30 · fake virus popup season on Mac · Supplies checkout · backup lane · Oct 1 Voyage · calm post-scare triage · not antivirus."
+    },
+    "field-glass-oct-2-2026": {
+      "description": "Field Glass Oct 2 · October Voyage · fake virus popup season · field guides for post-scare Mac triage · read-only scout."
     },
     "knockknock-vs-post-scare-triage": {
       "description": "Objective-See KnockKnock vs Innsegall post-scare triage · persistence scanner depth vs Battle Scout receipt · complementary · not antivirus."

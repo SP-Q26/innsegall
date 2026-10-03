@@ -85,8 +85,8 @@ export const INNSEGALL_GOSPEL = {
     signed_app_available: MAC_SIGNED_INSTALLER_SHIPPED,
     signed_app_url: MAC_SIGNED_INSTALLER_SHIPPED ? MAC_SIGNED_INSTALLER_RELEASE_URL : null,
     signed_app_note: MAC_SIGNED_INSTALLER_SHIPPED
-      ? "Developer ID signed + notarized InnsegallInstaller.app · preferred for Firefox/Safari download · build: docs/APPLE_DEVELOPER_ID.md"
-      : "Not on GitHub yet · use one_click or one_liner today · signed zip ships after Apple Developer enrollment (docs/APPLE_DEVELOPER_ID.md)",
+      ? "Developer ID signed + notarized InnsegallInstaller.app · preferred for Firefox/Safari download · build: innsegall.com/install#signed-app"
+      : "Not on GitHub yet · use one_click or one_liner today · signed zip ships after Apple Developer enrollment (innsegall.com/install#signed-app)",
     gatekeeper_note:
       "Unsigned .command may show unidentified developer · Terminal one_liner first · innsegall.com/install · alpha#gatekeeper",
     install_help_url: `${PRICING.site_url}/install`,

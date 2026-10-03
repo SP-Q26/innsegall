@@ -1,6 +1,6 @@
 ---
 title: Field Desk · Stripe Live This Weekend
-description: Innsegall checkout goes live on Stripe · panic scout, clan, MSP · same local engine · operator flip checklist.
+description: Innsegall checkout goes live on Stripe · panic scout, clan, MSP · same local engine · Supplies checkout guide.
 date: 2026-09-18
 slug: field-desk-stripe-live-sep-2026
 keywords: Innsegall checkout, Mac security scout price, clan subscription Macintosh

@@ -125,3 +125,13 @@ Send the scout on your Macintosh when the fog rolls in. **Sound the Horn** only 
 - **Backup** · [Guide](/guide#backup)
 - **Sep 30 desk** · [Field Glass](/blog/field-glass-sep-30-2026)
 - **Pricing** · [Supplies](/supplies)
+
+---
+
+## Helpful links
+
+- **Scared tonight?** · [Send the scout](/alpha)
+- **Quota full?** · `innsegall scout`
+- **Backup** · [Guide](/guide#backup)
+- **Oct 2 desk** · [Field Glass](/blog/field-glass-oct-2-2026)
+- **Pricing** · [Supplies](/supplies)
