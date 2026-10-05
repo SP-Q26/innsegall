@@ -1,7 +1,7 @@
 {
   "defaults": {
     "image": "https://innsegall.com/og/innsegall-card.png",
-    "dateModified": "2026-10-02"
+    "dateModified": "2026-10-04"
   },
   "posts": {
     "after-suspicious-link-macintosh": {
@@ -146,6 +146,11 @@
       "description": "Mac slow after suspicious download? Stale launch items vs malware fear · read-only scout · link hygiene guides · not destructive clean.",
       "datePublished": "2026-09-23",
       "dateModified": "2026-09-23"
+    },
+    "mac-performance-panic-vs-security-panic": {
+      "description": "Mac feels slow or scared after a popup? Split performance panic from security panic · calm Macintosh steps · read-only Innsegall scout · not antivirus.",
+      "datePublished": "2026-10-04",
+      "dateModified": "2026-10-04"
     },
     "someone-remoted-into-my-mac": {
       "description": "Think someone remote accessed your Mac? ESCALATE · revoke access · passwords · when Genius Bar · Battle Scout evidence · Innsegall.",

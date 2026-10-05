@@ -1,6 +1,6 @@
 # Innsegall.com · full site audit
 
-**Generated:** 2026-10-02 · `node scripts/audit-site-inventory.mjs`  
+**Generated:** 2026-10-05 · `node scripts/audit-site-inventory.mjs`  
 **Project:** Vercel `innsegall_fe` · root `web/`  
 **Commands:** `npm run audit:site` · `npm run gate:launch` · `npm run smoke:live`
 
@@ -10,11 +10,11 @@
 
 | Metric | Count |
 |--------|------:|
-| HTML surfaces | 65 |
-| Indexable marketing + blog | 63 |
-| Blog posts | 46 |
+| HTML surfaces | 66 |
+| Indexable marketing + blog | 64 |
+| Blog posts | 47 |
 | P0 inventory issues | 0 |
-| Sitemap URLs | 72 |
+| Sitemap URLs | 73 |
 
 **Operator:** Stripe LIVE flip in progress · push `main` after `npm run predeploy` · blog is primary float-mode SEO lever.
 
@@ -56,6 +56,7 @@
 | `/blog/mac-calendar-spam-invites-scam` | ✓ | ✓ | ✓ | ✓ | 120 | ok |
 | `/blog/mac-configuration-profile-scam` | ✓ | ✓ | ✓ | ✓ | 127 | ok |
 | `/blog/mac-dns-changed-after-scare` | ✓ | ✓ | ✓ | ✓ | 148 | ok |
+| `/blog/mac-performance-panic-vs-security-panic` | ✓ | ✓ | ✓ | ✓ | 151 | ok |
 | `/blog/mac-slow-after-suspicious-download` | ✓ | ✓ | ✓ | ✓ | 135 | ok |
 | `/blog/macintosh-hygiene-without-antivirus` | ✓ | ✓ | ✓ | ✓ | 148 | ok |
 | `/blog/macintosh-xprotect-after-scare` | ✓ | ✓ | ✓ | ✓ | 153 | ok |

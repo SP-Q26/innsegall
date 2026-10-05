@@ -26,6 +26,11 @@
       { "href": "/blog/virustotal-vs-local-mac-scout", "label": "VirusTotal vs local scout" },
       { "href": "/companion", "label": "Companion inbox" }
     ],
+    "mac-performance-panic-vs-security-panic": [
+      { "href": "/blog/mac-slow-after-suspicious-download", "label": "Slow after download" },
+      { "href": "/blog/fake-virus-popup-macintosh", "label": "Fake virus popup" },
+      { "href": "/blog/do-i-need-antivirus-mac-2026", "label": "Antivirus in 2026?" }
+    ],
     "fake-virus-popup-macintosh": [
       { "href": "/blog/clicked-suspicious-link-macintosh", "label": "Suspicious link flow" },
       { "href": "/blog/field-glass-sep-30-2026", "label": "Field Glass · Sep 30" },

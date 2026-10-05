@@ -89,3 +89,13 @@ If you are the person everyone texts when Safari acts weird, you are already **c
 - **Backup** · [Guide](/guide#backup)
 - **Oct 2 desk** · [Field Glass](/blog/field-glass-oct-2-2026)
 - **Pricing** · [Supplies](/supplies)
+
+---
+
+## Helpful links
+
+- **Scared tonight?** · [Send the scout](/alpha)
+- **Quota full?** · `innsegall scout`
+- **Backup** · [Guide](/guide#backup)
+- **Oct 2 desk** · [Field Glass](/blog/field-glass-oct-2-2026)
+- **Pricing** · [Supplies](/supplies)

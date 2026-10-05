@@ -290,6 +290,10 @@
       "destination": "/blog/mac-slow-after-suspicious-download.html"
     },
     {
+      "source": "/blog/mac-performance-panic-vs-security-panic",
+      "destination": "/blog/mac-performance-panic-vs-security-panic.html"
+    },
+    {
       "source": "/blog/someone-remoted-into-my-mac",
       "destination": "/blog/someone-remoted-into-my-mac.html"
     },
