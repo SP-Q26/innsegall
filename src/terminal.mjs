@@ -3,8 +3,10 @@
  * Voice: Vinland Saga meets Braveheart · weary road, not grimdark.
  */
 import { PRICING } from "./constants.mjs";
-import { checkScoutQuota, nextVoyageDate } from "./quota.mjs";
+import { checkScoutQuota, nextVoyageDate, VOYAGE_DAYS } from "./quota.mjs";
 import { formatPassageUpsellTerminal } from "./passage-cta.mjs";
+import { extraScoutCliHint, extraScoutAfterPayHint, EXTRA_SCOUT_MENU_LINE } from "./extra-scout-prompt.mjs";
+import { BACKUP_MENU_HINT } from "./backup-playbook.mjs";
 
 const supports =
   process.stdout.isTTY &&
@@ -99,9 +101,12 @@ export function formatQuotaTerminal(q, reason, d = new Date()) {
     `Next voyage · ${nextStr}`,
     `Horn credits · ${credits}`,
     "",
-    paint(ansi.beam, `Need supplies · innsegall supplies extra · or innsegall open supplies`),
-    paint(ansi.dim, `Clan · innsegall supplies clan · War-band · ${PRICING.site_url}/warriors`),
-    paint(ansi.dim, `Map · ${PRICING.site_url}/map · Field manual · ${PRICING.site_url}/guide`),
+    paint(ansi.beam, EXTRA_SCOUT_MENU_LINE),
+    paint(ansi.dim, BACKUP_MENU_HINT),
+    paint(ansi.beam, extraScoutCliHint()),
+    paint(ansi.dim, extraScoutAfterPayHint()),
+    paint(ansi.dim, `Clan · innsegall supplies clan · War-band · innsegall open warriors`),
+    paint(ansi.dim, `Map · innsegall map · Field manual · innsegall open install`),
   ];
 
   return `\n${mistBox("MIST GATE", body, ansi.fjord)}\n`;
@@ -160,22 +165,15 @@ export function printPlanStatus(status) {
         `Off voyage day · free scouts sail the 1st & 15th · next voyage ${status.next_voyage}`
       )
     );
-    console.log(
-      paint(
-        ansi.dim,
-        `Panic · open "${PRICING.site_url}/?buy=extra" · import license · innsegall run`
-      )
-    );
+    console.log(paint(ansi.beam, extraScoutCliHint()));
+    console.log(paint(ansi.dim, extraScoutAfterPayHint()));
   } else {
-    console.log(
-      paint(
-        ansi.ember,
-        `Quota full until next voyage · panic: open "${PRICING.site_url}/?buy=extra"`
-      )
-    );
+    console.log(paint(ansi.ember, "Quota full until next voyage."));
+    console.log(paint(ansi.beam, extraScoutCliHint()));
+    console.log(paint(ansi.dim, extraScoutAfterPayHint()));
   }
   console.log(
-    paint(ansi.dim, `Passage · ${PRICING.site_url}/#pricing · War-band · ${PRICING.site_url}/warriors`)
+    paint(ansi.dim, "Passage · innsegall supplies clan · War-band · innsegall warriors")
   );
 }
 

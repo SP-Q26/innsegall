@@ -40,6 +40,9 @@ const lanes = [
   { name: "Workspace hygiene", script: "audit-workspace-hygiene.mjs", score: "9.5" },
   { name: "Blog funnel (Phase 7 W1a)", script: "audit-blog-funnel.mjs", score: "9.5" },
   { name: "Blog quality (SEO + readability)", script: "audit-blog-quality.mjs", score: "9.5" },
+  { name: "Blog intro leads", script: "audit-blog-intro-leads.mjs", score: "9.5" },
+  { name: "Macintosh watch hub", script: "audit-watch-hub.mjs", score: "9.5" },
+  { name: "Field Glass cadence", script: "audit-field-glass-cadence.mjs", score: "9.5" },
   { name: "Structured data (Phase 7 W1b)", script: "audit-structured-data.mjs", score: "9.0" },
   { name: "Site inventory (all pages)", script: "audit-site-inventory.mjs", score: "9.5" },
 ];

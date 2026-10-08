@@ -1,0 +1,125 @@
+{
+  "version": "2026-10-04",
+  "skip_slugs": [
+    "field-desk-stripe-live-sep-2026",
+    "field-report-2026-09-06",
+    "field-glass-sep-2026",
+    "field-glass-sep-19-2026",
+    "field-glass-sep-22-2026",
+    "field-glass-sep-25-2026",
+    "field-glass-sep-30-2026",
+    "field-glass-oct-2-2026",
+    "fake-virus-popup-macintosh",
+    "what-is-a-battle-scout",
+    "join-the-innsegall-clan",
+    "auto-voyage-first-sail",
+    "innsegall-ios-companion-i0"
+  ],
+  "leads": {
+    "mac-slow-after-suspicious-download": [
+      "Your Mac feels sluggish after a sketchy download · and every cleaner ad promises a miracle erase. That mix of <strong>performance worry</strong> and <strong>security worry</strong> is exhausting.",
+      "Before you install another optimizer: quit heavy apps · check login items in System Settings · make sure you did not open the file. See <a href=\"/blog/stale-launch-items-macintosh\">stale launch items</a> if startup is the pain point.",
+      "When the scare is real or you opened something odd · <a href=\"/alpha\">send the scout</a> on your Macintosh. Read-only Battle Scout · LIKELY_OK, FIX_LIST, or ESCALATE · not antivirus."
+    ],
+    "downloads-folder-quarantine-mac-check": [
+      "A suspicious file sitting in Downloads is a pause button · not proof your Mac is ruined. The goal tonight is <strong>do not open it</strong> and decide calmly what to delete.",
+      "Move the file to Trash without double-clicking · empty Trash · note whether you typed a password on a linked page. If yes · rotate that password from a trusted device.",
+      "Then <a href=\"/alpha\">send the scout</a> · read-only checks on your Mac · shareable receipt. Not a one-click cleaner · <a href=\"/boat\">our lane</a>."
+    ],
+    "after-suspicious-link-macintosh": [
+      "You are reading anonymized patterns from other scouts · category counts only · no paths or emails. If you clicked a link tonight · start with the human steps below · not the table.",
+      "Did you enter a password or download a file? No · watch for odd prompts and run a local check. Yes · rotate credentials · then scout.",
+      "<a href=\"/alpha\">Send the scout</a> on your Macintosh · same read-only engine as everyone else in this digest · <a href=\"/blog/clicked-suspicious-link-macintosh\">suspicious link guide</a>."
+    ],
+    "clicked-suspicious-link-macintosh": [
+      "You clicked. Maybe it was a text from “UPS.” Maybe a recruiter DM. The link opened · and now your mind is racing. That reaction is normal · panic is optional.",
+      "Close the tab · do not call any number on the page · note whether you typed a password or downloaded a file. Those two facts decide your next hour.",
+      "<a href=\"/alpha\">Send the scout</a> on your Mac when you want a plain receipt · Battle Scout for AI paste · <a href=\"/blog/after-suspicious-link-macintosh\">after-click trends</a>."
+    ],
+    "stale-launch-items-macintosh": [
+      "Login items and broken helpers are a top reason Macs feel “off” after a bad install · without any virus drama. Scouts often flag them as housekeeping · not catastrophe.",
+      "Open <strong>System Settings → General → Login Items</strong> · remove helpers you do not recognize · compare names to the app you thought you installed.",
+      "After cleanup · <a href=\"/alpha\">send the scout</a> on the 1st or 15th Voyage · or tonight if you are still anxious · read-only · not antivirus."
+    ],
+    "blockblock-vs-post-scare-triage": [
+      "BlockBlock watches for new persistence and can block it. That is ongoing guard duty · not the first question after a fake virus popup.",
+      "After a scare · close the tab · skip toll-free “support” numbers · decide if you downloaded or pasted anything. Then measure your Mac once.",
+      "<a href=\"/alpha\">Send the scout</a> for a Battle Scout receipt · add BlockBlock later if you want persistence alerts · <a href=\"/blog/knockknock-vs-post-scare-triage\">KnockKnock guide</a>."
+    ],
+    "knockknock-vs-post-scare-triage": [
+      "KnockKnock lists what starts with your Mac · excellent depth for technical users. Most households after a popup need a verdict first · not a wall of paths.",
+      "Run Innsegall read-only · read LIKELY_OK, FIX_LIST, or ESCALATE · share the HTML with family or IT. Escalate to KnockKnock if you want a full persistence map.",
+      "<a href=\"/alpha\">Send the scout</a> · optional KnockKnock after ESCALATE · <a href=\"/boat\">post-scare lane</a> · not antivirus."
+    ],
+    "onyx-vs-read-only-mac-scout": [
+      "Maintenance utilities can delete caches you did not mean to touch. After a scare you usually want <strong>evidence</strong> · not a power wash.",
+      "Note what triggered worry · popup, download, or slowness only · then avoid “optimize” buttons until you have a receipt.",
+      "<a href=\"/alpha\">Send the scout</a> · read-only Battle Scout · paste for any AI assistant · <a href=\"/blog/innsegall-vs-mac-cleaners\">vs cleaners</a>."
+    ],
+    "malwarebytes-vs-innsegall-after-scare": [
+      "Malwarebytes and similar tools hunt signatures and real-time threats. Innsegall answers a narrower question: <strong>what does my Mac look like right now</strong> after the scare?",
+      "Keep your AV if you like · run a local scout when you need plain English for family or yourself · no second subscription required for that receipt.",
+      "<a href=\"/alpha\">Send the scout</a> · <a href=\"/blog/innsegall-vs-antivirus-macintosh\">Innsegall vs antivirus</a> · not a replacement for enterprise EDR."
+    ],
+    "virustotal-vs-local-mac-scout": [
+      "VirusTotal answers what scanners think of a URL or file. Your Mac still has login items · profiles · and recent installs VirusTotal cannot see.",
+      "Scan the link if that is all you have · then run a read-only scout on the Macintosh that actually matters tonight.",
+      "<a href=\"/alpha\">Send the scout</a> · order of operations in the section below · honor <code>triage_level</code> when you paste to AI."
+    ],
+    "pasted-terminal-command-mac-scare": [
+      "A web page that says “open Terminal and paste” is hunting for control · not helping you. If you already pasted · treat this as worth a deliberate audit · not shame.",
+      "Disconnect from the call if someone is coaching you · change passwords you typed on that machine · do not paste again.",
+      "<a href=\"/alpha\">Send the scout</a> · read-only · cite Battle Scout evidence with any AI assistant · <a href=\"/blog/fake-virus-popup-macintosh\">fake popup guide</a>."
+    ],
+    "safari-shift-key-scam-popup-mac": [
+      "A fake virus page trapped Safari so hard you could not quit · you are not alone. This is a <strong>browser trap</strong> · not proof macOS is infected.",
+      "Force quit Safari · hold <strong>Shift</strong> while reopening to skip restore · clear the offending tab. Do not call the number on screen.",
+      "When calm returns · <a href=\"/alpha\">send the scout</a> on your Mac · <a href=\"/blog/safari-fake-virus-notifications-mac\">notification scams</a> if alerts keep returning."
+    ],
+    "gatekeeper-opened-unknown-app-mac": [
+      "Gatekeeper warned you · you clicked through anyway. That is common · not a moral failure. The question is what the app was and whether it is still there.",
+      "Quit the app · drag it to Trash if you do not trust it · check Login Items for a new helper. Software Update still matters.",
+      "<a href=\"/alpha\">Send the scout</a> for a read-only receipt · share with family or IT · <a href=\"/guide\">operator guide</a>."
+    ],
+    "mac-dns-changed-after-scare": [
+      "When every click lands somewhere wrong · DNS or proxy settings are a usual suspect. It feels like a takeover · often it is a setting you can name and fix.",
+      "Check System Settings for unknown profiles or proxy toggles · compare to a trusted network · avoid random “DNS booster” installers.",
+      "<a href=\"/alpha\">Send the scout</a> · DNS and proxy show up on the Battle Scout when relevant · <a href=\"/blog/network-monitor-vs-post-scare-triage\">network monitor guide</a>."
+    ],
+    "check-parent-mac-after-scare": [
+      "You are the household scout. Parents and grandparents deserve calm English · not a lecture about viruses. Your job is guide · not panic.",
+      "Sit with them · close the scary tab · ask if they called a number or typed a password. Offer to run a read-only check on their Mac · not a cleaner subscription.",
+      "<a href=\"/alpha\">Send the scout</a> on their Macintosh · share the Battle Scout link · <a href=\"/clan\">clan seats</a> if you triage for the whole family."
+    ],
+    "do-i-need-antivirus-mac-2026": [
+      "The honest answer depends on what you are trying to solve. Real-time scanning is one job · <strong>after a scare receipt</strong> is another.",
+      "Apple ships Gatekeeper and XProtect · you still need calm triage when a popup lies to you. That is not the same as buying another annual AV bill.",
+      "After a scare · <a href=\"/alpha\">send the scout</a> · read <a href=\"/blog/macintosh-hygiene-without-antivirus\">hygiene without AV</a> · <a href=\"/boat\">our lane</a>."
+    ],
+    "innsegall-vs-mac-cleaners": [
+      "Cleaners promise speed with one big button. After a fake virus popup you usually need <strong>evidence</strong> first · what is on this Mac · in plain language.",
+      "Skip destructive “optimize” passes until you have a receipt · see <a href=\"/blog/fake-virus-popup-macintosh\">fake virus guide</a> if the popup was in Safari.",
+      "<a href=\"/alpha\">Send the scout</a> · read-only Battle Scout · LIKELY_OK, FIX_LIST, or ESCALATE · not a subscription treadmill."
+    ],
+    "mac-performance-panic-vs-security-panic": [
+      "Articles about “what is slowing down your PC” flood the feed · Macintosh readers feel the same dread when the fan spins or Safari hangs. Two different panics get mixed together.",
+      "<strong>Performance panic:</strong> slowness, heat, stutter · check Activity Monitor, login items, Software Update · see <a href=\"/blog/mac-slow-after-suspicious-download\">slow after download</a>. <strong>Security panic:</strong> popups, bad links, pasted Terminal commands · close the tab · no toll-free numbers.",
+      "When the worry is “am I okay after a scare?” · <a href=\"/alpha\">send the scout</a> on your Mac · read-only · not antivirus · not a Windows driver tool."
+    ],
+    "network-monitor-vs-post-scare-triage": [
+      "Little Snitch, LuLu, and similar tools watch ongoing connections · great for power users. They do not replace a one-night verdict after scareware.",
+      "After a popup or bad link · run a read-only scout once · then keep your monitor if you already love it.",
+      "<a href=\"/alpha\">Send the scout</a> · <a href=\"/blog/mac-dns-changed-after-scare\">DNS after scare</a> · <a href=\"/boat\">lane guide</a>."
+    ],
+    "apple-support-call-popup-scam-mac": [
+      "Apple will not lock your browser and demand a phone payment. This is social engineering · the Mac is often fine once the tab is gone.",
+      "Force quit the browser · reopen without restoring tabs · never share Apple ID codes with someone who called you from the popup.",
+      "<a href=\"/alpha\">Send the scout</a> if you downloaded something or gave remote access · <a href=\"/blog/someone-remoted-into-my-mac\">remote access guide</a> if they did."
+    ],
+    "someone-remoted-into-my-mac": [
+      "If you installed AnyDesk, TeamViewer, or gave screen access to a scammer · this is the horn · not a quiet $4.20 moment alone.",
+      "Disconnect the session · remove the app · change Apple ID and bank passwords from a trusted device · tell your bank if you shared card numbers.",
+      "Then <a href=\"/alpha\">send the scout</a> for evidence · involve Apple or your bank as needed · <a href=\"/blog/pasted-terminal-command-mac-scare\">Terminal paste scams</a>."
+    ]
+  }
+}

@@ -19,9 +19,9 @@ export function formatPassageUpsellTerminal(verdict) {
   return [
     "",
     lead,
-    `  Panic scout · $${PRICING.extra_run.usd.toFixed(2)} · ${site}/#pricing`,
-    `  Clan · $${PRICING.clan.usd_monthly.toFixed(2)}/mo · ${PRICING.clan.seats} seats · ${site}/clan`,
-    `  After checkout · innsegall plan --import-license ~/Downloads/innsegall-license.json`,
+    `  Panic scout · $${PRICING.extra_run.usd.toFixed(2)} · innsegall scout`,
+    `  Clan · $${PRICING.clan.usd_monthly.toFixed(2)}/mo · ${PRICING.clan.seats} seats · innsegall supplies clan`,
+    `  After checkout · innsegall import · innsegall run`,
   ].join("\n");
 }
 

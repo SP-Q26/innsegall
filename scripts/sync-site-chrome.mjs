@@ -35,6 +35,7 @@ const CANONICAL_HEADER = `<header class="site-header">
       </a>
       <nav class="header-nav" aria-label="Site">
         <a class="nav-link" href="/alpha">Field manual</a>
+        <a class="nav-link" href="/watch">Field Glass</a>
         <a class="nav-link" href="/blog">Field Report</a>
         <a class="nav-link" href="/clan">Clan</a>
       </nav>
@@ -61,6 +62,7 @@ const CANONICAL_FOOTER = `    <footer class="site-footer">
       <p class="footer-note">Field Report · category counts only · Voyage on the 1st &amp; 15th.</p>
       <nav class="footer-links" aria-label="Footer">
         <a class="nav-link nav-link--footer" href="/guide">Guide</a>
+        <a class="nav-link nav-link--footer" href="/watch">Watch</a>
         <a class="nav-link nav-link--footer" href="/companion">Companion</a>
         <a class="nav-link nav-link--footer" href="/supplies">Supplies</a>
         <a class="nav-link nav-link--footer" href="/ios">iOS</a>

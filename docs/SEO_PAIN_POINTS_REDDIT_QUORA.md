@@ -73,7 +73,7 @@
 
 | Channel | Lead post |
 |---------|-----------|
-| Facebook caretaker | `check-parent-mac-after-scare` |
+| Facebook help-a-parent | `check-parent-mac-after-scare` |
 | r/applehelp | `safari-shift-key-scam-popup-mac` or notifications post |
 | r/macapps | `paste-battle-scout-for-ai-assistant` · MIT engine |
 | Quora answer (canonical link) | `do-i-need-antivirus-mac-2026` |

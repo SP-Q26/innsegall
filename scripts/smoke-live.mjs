@@ -22,6 +22,8 @@ const PATHS = [
   "/guide",
   "/stability",
   "/map",
+  "/watch",
+  "/watch-feed.xml",
   "/boat",
   "/clan",
   "/warriors",

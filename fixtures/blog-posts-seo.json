@@ -1,7 +1,7 @@
 {
   "defaults": {
     "image": "https://innsegall.com/og/innsegall-card.png",
-    "dateModified": "2026-09-22"
+    "dateModified": "2026-10-04"
   },
   "posts": {
     "after-suspicious-link-macintosh": {
@@ -17,7 +17,7 @@
       "description": "Fake virus popup on your Macintosh · what it is · what not to do · local read-only scout · Battle Scout receipt · between popups and Genius Bar."
     },
     "field-desk-stripe-live-sep-2026": {
-      "description": "Innsegall Stripe checkout goes live · panic scout $4.20 · clan $6.67/mo · local Mac engine unchanged · Supplies lane · operator flip checklist."
+      "description": "Innsegall Stripe checkout goes live · panic scout $4.20 · clan $6.67/mo · local Mac engine unchanged · Supplies lane · Supplies checkout guide."
     },
     "field-glass-sep-2026": {
       "description": "September Macintosh threat brief · trojanized installers · Screen Sharing patch · Rust supply chain · ClickFix Terminal lures · calm Field Glass."
@@ -27,6 +27,20 @@
     },
     "field-glass-sep-22-2026": {
       "description": "Field Glass Sep 22 · Mac threat desk · trending searches mapped to Innsegall field guides · post-scare triage · not antivirus."
+    },
+    "field-glass-sep-25-2026": {
+      "description": "Field Glass Sep 25 · innsegall scout panic checkout · Time Machine backup lane · Mac threat desk carryover · post-scare triage."
+    },
+    "field-glass-sep-30-2026": {
+      "description": "Field Glass Sep 30 · fake virus popup season on Mac · Supplies checkout · backup lane · Oct 1 Voyage · calm post-scare triage · not antivirus."
+    },
+    "field-glass-oct-2-2026": {
+      "description": "Field Glass Oct 2 · October Voyage · fake virus popup season · field guides for post-scare Mac triage · read-only scout."
+    },
+    "field-glass-oct-7-2026": {
+      "description": "October Macintosh watch · fake virus popups · performance vs security panic · Voyage Oct 15 · field guides mapped to calm post-scare triage · not antivirus.",
+      "datePublished": "2026-10-07",
+      "dateModified": "2026-10-07"
     },
     "knockknock-vs-post-scare-triage": {
       "description": "Objective-See KnockKnock vs Innsegall post-scare triage · persistence scanner depth vs Battle Scout receipt · complementary · not antivirus."
@@ -138,6 +152,11 @@
       "datePublished": "2026-09-23",
       "dateModified": "2026-09-23"
     },
+    "mac-performance-panic-vs-security-panic": {
+      "description": "Mac feels slow or scared after a popup? Split performance panic from security panic · calm Macintosh steps · read-only Innsegall scout · not antivirus.",
+      "datePublished": "2026-10-04",
+      "dateModified": "2026-10-04"
+    },
     "someone-remoted-into-my-mac": {
       "description": "Think someone remote accessed your Mac? ESCALATE · revoke access · passwords · when Genius Bar · Battle Scout evidence · Innsegall.",
       "datePublished": "2026-09-23",
@@ -172,6 +191,31 @@
       "description": "Paste Innsegall Battle Scout JSON for ChatGPT or Claude · innsegall-battle-scout-ai/v1 · honor triage_level · Macintosh · not antivirus.",
       "datePublished": "2026-09-23",
       "dateModified": "2026-09-23"
+    },
+    "opened-suspicious-email-iphone-ipad": {
+      "description": "Opened a phishing email on iPhone or iPad? Calm steps on device · no pocket antivirus myth · when to change passwords · Innsegall Mac scout lane.",
+      "datePublished": "2026-10-08",
+      "dateModified": "2026-10-08"
+    },
+    "downloaded-suspicious-file-iphone-ipad": {
+      "description": "Downloaded a sketchy file on iPhone or iPad? Delete without opening · profiles and apps · honest limits · Mac scout when the computer matters.",
+      "datePublished": "2026-10-08",
+      "dateModified": "2026-10-08"
+    },
+    "fake-virus-popup-iphone-ipad": {
+      "description": "Safari virus warning on iPhone or iPad? Scam theater · force-quit steps · not antivirus sales · Mac popup guide linked here.",
+      "datePublished": "2026-10-08",
+      "dateModified": "2026-10-08"
+    },
+    "typed-password-scam-site-iphone-ipad": {
+      "description": "Typed Apple ID or bank password on a fake site on iPhone or iPad? Account-first recovery · another device · Innsegall does not scan phones.",
+      "datePublished": "2026-10-08",
+      "dateModified": "2026-10-08"
+    },
+    "field-glass-oct-8-2026": {
+      "description": "iPhone and iPad panic hub · bad link, email, download, fake popup guides · Mac scout honesty · Voyage Oct 15 · calm post-scare triage · not antivirus.",
+      "datePublished": "2026-10-08",
+      "dateModified": "2026-10-08"
     }
   }
 }

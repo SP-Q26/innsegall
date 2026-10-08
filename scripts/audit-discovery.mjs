@@ -51,8 +51,11 @@ check("guide stability link", guide.includes("/stability"));
 
 const sitemap = readFileSync(join(web, "sitemap.xml"), "utf8");
 check("sitemap stability", sitemap.includes("/stability"));
+check("sitemap watch hub", sitemap.includes("/watch"));
+check("llms watch hub", llms.includes("/watch"));
 
 const vercel = readFileSync(join(web, "vercel.json"), "utf8");
+check("vercel watch rewrite", vercel.includes('"/watch"'));
 check("vercel stability rewrite", vercel.includes('"/stability"'));
 check("install.html page", existsSync(join(web, "install.html")));
 check("llms install help", llms.includes("/install"));

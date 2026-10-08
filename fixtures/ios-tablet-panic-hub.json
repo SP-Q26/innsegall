@@ -1,0 +1,126 @@
+{
+  "version": "2026-10-08",
+  "jump_nav_label": "What happened?",
+  "honesty_kicker": "You are in the right place",
+  "first_minute_title": "Step 1 · First minute (stay calm)",
+  "first_minute_steps": [
+    "Stop tapping · close the tab or message.",
+    "If Safari is stuck or screaming, force-quit Safari and reopen without restoring tabs.",
+    "Do not install anything the page offers · do not add a configuration profile you did not plan.",
+    "Do not type Apple ID · email · or bank passwords on that site or in a reply."
+  ],
+  "scenarios": [
+    {
+      "id": "bad-link",
+      "nav": "Bad link",
+      "title": "Bad link on this {device} · walk through it here",
+      "intro": "Breathe. One tap is scary · it is rarely the end of the story. {scan_disclaimer} Follow the steps for what actually happened · then read when a Mac scout helps.",
+      "match_title": "Step 2 · Match what happened",
+      "match_intro": "Pick the row that fits · do only that row's next move.",
+      "match_rows": [
+        {
+          "label": "I only read the page",
+          "body": "You are usually fine. Optional: Settings → Safari → Advanced → Website Data → remove that site."
+        },
+        {
+          "label": "Something downloaded",
+          "body": "See <a href=\"#bad-download\">downloaded a file</a> below · or Files → Downloads → delete without opening."
+        },
+        {
+          "label": "A profile was offered or installed",
+          "body": "Settings → General → VPN &amp; Device Management · remove profiles you do not recognize (keep work or school profiles you expect)."
+        },
+        {
+          "label": "Safari feels hijacked",
+          "body": "Review Safari extensions · clear website data for suspicious sites · see <a href=\"#fake-popup\">fake popup</a> if a virus warning appeared."
+        }
+      ],
+      "blog_slug": "clicked-bad-link-iphone-ipad-guide"
+    },
+    {
+      "id": "bad-email",
+      "nav": "Suspicious email",
+      "title": "Opened a suspicious email on {device}",
+      "intro": "Reading email in Mail is usually lower risk than tapping links · but phishing emails hunt for the next tap. {scan_disclaimer}",
+      "steps_title": "What to do on this {device}",
+      "steps": [
+        "Do not tap links or buttons in the message · do not reply with passwords or codes.",
+        "If you already tapped a link, jump to <a href=\"#bad-link\">bad link steps</a>.",
+        "Mark as junk · block the sender · delete the thread.",
+        "If it looked like your bank or Apple, open the real app or type the site yourself · never use the email link.",
+        "Worried you typed a password? See <a href=\"#typed-password\">typed a password</a>."
+      ],
+      "blog_slug": "opened-suspicious-email-iphone-ipad"
+    },
+    {
+      "id": "bad-download",
+      "nav": "Downloaded file",
+      "title": "Downloaded something suspicious on {device}",
+      "intro": "A file sitting in Downloads is not the same as running it. {scan_disclaimer}",
+      "steps_title": "What to do on this {device}",
+      "steps": [
+        "If you have <strong>not</strong> opened the file: Files → Downloads (or Safari downloads) → delete it · empty Recently Deleted.",
+        "If you opened it and it was a document or PDF only · close it · delete the file · you are often fine.",
+        "If you installed an app you did not plan: long-press the icon → Remove App · delete.",
+        "If Settings shows an unknown profile: Settings → General → VPN &amp; Device Management · remove it.",
+        "Download happened on your Mac too? <a href=\"/blog/mac-slow-after-suspicious-download\">Mac after suspicious download</a> · <a href=\"/alpha\">Send the scout</a> on that computer."
+      ],
+      "blog_slug": "downloaded-suspicious-file-iphone-ipad"
+    },
+    {
+      "id": "fake-popup",
+      "nav": "Fake virus popup",
+      "title": "Fake virus or security popup on {device}",
+      "intro": "Safari scam pages love urgency · they are theater, not a diagnosis. {scan_disclaimer} Mac popups: <a href=\"/blog/fake-virus-popup-macintosh\">fake virus popup on Mac</a>.",
+      "steps_title": "What to do on this {device}",
+      "steps": [
+        "Do not call the phone number on screen · do not install their app.",
+        "Force-quit Safari · reopen without restoring tabs.",
+        "Settings → Safari → Block Pop-ups on · review Extensions.",
+        "If a calendar spam invite appeared: delete the event · do not tap links in the invite.",
+        "Still seeing alerts? Restart the {device} once · then check for unknown profiles."
+      ],
+      "blog_slug": "fake-virus-popup-iphone-ipad"
+    },
+    {
+      "id": "typed-password",
+      "nav": "Typed password",
+      "title": "Typed a password on a scam site · {device}",
+      "intro": "That is the horn · not shame. Account care on a device you trust comes before any Mac app. {scan_disclaimer}",
+      "steps_title": "Do this next (another device if you can)",
+      "steps": [
+        "Change email password first · then banking · then anything else you typed.",
+        "Sign out other sessions where the service allows it.",
+        "Turn on two-factor authentication if you have not.",
+        "Watch for password-reset emails you did not start · ignore links · use the real app.",
+        "Mac also involved? <a href=\"/alpha\">Send the scout</a> only for the <strong>computer</strong> · not as a phone scanner."
+      ],
+      "blog_slug": "typed-password-scam-site-iphone-ipad"
+    }
+  ],
+  "mac_scout_title": "When the Mac scout is the light you need",
+  "mac_scout_body": "Only if your worry is the <strong>computer</strong> too: you clicked or downloaded on the Mac · or you want a Battle Scout receipt for that machine. <a href=\"/alpha\">Send the scout on Mac</a> · read the result in <a href=\"/companion\">companion</a>. {sibling_line} Full Mac walkthrough: <a href=\"/blog/clicked-suspicious-link-macintosh\">clicked a suspicious link on Macintosh</a>.",
+  "footer_cta": "<a class=\"btn-horn btn-horn--compact\" href=\"/boat\">What Innsegall is</a> · calm triage · not pocket antivirus",
+  "devices": {
+    "ios": {
+      "page": "/ios",
+      "device": "iPhone",
+      "scan_disclaimer": "<strong>Innsegall does not scan your iPhone</strong> · we are honest about that. A scout on a Mac only lights up <em>that computer</em> · it cannot answer \"is <em>this</em> phone okay?\"",
+      "section_class": "platform-lane-col platform-lane-col--accent panic-well",
+      "sibling_href": "/tablet#bad-link",
+      "sibling_label": "iPad & tablet",
+      "lead_panic": "<strong>Macintosh runs the scout.</strong> iPhone holds the receipt · read it · paste it · breathe. <strong>Scared on this phone?</strong> Pick what happened below · we guide this device first.",
+      "meta_description": "Bad link, email, or download on iPhone? Calm step-by-step on device first · honest Mac scout limits · companion reads Battle Scouts · Know you're okay."
+    },
+    "tablet": {
+      "page": "/tablet",
+      "device": "iPad or tablet",
+      "scan_disclaimer": "<strong>Innsegall does not scan your iPad</strong> · we say that plainly. A scout on a Mac only lights up <em>that computer</em> · it cannot prove this tablet is clear.",
+      "section_class": "tablet-split-pane tablet-split-pane--accent panic-well",
+      "sibling_href": "/ios#bad-link",
+      "sibling_label": "iPhone",
+      "lead_panic": "Tablet is for <strong>reading the receipt</strong> · split-screen with chat · paste triage into any AI. The scout runs on your <strong>Mac</strong>. <strong>Scared on this iPad?</strong> Pick what happened below · we guide the tablet first.",
+      "meta_description": "Bad link, email, or download on iPad? Guided steps on this tablet first · Mac scout for the computer · companion inbox · Know you're okay."
+    }
+  }
+}

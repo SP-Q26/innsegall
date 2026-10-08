@@ -1,7 +1,8 @@
 {
-  "version": "2026-09-22",
+  "version": "2026-10-08-b",
   "defaultRelated": [
     { "href": "/alpha", "label": "Send the scout" },
+    { "href": "/watch", "label": "Macintosh watch" },
     { "href": "/blog/what-is-a-battle-scout", "label": "What is a Battle Scout?" },
     { "href": "/boat", "label": "Our lane vs theirs" }
   ],
@@ -26,10 +27,60 @@
       { "href": "/blog/virustotal-vs-local-mac-scout", "label": "VirusTotal vs local scout" },
       { "href": "/companion", "label": "Companion inbox" }
     ],
+    "mac-performance-panic-vs-security-panic": [
+      { "href": "/blog/mac-slow-after-suspicious-download", "label": "Slow after download" },
+      { "href": "/blog/fake-virus-popup-macintosh", "label": "Fake virus popup" },
+      { "href": "/blog/do-i-need-antivirus-mac-2026", "label": "Antivirus in 2026?" }
+    ],
     "fake-virus-popup-macintosh": [
       { "href": "/blog/clicked-suspicious-link-macintosh", "label": "Suspicious link flow" },
-      { "href": "/blog/field-glass-sep-22-2026", "label": "Field Glass · Sep 22" },
-      { "href": "/clan", "label": "Clan · unlimited scouts" }
+      { "href": "/blog/field-glass-oct-7-2026", "label": "Field Glass · Oct 7" },
+      { "href": "/watch", "label": "Macintosh watch" }
+    ],
+    "field-glass-oct-8-2026": [
+      { "href": "/ios", "label": "iPhone/iPad panic hub" },
+      { "href": "/blog/field-glass-oct-7-2026", "label": "Field Glass · Oct 7" },
+      { "href": "/watch", "label": "Watch hub" }
+    ],
+    "field-glass-oct-7-2026": [
+      { "href": "/blog/field-glass-oct-8-2026", "label": "Field Glass · Oct 8" },
+      { "href": "/watch", "label": "Watch hub" },
+      { "href": "/alpha", "label": "Send the scout" }
+    ],
+    "clicked-bad-link-iphone-ipad-guide": [
+      { "href": "/ios#bad-link", "label": "iPhone steps" },
+      { "href": "/blog/opened-suspicious-email-iphone-ipad", "label": "Suspicious email" },
+      { "href": "/blog/downloaded-suspicious-file-iphone-ipad", "label": "Suspicious download" }
+    ],
+    "opened-suspicious-email-iphone-ipad": [
+      { "href": "/ios#bad-email", "label": "Email steps on device" },
+      { "href": "/ios#bad-link", "label": "If you tapped a link" },
+      { "href": "/companion", "label": "Companion inbox" }
+    ],
+    "downloaded-suspicious-file-iphone-ipad": [
+      { "href": "/ios#bad-download", "label": "Download steps" },
+      { "href": "/blog/mac-slow-after-suspicious-download", "label": "Mac after download" },
+      { "href": "/alpha", "label": "Send the scout" }
+    ],
+    "fake-virus-popup-iphone-ipad": [
+      { "href": "/ios#fake-popup", "label": "Close the popup" },
+      { "href": "/blog/fake-virus-popup-macintosh", "label": "Mac popup guide" },
+      { "href": "/tablet#fake-popup", "label": "iPad steps" }
+    ],
+    "typed-password-scam-site-iphone-ipad": [
+      { "href": "/ios#typed-password", "label": "Password recovery" },
+      { "href": "/alpha", "label": "Mac scout (computer only)" },
+      { "href": "/clan", "label": "Clan for families" }
+    ],
+    "field-glass-sep-30-2026": [
+      { "href": "/blog/field-glass-sep-25-2026", "label": "Field Glass · Sep 25" },
+      { "href": "/blog/field-glass-sep-22-2026", "label": "Field Glass · Sep 22 map" },
+      { "href": "/alpha", "label": "Send the scout" }
+    ],
+    "field-glass-sep-25-2026": [
+      { "href": "/guide#backup", "label": "Time Machine + cloud" },
+      { "href": "/blog/field-glass-sep-22-2026", "label": "Field Glass · Sep 22 map" },
+      { "href": "/alpha", "label": "Send the scout" }
     ],
     "field-glass-sep-22-2026": [
       { "href": "/blog/knockknock-vs-post-scare-triage", "label": "KnockKnock vs triage" },
@@ -37,6 +88,7 @@
       { "href": "/alpha", "label": "Send the scout" }
     ],
     "field-glass-sep-19-2026": [
+      { "href": "/blog/field-glass-sep-30-2026", "label": "Field Glass · Sep 30" },
       { "href": "/blog/field-glass-sep-22-2026", "label": "Field Glass · Sep 22" },
       { "href": "/blog/field-glass-sep-2026", "label": "Original Field Glass" },
       { "href": "/blog/field-desk-stripe-live-sep-2026", "label": "Stripe desk" }
@@ -52,6 +104,8 @@
       { "href": "/boat", "label": "Our lane" }
     ],
     "field-glass-sep-2026": [
+      { "href": "/blog/field-glass-sep-30-2026", "label": "Field Glass · Sep 30" },
+      { "href": "/blog/field-glass-sep-25-2026", "label": "Field Glass · Sep 25" },
       { "href": "/blog/field-glass-sep-22-2026", "label": "Field Glass · Sep 22" },
       { "href": "/blog/field-glass-sep-19-2026", "label": "Sep 19 update" },
       { "href": "/blog/field-desk-stripe-live-sep-2026", "label": "Stripe live desk" },

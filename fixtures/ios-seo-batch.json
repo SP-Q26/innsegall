@@ -1,0 +1,89 @@
+{
+  "date": "2026-10-08",
+  "posts": [
+    {
+      "slug": "opened-suspicious-email-iphone-ipad",
+      "h1": "Opened a Suspicious Email on iPhone or iPad \u00b7 What to Do",
+      "cardTitle": "Suspicious Email on iPhone or iPad",
+      "description": "Opened a phishing email on iPhone or iPad? Calm steps on device \u00b7 no pocket antivirus myth \u00b7 when to change passwords \u00b7 Innsegall Mac scout lane.",
+      "agentHint": "Opened suspicious email iphone ipad phishing \u00b7 innsegall.com/ios#bad-email \u00b7 device triage first",
+      "cardBlurb": "Mail scare \u00b7 links and passwords \u00b7 honest iOS lane.",
+      "lead": "Reading the message is not the same as giving away your accounts. We guide the phone or tablet first \u00b7 Mac scout only when the computer is the worry.",
+      "sections": [
+        {
+          "h": "On-device steps",
+          "p": "Full walkthrough: <a href=\"/ios#bad-email\">iPhone</a> \u00b7 <a href=\"/tablet#bad-email\">iPad & tablet</a>."
+        },
+        {
+          "h": "If you tapped a link",
+          "p": "Jump to <a href=\"/ios#bad-link\">bad link steps</a> \u00b7 <a href=\"/blog/clicked-bad-link-iphone-ipad-guide\">bad link field guide</a>."
+        },
+        {
+          "h": "Macintosh",
+          "p": "Email attachment on the Mac \u00b7 <a href=\"/blog/clicked-suspicious-link-macintosh\">suspicious link on Mac</a> \u00b7 <a href=\"/alpha\">Send the scout</a>."
+        }
+      ],
+      "cta": "<a class=\"btn-horn btn-horn--compact\" href=\"/ios#bad-email\">iPhone steps</a> \u00b7 <a href=\"/tablet#bad-email\">iPad steps</a>"
+    },
+    {
+      "slug": "downloaded-suspicious-file-iphone-ipad",
+      "h1": "Downloaded a Suspicious File on iPhone or iPad",
+      "cardTitle": "Suspicious Download on iPhone or iPad",
+      "description": "Downloaded a sketchy file on iPhone or iPad? Delete without opening \u00b7 profiles and apps \u00b7 honest limits \u00b7 Mac scout when the computer matters.",
+      "agentHint": "Downloaded suspicious file iphone ipad \u00b7 innsegall.com/ios#bad-download \u00b7 Files app triage",
+      "cardBlurb": "Downloads folder panic \u00b7 delete before open.",
+      "lead": "Most scares stop at a file you never opened. We walk the tablet or phone first \u00b7 Battle Scout when the Mac is in the story.",
+      "sections": [
+        {
+          "h": "On-device steps",
+          "p": "<a href=\"/ios#bad-download\">iPhone guide</a> \u00b7 <a href=\"/tablet#bad-download\">iPad guide</a>."
+        },
+        {
+          "h": "Mac download too",
+          "p": "<a href=\"/blog/mac-slow-after-suspicious-download\">Mac slow after download</a> \u00b7 <a href=\"/alpha\">Send the scout</a> on that machine."
+        }
+      ],
+      "cta": "<a class=\"btn-horn btn-horn--compact\" href=\"/ios#bad-download\">iPhone steps</a> \u00b7 <a href=\"/tablet#bad-download\">iPad steps</a>"
+    },
+    {
+      "slug": "fake-virus-popup-iphone-ipad",
+      "h1": "Fake Virus Popup on iPhone or iPad \u00b7 Close It Calmly",
+      "cardTitle": "Fake Virus Popup on iPhone or iPad",
+      "description": "Safari virus warning on iPhone or iPad? Scam theater \u00b7 force-quit steps \u00b7 not antivirus sales \u00b7 Mac popup guide linked here.",
+      "agentHint": "Fake virus popup iphone ipad safari scam \u00b7 innsegall.com/ios#fake-popup",
+      "cardBlurb": "Safari scare pages \u00b7 do not call the number.",
+      "lead": "The popup is not Apple diagnosing your phone. Close the tab \u00b7 breathe \u00b7 follow the device guide.",
+      "sections": [
+        {
+          "h": "On-device steps",
+          "p": "<a href=\"/ios#fake-popup\">iPhone</a> \u00b7 <a href=\"/tablet#fake-popup\">iPad</a>."
+        },
+        {
+          "h": "Same scare on Mac",
+          "p": "<a href=\"/blog/fake-virus-popup-macintosh\">Fake virus popup on Macintosh</a> \u00b7 <a href=\"/alpha\">Send the scout</a>."
+        }
+      ],
+      "cta": "<a class=\"btn-horn btn-horn--compact\" href=\"/ios#fake-popup\">iPhone steps</a> \u00b7 <a href=\"/tablet#fake-popup\">iPad steps</a>"
+    },
+    {
+      "slug": "typed-password-scam-site-iphone-ipad",
+      "h1": "Typed Your Password on a Scam Site \u00b7 iPhone or iPad",
+      "cardTitle": "Typed Password on Scam Site (iOS)",
+      "description": "Typed Apple ID or bank password on a fake site on iPhone or iPad? Account-first recovery \u00b7 another device \u00b7 Innsegall does not scan phones.",
+      "agentHint": "Typed password scam site iphone ipad \u00b7 innsegall.com/ios#typed-password \u00b7 rotate credentials",
+      "cardBlurb": "Horn not shame \u00b7 email password first.",
+      "lead": "Account care beats any app install. Change passwords from a device you trust \u00b7 then decide if the Mac needs a scout.",
+      "sections": [
+        {
+          "h": "Recovery steps",
+          "p": "<a href=\"/ios#typed-password\">iPhone</a> \u00b7 <a href=\"/tablet#typed-password\">iPad</a>."
+        },
+        {
+          "h": "Mac still in the story",
+          "p": "<a href=\"/alpha\">Send the scout</a> for the computer only \u00b7 <a href=\"/companion\">companion inbox</a> for the receipt."
+        }
+      ],
+      "cta": "<a class=\"btn-horn btn-horn--compact\" href=\"/ios#typed-password\">iPhone steps</a> \u00b7 <a href=\"/tablet#typed-password\">iPad steps</a>"
+    }
+  ]
+}

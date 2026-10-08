@@ -57,7 +57,7 @@
 | Community | Self-promo? | Lead with |
 |-----------|-------------|-----------|
 | r/macapps | Yes | Demo scout + local-first · not AV |
-| r/IndieAppNews | Yes | Alpha · MIT engine · caretaker lane |
+| r/IndieAppNews | Yes | Alpha · MIT engine · help-a-parent lane |
 | r/mac / r/applehelp | Soft | Answer post-scare threads · link blog |
 | HN Show HN | Yes | After Homebrew or clean install story |
 | Indie Hackers | Yes | Journey · Xano aggregates · no PII |

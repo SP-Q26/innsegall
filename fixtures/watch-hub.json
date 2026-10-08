@@ -1,0 +1,160 @@
+{
+  "version": "2026-10-08",
+  "max_field_glass_age_days": 14,
+  "latest_field_glass": {
+    "slug": "field-glass-oct-8-2026",
+    "title": "Field Glass Update · October 8, 2026",
+    "description": "iPhone and iPad panic hub · bad link, email, download, fake popup guides · Mac scout honesty · Voyage Oct 15 · calm post-scare triage · not antivirus.",
+    "date": "2026-10-08",
+    "read_minutes": 6
+  },
+  "field_glass_archive": [
+    {
+      "slug": "field-glass-oct-8-2026",
+      "title": "October 8 · iPhone & iPad desk",
+      "date": "2026-10-08"
+    },
+    {
+      "slug": "field-glass-oct-7-2026",
+      "title": "October 7 · trending searches",
+      "date": "2026-10-07"
+    },
+    {
+      "slug": "field-glass-sep-22-2026",
+      "title": "September 22 · threat desk",
+      "date": "2026-09-22"
+    },
+    {
+      "slug": "field-glass-sep-19-2026",
+      "title": "September 19 · product desk",
+      "date": "2026-09-19"
+    },
+    {
+      "slug": "field-glass-sep-2026",
+      "title": "September · Mac news brief",
+      "date": "2026-09-06"
+    }
+  ],
+  "trending_guides": [
+    {
+      "query": "Fake virus popup Mac",
+      "href": "/blog/fake-virus-popup-macintosh"
+    },
+    {
+      "query": "Mac slow after scary download",
+      "href": "/blog/mac-slow-after-suspicious-download"
+    },
+    {
+      "query": "Performance panic vs security panic",
+      "href": "/blog/mac-performance-panic-vs-security-panic"
+    },
+    {
+      "query": "Safari virus notification",
+      "href": "/blog/safari-fake-virus-notifications-mac"
+    },
+    {
+      "query": "Clicked bad link Mac",
+      "href": "/blog/clicked-suspicious-link-macintosh"
+    },
+    {
+      "query": "Bad link on iPhone or iPad",
+      "href": "/blog/clicked-bad-link-iphone-ipad-guide"
+    },
+    {
+      "query": "Suspicious email on iPhone",
+      "href": "/blog/opened-suspicious-email-iphone-ipad"
+    },
+    {
+      "query": "Downloaded file on iPhone",
+      "href": "/blog/downloaded-suspicious-file-iphone-ipad"
+    },
+    {
+      "query": "Fake virus popup iPhone Safari",
+      "href": "/blog/fake-virus-popup-iphone-ipad"
+    },
+    {
+      "query": "Do I need antivirus Mac 2026",
+      "href": "/blog/do-i-need-antivirus-mac-2026"
+    }
+  ],
+  "scout_trends": [
+    {
+      "label": "Stale launch items after scareware cleanup",
+      "href": "/blog/stale-launch-items-macintosh"
+    },
+    {
+      "label": "DNS changed after fake cleaner",
+      "href": "/blog/mac-dns-changed-after-scare"
+    },
+    {
+      "label": "Unexpected configuration profile",
+      "href": "/blog/mac-configuration-profile-scam"
+    },
+    {
+      "label": "Paste Battle Scout for your AI assistant",
+      "href": "/blog/paste-battle-scout-for-ai-assistant"
+    }
+  ],
+  "events": [
+    {
+      "date": "2026-10-15",
+      "title": "Voyage sail · free scheduled scout",
+      "href": "/blog/voyage-health-tracker-1st-15th"
+    },
+    {
+      "date": "2026-11-01",
+      "title": "Next Voyage · 1st of the month",
+      "href": "/blog/voyage-health-tracker-1st-15th"
+    }
+  ],
+  "field_glass_desk": {
+    "prev_href": "/blog/field-glass-oct-7-2026",
+    "prev_label": "Oct 7 desk",
+    "intro_html": "<strong>Innsegall</strong> · pocket panic season on iPhone and iPad · new <a href=\"/ios\">device hub</a> · Mac still runs the scout · <strong>Voyage sails Oct 15</strong> · <a href=\"/alpha\">Send the scout</a>.",
+    "feel_rows": [
+      {
+        "feel": "Bad link on iPhone or iPad",
+        "start": "<a href=\"/ios#bad-link\">Panic hub</a> · <a href=\"/blog/clicked-bad-link-iphone-ipad-guide\">field guide</a>"
+      },
+      {
+        "feel": "Opened a phishing email",
+        "start": "<a href=\"/ios#bad-email\">Email steps</a> · <a href=\"/blog/opened-suspicious-email-iphone-ipad\">guide</a>"
+      },
+      {
+        "feel": "Downloaded something sketchy",
+        "start": "<a href=\"/ios#bad-download\">Download steps</a> · Mac: <a href=\"/blog/mac-slow-after-suspicious-download\">after download</a>"
+      },
+      {
+        "feel": "Safari virus popup on phone",
+        "start": "<a href=\"/ios#fake-popup\">Close it calmly</a> · Mac: <a href=\"/blog/fake-virus-popup-macintosh\">popup guide</a>"
+      },
+      {
+        "feel": "Typed a password on a scam site",
+        "start": "<a href=\"/ios#typed-password\">Account first</a> · then Mac scout if needed"
+      },
+      {
+        "feel": "Mac slow · not sure if hacked",
+        "start": "<a href=\"/blog/mac-performance-panic-vs-security-panic\">Performance vs security</a> · <a href=\"/alpha\">Send the scout</a>"
+      }
+    ],
+    "mist_links": [
+      { "href": "/blog/opened-suspicious-email-iphone-ipad", "label": "Suspicious email on iPhone" },
+      { "href": "/blog/downloaded-suspicious-file-iphone-ipad", "label": "Downloaded file on iPhone" },
+      { "href": "/blog/fake-virus-popup-iphone-ipad", "label": "Fake virus popup on iPhone" },
+      { "href": "/blog/clicked-bad-link-iphone-ipad-guide", "label": "Bad link on iPhone or iPad" },
+      { "href": "/blog/fake-virus-popup-macintosh", "label": "Fake virus popup Mac" },
+      { "href": "/blog/pasted-terminal-command-mac-scare", "label": "Pasted Terminal command" }
+    ],
+    "news_brief": [
+      "<strong>iOS lane</strong> · Innsegall does not scan iPhones · we guide the device · Mac Battle Scout for the computer.",
+      "<strong>Companion</strong> · <a href=\"/companion\">inbox</a> · paste Mac receipts on phone or tablet.",
+      "<strong>Scare popups</strong> · force-quit Safari · do not call the number on screen.",
+      "<strong>Voyage rhythm</strong> · free scouts <strong>1st &amp; 15th</strong> · next sail <strong>Oct 15</strong> · <a href=\"/blog/voyage-health-tracker-1st-15th\">tracker</a>."
+    ],
+    "habits": [
+      "Triage on the device where the scare happened · phone steps before Mac myth.",
+      "Scout the Mac when the computer is in the story · LIKELY_OK is a normal outcome.",
+      "Copy the Battle Scout for any AI assistant · plain English · no doom feed."
+    ]
+  }
+}

@@ -4,7 +4,7 @@
 
 ## Innsegall ICP (now)
 
-- Post-scare Mac user · caretaker · not family IT
+- Post-scare Mac user · household helper · not family IT
 - Intent: fake popup · suspicious link · quarterly hygiene
 - **Exclude (for ads):** enterprise EDR buyers · Windows-only
 

@@ -1,7 +1,9 @@
 # Copy & SEO review · 2026-09-22
 
 **Scope:** innsegall.com marketing + blog · user intent · discoverability (search, FAQ, agents).  
-**Automated gates (ran clean):** `audit:blog-quality` (avg 110) · `audit:blog-funnel` · `audit:structured-data` · `audit:discovery` · `audit:operator-voice` · `audit:lane` · `audit:privacy` · `audit:site` (0 P0).
+**Entity (commerce):** **The Isles Collective** · receipts **Isles Co** · product DBAs (Innsegall, …).  
+**Automated copy gate:** `npm run audit:copy` (= brand-stack + blog-funnel + responsive-spacing).  
+**Last full copy pass:** 2026-09-23 · **PASS** (blog-quality avg 110 · operator-voice · claymore · client-facing · 0 P0 site).
 
 ---
 
@@ -10,7 +12,7 @@
 | Layer | Score | Notes |
 |-------|------:|-------|
 | Technical SEO | 9.5/10 | Canonicals, sitemap (49 URLs), BlogPosting JSON-LD, FAQPage on home |
-| Blog corpus | 9.5/10 | 23 posts · scare, compare, voyage, Field Glass · funnel CTAs wired |
+| Blog corpus | 9.5/10 | 43 posts · Sep 2026 SEO batch · scare, compare, voyage, Field Glass · funnel CTAs wired |
 | Homepage UX | 8.5→9/10 | **Fixed:** empty “Post-scare guides” hub · FAQ links to field guides |
 | Blog hub UX | 8.5→9/10 | **Fixed:** “Start here” row · richer meta description |
 | Agent gospel | 9.5/10 | `llms.txt`, ai-bus, gospel JSON · field_guides list matches blog |

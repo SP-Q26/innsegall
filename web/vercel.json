@@ -50,6 +50,21 @@
       "source": "/blog/:slug.md",
       "destination": "/blog/:slug",
       "permanent": true
+    },
+    {
+      "source": "/blog/adware-leftovers-macintosh",
+      "destination": "/blog/safari-fake-virus-notifications-mac",
+      "permanent": true
+    },
+    {
+      "source": "/blog/dns-settings-macintosh",
+      "destination": "/blog/mac-dns-changed-after-scare",
+      "permanent": true
+    },
+    {
+      "source": "/blog/mdm-profiles-macintosh",
+      "destination": "/blog/mac-configuration-profile-scam",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -108,6 +123,22 @@
     {
       "source": "/blog/field-glass-sep-22-2026",
       "destination": "/blog/field-glass-sep-22-2026.html"
+    },
+    {
+      "source": "/blog/field-glass-sep-30-2026",
+      "destination": "/blog/field-glass-sep-30-2026.html"
+    },
+    {
+      "source": "/blog/field-glass-oct-2-2026",
+      "destination": "/blog/field-glass-oct-2-2026.html"
+    },
+    {
+      "source": "/blog/field-glass-oct-7-2026",
+      "destination": "/blog/field-glass-oct-7-2026.html"
+    },
+    {
+      "source": "/blog/field-glass-sep-25-2026",
+      "destination": "/blog/field-glass-sep-25-2026.html"
     },
     {
       "source": "/blog/knockknock-vs-post-scare-triage",
@@ -194,6 +225,14 @@
       "destination": "/map.html"
     },
     {
+      "source": "/watch",
+      "destination": "/watch.html"
+    },
+    {
+      "source": "/watch-feed.xml",
+      "destination": "/watch-feed.xml"
+    },
+    {
       "source": "/clan",
       "destination": "/clan.html"
     },
@@ -278,6 +317,10 @@
       "destination": "/blog/mac-slow-after-suspicious-download.html"
     },
     {
+      "source": "/blog/mac-performance-panic-vs-security-panic",
+      "destination": "/blog/mac-performance-panic-vs-security-panic.html"
+    },
+    {
       "source": "/blog/someone-remoted-into-my-mac",
       "destination": "/blog/someone-remoted-into-my-mac.html"
     },
@@ -304,6 +347,26 @@
     {
       "source": "/blog/paste-battle-scout-for-ai-assistant",
       "destination": "/blog/paste-battle-scout-for-ai-assistant.html"
+    },
+    {
+      "source": "/blog/opened-suspicious-email-iphone-ipad",
+      "destination": "/blog/opened-suspicious-email-iphone-ipad.html"
+    },
+    {
+      "source": "/blog/downloaded-suspicious-file-iphone-ipad",
+      "destination": "/blog/downloaded-suspicious-file-iphone-ipad.html"
+    },
+    {
+      "source": "/blog/fake-virus-popup-iphone-ipad",
+      "destination": "/blog/fake-virus-popup-iphone-ipad.html"
+    },
+    {
+      "source": "/blog/typed-password-scam-site-iphone-ipad",
+      "destination": "/blog/typed-password-scam-site-iphone-ipad.html"
+    },
+    {
+      "source": "/blog/field-glass-oct-8-2026",
+      "destination": "/blog/field-glass-oct-8-2026.html"
     }
   ]
 }

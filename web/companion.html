@@ -20,6 +20,11 @@
   <meta name="apple-mobile-web-app-title" content="Innsegall">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="canonical" href="https://innsegall.com/companion">
+  <link rel="alternate" type="text/plain" href="https://innsegall.com/llms.txt" title="Innsegall · AI agent gospel (llms.txt)">
+  <link rel="alternate" type="text/plain" href="https://innsegall.com/ai.txt" title="Innsegall · AI discovery index">
+  <link rel="describedby" href="https://innsegall.com/.well-known/innsegall-gospel.json" type="application/json">
+  <link rel="alternate" type="application/json" href="https://innsegall.com/.well-known/ai-discovery.json" title="Innsegall · AI discovery manifest">
+  <link rel="alternate" type="application/json" href="https://innsegall.com/innsegall-ai-bus.json" title="Innsegall · AI bus (compact agent context)">
   <meta property="og:title" content="Companion · Innsegall">
   <meta name="twitter:image:alt" content="Innsegall · Know you're okay · Macintosh triage">
   <meta name="twitter:description" content="Innsegall companion for iPhone and iPad: import Battle Scout JSON, triage badge, Voyage reminders. Local inbox only · no App Store · Mac runs the scout.">
@@ -33,6 +38,71 @@
   <link rel="manifest" href="/companion.webmanifest">
   <link rel="stylesheet" href="/innsegall.css?v=23">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- INNSEGALL_PAGE_LD_START -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://innsegall.com/companion#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Innsegall",
+          "item": "https://innsegall.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Companion",
+          "item": "https://innsegall.com/companion"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://innsegall.com/companion#webpage",
+      "name": "Companion",
+      "description": "Innsegall companion for iPhone and iPad: import Battle Scout JSON, triage badge, Voyage reminders. Local inbox only · no App Store · Mac runs the scout.",
+      "url": "https://innsegall.com/companion",
+      "inLanguage": "en-US",
+      "isPartOf": {
+        "@id": "https://innsegall.com/#website"
+      },
+      "publisher": {
+        "@id": "https://innsegall.com/#organization"
+      },
+      "breadcrumb": {
+        "@id": "https://innsegall.com/companion#breadcrumb"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://innsegall.com/og/innsegall-card.png"
+      }
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://innsegall.com/companion#webapp",
+      "name": "Innsegall Companion",
+      "url": "https://innsegall.com/companion",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "iOS, iPadOS, Safari",
+      "description": "Innsegall companion for iPhone and iPad: import Battle Scout JSON, triage badge, Voyage reminders. Local inbox only · no App Store · Mac runs the scout.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "isPartOf": {
+        "@id": "https://innsegall.com/#software"
+      }
+    }
+  ]
+}
+  </script>
+  <!-- INNSEGALL_PAGE_LD_END -->
 </head>
 <body data-brand="innsegall" data-product="innsegall-companion-web">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -116,7 +186,7 @@
       <p class="companion-footer-links">
         <a href="/tablet">iPad layout guide</a> ·
         <a href="/privacy">Privacy</a> ·
-        <a href="https://github.com/SP-Q26/innsegall/blob/main/docs/WEB_COMPANION.md" rel="noopener noreferrer">Spec</a>
+        <a href="/ios">iOS guide</a>
       </p>
     </main>
 

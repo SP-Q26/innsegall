@@ -44,7 +44,7 @@
       "looked_at": "Known adware file names, folders, and browser-extension patterns left on disk",
       "does_not_cover": "Brand-new malware with no known signature, or threats only in memory",
       "why_matters": "Fake virus popups often leave named leftovers · finding them explains odd browser behavior",
-      "learn_more": "https://innsegall.com/blog/adware-leftovers-macintosh/"
+      "learn_more": "https://innsegall.com/blog/safari-fake-virus-notifications-mac/"
     },
     {
       "id": "hosts_file",
@@ -62,7 +62,7 @@
       "looked_at": "Which DNS servers your Mac is set to use (Wi‑Fi and Ethernet)",
       "does_not_cover": "DNS on other devices, or encrypted DNS inside a browser only",
       "why_matters": "Fake cleaners often switch DNS so they can intercept or nag you on every site",
-      "learn_more": "https://innsegall.com/blog/dns-settings-macintosh/"
+      "learn_more": "https://innsegall.com/blog/mac-dns-changed-after-scare/"
     },
     {
       "id": "system_proxy",
@@ -71,7 +71,7 @@
       "looked_at": "System-wide web proxy settings that could funnel traffic through a stranger",
       "does_not_cover": "Browser-only extensions, or corporate proxies your IT installed on purpose",
       "why_matters": "Unexpected proxies are a classic persistence trick after scare popups",
-      "learn_more": "https://innsegall.com/blog/dns-settings-macintosh/"
+      "learn_more": "https://innsegall.com/blog/mac-dns-changed-after-scare/"
     },
     {
       "id": "gatekeeper",
@@ -143,7 +143,7 @@
       "looked_at": "Configuration and MDM profiles that can lock settings or install remote management",
       "does_not_cover": "Profiles your employer installed on a work Mac you already expect",
       "why_matters": "Unexpected profiles can mean someone else controls settings on your personal Mac",
-      "learn_more": "https://innsegall.com/blog/mdm-profiles-macintosh/"
+      "learn_more": "https://innsegall.com/blog/mac-configuration-profile-scam/"
     }
   ],
   "does_not_check": [

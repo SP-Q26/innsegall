@@ -31,10 +31,14 @@ for (const [label, html] of [
 }
 
 check("ios platform lane", ios.includes("platform-lane"));
-check("ios bad-link honesty", ios.includes('id="bad-link"') && ios.includes("does not scan your iPhone"));
-check("ios bad-link steps", ios.includes("Step 1") && ios.includes("Send the scout on Mac"));
-check("tablet bad-link honesty", tablet.includes('id="bad-link"') && tablet.includes("does not scan your iPad"));
-check("tablet bad-link steps", tablet.includes("Step 1") && tablet.includes("Send the scout on Mac"));
+check("ios panic hub", ios.includes("panic-hub") && ios.includes('id="bad-link"'));
+check("ios bad-email anchor", ios.includes('id="bad-email"'));
+check("ios bad-download anchor", ios.includes('id="bad-download"'));
+check("ios honesty", ios.includes("does not scan your iPhone"));
+check("ios sticky bar", ios.includes("panic-sticky-bar"));
+check("tablet panic hub", tablet.includes("panic-hub") && tablet.includes('id="bad-link"'));
+check("tablet bad-email anchor", tablet.includes('id="bad-email"'));
+check("tablet honesty", tablet.includes("does not scan your iPad"));
 check("tablet split layout", tablet.includes("tablet-split"));
 check("tablet Copy for LLM", tablet.includes("Copy for LLM"));
 check("companion voyage panel", companion.includes("companion-panel--voyage"));
@@ -45,6 +49,7 @@ check("ios supplies path", ios.includes("/supplies") || supplies.includes("/ios"
 const css = readFileSync(join(web, "innsegall.css"), "utf8");
 check("css companion styles", css.includes(".companion-page"));
 check("css platform lane", css.includes(".platform-lane"));
+check("css panic hub", css.includes(".panic-jump-nav") && css.includes(".panic-sticky-bar"));
 
 console.log(failed ? `\n${failed} brand-mobile failure(s)` : "\nBrand mobile audit passed");
 process.exit(failed ? 1 : 0);

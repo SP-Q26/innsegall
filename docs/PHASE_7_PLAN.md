@@ -129,4 +129,4 @@ flowchart TD
 - Meta-review of this plan: [`PHASE_7_PLAN_AUDIT.md`](./PHASE_7_PLAN_AUDIT.md)
 - **Next (rough):** [`PHASE_8_PLAN.md`](./PHASE_8_PLAN.md) · [`PHASE_8_SWARM_PLAN.md`](./PHASE_8_SWARM_PLAN.md) · [`PHASE_8_PLAN_AUDIT.md`](./PHASE_8_PLAN_AUDIT.md)
 
-*Innsegall · Isles LLC + DBA · separate from MMI/WWL · see `docs/ISLES_PORTFOLIO.md`.*
+*Innsegall · The Isles Collective + DBA lanes · separate from MMI/WWL · see `docs/ISLES_PORTFOLIO.md`.*

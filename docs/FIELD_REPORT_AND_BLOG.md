@@ -66,6 +66,7 @@ npm run publish:issue-spotlights:telemetry    # pull aggregates · write blog md
 - `fixtures/blog-related-rail.json`
 - `fixtures/blog-field-desk.json`
 - `fixtures/blog-body-boosts.json`
+- `fixtures/blog-intro-leads.json` · `sync-blog-intro-leads.mjs`
 
 **Sync on deploy prep:**
 

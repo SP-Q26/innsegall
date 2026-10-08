@@ -19,6 +19,7 @@ const KEY_PAGES = [
   "clan.html",
   "warriors.html",
   "map.html",
+  "watch.html",
   "stability.html",
   "install.html",
   "blog/index.html",

@@ -118,7 +118,7 @@ md += `
 
 ## Blog SEO (float mode)
 
-- **Cadence:** Field Glass or comparison post every 1–2 weeks.
+- **Cadence:** Field Glass or comparison post every 1-2 weeks.
 - **Publish checklist:** \`fixtures/blog-posts-seo.json\` → sync scripts → \`vercel.json\` rewrite → \`sitemap.xml\` → \`blog/index.html\` card → \`smoke-live\` path.
 - **Quality gate:** \`npm run audit:blog-quality\` (target avg 95+).
 - **Funnel gate:** \`npm run audit:blog-funnel\`.

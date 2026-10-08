@@ -43,6 +43,7 @@ export function supplyTitle(sku) {
 export function suppliesTerminalHelp() {
   return [
     "Supplies for the road · Stripe Checkout (hosted by Stripe):",
+    "  innsegall scout            · panic scout (opens checkout when quota blocks)",
     "  innsegall supplies extra   · panic scout",
     "  innsegall supplies clan     · clan passage",
     "  innsegall supplies msp      · MSP seats (set quantity in browser)",

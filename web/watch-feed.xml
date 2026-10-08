@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Innsegall · Field Glass watch</title>
+    <link>https://innsegall.com/watch</link>
+    <description>iPhone and iPad panic hub · bad link, email, download, fake popup guides · Mac scout honesty · Voyage Oct 15 · calm post-scare triage · not antivirus.</description>
+    <language>en-us</language>
+    <atom:link href="https://innsegall.com/watch-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>October 8 · iPhone &amp; iPad desk</title>
+    <link>https://innsegall.com/blog/field-glass-oct-8-2026</link>
+    <guid isPermaLink="true">https://innsegall.com/blog/field-glass-oct-8-2026</guid>
+    <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>October 7 · trending searches</title>
+    <link>https://innsegall.com/blog/field-glass-oct-7-2026</link>
+    <guid isPermaLink="true">https://innsegall.com/blog/field-glass-oct-7-2026</guid>
+    <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>September 22 · threat desk</title>
+    <link>https://innsegall.com/blog/field-glass-sep-22-2026</link>
+    <guid isPermaLink="true">https://innsegall.com/blog/field-glass-sep-22-2026</guid>
+    <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>September 19 · product desk</title>
+    <link>https://innsegall.com/blog/field-glass-sep-19-2026</link>
+    <guid isPermaLink="true">https://innsegall.com/blog/field-glass-sep-19-2026</guid>
+    <pubDate>Sat, 19 Sep 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
+    <title>September · Mac news brief</title>
+    <link>https://innsegall.com/blog/field-glass-sep-2026</link>
+    <guid isPermaLink="true">https://innsegall.com/blog/field-glass-sep-2026</guid>
+    <pubDate>Sun, 06 Sep 2026 00:00:00 GMT</pubDate>
+  </item>
+  </channel>
+</rss>

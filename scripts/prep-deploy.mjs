@@ -15,8 +15,15 @@ execSync("node scripts/export-sample-scout.mjs", { cwd: root, stdio: "inherit" }
 execSync("node scripts/export-og-png.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/export-stripe-product-images.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-brand.mjs", { cwd: root, stdio: "inherit" });
+execSync("node scripts/build-seo-batch-20.mjs", { cwd: root, stdio: "inherit" });
+execSync("node scripts/build-competitor-absorption-posts.mjs", { cwd: root, stdio: "inherit" });
+execSync("node scripts/sync-watch-hub.mjs", { cwd: root, stdio: "inherit" });
+execSync("node scripts/sync-ios-tablet-panic.mjs", { cwd: root, stdio: "inherit" });
+execSync("node scripts/build-ios-seo-batch.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-field-desk.mjs", { cwd: root, stdio: "inherit" });
+execSync("node scripts/sync-blog-intro-leads.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-seo.mjs", { cwd: root, stdio: "inherit" });
+execSync("node scripts/sync-pages-seo.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-body-boosts.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-related-rail.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-cta.mjs", { cwd: root, stdio: "inherit" });

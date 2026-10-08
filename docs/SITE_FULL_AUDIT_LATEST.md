@@ -1,6 +1,6 @@
 # Innsegall.com · full site audit
 
-**Generated:** 2026-09-23 · `node scripts/audit-site-inventory.mjs`  
+**Generated:** 2026-10-08 · `node scripts/audit-site-inventory.mjs`  
 **Project:** Vercel `innsegall_fe` · root `web/`  
 **Commands:** `npm run audit:site` · `npm run gate:launch` · `npm run smoke:live`
 
@@ -10,11 +10,11 @@
 
 | Metric | Count |
 |--------|------:|
-| HTML surfaces | 62 |
-| Indexable marketing + blog | 60 |
-| Blog posts | 43 |
+| HTML surfaces | 73 |
+| Indexable marketing + blog | 71 |
+| Blog posts | 53 |
 | P0 inventory issues | 0 |
-| Sitemap URLs | 69 |
+| Sitemap URLs | 80 |
 
 **Operator:** Stripe LIVE flip in progress · push `main` after `npm run predeploy` · blog is primary float-mode SEO lever.
 
@@ -35,12 +35,19 @@
 | `/blog/clicked-bad-link-iphone-ipad-guide` | ✓ | ✓ | ✓ | ✓ | 133 | ok |
 | `/blog/clicked-suspicious-link-macintosh` | ✓ | ✓ | ✓ | ✓ | 148 | ok |
 | `/blog/do-i-need-antivirus-mac-2026` | ✓ | ✓ | ✓ | ✓ | 136 | ok |
+| `/blog/downloaded-suspicious-file-iphone-ipad` | ✓ | ✓ | ✓ | ✓ | 142 | ok |
 | `/blog/downloads-folder-quarantine-mac-check` | ✓ | ✓ | ✓ | ✓ | 153 | ok |
+| `/blog/fake-virus-popup-iphone-ipad` | ✓ | ✓ | ✓ | ✓ | 124 | ok |
 | `/blog/fake-virus-popup-macintosh` | ✓ | ✓ | ✓ | ✓ | 144 | ok |
 | `/blog/field-desk-stripe-live-sep-2026` | ✓ | ✓ | ✓ | ✓ | 143 | ok |
+| `/blog/field-glass-oct-2-2026` | ✓ | ✓ | ✓ | ✓ | 120 | ok |
+| `/blog/field-glass-oct-7-2026` | ✓ | ✓ | ✓ | ✓ | 156 | ok |
+| `/blog/field-glass-oct-8-2026` | ✓ | ✓ | ✓ | ✓ | 150 | ok |
 | `/blog/field-glass-sep-19-2026` | ✓ | ✓ | ✓ | ✓ | 142 | ok |
 | `/blog/field-glass-sep-2026` | ✓ | ✓ | ✓ | ✓ | 145 | ok |
 | `/blog/field-glass-sep-22-2026` | ✓ | ✓ | ✓ | ✓ | 126 | ok |
+| `/blog/field-glass-sep-25-2026` | ✓ | ✓ | ✓ | ✓ | 127 | ok |
+| `/blog/field-glass-sep-30-2026` | ✓ | ✓ | ✓ | ✓ | 142 | ok |
 | `/blog/field-report-2026-09-06` | ✓ | ✓ | ✓ | ✓ | 140 | ok |
 | `/blog/gatekeeper-opened-unknown-app-mac` | ✓ | ✓ | ✓ | ✓ | 120 | ok |
 | `/blog/genius-bar-vs-battle-scout-mac` | ✓ | ✓ | ✓ | ✓ | 127 | ok |
@@ -53,12 +60,14 @@
 | `/blog/mac-calendar-spam-invites-scam` | ✓ | ✓ | ✓ | ✓ | 120 | ok |
 | `/blog/mac-configuration-profile-scam` | ✓ | ✓ | ✓ | ✓ | 127 | ok |
 | `/blog/mac-dns-changed-after-scare` | ✓ | ✓ | ✓ | ✓ | 148 | ok |
+| `/blog/mac-performance-panic-vs-security-panic` | ✓ | ✓ | ✓ | ✓ | 151 | ok |
 | `/blog/mac-slow-after-suspicious-download` | ✓ | ✓ | ✓ | ✓ | 135 | ok |
 | `/blog/macintosh-hygiene-without-antivirus` | ✓ | ✓ | ✓ | ✓ | 148 | ok |
 | `/blog/macintosh-xprotect-after-scare` | ✓ | ✓ | ✓ | ✓ | 153 | ok |
 | `/blog/malwarebytes-vs-innsegall-after-scare` | ✓ | ✓ | ✓ | ✓ | 136 | ok |
 | `/blog/network-monitor-vs-post-scare-triage` | ✓ | ✓ | ✓ | ✓ | 148 | ok |
 | `/blog/onyx-vs-read-only-mac-scout` | ✓ | ✓ | ✓ | ✓ | 122 | ok |
+| `/blog/opened-suspicious-email-iphone-ipad` | ✓ | ✓ | ✓ | ✓ | 145 | ok |
 | `/blog/paste-battle-scout-for-ai-assistant` | ✓ | ✓ | ✓ | ✓ | 136 | ok |
 | `/blog/pasted-terminal-command-mac-scare` | ✓ | ✓ | ✓ | ✓ | 130 | ok |
 | `/blog/safari-allowed-notifications-by-mistake-mac` | ✓ | ✓ | ✓ | ✓ | 130 | ok |
@@ -67,6 +76,7 @@
 | `/blog/safari-shift-key-scam-popup-mac` | ✓ | ✓ | ✓ | ✓ | 142 | ok |
 | `/blog/someone-remoted-into-my-mac` | ✓ | ✓ | ✓ | ✓ | 131 | ok |
 | `/blog/stale-launch-items-macintosh` | ✓ | ✓ | ✓ | ✓ | 151 | ok |
+| `/blog/typed-password-scam-site-iphone-ipad` | ✓ | ✓ | ✓ | ✓ | 139 | ok |
 | `/blog/virustotal-vs-local-mac-scout` | ✓ | ✓ | ✓ | ✓ | 153 | ok |
 | `/blog/voyage-health-tracker-1st-15th` | ✓ | ✓ | ✓ | ✓ | 150 | ok |
 | `/blog/what-is-a-battle-scout` | ✓ | ✓ | ✓ | ✓ | 152 | ok |
@@ -75,22 +85,23 @@
 | `/companion` | ✓ | ✓ | · | · | 152 | ok |
 | `/guide` | ✓ | ✓ | · | · | 124 | ok |
 | `/install` | ✓ | ✓ | · | · | 139 | ok |
-| `/ios` | ✓ | ✓ | · | · | 142 | ok |
+| `/ios` | ✓ | ✓ | · | · | 151 | ok |
 | `/map` | ✓ | ✓ | · | · | 144 | ok |
 | `/msp` | ✓ | ✓ | · | · | 139 | ok |
 | `/privacy` | ✓ | ✓ | · | · | 153 | ok |
 | `/stability` | ✓ | ✓ | · | · | 125 | ok |
 | `/success` | no | ✗ | · | · | 101 | ok |
 | `/supplies` | ✓ | ✓ | · | · | 127 | ok |
-| `/tablet` | ✓ | ✓ | · | · | 141 | ok |
+| `/tablet` | ✓ | ✓ | · | · | 138 | ok |
 | `/tos` | ✓ | ✓ | · | · | 150 | ok |
 | `/warriors` | ✓ | ✓ | · | · | 146 | ok |
+| `/watch` | ✓ | ✓ | · | · | 142 | ok |
 
 ---
 
 ## Blog SEO (float mode)
 
-- **Cadence:** Field Glass or comparison post every 1–2 weeks.
+- **Cadence:** Field Glass or comparison post every 1-2 weeks.
 - **Publish checklist:** `fixtures/blog-posts-seo.json` → sync scripts → `vercel.json` rewrite → `sitemap.xml` → `blog/index.html` card → `smoke-live` path.
 - **Quality gate:** `npm run audit:blog-quality` (target avg 95+).
 - **Funnel gate:** `npm run audit:blog-funnel`.
