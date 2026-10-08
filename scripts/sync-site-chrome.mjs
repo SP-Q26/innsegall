@@ -8,8 +8,15 @@ import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const web = join(root, "web");
-const OG_URL = "https://innsegall.com/og/innsegall-card.png";
+const OG_URL = "https://innsegall.com/og/innsegall-card.png?v=20261008";
 const CSS_VER = 23;
+
+/** Homepage link-preview copy (Facebook · X · iMessage). */
+const HOME_SOCIAL = {
+  title: "Innsegall · Know You're Okay",
+  description:
+    "Post-scare Mac triage after a fake virus popup, bad link, or am I hacked moment. Local read-only scout · Battle Scout receipt · copy for any AI. Not antivirus.",
+};
 
 const CANONICAL_HEADER = `<header class="site-header">
       <a class="brand-lockup" href="/" aria-label="Innsegall home">
@@ -42,6 +49,7 @@ const CANONICAL_HEADER = `<header class="site-header">
     </header>`;
 
 const OG_BLOCK = `  <meta property="og:image" content="${OG_URL}">
+  <meta property="og:image:secure_url" content="${OG_URL}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:type" content="image/png">
@@ -121,6 +129,15 @@ function ensureMeta(html, key, value, useProperty = key.startsWith("og:") || key
   return insertAfter(html, /<meta name="description"[^>]*>/, tag);
 }
 
+function replaceMeta(html, key, value, useProperty = key.startsWith("og:") || key.startsWith("article:")) {
+  if (!value) return html;
+  const attr = useProperty ? "property" : "name";
+  const re = new RegExp(`<meta ${attr}="${key}" content="[^"]*"\\s*/?>`, "i");
+  const tag = `  <meta ${attr}="${key}" content="${escAttr(value)}">`;
+  if (re.test(html)) return html.replace(re, tag);
+  return ensureMeta(html, key, value, useProperty);
+}
+
 function walkHtml(dir, acc = []) {
   for (const name of readdirSync(dir)) {
     const p = join(dir, name);
@@ -135,26 +152,33 @@ function fixSocialPreview(html, filePath) {
 
   let out = fixOg(html);
   const rel = filePath.replace(/\\/g, "/");
+  const isHome = rel.endsWith("web/index.html");
   const isArticle = rel.includes("/blog/") && !rel.endsWith("blog/index.html");
   const pageTitle = out.match(/<title>([^<]*)<\/title>/i)?.[1]?.trim() || "Innsegall";
   const description = readMeta(out, "description");
   const canonical = out.match(/rel="canonical" href="([^"]*)"/)?.[1] || "";
-  const ogTitle = readMeta(out, "og:title") || pageTitle;
-  const ogDescription = readMeta(out, "og:description") || description;
+  let ogTitle = readMeta(out, "og:title") || pageTitle;
+  let ogDescription = readMeta(out, "og:description") || description;
   const ogUrl = readMeta(out, "og:url") || canonical;
+
+  if (isHome) {
+    ogTitle = HOME_SOCIAL.title;
+    ogDescription = HOME_SOCIAL.description;
+  }
 
   out = ensureMeta(out, "og:type", isArticle ? "article" : "website");
   out = ensureMeta(out, "og:site_name", "Innsegall");
   out = ensureMeta(out, "og:locale", "en_US");
-  out = ensureMeta(out, "og:title", ogTitle);
-  out = ensureMeta(out, "og:description", ogDescription);
-  if (ogUrl) out = ensureMeta(out, "og:url", ogUrl);
+  out = replaceMeta(out, "og:title", ogTitle, true);
+  out = replaceMeta(out, "og:description", ogDescription, true);
+  if (ogUrl) out = replaceMeta(out, "og:url", ogUrl, true);
 
   out = ensureMeta(out, "twitter:card", "summary_large_image", false);
   out = ensureMeta(out, "twitter:site", TWITTER_SITE, false);
-  out = ensureMeta(out, "twitter:title", ogTitle, false);
-  out = ensureMeta(out, "twitter:description", ogDescription, false);
+  out = replaceMeta(out, "twitter:title", ogTitle, false);
+  out = replaceMeta(out, "twitter:description", ogDescription, false);
   out = ensureMeta(out, "twitter:image:alt", OG_ALT, false);
+  if (ogUrl) out = replaceMeta(out, "twitter:url", ogUrl, false);
 
   if (isArticle) {
     const published =
@@ -180,11 +204,20 @@ function fixOg(html) {
     /<meta property="og:image" content="data:image[^"]*"\s*\/?>/g,
     ""
   );
+  out = out.replace(/<meta property="og:image:secure_url"[^>]*\/?>\s*/g, "");
   out = out.replace(/<meta property="og:image:alt"[^>]*\/?>\s*/g, "");
   out = out.replace(/<meta property="og:image:width"[^>]*\/?>\s*/g, "");
   out = out.replace(/<meta property="og:image:height"[^>]*\/?>\s*/g, "");
   out = out.replace(/<meta property="og:image:type"[^>]*\/?>\s*/g, "");
   out = out.replace(/<meta name="twitter:image"[^>]*\/?>\s*/g, "");
+  out = out.replace(
+    /<meta property="og:image" content="https:\/\/innsegall\.com\/og\/innsegall-card\.png[^"]*"\s*\/?>/gi,
+    `<meta property="og:image" content="${OG_URL}">`
+  );
+  out = out.replace(
+    /<meta name="twitter:image" content="https:\/\/innsegall\.com\/og\/innsegall-card\.png[^"]*"\s*\/?>/gi,
+    `<meta name="twitter:image" content="${OG_URL}">`
+  );
 
   if (!out.includes(OG_URL)) {
     if (out.includes('property="og:url"')) {
@@ -203,7 +236,7 @@ function fixOg(html) {
   } else if (!out.includes("og:image:width")) {
     out = out.replace(
       /(<meta property="og:image" content="[^"]*"\s*\/?>)/,
-      `$1\n  <meta property="og:image:width" content="1200">\n  <meta property="og:image:height" content="630">\n  <meta property="og:image:type" content="image/png">\n  <meta property="og:image:alt" content="Innsegall · Know you're okay · Macintosh triage">`
+      `$1\n  <meta property="og:image:secure_url" content="${OG_URL}">\n  <meta property="og:image:width" content="1200">\n  <meta property="og:image:height" content="630">\n  <meta property="og:image:type" content="image/png">\n  <meta property="og:image:alt" content="Innsegall · Know you're okay · Macintosh triage">`
     );
     if (!out.includes("twitter:image")) {
       out = out.replace(
@@ -211,6 +244,13 @@ function fixOg(html) {
         `$1\n  <meta name="twitter:image" content="${OG_URL}">`
       );
     }
+  }
+
+  if (out.includes("og:image") && !out.includes("og:image:secure_url")) {
+    out = out.replace(
+      /(<meta property="og:image" content="[^"]*"\s*\/?>)/,
+      `$1\n  <meta property="og:image:secure_url" content="${OG_URL}">`
+    );
   }
 
   if (out.includes('name="twitter:card" content="summary"')) {
@@ -319,7 +359,7 @@ for (const file of walkHtml(web)) {
   let html = before;
   if (file.endsWith("success.html")) {
     html = fixSuccessPage(html);
-  } else if (file.includes("/samples/") || file.endsWith("companion.html")) {
+  } else if (file.includes("/samples/")) {
     continue;
   } else {
     html = replaceHeader(html);

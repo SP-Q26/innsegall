@@ -8,7 +8,7 @@ import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const web = join(root, "web");
-const OG_URL = "https://innsegall.com/og/innsegall-card.png";
+const OG_URL = "https://innsegall.com/og/innsegall-card.png?v=20261008";
 const OG_PATH = join(web, "og/innsegall-card.png");
 let failed = 0;
 
@@ -124,6 +124,14 @@ const tabletHtml = readFileSync(join(web, "tablet.html"), "utf8");
 check("ios meta mentions Safari", /name="description" content="[^"]*Safari/i.test(iosHtml));
 check("tablet meta mentions Safari", /name="description" content="[^"]*Safari/i.test(tabletHtml));
 check("llms safari ios guides", readFileSync(join(web, "llms.txt"), "utf8").includes("safari-notifications-scam-iphone-ipad"));
+
+const home = readFileSync(join(web, "index.html"), "utf8");
+const homeOgDesc = home.match(/property="og:description" content="([^"]*)"/)?.[1] || "";
+const homeTwDesc = home.match(/name="twitter:description" content="([^"]*)"/)?.[1] || "";
+check("index og:description length", homeOgDesc.length >= 100 && homeOgDesc.length <= 300, `${homeOgDesc.length}`);
+check("index twitter matches og description", homeTwDesc === homeOgDesc);
+check("index og:image secure_url", home.includes("og:image:secure_url"));
+check("index twitter:url", home.includes('name="twitter:url"'));
 
 const platformBlogSlugs = [
   "safari-shift-key-scam-popup-mac",
