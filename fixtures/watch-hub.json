@@ -1,0 +1,89 @@
+{
+  "version": "2026-10-07",
+  "max_field_glass_age_days": 14,
+  "latest_field_glass": {
+    "slug": "field-glass-oct-7-2026",
+    "title": "Field Glass Update · October 7, 2026",
+    "description": "October Macintosh watch · fake virus popups · performance vs security panic · Voyage Oct 15 · field guides mapped to calm post-scare triage · not antivirus.",
+    "date": "2026-10-07",
+    "read_minutes": 6
+  },
+  "field_glass_archive": [
+    {
+      "slug": "field-glass-oct-7-2026",
+      "title": "October 7 · trending searches",
+      "date": "2026-10-07"
+    },
+    {
+      "slug": "field-glass-sep-22-2026",
+      "title": "September 22 · threat desk",
+      "date": "2026-09-22"
+    },
+    {
+      "slug": "field-glass-sep-19-2026",
+      "title": "September 19 · product desk",
+      "date": "2026-09-19"
+    },
+    {
+      "slug": "field-glass-sep-2026",
+      "title": "September · Mac news brief",
+      "date": "2026-09-06"
+    }
+  ],
+  "trending_guides": [
+    {
+      "query": "Fake virus popup Mac",
+      "href": "/blog/fake-virus-popup-macintosh"
+    },
+    {
+      "query": "Mac slow after scary download",
+      "href": "/blog/mac-slow-after-suspicious-download"
+    },
+    {
+      "query": "Performance panic vs security panic",
+      "href": "/blog/mac-performance-panic-vs-security-panic"
+    },
+    {
+      "query": "Safari virus notification",
+      "href": "/blog/safari-fake-virus-notifications-mac"
+    },
+    {
+      "query": "Clicked bad link Mac",
+      "href": "/blog/clicked-suspicious-link-macintosh"
+    },
+    {
+      "query": "Do I need antivirus Mac 2026",
+      "href": "/blog/do-i-need-antivirus-mac-2026"
+    }
+  ],
+  "scout_trends": [
+    {
+      "label": "Stale launch items after scareware cleanup",
+      "href": "/blog/stale-launch-items-macintosh"
+    },
+    {
+      "label": "DNS changed after fake cleaner",
+      "href": "/blog/mac-dns-changed-after-scare"
+    },
+    {
+      "label": "Unexpected configuration profile",
+      "href": "/blog/mac-configuration-profile-scam"
+    },
+    {
+      "label": "Paste Battle Scout for your AI assistant",
+      "href": "/blog/paste-battle-scout-for-ai-assistant"
+    }
+  ],
+  "events": [
+    {
+      "date": "2026-10-15",
+      "title": "Voyage sail · free scheduled scout",
+      "href": "/blog/voyage-health-tracker-1st-15th"
+    },
+    {
+      "date": "2026-11-01",
+      "title": "Next Voyage · 1st of the month",
+      "href": "/blog/voyage-health-tracker-1st-15th"
+    }
+  ]
+}

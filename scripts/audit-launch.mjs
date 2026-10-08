@@ -33,6 +33,8 @@ const requiredFiles = [
   "web/alpha.html",
   "web/guide.html",
   "web/map.html",
+  "web/watch.html",
+  "web/watch-feed.xml",
   "web/boat.html",
   "web/clan.html",
   "web/warriors.html",

@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-30",
+  "version": "2026-10-07",
   "defaults": {
     "image": "https://innsegall.com/og/innsegall-card.png",
     "inLanguage": "en-US"
@@ -13,6 +13,7 @@
     "ios.html": { "breadcrumb": "iOS companion", "aboutSoftware": false },
     "tablet.html": { "breadcrumb": "iPad & tablet", "aboutSoftware": false },
     "map.html": { "breadcrumb": "Sea map", "aboutSoftware": true },
+    "watch.html": { "breadcrumb": "Macintosh watch", "aboutSoftware": false },
     "msp.html": { "breadcrumb": "MSP", "aboutSoftware": true },
     "supplies.html": { "breadcrumb": "Supplies", "aboutSoftware": false },
     "stability.html": { "breadcrumb": "Stability", "aboutSoftware": true },

@@ -52,6 +52,7 @@ const keyPages = [
   "stability.html",
   "install.html",
   "map.html",
+  "watch.html",
   "warriors.html",
   "ios.html",
   "tablet.html",

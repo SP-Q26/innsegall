@@ -15,6 +15,7 @@ execSync("node scripts/export-sample-scout.mjs", { cwd: root, stdio: "inherit" }
 execSync("node scripts/export-og-png.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/export-stripe-product-images.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-brand.mjs", { cwd: root, stdio: "inherit" });
+execSync("node scripts/sync-watch-hub.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-field-desk.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-intro-leads.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-seo.mjs", { cwd: root, stdio: "inherit" });

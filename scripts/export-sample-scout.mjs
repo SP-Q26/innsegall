@@ -13,6 +13,9 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const outDir = join(root, "web", "samples");
 const outPath = join(outDir, "battle-scout-demo.html");
 
+process.env.INNSEGALL_DEMO_HOME = "/Users/You";
+process.env.INNSEGALL_SPQ_ROOT = "/Users/You/Projects/innsegall";
+
 const card = buildDemoCard();
 const errors = validateCard(card);
 if (errors.length) {

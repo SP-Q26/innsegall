@@ -1,6 +1,6 @@
 # Innsegall.com · full site audit
 
-**Generated:** 2026-10-05 · `node scripts/audit-site-inventory.mjs`  
+**Generated:** 2026-10-08 · `node scripts/audit-site-inventory.mjs`  
 **Project:** Vercel `innsegall_fe` · root `web/`  
 **Commands:** `npm run audit:site` · `npm run gate:launch` · `npm run smoke:live`
 
@@ -10,11 +10,11 @@
 
 | Metric | Count |
 |--------|------:|
-| HTML surfaces | 66 |
-| Indexable marketing + blog | 64 |
-| Blog posts | 47 |
+| HTML surfaces | 68 |
+| Indexable marketing + blog | 66 |
+| Blog posts | 48 |
 | P0 inventory issues | 0 |
-| Sitemap URLs | 73 |
+| Sitemap URLs | 75 |
 
 **Operator:** Stripe LIVE flip in progress · push `main` after `npm run predeploy` · blog is primary float-mode SEO lever.
 
@@ -39,6 +39,7 @@
 | `/blog/fake-virus-popup-macintosh` | ✓ | ✓ | ✓ | ✓ | 144 | ok |
 | `/blog/field-desk-stripe-live-sep-2026` | ✓ | ✓ | ✓ | ✓ | 143 | ok |
 | `/blog/field-glass-oct-2-2026` | ✓ | ✓ | ✓ | ✓ | 120 | ok |
+| `/blog/field-glass-oct-7-2026` | ✓ | ✓ | ✓ | ✓ | 156 | ok |
 | `/blog/field-glass-sep-19-2026` | ✓ | ✓ | ✓ | ✓ | 142 | ok |
 | `/blog/field-glass-sep-2026` | ✓ | ✓ | ✓ | ✓ | 145 | ok |
 | `/blog/field-glass-sep-22-2026` | ✓ | ✓ | ✓ | ✓ | 126 | ok |
@@ -89,6 +90,7 @@
 | `/tablet` | ✓ | ✓ | · | · | 141 | ok |
 | `/tos` | ✓ | ✓ | · | · | 150 | ok |
 | `/warriors` | ✓ | ✓ | · | · | 146 | ok |
+| `/watch` | ✓ | ✓ | · | · | 142 | ok |
 
 ---
 

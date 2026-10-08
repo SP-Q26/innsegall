@@ -8,7 +8,11 @@ export const LAUNCH_FOLDERS = [
   { id: "privileged_helpers", label: "PrivilegedHelpers", path: "/Library/PrivilegedHelperTools" },
 ];
 
-export function expandHome(path, home = homedir()) {
+function defaultHome() {
+  return process.env.INNSEGALL_DEMO_HOME || homedir();
+}
+
+export function expandHome(path, home = defaultHome()) {
   return String(path || "").replace(/^~(?=$|\/)/, home);
 }
 
@@ -19,7 +23,7 @@ export function fileHref(path, home = homedir()) {
 }
 
 /** Attach quick_actions to fixes for HTML sub-buttons. */
-export function attachQuickActions(fixes, home = homedir()) {
+export function attachQuickActions(fixes, home = defaultHome()) {
   const spq = process.env.INNSEGALL_SPQ_ROOT || `${home}/SPQ`;
   const recheck = `cd "${spq}" && npm run innsegall:run`;
 
@@ -85,7 +89,7 @@ function dedupeActions(actions) {
   });
 }
 
-export function plistEvidenceActions(plistPath, home = homedir()) {
+export function plistEvidenceActions(plistPath, home = defaultHome()) {
   const folder = dirname(expandHome(plistPath, home));
   const quoted = plistPath.includes(" ") ? `"${plistPath}"` : plistPath;
   const actions = [
@@ -112,7 +116,7 @@ export function plistEvidenceActions(plistPath, home = homedir()) {
   return actions;
 }
 
-export function tierSubActions(tier, home = homedir()) {
+export function tierSubActions(tier, home = defaultHome()) {
   const spq = process.env.INNSEGALL_SPQ_ROOT || `${home}/SPQ`;
   const recheck = `cd "${spq}" && npm run innsegall:run`;
 

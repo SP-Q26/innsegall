@@ -1,6 +1,6 @@
 # SEO and organic growth · Innsegall
 
-**Goal:** Help people after a scare find calm, keyword-rich field guides—not spam. Baseline ~2–15 Google visits/day (Oct 2026).
+**Goal:** Help people after a scare find calm, keyword-rich field guides · not spam. Baseline ~2–15 Google visits/day (Oct 2026).
 
 ## Cadence
 

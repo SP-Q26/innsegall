@@ -110,6 +110,7 @@ function walkHtml(dir, base = web) {
     if (statSync(p).isDirectory()) walkHtml(p, base);
     else if (name.endsWith(".html")) {
       const rel = relative(web, p).replace(/\\/g, "/");
+      if (rel.startsWith("samples/")) continue;
       const html = readFileSync(p, "utf8");
       scanBackOfHouse(rel, html);
     }

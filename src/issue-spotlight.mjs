@@ -25,7 +25,7 @@ export const ISSUE_CATALOG = {
     ],
   },
   "mac_hygiene:adware_leftovers": {
-    slug: "adware-leftovers-macintosh",
+    slug: "safari-fake-virus-notifications-mac",
     title: "Adware Leftovers on Macintosh · Field Trend",
     dek: "Browser extension and profile markers · read-only scouts · no fear theater.",
     agent_hint:
@@ -33,7 +33,7 @@ export const ISSUE_CATALOG = {
     suggest_when: ["User removed scareware but browser still acts odd"],
   },
   "mac_hygiene:dns": {
-    slug: "dns-settings-macintosh",
+    slug: "mac-dns-changed-after-scare",
     title: "DNS Settings Worth Review on Macintosh",
     dek: "Resolver and proxy category flags · anonymized aggregate only.",
     agent_hint: "Macintosh DNS changed after fake cleaner · local scout first",
@@ -65,7 +65,7 @@ export const ISSUE_CATALOG = {
     suggest_when: ["Creator worried about repo or env files after clicking bad link"],
   },
   "mac_hygiene:mdm_profiles": {
-    slug: "mdm-profiles-macintosh",
+    slug: "mac-configuration-profile-scam",
     title: "Configuration Profiles on Macintosh · When to Review",
     dek: "MDM and profile category attention · enterprise vs stray profiles.",
     agent_hint: "Unexpected configuration profile on personal Mac · read-only scout",
