@@ -185,3 +185,21 @@ On phone: [companion inbox](https://innsegall.com/companion) · import **Copy fo
 - **iPhone/iPad** · [/ios panic hub](/ios) · [/companion](/companion)
 - **Oct 8 desk** · [Field Glass](/blog/field-glass-oct-8-2026) · [Watch](/watch)
 - **Pricing** · [Supplies](/supplies)
+
+---
+
+## Helpful links
+
+- **Scared tonight?** · [Send the scout](/alpha)
+- **iPhone/iPad Safari** · [/ios](/ios) · [Clear Safari data](/blog/safari-clear-website-data-iphone-ipad) · [/companion](/companion)
+- **Oct 8 desk** · [Field Glass](/blog/field-glass-oct-8-2026) · [Watch](/watch)
+- **Pricing** · [Supplies](/supplies)
+
+---
+
+## Helpful links
+
+- **Scared tonight?** · [Send the scout](/alpha)
+- **iPhone/iPad Safari** · [/ios](/ios) · [Clear Safari data](/blog/safari-clear-website-data-iphone-ipad) · [/companion](/companion)
+- **Oct 8 desk** · [Field Glass](/blog/field-glass-oct-8-2026) · [Watch](/watch)
+- **Pricing** · [Supplies](/supplies)

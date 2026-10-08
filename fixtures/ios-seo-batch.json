@@ -84,6 +84,54 @@
         }
       ],
       "cta": "<a class=\"btn-horn btn-horn--compact\" href=\"/ios#typed-password\">iPhone steps</a> \u00b7 <a href=\"/tablet#typed-password\">iPad steps</a>"
+    },
+    {
+      "slug": "safari-notifications-scam-iphone-ipad",
+      "h1": "Safari Virus Notifications on iPhone or iPad \u00b7 Turn Them Off",
+      "cardTitle": "Safari Scam Notifications (iPhone & iPad)",
+      "description": "Fake virus alerts from Safari on iPhone or iPad? Website notifications scam \u00b7 Settings steps \u00b7 not antivirus sales \u00b7 Mac scout when the computer matters.",
+      "agentHint": "Safari notifications scam iphone ipad \u00b7 innsegall.com/ios#fake-popup \u00b7 Settings \u2192 Notifications",
+      "cardBlurb": "Safari is your browser \u00b7 scam sites abuse notifications.",
+      "lead": "Apple did not push a virus warning through Notifications. A website you allowed is mimicking security software \u00b7 we walk Safari settings on the phone or tablet first.",
+      "sections": [
+        {
+          "h": "Safari notification cleanup",
+          "p": "Settings \u2192 Notifications \u2192 Safari \u00b7 review allowed sites \u00b7 turn off scam senders \u00b7 optional: Settings \u2192 Safari \u2192 Advanced \u2192 Website Data \u00b7 remove the bad domain."
+        },
+        {
+          "h": "On-device panic hub",
+          "p": "<a href=\"/ios#fake-popup\">iPhone fake popup</a> \u00b7 <a href=\"/tablet#fake-popup\">iPad fake popup</a> \u00b7 <a href=\"/blog/fake-virus-popup-iphone-ipad\">Safari scare page guide</a>."
+        },
+        {
+          "h": "Same pattern on Mac Safari",
+          "p": "<a href=\"/blog/safari-fake-virus-notifications-mac\">Fake virus notifications on Mac</a> \u00b7 <a href=\"/blog/safari-allowed-notifications-by-mistake-mac\">Allowed notifications by mistake</a>."
+        }
+      ],
+      "cta": "<a class=\"btn-horn btn-horn--compact\" href=\"/ios#fake-popup\">iPhone Safari steps</a> \u00b7 <a href=\"/tablet#fake-popup\">iPad Safari steps</a>"
+    },
+    {
+      "slug": "safari-clear-website-data-iphone-ipad",
+      "h1": "Clear Safari Website Data on iPhone or iPad After a Scare",
+      "cardTitle": "Clear Safari Data (iPhone & iPad)",
+      "description": "After a scary Safari page on iPhone or iPad? Clear Website Data safely \u00b7 Block Pop-ups \u00b7 Extensions \u00b7 honest iOS limits \u00b7 Innsegall Mac scout for the computer.",
+      "agentHint": "Clear safari website data iphone ipad after scam \u00b7 innsegall.com/ios \u00b7 Settings \u2192 Safari",
+      "cardBlurb": "Safari cleanup without fear marketing.",
+      "lead": "You do not need a cleaner app on iPhone or iPad. Safari ships with the tools \u00b7 we show which settings help after a phishing page or fake virus theater.",
+      "sections": [
+        {
+          "h": "Safari settings that help",
+          "p": "Settings \u2192 Safari \u00b7 Block Pop-ups \u00b7 Extensions \u00b7 Advanced \u2192 Website Data \u00b7 remove one site or clear all if you must \u00b7 never pay a popup vendor."
+        },
+        {
+          "h": "If you tapped a link",
+          "p": "<a href=\"/blog/clicked-bad-link-iphone-ipad-guide\">Bad link on iPhone or iPad</a> \u00b7 <a href=\"/ios#bad-link\">iPhone hub</a> \u00b7 <a href=\"/tablet#bad-link\">iPad hub</a>."
+        },
+        {
+          "h": "Macintosh Safari",
+          "p": "<a href=\"/blog/safari-shift-key-scam-popup-mac\">Shift-reopen stuck popup</a> \u00b7 <a href=\"/blog/safari-search-engine-hijacked-mac\">Search engine hijacked</a> \u00b7 <a href=\"/alpha\">Send the scout</a> on the Mac."
+        }
+      ],
+      "cta": "<a class=\"btn-horn btn-horn--compact\" href=\"/ios\">iPhone Safari hub</a> \u00b7 <a href=\"/tablet\">iPad Safari hub</a>"
     }
   ]
 }

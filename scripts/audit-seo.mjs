@@ -119,6 +119,31 @@ const discovery = existsSync(join(web, ".well-known/ai-discovery.json"))
 check("ai-discovery parley endpoint", discovery.includes("/api/parley"));
 check("ai-discovery llms", discovery.includes("/llms.txt"));
 
+const iosHtml = readFileSync(join(web, "ios.html"), "utf8");
+const tabletHtml = readFileSync(join(web, "tablet.html"), "utf8");
+check("ios meta mentions Safari", /name="description" content="[^"]*Safari/i.test(iosHtml));
+check("tablet meta mentions Safari", /name="description" content="[^"]*Safari/i.test(tabletHtml));
+check("llms safari ios guides", readFileSync(join(web, "llms.txt"), "utf8").includes("safari-notifications-scam-iphone-ipad"));
+
+const platformBlogSlugs = [
+  "safari-shift-key-scam-popup-mac",
+  "safari-fake-virus-notifications-mac",
+  "safari-search-engine-hijacked-mac",
+  "safari-allowed-notifications-by-mistake-mac",
+  "opened-suspicious-email-iphone-ipad",
+  "downloaded-suspicious-file-iphone-ipad",
+  "fake-virus-popup-iphone-ipad",
+  "typed-password-scam-site-iphone-ipad",
+  "clicked-bad-link-iphone-ipad-guide",
+  "safari-notifications-scam-iphone-ipad",
+  "safari-clear-website-data-iphone-ipad",
+  "fake-virus-popup-macintosh",
+  "clicked-suspicious-link-macintosh",
+];
+for (const slug of platformBlogSlugs) {
+  check(`platform blog sitemap /blog/${slug}`, sitemap.includes(`/blog/${slug}`));
+}
+
 if (failed) {
   console.error(`\n${failed} SEO audit failure(s)`);
   process.exit(1);

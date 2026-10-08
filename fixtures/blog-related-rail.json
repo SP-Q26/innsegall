@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-08-b",
+  "version": "2026-10-08-c",
   "defaultRelated": [
     { "href": "/alpha", "label": "Send the scout" },
     { "href": "/watch", "label": "Macintosh watch" },
@@ -64,8 +64,28 @@
     ],
     "fake-virus-popup-iphone-ipad": [
       { "href": "/ios#fake-popup", "label": "Close the popup" },
-      { "href": "/blog/fake-virus-popup-macintosh", "label": "Mac popup guide" },
-      { "href": "/tablet#fake-popup", "label": "iPad steps" }
+      { "href": "/blog/safari-notifications-scam-iphone-ipad", "label": "Safari notifications scam" },
+      { "href": "/blog/fake-virus-popup-macintosh", "label": "Mac popup guide" }
+    ],
+    "safari-notifications-scam-iphone-ipad": [
+      { "href": "/ios#fake-popup", "label": "iPhone Safari steps" },
+      { "href": "/blog/safari-clear-website-data-iphone-ipad", "label": "Clear Safari data" },
+      { "href": "/blog/safari-fake-virus-notifications-mac", "label": "Mac notifications" }
+    ],
+    "safari-clear-website-data-iphone-ipad": [
+      { "href": "/ios", "label": "iPhone Safari hub" },
+      { "href": "/blog/clicked-bad-link-iphone-ipad-guide", "label": "Bad link guide" },
+      { "href": "/blog/safari-shift-key-scam-popup-mac", "label": "Mac Safari popup" }
+    ],
+    "safari-shift-key-scam-popup-mac": [
+      { "href": "/blog/fake-virus-popup-macintosh", "label": "Fake virus popup" },
+      { "href": "/blog/safari-clear-website-data-iphone-ipad", "label": "Safari data on iPhone" },
+      { "href": "/alpha", "label": "Send the scout" }
+    ],
+    "safari-fake-virus-notifications-mac": [
+      { "href": "/blog/safari-notifications-scam-iphone-ipad", "label": "iPhone/iPad notifications" },
+      { "href": "/blog/safari-allowed-notifications-by-mistake-mac", "label": "Allowed by mistake" },
+      { "href": "/ios#fake-popup", "label": "iPhone fake popup" }
     ],
     "typed-password-scam-site-iphone-ipad": [
       { "href": "/ios#typed-password", "label": "Password recovery" },

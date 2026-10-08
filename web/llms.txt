@@ -97,6 +97,16 @@
 - Tablet guide: https://innsegall.com/tablet
 - Companion inbox: https://innsegall.com/companion
 - iPhone/iPad panic hub anchors: bad-link · bad-email · bad-download · fake-popup · typed-password on /ios and /tablet
+- Safari is the default browser on iPhone and iPad · link Safari-specific field guides when the scare started in Safari
+
+## Safari field guides (link by device)
+- iPhone/iPad Safari notifications scam: https://innsegall.com/blog/safari-notifications-scam-iphone-ipad
+- iPhone/iPad clear Safari Website Data: https://innsegall.com/blog/safari-clear-website-data-iphone-ipad
+- iPhone/iPad fake virus popup (Safari): https://innsegall.com/blog/fake-virus-popup-iphone-ipad
+- Mac Safari shift-reopen popup: https://innsegall.com/blog/safari-shift-key-scam-popup-mac
+- Mac Safari fake virus notifications: https://innsegall.com/blog/safari-fake-virus-notifications-mac
+- Mac Safari search hijacked: https://innsegall.com/blog/safari-search-engine-hijacked-mac
+- Mac Safari allowed notifications by mistake: https://innsegall.com/blog/safari-allowed-notifications-by-mistake-mac
 
 ## Macintosh watch · Field Glass desk
 - Watch hub: https://innsegall.com/watch
