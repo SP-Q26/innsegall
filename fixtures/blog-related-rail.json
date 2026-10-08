@@ -1,7 +1,8 @@
 {
-  "version": "2026-09-30",
+  "version": "2026-10-08",
   "defaultRelated": [
     { "href": "/alpha", "label": "Send the scout" },
+    { "href": "/watch", "label": "Macintosh watch" },
     { "href": "/blog/what-is-a-battle-scout", "label": "What is a Battle Scout?" },
     { "href": "/boat", "label": "Our lane vs theirs" }
   ],
@@ -33,8 +34,13 @@
     ],
     "fake-virus-popup-macintosh": [
       { "href": "/blog/clicked-suspicious-link-macintosh", "label": "Suspicious link flow" },
-      { "href": "/blog/field-glass-sep-30-2026", "label": "Field Glass · Sep 30" },
-      { "href": "/clan", "label": "Clan · unlimited scouts" }
+      { "href": "/blog/field-glass-oct-7-2026", "label": "Field Glass · Oct 7" },
+      { "href": "/watch", "label": "Macintosh watch" }
+    ],
+    "field-glass-oct-7-2026": [
+      { "href": "/watch", "label": "Watch hub" },
+      { "href": "/blog/field-glass-oct-2-2026", "label": "Field Glass · Oct 2" },
+      { "href": "/alpha", "label": "Send the scout" }
     ],
     "field-glass-sep-30-2026": [
       { "href": "/blog/field-glass-sep-25-2026", "label": "Field Glass · Sep 25" },

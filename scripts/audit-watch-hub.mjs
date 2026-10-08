@@ -30,6 +30,8 @@ check("watch-hub fixture version", Boolean(hub.version));
 check("watch.html exists", existsSync(join(web, "watch.html")));
 check("watch body markers", watch.includes("INNSEGALL_WATCH_BODY_START"));
 check("watch links latest Field Glass", watch.includes(`/blog/${latest.slug}`));
+const map = existsSync(join(web, "map.html")) ? readFileSync(join(web, "map.html"), "utf8") : "";
+check("map tree links /watch", map.includes('href="/watch">/watch</a>'));
 check("watch-feed.xml", existsSync(join(web, "watch-feed.xml")));
 check("vercel /watch rewrite", vercel.includes('"/watch"'));
 check("sitemap /watch", sitemap.includes("innsegall.com/watch"));
