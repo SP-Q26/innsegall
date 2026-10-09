@@ -8,8 +8,8 @@ import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const web = join(root, "web");
-const OG_URL = "https://innsegall.com/og/innsegall-card.png?v=20261008c";
-const CSS_VER = 23;
+const OG_URL = "https://innsegall.com/og/innsegall-card.png?v=20261008d";
+const CSS_VER = 24;
 
 /** Homepage link-preview copy (Facebook · X · iMessage). */
 const HOME_SOCIAL = {

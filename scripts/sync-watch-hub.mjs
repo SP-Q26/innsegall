@@ -130,7 +130,7 @@ function renderFieldGlassBody() {
       <p class="legal-nav"><a href="/blog">← Field Report</a> · <a href="/watch">Macintosh watch</a> · <a href="${desk.prev_href}">${desk.prev_label}</a></p>
       <p class="section-label">Field Glass · update</p>
       <h1>Field Glass update · ${displayDate}</h1>
-      <p class="blog-rune-divider" aria-hidden="true">ᚠ · ᚢ · ᚦ</p>
+      <p class="blog-rune-divider" aria-hidden="true"></p>
       <p class="legal-meta">${displayDate} · ~${latest.read_minutes} min read</p>
 
       <p>${desk.intro_html}</p>

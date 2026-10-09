@@ -7,7 +7,7 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const blogDir = join(dirname(fileURLToPath(import.meta.url)), "..", "web", "blog");
-const RUNE = '<p class="blog-rune-divider" aria-hidden="true">ᚠ · ᚢ · ᚦ</p>';
+const RUNE = '<p class="blog-rune-divider" aria-hidden="true"></p>';
 let changed = 0;
 
 function polishBlogHtml(html, name) {

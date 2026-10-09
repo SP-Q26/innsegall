@@ -176,7 +176,7 @@ export function issueSpotlightBodyHtml(stats, meta) {
 
   return `
       <h1>${escapeHtml(meta.title)}</h1>
-      <p class="blog-rune-divider" aria-hidden="true">ᚠ · ᚢ · ᚦ</p>
+      <p class="blog-rune-divider" aria-hidden="true"></p>
       <p class="legal-meta"><strong>Innsegall</strong> · Issue spotlight · ${stats.last_day} · ${total} anonymized signal${total === 1 ? "" : "s"}</p>
       <blockquote style="border-left:3px solid var(--gold,#F4C95D);padding-left:1rem;margin:1.5rem 0;color:var(--mist,#a8d8ff);font-style:italic;">
         With Innsegall, no one is your enemy · you have no foe.<br>

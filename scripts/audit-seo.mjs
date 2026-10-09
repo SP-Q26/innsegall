@@ -8,7 +8,7 @@ import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const web = join(root, "web");
-const OG_URL = "https://innsegall.com/og/innsegall-card.png?v=20261008c";
+const OG_URL = "https://innsegall.com/og/innsegall-card.png?v=20261008d";
 const OG_PATH = join(web, "og/innsegall-card.png");
 let failed = 0;
 
@@ -76,7 +76,7 @@ for (const rel of keyPages) {
     check(`${rel} brand mark`, html.includes('class="brand-mark"'));
     check(`${rel} footer links`, html.includes('class="footer-links"'));
   }
-  check(`${rel} css v23`, html.includes("innsegall.css?v=23"));
+  check(`${rel} css v24`, html.includes("innsegall.css?v=24"));
 }
 
 function walkHtml(dir, base = "") {

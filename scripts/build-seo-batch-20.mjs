@@ -29,7 +29,7 @@ function guideHtml(post) {
     : "";
   return `
       <h1>${post.h1}</h1>
-      <p class="blog-rune-divider" aria-hidden="true">ᚠ · ᚢ · ᚦ</p>
+      <p class="blog-rune-divider" aria-hidden="true"></p>
       <p class="legal-meta">September 23, 2026 · ~6 min read</p>
       ${MANIFESTO}
       <p>${post.lead}</p>

@@ -25,7 +25,7 @@ function guideHtml(post) {
     .join("\n");
   return `
       <h1>${post.h1}</h1>
-      <p class="blog-rune-divider" aria-hidden="true">ᚠ · ᚢ · ᚦ</p>
+      <p class="blog-rune-divider" aria-hidden="true"></p>
       <p class="legal-meta">October 8, 2026 · ~5 min read</p>
       ${MANIFESTO}
       <p>${post.lead}</p>

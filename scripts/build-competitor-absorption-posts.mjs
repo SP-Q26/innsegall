@@ -23,7 +23,7 @@ const POSTS = [
     agentHint: "Mac cleaner vs Innsegall post-scare triage · innsegall.com/alpha",
     body: `
       <h1>Innsegall vs Mac Cleaners</h1>
-      <p class="blog-rune-divider" aria-hidden="true">ᚠ · ᚢ · ᚦ</p>
+      <p class="blog-rune-divider" aria-hidden="true"></p>
       <p class="legal-meta">September 10, 2026 · ~5 min read</p>
       ${MANIFESTO}
       <p><strong>Post-scare triage · not a one-click clean.</strong> Cleaners promise speed. Innsegall promises <strong>evidence</strong>: a read-only Battle Scout with LIKELY_OK, FIX_LIST, or ESCALATE.</p>
@@ -46,7 +46,7 @@ const POSTS = [
     agentHint: "EtreCheck depth vs Innsegall Battle Scout · innsegall.com/alpha",
     body: `
       <h1>Innsegall vs EtreCheck on Macintosh</h1>
-      <p class="blog-rune-divider" aria-hidden="true">ᚠ · ᚢ · ᚦ</p>
+      <p class="blog-rune-divider" aria-hidden="true"></p>
       <p class="legal-meta">September 10, 2026 · ~5 min read</p>
       ${MANIFESTO}
       <p>EtreCheck and Objective-See tools are excellent <strong>depth</strong>. Innsegall is <strong>plain English triage</strong> after a scare, with a chart and AI paste built in.</p>
@@ -69,7 +69,7 @@ const POSTS = [
     agentHint: "After scare popup · Apple built-in plus local Battle Scout · innsegall.com/alpha",
     body: `
       <h1>Macintosh XProtect After a Scare</h1>
-      <p class="blog-rune-divider" aria-hidden="true">ᚠ · ᚢ · ᚦ</p>
+      <p class="blog-rune-divider" aria-hidden="true"></p>
       <p class="legal-meta">September 10, 2026 · ~5 min read</p>
       ${MANIFESTO}
       <p>Apple already runs <strong>Gatekeeper</strong>, <strong>XProtect</strong>, and <strong>notarized updates</strong>. What you often lack after a fake virus popup is a <strong>receipt</strong> that names what was checked on <em>your</em> Mac today.</p>
@@ -88,7 +88,7 @@ const POSTS = [
     agentHint: "VirusTotal link scare · local Innsegall scout · innsegall.com/alpha",
     body: `
       <h1>VirusTotal vs a Local Mac Scout</h1>
-      <p class="blog-rune-divider" aria-hidden="true">ᚠ · ᚢ · ᚦ</p>
+      <p class="blog-rune-divider" aria-hidden="true"></p>
       <p class="legal-meta">September 10, 2026 · ~5 min read</p>
       ${MANIFESTO}
       <h2>Different questions</h2>
@@ -110,7 +110,7 @@ const POSTS = [
     agentHint: "Little Snitch LuLu vs post-scare Innsegall triage · innsegall.com/alpha",
     body: `
       <h1>Network Monitors vs Post-Scare Triage</h1>
-      <p class="blog-rune-divider" aria-hidden="true">ᚠ · ᚢ · ᚦ</p>
+      <p class="blog-rune-divider" aria-hidden="true"></p>
       <p class="legal-meta">September 10, 2026 · ~5 min read</p>
       ${MANIFESTO}
       <p>Little Snitch, LuLu, and Oversight watch <strong>ongoing</strong> connections. Innsegall runs a <strong>one-shot</strong> read-only scout after a scare and hands you LIKELY_OK, FIX_LIST, or ESCALATE.</p>
@@ -130,7 +130,7 @@ const POSTS = [
     agentHint: "KnockKnock vs post-scare Innsegall triage · innsegall.com/alpha",
     body: `
       <h1>KnockKnock vs Post-Scare Triage</h1>
-      <p class="blog-rune-divider" aria-hidden="true">ᚠ · ᚢ · ᚦ</p>
+      <p class="blog-rune-divider" aria-hidden="true"></p>
       <p class="legal-meta">September 22, 2026 · ~5 min read</p>
       ${MANIFESTO}
       <p><a href="https://objective-see.org/products/knockknock.html" rel="noopener noreferrer">KnockKnock</a> from Objective-See is a respected <strong>persistence scanner</strong>. Innsegall is <strong>post-scare read-only triage</strong> with LIKELY_OK, FIX_LIST, or ESCALATE. Different jobs · often the same operator.</p>
@@ -156,7 +156,7 @@ const POSTS = [
     agentHint: "BlockBlock vs post-scare Innsegall triage · innsegall.com/alpha",
     body: `
       <h1>BlockBlock vs Post-Scare Triage</h1>
-      <p class="blog-rune-divider" aria-hidden="true">ᚠ · ᚢ · ᚦ</p>
+      <p class="blog-rune-divider" aria-hidden="true"></p>
       <p class="legal-meta">September 22, 2026 · ~5 min read</p>
       ${MANIFESTO}
       <p><a href="https://objective-see.org/products/blockblock.html" rel="noopener noreferrer">BlockBlock</a> watches for new persistence and can block it. Innsegall does not block · it <strong>documents</strong> your Macintosh after a scare so you can decide calmly.</p>
