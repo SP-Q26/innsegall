@@ -3,7 +3,7 @@
 import { PRICING } from "../src/constants.mjs";
 
 const OG_URL = "https://innsegall.com/og/innsegall-card.png";
-const CSS_VER = 23;
+const CSS_VER = 25;
 
 /**
  * @param {{
@@ -129,20 +129,34 @@ export function renderBlogPostHtml(opts) {
       <p class="section-lead">After a scare, most people want a plain answer, not another subscription pitch. <strong>Innsegall runs a read-only check</strong> on your Mac and gives you a shareable receipt · <a href="/alpha">Send the scout</a> · <a href="/boat">Is Innsegall for you?</a> · <a href="/companion">iPhone/iPad inbox</a> · <a href="/clan">Clan for families</a>.</p>
     </section>
     <footer class="site-footer">
-      <p>© 2026 Innsegall · Isles of the Norse · Know you're okay.</p>
-      <p class="footer-note">Field Report · anonymized scout digests · <strong>Voyage</strong> tracker on the 1st &amp; 15th.</p>
-      <nav class="footer-links" aria-label="Footer">
-        <a href="/guide">Guide</a>
-        <a href="/map">Map</a>
-        <a href="/boat">The boat</a>
-        <a href="/clan">Join the clan</a>
-        <a href="/warriors">War-band of scribes</a>
-        <a href="/alpha">Field manual</a>
-        <a href="/blog">Field Report</a>
-        <a href="/tos">Terms</a>
-        <a href="/privacy">Privacy</a>
-        <a href="mailto:hello@innsegall.com">hello@innsegall.com</a>
-      </nav>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-wordmark">Innsegall</p>
+          <p class="footer-tagline">Know you&apos;re okay · Macintosh triage</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+          <a class="nav-link nav-link--footer" href="/guide">Guide</a>
+          <a class="nav-link nav-link--footer" href="/map">Map</a>
+          <a class="nav-link nav-link--footer" href="/boat">Lane</a>
+          <a class="nav-link nav-link--footer" href="/clan">Clan</a>
+          <a class="nav-link nav-link--footer" href="/warriors">Warriors</a>
+          <a class="nav-link nav-link--footer" href="/alpha">Manual</a>
+          <a class="nav-link nav-link--footer" href="/blog">Report</a>
+          <a class="nav-link nav-link--footer" href="/tos">Terms</a>
+          <a class="nav-link nav-link--footer" href="/privacy">Privacy</a>
+          <a class="nav-link nav-link--footer" href="mailto:hello@innsegall.com">hello@</a>
+        </nav>
+      </div>
+      <p class="footer-note">Field Report · anonymized scout digests · <strong>Voyage</strong> on the 1st &amp; 15th.</p>
+      <div class="footer-colophon">
+        <p class="footer-colophon-line">
+          <span>&copy; 2026 The Isles Collective</span>
+          <span class="footer-colophon-sep" aria-hidden="true"></span>
+          <span>All rights reserved</span>
+          <span class="footer-colophon-sep" aria-hidden="true"></span>
+          <span>Web by <span class="footer-credit">AJ Nichols</span></span>
+        </p>
+      </div>
     </footer>
   </div>
   <script src="/innsegall-nav.js?v=${CSS_VER}" defer></script>

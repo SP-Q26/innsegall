@@ -9,7 +9,7 @@ import { fileURLToPath } from "node:url";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const web = join(root, "web");
 const OG_URL = "https://innsegall.com/og/innsegall-card.png?v=20261008d";
-const CSS_VER = 24;
+const CSS_VER = 25;
 
 /** Homepage link-preview copy (Facebook · X · iMessage). */
 const HOME_SOCIAL = {
@@ -69,27 +69,41 @@ const FAVICON_BLOCK = `  <link rel="icon" href="/favicon.svg" type="image/svg+xm
   <link rel="manifest" href="/site.webmanifest">`;
 
 const CANONICAL_FOOTER = `    <footer class="site-footer">
-      <p>© 2026 Innsegall · Know you're okay.</p>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <p class="footer-wordmark">Innsegall</p>
+          <p class="footer-tagline">Know you&apos;re okay · Macintosh triage</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+          <a class="nav-link nav-link--footer" href="/guide">Guide</a>
+          <a class="nav-link nav-link--footer" href="/watch">Watch</a>
+          <a class="nav-link nav-link--footer" href="/companion">Companion</a>
+          <a class="nav-link nav-link--footer" href="/supplies">Supplies</a>
+          <a class="nav-link nav-link--footer" href="/ios">iOS</a>
+          <a class="nav-link nav-link--footer" href="/tablet">Tablet</a>
+          <a class="nav-link nav-link--footer" href="/map">Map</a>
+          <a class="nav-link nav-link--footer" href="/boat">Lane</a>
+          <a class="nav-link nav-link--footer" href="/clan">Clan</a>
+          <a class="nav-link nav-link--footer" href="/warriors">Warriors</a>
+          <a class="nav-link nav-link--footer" href="/alpha">Manual</a>
+          <a class="nav-link nav-link--footer" href="/blog">Report</a>
+          <a class="nav-link nav-link--footer" href="/stability">Stability</a>
+          <a class="nav-link nav-link--footer" href="https://github.com/SP-Q26/innsegall" rel="noopener noreferrer">Engine</a>
+          <a class="nav-link nav-link--footer" href="/tos">Terms</a>
+          <a class="nav-link nav-link--footer" href="/privacy">Privacy</a>
+          <a class="nav-link nav-link--footer" href="mailto:hello@innsegall.com">hello@</a>
+        </nav>
+      </div>
       <p class="footer-note">Field Report · category counts only · Voyage on the 1st &amp; 15th.</p>
-      <nav class="footer-links" aria-label="Footer">
-        <a class="nav-link nav-link--footer" href="/guide">Guide</a>
-        <a class="nav-link nav-link--footer" href="/watch">Watch</a>
-        <a class="nav-link nav-link--footer" href="/companion">Companion</a>
-        <a class="nav-link nav-link--footer" href="/supplies">Supplies</a>
-        <a class="nav-link nav-link--footer" href="/ios">iOS</a>
-        <a class="nav-link nav-link--footer" href="/tablet">Tablet</a>
-        <a class="nav-link nav-link--footer" href="/map">Map</a>
-        <a class="nav-link nav-link--footer" href="/boat">Lane</a>
-        <a class="nav-link nav-link--footer" href="/clan">Clan</a>
-        <a class="nav-link nav-link--footer" href="/warriors">Warriors</a>
-        <a class="nav-link nav-link--footer" href="/alpha">Manual</a>
-        <a class="nav-link nav-link--footer" href="/blog">Report</a>
-        <a class="nav-link nav-link--footer" href="/stability">Stability</a>
-        <a class="nav-link nav-link--footer" href="https://github.com/SP-Q26/innsegall" rel="noopener noreferrer">Engine</a>
-        <a class="nav-link nav-link--footer" href="/tos">Terms</a>
-        <a class="nav-link nav-link--footer" href="/privacy">Privacy</a>
-        <a class="nav-link nav-link--footer" href="mailto:hello@innsegall.com">hello@</a>
-      </nav>
+      <div class="footer-colophon">
+        <p class="footer-colophon-line">
+          <span>&copy; 2026 The Isles Collective</span>
+          <span class="footer-colophon-sep" aria-hidden="true"></span>
+          <span>All rights reserved</span>
+          <span class="footer-colophon-sep" aria-hidden="true"></span>
+          <span>Web by <span class="footer-credit">AJ Nichols</span></span>
+        </p>
+      </div>
     </footer>`;
 
 const SITE = "https://innsegall.com";
@@ -294,7 +308,7 @@ function fixOg(html) {
 
 function replaceFooter(html) {
   if (!html.includes('class="site-footer"')) return html;
-  if (html.includes('nav-link--footer') && html.includes('href="/boat">Lane</a>')) {
+  if (html.includes('class="footer-colophon"') && html.includes("The Isles Collective")) {
     return html;
   }
   return html.replace(/<footer class="site-footer">[\s\S]*?<\/footer>/, CANONICAL_FOOTER);
