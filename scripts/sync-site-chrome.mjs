@@ -8,7 +8,7 @@ import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const web = join(root, "web");
-const OG_URL = "https://innsegall.com/og/innsegall-card.png?v=20261008";
+const OG_URL = "https://innsegall.com/og/innsegall-card.png?v=20261008c";
 const CSS_VER = 23;
 
 /** Homepage link-preview copy (Facebook · X · iMessage). */
@@ -29,8 +29,11 @@ const CANONICAL_HEADER = `<header class="site-header">
           </defs>
           <rect width="40" height="40" rx="8" fill="#122A42"/>
           <rect x="1.5" y="1.5" width="37" height="37" rx="7" fill="none" stroke="#F4C95D" stroke-opacity="0.35" stroke-width="1"/>
-          <text x="6" y="11" fill="#F4C95D" font-size="5" font-family="Georgia, serif" opacity="0.55">ᚠ</text>
-          <text x="30" y="11" fill="#A8D8FF" font-size="5" font-family="Georgia, serif" opacity="0.45">ᚦ</text>
+          <g fill="none" stroke-linecap="round" stroke-width="1.2">
+            <path d="M6 10 L9 6 L12 10" stroke="#F4C95D" opacity="0.55"/>
+            <path d="M20 10 L23 6 L26 10" stroke="#3DAA8C" opacity="0.4"/>
+            <path d="M28 10 L31 6 L34 10" stroke="#A8D8FF" opacity="0.45"/>
+          </g>
           <path d="M20 6v28" stroke="url(#brand-beam)" stroke-width="2" stroke-linecap="round"/>
           <ellipse cx="20" cy="30" rx="8" ry="3" fill="#E8A87C" opacity="0.85"/>
           <path d="M14 22c2-4 10-4 12 0" stroke="#A8D8FF" stroke-width="1.5" fill="none" opacity="0.7"/>

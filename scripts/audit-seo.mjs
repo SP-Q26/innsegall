@@ -8,7 +8,7 @@ import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const web = join(root, "web");
-const OG_URL = "https://innsegall.com/og/innsegall-card.png?v=20261008";
+const OG_URL = "https://innsegall.com/og/innsegall-card.png?v=20261008c";
 const OG_PATH = join(web, "og/innsegall-card.png");
 let failed = 0;
 

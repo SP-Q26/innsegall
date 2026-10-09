@@ -21,6 +21,10 @@ try {
 const svg = readFileSync(svgPath, "utf8");
 const renderer = new resvg.Resvg(svg, {
   fitTo: { mode: "width", value: 1200 },
+  font: {
+    loadSystemFonts: true,
+    defaultFontFamily: "Arial",
+  },
 });
 const pngData = renderer.render();
 const pngBuffer = pngData.asPng();
