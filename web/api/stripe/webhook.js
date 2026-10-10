@@ -81,6 +81,7 @@ export default async function handler(req, res) {
       console.log("innsegall checkout completed", session.id, session.metadata?.innsegall_sku);
       xano = await recordXano("checkout_complete", checkoutPayload(session));
     } else if (
+      event.type === "customer.subscription.created" ||
       event.type === "customer.subscription.updated" ||
       event.type === "customer.subscription.deleted"
     ) {
@@ -102,6 +103,24 @@ export default async function handler(req, res) {
           invoice_id: inv.id,
         });
       }
+    } else if (event.type === "invoice.payment_failed") {
+      const inv = event.data.object;
+      xano = await recordXano("payment_failed", {
+        day: new Date().toISOString().slice(0, 10),
+        amount_cents: inv.amount_due ?? inv.amount_remaining ?? null,
+        currency: inv.currency ?? "usd",
+        invoice_id: inv.id,
+        billing_reason: inv.billing_reason ?? null,
+        subscription_id: inv.subscription ?? null,
+      });
+    } else if (event.type === "checkout.session.expired") {
+      const session = event.data.object;
+      xano = await recordXano("checkout_abandoned", {
+        day: new Date().toISOString().slice(0, 10),
+        sku: session.metadata?.innsegall_sku || "unknown",
+        stripe_session_id: session.id,
+        mode: session.mode ?? null,
+      });
     }
   } catch (e) {
     console.error("webhook xano", e.message);

@@ -11,6 +11,8 @@ const ALLOWED_EVENTS = new Set([
   "scout_aggregate",
   "marketing_ping",
   "issue_spotlight",
+  "checkout_intent",
+  "install_intent",
   "checkout_complete",
 ]);
 const CLIENT_EVENTS = new Set([
@@ -18,7 +20,12 @@ const CLIENT_EVENTS = new Set([
   "scout_aggregate",
   "marketing_ping",
   "issue_spotlight",
+  "checkout_intent",
+  "install_intent",
 ]);
+
+const CHECKOUT_SKUS = new Set(["extra", "clan", "msp"]);
+const INSTALL_ASSETS = new Set(["command", "oneliner", "github"]);
 
 const ISSUE_EVENT_TYPES = new Set(["identified", "resolved"]);
 
@@ -35,6 +42,14 @@ const MARKETING_PAGES = new Set([
   "privacy",
   "tos",
   "success",
+  "install",
+  "ios",
+  "tablet",
+  "watch",
+  "companion",
+  "supplies",
+  "msp",
+  "stability",
   "sample",
   "other",
 ]);
@@ -206,6 +221,62 @@ function validateIssueSpotlight(payload) {
   return null;
 }
 
+function validateCheckoutIntent(payload) {
+  if (!isPlainObject(payload)) return "payload must be an object";
+  if (typeof payload.day !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(payload.day)) {
+    return "day required (YYYY-MM-DD)";
+  }
+  if (typeof payload.page !== "string" || !MARKETING_PAGES.has(payload.page)) {
+    return "page required (known category enum)";
+  }
+  if (typeof payload.ref_channel !== "string" || !REF_CHANNELS.has(payload.ref_channel)) {
+    return "ref_channel required (known enum)";
+  }
+  if (typeof payload.session_id !== "string" || payload.session_id.length > 64) {
+    return "session_id required (max 64 chars)";
+  }
+  if (typeof payload.sku !== "string" || !CHECKOUT_SKUS.has(payload.sku)) {
+    return "sku required (extra|clan|msp)";
+  }
+  if (payload.quantity != null) {
+    const q = payload.quantity;
+    if (typeof q !== "number" || !Number.isInteger(q) || q < 1 || q > 500) {
+      return "quantity optional (integer 1-500)";
+    }
+  }
+  if (payload.warrior_ref != null) {
+    if (typeof payload.warrior_ref !== "string" || payload.warrior_ref.length > 64) {
+      return "warrior_ref max 64 chars";
+    }
+  }
+  return null;
+}
+
+function validateInstallIntent(payload) {
+  if (!isPlainObject(payload)) return "payload must be an object";
+  if (typeof payload.day !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(payload.day)) {
+    return "day required (YYYY-MM-DD)";
+  }
+  if (typeof payload.page !== "string" || !MARKETING_PAGES.has(payload.page)) {
+    return "page required (known category enum)";
+  }
+  if (typeof payload.ref_channel !== "string" || !REF_CHANNELS.has(payload.ref_channel)) {
+    return "ref_channel required (known enum)";
+  }
+  if (typeof payload.session_id !== "string" || payload.session_id.length > 64) {
+    return "session_id required (max 64 chars)";
+  }
+  if (typeof payload.asset !== "string" || !INSTALL_ASSETS.has(payload.asset)) {
+    return "asset required (command|oneliner|github)";
+  }
+  if (payload.warrior_ref != null) {
+    if (typeof payload.warrior_ref !== "string" || payload.warrior_ref.length > 64) {
+      return "warrior_ref max 64 chars";
+    }
+  }
+  return null;
+}
+
 function validateScoutAggregate(payload) {
   if (!isPlainObject(payload)) return "payload must be an object";
   if (typeof payload.day !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(payload.day)) {
@@ -224,6 +295,8 @@ function validatePayload(event, payload) {
   if (event === "install_ping") return validateInstallPing(payload);
   if (event === "scout_aggregate") return validateScoutAggregate(payload);
   if (event === "marketing_ping") return validateMarketingPing(payload);
+  if (event === "checkout_intent") return validateCheckoutIntent(payload);
+  if (event === "install_intent") return validateInstallIntent(payload);
   if (event === "issue_spotlight") return validateIssueSpotlight(payload);
   if (event === "checkout_complete") return "checkout_complete is server-only";
   return "unknown event";

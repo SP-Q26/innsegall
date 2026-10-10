@@ -76,7 +76,7 @@ for (const rel of keyPages) {
     check(`${rel} brand mark`, html.includes('class="brand-mark"'));
     check(`${rel} footer links`, html.includes('class="footer-links"'));
   }
-  check(`${rel} css v25`, html.includes("innsegall.css?v=25"));
+  check(`${rel} css v26`, html.includes("innsegall.css?v=26"));
 }
 
 function walkHtml(dir, base = "") {

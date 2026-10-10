@@ -138,6 +138,32 @@ async function smokeProdTelemetry() {
         },
       },
     ],
+    [
+      "checkout_intent",
+      {
+        event: "checkout_intent",
+        payload: {
+          day,
+          page: "clan",
+          ref_channel: "direct",
+          session_id: "00000000-0000-4000-8000-smoke0005",
+          sku: "extra",
+        },
+      },
+    ],
+    [
+      "install_intent",
+      {
+        event: "install_intent",
+        payload: {
+          day,
+          page: "alpha",
+          ref_channel: "search",
+          session_id: "00000000-0000-4000-8000-smoke0006",
+          asset: "command",
+        },
+      },
+    ],
   ]) {
     const res = await fetch(`${base}/api/telemetry`, {
       method: "POST",

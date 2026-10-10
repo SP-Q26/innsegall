@@ -1,8 +1,9 @@
 # Innsegall.com · full site audit
 
-**Generated:** 2026-10-08 · `node scripts/audit-site-inventory.mjs`  
+**Generated:** 2026-10-09 · `node scripts/audit-site-inventory.mjs`  
+**Swarm gate:** 2026-10-09 · `node scripts/audit-swarm.mjs` · **PASS** (all lanes + smoke + self-test)  
 **Project:** Vercel `innsegall_fe` · root `web/`  
-**Commands:** `npm run audit:site` · `npm run gate:launch` · `npm run smoke:live`
+**Commands:** `npm run audit:site` · `npm run audit:swarm` · `npm run gate:launch` · `npm run smoke:live`
 
 ---
 
@@ -10,13 +11,22 @@
 
 | Metric | Count |
 |--------|------:|
-| HTML surfaces | 73 |
-| Indexable marketing + blog | 71 |
-| Blog posts | 53 |
+| HTML surfaces | 75 |
+| Indexable marketing + blog | 73 |
+| Blog posts | 55 |
 | P0 inventory issues | 0 |
-| Sitemap URLs | 80 |
+| Sitemap URLs | 82 |
 
-**Operator:** Stripe LIVE flip in progress · push `main` after `npm run predeploy` · blog is primary float-mode SEO lever.
+| Swarm lane (target) | Status |
+|---------------------|--------|
+| Launch / automation (9.5) | pass |
+| SEO · social · AI-bus · brand stack (9.0–10) | pass |
+| Events / telemetry (9.5) | pass · 11 event types |
+| Companion + brand mobile (9.0) | pass · `/companion.webmanifest` |
+| Responsive spacing (9.5) | pass · CSS tracks `sync-site-chrome` via `site-css-ver.mjs` |
+| Battle Scout smoke + CLI self-test | pass |
+
+**Operator:** Deploy `main` after `npm run predeploy` · repaste Xano events whitelist if not done · Stripe webhook types for `checkout_abandoned` / `payment_failed` · then `npm run smoke:live`.
 
 ---
 
@@ -26,7 +36,7 @@
 |-------|:-----:|:-------:|:--------:|:-------:|-----:|--------|
 | `/` | ✓ | ✓ | · | · | 165 | ok |
 | `/alpha` | ✓ | ✓ | · | · | 146 | ok |
-| `/blog` | ✓ | ✓ | · | · | 145 | ok |
+| `/blog` | ✓ | ✓ | · | · | 155 | ok |
 | `/blog/after-suspicious-link-macintosh` | ✓ | ✓ | ✓ | ✓ | 153 | ok |
 | `/blog/apple-support-call-popup-scam-mac` | ✓ | ✓ | ✓ | ✓ | 128 | ok |
 | `/blog/auto-voyage-first-sail` | ✓ | ✓ | ✓ | ✓ | 140 | ok |
@@ -71,7 +81,9 @@
 | `/blog/paste-battle-scout-for-ai-assistant` | ✓ | ✓ | ✓ | ✓ | 136 | ok |
 | `/blog/pasted-terminal-command-mac-scare` | ✓ | ✓ | ✓ | ✓ | 130 | ok |
 | `/blog/safari-allowed-notifications-by-mistake-mac` | ✓ | ✓ | ✓ | ✓ | 130 | ok |
+| `/blog/safari-clear-website-data-iphone-ipad` | ✓ | ✓ | ✓ | ✓ | 159 | ok |
 | `/blog/safari-fake-virus-notifications-mac` | ✓ | ✓ | ✓ | ✓ | 143 | ok |
+| `/blog/safari-notifications-scam-iphone-ipad` | ✓ | ✓ | ✓ | ✓ | 153 | ok |
 | `/blog/safari-search-engine-hijacked-mac` | ✓ | ✓ | ✓ | ✓ | 126 | ok |
 | `/blog/safari-shift-key-scam-popup-mac` | ✓ | ✓ | ✓ | ✓ | 142 | ok |
 | `/blog/someone-remoted-into-my-mac` | ✓ | ✓ | ✓ | ✓ | 131 | ok |
@@ -85,14 +97,14 @@
 | `/companion` | ✓ | ✓ | · | · | 152 | ok |
 | `/guide` | ✓ | ✓ | · | · | 124 | ok |
 | `/install` | ✓ | ✓ | · | · | 139 | ok |
-| `/ios` | ✓ | ✓ | · | · | 151 | ok |
+| `/ios` | ✓ | ✓ | · | · | 159 | ok |
 | `/map` | ✓ | ✓ | · | · | 144 | ok |
 | `/msp` | ✓ | ✓ | · | · | 139 | ok |
 | `/privacy` | ✓ | ✓ | · | · | 153 | ok |
 | `/stability` | ✓ | ✓ | · | · | 125 | ok |
 | `/success` | no | ✗ | · | · | 101 | ok |
 | `/supplies` | ✓ | ✓ | · | · | 127 | ok |
-| `/tablet` | ✓ | ✓ | · | · | 138 | ok |
+| `/tablet` | ✓ | ✓ | · | · | 161 | ok |
 | `/tos` | ✓ | ✓ | · | · | 150 | ok |
 | `/warriors` | ✓ | ✓ | · | · | 146 | ok |
 | `/watch` | ✓ | ✓ | · | · | 142 | ok |

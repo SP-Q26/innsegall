@@ -30,6 +30,15 @@ if (existsSync(xanoDoc)) {
   FROM innsegall_events
   WHERE event = 'checkout_complete' AND day >= CURRENT_DATE - 7
   GROUP BY 1;\n`);
+  console.log(`  SELECT payload->>'sku' AS sku, COUNT(*) AS intents
+  FROM innsegall_events
+  WHERE event = 'checkout_intent' AND day >= CURRENT_DATE - 7
+  GROUP BY 1;\n`);
+  console.log(`  SELECT payload->>'asset' AS asset, COUNT(*) AS clicks
+  FROM innsegall_events
+  WHERE event = 'install_intent' AND day >= CURRENT_DATE - 7
+  GROUP BY 1;\n`);
+  console.log("Full catalog: docs/EVENTS_TRACKING.md\n");
 } else {
   console.log("(PLATFORM_TRACKING.md missing)\n");
 }

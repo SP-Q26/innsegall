@@ -6,6 +6,7 @@ import { execSync } from "node:child_process";
 import { readFileSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { CSS_HREF } from "./site-css-ver.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const web = join(root, "web");
@@ -25,6 +26,7 @@ const lanes = [
   { name: "Internal links", script: "audit-links.mjs", score: "9.5" },
   { name: "Issue spotlight loop", script: "audit-issue-spotlight.mjs", score: "9.0" },
   { name: "Discovery / trust", script: "audit-discovery.mjs", score: "9.0" },
+  { name: "Events / telemetry", script: "audit-events.mjs", score: "9.5" },
   { name: "Isles portfolio + ethics canon", script: "audit-isles-ethics.mjs", score: "9.5" },
   { name: "Isles launchpad + registry", script: "audit-isles-launchpad.mjs", score: "9.5" },
   { name: "Install / bootstrap flow", script: "audit-install-flow.mjs", score: "9.5" },
@@ -90,7 +92,7 @@ try {
 
 const index = readFileSync(join(web, "index.html"), "utf8");
 const visualChecks = [
-  ["CSS v23 sitewide", index.includes("innsegall.css?v=23")],
+  [`CSS ${CSS_HREF} sitewide`, index.includes(CSS_HREF)],
   ["Web companion page", existsSync(join(web, "companion.html"))],
   ["Companion PWA manifest", existsSync(join(web, "companion.webmanifest"))],
   ["Index Battle Scout preview", index.includes("battle-scout-sample")],

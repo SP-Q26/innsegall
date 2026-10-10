@@ -10,4 +10,4 @@ Operator-only · paste into Xano editor · not executed by CI.
 
 **Auth:** `X-API-Key` header must match Xano env `sk_live_innsegall_ops_` (and optionally `sk_test_innsegall_ops_`). Vercel `XANO_API_KEY` sends the same secret value.
 
-**Allowed events (seven):** `install_ping` · `scout_aggregate` · `marketing_ping` · `issue_spotlight` · `checkout_complete` · `clan_subscription` · `clan_renewal`
+**Allowed events (eleven):** `install_ping` · `scout_aggregate` · `marketing_ping` · `issue_spotlight` · `checkout_intent` · `install_intent` · `checkout_complete` · `checkout_abandoned` · `clan_subscription` · `clan_renewal` · `payment_failed`

@@ -43,9 +43,13 @@ query "innsegall/events" verb=POST {
         "scout_aggregate"
         "marketing_ping"
         "issue_spotlight"
+        "checkout_intent"
+        "install_intent"
         "checkout_complete"
+        "checkout_abandoned"
         "clan_subscription"
         "clan_renewal"
+        "payment_failed"
       ]
     }
 

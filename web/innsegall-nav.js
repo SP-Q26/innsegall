@@ -106,10 +106,13 @@
     "/privacy": "privacy",
     "/tos": "tos",
     "/success": "success",
-    "/stability": "other",
-    "/install": "other",
-    "/ios": "other",
-    "/tablet": "other",
+    "/stability": "stability",
+    "/install": "install",
+    "/ios": "ios",
+    "/tablet": "tablet",
+    "/watch": "watch",
+    "/companion": "companion",
+    "/supplies": "supplies",
   };
 
   function pageCategory() {
@@ -151,6 +154,15 @@
     return new Date().toISOString().slice(0, 10);
   }
 
+  function postTelemetry(event, payload) {
+    fetch("/api/telemetry", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ event: event, payload: payload }),
+      keepalive: true,
+    }).catch(function () {});
+  }
+
   function sendMarketingPing() {
     var page = pageCategory();
     var storageKey = "innsegall_mp_" + page + "_" + utcDay();
@@ -173,12 +185,50 @@
       payload.warrior_ref = String(warriorRef);
     }
 
-    fetch("/api/telemetry", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ event: "marketing_ping", payload: payload }),
-      keepalive: true,
-    }).catch(function () {});
+    postTelemetry("marketing_ping", payload);
+  }
+
+  function sendInstallIntent(asset) {
+    var page = pageCategory();
+    var storageKey = "innsegall_ii_" + asset + "_" + page + "_" + utcDay();
+    try {
+      if (sessionStorage.getItem(storageKey)) return;
+      sessionStorage.setItem(storageKey, "1");
+    } catch (e) {
+      /* continue */
+    }
+
+    var params = new URLSearchParams(location.search);
+    var warriorRef = params.get("ref");
+    var payload = {
+      day: utcDay(),
+      page: page,
+      ref_channel: refChannel(),
+      session_id: sessionId(),
+      asset: asset,
+    };
+    if (warriorRef && String(warriorRef).length <= 64) {
+      payload.warrior_ref = String(warriorRef);
+    }
+    postTelemetry("install_intent", payload);
+  }
+
+  function wireInstallIntentLinks() {
+    document.querySelectorAll('a[href*="Innsegall-Install.command"]').forEach(function (a) {
+      a.addEventListener("click", function () {
+        sendInstallIntent("command");
+      });
+    });
+    document.querySelectorAll('a[href*="innsegall-alpha-install.sh"]').forEach(function (a) {
+      a.addEventListener("click", function () {
+        sendInstallIntent("oneliner");
+      });
+    });
+    document.querySelectorAll('a[href*="github.com/SP-Q26/innsegall"]').forEach(function (a) {
+      a.addEventListener("click", function () {
+        sendInstallIntent("github");
+      });
+    });
   }
 
   if (document.prerendering) {
@@ -187,5 +237,11 @@
     sendMarketingPing();
   } else {
     window.addEventListener("load", sendMarketingPing, { once: true });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", wireInstallIntentLinks, { once: true });
+  } else {
+    wireInstallIntentLinks();
   }
 })();

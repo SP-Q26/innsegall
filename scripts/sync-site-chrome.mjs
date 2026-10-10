@@ -9,7 +9,7 @@ import { fileURLToPath } from "node:url";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const web = join(root, "web");
 const OG_URL = "https://innsegall.com/og/innsegall-card.png?v=20261008d";
-const CSS_VER = 25;
+const CSS_VER = 26;
 
 /** Homepage link-preview copy (Facebook · X · iMessage). */
 const HOME_SOCIAL = {
@@ -64,9 +64,11 @@ const NAV_SCRIPT = `  <script src="/innsegall-nav.js?v=${CSS_VER}" defer></scrip
 /** Vercel Web Analytics · enable in project dashboard · not @vercel/analytics (static site, not Next). */
 const VERCEL_ANALYTICS = `  <script defer src="/_vercel/insights/script.js"></script>`;
 
-const FAVICON_BLOCK = `  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+function faviconBlock(manifestHref = "/site.webmanifest") {
+  return `  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/favicon.svg">
-  <link rel="manifest" href="/site.webmanifest">`;
+  <link rel="manifest" href="${manifestHref}">`;
+}
 
 const CANONICAL_FOOTER = `    <footer class="site-footer">
       <div class="footer-grid">
@@ -314,17 +316,20 @@ function replaceFooter(html) {
   return html.replace(/<footer class="site-footer">[\s\S]*?<\/footer>/, CANONICAL_FOOTER);
 }
 
-function fixFavicon(html) {
+function fixFavicon(html, manifestHref = "/site.webmanifest") {
+  const block = faviconBlock(manifestHref);
   let out = html;
   out = out.replace(/<link rel="icon"[^>]*>\s*/g, "");
   out = out.replace(/<link rel="apple-touch-icon"[^>]*>\s*/g, "");
   out = out.replace(/<link rel="manifest"[^>]*>\s*/g, "");
   if (!out.includes("/favicon.svg")) {
     if (out.includes('rel="stylesheet"')) {
-      out = out.replace(/(<link rel="stylesheet"[^>]*>)/, `${FAVICON_BLOCK}\n  $1`);
+      out = out.replace(/(<link rel="stylesheet"[^>]*>)/, `${block}\n  $1`);
     } else if (out.includes("</head>")) {
-      out = out.replace("</head>", `${FAVICON_BLOCK}\n</head>`);
+      out = out.replace("</head>", `${block}\n</head>`);
     }
+  } else if (!out.includes(manifestHref)) {
+    out = out.replace(/(<link rel="apple-touch-icon"[^>]*>)/, `$1\n  <link rel="manifest" href="${manifestHref}">`);
   }
   return out;
 }
@@ -381,7 +386,8 @@ for (const file of walkHtml(web)) {
   } else {
     html = replaceHeader(html);
     html = fixSocialPreview(html, file);
-    html = fixFavicon(html);
+    const manifestHref = file.endsWith(`${join("web", "companion.html")}`) ? "/companion.webmanifest" : "/site.webmanifest";
+    html = fixFavicon(html, manifestHref);
     html = fixChrome(html);
     html = replaceFooter(html);
   }

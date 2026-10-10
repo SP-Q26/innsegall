@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /** Minimal blog article HTML shell · sync-site-chrome fills header/footer on deploy. */
 import { PRICING } from "../src/constants.mjs";
+import { CSS_VER } from "./site-css-ver.mjs";
 
 const OG_URL = "https://innsegall.com/og/innsegall-card.png";
-const CSS_VER = 25;
 
 /**
  * @param {{

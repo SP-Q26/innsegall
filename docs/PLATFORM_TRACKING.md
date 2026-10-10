@@ -98,7 +98,13 @@ Join `marketing_ping` page=`alpha` with `install_ping` counts · not 1:1 (instal
 | `checkout_complete` | Stripe | Revenue |
 | `clan_subscription` | Stripe | MRR |
 | `marketing_ping` | Site nav | Top-of-funnel |
+| `install_intent` | Site nav (install link clicks) | Command / script / GitHub |
+| `checkout_intent` | `innsegall-checkout.js` | Toll-gate click · SKU |
+| `checkout_abandoned` | Stripe `checkout.session.expired` | Drop-off |
+| `payment_failed` | Stripe `invoice.payment_failed` | Failed renewal |
 | `issue_spotlight` | CLI after scout | Issue identify/resolve · blog flywheel (`ISSUE_SPOTLIGHT_LOOP.md`) |
+
+See **`docs/EVENTS_TRACKING.md`** for the full catalog and Stripe webhook list.
 
 ---
 
