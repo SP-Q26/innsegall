@@ -17,8 +17,13 @@ function check(name, ok) {
 }
 
 const src = readFileSync(join(root, "web", "api", "parley.js"), "utf8");
+const vercel = JSON.parse(readFileSync(join(root, "web", "vercel.json"), "utf8"));
 check("rate limit import path", src.includes('from "../lib/parley-rate-limit.mjs"'));
 check("forbidden ../../lib import", !src.includes("../../lib/parley-rate-limit"));
+check(
+  "vercel parley includeFiles src",
+  vercel.functions?.["api/parley.js"]?.includeFiles?.includes("../src/parley")
+);
 
 try {
   await import(join(root, "web", "api", "parley.js"));

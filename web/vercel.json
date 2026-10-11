@@ -2,6 +2,11 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
+  "functions": {
+    "api/parley.js": {
+      "includeFiles": "../src/parley/**,../src/gospel.mjs,../src/constants.mjs"
+    }
+  },
   "headers": [
     {
       "source": "/samples/(.*)",
