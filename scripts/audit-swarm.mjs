@@ -11,6 +11,12 @@ import { CSS_HREF } from "./site-css-ver.mjs";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const web = join(root, "web");
 
+try {
+  execSync("node scripts/audit-glass-arrival-lottie.mjs", { cwd: root, stdio: "inherit" });
+} catch {
+  process.exit(1);
+}
+
 const lanes = [
   { name: "Launch / automation", script: "audit-launch.mjs", score: "9.5" },
   { name: "SEO / discoverability", script: "audit-seo.mjs", score: "9.2" },

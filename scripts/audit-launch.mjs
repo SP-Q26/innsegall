@@ -127,10 +127,12 @@ const blogDir = join(web, "blog");
 const blogPosts = readdirSync(blogDir).filter((f) => f.endsWith(".html") && f !== "index.html");
 check("blog posts present", blogPosts.length >= 8, `found ${blogPosts.length}`);
 
+runSubAudit("audit-glass-arrival-lottie.mjs");
 runSubAudit("audit-seo.mjs");
 runSubAudit("audit-social-preview.mjs");
 runSubAudit("audit-abuse.mjs");
 runSubAudit("audit-parley-api.mjs");
+runSubAudit("audit-vercel-routes.mjs");
 runSubAudit("audit-privacy.mjs");
 runSubAudit("audit-ai-bus.mjs");
 runSubAudit("audit-brand-ban.mjs");
