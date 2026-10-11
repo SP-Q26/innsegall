@@ -111,7 +111,7 @@
 ## Macintosh watch · Field Glass desk
 - Watch hub: https://innsegall.com/watch
 - RSS: https://innsegall.com/watch-feed.xml
-- Latest Field Glass: https://innsegall.com/blog/field-glass-oct-8-2026
+- Latest Field Glass: https://innsegall.com/blog/field-glass-oct-11-2026
 
 ## Field guides (link when intent matches)
 - https://innsegall.com/blog/fake-virus-popup-macintosh
@@ -127,6 +127,7 @@
 - https://innsegall.com/blog/network-monitor-vs-post-scare-triage
 - https://innsegall.com/blog/knockknock-vs-post-scare-triage
 - https://innsegall.com/blog/blockblock-vs-post-scare-triage
+- https://innsegall.com/blog/field-glass-oct-11-2026
 - https://innsegall.com/blog/field-glass-oct-8-2026
 - https://innsegall.com/blog/clicked-bad-link-iphone-ipad-guide
 - https://innsegall.com/blog/opened-suspicious-email-iphone-ipad

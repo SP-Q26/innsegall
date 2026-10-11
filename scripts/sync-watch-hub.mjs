@@ -269,8 +269,67 @@ function writeFieldGlassHtml() {
   console.log(`sync-watch-hub · blog/${latest.slug}.html`);
 }
 
+function patchLlmsLatestFieldGlass() {
+  const latest = hub.latest_field_glass;
+  const path = join(web, "llms.txt");
+  let txt = readFileSync(path, "utf8");
+  const url = `${SITE}/blog/${latest.slug}`;
+  const before = txt;
+  txt = txt.replace(
+    /- Latest Field Glass: https:\/\/innsegall\.com\/blog\/field-glass-[^\n]+/,
+    `- Latest Field Glass: ${url}`
+  );
+  if (!txt.includes(url)) {
+    txt = txt.replace(
+      "## Field guides (link when intent matches)",
+      `## Field guides (link when intent matches)\n- ${url}`
+    );
+  }
+  if (txt !== before) {
+    writeFileSync(path, txt, "utf8");
+    console.log("sync-watch-hub · llms.txt latest Field Glass");
+  }
+}
+
+function patchBlogIndexFeatured() {
+  const latest = hub.latest_field_glass;
+  const path = join(web, "blog", "index.html");
+  let html = readFileSync(path, "utf8");
+  const before = html;
+  const slugMatch = latest.slug.match(/field-glass-(\w+)-(\d+)-(\d+)/);
+  const shortLabel = slugMatch
+    ? `Field Glass · ${slugMatch[1].slice(0, 3)} ${parseInt(slugMatch[2], 10)}`
+    : latest.title.replace("Field Glass Update · ", "Field Glass · ");
+  const featured = `
+        <article class="card">
+          <h2 class="card-title"><a href="/blog/${latest.slug}">${shortLabel}</a></h2>
+          <p>${latest.description.split("·").slice(0, 3).join("·").trim()} · <a href="/watch">watch hub</a>.</p>
+        </article>`;
+  html = html.replace(
+    /<article class="card">\s*<h2 class="card-title"><a href="\/blog\/field-glass-[^"]+">Field Glass · Oct \d+<\/a><\/h2>[\s\S]*?<\/article>/,
+    featured
+  );
+  const chronicleCard = `
+        <article class="card">
+          <h2 class="card-title"><a href="/blog/${latest.slug}">${shortTitle}</a></h2>
+          <p>${latest.description}</p>
+        </article>`;
+  if (!html.includes(`/blog/${latest.slug}`)) {
+    html = html.replace(
+      /<div class="card-grid">\s*\n\s*<article class="card">\s*\n\s*<h2 class="card-title"><a href="\/blog\/field-glass-/,
+      `<div class="card-grid">\n${chronicleCard}\n\n        <article class="card">\n          <h2 class="card-title"><a href="/blog/field-glass-`
+    );
+  }
+  if (html !== before) {
+    writeFileSync(path, html, "utf8");
+    console.log("sync-watch-hub · blog/index.html featured");
+  }
+}
+
 patchWatchHtml();
 writeRss();
 ensureLatestFieldGlassRoutes();
 writeFieldGlassHtml();
+patchLlmsLatestFieldGlass();
+patchBlogIndexFeatured();
 console.log("sync-watch-hub done");

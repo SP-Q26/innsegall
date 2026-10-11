@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-08-c",
+  "version": "2026-10-11",
   "defaultRelated": [
     { "href": "/alpha", "label": "Send the scout" },
     { "href": "/watch", "label": "Macintosh watch" },
@@ -34,16 +34,21 @@
     ],
     "fake-virus-popup-macintosh": [
       { "href": "/blog/clicked-suspicious-link-macintosh", "label": "Suspicious link flow" },
-      { "href": "/blog/field-glass-oct-7-2026", "label": "Field Glass · Oct 7" },
+      { "href": "/blog/field-glass-oct-11-2026", "label": "Field Glass · Oct 11" },
       { "href": "/watch", "label": "Macintosh watch" }
     ],
+    "field-glass-oct-11-2026": [
+      { "href": "/blog/voyage-health-tracker-1st-15th", "label": "Voyage tracker" },
+      { "href": "/blog/field-glass-oct-8-2026", "label": "Field Glass · Oct 8" },
+      { "href": "/watch", "label": "Watch hub" }
+    ],
     "field-glass-oct-8-2026": [
+      { "href": "/blog/field-glass-oct-11-2026", "label": "Field Glass · Oct 11" },
       { "href": "/ios", "label": "iPhone/iPad panic hub" },
-      { "href": "/blog/field-glass-oct-7-2026", "label": "Field Glass · Oct 7" },
       { "href": "/watch", "label": "Watch hub" }
     ],
     "field-glass-oct-7-2026": [
-      { "href": "/blog/field-glass-oct-8-2026", "label": "Field Glass · Oct 8" },
+      { "href": "/blog/field-glass-oct-11-2026", "label": "Field Glass · Oct 11" },
       { "href": "/watch", "label": "Watch hub" },
       { "href": "/alpha", "label": "Send the scout" }
     ],

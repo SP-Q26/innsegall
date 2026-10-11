@@ -1,9 +1,8 @@
 # Innsegall.com · full site audit
 
-**Generated:** 2026-10-09 · `node scripts/audit-site-inventory.mjs`  
-**Swarm gate:** 2026-10-09 · `node scripts/audit-swarm.mjs` · **PASS** (all lanes + smoke + self-test)  
+**Generated:** 2026-10-11 · `node scripts/audit-site-inventory.mjs`  
 **Project:** Vercel `innsegall_fe` · root `web/`  
-**Commands:** `npm run audit:site` · `npm run audit:swarm` · `npm run gate:launch` · `npm run smoke:live`
+**Commands:** `npm run audit:site` · `npm run gate:launch` · `npm run smoke:live`
 
 ---
 
@@ -11,22 +10,13 @@
 
 | Metric | Count |
 |--------|------:|
-| HTML surfaces | 75 |
-| Indexable marketing + blog | 73 |
-| Blog posts | 55 |
+| HTML surfaces | 76 |
+| Indexable marketing + blog | 74 |
+| Blog posts | 56 |
 | P0 inventory issues | 0 |
-| Sitemap URLs | 82 |
+| Sitemap URLs | 83 |
 
-| Swarm lane (target) | Status |
-|---------------------|--------|
-| Launch / automation (9.5) | pass |
-| SEO · social · AI-bus · brand stack (9.0–10) | pass |
-| Events / telemetry (9.5) | pass · 11 event types |
-| Companion + brand mobile (9.0) | pass · `/companion.webmanifest` |
-| Responsive spacing (9.5) | pass · CSS tracks `sync-site-chrome` via `site-css-ver.mjs` |
-| Battle Scout smoke + CLI self-test | pass |
-
-**Operator:** Deploy `main` after `npm run predeploy` · repaste Xano events whitelist if not done · Stripe webhook types for `checkout_abandoned` / `payment_failed` · then `npm run smoke:live`.
+**Operator:** Stripe LIVE flip in progress · push `main` after `npm run predeploy` · blog is primary float-mode SEO lever.
 
 ---
 
@@ -50,6 +40,7 @@
 | `/blog/fake-virus-popup-iphone-ipad` | ✓ | ✓ | ✓ | ✓ | 124 | ok |
 | `/blog/fake-virus-popup-macintosh` | ✓ | ✓ | ✓ | ✓ | 144 | ok |
 | `/blog/field-desk-stripe-live-sep-2026` | ✓ | ✓ | ✓ | ✓ | 143 | ok |
+| `/blog/field-glass-oct-11-2026` | ✓ | ✓ | ✓ | ✓ | 124 | ok |
 | `/blog/field-glass-oct-2-2026` | ✓ | ✓ | ✓ | ✓ | 120 | ok |
 | `/blog/field-glass-oct-7-2026` | ✓ | ✓ | ✓ | ✓ | 156 | ok |
 | `/blog/field-glass-oct-8-2026` | ✓ | ✓ | ✓ | ✓ | 150 | ok |

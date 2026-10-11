@@ -1,14 +1,19 @@
 {
-  "version": "2026-10-08",
+  "version": "2026-10-11",
   "max_field_glass_age_days": 14,
   "latest_field_glass": {
-    "slug": "field-glass-oct-8-2026",
-    "title": "Field Glass Update · October 8, 2026",
-    "description": "iPhone and iPad panic hub · bad link, email, download, fake popup guides · Mac scout honesty · Voyage Oct 15 · calm post-scare triage · not antivirus.",
-    "date": "2026-10-08",
+    "slug": "field-glass-oct-11-2026",
+    "title": "Field Glass Update · October 11, 2026",
+    "description": "Voyage week desk · Oct 15 sail · remote-access panic vs evidence · calendar spam invites · Mac scout rhythm · not antivirus.",
+    "date": "2026-10-11",
     "read_minutes": 6
   },
   "field_glass_archive": [
+    {
+      "slug": "field-glass-oct-11-2026",
+      "title": "October 11 · Voyage week desk",
+      "date": "2026-10-11"
+    },
     {
       "slug": "field-glass-oct-8-2026",
       "title": "October 8 · iPhone & iPad desk",
@@ -37,6 +42,14 @@
   ],
   "trending_guides": [
     {
+      "query": "Someone remoted into my Mac",
+      "href": "/blog/someone-remoted-into-my-mac"
+    },
+    {
+      "query": "Mac calendar spam invites scam",
+      "href": "/blog/mac-calendar-spam-invites-scam"
+    },
+    {
       "query": "Fake virus popup Mac",
       "href": "/blog/fake-virus-popup-macintosh"
     },
@@ -49,35 +62,23 @@
       "href": "/blog/mac-performance-panic-vs-security-panic"
     },
     {
-      "query": "Safari virus notification",
-      "href": "/blog/safari-fake-virus-notifications-mac"
-    },
-    {
-      "query": "Clicked bad link Mac",
-      "href": "/blog/clicked-suspicious-link-macintosh"
-    },
-    {
       "query": "Bad link on iPhone or iPad",
       "href": "/blog/clicked-bad-link-iphone-ipad-guide"
     },
     {
-      "query": "Suspicious email on iPhone",
-      "href": "/blog/opened-suspicious-email-iphone-ipad"
-    },
-    {
-      "query": "Downloaded file on iPhone",
-      "href": "/blog/downloaded-suspicious-file-iphone-ipad"
-    },
-    {
-      "query": "Fake virus popup iPhone Safari",
-      "href": "/blog/fake-virus-popup-iphone-ipad"
-    },
-    {
       "query": "Do I need antivirus Mac 2026",
       "href": "/blog/do-i-need-antivirus-mac-2026"
+    },
+    {
+      "query": "DNS changed after scare",
+      "href": "/blog/mac-dns-changed-after-scare"
     }
   ],
   "scout_trends": [
+    {
+      "label": "Remote access panic after scare popup",
+      "href": "/blog/someone-remoted-into-my-mac"
+    },
     {
       "label": "Stale launch items after scareware cleanup",
       "href": "/blog/stale-launch-items-macintosh"
@@ -87,12 +88,8 @@
       "href": "/blog/mac-dns-changed-after-scare"
     },
     {
-      "label": "Unexpected configuration profile",
-      "href": "/blog/mac-configuration-profile-scam"
-    },
-    {
-      "label": "Paste Battle Scout for your AI assistant",
-      "href": "/blog/paste-battle-scout-for-ai-assistant"
+      "label": "Voyage rhythm · 1st & 15th scouts",
+      "href": "/blog/voyage-health-tracker-1st-15th"
     }
   ],
   "events": [
@@ -108,29 +105,29 @@
     }
   ],
   "field_glass_desk": {
-    "prev_href": "/blog/field-glass-oct-7-2026",
-    "prev_label": "Oct 7 desk",
-    "intro_html": "<strong>Innsegall</strong> · pocket panic season on iPhone and iPad · new <a href=\"/ios\">device hub</a> · Mac still runs the scout · <strong>Voyage sails Oct 15</strong> · <a href=\"/alpha\">Send the scout</a>.",
+    "prev_href": "/blog/field-glass-oct-8-2026",
+    "prev_label": "Oct 8 desk",
+    "intro_html": "<strong>Innsegall</strong> · Voyage week · <strong>Oct 15</strong> is the next free sail · remote-access myths spike after scare popups · <a href=\"/alpha\">Send the scout</a> for evidence on the Mac.",
     "feel_rows": [
+      {
+        "feel": "Someone remoted into my Mac",
+        "start": "<a href=\"/blog/someone-remoted-into-my-mac\">Evidence first</a> · then <a href=\"/alpha\">scout</a> · not panic subscriptions"
+      },
+      {
+        "feel": "Calendar spam invites",
+        "start": "<a href=\"/blog/mac-calendar-spam-invites-scam\">Decline &amp; report</a> · do not open mystery .ics files"
+      },
+      {
+        "feel": "Voyage day is coming · quota?",
+        "start": "<a href=\"/blog/voyage-health-tracker-1st-15th\">Rhythm</a> · <code>innsegall scout</code> · <a href=\"/supplies\">Supplies</a>"
+      },
       {
         "feel": "Bad link on iPhone or iPad",
         "start": "<a href=\"/ios#bad-link\">Panic hub</a> · <a href=\"/blog/clicked-bad-link-iphone-ipad-guide\">field guide</a>"
       },
       {
-        "feel": "Opened a phishing email",
-        "start": "<a href=\"/ios#bad-email\">Email steps</a> · <a href=\"/blog/opened-suspicious-email-iphone-ipad\">guide</a>"
-      },
-      {
-        "feel": "Downloaded something sketchy",
-        "start": "<a href=\"/ios#bad-download\">Download steps</a> · Mac: <a href=\"/blog/mac-slow-after-suspicious-download\">after download</a>"
-      },
-      {
-        "feel": "Safari virus popup on phone",
-        "start": "<a href=\"/ios#fake-popup\">Close it calmly</a> · Mac: <a href=\"/blog/fake-virus-popup-macintosh\">popup guide</a>"
-      },
-      {
-        "feel": "Typed a password on a scam site",
-        "start": "<a href=\"/ios#typed-password\">Account first</a> · then Mac scout if needed"
+        "feel": "Safari virus popup",
+        "start": "<a href=\"/blog/fake-virus-popup-macintosh\">Mac popup guide</a> · <a href=\"/blog/fake-virus-popup-iphone-ipad\">iPhone guide</a>"
       },
       {
         "feel": "Mac slow · not sure if hacked",
@@ -138,22 +135,22 @@
       }
     ],
     "mist_links": [
-      { "href": "/blog/opened-suspicious-email-iphone-ipad", "label": "Suspicious email on iPhone" },
-      { "href": "/blog/downloaded-suspicious-file-iphone-ipad", "label": "Downloaded file on iPhone" },
-      { "href": "/blog/fake-virus-popup-iphone-ipad", "label": "Fake virus popup on iPhone" },
-      { "href": "/blog/clicked-bad-link-iphone-ipad-guide", "label": "Bad link on iPhone or iPad" },
+      { "href": "/blog/someone-remoted-into-my-mac", "label": "Someone remoted into my Mac" },
+      { "href": "/blog/mac-calendar-spam-invites-scam", "label": "Calendar spam invites" },
+      { "href": "/blog/mac-dns-changed-after-scare", "label": "DNS changed after scare" },
+      { "href": "/blog/mac-configuration-profile-scam", "label": "Unexpected configuration profile" },
       { "href": "/blog/fake-virus-popup-macintosh", "label": "Fake virus popup Mac" },
-      { "href": "/blog/pasted-terminal-command-mac-scare", "label": "Pasted Terminal command" }
+      { "href": "/blog/voyage-health-tracker-1st-15th", "label": "Voyage health tracker" }
     ],
     "news_brief": [
-      "<strong>iOS lane</strong> · Innsegall does not scan iPhones · we guide the device · Mac Battle Scout for the computer.",
-      "<strong>Companion</strong> · <a href=\"/companion\">inbox</a> · paste Mac receipts on phone or tablet.",
-      "<strong>Scare popups</strong> · force-quit Safari · do not call the number on screen.",
-      "<strong>Voyage rhythm</strong> · free scouts <strong>1st &amp; 15th</strong> · next sail <strong>Oct 15</strong> · <a href=\"/blog/voyage-health-tracker-1st-15th\">tracker</a>."
+      "<strong>Voyage Oct 15</strong> · free read-only scout on the calendar · <code>innsegall bootstrap</code> if you have not sailed yet.",
+      "<strong>Remote access fear</strong> · scare popups lie · scout shows listening services and profiles · <a href=\"/blog/someone-remoted-into-my-mac\">field guide</a>.",
+      "<strong>Calendar spam</strong> · decline invites · Settings → Calendar → Invitations · not a Mac virus.",
+      "<strong>Software Update</strong> · patch what Apple ships · especially if you use Screen Sharing for real IT help."
     ],
     "habits": [
-      "Triage on the device where the scare happened · phone steps before Mac myth.",
-      "Scout the Mac when the computer is in the story · LIKELY_OK is a normal outcome.",
+      "Scout the Mac for evidence before buying remote-access scareware.",
+      "Fix the device where the scare started · phone steps before Mac myth.",
       "Copy the Battle Scout for any AI assistant · plain English · no doom feed."
     ]
   }
