@@ -2,7 +2,7 @@
 
 **Brand fit:** fjord night · laser-edge eyeglass · beam-gold sword shimmer.
 
-**Motion model:** Whispering Woods Luxe arrival (WWL gold standard) — through-motion on load: glass fades while the plate **scales toward the viewer** and **fades out**, revealing the landing page.
+**Motion model:** Whispering Woods Luxe arrival (WWL gold standard) · through-motion on load: glass fades while the plate **scales toward the viewer** and **fades out**, revealing the landing page.
 
 ## Timing (WWL canon)
 
@@ -25,7 +25,7 @@ Once per browser session (`inn_glass_arrival_seen`). Tests: `data-inn-glass-arri
 
 ## Sister brand (Simple Property)
 
-Greystone **door** entrance lives on **simple-property.com** only — `docs/DOOR_ARRIVAL_LOTTIE.md` in the Simple Property repo.
+Greystone **door** entrance lives on **simple-property.com** only · `docs/DOOR_ARRIVAL_LOTTIE.md` in the Simple Property repo.
 
 ## Audit
 
