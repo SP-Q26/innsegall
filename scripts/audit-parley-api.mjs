@@ -26,6 +26,8 @@ check(
   String(vercel.functions?.["api/parley.js"]?.includeFiles || "").includes("lib/parley")
 );
 check("parley uses web lib imports", src.includes('from "../lib/parley/prompt.mjs"'));
+check("parley ai-bus json import", src.includes('innsegall-ai-bus.json" with { type: "json" }'));
+check("parley no runtime ai-bus readFile", !src.includes("readFileSync(join(WEB_ROOT, \"innsegall-ai-bus.json\""));
 
 try {
   await import(join(root, "web", "api", "parley.js"));

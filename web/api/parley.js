@@ -3,18 +3,15 @@
  * CORS open so Battle Scout HTML opened locally (file://) can fetch help.
  * GET returns agent discovery · links gospel read order for integrators.
  */
-import { readFileSync } from "node:fs";
-import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
 import { buildParleyMessages } from "../lib/parley/prompt.mjs";
 import { runStaticParley } from "../lib/parley/static.mjs";
 import { checkParleyRateLimit, clientIp } from "../lib/parley-rate-limit.mjs";
+import aiBus from "../innsegall-ai-bus.json" with { type: "json" };
 
 const SITE = "https://innsegall.com";
-const WEB_ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 
 function loadAiBus() {
-  return JSON.parse(readFileSync(join(WEB_ROOT, "innsegall-ai-bus.json"), "utf8"));
+  return aiBus;
 }
 
 const INTENT_ALIASES = {
