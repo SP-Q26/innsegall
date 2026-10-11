@@ -145,6 +145,26 @@
       { "href": "/supplies", "label": "Supplies checkout" },
       { "href": "/clan", "label": "Clan passage" },
       { "href": "/stability", "label": "Stability" }
+    ],
+    "chrome-fake-virus-popup-mac": [
+      { "href": "/blog/safari-shift-key-scam-popup-mac", "label": "Safari popup twin" },
+      { "href": "/blog/chrome-clear-browsing-data-after-scare-mac", "label": "Clear Chrome data" },
+      { "href": "/alpha", "label": "Send the scout" }
+    ],
+    "chrome-notifications-scam-mac": [
+      { "href": "/blog/safari-fake-virus-notifications-mac", "label": "Safari notifications" },
+      { "href": "/blog/chrome-search-engine-hijacked-mac", "label": "Chrome search hijack" },
+      { "href": "/watch", "label": "Macintosh watch" }
+    ],
+    "chrome-search-engine-hijacked-mac": [
+      { "href": "/blog/safari-search-engine-hijacked-mac", "label": "Safari search twin" },
+      { "href": "/blog/mac-dns-changed-after-scare", "label": "DNS after scare" },
+      { "href": "/alpha", "label": "Send the scout" }
+    ],
+    "chrome-clear-browsing-data-after-scare-mac": [
+      { "href": "/blog/chrome-fake-virus-popup-mac", "label": "Chrome popup guide" },
+      { "href": "/blog/macintosh-hygiene-without-antivirus", "label": "Hygiene without AV" },
+      { "href": "/blog/what-is-a-battle-scout", "label": "Battle Scout" }
     ]
   }
 }

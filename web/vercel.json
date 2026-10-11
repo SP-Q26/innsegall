@@ -379,6 +379,22 @@
     {
       "source": "/blog/field-glass-oct-11-2026",
       "destination": "/blog/field-glass-oct-11-2026.html"
+    },
+    {
+      "source": "/blog/chrome-fake-virus-popup-mac",
+      "destination": "/blog/chrome-fake-virus-popup-mac.html"
+    },
+    {
+      "source": "/blog/chrome-notifications-scam-mac",
+      "destination": "/blog/chrome-notifications-scam-mac.html"
+    },
+    {
+      "source": "/blog/chrome-search-engine-hijacked-mac",
+      "destination": "/blog/chrome-search-engine-hijacked-mac.html"
+    },
+    {
+      "source": "/blog/chrome-clear-browsing-data-after-scare-mac",
+      "destination": "/blog/chrome-clear-browsing-data-after-scare-mac.html"
     }
   ]
 }

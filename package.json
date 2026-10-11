@@ -49,6 +49,7 @@
     "sync:watch-hub": "node scripts/sync-watch-hub.mjs",
     "sync:ios-tablet-panic": "node scripts/sync-ios-tablet-panic.mjs",
     "build:ios-seo-batch": "node scripts/build-ios-seo-batch.mjs",
+    "build:chrome-mac-seo-batch": "node scripts/build-chrome-mac-seo-batch.mjs",
     "sync:blog-field-desk": "node scripts/sync-blog-field-desk.mjs",
     "sync:blog-intro-leads": "node scripts/sync-blog-intro-leads.mjs",
     "sync:blog-seo": "node scripts/sync-blog-seo.mjs",

@@ -311,7 +311,7 @@ function patchBlogIndexFeatured() {
   );
   const chronicleCard = `
         <article class="card">
-          <h2 class="card-title"><a href="/blog/${latest.slug}">${shortTitle}</a></h2>
+          <h2 class="card-title"><a href="/blog/${latest.slug}">${shortLabel}</a></h2>
           <p>${latest.description}</p>
         </article>`;
   if (!html.includes(`/blog/${latest.slug}`)) {

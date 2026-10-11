@@ -54,6 +54,10 @@
       "href": "/blog/fake-virus-popup-macintosh"
     },
     {
+      "query": "Chrome virus popup Mac",
+      "href": "/blog/chrome-fake-virus-popup-mac"
+    },
+    {
       "query": "Mac slow after scary download",
       "href": "/blog/mac-slow-after-suspicious-download"
     },
@@ -128,6 +132,10 @@
       {
         "feel": "Safari virus popup",
         "start": "<a href=\"/blog/fake-virus-popup-macintosh\">Mac popup guide</a> · <a href=\"/blog/fake-virus-popup-iphone-ipad\">iPhone guide</a>"
+      },
+      {
+        "feel": "Chrome virus popup on Mac",
+        "start": "<a href=\"/blog/chrome-fake-virus-popup-mac\">Chrome guide</a> · <a href=\"/blog/safari-shift-key-scam-popup-mac\">Safari twin</a>"
       },
       {
         "feel": "Mac slow · not sure if hacked",

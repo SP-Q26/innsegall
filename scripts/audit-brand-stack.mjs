@@ -16,6 +16,8 @@ const childAudits = [
   "audit-competitor-absorption.mjs",
   "audit-competitor-objective-see.mjs",
   "audit-landing-unity.mjs",
+  "audit-llms-watch.mjs",
+  "audit-chrome-mac-seo.mjs",
   "audit-blog-quality.mjs",
 ];
 
