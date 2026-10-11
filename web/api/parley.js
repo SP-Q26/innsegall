@@ -6,7 +6,7 @@
 import { buildParleyMessages } from "../../src/parley/prompt.mjs";
 import { runStaticParley } from "../../src/parley/static.mjs";
 import { buildInnsegallAiBus } from "../../src/gospel.mjs";
-import { checkParleyRateLimit, clientIp } from "../../lib/parley-rate-limit.mjs";
+import { checkParleyRateLimit, clientIp } from "../lib/parley-rate-limit.mjs";
 
 const SITE = "https://innsegall.com";
 

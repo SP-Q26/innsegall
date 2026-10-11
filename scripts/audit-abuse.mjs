@@ -30,6 +30,7 @@ const parley = readFileSync(join(web, "api/parley.js"), "utf8");
 check("parley rate limit", parley.includes("rate_limited") && parley.includes("checkParleyRateLimit"));
 check("parley message cap", parley.includes(".slice(0, 2000)"));
 check("parley discovery GET", parley.includes('req.method === "GET"'));
+check("parley rate limit import web/lib", parley.includes('from "../lib/parley-rate-limit.mjs"'));
 
 const checkout = readFileSync(join(web, "api/stripe/checkout.js"), "utf8");
 check("checkout requires stripe key", checkout.includes("stripe_not_configured"));
