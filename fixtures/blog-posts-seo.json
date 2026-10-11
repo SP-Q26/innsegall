@@ -5,16 +5,19 @@
   },
   "posts": {
     "after-suspicious-link-macintosh": {
-      "description": "After a suspicious link on Mac · anonymized scout trends · password and download flags counted · read-only triage · Battle Scout receipt · not antivirus."
+      "description": "After a suspicious link or phishing scare on Mac · anonymized scout trends · password and download flags · read-only Battle Scout · not antivirus theater.",
+      "keywords": "after suspicious link Mac, phishing aftermath, scout trends, post-scare lane"
     },
     "auto-voyage-first-sail": {
       "description": "First automatic Innsegall Voyage on Mac · launchd · update check · Battle Scout in browser · calm rhythm after scare popups · not antivirus."
     },
     "clicked-suspicious-link-macintosh": {
-      "description": "Clicked a suspicious link on your Mac? Calm post-scare triage · read-only scout · LIKELY_OK or ESCALATE · Battle Scout for AI paste · not antivirus."
+      "description": "Clicked a suspicious or phishing link on Mac? Calm post-scare triage · read-only scout · LIKELY_OK or ESCALATE · Battle Scout for any AI · not antivirus.",
+      "keywords": "clicked suspicious link Mac, phishing link triage, post-scare scout, Innsegall"
     },
     "fake-virus-popup-macintosh": {
-      "description": "Fake virus popup on your Macintosh · what it is · what not to do · local read-only scout · Battle Scout receipt · between popups and Genius Bar."
+      "description": "Fake virus popup scam on Macintosh? Browser theater · what not to do · read-only scout · Battle Scout for AI paste · post-scare triage · not antivirus.",
+      "keywords": "fake virus popup Mac, browser scam, scareware popup, Battle Scout triage"
     },
     "field-desk-stripe-live-sep-2026": {
       "description": "Innsegall Stripe checkout goes live · panic scout $4.20 · clan $6.67/mo · local Mac engine unchanged · Supplies lane · Supplies checkout guide."
@@ -32,15 +35,17 @@
       "description": "Field Glass Sep 25 · innsegall scout panic checkout · Time Machine backup lane · Mac threat desk carryover · post-scare triage."
     },
     "field-glass-sep-30-2026": {
-      "description": "Field Glass Sep 30 · fake virus popup season on Mac · Supplies checkout · backup lane · Oct 1 Voyage · calm post-scare triage · not antivirus."
+      "description": "Field Glass Sep 30 · fake virus popup scam season on Mac · Supplies · backup lane · Oct 1 Voyage · calm post-scare triage · read-only scout · not antivirus.",
+      "keywords": "fake virus popup Mac scam season, Field Glass September, post-scare"
     },
     "field-glass-oct-2-2026": {
       "description": "Field Glass Oct 2 · October Voyage · fake virus popup season · field guides for post-scare Mac triage · read-only scout."
     },
     "field-glass-oct-7-2026": {
-      "description": "October Macintosh watch · fake virus popups · performance vs security panic · Voyage Oct 15 · field guides mapped to calm post-scare triage · not antivirus.",
+      "description": "October Mac scam watch · fake virus popup season · performance vs security panic · Voyage Oct 15 · post-scare field guides · read-only scout · not antivirus.",
       "datePublished": "2026-10-07",
-      "dateModified": "2026-10-07"
+      "dateModified": "2026-10-07",
+      "keywords": "fake virus popup season Mac, scam search trends, Field Glass October"
     },
     "knockknock-vs-post-scare-triage": {
       "description": "Objective-See KnockKnock vs Innsegall post-scare triage · persistence scanner depth vs Battle Scout receipt · complementary · not antivirus."
@@ -79,7 +84,8 @@
       "description": "Stale launch items on Macintosh · what anonymized scouts see · broken helpers and vendor leftovers · category counts · read-only triage · Field Report."
     },
     "virustotal-vs-local-mac-scout": {
-      "description": "VirusTotal vs a local Mac scout after a link scare · URL reputation then read-only evidence · Battle Scout paste for AI · not antivirus · Innsegall lane."
+      "description": "VirusTotal vs local Mac scout after phishing or scam link? URL reputation then read-only evidence · Battle Scout paste for AI · Innsegall lane · not antivirus.",
+      "keywords": "VirusTotal phishing link, URL scam check Mac, post-scare triage"
     },
     "voyage-health-tracker-1st-15th": {
       "description": "Voyage health tracker on the 1st and 15th · free Macintosh hygiene rhythm · Battle Scout chart · launchd autopilot · read-only triage · not antivirus."
@@ -88,84 +94,100 @@
       "description": "What is a Battle Scout? Innsegall scout report for Macintosh · LIKELY_OK FIX_LIST ESCALATE · read-only triage artifact · Sound the Horn · not antivirus."
     },
     "safari-shift-key-scam-popup-mac": {
-      "description": "Mac Safari virus popup stuck on screen? Force quit · hold Shift when reopening · calm triage · not a real Apple alert · Innsegall field guide.",
+      "description": "Safari virus popup scam stuck on Mac? Force quit · hold Shift when reopening · calm triage steps · not a real Apple alert · read-only scout · not antivirus.",
       "datePublished": "2026-09-23",
-      "dateModified": "2026-09-23"
+      "dateModified": "2026-09-23",
+      "keywords": "Safari virus popup Mac, scam page stuck, Shift reopen Safari, fake Apple alert"
     },
     "safari-fake-virus-notifications-mac": {
-      "description": "Mac notification says virus or McAfee expired? Often Safari website notifications · remove in Settings · read-only scout after · not antivirus.",
+      "description": "Safari notification scam on Mac says virus or McAfee expired? Website push spam · remove in Settings · read-only scout after · not antivirus sales.",
       "datePublished": "2026-09-23",
-      "dateModified": "2026-09-23"
+      "dateModified": "2026-09-23",
+      "keywords": "Safari notification scam Mac, fake virus alert, website push spam, Innsegall"
     },
     "safari-search-engine-hijacked-mac": {
-      "description": "Safari search engine changed on Mac? Extensions · profiles · DNS · read-only Battle Scout · post-scare triage · not antivirus.",
+      "description": "Safari search hijacked on Mac after a scam scare popup? Extensions · profiles · DNS · read-only Battle Scout · post-scare triage · not antivirus.",
       "datePublished": "2026-09-23",
-      "dateModified": "2026-09-23"
+      "dateModified": "2026-09-23",
+      "keywords": "Safari search hijacked Mac, scam redirect, adware search engine, post-scare"
     },
     "safari-allowed-notifications-by-mistake-mac": {
-      "description": "Clicked Allow on Safari notifications by mistake? Deny in Websites settings · not a virus · Macintosh read-only scout · Innsegall.",
+      "description": "Allowed Safari notifications by mistake on Mac? Deny scam senders in Websites settings · notification spam not full malware · read-only scout · not antivirus.",
       "datePublished": "2026-09-23",
-      "dateModified": "2026-09-23"
+      "dateModified": "2026-09-23",
+      "keywords": "Safari notifications mistake Mac, scam push allow, website alerts spam"
     },
     "mac-calendar-spam-invites-scam": {
-      "description": "Spam calendar invites on Mac? Decline · report junk · not antivirus · when to scout the Mac · Innsegall post-scare lane.",
+      "description": "Spam calendar invites scam on Mac? Decline · report junk · fix invitation settings · when to scout the computer · Innsegall post-scare lane · not antivirus.",
       "datePublished": "2026-09-23",
-      "dateModified": "2026-09-23"
+      "dateModified": "2026-09-23",
+      "keywords": "Mac calendar spam invites, scam .ics, calendar phishing, post-scare triage"
     },
     "apple-support-call-popup-scam-mac": {
-      "description": "Mac popup says call Apple Support or a toll number? Scam · force quit Safari · shift reopen · never pay · Innsegall field guide.",
+      "description": "Mac popup scam says call Apple Support or a toll number? Tech-support theater · force quit browser · never pay · Innsegall field guide · not antivirus.",
       "datePublished": "2026-09-23",
-      "dateModified": "2026-09-23"
+      "dateModified": "2026-09-23",
+      "keywords": "Apple support scam popup Mac, tech support scam, fake toll number, Safari scare"
     },
     "clicked-bad-link-iphone-ipad-guide": {
-      "description": "Bad link on iPhone or iPad? Triage on device first · Mac scout does not scan iOS · calm steps · Innsegall companion for Mac receipts.",
+      "description": "Clicked a scam link on iPhone or iPad? Triage on device first · Mac scout does not scan iOS · calm Safari steps · companion receipts · not antivirus.",
       "datePublished": "2026-09-23",
-      "dateModified": "2026-09-23"
+      "dateModified": "2026-09-23",
+      "keywords": "bad link iPhone, scam link iPad, Safari phishing tap, panic hub"
     },
     "pasted-terminal-command-mac-scare": {
-      "description": "Pasted a command from a scam site into Mac Terminal? ClickFix pattern · do not run again · ESCALATE lane · read-only Battle Scout.",
+      "description": "Pasted a scam site command into Mac Terminal? ClickFix pattern · do not run again · ESCALATE lane · read-only Battle Scout receipt · not antivirus.",
       "datePublished": "2026-09-23",
-      "dateModified": "2026-09-23"
+      "dateModified": "2026-09-23",
+      "keywords": "Terminal paste scam Mac, ClickFix lure, fake support command, ESCALATE triage"
     },
     "mac-configuration-profile-scam": {
-      "description": "Unknown configuration profile on Mac? VPN & Device Management · work vs scam profiles · read-only scout · Innsegall triage.",
+      "description": "Unknown configuration profile scam on Mac? VPN and Device Management · work vs malicious profiles · read-only scout evidence · Innsegall triage · not antivirus.",
       "datePublished": "2026-09-23",
-      "dateModified": "2026-09-23"
+      "dateModified": "2026-09-23",
+      "keywords": "Mac configuration profile scam, fake VPN profile, device management scare"
     },
     "gatekeeper-opened-unknown-app-mac": {
-      "description": "Opened Mac app from unidentified developer? Gatekeeper bypass regret · read-only scout · not immediate wipe · Innsegall.",
+      "description": "Opened Mac app from unidentified developer after scam download? Gatekeeper regret · read-only scout · not immediate wipe · Innsegall · not antivirus.",
       "datePublished": "2026-09-23",
-      "dateModified": "2026-09-23"
+      "dateModified": "2026-09-23",
+      "keywords": "Gatekeeper scam app Mac, unidentified developer scare, fake installer"
     },
     "mac-dns-changed-after-scare": {
-      "description": "Mac DNS changed or sites redirect after a scare? Battle Scout reads DNS and proxy settings · adware triage on Macintosh · read-only · not antivirus.",
+      "description": "Mac DNS changed after a scare popup scam? Sites redirect? Battle Scout reads DNS and proxy · adware triage on Mac · read-only · not antivirus replacement.",
       "datePublished": "2026-09-23",
-      "dateModified": "2026-09-23"
+      "dateModified": "2026-09-23",
+      "keywords": "Mac DNS changed scam, redirect after scare, adware DNS, post-scare triage"
     },
     "downloads-folder-quarantine-mac-check": {
-      "description": "Suspicious file in Mac Downloads? Do not open · quarantine or delete · read-only Battle Scout on Macintosh · Innsegall post-scare triage · not antivirus.",
+      "description": "Scam or suspicious file in Mac Downloads after a phishing link? Do not open · quarantine or delete · read-only Battle Scout on Macintosh · not antivirus wipe.",
       "datePublished": "2026-09-23",
-      "dateModified": "2026-09-23"
+      "dateModified": "2026-09-23",
+      "keywords": "suspicious download Mac, scam file Downloads, quarantine after phishing"
     },
     "mac-slow-after-suspicious-download": {
-      "description": "Mac slow after suspicious download? Stale launch items vs malware fear · read-only scout · link hygiene guides · not destructive clean.",
+      "description": "Mac slow after a suspicious or scam download? Stale launch items vs malware fear · read-only scout · link hygiene guides · post-scare lane · not antivirus.",
       "datePublished": "2026-09-23",
-      "dateModified": "2026-09-23"
+      "dateModified": "2026-09-23",
+      "keywords": "Mac slow after scam download, malware fear vs stale launch, post-scare"
     },
     "mac-performance-panic-vs-security-panic": {
-      "description": "Mac feels slow or scared after a popup? Split performance panic from security panic · calm Macintosh steps · read-only Innsegall scout · not antivirus.",
+      "description": "Mac slow or scared after a scam popup? Split performance vs security panic · calm steps · read-only Innsegall scout · not antivirus theater.",
       "datePublished": "2026-10-04",
-      "dateModified": "2026-10-04"
+      "dateModified": "2026-10-04",
+      "keywords": "Mac performance panic, security scam popup, slow Mac after scare"
     },
     "someone-remoted-into-my-mac": {
-      "description": "Think someone remote accessed your Mac? ESCALATE · revoke access · passwords · when Genius Bar · Battle Scout evidence · Innsegall.",
+      "description": "Remote access scam panic on Mac? Evidence before subscriptions · revoke Screen Sharing · passwords · Battle Scout ports · Innsegall ESCALATE · not antivirus.",
       "datePublished": "2026-09-23",
-      "dateModified": "2026-09-23"
+      "dateModified": "2026-09-23",
+      "keywords": "someone remoted into Mac, remote access scam, Screen Sharing panic, ESCALATE"
     },
     "check-parent-mac-after-scare": {
-      "description": "Help a parent after a Mac virus popup? Send the scout for them · Battle Scout receipt · clan seats · household guide · not antivirus.",
+      "description": "Help a parent after a Mac virus popup scam? Send the scout for them · Battle Scout receipt · clan seats · household guide · read-only triage · not antivirus.",
       "datePublished": "2026-09-23",
-      "dateModified": "2026-09-23"
+      "dateModified": "2026-09-23",
+      "keywords": "parent Mac virus scam, help family popup, household post-scare triage"
     },
     "do-i-need-antivirus-mac-2026": {
       "description": "Do you need antivirus on Mac in 2026? Apple built-ins plus post-scare Battle Scout · complementary lanes · Innsegall not replacement AV.",
@@ -193,24 +215,28 @@
       "dateModified": "2026-09-23"
     },
     "opened-suspicious-email-iphone-ipad": {
-      "description": "Opened a phishing email on iPhone or iPad? Calm steps on device · no pocket antivirus myth · when to change passwords · Innsegall Mac scout lane.",
+      "description": "Opened phishing or scam email on iPhone or iPad? Calm on-device steps · no pocket antivirus myth · password recovery · Innsegall Mac scout lane · not antivirus.",
       "datePublished": "2026-10-08",
-      "dateModified": "2026-10-08"
+      "dateModified": "2026-10-08",
+      "keywords": "phishing email iPhone, scam email iPad, opened suspicious message"
     },
     "downloaded-suspicious-file-iphone-ipad": {
-      "description": "Downloaded a sketchy file on iPhone or iPad? Delete without opening · profiles and apps · honest limits · Mac scout when the computer matters.",
+      "description": "Downloaded scam file on iPhone or iPad? Delete without opening · profiles and apps · honest iOS limits · Mac scout when the computer matters · not antivirus.",
       "datePublished": "2026-10-08",
-      "dateModified": "2026-10-08"
+      "dateModified": "2026-10-08",
+      "keywords": "scam download iPhone, suspicious file iPad, phishing attachment"
     },
     "fake-virus-popup-iphone-ipad": {
-      "description": "Safari virus warning on iPhone or iPad? Scam theater · force-quit steps · not antivirus sales · Mac popup guide linked here.",
+      "description": "Safari fake virus popup scam on iPhone or iPad? Scam theater · force-quit steps · honest iOS limits · Mac scout when the computer matters · not antivirus sales.",
       "datePublished": "2026-10-08",
-      "dateModified": "2026-10-08"
+      "dateModified": "2026-10-08",
+      "keywords": "fake virus popup iPhone, Safari scam iPad, scareware notification, Innsegall"
     },
     "typed-password-scam-site-iphone-ipad": {
-      "description": "Typed Apple ID or bank password on a fake site on iPhone or iPad? Account-first recovery · another device · Innsegall does not scan phones.",
+      "description": "Typed password on scam or phishing site on iPhone or iPad? Recover accounts on another device · Innsegall does not scan phones · Mac scout lane · not antivirus.",
       "datePublished": "2026-10-08",
-      "dateModified": "2026-10-08"
+      "dateModified": "2026-10-08",
+      "keywords": "password scam site iPhone, phishing login iPad, fake Apple ID page"
     },
     "field-glass-oct-8-2026": {
       "description": "iPhone and iPad panic hub · bad link, email, download, fake popup guides · Mac scout honesty · Voyage Oct 15 · calm post-scare triage · not antivirus.",
@@ -218,39 +244,84 @@
       "dateModified": "2026-10-08"
     },
     "safari-notifications-scam-iphone-ipad": {
-      "description": "Fake virus alerts from Safari on iPhone or iPad? Website notifications scam · Settings steps · not antivirus sales · Mac scout when the computer matters.",
+      "description": "Safari fake virus notification scam on iPhone or iPad? Website push spam · Settings steps · not antivirus upsell · Mac scout when the computer matters.",
       "datePublished": "2026-10-08",
-      "dateModified": "2026-10-08"
+      "dateModified": "2026-10-08",
+      "keywords": "Safari notifications scam iPhone, fake virus iPad alert, web push spam"
     },
     "safari-clear-website-data-iphone-ipad": {
-      "description": "After a scary Safari page on iPhone or iPad? Clear Website Data safely · Block Pop-ups · Extensions · honest iOS limits · Innsegall Mac scout for the computer.",
+      "description": "After a Safari scam page on iPhone or iPad? Clear Website Data · block pop-ups · extensions · honest iOS limits · Mac scout for the computer · not antivirus.",
       "datePublished": "2026-10-08",
-      "dateModified": "2026-10-08"
+      "dateModified": "2026-10-08",
+      "keywords": "Safari clear data iPhone, after scam page iPad, website data phishing"
     },
     "field-glass-oct-11-2026": {
-      "description": "Voyage week desk · Oct 15 sail · remote-access panic vs evidence · calendar spam invites · Mac scout rhythm · not antivirus.",
+      "description": "Macintosh scam desk · Voyage Oct 15 · remote-access panic vs evidence · calendar spam invites · scout rhythm · Field Glass watch · not antivirus.",
       "datePublished": "2026-10-11",
-      "dateModified": "2026-10-11"
+      "dateModified": "2026-10-11",
+      "keywords": "Mac scam desk, calendar spam, remote access scare, Field Glass watch"
     },
     "chrome-fake-virus-popup-mac": {
-      "description": "Full-screen virus warning in Chrome on Mac? Scam page · force quit · reopen without restoring tabs · then read-only scout · not antivirus.",
+      "description": "Chrome virus popup scam on Mac? Full-screen fake alert · force quit · reopen without bad tabs · read-only Battle Scout after · not antivirus.",
       "datePublished": "2026-10-11",
-      "dateModified": "2026-10-11"
+      "dateModified": "2026-10-11",
+      "keywords": "Chrome virus popup Mac, fake virus scam, browser scare, post-scare triage, Innsegall"
     },
     "chrome-notifications-scam-mac": {
-      "description": "Mac notification from Chrome says virus or McAfee? Site notifications you allowed · chrome://settings · deny · not full Mac malware.",
+      "description": "Chrome notification scam on Mac says virus or McAfee? Site push you allowed · chrome://settings · deny senders · scout the Mac · not antivirus.",
       "datePublished": "2026-10-11",
-      "dateModified": "2026-10-11"
+      "dateModified": "2026-10-11",
+      "keywords": "Chrome notifications scam Mac, fake McAfee alert, web push spam, Innsegall triage"
     },
     "chrome-search-engine-hijacked-mac": {
-      "description": "Google Chrome default search changed on Mac? Extensions · policies · DNS · read-only Battle Scout · post-scare · not antivirus.",
+      "description": "Google Chrome search hijacked on Mac after a scam page? Extensions · policies · DNS · read-only Battle Scout evidence · post-scare · not antivirus.",
       "datePublished": "2026-10-11",
-      "dateModified": "2026-10-11"
+      "dateModified": "2026-10-11",
+      "keywords": "Chrome search hijacked Mac, scam extension, adware search, post-scare triage"
     },
     "chrome-clear-browsing-data-after-scare-mac": {
-      "description": "Clear Chrome cookies and site data on Mac after a scam link? Calm steps · when to scout the Mac · not a phone cleaner app.",
+      "description": "Clear Chrome data on Mac after a scam or phishing link? Calm browser reset · when to read-only scout the Mac · post-scare triage · not antivirus.",
       "datePublished": "2026-10-11",
-      "dateModified": "2026-10-11"
+      "dateModified": "2026-10-11",
+      "keywords": "Chrome clear data Mac, scam link cleanup, cookies after phishing, Innsegall"
     }
+  },
+  "spam_scam_lane": {
+    "version": "2026-10-11",
+    "slugs": [
+      "chrome-fake-virus-popup-mac",
+      "chrome-notifications-scam-mac",
+      "chrome-search-engine-hijacked-mac",
+      "chrome-clear-browsing-data-after-scare-mac",
+      "safari-shift-key-scam-popup-mac",
+      "safari-fake-virus-notifications-mac",
+      "safari-search-engine-hijacked-mac",
+      "safari-allowed-notifications-by-mistake-mac",
+      "mac-calendar-spam-invites-scam",
+      "apple-support-call-popup-scam-mac",
+      "pasted-terminal-command-mac-scare",
+      "mac-configuration-profile-scam",
+      "fake-virus-popup-macintosh",
+      "fake-virus-popup-iphone-ipad",
+      "clicked-suspicious-link-macintosh",
+      "after-suspicious-link-macintosh",
+      "someone-remoted-into-my-mac",
+      "mac-dns-changed-after-scare",
+      "downloads-folder-quarantine-mac-check",
+      "mac-slow-after-suspicious-download",
+      "opened-suspicious-email-iphone-ipad",
+      "downloaded-suspicious-file-iphone-ipad",
+      "typed-password-scam-site-iphone-ipad",
+      "clicked-bad-link-iphone-ipad-guide",
+      "safari-notifications-scam-iphone-ipad",
+      "safari-clear-website-data-iphone-ipad",
+      "gatekeeper-opened-unknown-app-mac",
+      "mac-performance-panic-vs-security-panic",
+      "check-parent-mac-after-scare",
+      "virustotal-vs-local-mac-scout",
+      "field-glass-oct-11-2026",
+      "field-glass-oct-7-2026",
+      "field-glass-sep-30-2026"
+    ]
   }
 }

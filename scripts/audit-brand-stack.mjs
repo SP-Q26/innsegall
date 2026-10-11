@@ -18,6 +18,7 @@ const childAudits = [
   "audit-landing-unity.mjs",
   "audit-llms-watch.mjs",
   "audit-chrome-mac-seo.mjs",
+  "audit-spam-scam-seo.mjs",
   "audit-blog-quality.mjs",
 ];
 

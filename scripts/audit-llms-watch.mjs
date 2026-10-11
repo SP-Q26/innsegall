@@ -24,6 +24,7 @@ check("llms watch-feed.xml", llms.includes("/watch-feed.xml"));
 check("llms latest Field Glass slug", llms.includes(`/blog/${latest.slug}`));
 check("llms Safari field guides block", llms.includes("Safari field guides"));
 check("llms Chrome Mac field guides block", llms.includes("Chrome on Mac field guides"));
+check("llms spam scam field guides block", llms.includes("Spam & scam field guides"));
 check("llms AI helping order", llms.includes("If a human or AI is helping"));
 check("llms someone-remoted guide", llms.includes("/blog/someone-remoted-into-my-mac"));
 

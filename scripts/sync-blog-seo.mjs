@@ -15,7 +15,7 @@ function escapeAttr(s) {
   return String(s).replace(/&/g, "&amp;").replace(/"/g, "&quot;");
 }
 
-function upsertJsonLd(html, slug, description) {
+function upsertJsonLd(html, slug, description, seo) {
   const canonical = `https://innsegall.com/blog/${slug}`;
   const published =
     pack.posts[slug]?.datePublished ||
@@ -28,6 +28,7 @@ function upsertJsonLd(html, slug, description) {
     html.match(/<title>([^<]+)<\/title>/)?.[1]?.replace(/ · Innsegall$/, "") ||
     slug;
 
+  const keywords = seo?.keywords;
   const block = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -41,6 +42,7 @@ function upsertJsonLd(html, slug, description) {
     description,
     image,
     inLanguage: "en-US",
+    ...(keywords ? { keywords, articleSection: "Spam & scam triage" } : {}),
   };
 
   const json = JSON.stringify(block, null, 2);
@@ -78,7 +80,19 @@ for (const name of readdirSync(blogDir)) {
     /<meta name="twitter:description" content="[^"]*">/,
     `<meta name="twitter:description" content="${escapeAttr(desc)}">`
   );
-  html = upsertJsonLd(html, slug, desc);
+  if (seo.keywords) {
+    const kw = escapeAttr(seo.keywords.trim());
+    if (html.includes('name="keywords"')) {
+      html = html.replace(/<meta name="keywords" content="[^"]*">/, `<meta name="keywords" content="${kw}">`);
+    } else {
+      html = html.replace(
+        /<meta name="description" content="[^"]*">/,
+        `<meta name="description" content="${escapeAttr(desc)}">\n  <meta name="keywords" content="${kw}">`
+      );
+    }
+  }
+
+  html = upsertJsonLd(html, slug, desc, seo);
 
   if (html !== before) {
     writeFileSync(path, html, "utf8");

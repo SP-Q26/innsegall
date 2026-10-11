@@ -9,6 +9,10 @@ import { fileURLToPath } from "node:url";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const web = join(root, "web", "blog");
 const seoPack = JSON.parse(readFileSync(join(root, "fixtures", "blog-posts-seo.json"), "utf8"));
+const laneSeo = JSON.parse(readFileSync(join(root, "fixtures", "blog-spam-scam-seo.json"), "utf8"));
+const laneSlugs = new Set(Object.keys(laneSeo.posts));
+const LANE_LEX = /scam|spam|phishing|fake virus/i;
+const NOT_AV = /not antivirus/i;
 const desk = JSON.parse(readFileSync(join(root, "fixtures", "blog-field-desk.json"), "utf8"));
 const railVer = JSON.parse(readFileSync(join(root, "fixtures", "blog-related-rail.json"), "utf8")).version;
 
@@ -70,6 +74,12 @@ for (const file of readdirSync(web)) {
 
   pts += check(`${slug} related rail`, html.includes(`data-related-version="${railVer}"`)) ? 1 : 0;
 
+  if (laneSlugs.has(slug)) {
+    const kw = html.includes('name="keywords"');
+    const laneDesc = LANE_LEX.test(desc) && NOT_AV.test(desc);
+    pts += check(`${slug} lane spam/scam SEO bonus`, kw && laneDesc && len >= 120 && len <= 160) ? 1 : 0;
+  }
+
   const pct = Math.round((pts / max) * 100);
   scoreSum += pct;
   count++;
@@ -77,9 +87,9 @@ for (const file of readdirSync(web)) {
 }
 
 const avg = count ? Math.round(scoreSum / count) : 0;
-console.log(`\nBlog quality average: ${avg}/100 (target 95+)`);
-if (avg < 95) {
-  console.error("Blog quality below 95 average");
+console.log(`\nBlog quality average: ${avg}/100 (target 115+)`);
+if (avg < 115) {
+  console.error("Blog quality below 115 average");
   failed++;
 }
 

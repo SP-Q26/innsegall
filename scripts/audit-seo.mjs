@@ -133,21 +133,9 @@ check("index twitter matches og description", homeTwDesc === homeOgDesc);
 check("index og:image secure_url", home.includes("og:image:secure_url"));
 check("index twitter:url", home.includes('name="twitter:url"'));
 
-const platformBlogSlugs = [
-  "safari-shift-key-scam-popup-mac",
-  "safari-fake-virus-notifications-mac",
-  "safari-search-engine-hijacked-mac",
-  "safari-allowed-notifications-by-mistake-mac",
-  "opened-suspicious-email-iphone-ipad",
-  "downloaded-suspicious-file-iphone-ipad",
-  "fake-virus-popup-iphone-ipad",
-  "typed-password-scam-site-iphone-ipad",
-  "clicked-bad-link-iphone-ipad-guide",
-  "safari-notifications-scam-iphone-ipad",
-  "safari-clear-website-data-iphone-ipad",
-  "fake-virus-popup-macintosh",
-  "clicked-suspicious-link-macintosh",
-];
+const platformBlogSlugs = Object.keys(
+  JSON.parse(readFileSync(join(root, "fixtures", "blog-spam-scam-seo.json"), "utf8")).posts
+);
 for (const slug of platformBlogSlugs) {
   check(`platform blog sitemap /blog/${slug}`, sitemap.includes(`/blog/${slug}`));
 }

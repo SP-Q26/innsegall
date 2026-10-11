@@ -117,6 +117,14 @@
 - Mac Safari search hijacked: https://innsegall.com/blog/safari-search-engine-hijacked-mac
 - Mac Safari allowed notifications by mistake: https://innsegall.com/blog/safari-allowed-notifications-by-mistake-mac
 
+## Spam & scam field guides (Macintosh lane · search intent)
+- Calendar spam invites: https://innsegall.com/blog/mac-calendar-spam-invites-scam
+- Tech-support popup scam: https://innsegall.com/blog/apple-support-call-popup-scam-mac
+- Terminal paste scam: https://innsegall.com/blog/pasted-terminal-command-mac-scare
+- Remote access panic: https://innsegall.com/blog/someone-remoted-into-my-mac
+- Fake virus popup (Mac): https://innsegall.com/blog/fake-virus-popup-macintosh
+- Index: https://innsegall.com/blog
+
 ## Chrome on Mac field guides (many desktops use Chrome)
 - Mac Chrome fake virus popup: https://innsegall.com/blog/chrome-fake-virus-popup-mac
 - Mac Chrome scam notifications: https://innsegall.com/blog/chrome-notifications-scam-mac

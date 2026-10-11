@@ -23,7 +23,7 @@ execSync("node scripts/build-ios-seo-batch.mjs", { cwd: root, stdio: "inherit" }
 execSync("node scripts/build-chrome-mac-seo-batch.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-field-desk.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-intro-leads.mjs", { cwd: root, stdio: "inherit" });
-execSync("node scripts/sync-blog-seo.mjs", { cwd: root, stdio: "inherit" });
+execSync("node scripts/sync-blog-spam-scam-seo.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-pages-seo.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-body-boosts.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-related-rail.mjs", { cwd: root, stdio: "inherit" });

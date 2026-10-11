@@ -627,6 +627,14 @@ ${(INNSEGALL_GOSPEL.ai_triage_onboarding.complementary_tools || [])
 - Mac Safari search hijacked: ${PRICING.site_url}/blog/safari-search-engine-hijacked-mac
 - Mac Safari allowed notifications by mistake: ${PRICING.site_url}/blog/safari-allowed-notifications-by-mistake-mac
 
+## Spam & scam field guides (Macintosh lane · search intent)
+- Calendar spam invites: ${PRICING.site_url}/blog/mac-calendar-spam-invites-scam
+- Tech-support popup scam: ${PRICING.site_url}/blog/apple-support-call-popup-scam-mac
+- Terminal paste scam: ${PRICING.site_url}/blog/pasted-terminal-command-mac-scare
+- Remote access panic: ${PRICING.site_url}/blog/someone-remoted-into-my-mac
+- Fake virus popup (Mac): ${PRICING.site_url}/blog/fake-virus-popup-macintosh
+- Index: ${PRICING.site_url}/blog
+
 ## Chrome on Mac field guides (many desktops use Chrome)
 - Mac Chrome fake virus popup: ${PRICING.site_url}/blog/chrome-fake-virus-popup-mac
 - Mac Chrome scam notifications: ${PRICING.site_url}/blog/chrome-notifications-scam-mac
