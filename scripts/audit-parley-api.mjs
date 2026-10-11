@@ -17,17 +17,15 @@ function check(name, ok) {
 }
 
 const src = readFileSync(join(root, "web", "api", "parley.js"), "utf8");
-const vercel = JSON.parse(readFileSync(join(root, "web", "vercel.json"), "utf8"));
-check("rate limit import path", src.includes('from "../lib/parley-rate-limit.mjs"'));
-check("forbidden ../../lib import", !src.includes("../../lib/parley-rate-limit"));
+const source = readFileSync(join(root, "web", "api", "parley.source.js"), "utf8");
+
+check("parley.source exists", existsSync(join(root, "web", "api", "parley.source.js")));
+check("parley source lib imports", source.includes('from "../lib/parley/prompt.mjs"'));
+check("forbidden ../../lib in source", !source.includes("../../lib/parley-rate-limit"));
 check("web/lib/parley prompt", existsSync(join(root, "web", "lib", "parley", "prompt.mjs")));
-check(
-  "vercel parley includeFiles web lib",
-  String(vercel.functions?.["api/parley.js"]?.includeFiles || "").includes("lib/parley")
-);
-check("parley uses web lib imports", src.includes('from "../lib/parley/prompt.mjs"'));
-check("parley ai-bus json import", src.includes('innsegall-ai-bus.json" with { type: "json" }'));
-check("parley no runtime ai-bus readFile", !src.includes("readFileSync(join(WEB_ROOT, \"innsegall-ai-bus.json\""));
+check("parley bundled marker", src.includes("bundle-parley-api.mjs"));
+check("parley bundled export", src.includes("export default") || src.includes("handler as default"));
+check("forbidden ../../lib in bundle", !src.includes("../../lib/parley-rate-limit"));
 
 try {
   await import(join(root, "web", "api", "parley.js"));
