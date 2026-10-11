@@ -5,17 +5,18 @@
 import { readFileSync, writeFileSync, readdirSync, statSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { fontHeadLines, FONT_LINK_RE, FONT_STYLESHEET_HREF } from "./site-fonts.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const web = join(root, "web");
 const OG_URL = "https://innsegall.com/og/innsegall-card.png?v=20261008d";
-const CSS_VER = 26;
+const CSS_VER = 27;
 
 /** Homepage link-preview copy (Facebook · X · iMessage). */
 const HOME_SOCIAL = {
   title: "Innsegall · Know You're Okay",
   description:
-    "Post-scare Mac triage after a fake virus popup, bad link, or am I hacked moment. Local read-only scout · Battle Scout receipt · copy for any AI. Not antivirus.",
+    "Post-scare Mac triage after scam popups and phishing · read-only Battle Scout · LIKELY_OK, FIX_LIST, ESCALATE · AI paste · Voyages 1st & 15th · not antivirus.",
 };
 
 const CANONICAL_HEADER = `<header class="site-header">
@@ -346,10 +347,22 @@ function fixSuccessPage(html) {
   return out;
 }
 
+function fixFonts(html) {
+  if (!html.includes("innsegall.css")) return html;
+  let out = html.replace(FONT_LINK_RE, "");
+  if (out.includes(FONT_STYLESHEET_HREF)) return out;
+  const cssRe = /(<link rel="stylesheet" href="\/innsegall\.css\?v=\d+">)/;
+  if (cssRe.test(out)) {
+    return out.replace(cssRe, `$1\n${fontHeadLines()}`);
+  }
+  return out;
+}
+
 function fixChrome(html) {
   let out = html;
   out = out.replace(/innsegall\.css\?v=\d+/g, `innsegall.css?v=${CSS_VER}`);
   out = out.replace(/innsegall-nav\.js\?v=\d+/g, `innsegall-nav.js?v=${CSS_VER}`);
+  out = fixFonts(out);
 
   if (out.includes('class="site-header"') && !out.includes('class="skip-link"')) {
     out = out.replace(

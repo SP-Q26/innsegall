@@ -47,6 +47,7 @@ const lanes = [
   { name: "Field Glass cadence", script: "audit-field-glass-cadence.mjs", score: "9.5" },
   { name: "Structured data (Phase 7 W1b)", script: "audit-structured-data.mjs", score: "9.0" },
   { name: "Site inventory (all pages)", script: "audit-site-inventory.mjs", score: "9.5" },
+  { name: "Site performance · load + forms", script: "audit-site-performance.mjs", score: "9.5" },
 ];
 
 let failed = 0;

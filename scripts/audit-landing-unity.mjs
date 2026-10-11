@@ -84,6 +84,11 @@ check("index sr-only site summary", index.includes('id="site-summary"'));
 check("index triage levels named", /LIKELY_OK|FIX_LIST|ESCALATE/.test(index));
 check("index links /alpha", index.includes('href="/alpha"'));
 check("index links /blog", index.includes('href="/blog"'));
+check("index links /watch", index.includes('href="/watch"'));
+check(
+  "index latest Field Glass",
+  index.includes("/blog/field-glass-") || index.includes('href="/watch"')
+);
 check(
   "index blog SEO hub",
   BLOG_SEO_SLUGS.every((slug) => index.includes(`/blog/${slug}`))

@@ -5,6 +5,7 @@
 import { readFileSync, existsSync, readdirSync, statSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { CSS_HREF } from "./site-css-ver.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const web = join(root, "web");
@@ -76,7 +77,7 @@ for (const rel of keyPages) {
     check(`${rel} brand mark`, html.includes('class="brand-mark"'));
     check(`${rel} footer links`, html.includes('class="footer-links"'));
   }
-  check(`${rel} css v26`, html.includes("innsegall.css?v=26"));
+  check(`${rel} css ${CSS_HREF}`, html.includes(CSS_HREF));
 }
 
 function walkHtml(dir, base = "") {

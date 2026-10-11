@@ -63,6 +63,7 @@
     "sync:homebrew-tap": "node scripts/sync-homebrew-tap.mjs",
     "audit:blog-funnel": "node scripts/audit-blog-funnel.mjs",
     "audit:site": "node scripts/audit-site-inventory.mjs",
+    "audit:site-performance": "node scripts/audit-site-performance.mjs",
     "audit:structured-data": "node scripts/audit-structured-data.mjs",
     "check:git-identity": "node scripts/check-git-identity.mjs",
     "setup:git-identity": "bash scripts/setup-repo-git-identity.sh",

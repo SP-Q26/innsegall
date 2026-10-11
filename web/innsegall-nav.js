@@ -80,10 +80,18 @@
     beam.appendChild(layer);
   }
 
+  function scheduleBeamSignals() {
+    if (typeof requestIdleCallback === "function") {
+      requestIdleCallback(mountBeamSignals, { timeout: 1200 });
+    } else {
+      setTimeout(mountBeamSignals, 0);
+    }
+  }
+
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", mountBeamSignals, { once: true });
+    document.addEventListener("DOMContentLoaded", scheduleBeamSignals, { once: true });
   } else {
-    mountBeamSignals();
+    scheduleBeamSignals();
   }
   document.querySelectorAll(".header-nav a").forEach(function (a) {
     var href = a.getAttribute("href") || "";

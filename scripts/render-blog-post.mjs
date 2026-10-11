@@ -2,6 +2,7 @@
 /** Minimal blog article HTML shell · sync-site-chrome fills header/footer on deploy. */
 import { PRICING } from "../src/constants.mjs";
 import { CSS_VER } from "./site-css-ver.mjs";
+import { fontHeadLines } from "./site-fonts.mjs";
 
 const OG_URL = "https://innsegall.com/og/innsegall-card.png";
 
@@ -53,13 +54,11 @@ export function renderBlogPostHtml(opts) {
   <meta name="innsegall:gospel" content="https://innsegall.com/.well-known/innsegall-gospel.json">
   <link rel="alternate" type="text/plain" href="https://innsegall.com/llms.txt" title="Innsegall · AI agent gospel (llms.txt)">
   <meta name="innsegall:agent-hint" content="${escapeHtml(opts.agentHint)}">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/favicon.svg">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="/innsegall.css?v=${CSS_VER}">
+${fontHeadLines()}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
