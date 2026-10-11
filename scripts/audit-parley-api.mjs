@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /** Parley serverless handler must import cleanly (Vercel FUNCTION_INVOCATION_FAILED guard). */
-import { readFileSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -20,10 +20,12 @@ const src = readFileSync(join(root, "web", "api", "parley.js"), "utf8");
 const vercel = JSON.parse(readFileSync(join(root, "web", "vercel.json"), "utf8"));
 check("rate limit import path", src.includes('from "../lib/parley-rate-limit.mjs"'));
 check("forbidden ../../lib import", !src.includes("../../lib/parley-rate-limit"));
+check("web/lib/parley prompt", existsSync(join(root, "web", "lib", "parley", "prompt.mjs")));
 check(
-  "vercel parley includeFiles src",
-  vercel.functions?.["api/parley.js"]?.includeFiles?.includes("../src/parley")
+  "vercel parley includeFiles web lib",
+  String(vercel.functions?.["api/parley.js"]?.includeFiles || "").includes("lib/parley")
 );
+check("parley uses web lib imports", src.includes('from "../lib/parley/prompt.mjs"'));
 
 try {
   await import(join(root, "web", "api", "parley.js"));

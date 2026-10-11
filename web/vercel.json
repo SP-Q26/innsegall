@@ -4,7 +4,7 @@
   "trailingSlash": false,
   "functions": {
     "api/parley.js": {
-      "includeFiles": "../src/parley/**,../src/gospel.mjs,../src/constants.mjs"
+      "includeFiles": "innsegall-ai-bus.json,lib/parley/**"
     }
   },
   "headers": [

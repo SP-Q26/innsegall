@@ -28,6 +28,7 @@ execSync("node scripts/sync-pages-seo.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-body-boosts.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-related-rail.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-cta.mjs", { cwd: root, stdio: "inherit" });
+execSync("node scripts/sync-parley-web.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-site-chrome.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/audit-swarm.mjs", { cwd: root, stdio: "inherit" });
 console.log("prep-deploy OK");
