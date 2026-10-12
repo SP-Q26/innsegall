@@ -8,16 +8,16 @@
   if (global.__innGlassArrivalBoot) return;
   global.__innGlassArrivalBoot = true;
 
-  var PLAYER =
-    "https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs";
+  var LOTTIE_WEB =
+    "https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js";
   var ASSET_JSON = "/lottie/inn-glass-arrival-lottie.json";
   var ASSET_FALLBACK = "/lottie/inn-glass-arrival-fallback.svg";
-  var ASSET_VER = "1";
+  var ASSET_VER = "2";
   var WALL_MS = 1600;
   var HOLD_MS = 420;
   var SESSION_KEY = "inn_glass_arrival_seen";
 
-  var playerLoading;
+  var lottieLoading;
   var finished = false;
 
   function shouldPlay() {
@@ -67,22 +67,23 @@
     return host;
   }
 
-  function loadPlayer() {
-    if (global.customElements && global.customElements.get("dotlottie-player")) {
+  function loadLottieWeb() {
+    if (global.lottie && global.lottie.loadAnimation) {
       return Promise.resolve();
     }
-    if (playerLoading) return playerLoading;
-    playerLoading = new Promise(function (resolve, reject) {
+    if (lottieLoading) return lottieLoading;
+    lottieLoading = new Promise(function (resolve, reject) {
       var s = global.document.createElement("script");
-      s.type = "module";
-      s.src = PLAYER;
+      s.src = LOTTIE_WEB;
+      s.async = true;
       s.onload = function () {
-        resolve();
+        if (global.lottie && global.lottie.loadAnimation) resolve();
+        else reject(new Error("lottie-web missing"));
       };
       s.onerror = reject;
       global.document.head.appendChild(s);
     });
-    return playerLoading;
+    return lottieLoading;
   }
 
   function finishHost(host, fast) {
@@ -118,26 +119,34 @@
   function mountLottie(host) {
     var mount = host.querySelector("#innGlassPlayer");
     if (!mount) return;
-    loadPlayer()
+    loadLottieWeb()
       .then(function () {
         if (finished || host.classList.contains("inn-glass-arrival--done")) return;
         mount.innerHTML = "";
-        var el = global.document.createElement("dotlottie-player");
-        el.setAttribute("src", ASSET_JSON + "?v=" + ASSET_VER);
-        el.setAttribute("autoplay", "");
-        el.className = "inn-glass-arrival__lottie";
-        mount.appendChild(el);
+        var anim = global.lottie.loadAnimation({
+          container: mount,
+          renderer: "svg",
+          loop: false,
+          autoplay: true,
+          path: ASSET_JSON + "?v=" + ASSET_VER,
+        });
         var doneTimer = global.setTimeout(function () {
+          try {
+            anim.destroy();
+          } catch (e) {
+            /* ignore */
+          }
           finishHost(host, false);
         }, WALL_MS + 80);
-        el.addEventListener(
-          "complete",
-          function () {
-            global.clearTimeout(doneTimer);
-            finishHost(host, false);
-          },
-          { once: true }
-        );
+        anim.addEventListener("complete", function () {
+          global.clearTimeout(doneTimer);
+          try {
+            anim.destroy();
+          } catch (e) {
+            /* ignore */
+          }
+          finishHost(host, false);
+        });
       })
       .catch(function () {
         mountSvg(host);

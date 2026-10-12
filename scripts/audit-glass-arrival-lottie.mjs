@@ -28,6 +28,7 @@ for (const r of [
 
 const js = need("inn-glass-arrival-lottie.js");
 if (!js.includes("inn-glass-arrival-lottie.json")) fail++;
+if (!js.includes("lottie.loadAnimation")) fail++;
 if (!js.includes("HOLD_MS = 420") || !js.includes("WALL_MS = 1600")) fail++;
 
 const css = need("inn-glass-arrival.css");

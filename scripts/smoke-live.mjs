@@ -39,6 +39,10 @@ const PATHS = [
   "/scripts/innsegall-alpha-install.sh",
   "/scripts/Innsegall-Install.command",
   "/innsegall.css",
+  "/inn-glass-arrival-lottie.js",
+  "/inn-glass-arrival.css",
+  "/lottie/inn-glass-arrival-lottie.json",
+  "/lottie/inn-glass-arrival-fallback.svg",
   "/install",
   "/ios",
   "/tablet",
@@ -82,6 +86,30 @@ async function check(path) {
     if (path === "/" && !text.includes("Send the scout")) {
       failMsg(`${path} missing primary CTA copy`);
       return;
+    }
+    if (path === "/" && !text.includes("inn-glass-arrival-lottie.js")) {
+      failMsg(`${path} missing glass arrival boot script`);
+      return;
+    }
+    if (path === "/alpha" && !text.includes("inn-glass-arrival-lottie.js")) {
+      failMsg(`${path} missing glass arrival boot script`);
+      return;
+    }
+    if (path === "/inn-glass-arrival-lottie.js" && !text.includes("lottie.loadAnimation")) {
+      failMsg(`${path} missing lottie-web boot`);
+      return;
+    }
+    if (path === "/lottie/inn-glass-arrival-lottie.json") {
+      try {
+        const anim = JSON.parse(text);
+        if (!anim.fr || !anim.layers?.length) {
+          failMsg(`${path} invalid lottie JSON`);
+          return;
+        }
+      } catch {
+        failMsg(`${path} invalid JSON`);
+        return;
+      }
     }
     if (path === "/alpha" && !text.includes("innsegall-ai-bus")) {
       failMsg(`${path} missing ai-bus embed`);
@@ -278,6 +306,35 @@ try {
   }
 } catch (e) {
   failMsg(`webhook probe ${e.message}`);
+}
+
+console.log("── Parley API ──");
+try {
+  const getRes = await fetch(`${base}/api/parley`, { method: "GET" });
+  const discovery = await getRes.json().catch(() => null);
+  if (getRes.status === 200 && discovery?.service === "innsegall-parley") {
+    pass("parley GET discovery");
+  } else {
+    failMsg(`parley GET ${getRes.status} ${JSON.stringify(discovery || {}).slice(0, 100)}`);
+  }
+  const postRes = await fetch(`${base}/api/parley`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      intent: "explain_evidence",
+      verdict: "LIKELY_OK",
+      summary: "smoke-live probe",
+      checks_run: [],
+    }),
+  });
+  const parley = await postRes.json().catch(() => ({}));
+  if (postRes.status === 200 && parley.lane && parley.response?.length > 20) {
+    pass(`parley POST static/live (${parley.lane})`);
+  } else {
+    failMsg(`parley POST ${postRes.status} ${JSON.stringify(parley).slice(0, 120)}`);
+  }
+} catch (e) {
+  failMsg(`parley probe ${e.message}`);
 }
 
 console.log("── Telemetry noop ──");
