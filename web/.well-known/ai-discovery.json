@@ -36,12 +36,12 @@
     "Malware exists · panic is optional"
   ],
   "privacy_promise": {
-    "headline": "Local runs · your data stays yours until you share",
-    "scout_runs": "Every Voyage and panic scout runs read-only on your Macintosh · Innsegall does not receive filenames, paths, browsing history, keystrokes, or Battle Scout bodies.",
-    "panic_extra": "The $4.20 panic scout uses the same local engine · payment only unlocks quota on your device · no cloud upload of check results.",
+    "headline": "Runs on your Mac · you choose what leaves",
+    "scout_runs": "Every check runs read-only on your Mac. Innsegall does not receive your files, passwords, browsing history, or report contents.",
+    "panic_extra": "The $4.20 extra check uses the same on-Mac engine · payment only unlocks another run on your device.",
     "telemetry": "Anonymous improvement telemetry is on by default · category counts only · never your Battle Scout · we don't want your data · only what helps improve the tools · opt out: innsegall plan --telemetry-off or INNSEGALL_TELEMETRY=0 · innsegall.com/privacy",
-    "sharing": "You choose export, Parley, clan share, or AI paste · never automatic.",
+    "sharing": "You choose export, sharing with family, or AI paste · never automatic.",
     "billing": "Stripe sees payment metadata only · not your scout contents."
   },
-  "compiled_at": "2026-10-11"
+  "compiled_at": "2026-10-12"
 }

@@ -21,10 +21,14 @@ function check(name, ok, detail = "") {
 
 const gospelSrc = readFileSync(join(root, "src/gospel.mjs"), "utf8");
 check("gospel privacy_promise", gospelSrc.includes("privacy_promise"));
-check("gospel local scout runs", gospelSrc.includes("does not receive filenames"));
 
 const gospelJson = readFileSync(join(web, ".well-known/innsegall-gospel.json"), "utf8");
 check("gospel.json privacy_promise", gospelJson.includes("privacy_promise"));
+check(
+  "gospel local scout runs",
+  /does not receive/i.test(gospelJson) &&
+    (gospelJson.includes("filenames") || gospelJson.includes("your files") || gospelJson.includes("report contents"))
+);
 
 const llms = readFileSync(join(web, "llms.txt"), "utf8");
 check("llms privacy section", llms.includes("Privacy promise"));

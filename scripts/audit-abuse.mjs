@@ -26,11 +26,15 @@ check("telemetry path rejection", telemetry.includes("PATH_LIKE"));
 check("telemetry marketing_ping enum", telemetry.includes("marketing_ping") && telemetry.includes("MARKETING_PAGES"));
 check("telemetry issue_spotlight enum", telemetry.includes("issue_spotlight") && telemetry.includes("validateIssueSpotlight"));
 
-const parley = readFileSync(join(web, "api/parley.js"), "utf8");
-check("parley rate limit", parley.includes("rate_limited") && parley.includes("checkParleyRateLimit"));
-check("parley message cap", parley.includes(".slice(0, 2000)"));
-check("parley discovery GET", parley.includes('req.method === "GET"'));
-check("parley rate limit import web/lib", parley.includes('from "../lib/parley-rate-limit.mjs"'));
+const parleyBundle = readFileSync(join(web, "api/parley.js"), "utf8");
+const parleySource = readFileSync(join(web, "api/parley.source.js"), "utf8");
+check(
+  "parley rate limit",
+  parleyBundle.includes("rate_limited") && parleyBundle.includes("checkParleyRateLimit")
+);
+check("parley message cap", parleySource.includes(".slice(0, 2000)"));
+check("parley discovery GET", parleyBundle.includes('req.method === "GET"'));
+check("parley rate limit import web/lib", parleySource.includes('from "../lib/parley-rate-limit.mjs"'));
 
 const checkout = readFileSync(join(web, "api/stripe/checkout.js"), "utf8");
 check("checkout requires stripe key", checkout.includes("stripe_not_configured"));

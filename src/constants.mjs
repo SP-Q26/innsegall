@@ -15,10 +15,10 @@ export const CLAYMORE = " · ";
 
 /** Site + CLI CTAs · one primary horn label everywhere */
 export const CTA = {
-  /** Primary onboarding action (replaces generic "run the check") */
+  /** Primary onboarding action (Send the scout · not legacy generic CTA) */
   SEND_SCOUT: "Send the scout",
-  SEND_SCOUT_SUB: "Read the lay of the land on your Macintosh · two minutes · no upload",
-  COPY_FOR_AI: "Copy for LLM",
+  SEND_SCOUT_SUB: "A calm read-only check on your Mac · about two minutes · stays local",
+  COPY_FOR_AI: "Copy for AI",
   COPY_FOR_AI_HINT:
     "One click · paste into ChatGPT, Claude, Gemini, or any assistant.",
   COPY_FOR_AI_COPIED: "COPIED ✓",
@@ -28,8 +28,8 @@ export const CTA = {
     "Copied · paste into ChatGPT, Claude, or your team chat",
   DOWNLOAD_REPORT: "Download report",
   DOWNLOAD_REPORT_HINT: "Plain-text file for email, Notes, or your IT person",
-  FIELD_MANUAL: "Field manual",
-  ALPHA_TITLE: "Bring the scout aboard",
+  FIELD_MANUAL: "Get started",
+  ALPHA_TITLE: "Install on your Mac",
   SCOUT_FREE: "Scout free",
 };
 

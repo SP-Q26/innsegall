@@ -8,7 +8,7 @@
     "boat.html": { "breadcrumb": "Lane guide", "aboutSoftware": true },
     "clan.html": { "breadcrumb": "Clan", "aboutSoftware": true },
     "companion.html": { "breadcrumb": "Companion", "webApplication": true },
-    "guide.html": { "breadcrumb": "Field manual", "aboutSoftware": true },
+    "guide.html": { "breadcrumb": "Guide", "aboutSoftware": true },
     "install.html": { "breadcrumb": "Install help", "aboutSoftware": true },
     "ios.html": { "breadcrumb": "iOS companion", "aboutSoftware": false },
     "tablet.html": { "breadcrumb": "iPad & tablet", "aboutSoftware": false },

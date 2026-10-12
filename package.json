@@ -69,6 +69,7 @@
     "setup:git-identity": "bash scripts/setup-repo-git-identity.sh",
     "dry-test:license": "node scripts/dry-test-license.mjs",
     "sync-gospel": "node scripts/sync-gospel-web.mjs",
+    "sync:mac-copy": "node scripts/apply-mac-user-copy.mjs",
     "sync:battle-scout-sample": "node scripts/sync-battle-scout-sample.mjs",
     "dry-run:lanes": "node scripts/dry-run-lanes.mjs",
     "smoke:links-live": "node scripts/smoke-links-live.mjs --base=https://innsegall.com",

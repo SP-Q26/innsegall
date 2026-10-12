@@ -45,7 +45,10 @@ check(
     fileBus.agent_surfaces?.gospel_url?.includes("innsegall-gospel.json")
 );
 check("ai-bus agent_read_order", Array.isArray(fileBus.agent_read_order) && fileBus.agent_read_order.length >= 4);
-check("ai-bus privacy_promise", fileBus.privacy_promise?.headline?.includes("Local runs"));
+check(
+  "ai-bus privacy_promise",
+  /your Mac|Local runs|stays yours/i.test(fileBus.privacy_promise?.headline || "")
+);
 
 const canonBus = buildInnsegallAiBus();
 const stripCompiled = (o) => {

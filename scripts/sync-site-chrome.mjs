@@ -16,7 +16,7 @@ const CSS_VER = 27;
 const HOME_SOCIAL = {
   title: "Innsegall · Know You're Okay",
   description:
-    "Post-scare Mac triage after scam popups and phishing · read-only Battle Scout · LIKELY_OK, FIX_LIST, ESCALATE · AI paste · Voyages 1st & 15th · not antivirus.",
+    "Scary popup or bad link? Run a calm check on your Mac · plain report · stays local until you share · free checkups 1st & 15th · not antivirus.",
 };
 
 const CANONICAL_HEADER = `<header class="site-header">
@@ -41,13 +41,13 @@ const CANONICAL_HEADER = `<header class="site-header">
         </svg>
         <span>
           <span class="brand-word">Innsegall</span>
-          <span class="brand-pronounce">IN-sheh-gal · Mac scout · iPad &amp; iOS read</span>
+          <span class="brand-pronounce">IN-sheh-gal · for Mac · plain answers</span>
         </span>
       </a>
       <nav class="header-nav" aria-label="Site">
-        <a class="nav-link" href="/alpha">Field manual</a>
-        <a class="nav-link" href="/watch">Field Glass</a>
-        <a class="nav-link" href="/blog">Field Report</a>
+        <a class="nav-link" href="/alpha">Get started</a>
+        <a class="nav-link" href="/watch">Trending</a>
+        <a class="nav-link" href="/blog">Help</a>
         <a class="nav-link" href="/clan">Clan</a>
       </nav>
     </header>`;
@@ -75,7 +75,7 @@ const CANONICAL_FOOTER = `    <footer class="site-footer">
       <div class="footer-grid">
         <div class="footer-brand">
           <p class="footer-wordmark">Innsegall</p>
-          <p class="footer-tagline">Know you&apos;re okay · Macintosh triage</p>
+          <p class="footer-tagline">Know you&apos;re okay · for your Mac</p>
         </div>
         <nav class="footer-links" aria-label="Footer">
           <a class="nav-link nav-link--footer" href="/guide">Guide</a>
@@ -97,7 +97,7 @@ const CANONICAL_FOOTER = `    <footer class="site-footer">
           <a class="nav-link nav-link--footer" href="mailto:hello@innsegall.com">hello@</a>
         </nav>
       </div>
-      <p class="footer-note">Field Report · category counts only · Voyage on the 1st &amp; 15th.</p>
+      <p class="footer-note">Help articles · privacy-first · free checkups on the 1st &amp; 15th.</p>
       <div class="footer-colophon">
         <p class="footer-colophon-line">
           <span>&copy; 2026 The Isles Collective</span>
