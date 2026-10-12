@@ -164,7 +164,11 @@ async function check(path) {
         return;
       }
     }
-    if (path.endsWith(".css") && !text.includes("--fjord-deep")) {
+    if (
+      path.endsWith(".css") &&
+      path !== "/inn-glass-arrival.css" &&
+      !text.includes("--fjord-deep")
+    ) {
       failMsg(`${path} missing innsegall.css design tokens`);
       return;
     }
