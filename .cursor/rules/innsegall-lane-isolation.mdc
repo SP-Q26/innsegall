@@ -1,0 +1,15 @@
+---
+description: Innsegall lane isolation · SP-Q26/innsegall only · never SPQ or Deposit Desk
+alwaysApply: true
+---
+
+# Innsegall · lane isolation
+
+**Canon:** `docs/LANE_ISOLATION.md` · **Full send:** `docs/FULL_SEND.md`
+
+- Workspace = **innsegall repo root** (`main`) · not SPQ parent · not Simple Property · not `weweb-export`.
+- No commits/push unless operator asks · before push: `npm run audit:git`.
+- Git: noreply only · no secrets in git · `isles_brand=innsegall` on Stripe metadata only.
+- No em dash in customer `web/` copy · no WeWeb MCP for this lane.
+- Launch green: `STRIPE_SECRET_KEY=sk_live_…` → `npm run full-send` or `preflight` + `gate:launch`.
+- Failures: report script name + first P0/FAIL line · no drive-by edits in sibling repos.

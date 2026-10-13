@@ -1,6 +1,7 @@
 # Workspace canon · one Innsegall folder
 
-**Goal:** One git clone you edit · one Vercel project · no drift between Desktop, `~/innsegall`, and `~/SPQ/innsegall`.
+**Goal:** One git clone you edit · one Vercel project · no drift between Desktop, `~/innsegall`, and `~/SPQ/innsegall`.  
+**Agent law:** `docs/LANE_ISOLATION.md` · do not patch SPQ or Simple Property from this lane.
 
 ## Canonical working copy (operator)
 

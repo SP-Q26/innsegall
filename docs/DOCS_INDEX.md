@@ -9,6 +9,8 @@
 
 | Doc | Use |
 |-----|-----|
+| `LANE_ISOLATION.md` | **Agent law** · Innsegall-only · no SPQ / Deposit Desk cross-edits |
+| `FULL_SEND.md` | `npm run full-send` · live Stripe · preflight + gates + `gate:launch` |
 | `OPERATOR_GUIDE.md` | Accounts · Vercel · Stripe · DNS · day-one steps |
 | `FLOAT_MODE_RUNBOOK.md` | What to do / snuff / ROI while floating |
 | `STRIPE_LIVE_FLIP.md` | Test → live keys · webhook · proof purchase |
@@ -31,6 +33,7 @@ npm run audit:git      # identity · main vs origin · workspace · pre-commit
 npm run predeploy      # gospel + blog chrome sync
 npm run audit:site     # writes SITE_FULL_AUDIT_LATEST.md
 npm run gate:launch    # swarm + smoke:live (0 fail target)
+npm run full-send      # sk_live_ required · see FULL_SEND.md
 ```
 
 ---
