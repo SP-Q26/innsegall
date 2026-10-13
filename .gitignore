@@ -15,3 +15,5 @@ dist/
 .vercel
 .env*
 CANONICAL_CLONE.md
+# Operator redeploy scratch (ephemeral deploy IDs · not canon)
+docs/PARLEY_REDEPLOY_*.md

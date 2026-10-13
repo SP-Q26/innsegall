@@ -31,6 +31,7 @@ const ALLOWED_ROOT_FILES = new Set([
 ]);
 
 const ALLOWED_ROOT_DIRS = new Set([
+  ".cursor",
   ".git",
   ".github",
   ".smoke",
