@@ -7,12 +7,8 @@
       "source": "/samples/(.*)",
       "headers": [
         {
-          "key": "X-Frame-Options",
-          "value": "SAMEORIGIN"
-        },
-        {
           "key": "Content-Security-Policy",
-          "value": "frame-ancestors 'self' https://innsegall.com"
+          "value": "frame-ancestors 'self' https://innsegall.com https://ajnichols.com https://www.ajnichols.com https://*.weweb.io https://*.vercel.app"
         }
       ]
     },
@@ -28,8 +24,8 @@
           "value": "strict-origin-when-cross-origin"
         },
         {
-          "key": "X-Frame-Options",
-          "value": "DENY"
+          "key": "Content-Security-Policy",
+          "value": "frame-ancestors 'self' https://ajnichols.com https://www.ajnichols.com https://*.weweb.io https://*.vercel.app"
         }
       ]
     },
