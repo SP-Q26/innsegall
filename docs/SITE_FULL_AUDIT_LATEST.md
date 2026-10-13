@@ -1,6 +1,6 @@
 # Innsegall.com · full site audit
 
-**Generated:** 2026-10-12 · `node scripts/audit-site-inventory.mjs`  
+**Generated:** 2026-10-13 · `node scripts/audit-site-inventory.mjs`  
 **Project:** Vercel `innsegall_fe` · root `web/`  
 **Commands:** `npm run audit:site` · `npm run gate:launch` · `npm run smoke:live`
 
@@ -13,10 +13,10 @@
 | HTML surfaces | 80 |
 | Indexable marketing + blog | 78 |
 | Blog posts | 60 |
-| P0 inventory issues | 0 |
+| P0 inventory issues | 1 |
 | Sitemap URLs | 87 |
 
-**Operator:** Stripe LIVE flip in progress · push `main` after `npm run predeploy` · blog is primary float-mode SEO lever.
+**Operator:** Blog sweep `npm run sweep:blog` · log `docs/BLOG_SWEEP_AUDIT_LATEST.md` · push `main` after gospel sync + `smoke:live`.
 
 ---
 
@@ -24,8 +24,8 @@
 
 | Route | Index | Sitemap | Blog idx | Rewrite | Meta | Issues |
 |-------|:-----:|:-------:|:--------:|:-------:|-----:|--------|
-| `/` | ✓ | ✓ | · | · | 162 | ok |
-| `/alpha` | ✓ | ✓ | · | · | 146 | ok |
+| `/` | ✓ | ✓ | · | · | 146 | ok |
+| `/alpha` | ✓ | ✓ | · | · | 123 | ok |
 | `/blog` | ✓ | ✓ | · | · | 155 | ok |
 | `/blog/after-suspicious-link-macintosh` | ✓ | ✓ | ✓ | ✓ | 154 | ok |
 | `/blog/apple-support-call-popup-scam-mac` | ✓ | ✓ | ✓ | ✓ | 151 | ok |
@@ -87,21 +87,21 @@
 | `/blog/virustotal-vs-local-mac-scout` | ✓ | ✓ | ✓ | ✓ | 159 | ok |
 | `/blog/voyage-health-tracker-1st-15th` | ✓ | ✓ | ✓ | ✓ | 150 | ok |
 | `/blog/what-is-a-battle-scout` | ✓ | ✓ | ✓ | ✓ | 152 | ok |
-| `/boat` | ✓ | ✓ | · | · | 151 | ok |
-| `/clan` | ✓ | ✓ | · | · | 135 | ok |
+| `/boat` | ✓ | ✓ | · | · | 127 | ok |
+| `/clan` | ✓ | ✓ | · | · | 128 | ok |
 | `/companion` | ✓ | ✓ | · | · | 152 | ok |
-| `/guide` | ✓ | ✓ | · | · | 124 | ok |
-| `/install` | ✓ | ✓ | · | · | 139 | ok |
+| `/guide` | ✓ | ✓ | · | · | 119 | ok |
+| `/install` | ✓ | ✓ | · | · | 111 | meta desc 111ch |
 | `/ios` | ✓ | ✓ | · | · | 159 | ok |
-| `/map` | ✓ | ✓ | · | · | 144 | ok |
+| `/map` | ✓ | ✓ | · | · | 137 | ok |
 | `/msp` | ✓ | ✓ | · | · | 139 | ok |
 | `/privacy` | ✓ | ✓ | · | · | 153 | ok |
 | `/stability` | ✓ | ✓ | · | · | 125 | ok |
 | `/success` | no | ✗ | · | · | 101 | ok |
 | `/supplies` | ✓ | ✓ | · | · | 127 | ok |
 | `/tablet` | ✓ | ✓ | · | · | 161 | ok |
-| `/tos` | ✓ | ✓ | · | · | 150 | ok |
-| `/warriors` | ✓ | ✓ | · | · | 146 | ok |
+| `/tos` | ✓ | ✓ | · | · | 143 | ok |
+| `/warriors` | ✓ | ✓ | · | · | 140 | ok |
 | `/watch` | ✓ | ✓ | · | · | 162 | ok |
 
 ---

@@ -2,7 +2,20 @@
 
 **Status:** Table `innsegall_events` + `POST /innsegall/events` built and tested (`{"ok":true,"id":1}`).  
 **Prod smoke (2026-09-22):** `npm run smoke:live` · telemetry **202** on `innsegall.com` when Xano + Vercel keys match · float ops `FLOAT_MODE_RUNBOOK.md`.  
-**You are here:** optional paste stack parity audit (§3) · optional preview key · issue spotlight publish when aggregates warrant.
+**You are here:** paste stack parity on **live** (§3–4) · optional preview key · issue spotlight publish when aggregates warrant.
+
+---
+
+## Mandatory after 2026-10-10 Vercel deploy (`f581fb6`)
+
+**Oct 10** shipped four new event names from Vercel (`checkout_intent` · `install_intent` · `checkout_abandoned` · `payment_failed`) plus Stripe webhook handlers for `checkout.session.expired` and `invoice.payment_failed`. Git paste **`innsegall-events-post.xs`** lists **eleven** allowed events · see `docs/pastes/README.md`.
+
+**Rule:** Any Vercel deploy that adds or renames an `event` string **must** ship with the same **publish draft → live** on Xano **in the same window**. If live Xano still has the old whitelist:
+
+- Stripe may show **200** on Oct-era `checkout.session.completed` deliveries.
+- **Recents fail 502** on `checkout.session.expired` · `invoice.payment_failed` · or telemetry intents · body `xano_forward_failed` · Xano message `Event type '…' is not allowed`.
+
+That is **code ahead of paste** · not Stripe · not a broken webhook secret. Fix: repaste §3 · **publish live** · Stripe → resend failed webhook events · `npm run smoke:xano -- --base=https://innsegall.com`.
 
 ---
 
@@ -10,8 +23,7 @@
 
 - [x] Table `innsegall_events`
 - [x] API group `innsegall_ops` · endpoint `POST /innsegall/events`
-- [ ] Stack matches **`docs/pastes/innsegall-events-post.xs`** (auth + all 7 events + forbidden keys)
-- [ ] **`marketing_ping`** + **`issue_spotlight`** in whitelist (included in paste)
+- [ ] Stack matches **`docs/pastes/innsegall-events-post.xs`** (auth + all **11** events + forbidden keys)
 - [x] Run & Debug insert works (with correct key)
 
 ---
@@ -93,6 +105,7 @@ npm run smoke:xano -- --base=https://innsegall.com
 |---------|--------|-----|
 | Prod **502** + `workspace no longer exists` | Stale URL (legacy `x8ki-letl-twmt.n7.xano.io`) | `https://xfog-zdyr-rbyx.n7e.xano.io/api:innsegall_ops/innsegall/events` · redeploy Vercel |
 | Prod **502** + `xano_key_mismatch` | `XANO_API_KEY` ≠ Xano env `sk_live_innsegall_ops_` | Match values · turn off JWT on route |
+| Prod **502** + `Event type '…' is not allowed` | Live stack missing events from **`f581fb6`** paste | Repaste §3 · publish live · see section above |
 | Prod **202** + `forwarded: true` | **Healthy** · events land in `innsegall_events` | Run funnel SQL in `PLATFORM_TRACKING.md` |
 
 Historical note: brief **502**s before the URL/key fix did **not** break the site · telemetry failed silently from the browser’s perspective (install/checkout still worked).

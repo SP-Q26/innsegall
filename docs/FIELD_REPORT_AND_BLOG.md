@@ -81,7 +81,8 @@ npm run predeploy   # prep-deploy.mjs · sync gospel + blog chrome/SEO
 3. Add rewrite in `web/vercel.json` if clean URL required
 4. Add card row in `web/blog/index.html` (or rely on sync script if applicable)
 5. Add URL to `web/sitemap.xml`
-6. `npm run predeploy` · `npm run audit:site` · `npm run smoke:live`
+6. `npm run sweep:blog` (all posts + gates) · `node scripts/sync-gospel-web.mjs` · `npm run smoke:live`  
+   Or full ship: `npm run predeploy` · `npm run audit:site`
 
 `smoke:live` globs `web/blog/*.html` · new HTML files are probed automatically after deploy.
 

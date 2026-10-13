@@ -160,3 +160,12 @@ Full search map lives in [Field Glass · Sep 22](/blog/field-glass-sep-22-2026).
 - **iPhone/iPad Safari** · [/ios](/ios) · [Clear Safari data](/blog/safari-clear-website-data-iphone-ipad) · [/companion](/companion)
 - **Oct 11 desk** · [Field Glass](/blog/field-glass-oct-11-2026) · [Watch](/watch)
 - **Pricing** · [Supplies](/supplies)
+
+---
+
+## Helpful links
+
+- **Scared tonight?** · [Send the scout](/alpha)
+- **iPhone/iPad Safari** · [/ios](/ios) · [Clear Safari data](/blog/safari-clear-website-data-iphone-ipad) · [/companion](/companion)
+- **Oct 11 desk** · [Field Glass](/blog/field-glass-oct-11-2026) · [Watch](/watch)
+- **Pricing** · [Supplies](/supplies)

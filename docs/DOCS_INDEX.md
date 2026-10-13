@@ -17,6 +17,7 @@
 | `isles/SHARED_STRIPE_CHECKOUT_BRANDING.md` | **Shared Collective Stripe** · per-app webhooks/prices · branding phases |
 | `STRIPE_VERCEL_ENV_PACKAGE.md` | Copy-paste Vercel env · 3 SKUs · minimal Dashboard |
 | `SITE_FULL_AUDIT_LATEST.md` | Page inventory · regen with `npm run audit:site` |
+| `BLOG_SWEEP_AUDIT_LATEST.md` | Blog sync + gates · regen with `npm run sweep:blog` |
 | `FIELD_REPORT_AND_BLOG.md` | Three blog pipelines · publish checklist |
 | `COPY_SEO_REVIEW_2026-09-22.md` | Intent map · copy/SEO review · run `npm run audit:copy` |
 | `XANO_KEYS_LEFT.md` | Telemetry wire · `smoke:live` **202** |
