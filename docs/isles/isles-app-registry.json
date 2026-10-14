@@ -13,7 +13,9 @@
   "apple_developer": {
     "enrolled": false,
     "org_name": "The Isles Collective",
-    "annual_usd": 99
+    "annual_usd": 99,
+    "enroll_target": "2026-11",
+    "enroll_trigger": "Innsegall notarize or Simple Property Mac binary within 60 days"
   },
   "apps": [
     {
@@ -22,7 +24,8 @@
       "dba": "Innsegall",
       "domain": "https://innsegall.com",
       "tank_phase": "juvenile",
-      "tank_started": "2026-01-01",
+      "tank_month": "2026-08",
+      "tank_started": "2026-08-01",
       "mac_primary": true,
       "surfaces": { "macos": "cli", "ios": "companion_web", "web": true },
       "repo": "https://github.com/SP-Q26/innsegall",
@@ -31,14 +34,44 @@
     {
       "app_id": "simple_property",
       "display_name": "Simple Property",
-      "dba": "Simple Property Tools",
-      "domain": null,
+      "dba": "Simple Property Tools · Deposit Desk",
+      "domain": "https://simple-property.com",
       "tank_phase": "juvenile",
-      "tank_started": null,
+      "tank_month": "2026-09",
+      "tank_started": "2026-09-01",
       "mac_primary": true,
-      "surfaces": { "macos": "planned", "ios": "planned", "web": "planned" },
-      "repo": null,
-      "stripe_brand_key": "simple_property"
+      "surfaces": { "macos": "planned", "ios": "planned", "web": true },
+      "repo": "https://github.com/SP-Q26/simple-property",
+      "stripe_brand_key": "simple_property",
+      "notes": "deposit_desk module · launch stack"
+    },
+    {
+      "app_id": "fielddrop",
+      "display_name": "FieldDrop",
+      "dba": "FieldDrop",
+      "domain": "https://fielddrop.com",
+      "tank_phase": "go_live",
+      "tank_month": "2026-10",
+      "tank_started": "2026-10-01",
+      "mac_primary": false,
+      "surfaces": { "macos": false, "ios": "optional", "web": true },
+      "repo": "SPQ/fielddrop-one",
+      "stripe_brand_key": "fielddrop_porta",
+      "notes": "Receipt rail · multi-skin · Vercel not SPQ apex"
+    },
+    {
+      "app_id": "berth_marine",
+      "display_name": "Berth Marine",
+      "dba": "Berth",
+      "domain": "https://ships.one",
+      "tank_phase": "go_live",
+      "tank_month": "2026-10",
+      "tank_started": "2026-10-01",
+      "mac_primary": false,
+      "surfaces": { "macos": false, "ios": false, "web": true },
+      "repo": "SPQ/ships-one",
+      "stripe_brand_key": "berth_charter",
+      "notes": "Customer domain ships.one · git folder ships-one"
     },
     {
       "app_id": "isles_waste_ops",
@@ -46,13 +79,18 @@
       "dba": null,
       "domain": null,
       "tank_phase": "planned",
+      "tank_month": null,
       "tank_started": null,
       "mac_primary": false,
       "surfaces": { "macos": "optional", "ios": "planned", "web": true },
       "repo": null,
       "stripe_brand_key": "isles_waste_ops",
-      "notes": "Dumpster · septic · porta potty scheduling"
+      "notes": "Dumpster · septic · porta scheduling"
     }
+  ],
+  "wave_2026_12_candidates": [
+    { "id": "legal_proof", "label": "Legal / litigation packet receipt", "notes": "Deposit-adjacent · demand letters · shareable hash" },
+    { "id": "insurance_fnol", "label": "Insurance FNOL / adjuster proof", "notes": "MASTER_PLAN_FIELD_MARINE FNOL thread" }
   ],
   "excluded_from_tank": [
     {
@@ -60,8 +98,8 @@
       "name": "SPQ / spquant.com",
       "reason": "Primary engineering focus · many-headed product · not a tank app"
     },
-    { "id": "ships_network", "name": "ships.network", "reason": "Long-horizon infra bet" },
+    { "id": "ships_network", "name": "ships.network", "reason": "Long-horizon infra bet · not ships.one" },
     { "id": "mmi_wwluxe", "name": "MMI / WWLuxe", "reason": "Separate Stripe account" }
   ],
-  "updated_at": "2026-09-23"
+  "updated_at": "2026-10-14"
 }
