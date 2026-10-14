@@ -47,6 +47,7 @@ const lanes = [
   { name: "Supplies / checkout routes", script: "audit-supplies-routes.mjs", score: "9.5" },
   { name: "Workspace hygiene", script: "audit-workspace-hygiene.mjs", score: "9.5" },
   { name: "Blog funnel (Phase 7 W1a)", script: "audit-blog-funnel.mjs", score: "9.5" },
+  { name: "Visit → install conversion", script: "audit-funnel-conversion.mjs", score: "9.5" },
   { name: "Blog quality (SEO + readability)", script: "audit-blog-quality.mjs", score: "9.5" },
   { name: "Blog intro leads", script: "audit-blog-intro-leads.mjs", score: "9.5" },
   { name: "Macintosh watch hub", script: "audit-watch-hub.mjs", score: "9.5" },

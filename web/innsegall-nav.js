@@ -237,6 +237,28 @@
         sendInstallIntent("github");
       });
     });
+    document.querySelectorAll('a[href*="/samples/battle-scout-demo"]').forEach(function (a) {
+      a.addEventListener("click", function () {
+        sendInstallIntent("sample_report");
+      });
+    });
+    var heroCopy = document.getElementById("hero-copy-install");
+    if (heroCopy) {
+      heroCopy.addEventListener("click", function () {
+        sendInstallIntent("copy_terminal");
+      });
+    }
+    document.querySelectorAll(".btn-copy[data-copy-target]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        sendInstallIntent("copy_block");
+      });
+    });
+    document.querySelectorAll("[data-install-intent]").forEach(function (el) {
+      el.addEventListener("click", function () {
+        var asset = el.getAttribute("data-install-intent") || "copy_terminal";
+        sendInstallIntent(asset);
+      });
+    });
   }
 
   if (document.prerendering) {

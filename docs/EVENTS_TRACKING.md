@@ -12,7 +12,7 @@ Client traffic never hits Xano directly; only `POST /api/telemetry` and Stripe w
 | Event | Emitter | Purpose |
 |-------|---------|---------|
 | `marketing_ping` | `innsegall-nav.js` | Page view · once per page category per day · channel + `warrior_ref` |
-| `install_intent` | `innsegall-nav.js` | Click `.command` / install script / GitHub engine link |
+| `install_intent` | `innsegall-nav.js` | Click `.command` / install script / GitHub · copy install line · sample report link (`asset` enum) |
 | `checkout_intent` | `innsegall-checkout.js` | Toll-gate click before Stripe redirect · SKU + page + channel |
 | `install_ping` | CLI (`telemetry-client.mjs`) | Bootstrap / daily install heartbeat · `install_id` + macOS major |
 | `scout_aggregate` | CLI after scout | Verdict/flow buckets · product quality (no paths) |

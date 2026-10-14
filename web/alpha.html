@@ -157,15 +157,36 @@
       <section class="hero" aria-labelledby="alpha-title">
         <p class="hero-eyebrow">Install · Mac only</p>
         <p class="clan-fomo" style="margin-bottom:1rem">One welcome check after install · then free checkups on the 1st &amp; 15th · <a href="/guide">Guide</a> · <a href="/clan">Family plan $6.67</a></p>
-        <h1 id="alpha-title">Install in two minutes</h1>
-        <p class="hero-tag">Paste in Terminal · check stays on your Mac · report opens in your browser</p>
+        <h1 id="alpha-title">Know the lay of the land on your Mac</h1>
+        <p class="hero-tag">Read-only check · plain Battle Scout in your browser · you choose what to share</p>
         <p class="hero-manifesto">Two free <strong>checkups</strong> every month (<strong>1st &amp; 15th</strong>) · see a plain report before you change anything · optional family plan if you share Macs with people you trust.</p>
+        <ol class="steps" style="margin:1rem 0 1.25rem">
+          <li><span class="step-num" aria-hidden="true">1</span><div><strong>See the receipt</strong> · <a href="#battle-scout-sample">sample Battle Scout</a> · no install</div></li>
+          <li><span class="step-num" aria-hidden="true">2</span><div><strong>Install when ready</strong> · about two minutes · stays on your Mac</div></li>
+          <li><span class="step-num" aria-hidden="true">3</span><div><strong>Send the scout</strong> · welcome check once · Voyages on the 1st &amp; 15th</div></li>
+        </ol>
         <div class="hero-actions">
-          <a class="btn-horn" href="/scripts/Innsegall-Install.command" download>Innsegall-Install.command</a>
+          <a class="btn-horn" href="#battle-scout-sample">See sample report</a>
+          <a class="btn-secondary" href="/scripts/Innsegall-Install.command" download>Innsegall-Install.command</a>
           <button type="button" class="btn-secondary" id="hero-copy-install" data-copy-text="curl -fsSL https://innsegall.com/scripts/innsegall-alpha-install.sh | bash">Copy install line</button>
           <a class="btn-secondary" href="/install">Install help</a>
         </div>
         <p class="hero-tag" style="margin-top:1rem;font-size:.9rem">Preferred today: <strong>Terminal one-liner</strong> or the <strong>.command</strong> file (right-click → Open once if macOS blocks it). A signed <strong>Developer ID</strong> zip ships after Apple enrollment · <a href="/install#signed-app" rel="noopener noreferrer">install help</a>.</p>
+      </section>
+
+      <section class="section" id="battle-scout-sample" aria-labelledby="alpha-scout-title">
+        <p class="section-label">Battle Scout · preview</p>
+        <h2 id="alpha-scout-title">See the receipt before you install.</h2>
+        <p class="section-lead">Public LIKELY_OK sample · same layout your scout opens in the browser after <code>innsegall run</code>.</p>
+        <div class="scout-preview">
+          <iframe
+            class="scout-preview-frame"
+            src="/samples/battle-scout-demo"
+            title="Sample Battle Scout receipt"
+            loading="lazy"
+          ></iframe>
+          <p class="scout-preview-note"><a href="/samples/battle-scout-demo" target="_blank" rel="noopener noreferrer">Open full demo</a> · not your Mac</p>
+        </div>
       </section>
 
       <section class="section" id="gatekeeper" aria-labelledby="gatekeeper-title">
@@ -181,21 +202,6 @@
             <li>Or: System Settings → Privacy &amp; Security → <strong>Open Anyway</strong> after the first blocked try.</li>
             <li>Or in Terminal: <code>xattr -d com.apple.quarantine ~/Downloads/Innsegall-Install.command</code> then double-click.</li>
           </ol>
-        </div>
-      </section>
-
-      <section class="section" id="battle-scout-sample" aria-labelledby="alpha-scout-title">
-        <p class="section-label">Battle Scout · preview</p>
-        <h2 id="alpha-scout-title">See the receipt before you install.</h2>
-        <p class="section-lead">Public LIKELY_OK sample · same layout your scout opens in the browser after <code>innsegall run</code>.</p>
-        <div class="scout-preview">
-          <iframe
-            class="scout-preview-frame"
-            src="/samples/battle-scout-demo"
-            title="Sample Battle Scout receipt"
-            loading="lazy"
-          ></iframe>
-          <p class="scout-preview-note"><a href="/samples/battle-scout-demo" target="_blank" rel="noopener noreferrer">Open full demo</a> · not your Mac</p>
         </div>
       </section>
 

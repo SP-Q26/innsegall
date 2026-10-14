@@ -60,4 +60,11 @@ export const REF_CHANNELS = new Set([
 ]);
 
 export const CHECKOUT_SKUS = new Set(["extra", "clan", "msp"]);
-export const INSTALL_ASSETS = new Set(["command", "oneliner", "github"]);
+export const INSTALL_ASSETS = new Set([
+  "command",
+  "oneliner",
+  "github",
+  "copy_terminal",
+  "copy_block",
+  "sample_report",
+]);

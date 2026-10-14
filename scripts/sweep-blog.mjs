@@ -28,6 +28,7 @@ run("node scripts/sync-blog-seo.mjs");
 run("node scripts/sync-blog-body-boosts.mjs");
 run("node scripts/sync-blog-related-rail.mjs");
 run("node scripts/sync-blog-cta.mjs");
+run("node scripts/audit-funnel-conversion.mjs");
 run("node scripts/sync-site-chrome.mjs");
 
 run("node scripts/audit-blog-funnel.mjs");

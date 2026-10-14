@@ -25,7 +25,14 @@ const CLIENT_EVENTS = new Set([
 ]);
 
 const CHECKOUT_SKUS = new Set(["extra", "clan", "msp"]);
-const INSTALL_ASSETS = new Set(["command", "oneliner", "github"]);
+const INSTALL_ASSETS = new Set([
+  "command",
+  "oneliner",
+  "github",
+  "copy_terminal",
+  "copy_block",
+  "sample_report",
+]);
 
 const ISSUE_EVENT_TYPES = new Set(["identified", "resolved"]);
 
@@ -267,7 +274,7 @@ function validateInstallIntent(payload) {
     return "session_id required (max 64 chars)";
   }
   if (typeof payload.asset !== "string" || !INSTALL_ASSETS.has(payload.asset)) {
-    return "asset required (command|oneliner|github)";
+    return "asset required (command|oneliner|github|copy_terminal|copy_block|sample_report)";
   }
   if (payload.warrior_ref != null) {
     if (typeof payload.warrior_ref !== "string" || payload.warrior_ref.length > 64) {
