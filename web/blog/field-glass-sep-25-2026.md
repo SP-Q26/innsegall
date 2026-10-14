@@ -1,6 +1,6 @@
 ---
 title: Field Glass Update · September 25, 2026
-description: Macintosh news desk · panic scout UX · Time Machine backup lane · trending threats still map to field guides.
+description: Macintosh news desk · extra scout UX · Time Machine backup lane · trending threats still map to field guides.
 date: 2026-09-25
 slug: field-glass-sep-25-2026
 ---
@@ -9,7 +9,7 @@ slug: field-glass-sep-25-2026
 
 **Innsegall** · *~5 min read*
 
-Calm product desk after a busy week · **easier panic scout checkout** · **backup lane** · threat map unchanged from [Sep 22](/blog/field-glass-sep-22-2026).
+Calm product desk after a busy week · **easier extra scout checkout** · **backup lane** · threat map unchanged from [Sep 22](/blog/field-glass-sep-22-2026).
 
 ---
 
@@ -177,6 +177,50 @@ Full search map lives in [Field Glass · Sep 22](/blog/field-glass-sep-22-2026).
 - **Scared tonight?** · [Send the scout](/alpha)
 - **iPhone/iPad Safari** · [/ios](/ios) · [Clear Safari data](/blog/safari-clear-website-data-iphone-ipad) · [/companion](/companion)
 - **Oct 11 desk** · [Field Glass](/blog/field-glass-oct-11-2026) · [Watch](/watch)
+- **Pricing** · [Supplies](/supplies)
+
+---
+
+## Helpful links
+
+- **Scared tonight?** · [Send the scout](/alpha)
+- **iPhone/iPad Safari** · [/ios](/ios) · [Clear Safari data](/blog/safari-clear-website-data-iphone-ipad) · [/companion](/companion)
+- **AI handoff** · [Paste for assistants](/blog/paste-battle-scout-for-ai-assistant) · [Guide](/guide#ai-handoff)
+- **Oct 14 desk** · [Field Glass](/blog/field-glass-oct-14-2026) · [Watch](/watch)
+- **Lane** · [Is Innsegall for you?](/boat)
+- **Pricing** · [Supplies](/supplies)
+
+---
+
+## Helpful links
+
+- **Scared tonight?** · [Send the scout](/alpha)
+- **iPhone/iPad Safari** · [/ios](/ios) · [Clear Safari data](/blog/safari-clear-website-data-iphone-ipad) · [/companion](/companion)
+- **AI handoff** · [Paste for assistants](/blog/paste-battle-scout-for-ai-assistant) · [Guide](/guide#ai-handoff)
+- **Oct 14 desk** · [Field Glass](/blog/field-glass-oct-14-2026) · [Watch](/watch)
+- **Lane** · [Is Innsegall for you?](/boat)
+- **Pricing** · [Supplies](/supplies)
+
+---
+
+## Helpful links
+
+- **Scared tonight?** · [Send the scout](/alpha)
+- **iPhone/iPad Safari** · [/ios](/ios) · [Clear Safari data](/blog/safari-clear-website-data-iphone-ipad) · [/companion](/companion)
+- **AI handoff** · [Paste for assistants](/blog/paste-battle-scout-for-ai-assistant) · [Guide](/guide#ai-handoff)
+- **Oct 14 desk** · [Field Glass](/blog/field-glass-oct-14-2026) · [Watch](/watch)
+- **Lane** · [Is Innsegall for you?](/boat)
+- **Pricing** · [Supplies](/supplies)
+
+---
+
+## Helpful links
+
+- **Scared tonight?** · [Send the scout](/alpha)
+- **iPhone/iPad Safari** · [/ios](/ios) · [Clear Safari data](/blog/safari-clear-website-data-iphone-ipad) · [/companion](/companion)
+- **AI handoff** · [Paste for assistants](/blog/paste-battle-scout-for-ai-assistant) · [Guide](/guide#ai-handoff)
+- **Oct 14 desk** · [Field Glass](/blog/field-glass-oct-14-2026) · [Watch](/watch)
+- **Lane** · [Is Innsegall for you?](/boat)
 - **Pricing** · [Supplies](/supplies)
 
 ---

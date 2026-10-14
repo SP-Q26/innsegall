@@ -133,6 +133,26 @@
     "field-glass-sep-30-2026": {
       "keywords": "fake virus popup Mac scam season, Field Glass September, post-scare",
       "description": "Field Glass Sep 30 · fake virus popup scam season on Mac · Supplies · backup lane · Oct 1 Voyage · calm post-scare triage · read-only scout · not antivirus."
+    },
+    "mac-screen-sharing-on-without-permission": {
+      "keywords": "Screen Sharing on Mac without permission, port 5900 scare, remote access triage",
+      "description": "Screen Sharing on Mac after a remote-access scam scare? Sharing settings · patch · read-only Battle Scout listeners · calm triage on your Mac · not antivirus."
+    },
+    "mac-keychain-password-popup-loop-scam": {
+      "keywords": "Mac keychain password keeps asking, fake keychain popup, login loop scam",
+      "description": "Mac keychain password popup loop scam? Real Keychain sync vs fake browser dialog · force quit trap · read-only scout · Innsegall field guide · not antivirus."
+    },
+    "mac-browser-full-screen-virus-locker": {
+      "keywords": "Mac browser full screen virus warning, scam page stuck, malvertising locker",
+      "description": "Mac browser stuck on a full-screen virus warning scam? Force quit · Shift-reopen Safari · read-only scout on the Mac · calm post-scare triage · not antivirus."
+    },
+    "mac-apple-id-locked-browser-scam": {
+      "keywords": "Apple ID locked browser scam Mac, phishing sign-in page, fake iCloud alert",
+      "description": "Apple ID locked message in Safari or Chrome on Mac? Browser phishing · verify at appleid.apple.com · rotate password if typed · read-only scout · not antivirus."
+    },
+    "mac-camera-microphone-light-worry": {
+      "keywords": "Mac camera light on, green LED worry, microphone indicator app",
+      "description": "Mac camera or mic indicator on after a scam scare? Control Center names the app · revoke permissions · read-only scout · calm post-scare triage · not antivirus."
     }
   }
 }

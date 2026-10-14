@@ -55,6 +55,14 @@
       "href": "/blog/mac-calendar-spam-invites-scam"
     },
     {
+      "query": "Screen Sharing on without permission",
+      "href": "/blog/mac-screen-sharing-on-without-permission"
+    },
+    {
+      "query": "Keychain password keeps asking Mac",
+      "href": "/blog/mac-keychain-password-popup-loop-scam"
+    },
+    {
       "query": "Fake virus popup Mac",
       "href": "/blog/fake-virus-popup-macintosh"
     },
@@ -93,7 +101,7 @@
   ],
   "scout_trends": [
     {
-      "label": "Remote access panic after scare popup",
+      "label": "Remote access fear after scare popup",
       "href": "/blog/someone-remoted-into-my-mac"
     },
     {

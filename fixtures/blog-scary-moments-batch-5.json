@@ -1,0 +1,126 @@
+{
+  "date": "2026-10-14",
+  "posts": [
+    {
+      "slug": "mac-screen-sharing-on-without-permission",
+      "h1": "Screen Sharing Turned On on My Mac · Calm Remote Access Triage",
+      "cardTitle": "Screen Sharing On Without Permission",
+      "description": "Screen Sharing on Mac without permission? Check Sharing settings · patch macOS · read-only Battle Scout · calm remote access triage · not antivirus.",
+      "agentHint": "Mac screen sharing enabled without me knowing · port 5900 · innsegall.com/blog/mac-screen-sharing-on-without-permission",
+      "cardBlurb": "2026 advisories on exposed Screen Sharing · separate legit use from compromise fear.",
+      "lead": "Security researchers and national agencies have repeatedly warned that <strong>internet-exposed Screen Sharing</strong> on macOS is a real attack path · not a browser popup hoax. Finding the toggle on can feel like someone is already inside your Mac · most of the time you need <strong>settings truth</strong> first.",
+      "shine": "Battle Scout lists <strong>listening services</strong> and remote-management hints read-only · so you can see whether anything besides Apple’s own tools is waiting for connections · without subscribing to fear.",
+      "sections": [
+        {
+          "h": "Check what you actually enabled",
+          "p": "System Settings → <strong>General → Sharing</strong> · note whether <strong>Screen Sharing</strong> or <strong>Remote Management</strong> is on. If you use it for work, leave it · but restrict <strong>who</strong> can connect and turn it off when you do not need it."
+        },
+        {
+          "h": "Why 5900 shows up in the news",
+          "p": "Screen Sharing listens on the network when sharing is enabled. Advisories in 2025–2026 focused on Macs reachable from the public internet · often with weak or missing authentication. Patch via <strong>Software Update</strong> · do not pay a random “support” number from a popup."
+        },
+        {
+          "h": "If someone called and turned it on",
+          "p": "That is a tech-support scam lane · see <a href=\"/blog/someone-remoted-into-my-mac\">someone remoted into my Mac</a> · rotate passwords from a trusted device if you gave control."
+        }
+      ],
+      "cta": "<a class=\"btn-horn btn-horn--compact\" href=\"/alpha\">Send the scout</a> · <a href=\"/blog/someone-remoted-into-my-mac\">Remote access guide</a>"
+    },
+    {
+      "slug": "mac-keychain-password-popup-loop-scam",
+      "h1": "Mac Keeps Asking for Keychain Password · Real Prompt vs Scam",
+      "cardTitle": "Keychain Password Popup Loop",
+      "description": "Mac keychain password keeps popping up? Apple Support and Eclectic Light explain sync vs scam · deny fake dialogs · Innsegall read-only scout after.",
+      "agentHint": "Mac keychain password popup loop · fake keychain dialog · innsegall.com/alpha",
+      "cardBlurb": "Top Apple Community thread · distinguish iCloud Keychain sync from malware theater.",
+      "lead": "A loop of keychain password prompts is one of the most searched Mac anxieties. Sometimes it is a <strong>legitimate sync mismatch</strong> after a password change · sometimes it is a <strong>fake dialog</strong> riding on top of a browser scare.",
+      "shine": "After you close the browser trap, a scout documents <strong>login items, profiles, and recent software</strong> on disk · so you are not guessing whether a persistence item is driving fake prompts.",
+      "sections": [
+        {
+          "h": "Legitimate keychain loops",
+          "p": "If you recently changed your Mac login password, open <strong>Keychain Access</strong> → login keychain → <strong>Change Password for Keychain login</strong> to match · or sign out and back into iCloud Keychain once from System Settings."
+        },
+        {
+          "h": "Fake keychain popups",
+          "p": "Browser full-screen pages that mimic macOS security are <strong>not</strong> the real Keychain. Force quit the browser · do not type your password into a web page. Compare to <a href=\"/blog/fake-virus-popup-macintosh\">fake virus popup on Mac</a>."
+        },
+        {
+          "h": "When to escalate calmly",
+          "p": "If you installed software from a scare page or pasted into Terminal, treat as higher risk · <a href=\"/blog/pasted-terminal-command-mac-scare\">Terminal paste guide</a> · then send the scout."
+        }
+      ]
+    },
+    {
+      "slug": "mac-browser-full-screen-virus-locker",
+      "h1": "Full-Screen “Your Mac Is Infected” Page · The Popup Is the Attack",
+      "cardTitle": "Full-Screen Browser Virus Locker",
+      "description": "Mac browser stuck on virus warning full screen? The page is the scam · Cmd+Q · Shift-reopen Safari · read-only scout · not cleaner subscriptions.",
+      "agentHint": "Mac full screen virus warning browser locked · malvertising · innsegall.com/blog/mac-browser-full-screen-virus-locker",
+      "cardBlurb": "Malvertising locker · users search “can’t close virus page Mac” every week.",
+      "lead": "When a website fills the screen, plays an alarm, and lists a toll-free number, that is <strong>the attack</strong> · not evidence that XProtect failed. Your Mac is usually fine once the tab is gone.",
+      "shine": "Innsegall does not scan inside the browser tab · it answers the next question: <strong>did anything land on the Mac?</strong> Login items, profiles, and listening services become a shareable Battle Scout receipt.",
+      "sections": [
+        {
+          "h": "Escape without paying",
+          "p": "<strong>Force Quit</strong> the browser (Apple menu → Force Quit). On Safari, hold <strong>Shift</strong> when reopening so the trap tab does not restore · <a href=\"/blog/safari-shift-key-scam-popup-mac\">Shift-reopen guide</a>. Chrome: quit and decline “Restore pages” if asked."
+        },
+        {
+          "h": "Do not call the number",
+          "p": "Real Apple support does not lock your browser. See <a href=\"/blog/apple-support-call-popup-scam-mac\">fake Apple support call popup</a>."
+        },
+        {
+          "h": "Macintosh scout",
+          "p": "After the tab is closed, <a href=\"/alpha\">send the scout</a> · paste <strong>Copy for AI</strong> if family or IT wants a second pair of eyes."
+        }
+      ]
+    },
+    {
+      "slug": "mac-apple-id-locked-browser-scam",
+      "h1": "“Apple ID Locked” in the Browser · Not a Real System Alert",
+      "cardTitle": "Apple ID Locked Browser Scam",
+      "description": "Safari or Chrome says Apple ID locked? Browser phishing page · check appleid.apple.com in a new tab · Innsegall field guide · calm Mac scout.",
+      "agentHint": "Apple ID locked popup in browser Mac · phishing · innsegall.com/blog/mac-apple-id-locked-browser-scam",
+      "cardBlurb": "Phishing mimics iCloud sign-in · top search after tax-season and delivery scams.",
+      "lead": "A red banner that says your Apple ID was locked is terrifying when it looks like macOS. If it appeared <strong>inside a website</strong>, it is almost always phishing · not a message from Apple.",
+      "shine": "Scout checks whether <strong>profiles, login items, or unexpected remote tools</strong> appeared after you interacted with the page · turning “I might be hacked” into a short evidence list.",
+      "sections": [
+        {
+          "h": "Verify the real account",
+          "p": "Open a <strong>new tab</strong> yourself · go to <strong>appleid.apple.com</strong> or System Settings → Apple ID. If you can sign in normally, the locker page was theater."
+        },
+        {
+          "h": "If you entered a password on the fake page",
+          "p": "Change your Apple ID password from a trusted device · enable two-factor authentication · review trusted devices. Then read <a href=\"/blog/clicked-suspicious-link-macintosh\">clicked a suspicious link</a>."
+        },
+        {
+          "h": "Scout on the Mac",
+          "p": "<a href=\"/alpha\">Send the scout</a> when you want a local read-only receipt · especially if you downloaded a “fix” offered on the same page."
+        }
+      ]
+    },
+    {
+      "slug": "mac-camera-microphone-light-worry",
+      "h1": "Green Camera Light on Mac · Who Is Watching?",
+      "cardTitle": "Mac Camera / Mic Indicator Worry",
+      "description": "Mac camera light on or orange mic dot? Check Control Center · see which app · quit it · read-only scout for unexpected listeners · calm triage.",
+      "agentHint": "Mac camera light on by itself · microphone indicator · innsegall.com/alpha",
+      "cardBlurb": "Privacy indicator anxiety · searches spike after Zoom-era paranoia.",
+      "lead": "The green camera LED and Control Center mic icon exist so you <strong>see</strong> when software is live · not to accuse you. The fear is valid · the fix is usually <strong>which app</strong>, not a mythical remote hacker.",
+      "shine": "Battle Scout’s read-only pass includes <strong>network listeners and persistence</strong> context · so “is something watching me?” becomes “here is what is running and listening” · not a subscription to dread.",
+      "sections": [
+        {
+          "h": "See which app owns the sensor",
+          "p": "Open <strong>Control Center</strong> while the light is on · check the mic/camera indicator · macOS shows the app name on recent versions. Quit that app · if it is a browser, close the tab."
+        },
+        {
+          "h": "Review permissions",
+          "p": "System Settings → <strong>Privacy & Security → Camera / Microphone</strong> · revoke apps you do not recognize."
+        },
+        {
+          "h": "When to run a scout",
+          "p": "If the light returns with no app named, or you recently installed software from a scare page, <a href=\"/alpha\">send the scout</a> · share the HTML with IT or <strong>Copy for AI</strong>."
+        }
+      ]
+    }
+  ]
+}

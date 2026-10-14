@@ -36,7 +36,7 @@ check("llms privacy section", llms.includes("Privacy promise"));
 const privacy = readFileSync(join(web, "privacy.html"), "utf8");
 check("privacy local-first", privacy.includes("local-first"));
 check("privacy no upload Layer 1", privacy.includes("do <strong>not</strong> upload"));
-check("privacy panic scout section", privacy.includes("Panic scout") || privacy.includes("panic scout"));
+check("privacy extra scout section", privacy.includes("Extra scout") || privacy.includes("extra scout"));
 
 const index = readFileSync(join(web, "index.html"), "utf8");
 check("index pricing privacy note", /locally on your Macintosh/i.test(index));

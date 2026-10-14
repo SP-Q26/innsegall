@@ -108,7 +108,7 @@
   function defaultLabel(btn, sku) {
     if (sku === "clan") return "Bring your clan";
     if (sku === "msp") return "Open MSP toll gate";
-    return "One panic scout · $4.20";
+    return "Extra scout · $4.20";
   }
 
   async function startCheckout(btn) {

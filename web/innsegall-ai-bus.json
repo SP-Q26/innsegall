@@ -39,7 +39,7 @@
     },
     "extra_run": {
       "usd": 4.2,
-      "note": "One panic scout anytime · one-time · non-refundable once license delivers"
+      "note": "One extra scout anytime · one-time · non-refundable once license delivers"
     },
     "clan": {
       "usd_monthly": 6.67,
@@ -55,7 +55,7 @@
   "privacy_promise": {
     "headline": "Runs on your Mac · you choose what leaves",
     "scout_runs": "Every check runs read-only on your Mac. Innsegall does not receive your files, passwords, browsing history, or report contents.",
-    "panic_extra": "The $4.20 extra check uses the same on-Mac engine · payment only unlocks another run on your device.",
+    "extra_scout": "The $4.20 extra scout uses the same on-Mac engine · you pay to end the not-knowing, not to buy more fear.",
     "telemetry": "Anonymous improvement telemetry is on by default · category counts only · never your Battle Scout · we don't want your data · only what helps improve the tools · opt out: innsegall plan --telemetry-off or INNSEGALL_TELEMETRY=0 · innsegall.com/privacy",
     "sharing": "You choose export, sharing with family, or AI paste · never automatic.",
     "billing": "Stripe sees payment metadata only · not your scout contents."
@@ -99,7 +99,7 @@
     "name": "Scheduled checkups",
     "schedule": "1st and 15th of each month",
     "what_happens": "Twice a month (1st & 15th) Innsegall runs a read-only check · opens your report in the browser · your chart shows if anything drifts over time",
-    "chart": "A simple history on your Mac · spot small changes before they become panic",
+    "chart": "A simple history on your Mac · spot small changes before they snowball",
     "install_schedule": "Automatic on first install (innsegall bootstrap) · or innsegall voyage --install-schedule · 10:00 local on voyage days via launchd"
   },
   "agent_read_order": [

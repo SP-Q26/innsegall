@@ -24,7 +24,7 @@ export const MAC_USER_COPY = {
     name: "Scheduled checkups",
     what_happens:
       "Twice a month (1st & 15th) Innsegall runs a read-only check · opens your report in the browser · your chart shows if anything drifts over time",
-    chart: "A simple history on your Mac · spot small changes before they become panic",
+    chart: "A simple history on your Mac · spot small changes before they snowball",
   },
   battle_report_ai: {
     headline: "Paste your report into any AI",
@@ -41,8 +41,8 @@ export const MAC_USER_COPY = {
     headline: "Runs on your Mac · you choose what leaves",
     scout_runs:
       "Every check runs read-only on your Mac. Innsegall does not receive your files, passwords, browsing history, or report contents.",
-    panic_extra:
-      "The $4.20 extra check uses the same on-Mac engine · payment only unlocks another run on your device.",
+    extra_scout:
+      "The $4.20 extra scout uses the same on-Mac engine · you pay to end the not-knowing, not to buy more fear.",
     sharing: "You choose export, sharing with family, or AI paste · never automatic.",
   },
   clan: {

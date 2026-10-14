@@ -56,7 +56,7 @@ We hear that shape of sentence a lot in alpha:
 | Passage | Price | What you get |
 |---------|-------|----------------|
 | **Free** | $0 | Two voyages/month (1st & 15th) · welcome scout · local chart |
-| **Panic scout** | $4.20 once | One off-calendar run when life is messy |
+| **Extra scout** | $4.20 once | One off-calendar run when life is messy |
 | **Clan passage** | $6.67/mo | Unlimited scouts · **five seats** · Mon/Thu auto voyage on roster Macs |
 
 If five dollars is your mental anchor for “automatic peace,” **clan passage** is in that neighborhood · with seats for family or a small shop. We are not trying to maximize panic · we are trying to **replace it** with a chart.
@@ -238,6 +238,50 @@ On phone: [companion inbox](https://innsegall.com/companion) · import **Copy fo
 - **Scared tonight?** · [Send the scout](/alpha)
 - **iPhone/iPad Safari** · [/ios](/ios) · [Clear Safari data](/blog/safari-clear-website-data-iphone-ipad) · [/companion](/companion)
 - **Oct 11 desk** · [Field Glass](/blog/field-glass-oct-11-2026) · [Watch](/watch)
+- **Pricing** · [Supplies](/supplies)
+
+---
+
+## Helpful links
+
+- **Scared tonight?** · [Send the scout](/alpha)
+- **iPhone/iPad Safari** · [/ios](/ios) · [Clear Safari data](/blog/safari-clear-website-data-iphone-ipad) · [/companion](/companion)
+- **AI handoff** · [Paste for assistants](/blog/paste-battle-scout-for-ai-assistant) · [Guide](/guide#ai-handoff)
+- **Oct 14 desk** · [Field Glass](/blog/field-glass-oct-14-2026) · [Watch](/watch)
+- **Lane** · [Is Innsegall for you?](/boat)
+- **Pricing** · [Supplies](/supplies)
+
+---
+
+## Helpful links
+
+- **Scared tonight?** · [Send the scout](/alpha)
+- **iPhone/iPad Safari** · [/ios](/ios) · [Clear Safari data](/blog/safari-clear-website-data-iphone-ipad) · [/companion](/companion)
+- **AI handoff** · [Paste for assistants](/blog/paste-battle-scout-for-ai-assistant) · [Guide](/guide#ai-handoff)
+- **Oct 14 desk** · [Field Glass](/blog/field-glass-oct-14-2026) · [Watch](/watch)
+- **Lane** · [Is Innsegall for you?](/boat)
+- **Pricing** · [Supplies](/supplies)
+
+---
+
+## Helpful links
+
+- **Scared tonight?** · [Send the scout](/alpha)
+- **iPhone/iPad Safari** · [/ios](/ios) · [Clear Safari data](/blog/safari-clear-website-data-iphone-ipad) · [/companion](/companion)
+- **AI handoff** · [Paste for assistants](/blog/paste-battle-scout-for-ai-assistant) · [Guide](/guide#ai-handoff)
+- **Oct 14 desk** · [Field Glass](/blog/field-glass-oct-14-2026) · [Watch](/watch)
+- **Lane** · [Is Innsegall for you?](/boat)
+- **Pricing** · [Supplies](/supplies)
+
+---
+
+## Helpful links
+
+- **Scared tonight?** · [Send the scout](/alpha)
+- **iPhone/iPad Safari** · [/ios](/ios) · [Clear Safari data](/blog/safari-clear-website-data-iphone-ipad) · [/companion](/companion)
+- **AI handoff** · [Paste for assistants](/blog/paste-battle-scout-for-ai-assistant) · [Guide](/guide#ai-handoff)
+- **Oct 14 desk** · [Field Glass](/blog/field-glass-oct-14-2026) · [Watch](/watch)
+- **Lane** · [Is Innsegall for you?](/boat)
 - **Pricing** · [Supplies](/supplies)
 
 ---

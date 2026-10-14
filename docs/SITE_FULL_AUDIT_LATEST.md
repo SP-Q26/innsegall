@@ -10,11 +10,11 @@
 
 | Metric | Count |
 |--------|------:|
-| HTML surfaces | 81 |
-| Indexable marketing + blog | 79 |
-| Blog posts | 61 |
+| HTML surfaces | 86 |
+| Indexable marketing + blog | 84 |
+| Blog posts | 66 |
 | P0 inventory issues | 0 |
-| Sitemap URLs | 88 |
+| Sitemap URLs | 93 |
 
 **Operator:** Stripe LIVE flip in progress · push `main` after `npm run predeploy` · blog is primary float-mode SEO lever.
 
@@ -63,10 +63,15 @@
 | `/blog/innsegall-vs-mac-cleaners` | ✓ | ✓ | ✓ | ✓ | 146 | ok |
 | `/blog/join-the-innsegall-clan` | ✓ | ✓ | ✓ | ✓ | 148 | ok |
 | `/blog/knockknock-vs-post-scare-triage` | ✓ | ✓ | ✓ | ✓ | 140 | ok |
+| `/blog/mac-apple-id-locked-browser-scam` | ✓ | ✓ | ✓ | ✓ | 160 | ok |
+| `/blog/mac-browser-full-screen-virus-locker` | ✓ | ✓ | ✓ | ✓ | 158 | ok |
 | `/blog/mac-calendar-spam-invites-scam` | ✓ | ✓ | ✓ | ✓ | 156 | ok |
+| `/blog/mac-camera-microphone-light-worry` | ✓ | ✓ | ✓ | ✓ | 160 | ok |
 | `/blog/mac-configuration-profile-scam` | ✓ | ✓ | ✓ | ✓ | 160 | ok |
 | `/blog/mac-dns-changed-after-scare` | ✓ | ✓ | ✓ | ✓ | 154 | ok |
+| `/blog/mac-keychain-password-popup-loop-scam` | ✓ | ✓ | ✓ | ✓ | 157 | ok |
 | `/blog/mac-performance-panic-vs-security-panic` | ✓ | ✓ | ✓ | ✓ | 140 | ok |
+| `/blog/mac-screen-sharing-on-without-permission` | ✓ | ✓ | ✓ | ✓ | 158 | ok |
 | `/blog/mac-slow-after-suspicious-download` | ✓ | ✓ | ✓ | ✓ | 155 | ok |
 | `/blog/macintosh-hygiene-without-antivirus` | ✓ | ✓ | ✓ | ✓ | 148 | ok |
 | `/blog/macintosh-xprotect-after-scare` | ✓ | ✓ | ✓ | ✓ | 153 | ok |
@@ -93,14 +98,14 @@
 | `/companion` | ✓ | ✓ | · | · | 152 | ok |
 | `/guide` | ✓ | ✓ | · | · | 119 | ok |
 | `/install` | ✓ | ✓ | · | · | 120 | ok |
-| `/ios` | ✓ | ✓ | · | · | 159 | ok |
+| `/ios` | ✓ | ✓ | · | · | 158 | ok |
 | `/map` | ✓ | ✓ | · | · | 137 | ok |
 | `/msp` | ✓ | ✓ | · | · | 139 | ok |
 | `/privacy` | ✓ | ✓ | · | · | 153 | ok |
 | `/stability` | ✓ | ✓ | · | · | 125 | ok |
 | `/success` | no | ✗ | · | · | 101 | ok |
 | `/supplies` | ✓ | ✓ | · | · | 127 | ok |
-| `/tablet` | ✓ | ✓ | · | · | 161 | ok |
+| `/tablet` | ✓ | ✓ | · | · | 145 | ok |
 | `/tos` | ✓ | ✓ | · | · | 143 | ok |
 | `/warriors` | ✓ | ✓ | · | · | 140 | ok |
 | `/watch` | ✓ | ✓ | · | · | 162 | ok |

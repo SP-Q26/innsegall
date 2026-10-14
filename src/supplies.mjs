@@ -6,10 +6,10 @@ import { PRICING } from "./constants.mjs";
 export const SUPPLY_SKUS = {
   extra: {
     sku: "extra",
-    title: "Panic scout",
-    line: "One horn credit when the moon is wrong · runs locally after import",
+    title: "Extra scout",
+    line: "One read-only check when free Voyages are spent · runs locally after import",
     priceLabel: `$${PRICING.extra_run.usd.toFixed(2)}`,
-    aliases: ["panic", "scout"],
+    aliases: ["extra", "scout", "panic"],
   },
   clan: {
     sku: "clan",
@@ -43,8 +43,8 @@ export function supplyTitle(sku) {
 export function suppliesTerminalHelp() {
   return [
     "Supplies for the road · Stripe Checkout (hosted by Stripe):",
-    "  innsegall scout            · panic scout (opens checkout when quota blocks)",
-    "  innsegall supplies extra   · panic scout",
+    "  innsegall scout            · extra scout (opens checkout when quota blocks)",
+    "  innsegall supplies extra   · extra scout",
     "  innsegall supplies clan     · clan passage",
     "  innsegall supplies msp      · MSP seats (set quantity in browser)",
     "  innsegall open supplies     · same toll gate on innsegall.com",

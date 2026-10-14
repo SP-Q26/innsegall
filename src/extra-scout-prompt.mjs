@@ -1,5 +1,5 @@
 /**
- * Mist gate · extra panic scout without copy-paste URLs.
+ * Mist gate · extra scout without copy-paste URLs.
  * TTY: press 1 or type scout → Stripe Checkout in browser.
  */
 import readline from "node:readline";
@@ -11,10 +11,10 @@ import {
   showBackupPlaybookTerminal,
 } from "./backup-playbook.mjs";
 
-export const EXTRA_SCOUT_MENU_LINE = `Need a panic scout · $${PRICING.extra_run.usd.toFixed(2)} · press 1 or type scout`;
+export const EXTRA_SCOUT_MENU_LINE = `Need an extra scout · $${PRICING.extra_run.usd.toFixed(2)} · press 1 or type scout`;
 
 export function extraScoutCliHint() {
-  return "Panic scout · innsegall scout  (or press 1 at the mist gate)";
+  return "Extra scout · innsegall scout  (or press 1 at the mist gate)";
 }
 
 export function extraScoutAfterPayHint() {

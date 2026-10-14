@@ -152,7 +152,7 @@ export const INNSEGALL_GOSPEL = {
     },
     extra_run: {
       usd: PRICING.extra_run.usd,
-      note: "One panic scout anytime · one-time · non-refundable once license delivers",
+      note: "One extra scout anytime · one-time · non-refundable once license delivers",
     },
     clan: {
       usd_monthly: PRICING.clan.usd_monthly,
@@ -245,7 +245,7 @@ export const INNSEGALL_GOSPEL = {
   privacy_promise: {
     headline: MAC_USER_COPY.privacy.headline,
     scout_runs: MAC_USER_COPY.privacy.scout_runs,
-    panic_extra: MAC_USER_COPY.privacy.panic_extra,
+    extra_scout: MAC_USER_COPY.privacy.extra_scout,
     telemetry:
       "Anonymous improvement telemetry is on by default · category counts only · never your Battle Scout · we don't want your data · only what helps improve the tools · opt out: innsegall plan --telemetry-off or INNSEGALL_TELEMETRY=0 · innsegall.com/privacy",
     sharing: MAC_USER_COPY.privacy.sharing,
@@ -581,7 +581,7 @@ ${INNSEGALL_GOSPEL.install.steps.map((s) => `- ${s}`).join("\n")}
 
 ## Pricing
 - Free: 2 Voyages on the 1st & 15th · Voyage chart included
-- Extra scout: $${PRICING.extra_run.usd.toFixed(2)} · panic scout · same local engine
+- Extra scout: $${PRICING.extra_run.usd.toFixed(2)} · same local engine · pay to end not-knowing
 - Clan: $${PRICING.clan.usd_monthly}/mo · ${PRICING.clan.seats} seats · unlimited
 
 ## Battle Scout · arm any AI (from anywhere)
@@ -594,7 +594,7 @@ ${INNSEGALL_GOSPEL.battle_report_ai.steps.map((s) => `- ${s}`).join("\n")}
 ## Privacy promise (local-first)
 - ${INNSEGALL_GOSPEL.privacy_promise.headline}
 - ${INNSEGALL_GOSPEL.privacy_promise.scout_runs}
-- ${INNSEGALL_GOSPEL.privacy_promise.panic_extra}
+- ${INNSEGALL_GOSPEL.privacy_promise.extra_scout}
 - ${INNSEGALL_GOSPEL.privacy_promise.telemetry}
 - ${INNSEGALL_GOSPEL.privacy_promise.sharing}
 - Policy: ${PRICING.site_url}/privacy
@@ -651,9 +651,16 @@ ${(INNSEGALL_GOSPEL.ai_triage_onboarding.complementary_tools || [])
 - Calendar spam invites: ${PRICING.site_url}/blog/mac-calendar-spam-invites-scam
 - Tech-support popup scam: ${PRICING.site_url}/blog/apple-support-call-popup-scam-mac
 - Terminal paste scam: ${PRICING.site_url}/blog/pasted-terminal-command-mac-scare
-- Remote access panic: ${PRICING.site_url}/blog/someone-remoted-into-my-mac
+- Remote access scare: ${PRICING.site_url}/blog/someone-remoted-into-my-mac
 - Fake virus popup (Mac): ${PRICING.site_url}/blog/fake-virus-popup-macintosh
 - Index: ${PRICING.site_url}/blog
+
+## Scary moments · Oct 2026 search audit (real queries · field guides)
+- Screen Sharing on without permission: ${PRICING.site_url}/blog/mac-screen-sharing-on-without-permission
+- Keychain password popup loop: ${PRICING.site_url}/blog/mac-keychain-password-popup-loop-scam
+- Full-screen browser virus locker: ${PRICING.site_url}/blog/mac-browser-full-screen-virus-locker
+- Apple ID locked in browser: ${PRICING.site_url}/blog/mac-apple-id-locked-browser-scam
+- Camera / mic indicator worry: ${PRICING.site_url}/blog/mac-camera-microphone-light-worry
 
 ## Chrome on Mac field guides (many desktops use Chrome)
 - Mac Chrome fake virus popup: ${PRICING.site_url}/blog/chrome-fake-virus-popup-mac

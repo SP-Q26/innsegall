@@ -57,7 +57,7 @@
 
 ## Pricing
 - Free: 2 Voyages on the 1st & 15th · Voyage chart included
-- Extra scout: $4.20 · panic scout · same local engine
+- Extra scout: $4.20 · same local engine · pay to end not-knowing
 - Clan: $6.67/mo · 5 seats · unlimited
 
 ## Battle Scout · arm any AI (from anywhere)
@@ -73,7 +73,7 @@
 ## Privacy promise (local-first)
 - Runs on your Mac · you choose what leaves
 - Every check runs read-only on your Mac. Innsegall does not receive your files, passwords, browsing history, or report contents.
-- The $4.20 extra check uses the same on-Mac engine · payment only unlocks another run on your device.
+- The $4.20 extra scout uses the same on-Mac engine · you pay to end the not-knowing, not to buy more fear.
 - Anonymous improvement telemetry is on by default · category counts only · never your Battle Scout · we don't want your data · only what helps improve the tools · opt out: innsegall plan --telemetry-off or INNSEGALL_TELEMETRY=0 · innsegall.com/privacy
 - You choose export, sharing with family, or AI paste · never automatic.
 - Policy: https://innsegall.com/privacy
@@ -138,9 +138,16 @@
 - Calendar spam invites: https://innsegall.com/blog/mac-calendar-spam-invites-scam
 - Tech-support popup scam: https://innsegall.com/blog/apple-support-call-popup-scam-mac
 - Terminal paste scam: https://innsegall.com/blog/pasted-terminal-command-mac-scare
-- Remote access panic: https://innsegall.com/blog/someone-remoted-into-my-mac
+- Remote access scare: https://innsegall.com/blog/someone-remoted-into-my-mac
 - Fake virus popup (Mac): https://innsegall.com/blog/fake-virus-popup-macintosh
 - Index: https://innsegall.com/blog
+
+## Scary moments · Oct 2026 search audit (real queries · field guides)
+- Screen Sharing on without permission: https://innsegall.com/blog/mac-screen-sharing-on-without-permission
+- Keychain password popup loop: https://innsegall.com/blog/mac-keychain-password-popup-loop-scam
+- Full-screen browser virus locker: https://innsegall.com/blog/mac-browser-full-screen-virus-locker
+- Apple ID locked in browser: https://innsegall.com/blog/mac-apple-id-locked-browser-scam
+- Camera / mic indicator worry: https://innsegall.com/blog/mac-camera-microphone-light-worry
 
 ## Chrome on Mac field guides (many desktops use Chrome)
 - Mac Chrome fake virus popup: https://innsegall.com/blog/chrome-fake-virus-popup-mac

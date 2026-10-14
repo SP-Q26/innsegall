@@ -10,7 +10,7 @@ export const STRIPE_CATALOG = {
     sku: "extra",
     name: "Innsegall Extra Scout",
     description:
-      "One extra panic Battle Scout run beyond free Voyage quota. Local-first · license delivered on success page.",
+      "One extra Battle Scout run beyond free Voyage quota. Local-first · license delivered on success page.",
     unit_amount: 420,
     currency: "usd",
     mode: "payment",

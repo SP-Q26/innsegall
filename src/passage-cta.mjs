@@ -19,7 +19,7 @@ export function formatPassageUpsellTerminal(verdict) {
   return [
     "",
     lead,
-    `  Panic scout · $${PRICING.extra_run.usd.toFixed(2)} · innsegall scout`,
+    `  Extra scout · $${PRICING.extra_run.usd.toFixed(2)} · innsegall scout`,
     `  Clan · $${PRICING.clan.usd_monthly.toFixed(2)}/mo · ${PRICING.clan.seats} seats · innsegall supplies clan`,
     `  After checkout · innsegall import · innsegall run`,
   ].join("\n");
@@ -31,7 +31,7 @@ export function renderPassageUpsellSection(card) {
   const hot = card.verdict === "ESCALATE";
   const headline = hot ? "Keep a receipt lane open" : "If this keeps happening";
   const dek = hot
-    ? "Free Voyages sail the 1st & 15th. After tonight, panic runs or clan seats keep scouts available without another scareware subscription."
+    ? "Free Voyages sail the 1st & 15th. After tonight, an extra scout or clan seats keep evidence available without another scareware subscription."
     : "You fixed tonight's list. Clan gives unlimited scouts and shared HTML receipts for your roster.";
 
   return `<section id="passage-tier" class="section passage-upsell${hot ? " passage-upsell--hot" : ""}" aria-labelledby="passage-tier-title">
@@ -46,7 +46,7 @@ export function renderPassageUpsellSection(card) {
           <li><strong>Clan</strong> · $${PRICING.clan.usd_monthly.toFixed(2)}/mo · ${PRICING.clan.seats} seats · unlimited</li>
         </ul>
         <div class="passage-tier-actions">
-          <a class="passage-checkout-btn passage-checkout-btn--secondary" href="${site}/?buy=extra">Panic scout · $${PRICING.extra_run.usd.toFixed(2)}</a>
+          <a class="passage-checkout-btn passage-checkout-btn--secondary" href="${site}/?buy=extra">Extra scout · $${PRICING.extra_run.usd.toFixed(2)}</a>
           <a class="passage-checkout-btn" href="${site}/clan?buy=clan">Clan · $${PRICING.clan.usd_monthly.toFixed(2)}/mo</a>
         </div>
         <p class="muted" style="margin-top:0.75rem;font-size:0.9rem">Not antivirus · read-only triage · you import <code>innsegall-license.json</code> locally after Stripe.</p>

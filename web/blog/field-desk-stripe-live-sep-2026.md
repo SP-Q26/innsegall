@@ -1,6 +1,6 @@
 ---
 title: Field Desk · Stripe Live This Weekend
-description: Innsegall checkout goes live on Stripe · panic scout, clan, MSP · same local engine · Supplies checkout guide.
+description: Innsegall checkout goes live on Stripe · extra scout, clan, MSP · same local engine · Supplies checkout guide.
 date: 2026-09-18
 slug: field-desk-stripe-live-sep-2026
 keywords: Innsegall checkout, Mac security scout price, clan subscription Macintosh
@@ -25,7 +25,7 @@ This is an **operator desk note**, not a threat bulletin. Checkout moves from **
 
 | SKU | Price | Lane |
 |-----|-------|------|
-| Extra panic scout | $4.20 one-time | Same read-only engine · quota on device |
+| Extra scout | $4.20 one-time | Same read-only engine · quota on device |
 | Innsegall clan | $6.67/mo | 5 seats · unlimited scouts · autopilot Mon & Thu |
 | MSP seat pack | $3.00/seat/mo | Client fleets · same Battle Scout receipts |
 

@@ -271,7 +271,7 @@ export function formatQuotaBlocked(q, d = new Date(), reason = "limit_reached") 
     `Welcome scout · ${q.welcome_scout_redeemed ? "redeemed" : "ready (one free run any day)"}`,
     `Horn credits · ${Math.max(0, (q.extra_credits || 0) - (q.extra_used || 0))}`,
     "",
-    "Need a panic scout · press 1 at the mist gate, or:",
+    "Need an extra scout · press 1 at the mist gate, or:",
     `  innsegall scout   (opens Stripe Checkout · $${PRICING.extra_run.usd.toFixed(2)})`,
     `  innsegall supplies extra   (alias: innsegall buy extra)`,
     `  After pay · innsegall import`,

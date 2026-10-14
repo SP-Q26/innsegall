@@ -21,6 +21,7 @@ execSync("node scripts/sync-watch-hub.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-ios-tablet-panic.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/build-ios-seo-batch.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/build-chrome-mac-seo-batch.mjs", { cwd: root, stdio: "inherit" });
+execSync("node scripts/build-scary-moments-batch-5.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-field-desk.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-intro-leads.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-spam-scam-seo.mjs", { cwd: root, stdio: "inherit" });

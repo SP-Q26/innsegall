@@ -97,9 +97,10 @@ export const PRICING = {
     note: "2 Voyages on the 1st & 15th · app free",
   },
   extra_run: {
-    label: "One run",
+    label: "Extra scout",
     usd: 4.2,
-    note: "Extra scout when free quota is used",
+    note: "One extra read-only check when free Voyages are spent · calm evidence, not more fear",
+    checkout_cta: "Extra scout · $4.20",
   },
   clan: {
     label: "Clan",

@@ -38,6 +38,12 @@ const REPLACEMENTS = [
   ["Open full demo</a> · public LIKELY_OK sample · not your Macintosh", "Open sample report</a> · demo only · not your Mac"],
   ["Open full demo</a> · not your Macintosh", "Open sample report</a> · not your Mac"],
   ["Field Report · category counts only · Voyage on the 1st &amp; 15th.", "Help articles · privacy-first · free checkups on the 1st &amp; 15th."],
+  ["One panic scout", "One extra scout"],
+  ["panic scout", "extra scout"],
+  ["Panic scout", "Extra scout"],
+  ["panic fees", "extra scout fees"],
+  ["panic subscriptions", "fear subscriptions"],
+  ["Innsegall supplies: panic scout", "Innsegall supplies: extra scout"],
 ];
 
 function walk(dir) {

@@ -132,7 +132,7 @@ if "${INNSEGALL_BIN}" bootstrap; then
   echo "  innsegall plan    · oath ledger (read before innsegall run)"
   echo "  innsegall run     · send the scout when plan allows"
   echo ""
-  echo "  Panic scout · \$4.20 when quota is full:"
+  echo "  Extra scout · \$4.20 when quota is full:"
   echo "    innsegall scout     (opens Stripe in your browser)"
   echo "    innsegall import    (after payment)"
   echo "    innsegall run"

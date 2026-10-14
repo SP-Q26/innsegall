@@ -20,6 +20,7 @@ run("node scripts/build-seo-batch-20.mjs");
 run("node scripts/build-competitor-absorption-posts.mjs");
 run("node scripts/build-ios-seo-batch.mjs");
 run("node scripts/build-chrome-mac-seo-batch.mjs");
+run("node scripts/build-scary-moments-batch-5.mjs");
 run("node scripts/sync-blog-field-desk.mjs");
 run("node scripts/sync-blog-intro-leads.mjs");
 run("node scripts/sync-blog-spam-scam-seo.mjs");

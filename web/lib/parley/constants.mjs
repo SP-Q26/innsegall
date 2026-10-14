@@ -17,7 +17,7 @@ export const CLAYMORE = " · ";
 export const CTA = {
   /** Primary onboarding action (Send the scout · not legacy generic CTA) */
   SEND_SCOUT: "Send the scout",
-  SEND_SCOUT_SUB: "Read the lay of the land on your Macintosh · two minutes · no upload",
+  SEND_SCOUT_SUB: "A calm read-only check on your Mac · about two minutes · stays local",
   COPY_FOR_AI: "Copy for AI",
   COPY_FOR_AI_HINT:
     "One click · paste into ChatGPT, Claude, Gemini, or any assistant.",
@@ -28,8 +28,8 @@ export const CTA = {
     "Copied · paste into ChatGPT, Claude, or your team chat",
   DOWNLOAD_REPORT: "Download report",
   DOWNLOAD_REPORT_HINT: "Plain-text file for email, Notes, or your IT person",
-  FIELD_MANUAL: "Field manual",
-  ALPHA_TITLE: "Bring the scout aboard",
+  FIELD_MANUAL: "Get started",
+  ALPHA_TITLE: "Install on your Mac",
   SCOUT_FREE: "Scout free",
 };
 
@@ -97,9 +97,10 @@ export const PRICING = {
     note: "2 Voyages on the 1st & 15th · app free",
   },
   extra_run: {
-    label: "One run",
+    label: "Extra scout",
     usd: 4.2,
-    note: "Extra scout when free quota is used",
+    note: "One extra read-only check when free Voyages are spent · calm evidence, not more fear",
+    checkout_cta: "Extra scout · $4.20",
   },
   clan: {
     label: "Clan",

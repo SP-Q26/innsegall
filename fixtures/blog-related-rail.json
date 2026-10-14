@@ -165,6 +165,31 @@
       { "href": "/blog/chrome-fake-virus-popup-mac", "label": "Chrome popup guide" },
       { "href": "/blog/macintosh-hygiene-without-antivirus", "label": "Hygiene without AV" },
       { "href": "/blog/what-is-a-battle-scout", "label": "Battle Scout" }
+    ],
+    "mac-screen-sharing-on-without-permission": [
+      { "href": "/blog/someone-remoted-into-my-mac", "label": "Remote access guide" },
+      { "href": "/blog/mac-configuration-profile-scam", "label": "Configuration profiles" },
+      { "href": "/alpha", "label": "Send the scout" }
+    ],
+    "mac-keychain-password-popup-loop-scam": [
+      { "href": "/blog/fake-virus-popup-macintosh", "label": "Fake virus popup" },
+      { "href": "/blog/mac-browser-full-screen-virus-locker", "label": "Browser locker" },
+      { "href": "/alpha", "label": "Send the scout" }
+    ],
+    "mac-browser-full-screen-virus-locker": [
+      { "href": "/blog/safari-shift-key-scam-popup-mac", "label": "Safari Shift-reopen" },
+      { "href": "/blog/chrome-fake-virus-popup-mac", "label": "Chrome popup" },
+      { "href": "/alpha", "label": "Send the scout" }
+    ],
+    "mac-apple-id-locked-browser-scam": [
+      { "href": "/blog/clicked-suspicious-link-macintosh", "label": "Suspicious link" },
+      { "href": "/blog/apple-support-call-popup-scam-mac", "label": "Fake support call" },
+      { "href": "/alpha", "label": "Send the scout" }
+    ],
+    "mac-camera-microphone-light-worry": [
+      { "href": "/blog/someone-remoted-into-my-mac", "label": "Remote access fear" },
+      { "href": "/blog/macintosh-hygiene-without-antivirus", "label": "Hygiene without AV" },
+      { "href": "/alpha", "label": "Send the scout" }
     ]
   }
 }
