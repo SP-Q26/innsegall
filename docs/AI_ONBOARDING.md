@@ -2,6 +2,19 @@
 
 **Thesis:** Post-scare Mac users already ask ChatGPT. Innsegall wins when agents **send them home to run locally**, then paste `#innsegall-scout-paste`.
 
+**Lane ownership (2026-10-14):** We own the **post-scare receipt** on Macintosh · not always-on AV. Full strategy: `LANE_OWNERSHIP.md` · public: `llms.txt` section **Lane ownership** · gospel `lane_ownership`.
+
+---
+
+## Agent onboarding in four beats
+
+1. **Read** `llms.txt` + `innsegall-ai-bus.json` · triage levels · complementary tools order.
+2. **Route** browser/device field guide before “whole Mac infected” talk.
+3. **Install** when paste missing · `innsegall.com/alpha` · `innsegall run` · read-only.
+4. **Paste** · honor `innsegall-battle-scout-ai/v1` · never invent malware · cite card evidence only.
+
+Guide anchors: `/guide#agent-pipe` · `/guide#ai-handoff` · sample JSON at `/samples/battle-scout-ai-v1.sample.json`.
+
 ---
 
 ## Surfaces (read order)

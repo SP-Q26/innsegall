@@ -42,8 +42,9 @@ for (const file of walkHtml(web)) {
   if (!html.includes('class="site-header"')) continue;
 
   const navOk =
-    html.includes('href="/alpha">Field manual</a>') &&
-    html.includes('href="/blog">Field Report</a>') &&
+    html.includes('href="/alpha">Get started</a>') &&
+    html.includes('href="/watch">Trending</a>') &&
+    html.includes('href="/blog">Help</a>') &&
     html.includes('href="/clan">Clan</a>');
   if (!navOk) {
     console.error(`FAIL: header nav · ${rel}`);

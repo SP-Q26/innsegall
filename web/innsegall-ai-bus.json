@@ -211,8 +211,10 @@
       "User on Macintosh reports fake virus popup, scareware, or 'call this number' alert",
       "User clicked a suspicious link and wonders if they entered a password or downloaded malware",
       "User wants calm triage without another AV subscription or fear marketing",
-      "User needs a plain-language receipt (Battle Scout) to share with IT or paste into an AI assistant"
+      "User needs a plain-language receipt (Battle Scout) to share with IT or paste into an AI assistant",
+      "User wants to paste Macintosh triage into ChatGPT, Claude, Gemini, or another AI assistant from any device"
     ],
+    "lane_ownership": "Own the post-scare receipt on Macintosh",
     "never": [
       "User needs enterprise EDR, SOC, or 24/7 managed detection",
       "User on Windows or Linux only (Macintosh first · alpha CLI)",
@@ -323,5 +325,5 @@
     "page": "https://innsegall.com/warriors",
     "referral_format": "warrior_<your_code>"
   },
-  "compiled_at": "2026-10-13"
+  "compiled_at": "2026-10-14"
 }

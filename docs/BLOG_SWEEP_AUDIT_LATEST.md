@@ -1,8 +1,8 @@
 # Blog sweep audit · latest
 
-**Run:** 2026-10-13 · `npm run sweep:blog` (or manual chain below)  
-**Posts:** 60 · **Field desk:** `fixtures/blog-field-desk.json` v**2026-10-11**  
-**Latest Field Glass:** `/blog/field-glass-oct-11-2026` (cadence gate green)
+**Run:** 2026-10-14 · blog + watch + gospel lane sweep  
+**Posts:** 61 · **Field desk:** `fixtures/blog-field-desk.json` v**2026-10-14**  
+**Latest Field Glass:** `/blog/field-glass-oct-14-2026` (cadence gate green)
 
 ---
 
@@ -15,8 +15,9 @@
 | `audit:blog-intro-leads` | pass |
 | `audit-field-glass-cadence` | pass |
 | `audit-vercel-routes` | pass |
-| `audit:seo` + structured data | pass |
-| `audit:site` | **80** pages · **1** P0 (non-blog: `/install` meta 111ch) |
+| `audit:site` | **81** pages · **0** P0 |
+| `audit:site-performance` | pass · defer nav/checkout · CSS cache · `content-visibility` |
+| `audit-swarm` | pass (after nav/lane/guide/legal alignment) |
 
 ---
 
@@ -38,17 +39,15 @@ After sweep: `node scripts/sync-gospel-web.mjs` if llms/gospel blog URLs changed
 cd innsegall
 npm run sweep:blog
 node scripts/sync-gospel-web.mjs
-npm run audit:launch   # optional full repo swarm
-git add web/blog fixtures docs/SITE_FULL_AUDIT_LATEST.md docs/BLOG_SWEEP_AUDIT_LATEST.md
+npm run preflight
+npm run gate:launch
+git add web/blog fixtures web/guide.html web/install.html web/privacy.html web/tos.html scripts docs/SITE_FULL_AUDIT_LATEST.md docs/BLOG_SWEEP_AUDIT_LATEST.md
 # commit + push when ready
 ```
 
-**Checklist for new post:** `docs/FIELD_REPORT_AND_BLOG.md` · fixture → build script → `vercel.json` rewrite → `sitemap.xml` → `blog/index.html` card.
-
 ---
 
-## Related
+## Notes
 
-- `SITE_FULL_AUDIT_LATEST.md` · per-route inventory  
-- `FIELD_REPORT_AND_BLOG.md` · publish workflow  
-- `FLOAT_MODE_RUNBOOK.md` · float-mode SEO cadence
+- **Perf:** static shell uses single CSS v27, deferred `innsegall-nav.js` + checkout, long-cache on CSS/JS in `vercel.json`, blog cards use `content-visibility: auto`.  
+- **Full send:** needs `STRIPE_SECRET_KEY=sk_live_…` for `npm run full-send` (not run in agent env).

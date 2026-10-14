@@ -43,6 +43,8 @@ npm run full-send      # sk_live_ required · see FULL_SEND.md
 | Doc | Use |
 |-----|-----|
 | `NORTH_STAR_AUDIT.md` | Pricing · AI-bus · **no pivot** (strategy) |
+| `LANE_OWNERSHIP.md` | Post-scare receipt lane · agent onboarding · expansion rules |
+| `ROADMAP_5K_MRR.md` | MRR phases · Q4 2026 focus |
 | `HOW_TO_SEND.md` | Blast / share copy |
 | `STABILITY.md` | Trust contract |
 | `MONETIZATION.md` | Tiers · quota · phases |

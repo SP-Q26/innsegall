@@ -106,7 +106,7 @@ assert("horn sound button in html", htmlEscalate.includes('id="horn-sound-btn"')
 assert("parley embed in html", htmlEscalate.includes('id="innsegall-parley-embed"'));
 assert("share battle scout button", htmlEscalate.includes("battle-scout-share"));
 assert("ai paste textarea", htmlEscalate.includes('id="innsegall-scout-paste"'));
-assert("copy for ai label", htmlEscalate.includes("Copy for LLM"));
+assert("copy for ai label", htmlEscalate.includes("Copy for AI"));
 assert("scope limits section", htmlEscalate.includes('id="section-scope"'));
 assert("check looked at copy", htmlEscalate.includes("Looked at"));
 assert("check does not cover copy", htmlEscalate.includes("Does not cover"));

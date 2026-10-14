@@ -23,7 +23,10 @@ const gospel = readFileSync(join(web, ".well-known", "innsegall-gospel.json"), "
 const nav = readFileSync(join(web, "innsegall-nav.js"), "utf8");
 
 check("boat client title", boat.includes("Is Innsegall for you?"));
-check("boat is / is not", boat.includes("Innsegall is not") && boat.includes("Innsegall is</h2>"));
+check(
+  "boat helps when / not for",
+  boat.includes("Innsegall helps when") && boat.includes("<h2>Not for</h2>") && boat.includes("not antivirus")
+);
 check("boat no war table", !boat.includes("Their weakness") && !boat.includes("Competitor map"));
 check("boat no endgame", !/Endgame/i.test(boat));
 

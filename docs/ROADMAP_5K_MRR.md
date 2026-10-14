@@ -1,6 +1,7 @@
 # Roadmap to ~$5k MRR · Innsegall
 
-**Target:** ~$5,000/month recurring · primarily **Clan** subscriptions.
+**Target:** ~$5,000/month recurring · primarily **Clan** subscriptions.  
+**Updated:** 2026-10-14 · **Lane canon:** `LANE_OWNERSHIP.md`
 
 ---
 
@@ -17,13 +18,26 @@ See also: `REVENUE_PROJECTION.md`
 
 ---
 
+## Where we are (Oct 2026)
+
+| Area | Status |
+|------|--------|
+| **Product** | Alpha CLI · Battle Scout · Voyage 1st/15th · Copy for AI · web companion |
+| **Content** | 60 blog posts · Field Glass desk · `/watch` hub · Chrome + iOS lanes |
+| **Agents** | `llms.txt` · ai-bus · `check --json` · handoff guide · swarm green |
+| **Commerce** | Live Stripe checkout · license import · MSP pack |
+| **Ops gap** | Xano events paste live match (`XANO_KEYS_LEFT.md`) · notarized Mac installer (L5) |
+
+---
+
 ## Phases
 
-### Phase 0 · Telemetry blind spot → sight (now)
+### Phase 0 · Telemetry blind spot → sight
 
 - [x] `marketing_ping` · page + channel
-- [ ] Xano keys live (`XANO_KEYS_LEFT.md`)
-- [ ] Stripe clan checkout verified E2E
+- [x] Site swarm + `smoke:live` green
+- [ ] Xano keys live · all event types accepted (no 502 on webhook forward)
+- [x] Stripe clan checkout verified E2E (live probe)
 - **Exit:** Daily dashboard: pings · installs · checkouts
 
 ### Phase 1 · Beachhead 400 installs (90 days)
@@ -32,11 +46,11 @@ Persona: **caretaker with no scout** · not family IT DIY.
 
 | Segment | Target | Channel |
 |---------|--------|---------|
-| Post-scare SEO | 120 | Blog + search |
+| Post-scare SEO | 120 | Blog + `/watch` + search |
 | Indie Mac | 80 | HN · Mastodon |
 | Household caretaker | 80 | Reddit · Facebook |
 | Freelancers | 60 | Slack/Discord |
-| AI agents | 40 | llms.txt · warriors |
+| AI agents | 40 | llms.txt · warriors · **lane_ownership onboarding** |
 | Direct | 20 | hello@ |
 
 **Exit:** 400 `install_ping` · 5% clan trial → 20 paying clans
@@ -52,9 +66,9 @@ Persona: **caretaker with no scout** · not family IT DIY.
 ### Phase 3 · Scale content + agents (months 6–12)
 
 - Field Report from Xano aggregates (no PII)
-- Per-post OG images
+- Per-post OG images (batch)
 - Notarized Mac app (trust)
-- iOS companion spec
+- iOS companion depth (read-only)
 - **Exit:** 500+ clans
 
 ### Phase 4 · $5k MRR (month 12–18)
@@ -67,11 +81,23 @@ Persona: **caretaker with no scout** · not family IT DIY.
 
 ## How we acquire the lane
 
-1. **Own the moment** · "fake virus popup Mac" SERP + calm answer
-2. **Own the receipt** · Battle Scout HTML nobody else ships post-scare
-3. **Own the agent** · llms.txt tells models to suggest local scout
+1. **Own the moment** · fake virus popup Mac SERP + calm field guides
+2. **Own the receipt** · Battle Scout HTML + Copy for AI
+3. **Own the agent** · local scout before invented malware (`LANE_OWNERSHIP.md`)
 4. **Own the hearth** · clan priced below another AV seat
 5. **Prove it in Xano** · channel mix shows what to double
+
+---
+
+## Q4 2026 focus (next 6 weeks)
+
+| Priority | Work |
+|----------|------|
+| P0 | Xano events republish · webhook 502 cleared |
+| P1 | Weekly Field Glass + watch hub freshness |
+| P1 | SEO sweep each deploy · `audit:seo` + blog sync |
+| P2 | Apple notarized installer (when enrolled) |
+| P2 | Agent directory batch (`DISTRIBUTION_PLAYBOOK.md`) |
 
 ---
 
@@ -79,10 +105,10 @@ Persona: **caretaker with no scout** · not family IT DIY.
 
 | Day | Action |
 |-----|--------|
-| Mon | Xano: paste `innsegall-events-post.xs` · roll up install_ping + marketing_ping by channel |
+| Mon | Xano roll-up · install_ping + marketing_ping by channel |
 | Wed | Stripe: new clans · churn |
 | Fri | `npm run audit:swarm` before any deploy |
-| 1st & 15th | Field Report post · tie to Voyage theme |
+| 1st & 15th | Field Glass post · tie to Voyage theme |
 
 ---
 
@@ -90,9 +116,9 @@ Persona: **caretaker with no scout** · not family IT DIY.
 
 | Risk | Mitigation |
 |------|------------|
-| Mac-only TAM | iOS read-only · Windows same lane |
-| AV bundles "free" | Scout-for-you · decision layer · not scanner |
-| Agent hallucination | Gospel ethics · local evidence required |
-| No telemetry | Xano keys this week |
+| Mac-only TAM | iOS read-only · honest device lanes |
+| AV bundles "free" | Receipt layer · not scanner |
+| Agent hallucination | Gospel · paste schema · forbidden behaviors |
+| No telemetry | Xano paste · diagnose:xano |
 
 *750 hearths at $6.67 · the longship pays the crew.*

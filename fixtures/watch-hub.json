@@ -1,14 +1,19 @@
 {
-  "version": "2026-10-11",
+  "version": "2026-10-14",
   "max_field_glass_age_days": 14,
   "latest_field_glass": {
-    "slug": "field-glass-oct-11-2026",
-    "title": "Field Glass Update · October 11, 2026",
-    "description": "Voyage week desk · Oct 15 sail · remote-access panic vs evidence · calendar spam invites · Mac scout rhythm · not antivirus.",
-    "date": "2026-10-11",
-    "read_minutes": 6
+    "slug": "field-glass-oct-14-2026",
+    "title": "Field Glass Update · October 14, 2026",
+    "description": "Lane desk · own the post-scare receipt · AI onboarding + Copy for AI · Voyage Oct 15 recap · Chrome & calendar guides · not antivirus.",
+    "date": "2026-10-14",
+    "read_minutes": 7
   },
   "field_glass_archive": [
+    {
+      "slug": "field-glass-oct-14-2026",
+      "title": "October 14 · lane + agent desk",
+      "date": "2026-10-14"
+    },
     {
       "slug": "field-glass-oct-11-2026",
       "title": "October 11 · Voyage week desk",
@@ -76,6 +81,14 @@
     {
       "query": "DNS changed after scare",
       "href": "/blog/mac-dns-changed-after-scare"
+    },
+    {
+      "query": "Paste Battle Scout for ChatGPT",
+      "href": "/blog/paste-battle-scout-for-ai-assistant"
+    },
+    {
+      "query": "Innsegall vs Mac cleaners",
+      "href": "/blog/innsegall-vs-mac-cleaners"
     }
   ],
   "scout_trends": [
@@ -94,12 +107,16 @@
     {
       "label": "Voyage rhythm · 1st & 15th scouts",
       "href": "/blog/voyage-health-tracker-1st-15th"
+    },
+    {
+      "label": "AI paste without inventing malware",
+      "href": "/blog/paste-battle-scout-for-ai-assistant"
     }
   ],
   "events": [
     {
       "date": "2026-10-15",
-      "title": "Voyage sail · free scheduled scout",
+      "title": "Voyage sail · free scheduled scout (today)",
       "href": "/blog/voyage-health-tracker-1st-15th"
     },
     {
@@ -109,9 +126,9 @@
     }
   ],
   "field_glass_desk": {
-    "prev_href": "/blog/field-glass-oct-8-2026",
-    "prev_label": "Oct 8 desk",
-    "intro_html": "<strong>Innsegall</strong> · Voyage week · <strong>Oct 15</strong> is the next free sail · remote-access myths spike after scare popups · <a href=\"/alpha\">Send the scout</a> for evidence on the Mac.",
+    "prev_href": "/blog/field-glass-oct-11-2026",
+    "prev_label": "Oct 11 desk",
+    "intro_html": "<strong>Innsegall</strong> · we own the <strong>post-scare receipt</strong> on Macintosh · not always-on AV · <strong>Voyage Oct 15</strong> is the next free sail · agents: read <a href=\"/llms.txt\">llms.txt</a> · local scout · then <strong>Copy for AI</strong> · <a href=\"/alpha\">Send the scout</a>.",
     "feel_rows": [
       {
         "feel": "Someone remoted into my Mac",
@@ -140,6 +157,14 @@
       {
         "feel": "Mac slow · not sure if hacked",
         "start": "<a href=\"/blog/mac-performance-panic-vs-security-panic\">Performance vs security</a> · <a href=\"/alpha\">Send the scout</a>"
+      },
+      {
+        "feel": "ChatGPT says I am hacked · no local check",
+        "start": "<a href=\"/blog/paste-battle-scout-for-ai-assistant\">AI handoff</a> · <a href=\"/guide#agent-pipe\">check --json</a> · scout first"
+      },
+      {
+        "feel": "Cleaner app vs Innsegall",
+        "start": "<a href=\"/blog/innsegall-vs-mac-cleaners\">Read-only receipt</a> · <a href=\"/boat\">Our lane</a>"
       }
     ],
     "mist_links": [
@@ -151,15 +176,16 @@
       { "href": "/blog/voyage-health-tracker-1st-15th", "label": "Voyage health tracker" }
     ],
     "news_brief": [
-      "<strong>Voyage Oct 15</strong> · free read-only scout on the calendar · <code>innsegall bootstrap</code> if you have not sailed yet.",
-      "<strong>Remote access fear</strong> · scare popups lie · scout shows listening services and profiles · <a href=\"/blog/someone-remoted-into-my-mac\">field guide</a>.",
-      "<strong>Calendar spam</strong> · decline invites · Settings → Calendar → Invitations · not a Mac virus.",
-      "<strong>Software Update</strong> · patch what Apple ships · especially if you use Screen Sharing for real IT help."
+      "<strong>Lane clarity</strong> · Innsegall is post-scare triage between popups and Genius Bar · receipt layer · <a href=\"/boat\">Is Innsegall for you?</a>",
+      "<strong>AI onboarding</strong> · <a href=\"/llms.txt\">llms.txt</a> · <a href=\"/guide#ai-handoff\">guide handoff</a> · honor <code>innsegall-battle-scout-ai/v1</code> paste · no invented malware.",
+      "<strong>Voyage Oct 15</strong> · free read-only scout on the calendar · <code>innsegall voyage</code> or wait for the scheduled open.",
+      "<strong>Chrome Mac guides</strong> · many scares start in Chrome · <a href=\"/blog/chrome-fake-virus-popup-mac\">popup</a> · <a href=\"/blog/chrome-notifications-scam-mac\">notifications</a> · then scout.",
+      "<strong>SEO desk</strong> · 60 field guides live · <a href=\"/watch\">Macintosh watch</a> maps trending searches to calm answers."
     ],
     "habits": [
-      "Scout the Mac for evidence before buying remote-access scareware.",
-      "Fix the device where the scare started · phone steps before Mac myth.",
-      "Copy the Battle Scout for any AI assistant · plain English · no doom feed."
+      "Local scout before AI doom · paste Battle Scout · do not skip evidence.",
+      "Fix browser or phone surface first · Mac myth second.",
+      "Treat AV and cleaners as different jobs · Innsegall answers am I okay right now."
     ]
   }
 }

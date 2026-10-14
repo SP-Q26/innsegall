@@ -41,7 +41,7 @@ const CANONICAL_HEADER = `<header class="site-header">
         </svg>
         <span>
           <span class="brand-word">Innsegall</span>
-          <span class="brand-pronounce">IN-sheh-gal · for Mac · plain answers</span>
+          <span class="brand-pronounce">IN-sheh-gal · post-scare Mac triage</span>
         </span>
       </a>
       <nav class="header-nav" aria-label="Site">
@@ -75,7 +75,7 @@ const CANONICAL_FOOTER = `    <footer class="site-footer">
       <div class="footer-grid">
         <div class="footer-brand">
           <p class="footer-wordmark">Innsegall</p>
-          <p class="footer-tagline">Know you&apos;re okay · for your Mac</p>
+          <p class="footer-tagline">Know you&apos;re okay · Macintosh triage</p>
         </div>
         <nav class="footer-links" aria-label="Footer">
           <a class="nav-link nav-link--footer" href="/guide">Guide</a>
