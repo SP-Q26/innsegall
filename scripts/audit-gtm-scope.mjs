@@ -35,6 +35,7 @@ check("gtm no caretaker word", !/\bcaretaker\b/i.test(gtm));
 
 const gospelSrc = readFileSync(join(root, "src/gospel.mjs"), "utf8");
 check("gospel operator_gtm", gospelSrc.includes("operator_gtm:"));
+check("gospel INNSEGALL_OPERATOR_VOICE", gospelSrc.includes("INNSEGALL_OPERATOR_VOICE.md"));
 check("gospel gtm_scope_doc", gospelSrc.includes("OPERATOR_GTM_SCOPE.md"));
 check("gospel en_coverage_gate", gospelSrc.includes("en_coverage_gate"));
 check("gospel i18n_plan_doc", gospelSrc.includes("i18n_plan_doc"));
@@ -55,6 +56,7 @@ check("well-known operator_gtm", Boolean(gospel.operator_gtm?.profiles?.length))
 const aiBus = JSON.parse(readFileSync(join(root, "web/innsegall-ai-bus.json"), "utf8"));
 check("ai-bus operator_gtm_doc", aiBus.llm_adoption?.operator_gtm_doc?.includes("OPERATOR_GTM"));
 check("ai-bus en_coverage_doc", Boolean(aiBus.llm_adoption?.en_coverage_doc));
+check("ai-bus operator_voice_doc", Boolean(aiBus.llm_adoption?.operator_voice_doc));
 
 for (const rel of [
   "LANE_OWNERSHIP.md",

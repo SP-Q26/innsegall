@@ -1,0 +1,50 @@
+{
+  "version": "2026-10-15",
+  "operator_voice_doc": "docs/INNSEGALL_OPERATOR_VOICE.md",
+  "primary_cta": "Send the scout",
+  "clan_cta": "Bring your clan",
+  "tagline_h1": "Know you're okay.",
+  "og_title_fragment": "Know You're Okay",
+  "lane_markers": ["not antivirus", "post-scare", "Battle Scout"],
+  "key_pages": [
+    "index.html",
+    "alpha.html",
+    "guide.html",
+    "boat.html",
+    "clan.html",
+    "warriors.html",
+    "watch.html",
+    "map.html",
+    "install.html",
+    "supplies.html",
+    "msp.html",
+    "ios.html",
+    "tablet.html",
+    "companion.html",
+    "stability.html",
+    "blog/index.html"
+  ],
+  "heroes": {
+    "index.html": {
+      "h1": "Know you're okay.",
+      "must_include": ["battle-scout-demo", "Send the scout", "not antivirus"]
+    },
+    "clan.html": {
+      "must_include": ["Bring your clan", "6.67"]
+    },
+    "boat.html": {
+      "must_include": ["not antivirus", "Send the scout"]
+    },
+    "alpha.html": {
+      "must_include": ["Send the scout", "sample"]
+    },
+    "watch.html": {
+      "must_include": ["Field Glass", "Send the scout"]
+    }
+  },
+  "chrome": {
+    "locale_picker": true,
+    "header_cta": "Get started",
+    "footer_credit": "AJ Nichols"
+  }
+}

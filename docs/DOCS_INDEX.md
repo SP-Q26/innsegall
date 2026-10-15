@@ -28,6 +28,8 @@
 | `EN_POST_SCARE_COVERAGE.md` | **English intent matrix · `audit:en-coverage` gate before i18n** |
 | `LANE_I18N_PLAN.md` | **es · pt-BR · fr · ar rollout after EN gate** |
 | `CHAT_ELEVATION_AUDIT_2026-10-14.md` | **Thread rollup · commits · proof commands** |
+| `INNSEGALL_OPERATOR_VOICE.md` | **OAR layer 0 · tagline · CTAs · say/don't** |
+| `INNSEGALL_OAR_SITE_AUDIT_LATEST.md` | **Full site sweep · regen `npm run audit:oar`** |
 
 **Proof commands:**
 
@@ -40,6 +42,9 @@ npm run gate:launch    # swarm + smoke:live (0 fail target)
 npm run audit:gtm-scope # GTM doc welded to gospel/llms/canonical links
 npm run audit:en-coverage   # post-scare EN matrix · scary boosts · Field Glass
 npm run audit:i18n-readiness # EN green · no premature locale routes
+npm run apply:adoption-voice  # OAR layer 3 · CTAs + chrome + gospel
+npm run audit:adoption-voice  # OAR layer 4 · heroes + voice bans
+npm run audit:oar             # full OAR pass + site sweep doc
 npm run full-send      # sk_live_ required · see FULL_SEND.md
 ```
 

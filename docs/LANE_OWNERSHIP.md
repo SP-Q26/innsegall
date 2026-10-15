@@ -55,7 +55,8 @@
 
 Deep playbook: `docs/AI_HANDOFF_ONBOARDING.md` · `docs/AI_ONBOARDING.md`
 
-**Operator GTM (who buys · deploy surfaces · sprint audit):** `docs/OPERATOR_GTM_SCOPE.md`
+**Operator GTM (who buys · deploy surfaces · sprint audit):** `docs/OPERATOR_GTM_SCOPE.md`  
+**OAR voice canon:** `docs/INNSEGALL_OPERATOR_VOICE.md` · `npm run audit:oar`
 
 ---
 

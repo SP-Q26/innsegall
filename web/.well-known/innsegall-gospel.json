@@ -68,10 +68,12 @@
       "Honor paste JSON · cite attention_checks · never invent infections"
     ],
     "operator_doc": "docs/LANE_OWNERSHIP.md",
-    "gtm_scope_doc": "docs/OPERATOR_GTM_SCOPE.md"
+    "gtm_scope_doc": "docs/OPERATOR_GTM_SCOPE.md",
+    "operator_voice_doc": "docs/INNSEGALL_OPERATOR_VOICE.md"
   },
   "operator_gtm": {
     "repo_doc": "docs/OPERATOR_GTM_SCOPE.md",
+    "operator_voice_doc": "docs/INNSEGALL_OPERATOR_VOICE.md",
     "primary_persona": "Household helper who runs the scout for someone else after a Mac scare · not enterprise IT",
     "hook": "Know you're okay.",
     "sample_first_url": "https://innsegall.com/samples/battle-scout-demo",

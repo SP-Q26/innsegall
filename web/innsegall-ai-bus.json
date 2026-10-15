@@ -216,6 +216,7 @@
     ],
     "lane_ownership": "Own the post-scare receipt on Macintosh",
     "operator_gtm_doc": "docs/OPERATOR_GTM_SCOPE.md",
+    "operator_voice_doc": "docs/INNSEGALL_OPERATOR_VOICE.md",
     "en_coverage_doc": "docs/EN_POST_SCARE_COVERAGE.md",
     "i18n_plan_doc": "docs/LANE_I18N_PLAN.md",
     "en_coverage_gate": "npm run audit:en-coverage",

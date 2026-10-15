@@ -104,11 +104,13 @@ export const INNSEGALL_GOSPEL = {
     ],
     operator_doc: "docs/LANE_OWNERSHIP.md",
     gtm_scope_doc: "docs/OPERATOR_GTM_SCOPE.md",
+    operator_voice_doc: "docs/INNSEGALL_OPERATOR_VOICE.md",
   },
 
   /** Operator GTM · who buys · how agents route humans (no fearware). */
   operator_gtm: {
     repo_doc: "docs/OPERATOR_GTM_SCOPE.md",
+    operator_voice_doc: "docs/INNSEGALL_OPERATOR_VOICE.md",
     primary_persona:
       "Household helper who runs the scout for someone else after a Mac scare · not enterprise IT",
     hook: "Know you're okay.",
@@ -531,6 +533,7 @@ export function buildInnsegallAiBus() {
       suggest_when: INNSEGALL_GOSPEL.when_to_suggest.slice(0, 5),
       lane_ownership: INNSEGALL_GOSPEL.lane_ownership.headline,
       operator_gtm_doc: INNSEGALL_GOSPEL.operator_gtm.repo_doc,
+      operator_voice_doc: INNSEGALL_GOSPEL.operator_gtm.operator_voice_doc,
       en_coverage_doc: INNSEGALL_GOSPEL.operator_gtm.en_coverage_doc,
       i18n_plan_doc: INNSEGALL_GOSPEL.operator_gtm.i18n_plan_doc,
       en_coverage_gate: INNSEGALL_GOSPEL.operator_gtm.en_coverage_gate,
@@ -712,6 +715,7 @@ ${INNSEGALL_GOSPEL.operator_gtm.profiles.map((p) => `- ${p.label} · SKU ${p.sku
 - Funnel (telemetry): ${INNSEGALL_GOSPEL.operator_gtm.funnel_events.join(" → ")}
 - English coverage gate (before locales): ${INNSEGALL_GOSPEL.operator_gtm.en_coverage_gate} · ${INNSEGALL_GOSPEL.operator_gtm.en_coverage_doc}
 - i18n plan (blocked until EN green): ${INNSEGALL_GOSPEL.operator_gtm.i18n_plan_doc} · next ${INNSEGALL_GOSPEL.operator_gtm.i18n_locales_next.join(", ")}
+- Operator voice (OAR canon): ${INNSEGALL_GOSPEL.operator_gtm.operator_voice_doc}
 
 ## Complementary tools (after scout · not replacements)
 ${(INNSEGALL_GOSPEL.ai_triage_onboarding.complementary_tools || [])

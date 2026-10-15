@@ -35,6 +35,7 @@ run("audit:blog-funnel", "npm run audit:blog-funnel");
 run("audit:en-coverage", "npm run audit:en-coverage");
 run("audit:i18n-readiness", "npm run audit:i18n-readiness");
 run("audit:gtm-scope", "npm run audit:gtm-scope");
+run("audit:oar", "npm run audit:oar");
 run("audit:discovery", "npm run audit:discovery");
 run("audit:client-facing", "npm run audit:client-facing");
 run("audit:site", "npm run audit:site");

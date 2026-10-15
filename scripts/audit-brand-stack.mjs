@@ -10,7 +10,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const childAudits = [
   "audit-brand-ban.mjs",
   "audit-claymore.mjs",
-  "audit-operator-voice.mjs",
+  "audit-adoption-voice.mjs",
   "audit-lane.mjs",
   "audit-client-facing.mjs",
   "audit-competitor-absorption.mjs",

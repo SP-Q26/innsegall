@@ -121,6 +121,7 @@
 - Funnel (telemetry): marketing_ping → install_intent → install_ping → scout_aggregate → packet_bar_copy_ai_paste → checkout_intent → checkout_complete
 - English coverage gate (before locales): npm run audit:en-coverage · docs/EN_POST_SCARE_COVERAGE.md
 - i18n plan (blocked until EN green): docs/LANE_I18N_PLAN.md · next es, pt-BR, fr, ar
+- Operator voice (OAR canon): docs/INNSEGALL_OPERATOR_VOICE.md
 
 ## Complementary tools (after scout · not replacements)
 - KnockKnock (Objective-See): After ESCALATE or when a technical user wants a full persistence map · https://objective-see.org/products/knockknock.html · Free persistence inventory · lists what starts with the Mac · does not replace Battle Scout verdict

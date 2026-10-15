@@ -34,7 +34,7 @@ npm run full-send
 3. **`preflight`** · gospel · chrome · license dry-test · audit-launch · smoke · self-test
 4. **`audit-stripe.mjs`** · repo catalog vs docs
 5. **`audit:stripe-live`** · live Stripe API vs `web/lib/stripe-catalog.mjs` (needs `sk_live_`)
-6. **Marketing / blog gates** · copy · SEO · blog quality/funnel · **`audit:en-coverage`** · **`audit:i18n-readiness`** · **`audit:gtm-scope`** · discovery · client-facing · site inventory
+6. **Marketing / blog gates** · copy · SEO · blog quality/funnel · **`audit:en-coverage`** · **`audit:i18n-readiness`** · **`audit:gtm-scope`** · **`audit:oar`** · discovery · client-facing · site inventory
 7. **`gate:launch`** · swarm + `smoke:live` + `smoke:links-live` + `smoke:checkout-toll-gate`
 
 If any step fails · fix · re-run from the failed step · do not push.

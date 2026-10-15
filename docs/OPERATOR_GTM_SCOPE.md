@@ -1,7 +1,7 @@
 # Operator GTM scope · relentless audit · deploy at every turn
 
 **Updated:** 2026-10-14 · **Lane:** Innsegall only · Isles `isles_brand=innsegall` · **Not** SPQ · **Not** MMI/WWL Stripe  
-**Canon stack:** `LANE_OWNERSHIP.md` · `EVENTS_TRACKING.md` · `AI_HANDOFF_ONBOARDING.md` · `ROADMAP_5K_MRR.md` · `EN_POST_SCARE_COVERAGE.md` · `LANE_I18N_PLAN.md`
+**Canon stack:** `INNSEGALL_OPERATOR_VOICE.md` (OAR) · `LANE_OWNERSHIP.md` · `EVENTS_TRACKING.md` · `AI_HANDOFF_ONBOARDING.md` · `ROADMAP_5K_MRR.md` · `EN_POST_SCARE_COVERAGE.md` · `LANE_I18N_PLAN.md`
 
 This doc is the **operator truth** for who buys Innsegall worldwide, why, how we reach them without fearware, and how every product surface maps to telemetry and revenue. Agents: compact routing lives in gospel `operator_gtm` + `llms.txt` § Operator GTM.
 
