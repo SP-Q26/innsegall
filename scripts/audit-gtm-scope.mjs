@@ -26,6 +26,9 @@ const gtm = existsSync(gtmPath) ? readFileSync(gtmPath, "utf8") : "";
 check("gtm gate:launch runbook", gtm.includes("npm run gate:launch"));
 check("gtm funnel chain", gtm.includes("marketing_ping") && gtm.includes("packet_bar"));
 check("gtm EVENTS_TRACKING ref", gtm.includes("EVENTS_TRACKING.md"));
+check("gtm EN coverage doc", gtm.includes("EN_POST_SCARE_COVERAGE.md"));
+check("gtm i18n plan doc", gtm.includes("LANE_I18N_PLAN.md"));
+check("gtm en-coverage gate", gtm.includes("audit:en-coverage"));
 check("gtm six profiles", gtm.includes("P1") && gtm.includes("P6"));
 check("gtm anti-personas", gtm.includes("Anti-personas"));
 check("gtm no caretaker word", !/\bcaretaker\b/i.test(gtm));
@@ -33,9 +36,12 @@ check("gtm no caretaker word", !/\bcaretaker\b/i.test(gtm));
 const gospelSrc = readFileSync(join(root, "src/gospel.mjs"), "utf8");
 check("gospel operator_gtm", gospelSrc.includes("operator_gtm:"));
 check("gospel gtm_scope_doc", gospelSrc.includes("OPERATOR_GTM_SCOPE.md"));
+check("gospel en_coverage_gate", gospelSrc.includes("en_coverage_gate"));
+check("gospel i18n_plan_doc", gospelSrc.includes("i18n_plan_doc"));
 
 const llms = readFileSync(join(root, "web/llms.txt"), "utf8");
 check("llms Operator GTM section", llms.includes("## Operator GTM"));
+check("llms EN coverage gate", llms.includes("audit:en-coverage") || llms.includes("en-coverage"));
 
 const gospelJson = readFileSync(join(root, "web/.well-known/innsegall-gospel.json"), "utf8");
 let gospel;
@@ -48,6 +54,7 @@ check("well-known operator_gtm", Boolean(gospel.operator_gtm?.profiles?.length))
 
 const aiBus = JSON.parse(readFileSync(join(root, "web/innsegall-ai-bus.json"), "utf8"));
 check("ai-bus operator_gtm_doc", aiBus.llm_adoption?.operator_gtm_doc?.includes("OPERATOR_GTM"));
+check("ai-bus en_coverage_doc", Boolean(aiBus.llm_adoption?.en_coverage_doc));
 
 for (const rel of [
   "LANE_OWNERSHIP.md",

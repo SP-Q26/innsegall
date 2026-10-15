@@ -68,6 +68,7 @@ Deep playbook: `docs/AI_HANDOFF_ONBOARDING.md` · `docs/AI_ONBOARDING.md`
 | Warrior / agent referrals | Distribution · same gospel |
 | Companion inbox | Read receipts · Mac still runs scout |
 | MSP pack | Same receipt · more seats |
+| Localized field guides (phased) | Same receipt culture · `LANE_I18N_PLAN.md` after `audit:en-coverage` |
 
 | Do not chase | Why |
 |--------------|-----|
@@ -85,6 +86,8 @@ node scripts/sync-watch-hub.mjs
 npm run sync-gospel
 npm run audit:seo
 npm run audit:gtm-scope
+npm run audit:en-coverage
+npm run audit:i18n-readiness
 npm run gate:launch
 ```
 

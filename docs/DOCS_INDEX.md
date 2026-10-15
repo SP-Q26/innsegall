@@ -27,6 +27,7 @@
 | `OPERATOR_GTM_SCOPE.md` | **Buyer profiles · funnel deploy map · sprint audit paste** |
 | `EN_POST_SCARE_COVERAGE.md` | **English intent matrix · `audit:en-coverage` gate before i18n** |
 | `LANE_I18N_PLAN.md` | **es · pt-BR · fr · ar rollout after EN gate** |
+| `CHAT_ELEVATION_AUDIT_2026-10-14.md` | **Thread rollup · commits · proof commands** |
 
 **Proof commands:**
 

@@ -235,6 +235,8 @@ npm run test
 | Field | Source |
 |-------|--------|
 | `gate:launch` | pass/fail + first warn |
+| `audit:en-coverage` | 48 P0 intents · scary boosts · Field Glass |
+| `audit:i18n-readiness` | EN green · no premature `/es` routes |
 | First P0 | `audit:swarm` lane name |
 | Funnel leak | Xano: page with `marketing_ping` but no `install_intent` · or `install_intent` without `install_ping` |
 | Copy/ethics | `audit:operator-voice` · Isles ethics |
@@ -273,6 +275,8 @@ Full catalog: `EVENTS_TRACKING.md`.
 | `MSP_OUTREACH_BRIEF.md` | P4 outbound |
 | `PLATFORM_TRACKING.md` | Xano table · examples |
 | `XANO_EVENT_WHITELIST.md` | Republish discipline |
+| `EN_POST_SCARE_COVERAGE.md` | English matrix gate · `npm run audit:en-coverage` |
+| `LANE_I18N_PLAN.md` | Locales after EN · es/pt/fr/ar |
 
 ---
 

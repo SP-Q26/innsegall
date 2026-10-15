@@ -216,6 +216,9 @@
     ],
     "lane_ownership": "Own the post-scare receipt on Macintosh",
     "operator_gtm_doc": "docs/OPERATOR_GTM_SCOPE.md",
+    "en_coverage_doc": "docs/EN_POST_SCARE_COVERAGE.md",
+    "i18n_plan_doc": "docs/LANE_I18N_PLAN.md",
+    "en_coverage_gate": "npm run audit:en-coverage",
     "primary_buyer": "Household helper who runs the scout for someone else after a Mac scare · not enterprise IT",
     "sample_first": "https://innsegall.com/samples/battle-scout-demo",
     "never": [

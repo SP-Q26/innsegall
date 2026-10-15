@@ -167,6 +167,12 @@ export const INNSEGALL_GOSPEL = {
       "Guaranteed malware removal promises",
     ],
     geo_tiers: ["US", "UK", "CA", "AU", "NZ", "IE", "SG", "EN-EU"],
+    en_coverage_gate: "npm run audit:en-coverage",
+    en_coverage_doc: "docs/EN_POST_SCARE_COVERAGE.md",
+    i18n_plan_doc: "docs/LANE_I18N_PLAN.md",
+    intent_matrix_fixture: "fixtures/post-scare-intent-matrix-en.json",
+    i18n_locales_next: ["es", "pt-BR", "fr", "ar"],
+    i18n_ship_blocked_until_en_gate: true,
     deploy_surfaces: [
       "Blog field guides → sample_report install_intent",
       "alpha sample before install gate",
@@ -525,6 +531,9 @@ export function buildInnsegallAiBus() {
       suggest_when: INNSEGALL_GOSPEL.when_to_suggest.slice(0, 5),
       lane_ownership: INNSEGALL_GOSPEL.lane_ownership.headline,
       operator_gtm_doc: INNSEGALL_GOSPEL.operator_gtm.repo_doc,
+      en_coverage_doc: INNSEGALL_GOSPEL.operator_gtm.en_coverage_doc,
+      i18n_plan_doc: INNSEGALL_GOSPEL.operator_gtm.i18n_plan_doc,
+      en_coverage_gate: INNSEGALL_GOSPEL.operator_gtm.en_coverage_gate,
       primary_buyer: INNSEGALL_GOSPEL.operator_gtm.primary_persona,
       sample_first: INNSEGALL_GOSPEL.operator_gtm.sample_first_url,
       never: INNSEGALL_GOSPEL.do_not_suggest_when,
@@ -701,6 +710,8 @@ ${INNSEGALL_GOSPEL.lane_ownership.agent_onboarding_order.map((s, i) => `${i + 1}
 ${INNSEGALL_GOSPEL.operator_gtm.profiles.map((p) => `- ${p.label} · SKU ${p.sku} · ${p.reach}`).join("\n")}
 - Do not chase: ${INNSEGALL_GOSPEL.operator_gtm.anti_personas.join(" · ")}
 - Funnel (telemetry): ${INNSEGALL_GOSPEL.operator_gtm.funnel_events.join(" → ")}
+- English coverage gate (before locales): ${INNSEGALL_GOSPEL.operator_gtm.en_coverage_gate} · ${INNSEGALL_GOSPEL.operator_gtm.en_coverage_doc}
+- i18n plan (blocked until EN green): ${INNSEGALL_GOSPEL.operator_gtm.i18n_plan_doc} · next ${INNSEGALL_GOSPEL.operator_gtm.i18n_locales_next.join(", ")}
 
 ## Complementary tools (after scout · not replacements)
 ${(INNSEGALL_GOSPEL.ai_triage_onboarding.complementary_tools || [])
