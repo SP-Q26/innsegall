@@ -17,8 +17,14 @@ Client traffic never hits Xano directly; only `POST /api/telemetry` and Stripe w
 | `install_ping` | CLI (`telemetry-client.mjs`) | Bootstrap / daily install heartbeat · `install_id` + macOS major |
 | `scout_aggregate` | CLI after scout | Verdict/flow buckets · product quality (no paths) |
 | `issue_spotlight` | CLI after scout | Issue identify/resolve · Field Report flywheel |
+| `packet_bar_copy_link` | Battle Scout HTML · companion | Copy share link · `context`: `battle_scout` \| `sample_report` |
+| `packet_bar_copy_ai_paste` | Battle Scout HTML · companion | **Copy for AI** · `triage_level` + `ver`: `innsegall-battle-scout-ai/v1` |
+| `packet_bar_share_html` | Battle Scout HTML (mobile share) | Native share / export scout HTML path |
+| `packet_bar_pdf` | Battle Scout HTML (when PDF ships) | PDF export · today maps to markdown download hook |
 
 `checkout_complete` is **rejected** on `/api/telemetry` (server-only).
+
+Packet bar payloads use the same web dims as `install_intent`: `day` · `page` · `ref_channel` · `session_id` · optional `warrior_ref`. No scout bodies · no paths.
 
 ### `marketing_ping` · `page` enum
 
@@ -53,12 +59,15 @@ marketing_ping (page + channel)
   → install_intent (command / oneliner / github)
   → install_ping (CLI)
   → scout_aggregate + issue_spotlight
+  → packet_bar_* (receipt share · Copy for AI on web)
   → checkout_intent (sku)
   → checkout_complete | checkout_abandoned
   → clan_renewal | payment_failed
 ```
 
 **Weekly rollup:** `node scripts/report-funnel.mjs` (SQL hints) · `npm run audit:events` · `npm run diagnose:xano`
+
+**Dims:** `page` · `ref_channel` · `sku` · `macos_major` (CLI) · `asset` (install_intent) · `context` / `triage_level` (packet bar)
 
 ---
 

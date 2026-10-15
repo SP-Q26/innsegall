@@ -68,3 +68,17 @@ export const INSTALL_ASSETS = new Set([
   "copy_block",
   "sample_report",
 ]);
+
+/** Packet bar (PBS v1) · web / companion Battle Scout surfaces */
+export const PACKET_BAR_EVENTS = new Set([
+  "packet_bar_copy_link",
+  "packet_bar_copy_ai_paste",
+  "packet_bar_share_html",
+  "packet_bar_pdf",
+]);
+
+export const PACKET_BAR_CONTEXTS = new Set(["battle_scout", "sample_report"]);
+
+export const TRIAGE_LEVELS = new Set(["LIKELY_OK", "FIX_LIST", "ESCALATE"]);
+
+export const AI_PASTE_VER = "innsegall-battle-scout-ai/v1";

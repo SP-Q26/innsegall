@@ -164,6 +164,20 @@ async function smokeProdTelemetry() {
         },
       },
     ],
+    [
+      "packet_bar_copy_ai_paste",
+      {
+        event: "packet_bar_copy_ai_paste",
+        payload: {
+          day,
+          page: "sample",
+          ref_channel: "direct",
+          session_id: "00000000-0000-4000-8000-smoke0007",
+          triage_level: "LIKELY_OK",
+          ver: "innsegall-battle-scout-ai/v1",
+        },
+      },
+    ],
   ]) {
     const res = await fetch(`${base}/api/telemetry`, {
       method: "POST",

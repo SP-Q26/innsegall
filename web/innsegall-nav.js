@@ -221,6 +221,46 @@
     postTelemetry("install_intent", payload);
   }
 
+  /** PBS v1 · packet bar on Battle Scout HTML (deduped per event + page per day). */
+  function sendPacketBar(event, extra) {
+    var allowed = {
+      packet_bar_copy_link: 1,
+      packet_bar_copy_ai_paste: 1,
+      packet_bar_share_html: 1,
+      packet_bar_pdf: 1,
+    };
+    if (!allowed[event]) return;
+
+    var page = pageCategory();
+    var storageKey = "innsegall_pb_" + event + "_" + page + "_" + utcDay();
+    try {
+      if (sessionStorage.getItem(storageKey)) return;
+      sessionStorage.setItem(storageKey, "1");
+    } catch (e) {
+      /* continue */
+    }
+
+    var params = new URLSearchParams(location.search);
+    var warriorRef = params.get("ref");
+    var payload = {
+      day: utcDay(),
+      page: page,
+      ref_channel: refChannel(),
+      session_id: sessionId(),
+    };
+    if (warriorRef && String(warriorRef).length <= 64) {
+      payload.warrior_ref = String(warriorRef);
+    }
+    if (extra && typeof extra === "object") {
+      for (var k in extra) {
+        if (Object.prototype.hasOwnProperty.call(extra, k)) payload[k] = extra[k];
+      }
+    }
+    postTelemetry(event, payload);
+  }
+
+  window.__innsegallPacketBar = sendPacketBar;
+
   function wireInstallIntentLinks() {
     document.querySelectorAll('a[href*="Innsegall-Install.command"]').forEach(function (a) {
       a.addEventListener("click", function () {

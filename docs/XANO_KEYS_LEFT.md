@@ -8,7 +8,7 @@
 
 ## Mandatory after 2026-10-10 Vercel deploy (`f581fb6`)
 
-**Oct 10** shipped four new event names from Vercel (`checkout_intent` · `install_intent` · `checkout_abandoned` · `payment_failed`) plus Stripe webhook handlers for `checkout.session.expired` and `invoice.payment_failed`. Git paste **`innsegall-events-post.xs`** lists **eleven** allowed events · see `docs/pastes/README.md`.
+**Oct 10** shipped four new event names from Vercel (`checkout_intent` · `install_intent` · `checkout_abandoned` · `payment_failed`) plus Stripe webhook handlers for `checkout.session.expired` and `invoice.payment_failed`. Git paste **`innsegall-events-post.xs`** lists **fifteen** allowed events (incl. PBS v1 `packet_bar_*`) · see `docs/pastes/README.md` · **republish Xano** after git adds names.
 
 **Rule:** Any Vercel deploy that adds or renames an `event` string **must** ship with the same **publish draft → live** on Xano **in the same window**. If live Xano still has the old whitelist:
 

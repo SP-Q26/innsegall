@@ -13,6 +13,10 @@ const ALLOWED_EVENTS = new Set([
   "issue_spotlight",
   "checkout_intent",
   "install_intent",
+  "packet_bar_copy_link",
+  "packet_bar_copy_ai_paste",
+  "packet_bar_share_html",
+  "packet_bar_pdf",
   "checkout_complete",
 ]);
 const CLIENT_EVENTS = new Set([
@@ -22,6 +26,10 @@ const CLIENT_EVENTS = new Set([
   "issue_spotlight",
   "checkout_intent",
   "install_intent",
+  "packet_bar_copy_link",
+  "packet_bar_copy_ai_paste",
+  "packet_bar_share_html",
+  "packet_bar_pdf",
 ]);
 
 const CHECKOUT_SKUS = new Set(["extra", "clan", "msp"]);
@@ -70,6 +78,10 @@ const REF_CHANNELS = new Set([
   "internal",
   "unknown",
 ]);
+
+const PACKET_BAR_CONTEXTS = new Set(["battle_scout", "sample_report"]);
+const TRIAGE_LEVELS = new Set(["LIKELY_OK", "FIX_LIST", "ESCALATE"]);
+const AI_PASTE_VER = "innsegall-battle-scout-ai/v1";
 
 const FORBIDDEN_KEYS = new Set([
   "email",
@@ -259,6 +271,57 @@ function validateCheckoutIntent(payload) {
   return null;
 }
 
+function validateWebSurface(payload) {
+  if (!isPlainObject(payload)) return "payload must be an object";
+  if (typeof payload.day !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(payload.day)) {
+    return "day required (YYYY-MM-DD)";
+  }
+  if (typeof payload.page !== "string" || !MARKETING_PAGES.has(payload.page)) {
+    return "page required (known category enum)";
+  }
+  if (typeof payload.ref_channel !== "string" || !REF_CHANNELS.has(payload.ref_channel)) {
+    return "ref_channel required (known enum)";
+  }
+  if (typeof payload.session_id !== "string" || payload.session_id.length > 64) {
+    return "session_id required (max 64 chars)";
+  }
+  if (payload.warrior_ref != null) {
+    if (typeof payload.warrior_ref !== "string" || payload.warrior_ref.length > 64) {
+      return "warrior_ref max 64 chars";
+    }
+  }
+  return null;
+}
+
+function validatePacketBarCopyLink(payload) {
+  const base = validateWebSurface(payload);
+  if (base) return base;
+  if (typeof payload.context !== "string" || !PACKET_BAR_CONTEXTS.has(payload.context)) {
+    return "context required (battle_scout|sample_report)";
+  }
+  return null;
+}
+
+function validatePacketBarCopyAiPaste(payload) {
+  const base = validateWebSurface(payload);
+  if (base) return base;
+  if (typeof payload.triage_level !== "string" || !TRIAGE_LEVELS.has(payload.triage_level)) {
+    return "triage_level required (LIKELY_OK|FIX_LIST|ESCALATE)";
+  }
+  if (payload.ver !== AI_PASTE_VER) {
+    return "ver must be innsegall-battle-scout-ai/v1";
+  }
+  return null;
+}
+
+function validatePacketBarShareHtml(payload) {
+  return validateWebSurface(payload);
+}
+
+function validatePacketBarPdf(payload) {
+  return validateWebSurface(payload);
+}
+
 function validateInstallIntent(payload) {
   if (!isPlainObject(payload)) return "payload must be an object";
   if (typeof payload.day !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(payload.day)) {
@@ -305,6 +368,10 @@ function validatePayload(event, payload) {
   if (event === "checkout_intent") return validateCheckoutIntent(payload);
   if (event === "install_intent") return validateInstallIntent(payload);
   if (event === "issue_spotlight") return validateIssueSpotlight(payload);
+  if (event === "packet_bar_copy_link") return validatePacketBarCopyLink(payload);
+  if (event === "packet_bar_copy_ai_paste") return validatePacketBarCopyAiPaste(payload);
+  if (event === "packet_bar_share_html") return validatePacketBarShareHtml(payload);
+  if (event === "packet_bar_pdf") return validatePacketBarPdf(payload);
   if (event === "checkout_complete") return "checkout_complete is server-only";
   return "unknown event";
 }

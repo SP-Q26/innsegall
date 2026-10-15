@@ -24,5 +24,5 @@ if (errors.length) {
 }
 
 mkdirSync(outDir, { recursive: true });
-writeFileSync(outPath, renderHtml(card), "utf8");
+writeFileSync(outPath, renderHtml(card, { demoSample: true, embedNavTelemetry: true }), "utf8");
 console.log(`Wrote ${outPath}`);

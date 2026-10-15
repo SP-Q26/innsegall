@@ -10,6 +10,10 @@ import {
   PAGE_MAP,
   CHECKOUT_SKUS,
   INSTALL_ASSETS,
+  PACKET_BAR_EVENTS,
+  PACKET_BAR_CONTEXTS,
+  TRIAGE_LEVELS,
+  AI_PASTE_VER,
 } from "../web/lib/telemetry-browser.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -32,6 +36,10 @@ const CANON_EVENTS = [
   "issue_spotlight",
   "checkout_intent",
   "install_intent",
+  "packet_bar_copy_link",
+  "packet_bar_copy_ai_paste",
+  "packet_bar_share_html",
+  "packet_bar_pdf",
   "checkout_complete",
   "checkout_abandoned",
   "clan_subscription",
@@ -57,6 +65,7 @@ for (const ev of [
   "issue_spotlight",
   "checkout_intent",
   "install_intent",
+  ...PACKET_BAR_EVENTS,
 ]) {
   check(`telemetry client allows ${ev}`, telemetry.includes(`"${ev}"`) && telemetry.includes("CLIENT_EVENTS"));
 }
@@ -75,6 +84,15 @@ for (const path of Object.keys(PAGE_MAP)) {
 
 check("nav marketing_ping", nav.includes("marketing_ping"));
 check("nav install_intent", nav.includes("install_intent"));
+check("nav packet bar hook", nav.includes("__innsegallPacketBar"));
+check("render packet bar telemetry", readFileSync(join(root, "src/render.mjs"), "utf8").includes("packet_bar_copy_ai_paste"));
+for (const ctx of PACKET_BAR_CONTEXTS) {
+  check(`packet bar context ${ctx}`, telemetry.includes(`"${ctx}"`));
+}
+for (const level of TRIAGE_LEVELS) {
+  check(`triage level ${level}`, telemetry.includes(`"${level}"`));
+}
+check("ai paste ver", telemetry.includes(AI_PASTE_VER));
 check("checkout checkout_intent", checkout.includes("checkout_intent"));
 check("webhook checkout_complete", webhook.includes('"checkout_complete"'));
 check("webhook payment_failed", webhook.includes('"payment_failed"'));

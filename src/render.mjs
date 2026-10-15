@@ -967,6 +967,21 @@ function cardJumpScript(shareCopy) {
   var dominant = document.querySelector(".armory-slot.is-dominant");
   if (dominant) dominant.classList.add("load-pulse");
 
+  function pbsTelemetry(event, extra) {
+    if (typeof window.__innsegallPacketBar === "function") {
+      window.__innsegallPacketBar(event, extra || {});
+    }
+  }
+  function pbsTriageLevel() {
+    return document.body.getAttribute("data-innsegall-triage-level") || "LIKELY_OK";
+  }
+  function pbsContext() {
+    return document.body.getAttribute("data-innsegall-pbs-context") || "battle_scout";
+  }
+  function pbsAiPasteExtra() {
+    return { triage_level: pbsTriageLevel(), ver: "innsegall-battle-scout-ai/v1" };
+  }
+
   var shareBtn = document.getElementById("battle-scout-share");
   if (shareBtn) {
     var shareDefaultLabel = shareBtn.getAttribute("data-label-default") || shareBtn.textContent.trim();
@@ -998,15 +1013,20 @@ function cardJumpScript(shareCopy) {
       var pasteEl = document.getElementById("innsegall-scout-paste");
       var pasteText = pasteEl && pasteEl.value ? pasteEl.value : "";
       var title = document.title || "Battle Scout · Innsegall";
-      function copied() {
+      function copiedAiPaste() {
         setShareCopied();
+        pbsTelemetry("packet_bar_copy_ai_paste", pbsAiPasteExtra());
+      }
+      function copiedShareHtml() {
+        setShareCopied();
+        pbsTelemetry("packet_bar_share_html", {});
       }
       var canNativeShare = navigator.share && pasteText;
       var preferShare = canNativeShare && window.matchMedia("(max-width: 768px)").matches;
       if (preferShare) {
-        navigator.share({ title: title, text: pasteText }).then(copied).catch(function () {
+        navigator.share({ title: title, text: pasteText }).then(copiedShareHtml).catch(function () {
           if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(pasteText).then(copied).catch(function () {
+            navigator.clipboard.writeText(pasteText).then(copiedAiPaste).catch(function () {
               showToast("Select the report text and copy manually");
             });
           } else {
@@ -1016,13 +1036,13 @@ function cardJumpScript(shareCopy) {
         return;
       }
       if (pasteText && navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(pasteText).then(copied).catch(function () {
+        navigator.clipboard.writeText(pasteText).then(copiedAiPaste).catch(function () {
           showToast("Select the report text and copy manually");
         });
         return;
       }
       if (canNativeShare) {
-        navigator.share({ title: title, text: pasteText }).then(copied).catch(function () {
+        navigator.share({ title: title, text: pasteText }).then(copiedShareHtml).catch(function () {
           showToast("Copy unavailable · open Parley below");
         });
         return;
@@ -1035,6 +1055,7 @@ function cardJumpScript(shareCopy) {
       if (autoText && navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(autoText).then(function () {
           setShareCopied();
+          pbsTelemetry("packet_bar_copy_ai_paste", pbsAiPasteExtra());
         }).catch(function () {});
       }
     }
@@ -1062,6 +1083,7 @@ function cardJumpScript(shareCopy) {
         document.body.removeChild(link);
         URL.revokeObjectURL(url);
         showToast("Report downloaded");
+        pbsTelemetry("packet_bar_pdf", {});
       } catch (err) {
         showToast("Download blocked · use Copy for AI");
       }
@@ -2966,6 +2988,9 @@ ${scoutDataBlocks}
     const attrs = [];
     if (autoCopyAi) attrs.push('data-innsegall-auto-copy-ai="1"');
     if (card.voyage) attrs.push('data-innsegall-voyage="1"');
+    const pbsContext = opts.pbsContext || (opts.demoSample ? "sample_report" : "battle_scout");
+    attrs.push(`data-innsegall-triage-level="${esc(card.verdict)}"`);
+    attrs.push(`data-innsegall-pbs-context="${esc(pbsContext)}"`);
     return attrs.length ? ` ${attrs.join(" ")}` : "";
   })()}>
   ${BATTLEFIELD_BG}
@@ -3046,6 +3071,7 @@ ${scoutDataBlocks}
   ${renderParleyEmbedScript(card)}
   ${PARLEY_LIVE_SCRIPT}
   <div id="card-toast" class="card-toast" role="status" aria-live="polite"></div>
+  ${opts.embedNavTelemetry ? '<script src="/innsegall-nav.js" defer></script>\n' : ""}
 </body>
 </html>`;
 }

@@ -38,6 +38,14 @@ if (existsSync(xanoDoc)) {
   FROM innsegall_events
   WHERE event = 'install_intent' AND day >= CURRENT_DATE - 7
   GROUP BY 1;\n`);
+  console.log(`  SELECT event, COUNT(*) AS n
+  FROM innsegall_events
+  WHERE event LIKE 'packet_bar_%' AND day >= CURRENT_DATE - 7
+  GROUP BY 1 ORDER BY n DESC;\n`);
+  console.log(`  SELECT payload->>'triage_level' AS triage, COUNT(*) AS n
+  FROM innsegall_events
+  WHERE event = 'packet_bar_copy_ai_paste' AND day >= CURRENT_DATE - 7
+  GROUP BY 1;\n`);
   console.log("Full catalog: docs/EVENTS_TRACKING.md\n");
 } else {
   console.log("(PLATFORM_TRACKING.md missing)\n");
