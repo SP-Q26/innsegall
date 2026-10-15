@@ -166,7 +166,10 @@
     fetch("/api/telemetry", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ event: event, payload: payload }),
+      body: JSON.stringify({
+        event: event,
+        payload: Object.assign({ locale: window.__INNSEGALL_LOCALE || "en" }, payload || {}),
+      }),
       keepalive: true,
     }).catch(function () {});
   }

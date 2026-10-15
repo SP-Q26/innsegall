@@ -12,17 +12,17 @@
 
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Innsegall">
-    <meta property="og:title" content="Mac Slow After a Suspicious Download · Scout Before You Panic-Clean">
-  <meta name="twitter:url" content="https://innsegall.com/blog/mac-slow-after-suspicious-download">
+      <meta property="og:title" content="Mac Slow After a Suspicious Download · Scout Before You Panic-Clean">
+    <meta name="twitter:url" content="https://innsegall.com/blog/mac-slow-after-suspicious-download">
   <meta property="article:published_time" content="2026-09-23">
   <meta name="twitter:image" content="https://innsegall.com/og/innsegall-card.png?v=20261008d">
   <meta name="twitter:image:alt" content="Innsegall · Know you're okay · Macintosh triage">
-    <meta name="twitter:description" content="Mac slow after a suspicious or scam download? Stale launch items vs malware fear · read-only scout · link hygiene guides · post-scare lane · not antivirus.">
-    <meta name="twitter:title" content="Mac Slow After a Suspicious Download · Scout Before You Panic-Clean">
+      <meta name="twitter:description" content="Mac slow after a suspicious or scam download? Stale launch items vs malware fear · read-only scout · link hygiene guides · post-scare lane · not antivirus.">
+      <meta name="twitter:title" content="Mac Slow After a Suspicious Download · Scout Before You Panic-Clean">
   <meta name="twitter:site" content="@innsegall">
   <meta property="og:locale" content="en_US">
-    <meta property="og:description" content="Mac slow after a suspicious or scam download? Stale launch items vs malware fear · read-only scout · link hygiene guides · post-scare lane · not antivirus.">
-    <meta property="og:url" content="https://innsegall.com/blog/mac-slow-after-suspicious-download">
+      <meta property="og:description" content="Mac slow after a suspicious or scam download? Stale launch items vs malware fear · read-only scout · link hygiene guides · post-scare lane · not antivirus.">
+      <meta property="og:url" content="https://innsegall.com/blog/mac-slow-after-suspicious-download">
   <meta property="og:image" content="https://innsegall.com/og/innsegall-card.png?v=20261008d">
   <meta property="og:image:secure_url" content="https://innsegall.com/og/innsegall-card.png?v=20261008d">
   <meta property="og:image:width" content="1200">
@@ -34,10 +34,10 @@
   <meta name="innsegall:gospel" content="https://innsegall.com/.well-known/innsegall-gospel.json">
   <link rel="alternate" type="text/plain" href="https://innsegall.com/llms.txt" title="Innsegall · AI agent gospel (llms.txt)">
   <meta name="innsegall:agent-hint" content="Mac slow after download scare · stale launch items · innsegall.com/alpha">
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+      <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/favicon.svg">
   <link rel="manifest" href="/site.webmanifest">
-  <link rel="stylesheet" href="/innsegall.css?v=27">
+  <link rel="stylesheet" href="/innsegall.css?v=28">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=DM+Sans:wght@400;600&display=swap">
@@ -97,12 +97,26 @@
           <span class="brand-pronounce">IN-sheh-gal · post-scare Mac triage</span>
         </span>
       </a>
-      <nav class="header-nav" aria-label="Site">
-        <a class="nav-link" href="/alpha">Get started</a>
-        <a class="nav-link" href="/watch">Trending</a>
-        <a class="nav-link" href="/blog">Help</a>
-        <a class="nav-link" href="/clan">Clan</a>
-      </nav>
+      <div class="header-end">
+        <nav class="header-nav" aria-label="Site">
+          <a class="nav-link" href="/alpha">Get started</a>
+          <a class="nav-link" href="/watch">Trending</a>
+          <a class="nav-link" href="/blog">Help</a>
+          <a class="nav-link" href="/clan">Clan</a>
+        </nav>
+        <div class="locale-picker" data-locale-picker>
+          <details class="locale-picker__details">
+            <summary class="locale-picker__trigger nav-link" aria-label="Language">EN</summary>
+            <ul class="locale-picker__menu" role="list">
+              <li><button type="button" class="locale-picker__option" data-locale-code="en">English</button></li>
+              <li><button type="button" class="locale-picker__option locale-picker__option--soon" data-locale-code="es" aria-disabled="true">Español <span class="locale-picker__badge">soon</span></button></li>
+              <li><button type="button" class="locale-picker__option locale-picker__option--soon" data-locale-code="pt-BR" aria-disabled="true">Português <span class="locale-picker__badge">soon</span></button></li>
+              <li><button type="button" class="locale-picker__option locale-picker__option--soon" data-locale-code="fr" aria-disabled="true">Français <span class="locale-picker__badge">soon</span></button></li>
+              <li><button type="button" class="locale-picker__option locale-picker__option--soon" data-locale-code="ar" aria-disabled="true">العربية <span class="locale-picker__badge">soon</span></button></li>
+            </ul>
+          </details>
+        </div>
+      </div>
     </header>
 
     <main id="main" class="section legal-doc blog-prose" style="border-top:none;padding-top:0;">
@@ -188,7 +202,8 @@
       </div>
     </footer>
   </div>
-  <script src="/innsegall-nav.js?v=27" defer></script>
+    <script src="/innsegall-locale.js?v=28" defer></script>
+  <script src="/innsegall-nav.js?v=28" defer></script>
   <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

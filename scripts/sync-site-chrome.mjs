@@ -10,7 +10,7 @@ import { fontHeadLines, FONT_LINK_RE, FONT_STYLESHEET_HREF } from "./site-fonts.
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const web = join(root, "web");
 const OG_URL = "https://innsegall.com/og/innsegall-card.png?v=20261008d";
-const CSS_VER = 27;
+const CSS_VER = 28;
 
 /** Homepage link-preview copy (Facebook · X · iMessage). */
 const HOME_SOCIAL = {
@@ -44,12 +44,26 @@ const CANONICAL_HEADER = `<header class="site-header">
           <span class="brand-pronounce">IN-sheh-gal · post-scare Mac triage</span>
         </span>
       </a>
-      <nav class="header-nav" aria-label="Site">
-        <a class="nav-link" href="/alpha">Get started</a>
-        <a class="nav-link" href="/watch">Trending</a>
-        <a class="nav-link" href="/blog">Help</a>
-        <a class="nav-link" href="/clan">Clan</a>
-      </nav>
+      <div class="header-end">
+        <nav class="header-nav" aria-label="Site">
+          <a class="nav-link" href="/alpha">Get started</a>
+          <a class="nav-link" href="/watch">Trending</a>
+          <a class="nav-link" href="/blog">Help</a>
+          <a class="nav-link" href="/clan">Clan</a>
+        </nav>
+        <div class="locale-picker" data-locale-picker>
+          <details class="locale-picker__details">
+            <summary class="locale-picker__trigger nav-link" aria-label="Language">EN</summary>
+            <ul class="locale-picker__menu" role="list">
+              <li><button type="button" class="locale-picker__option" data-locale-code="en">English</button></li>
+              <li><button type="button" class="locale-picker__option locale-picker__option--soon" data-locale-code="es" aria-disabled="true">Español <span class="locale-picker__badge">soon</span></button></li>
+              <li><button type="button" class="locale-picker__option locale-picker__option--soon" data-locale-code="pt-BR" aria-disabled="true">Português <span class="locale-picker__badge">soon</span></button></li>
+              <li><button type="button" class="locale-picker__option locale-picker__option--soon" data-locale-code="fr" aria-disabled="true">Français <span class="locale-picker__badge">soon</span></button></li>
+              <li><button type="button" class="locale-picker__option locale-picker__option--soon" data-locale-code="ar" aria-disabled="true">العربية <span class="locale-picker__badge">soon</span></button></li>
+            </ul>
+          </details>
+        </div>
+      </div>
     </header>`;
 
 const OG_BLOCK = `  <meta property="og:image" content="${OG_URL}">
@@ -60,7 +74,8 @@ const OG_BLOCK = `  <meta property="og:image" content="${OG_URL}">
   <meta property="og:image:alt" content="Innsegall · Know you're okay · Macintosh triage">
   <meta name="twitter:image" content="${OG_URL}">`;
 
-const NAV_SCRIPT = `  <script src="/innsegall-nav.js?v=${CSS_VER}" defer></script>`;
+const NAV_SCRIPT = `  <script src="/innsegall-locale.js?v=${CSS_VER}" defer></script>
+  <script src="/innsegall-nav.js?v=${CSS_VER}" defer></script>`;
 
 /** Vercel Web Analytics · enable in project dashboard · not @vercel/analytics (static site, not Next). */
 const VERCEL_ANALYTICS = `  <script defer src="/_vercel/insights/script.js"></script>`;
@@ -362,6 +377,13 @@ function fixChrome(html) {
   let out = html;
   out = out.replace(/innsegall\.css\?v=\d+/g, `innsegall.css?v=${CSS_VER}`);
   out = out.replace(/innsegall-nav\.js\?v=\d+/g, `innsegall-nav.js?v=${CSS_VER}`);
+  out = out.replace(/innsegall-locale\.js\?v=\d+/g, `innsegall-locale.js?v=${CSS_VER}`);
+  if (!out.includes("innsegall-locale.js") && out.includes("innsegall-nav.js")) {
+    out = out.replace(
+      /<script src="\/innsegall-nav\.js\?v=\d+" defer><\/script>/,
+      `  <script src="/innsegall-locale.js?v=${CSS_VER}" defer></script>\n  <script src="/innsegall-nav.js?v=${CSS_VER}" defer></script>`
+    );
+  }
   out = fixFonts(out);
 
   if (out.includes('class="site-header"') && !out.includes('class="skip-link"')) {

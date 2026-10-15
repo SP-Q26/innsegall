@@ -17,6 +17,20 @@
 
 Do **not** create `/es/blog` until Phase 1 kickoff.
 
+### Chrome · language picker (live on EN site)
+
+| Piece | Spec |
+|-------|------|
+| **Where** | **Top right** of `site-header` · after Get started / Watch / Help / Clan · `header-end` row |
+| **Control** | **Single click** · `<details>` summary shows **EN** (or ES/PT/FR/AR when live) · menu lists locales |
+| **Phase 0** | Only **English** navigates · others show **soon** (disabled) until translated guides ship |
+| **Auto-detect** | `navigator.languages` → `sessionStorage.innsegall_locale_hint` · **no redirect** on first visit (SEO + shared EN links) |
+| **Override** | Cookie `innsegall_locale` (400d) · when a locale goes **live**, picker sets cookie + swaps URL prefix (`/es/blog/…`) |
+| **Telemetry** | `marketing_ping` payload includes `locale` (active code) |
+| **Scripts** | `web/innsegall-locale.js` · wired in `sync-site-chrome.mjs` |
+
+**Not:** footer-only picker · auto-redirect whole site from browser lang · machine-translated legal without review.
+
 ---
 
 ## Phase 1 · Spanish + Portuguese (Brazil)
