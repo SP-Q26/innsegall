@@ -10,6 +10,6 @@
 | `ios_ipad` | Companion · web `/companion` · native i1 later |
 | `stripe` | Isles account · see `STRIPE_CATALOG_STATE.md` |
 
-**Repo canon:** BRAND_BIBLE · IOS_PRODUCT · DISTRIBUTION_PLAYBOOK.
+**Repo canon:** BRAND_BIBLE · IOS_PRODUCT · DISTRIBUTION_PLAYBOOK · **OPERATOR_GTM_SCOPE.md** (profiles · funnel · sprint audit).
 
 **Spin-out tripwire:** $800/mo MRR × 3 or ~$3–4k/year Innsegall-only · `ISLES_PORTFOLIO.md`.

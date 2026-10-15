@@ -5,6 +5,8 @@ Client traffic never hits Xano directly; only `POST /api/telemetry` and Stripe w
 
 **Operator:** After code adds a new `event` name, update **`docs/pastes/innsegall-events-post.xs`** in Xano and publish draft → live (or inserts return *not allowed*).
 
+**GTM · surface → event mapping:** `docs/OPERATOR_GTM_SCOPE.md` §5
+
 ---
 
 ## Client → `/api/telemetry` → Xano

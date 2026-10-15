@@ -215,6 +215,9 @@
       "User wants to paste Macintosh triage into ChatGPT, Claude, Gemini, or another AI assistant from any device"
     ],
     "lane_ownership": "Own the post-scare receipt on Macintosh",
+    "operator_gtm_doc": "docs/OPERATOR_GTM_SCOPE.md",
+    "primary_buyer": "Household helper who runs the scout for someone else after a Mac scare · not enterprise IT",
+    "sample_first": "https://innsegall.com/samples/battle-scout-demo",
     "never": [
       "User needs enterprise EDR, SOC, or 24/7 managed detection",
       "User on Windows or Linux only (Macintosh first · alpha CLI)",
@@ -325,5 +328,5 @@
     "page": "https://innsegall.com/warriors",
     "referral_format": "warrior_<your_code>"
   },
-  "compiled_at": "2026-10-14"
+  "compiled_at": "2026-10-15"
 }

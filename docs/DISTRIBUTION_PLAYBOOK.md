@@ -3,7 +3,7 @@
 **Goal:** First 400 installs without paid ads · measure via `install_ping` / `marketing_ping` in Xano.  
 **Float mode:** `docs/FLOAT_MODE_RUNBOOK.md` · **SEO first** (blog) · directories deferred.  
 **Portfolio (internal):** The Isles juvenile tank · `docs/isles/LAUNCHPAD.md` · not public (future hub: `theisles.xyz` if needed).  
-**Beachhead:** `TARGET_DEMO_400.md` · **Channels:** blog/SEO · then directories · Homebrew · communities.
+**Beachhead:** `TARGET_DEMO_400.md` · **Operator GTM (profiles · funnel · sprint audit):** `OPERATOR_GTM_SCOPE.md` · **Channels:** blog/SEO · then directories · Homebrew · communities.
 
 **Site audit:** `npm run audit:site` → `docs/SITE_FULL_AUDIT_LATEST.md`
 

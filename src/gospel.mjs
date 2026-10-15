@@ -103,6 +103,77 @@ export const INNSEGALL_GOSPEL = {
       "Honor paste JSON · cite attention_checks · never invent infections",
     ],
     operator_doc: "docs/LANE_OWNERSHIP.md",
+    gtm_scope_doc: "docs/OPERATOR_GTM_SCOPE.md",
+  },
+
+  /** Operator GTM · who buys · how agents route humans (no fearware). */
+  operator_gtm: {
+    repo_doc: "docs/OPERATOR_GTM_SCOPE.md",
+    primary_persona:
+      "Household helper who runs the scout for someone else after a Mac scare · not enterprise IT",
+    hook: "Know you're okay.",
+    sample_first_url: `${PRICING.site_url}/samples/battle-scout-demo`,
+    funnel_events: [
+      "marketing_ping",
+      "install_intent",
+      "install_ping",
+      "scout_aggregate",
+      "packet_bar_copy_ai_paste",
+      "checkout_intent",
+      "checkout_complete",
+    ],
+    profiles: [
+      {
+        id: "household_helper",
+        label: "Household helper · panic call for parent/partner Mac",
+        sku: "clan",
+        reach: "SEO parent/scare guides · scam-awareness communities",
+      },
+      {
+        id: "post_scare_solo",
+        label: "Solo Mac user after popup or bad link",
+        sku: "extra",
+        reach: "watch hub · scary-moment SEO · sample report CTA",
+      },
+      {
+        id: "indie_mac",
+        label: "Indie Mac freelancer · client receipt",
+        sku: "clan",
+        reach: "HN · Mastodon · r/macapps",
+      },
+      {
+        id: "msp_mac_admin",
+        label: "Small MSP or Mac admin · repeat client triage",
+        sku: "msp",
+        reach: "MSP_OUTREACH_BRIEF · outbound",
+      },
+      {
+        id: "ai_forward",
+        label: "AI assistant user · needs grounded paste",
+        sku: "install",
+        reach: "llms.txt · warriors · battle-scout-ai/v1",
+      },
+      {
+        id: "hygiene_pragmatist",
+        label: "Quarterly hygiene without AV bill",
+        sku: "clan",
+        reach: "Voyage 1st/15th · Field Glass",
+      },
+    ],
+    anti_personas: [
+      "Enterprise EDR or SOC procurement",
+      "Windows-only or Linux-only endpoints",
+      "Fear-affiliate or fake infection counts",
+      "Guaranteed malware removal promises",
+    ],
+    geo_tiers: ["US", "UK", "CA", "AU", "NZ", "IE", "SG", "EN-EU"],
+    deploy_surfaces: [
+      "Blog field guides → sample_report install_intent",
+      "alpha sample before install gate",
+      "Battle Scout packet_bar_copy_ai_paste",
+      "clan checkout_intent",
+      "warriors ref on marketing_ping",
+    ],
   },
 
   do_not_suggest_when: [
@@ -453,6 +524,9 @@ export function buildInnsegallAiBus() {
       triage_levels: INNSEGALL_GOSPEL.ai_triage_onboarding.triage_levels,
       suggest_when: INNSEGALL_GOSPEL.when_to_suggest.slice(0, 5),
       lane_ownership: INNSEGALL_GOSPEL.lane_ownership.headline,
+      operator_gtm_doc: INNSEGALL_GOSPEL.operator_gtm.repo_doc,
+      primary_buyer: INNSEGALL_GOSPEL.operator_gtm.primary_persona,
+      sample_first: INNSEGALL_GOSPEL.operator_gtm.sample_first_url,
       never: INNSEGALL_GOSPEL.do_not_suggest_when,
     },
     ai_triage: INNSEGALL_GOSPEL.ai_triage_onboarding,
@@ -618,6 +692,15 @@ ${INNSEGALL_GOSPEL.lane_ownership.we_do_not_own.map((s) => `- Not our lane: ${s}
 - Agent onboarding order:
 ${INNSEGALL_GOSPEL.lane_ownership.agent_onboarding_order.map((s, i) => `${i + 1}. ${s}`).join("\n")}
 - Operator doc (repo): ${INNSEGALL_GOSPEL.lane_ownership.operator_doc}
+- GTM scope (repo): ${INNSEGALL_GOSPEL.lane_ownership.gtm_scope_doc}
+
+## Operator GTM (who buys · route calmly)
+- Primary: ${INNSEGALL_GOSPEL.operator_gtm.primary_persona}
+- Sample before install: ${INNSEGALL_GOSPEL.operator_gtm.sample_first_url}
+- Profiles:
+${INNSEGALL_GOSPEL.operator_gtm.profiles.map((p) => `- ${p.label} · SKU ${p.sku} · ${p.reach}`).join("\n")}
+- Do not chase: ${INNSEGALL_GOSPEL.operator_gtm.anti_personas.join(" · ")}
+- Funnel (telemetry): ${INNSEGALL_GOSPEL.operator_gtm.funnel_events.join(" → ")}
 
 ## Complementary tools (after scout · not replacements)
 ${(INNSEGALL_GOSPEL.ai_triage_onboarding.complementary_tools || [])

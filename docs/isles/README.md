@@ -11,6 +11,7 @@
 | [SHARED_STRIPE_CHECKOUT_BRANDING.md](./SHARED_STRIPE_CHECKOUT_BRANDING.md) | One Collective account · per-app webhooks/prices · checkout branding phases |
 | [APPLE_BUNDLE_MAP.md](./APPLE_BUNDLE_MAP.md) | One $99/yr · multiple apps |
 | [GTM_MAC_FIRST.md](./GTM_MAC_FIRST.md) | Targeting · channels · slim ICP |
+| [../OPERATOR_GTM_SCOPE.md](../OPERATOR_GTM_SCOPE.md) | Innsegall buyer profiles · deploy map · relentless audit |
 | [apps/SIMPLE_PROPERTY.md](./apps/SIMPLE_PROPERTY.md) | Simple Property lane stub |
 | [apps/INNSEGALL.md](./apps/INNSEGALL.md) | Innsegall lane · links to repo canon |
 

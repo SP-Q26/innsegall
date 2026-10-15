@@ -24,6 +24,7 @@
 | `COPY_SEO_REVIEW_2026-09-22.md` | Intent map · copy/SEO review · run `npm run audit:copy` |
 | `XANO_KEYS_LEFT.md` | Telemetry wire · `smoke:live` **202** |
 | `DISTRIBUTION_PLAYBOOK.md` | Directories deferred in float · SEO first |
+| `OPERATOR_GTM_SCOPE.md` | **Buyer profiles · funnel deploy map · sprint audit paste** |
 
 **Proof commands:**
 
@@ -33,6 +34,7 @@ npm run audit:git      # identity · main vs origin · workspace · pre-commit
 npm run predeploy      # gospel + blog chrome sync
 npm run audit:site     # writes SITE_FULL_AUDIT_LATEST.md
 npm run gate:launch    # swarm + smoke:live (0 fail target)
+npm run audit:gtm-scope # GTM doc welded to gospel/llms/canonical links
 npm run full-send      # sk_live_ required · see FULL_SEND.md
 ```
 
@@ -44,6 +46,8 @@ npm run full-send      # sk_live_ required · see FULL_SEND.md
 |-----|-----|
 | `NORTH_STAR_AUDIT.md` | Pricing · AI-bus · **no pivot** (strategy) |
 | `LANE_OWNERSHIP.md` | Post-scare receipt lane · agent onboarding · expansion rules |
+| `OPERATOR_GTM_SCOPE.md` | Who buys worldwide · objections · telemetry weaponization |
+| `TARGET_DEMO_400.md` | First 400 installs beachhead |
 | `ROADMAP_5K_MRR.md` | MRR phases · Q4 2026 focus |
 | `HOW_TO_SEND.md` | Blast / share copy |
 | `STABILITY.md` | Trust contract |

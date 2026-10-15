@@ -2,11 +2,19 @@
 
 Stripe **Product** objects show an image in hosted Checkout and the Dashboard. Innsegall uses **stable URLs on innsegall.com** so test and live products can share the same art; redeploy + sync refreshes what Stripe displays.
 
+**Portfolio law:** `docs/isles/ISLES_STRIPE_PRODUCT_ICONS.md` — **brand frame + unique action** per SKU · **no two products share the same image**.
+
 On a **shared Isles Collective** account, each brand uses **its own domain** for `Product.images[]` (Innsegall → `innsegall.com/stripe/…`) so lanes do not overwrite each other’s art. Checkout **colors/logo** default: Dashboard Branding · per-session override: `isles/SHARED_STRIPE_CHECKOUT_BRANDING.md`.
 
 ## Assets
 
 WWLuxe-style tiles: **512×512**, `rx="72"` fjord field, gold/aurora rings, **icon-only** (no checkout label text).
+
+| Tile | Action metaphor |
+|------|-----------------|
+| `extra.svg` | Scout beam · one extra run |
+| `clan.svg` | Three-seat household rings |
+| `msp.svg` | Roster grid · per seat |
 
 | File | Purpose |
 |------|---------|

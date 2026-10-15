@@ -2,6 +2,8 @@
 
 **Goal:** 400 Macintosh installs before paid marketing · organic + clan + agent gospel.
 
+**Full GTM scope (profiles · worldwide tiers · objection matrix · relentless audit):** `OPERATOR_GTM_SCOPE.md`
+
 ---
 
 ## Who they are (primary persona)

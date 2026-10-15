@@ -77,6 +77,9 @@ check("STRIPE_CATALOG_STATE doc", existsSync(join(root, "docs/STRIPE_CATALOG_STA
 check("catalog msp test_price_id set", Boolean(STRIPE_CATALOG.msp.test_price_id));
 check("sync-stripe-product-images script", existsSync(join(root, "scripts/sync-stripe-product-images.mjs")));
 check("provision-stripe-catalog script", existsSync(join(root, "scripts/provision-stripe-catalog.mjs")));
+
+const imagePaths = Object.values(STRIPE_CATALOG).map((i) => i.checkout_image);
+check("unique checkout_image per SKU", new Set(imagePaths).size === imagePaths.length);
 check("STRIPE_DEEP_AUDIT doc", existsSync(join(root, "docs/STRIPE_DEEP_AUDIT_2026-09-22.md")));
 for (const key of Object.keys(STRIPE_CATALOG)) {
   check(`catalog ${key} checkout_image`, Boolean(stripeProductImageUrl(key)));

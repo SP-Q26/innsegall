@@ -105,10 +105,12 @@ Persona: **caretaker with no scout** · not family IT DIY.
 
 | Day | Action |
 |-----|--------|
-| Mon | Xano roll-up · install_ping + marketing_ping by channel |
+| Mon | Xano roll-up · install_ping + marketing_ping by channel · `node scripts/report-funnel.mjs` |
 | Wed | Stripe: new clans · churn |
-| Fri | `npm run audit:swarm` before any deploy |
+| Fri | `npm run audit:swarm` + `npm run audit:gtm-scope` before any deploy |
 | 1st & 15th | Field Glass post · tie to Voyage theme |
+
+Sprint audit paste map: `OPERATOR_GTM_SCOPE.md` §8
 
 ---
 

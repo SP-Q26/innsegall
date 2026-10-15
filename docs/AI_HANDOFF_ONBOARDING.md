@@ -2,6 +2,8 @@
 
 **Win-win:** the operator runs a **local** Battle Scout on their Macintosh. An external assistant reads the structured paste (`innsegall-battle-scout-ai/v1`) and assigns a **triage level** from evidence · not from imagination.
 
+**Who we serve (operator GTM · not guest marketing copy):** `OPERATOR_GTM_SCOPE.md` §3
+
 ---
 
 ## Read order (agents)

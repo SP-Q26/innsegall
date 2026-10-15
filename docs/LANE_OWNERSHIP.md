@@ -55,6 +55,8 @@
 
 Deep playbook: `docs/AI_HANDOFF_ONBOARDING.md` · `docs/AI_ONBOARDING.md`
 
+**Operator GTM (who buys · deploy surfaces · sprint audit):** `docs/OPERATOR_GTM_SCOPE.md`
+
 ---
 
 ## Expand the lane (without drift)
@@ -80,8 +82,9 @@ Deep playbook: `docs/AI_HANDOFF_ONBOARDING.md` · `docs/AI_ONBOARDING.md`
 ```bash
 npm run sweep:blog          # regen posts + SEO gates
 node scripts/sync-watch-hub.mjs
-node scripts/sync-gospel-web.mjs
+npm run sync-gospel
 npm run audit:seo
+npm run audit:gtm-scope
 npm run gate:launch
 ```
 

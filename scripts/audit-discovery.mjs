@@ -85,6 +85,7 @@ check("MSP_OUTREACH_BRIEF", existsSync(join(root, "docs", "MSP_OUTREACH_BRIEF.md
 check("L5_OPERATOR_RUNBOOK", existsSync(join(root, "docs", "L5_OPERATOR_RUNBOOK.md")));
 check("STRIPE_MSP_PACK", existsSync(join(root, "docs", "STRIPE_MSP_PACK.md")));
 check("report:funnel script", existsSync(join(root, "scripts", "report-funnel.mjs")));
+check("OPERATOR_GTM_SCOPE.md", existsSync(join(root, "docs", "OPERATOR_GTM_SCOPE.md")));
 
 if (failed) {
   console.error(`\n${failed} discovery/trust audit failure(s)`);

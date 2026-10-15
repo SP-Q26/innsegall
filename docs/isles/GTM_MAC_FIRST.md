@@ -2,6 +2,8 @@
 
 **Principle:** Win a **thin** audience on **Macintosh** before paying for broad reach.
 
+**Innsegall operator canon (profiles · funnel weaponization · audit runbook):** `../OPERATOR_GTM_SCOPE.md`
+
 ## Innsegall ICP (now)
 
 - Post-scare Mac user · household helper · not family IT
