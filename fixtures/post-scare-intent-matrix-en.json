@@ -1,0 +1,89 @@
+{
+  "version": "2026-10-14",
+  "locale": "en",
+  "description": "Canonical post-scare intents · P0 must ship HTML + SEO + CTA before i18n (es/pt/fr/ar).",
+  "product_anchors": [
+    "what-is-a-battle-scout",
+    "voyage-health-tracker-1st-15th",
+    "join-the-innsegall-clan",
+    "paste-battle-scout-for-ai-assistant",
+    "do-i-need-antivirus-mac-2026",
+    "check-parent-mac-after-scare"
+  ],
+  "scary_moments_oct_2026": [
+    "mac-screen-sharing-on-without-permission",
+    "mac-keychain-password-popup-loop-scam",
+    "mac-browser-full-screen-virus-locker",
+    "mac-apple-id-locked-browser-scam",
+    "mac-camera-microphone-light-worry"
+  ],
+  "intents": [
+    { "cluster": "A_browser_trap", "slug": "fake-virus-popup-macintosh", "browser_first": true },
+    { "cluster": "A_browser_trap", "slug": "mac-browser-full-screen-virus-locker", "browser_first": true, "scary_moment": true },
+    { "cluster": "A_browser_trap", "slug": "mac-apple-id-locked-browser-scam", "browser_first": true, "scary_moment": true },
+    { "cluster": "A_browser_trap", "slug": "apple-support-call-popup-scam-mac", "browser_first": true },
+    { "cluster": "A_browser_trap", "slug": "safari-shift-key-scam-popup-mac", "browser_first": true },
+    { "cluster": "A_browser_trap", "slug": "safari-fake-virus-notifications-mac", "browser_first": true },
+    { "cluster": "A_browser_trap", "slug": "safari-search-engine-hijacked-mac" },
+    { "cluster": "A_browser_trap", "slug": "safari-allowed-notifications-by-mistake-mac", "browser_first": true },
+    { "cluster": "A_browser_trap", "slug": "chrome-fake-virus-popup-mac", "browser_first": true },
+    { "cluster": "A_browser_trap", "slug": "chrome-notifications-scam-mac", "browser_first": true },
+    { "cluster": "A_browser_trap", "slug": "chrome-search-engine-hijacked-mac" },
+    { "cluster": "A_browser_trap", "slug": "chrome-clear-browsing-data-after-scare-mac" },
+    { "cluster": "A_browser_trap", "slug": "mac-calendar-spam-invites-scam" },
+    { "cluster": "B_credentials_access", "slug": "mac-keychain-password-popup-loop-scam", "browser_first": true, "scary_moment": true },
+    { "cluster": "B_credentials_access", "slug": "pasted-terminal-command-mac-scare" },
+    { "cluster": "B_credentials_access", "slug": "someone-remoted-into-my-mac" },
+    { "cluster": "B_credentials_access", "slug": "mac-screen-sharing-on-without-permission", "browser_first": true, "scary_moment": true },
+    { "cluster": "B_credentials_access", "slug": "gatekeeper-opened-unknown-app-mac" },
+    { "cluster": "B_credentials_access", "slug": "mac-configuration-profile-scam" },
+    { "cluster": "C_device_signals", "slug": "mac-camera-microphone-light-worry", "browser_first": true, "scary_moment": true },
+    { "cluster": "C_device_signals", "slug": "mac-slow-after-suspicious-download" },
+    { "cluster": "C_device_signals", "slug": "downloads-folder-quarantine-mac-check" },
+    { "cluster": "C_device_signals", "slug": "mac-dns-changed-after-scare" },
+    { "cluster": "C_device_signals", "slug": "mac-performance-panic-vs-security-panic" },
+    { "cluster": "C_device_signals", "slug": "stale-launch-items-macintosh" },
+    { "cluster": "D_links_phishing", "slug": "clicked-suspicious-link-macintosh" },
+    { "cluster": "D_links_phishing", "slug": "after-suspicious-link-macintosh" },
+    { "cluster": "E_comparison", "slug": "malwarebytes-vs-innsegall-after-scare" },
+    { "cluster": "E_comparison", "slug": "innsegall-vs-antivirus-macintosh" },
+    { "cluster": "E_comparison", "slug": "innsegall-vs-mac-cleaners" },
+    { "cluster": "E_comparison", "slug": "innsegall-vs-etrecheck-macintosh" },
+    { "cluster": "E_comparison", "slug": "onyx-vs-read-only-mac-scout" },
+    { "cluster": "E_comparison", "slug": "genius-bar-vs-battle-scout-mac" },
+    { "cluster": "E_comparison", "slug": "virustotal-vs-local-mac-scout" },
+    { "cluster": "E_comparison", "slug": "knockknock-vs-post-scare-triage" },
+    { "cluster": "E_comparison", "slug": "blockblock-vs-post-scare-triage" },
+    { "cluster": "E_comparison", "slug": "network-monitor-vs-post-scare-triage" },
+    { "cluster": "E_comparison", "slug": "macintosh-xprotect-after-scare" },
+    { "cluster": "E_comparison", "slug": "macintosh-hygiene-without-antivirus" },
+    { "cluster": "F_wrong_device", "slug": "fake-virus-popup-iphone-ipad", "browser_first": true },
+    { "cluster": "F_wrong_device", "slug": "clicked-bad-link-iphone-ipad-guide" },
+    { "cluster": "F_wrong_device", "slug": "opened-suspicious-email-iphone-ipad" },
+    { "cluster": "F_wrong_device", "slug": "downloaded-suspicious-file-iphone-ipad" },
+    { "cluster": "F_wrong_device", "slug": "typed-password-scam-site-iphone-ipad" },
+    { "cluster": "F_wrong_device", "slug": "safari-notifications-scam-iphone-ipad" },
+    { "cluster": "F_wrong_device", "slug": "safari-clear-website-data-iphone-ipad" },
+    { "cluster": "G_product", "slug": "innsegall-ios-companion-i0" },
+    { "cluster": "G_product", "slug": "auto-voyage-first-sail" }
+  ],
+  "deferred_en_p2": [
+    {
+      "slug": "mac-business-email-phishing-scare",
+      "cluster": "D_links_phishing",
+      "note": "Freelancer/small LLC inbox · after EN gate + i18n phase 1"
+    },
+    {
+      "slug": "mac-student-dorm-phishing-scare",
+      "cluster": "D_links_phishing",
+      "note": "Campus Wi‑Fi / dorm phishing · P2 EN expansion"
+    },
+    {
+      "slug": "wifi-captive-portal-scam-mac",
+      "cluster": "A_browser_trap",
+      "note": "Travel/hotel captive portal · P2 EN"
+    }
+  ],
+  "i18n_blocked_until": "audit:en-coverage green",
+  "i18n_next_locales": ["es", "pt-BR", "fr", "ar"]
+}

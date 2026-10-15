@@ -1,7 +1,7 @@
 # Operator GTM scope · relentless audit · deploy at every turn
 
 **Updated:** 2026-10-14 · **Lane:** Innsegall only · Isles `isles_brand=innsegall` · **Not** SPQ · **Not** MMI/WWL Stripe  
-**Canon stack:** `LANE_OWNERSHIP.md` · `EVENTS_TRACKING.md` · `AI_HANDOFF_ONBOARDING.md` · `ROADMAP_5K_MRR.md`
+**Canon stack:** `LANE_OWNERSHIP.md` · `EVENTS_TRACKING.md` · `AI_HANDOFF_ONBOARDING.md` · `ROADMAP_5K_MRR.md` · `EN_POST_SCARE_COVERAGE.md` · `LANE_I18N_PLAN.md`
 
 This doc is the **operator truth** for who buys Innsegall worldwide, why, how we reach them without fearware, and how every product surface maps to telemetry and revenue. Agents: compact routing lives in gospel `operator_gtm` + `llms.txt` § Operator GTM.
 
@@ -116,7 +116,7 @@ marketing_ping → install_intent → install_ping → scout_aggregate → packe
 | `/index` hero | Sample link in hero | `marketing_ping` `home` | Demo → alpha | Trust before install |
 | Battle Scout HTML | Copy for AI · share · download | `packet_bar_copy_ai_paste` · `packet_bar_share_html` | Receipt proof | “You're just saying OK” |
 | `/clan` | Seats · shared scouts | `checkout_intent` `sku=clan` | $6.67 vs AV seat | “Another subscription” |
-| `/warriors` | `?ref=` | `warrior_ref` on pings | Agent distribution | — |
+| `/warriors` | `?ref=` | `warrior_ref` on pings | Agent distribution | · |
 | `/boat` | Lane vs AV/cleaners | `marketing_ping` `boat` | Honest scope | Wrong buyer self-selects |
 | `llms.txt` + gospel | When-to-suggest bullets | Agent → alpha | Scout before fiction | AI spiral |
 | CLI | `install_ping` · aggregates | No paths in payload | Local truth | Cloud upload fear |
@@ -157,7 +157,7 @@ marketing_ping → install_intent → install_ping → scout_aggregate → packe
 | r/macapps · IH · HN | Low | Indie + helper | `docs/pastes/community-*.md` |
 | Warriors + llms | Low | Agents | `WARRIORS_FIELD_REPORT.md` |
 | Apple Search Ads | Paid | After organic CAC known | `docs/isles/GTM_MAC_FIRST.md` |
-| Broad Meta/TikTok | **Defer** | Wrong ICP burn | — |
+| Broad Meta/TikTok | **Defer** | Wrong ICP burn | · |
 
 **Beachhead numbers:** `TARGET_DEMO_400.md` · **MRR math:** `ROADMAP_5K_MRR.md`.
 

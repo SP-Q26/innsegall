@@ -25,6 +25,8 @@
 | `XANO_KEYS_LEFT.md` | Telemetry wire · `smoke:live` **202** |
 | `DISTRIBUTION_PLAYBOOK.md` | Directories deferred in float · SEO first |
 | `OPERATOR_GTM_SCOPE.md` | **Buyer profiles · funnel deploy map · sprint audit paste** |
+| `EN_POST_SCARE_COVERAGE.md` | **English intent matrix · `audit:en-coverage` gate before i18n** |
+| `LANE_I18N_PLAN.md` | **es · pt-BR · fr · ar rollout after EN gate** |
 
 **Proof commands:**
 
@@ -35,6 +37,8 @@ npm run predeploy      # gospel + blog chrome sync
 npm run audit:site     # writes SITE_FULL_AUDIT_LATEST.md
 npm run gate:launch    # swarm + smoke:live (0 fail target)
 npm run audit:gtm-scope # GTM doc welded to gospel/llms/canonical links
+npm run audit:en-coverage   # post-scare EN matrix · scary boosts · Field Glass
+npm run audit:i18n-readiness # EN green · no premature locale routes
 npm run full-send      # sk_live_ required · see FULL_SEND.md
 ```
 

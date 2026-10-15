@@ -49,6 +49,8 @@ const lanes = [
   { name: "Blog funnel (Phase 7 W1a)", script: "audit-blog-funnel.mjs", score: "9.5" },
   { name: "Visit → install conversion", script: "audit-funnel-conversion.mjs", score: "9.5" },
   { name: "Operator GTM scope", script: "audit-gtm-scope.mjs", score: "9.5" },
+  { name: "EN post-scare coverage (i18n gate)", script: "audit-en-post-scare-coverage.mjs", score: "9.5" },
+  { name: "i18n readiness (EN first)", script: "audit-i18n-readiness.mjs", score: "9.5" },
   { name: "Blog quality (SEO + readability)", script: "audit-blog-quality.mjs", score: "9.5" },
   { name: "Blog intro leads", script: "audit-blog-intro-leads.mjs", score: "9.5" },
   { name: "Macintosh watch hub", script: "audit-watch-hub.mjs", score: "9.5" },
