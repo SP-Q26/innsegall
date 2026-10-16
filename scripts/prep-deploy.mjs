@@ -3,6 +3,7 @@
  * Pre-deploy gate · gospel sync + launch audit.
  */
 import { execSync } from "node:child_process";
+import { existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -29,6 +30,9 @@ execSync("node scripts/sync-pages-seo.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-body-boosts.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-related-rail.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-cta.mjs", { cwd: root, stdio: "inherit" });
+if (existsSync(join(root, "fixtures", "blog-i18n", "es.bundle.json"))) {
+  execSync("node scripts/sync-blog-i18n.mjs", { cwd: root, stdio: "inherit" });
+}
 execSync("node scripts/sync-parley-web.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/bundle-parley-api.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-site-chrome.mjs", { cwd: root, stdio: "inherit" });

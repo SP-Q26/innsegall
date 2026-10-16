@@ -2038,6 +2038,20 @@ button.innsegall-checkout:disabled {
 }
 
 /* Phase 3 · Field Report blog + clan compare */
+.blog-i18n-notice {
+  margin: 0 0 var(--space-5);
+  padding: var(--space-4);
+  border: 1px solid rgba(168, 216, 255, 0.22);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: var(--mist, #a8d8ff);
+  background: rgba(18, 42, 66, 0.55);
+}
+
+.blog-i18n-notice a {
+  color: var(--gold, #f4c95d);
+}
+
 .blog-prose h2 {
   margin-top: var(--space-6);
   padding-top: var(--space-4);

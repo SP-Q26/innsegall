@@ -1,0 +1,41 @@
+/** Chrome + CTA strings · lock before MT body pass. */
+export const GLOSSARY = {
+  es: {
+    skip: "Saltar al contenido",
+    getStarted: "Empezar",
+    trending: "Tendencias",
+    help: "Ayuda",
+    clan: "Clan",
+    fieldReport: "Informe de campo",
+    fieldGuide: "Gu\u00eda de campo",
+    backToBlog: "\u2190 Informe de campo",
+    sendScout: "Enviar el explorador",
+    allPosts: "Todas las entradas",
+    privacy: "Privacidad",
+    localeNotice:
+      "Gu\u00eda en espa\u00f1ol (t\u00edtulo y navegaci\u00f3n) · el cuerpo puede estar en ingl\u00e9s mientras completamos la traducci\u00f3n · el informe Battle Scout se genera en tu Mac · pasos cr\u00edticos: ",
+    localeNoticeEnLink: "versi\u00f3n en ingl\u00e9s",
+    ctaStripLabel: "Enviamos el explorador",
+    footerTagline: "Tranquilo con tu Mac · triaje post-susto",
+    notAntivirus: "no es antivirus",
+  },
+  "pt-BR": {
+    skip: "Ir para o conte\u00fado",
+    getStarted: "Come\u00e7ar",
+    trending: "Em alta",
+    help: "Ajuda",
+    clan: "Clan",
+    fieldReport: "Relat\u00f3rio de campo",
+    fieldGuide: "Guia de campo",
+    backToBlog: "\u2190 Relat\u00f3rio de campo",
+    sendScout: "Enviar o scout",
+    allPosts: "Todos os posts",
+    privacy: "Privacidade",
+    localeNotice:
+      "Guia em portugu\u00eas (t\u00edtulo e navega\u00e7\u00e3o) · o corpo pode estar em ingl\u00eas enquanto conclu\u00edmos a tradu\u00e7\u00e3o · o relat\u00f3rio Battle Scout \u00e9 gerado no seu Mac · passos cr\u00edticos: ",
+    localeNoticeEnLink: "vers\u00e3o em ingl\u00eas",
+    ctaStripLabel: "Enviamos o scout",
+    footerTagline: "Fique em paz com o Mac · triagem p\u00f3s-susto",
+    notAntivirus: "n\u00e3o \u00e9 antiv\u00edrus",
+  },
+};

@@ -150,7 +150,11 @@
       "fr",
       "ar"
     ],
-    "i18n_ship_blocked_until_en_gate": true,
+    "i18n_ship_blocked_until_en_gate": false,
+    "i18n_locales_live": [
+      "es",
+      "pt-BR"
+    ],
     "deploy_surfaces": [
       "Blog field guides → sample_report install_intent",
       "alpha sample before install gate",

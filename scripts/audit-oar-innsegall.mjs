@@ -20,6 +20,7 @@ const layers = [
   { name: "2 · Landing unity", cmd: "node scripts/audit-landing-unity.mjs" },
   { name: "3 · EN corpus gate", cmd: "npm run audit:en-coverage" },
   { name: "3 · i18n readiness", cmd: "npm run audit:i18n-readiness" },
+  { name: "3b · i18n es/pt ship", cmd: "npm run audit:i18n" },
   { name: "4 · Brand stack", cmd: "npm run audit:copy" },
   { name: "4 · Client-facing", cmd: "npm run audit:client-facing" },
   { name: "4 · Funnel conversion", cmd: "npm run audit:funnel-conversion" },

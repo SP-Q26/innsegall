@@ -56,8 +56,8 @@ const CANONICAL_HEADER = `<header class="site-header">
             <summary class="locale-picker__trigger nav-link" aria-label="Language">EN</summary>
             <ul class="locale-picker__menu" role="list">
               <li><button type="button" class="locale-picker__option" data-locale-code="en">English</button></li>
-              <li><button type="button" class="locale-picker__option locale-picker__option--soon" data-locale-code="es" aria-disabled="true">Español <span class="locale-picker__badge">soon</span></button></li>
-              <li><button type="button" class="locale-picker__option locale-picker__option--soon" data-locale-code="pt-BR" aria-disabled="true">Português <span class="locale-picker__badge">soon</span></button></li>
+              <li><button type="button" class="locale-picker__option" data-locale-code="es">Español</button></li>
+              <li><button type="button" class="locale-picker__option" data-locale-code="pt-BR">Português</button></li>
               <li><button type="button" class="locale-picker__option locale-picker__option--soon" data-locale-code="fr" aria-disabled="true">Français <span class="locale-picker__badge">soon</span></button></li>
               <li><button type="button" class="locale-picker__option locale-picker__option--soon" data-locale-code="ar" aria-disabled="true">العربية <span class="locale-picker__badge">soon</span></button></li>
             </ul>

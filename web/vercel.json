@@ -496,6 +496,542 @@
     {
       "source": "/blog/mac-camera-microphone-light-worry",
       "destination": "/blog/mac-camera-microphone-light-worry.html"
+    },
+    {
+      "source": "/es/blog",
+      "destination": "/es/blog/index.html"
+    },
+    {
+      "source": "/es/blog/after-suspicious-link-macintosh",
+      "destination": "/es/blog/after-suspicious-link-macintosh.html"
+    },
+    {
+      "source": "/es/blog/apple-support-call-popup-scam-mac",
+      "destination": "/es/blog/apple-support-call-popup-scam-mac.html"
+    },
+    {
+      "source": "/es/blog/auto-voyage-first-sail",
+      "destination": "/es/blog/auto-voyage-first-sail.html"
+    },
+    {
+      "source": "/es/blog/blockblock-vs-post-scare-triage",
+      "destination": "/es/blog/blockblock-vs-post-scare-triage.html"
+    },
+    {
+      "source": "/es/blog/check-parent-mac-after-scare",
+      "destination": "/es/blog/check-parent-mac-after-scare.html"
+    },
+    {
+      "source": "/es/blog/chrome-clear-browsing-data-after-scare-mac",
+      "destination": "/es/blog/chrome-clear-browsing-data-after-scare-mac.html"
+    },
+    {
+      "source": "/es/blog/chrome-fake-virus-popup-mac",
+      "destination": "/es/blog/chrome-fake-virus-popup-mac.html"
+    },
+    {
+      "source": "/es/blog/chrome-notifications-scam-mac",
+      "destination": "/es/blog/chrome-notifications-scam-mac.html"
+    },
+    {
+      "source": "/es/blog/chrome-search-engine-hijacked-mac",
+      "destination": "/es/blog/chrome-search-engine-hijacked-mac.html"
+    },
+    {
+      "source": "/es/blog/clicked-bad-link-iphone-ipad-guide",
+      "destination": "/es/blog/clicked-bad-link-iphone-ipad-guide.html"
+    },
+    {
+      "source": "/es/blog/clicked-suspicious-link-macintosh",
+      "destination": "/es/blog/clicked-suspicious-link-macintosh.html"
+    },
+    {
+      "source": "/es/blog/do-i-need-antivirus-mac-2026",
+      "destination": "/es/blog/do-i-need-antivirus-mac-2026.html"
+    },
+    {
+      "source": "/es/blog/downloaded-suspicious-file-iphone-ipad",
+      "destination": "/es/blog/downloaded-suspicious-file-iphone-ipad.html"
+    },
+    {
+      "source": "/es/blog/downloads-folder-quarantine-mac-check",
+      "destination": "/es/blog/downloads-folder-quarantine-mac-check.html"
+    },
+    {
+      "source": "/es/blog/fake-virus-popup-iphone-ipad",
+      "destination": "/es/blog/fake-virus-popup-iphone-ipad.html"
+    },
+    {
+      "source": "/es/blog/fake-virus-popup-macintosh",
+      "destination": "/es/blog/fake-virus-popup-macintosh.html"
+    },
+    {
+      "source": "/es/blog/field-desk-stripe-live-sep-2026",
+      "destination": "/es/blog/field-desk-stripe-live-sep-2026.html"
+    },
+    {
+      "source": "/es/blog/field-glass-oct-11-2026",
+      "destination": "/es/blog/field-glass-oct-11-2026.html"
+    },
+    {
+      "source": "/es/blog/field-glass-oct-14-2026",
+      "destination": "/es/blog/field-glass-oct-14-2026.html"
+    },
+    {
+      "source": "/es/blog/field-glass-oct-2-2026",
+      "destination": "/es/blog/field-glass-oct-2-2026.html"
+    },
+    {
+      "source": "/es/blog/field-glass-oct-7-2026",
+      "destination": "/es/blog/field-glass-oct-7-2026.html"
+    },
+    {
+      "source": "/es/blog/field-glass-oct-8-2026",
+      "destination": "/es/blog/field-glass-oct-8-2026.html"
+    },
+    {
+      "source": "/es/blog/field-glass-sep-19-2026",
+      "destination": "/es/blog/field-glass-sep-19-2026.html"
+    },
+    {
+      "source": "/es/blog/field-glass-sep-2026",
+      "destination": "/es/blog/field-glass-sep-2026.html"
+    },
+    {
+      "source": "/es/blog/field-glass-sep-22-2026",
+      "destination": "/es/blog/field-glass-sep-22-2026.html"
+    },
+    {
+      "source": "/es/blog/field-glass-sep-25-2026",
+      "destination": "/es/blog/field-glass-sep-25-2026.html"
+    },
+    {
+      "source": "/es/blog/field-glass-sep-30-2026",
+      "destination": "/es/blog/field-glass-sep-30-2026.html"
+    },
+    {
+      "source": "/es/blog/field-report-2026-09-06",
+      "destination": "/es/blog/field-report-2026-09-06.html"
+    },
+    {
+      "source": "/es/blog/gatekeeper-opened-unknown-app-mac",
+      "destination": "/es/blog/gatekeeper-opened-unknown-app-mac.html"
+    },
+    {
+      "source": "/es/blog/genius-bar-vs-battle-scout-mac",
+      "destination": "/es/blog/genius-bar-vs-battle-scout-mac.html"
+    },
+    {
+      "source": "/es/blog/innsegall-ios-companion-i0",
+      "destination": "/es/blog/innsegall-ios-companion-i0.html"
+    },
+    {
+      "source": "/es/blog/innsegall-vs-antivirus-macintosh",
+      "destination": "/es/blog/innsegall-vs-antivirus-macintosh.html"
+    },
+    {
+      "source": "/es/blog/innsegall-vs-etrecheck-macintosh",
+      "destination": "/es/blog/innsegall-vs-etrecheck-macintosh.html"
+    },
+    {
+      "source": "/es/blog/innsegall-vs-mac-cleaners",
+      "destination": "/es/blog/innsegall-vs-mac-cleaners.html"
+    },
+    {
+      "source": "/es/blog/join-the-innsegall-clan",
+      "destination": "/es/blog/join-the-innsegall-clan.html"
+    },
+    {
+      "source": "/es/blog/knockknock-vs-post-scare-triage",
+      "destination": "/es/blog/knockknock-vs-post-scare-triage.html"
+    },
+    {
+      "source": "/es/blog/mac-apple-id-locked-browser-scam",
+      "destination": "/es/blog/mac-apple-id-locked-browser-scam.html"
+    },
+    {
+      "source": "/es/blog/mac-browser-full-screen-virus-locker",
+      "destination": "/es/blog/mac-browser-full-screen-virus-locker.html"
+    },
+    {
+      "source": "/es/blog/mac-calendar-spam-invites-scam",
+      "destination": "/es/blog/mac-calendar-spam-invites-scam.html"
+    },
+    {
+      "source": "/es/blog/mac-camera-microphone-light-worry",
+      "destination": "/es/blog/mac-camera-microphone-light-worry.html"
+    },
+    {
+      "source": "/es/blog/mac-configuration-profile-scam",
+      "destination": "/es/blog/mac-configuration-profile-scam.html"
+    },
+    {
+      "source": "/es/blog/mac-dns-changed-after-scare",
+      "destination": "/es/blog/mac-dns-changed-after-scare.html"
+    },
+    {
+      "source": "/es/blog/mac-keychain-password-popup-loop-scam",
+      "destination": "/es/blog/mac-keychain-password-popup-loop-scam.html"
+    },
+    {
+      "source": "/es/blog/mac-performance-panic-vs-security-panic",
+      "destination": "/es/blog/mac-performance-panic-vs-security-panic.html"
+    },
+    {
+      "source": "/es/blog/mac-screen-sharing-on-without-permission",
+      "destination": "/es/blog/mac-screen-sharing-on-without-permission.html"
+    },
+    {
+      "source": "/es/blog/mac-slow-after-suspicious-download",
+      "destination": "/es/blog/mac-slow-after-suspicious-download.html"
+    },
+    {
+      "source": "/es/blog/macintosh-hygiene-without-antivirus",
+      "destination": "/es/blog/macintosh-hygiene-without-antivirus.html"
+    },
+    {
+      "source": "/es/blog/macintosh-xprotect-after-scare",
+      "destination": "/es/blog/macintosh-xprotect-after-scare.html"
+    },
+    {
+      "source": "/es/blog/malwarebytes-vs-innsegall-after-scare",
+      "destination": "/es/blog/malwarebytes-vs-innsegall-after-scare.html"
+    },
+    {
+      "source": "/es/blog/network-monitor-vs-post-scare-triage",
+      "destination": "/es/blog/network-monitor-vs-post-scare-triage.html"
+    },
+    {
+      "source": "/es/blog/onyx-vs-read-only-mac-scout",
+      "destination": "/es/blog/onyx-vs-read-only-mac-scout.html"
+    },
+    {
+      "source": "/es/blog/opened-suspicious-email-iphone-ipad",
+      "destination": "/es/blog/opened-suspicious-email-iphone-ipad.html"
+    },
+    {
+      "source": "/es/blog/paste-battle-scout-for-ai-assistant",
+      "destination": "/es/blog/paste-battle-scout-for-ai-assistant.html"
+    },
+    {
+      "source": "/es/blog/pasted-terminal-command-mac-scare",
+      "destination": "/es/blog/pasted-terminal-command-mac-scare.html"
+    },
+    {
+      "source": "/es/blog/safari-allowed-notifications-by-mistake-mac",
+      "destination": "/es/blog/safari-allowed-notifications-by-mistake-mac.html"
+    },
+    {
+      "source": "/es/blog/safari-clear-website-data-iphone-ipad",
+      "destination": "/es/blog/safari-clear-website-data-iphone-ipad.html"
+    },
+    {
+      "source": "/es/blog/safari-fake-virus-notifications-mac",
+      "destination": "/es/blog/safari-fake-virus-notifications-mac.html"
+    },
+    {
+      "source": "/es/blog/safari-notifications-scam-iphone-ipad",
+      "destination": "/es/blog/safari-notifications-scam-iphone-ipad.html"
+    },
+    {
+      "source": "/es/blog/safari-search-engine-hijacked-mac",
+      "destination": "/es/blog/safari-search-engine-hijacked-mac.html"
+    },
+    {
+      "source": "/es/blog/safari-shift-key-scam-popup-mac",
+      "destination": "/es/blog/safari-shift-key-scam-popup-mac.html"
+    },
+    {
+      "source": "/es/blog/someone-remoted-into-my-mac",
+      "destination": "/es/blog/someone-remoted-into-my-mac.html"
+    },
+    {
+      "source": "/es/blog/stale-launch-items-macintosh",
+      "destination": "/es/blog/stale-launch-items-macintosh.html"
+    },
+    {
+      "source": "/es/blog/typed-password-scam-site-iphone-ipad",
+      "destination": "/es/blog/typed-password-scam-site-iphone-ipad.html"
+    },
+    {
+      "source": "/es/blog/virustotal-vs-local-mac-scout",
+      "destination": "/es/blog/virustotal-vs-local-mac-scout.html"
+    },
+    {
+      "source": "/es/blog/voyage-health-tracker-1st-15th",
+      "destination": "/es/blog/voyage-health-tracker-1st-15th.html"
+    },
+    {
+      "source": "/es/blog/what-is-a-battle-scout",
+      "destination": "/es/blog/what-is-a-battle-scout.html"
+    },
+    {
+      "source": "/pt/blog",
+      "destination": "/pt/blog/index.html"
+    },
+    {
+      "source": "/pt/blog/after-suspicious-link-macintosh",
+      "destination": "/pt/blog/after-suspicious-link-macintosh.html"
+    },
+    {
+      "source": "/pt/blog/apple-support-call-popup-scam-mac",
+      "destination": "/pt/blog/apple-support-call-popup-scam-mac.html"
+    },
+    {
+      "source": "/pt/blog/auto-voyage-first-sail",
+      "destination": "/pt/blog/auto-voyage-first-sail.html"
+    },
+    {
+      "source": "/pt/blog/blockblock-vs-post-scare-triage",
+      "destination": "/pt/blog/blockblock-vs-post-scare-triage.html"
+    },
+    {
+      "source": "/pt/blog/check-parent-mac-after-scare",
+      "destination": "/pt/blog/check-parent-mac-after-scare.html"
+    },
+    {
+      "source": "/pt/blog/chrome-clear-browsing-data-after-scare-mac",
+      "destination": "/pt/blog/chrome-clear-browsing-data-after-scare-mac.html"
+    },
+    {
+      "source": "/pt/blog/chrome-fake-virus-popup-mac",
+      "destination": "/pt/blog/chrome-fake-virus-popup-mac.html"
+    },
+    {
+      "source": "/pt/blog/chrome-notifications-scam-mac",
+      "destination": "/pt/blog/chrome-notifications-scam-mac.html"
+    },
+    {
+      "source": "/pt/blog/chrome-search-engine-hijacked-mac",
+      "destination": "/pt/blog/chrome-search-engine-hijacked-mac.html"
+    },
+    {
+      "source": "/pt/blog/clicked-bad-link-iphone-ipad-guide",
+      "destination": "/pt/blog/clicked-bad-link-iphone-ipad-guide.html"
+    },
+    {
+      "source": "/pt/blog/clicked-suspicious-link-macintosh",
+      "destination": "/pt/blog/clicked-suspicious-link-macintosh.html"
+    },
+    {
+      "source": "/pt/blog/do-i-need-antivirus-mac-2026",
+      "destination": "/pt/blog/do-i-need-antivirus-mac-2026.html"
+    },
+    {
+      "source": "/pt/blog/downloaded-suspicious-file-iphone-ipad",
+      "destination": "/pt/blog/downloaded-suspicious-file-iphone-ipad.html"
+    },
+    {
+      "source": "/pt/blog/downloads-folder-quarantine-mac-check",
+      "destination": "/pt/blog/downloads-folder-quarantine-mac-check.html"
+    },
+    {
+      "source": "/pt/blog/fake-virus-popup-iphone-ipad",
+      "destination": "/pt/blog/fake-virus-popup-iphone-ipad.html"
+    },
+    {
+      "source": "/pt/blog/fake-virus-popup-macintosh",
+      "destination": "/pt/blog/fake-virus-popup-macintosh.html"
+    },
+    {
+      "source": "/pt/blog/field-desk-stripe-live-sep-2026",
+      "destination": "/pt/blog/field-desk-stripe-live-sep-2026.html"
+    },
+    {
+      "source": "/pt/blog/field-glass-oct-11-2026",
+      "destination": "/pt/blog/field-glass-oct-11-2026.html"
+    },
+    {
+      "source": "/pt/blog/field-glass-oct-14-2026",
+      "destination": "/pt/blog/field-glass-oct-14-2026.html"
+    },
+    {
+      "source": "/pt/blog/field-glass-oct-2-2026",
+      "destination": "/pt/blog/field-glass-oct-2-2026.html"
+    },
+    {
+      "source": "/pt/blog/field-glass-oct-7-2026",
+      "destination": "/pt/blog/field-glass-oct-7-2026.html"
+    },
+    {
+      "source": "/pt/blog/field-glass-oct-8-2026",
+      "destination": "/pt/blog/field-glass-oct-8-2026.html"
+    },
+    {
+      "source": "/pt/blog/field-glass-sep-19-2026",
+      "destination": "/pt/blog/field-glass-sep-19-2026.html"
+    },
+    {
+      "source": "/pt/blog/field-glass-sep-2026",
+      "destination": "/pt/blog/field-glass-sep-2026.html"
+    },
+    {
+      "source": "/pt/blog/field-glass-sep-22-2026",
+      "destination": "/pt/blog/field-glass-sep-22-2026.html"
+    },
+    {
+      "source": "/pt/blog/field-glass-sep-25-2026",
+      "destination": "/pt/blog/field-glass-sep-25-2026.html"
+    },
+    {
+      "source": "/pt/blog/field-glass-sep-30-2026",
+      "destination": "/pt/blog/field-glass-sep-30-2026.html"
+    },
+    {
+      "source": "/pt/blog/field-report-2026-09-06",
+      "destination": "/pt/blog/field-report-2026-09-06.html"
+    },
+    {
+      "source": "/pt/blog/gatekeeper-opened-unknown-app-mac",
+      "destination": "/pt/blog/gatekeeper-opened-unknown-app-mac.html"
+    },
+    {
+      "source": "/pt/blog/genius-bar-vs-battle-scout-mac",
+      "destination": "/pt/blog/genius-bar-vs-battle-scout-mac.html"
+    },
+    {
+      "source": "/pt/blog/innsegall-ios-companion-i0",
+      "destination": "/pt/blog/innsegall-ios-companion-i0.html"
+    },
+    {
+      "source": "/pt/blog/innsegall-vs-antivirus-macintosh",
+      "destination": "/pt/blog/innsegall-vs-antivirus-macintosh.html"
+    },
+    {
+      "source": "/pt/blog/innsegall-vs-etrecheck-macintosh",
+      "destination": "/pt/blog/innsegall-vs-etrecheck-macintosh.html"
+    },
+    {
+      "source": "/pt/blog/innsegall-vs-mac-cleaners",
+      "destination": "/pt/blog/innsegall-vs-mac-cleaners.html"
+    },
+    {
+      "source": "/pt/blog/join-the-innsegall-clan",
+      "destination": "/pt/blog/join-the-innsegall-clan.html"
+    },
+    {
+      "source": "/pt/blog/knockknock-vs-post-scare-triage",
+      "destination": "/pt/blog/knockknock-vs-post-scare-triage.html"
+    },
+    {
+      "source": "/pt/blog/mac-apple-id-locked-browser-scam",
+      "destination": "/pt/blog/mac-apple-id-locked-browser-scam.html"
+    },
+    {
+      "source": "/pt/blog/mac-browser-full-screen-virus-locker",
+      "destination": "/pt/blog/mac-browser-full-screen-virus-locker.html"
+    },
+    {
+      "source": "/pt/blog/mac-calendar-spam-invites-scam",
+      "destination": "/pt/blog/mac-calendar-spam-invites-scam.html"
+    },
+    {
+      "source": "/pt/blog/mac-camera-microphone-light-worry",
+      "destination": "/pt/blog/mac-camera-microphone-light-worry.html"
+    },
+    {
+      "source": "/pt/blog/mac-configuration-profile-scam",
+      "destination": "/pt/blog/mac-configuration-profile-scam.html"
+    },
+    {
+      "source": "/pt/blog/mac-dns-changed-after-scare",
+      "destination": "/pt/blog/mac-dns-changed-after-scare.html"
+    },
+    {
+      "source": "/pt/blog/mac-keychain-password-popup-loop-scam",
+      "destination": "/pt/blog/mac-keychain-password-popup-loop-scam.html"
+    },
+    {
+      "source": "/pt/blog/mac-performance-panic-vs-security-panic",
+      "destination": "/pt/blog/mac-performance-panic-vs-security-panic.html"
+    },
+    {
+      "source": "/pt/blog/mac-screen-sharing-on-without-permission",
+      "destination": "/pt/blog/mac-screen-sharing-on-without-permission.html"
+    },
+    {
+      "source": "/pt/blog/mac-slow-after-suspicious-download",
+      "destination": "/pt/blog/mac-slow-after-suspicious-download.html"
+    },
+    {
+      "source": "/pt/blog/macintosh-hygiene-without-antivirus",
+      "destination": "/pt/blog/macintosh-hygiene-without-antivirus.html"
+    },
+    {
+      "source": "/pt/blog/macintosh-xprotect-after-scare",
+      "destination": "/pt/blog/macintosh-xprotect-after-scare.html"
+    },
+    {
+      "source": "/pt/blog/malwarebytes-vs-innsegall-after-scare",
+      "destination": "/pt/blog/malwarebytes-vs-innsegall-after-scare.html"
+    },
+    {
+      "source": "/pt/blog/network-monitor-vs-post-scare-triage",
+      "destination": "/pt/blog/network-monitor-vs-post-scare-triage.html"
+    },
+    {
+      "source": "/pt/blog/onyx-vs-read-only-mac-scout",
+      "destination": "/pt/blog/onyx-vs-read-only-mac-scout.html"
+    },
+    {
+      "source": "/pt/blog/opened-suspicious-email-iphone-ipad",
+      "destination": "/pt/blog/opened-suspicious-email-iphone-ipad.html"
+    },
+    {
+      "source": "/pt/blog/paste-battle-scout-for-ai-assistant",
+      "destination": "/pt/blog/paste-battle-scout-for-ai-assistant.html"
+    },
+    {
+      "source": "/pt/blog/pasted-terminal-command-mac-scare",
+      "destination": "/pt/blog/pasted-terminal-command-mac-scare.html"
+    },
+    {
+      "source": "/pt/blog/safari-allowed-notifications-by-mistake-mac",
+      "destination": "/pt/blog/safari-allowed-notifications-by-mistake-mac.html"
+    },
+    {
+      "source": "/pt/blog/safari-clear-website-data-iphone-ipad",
+      "destination": "/pt/blog/safari-clear-website-data-iphone-ipad.html"
+    },
+    {
+      "source": "/pt/blog/safari-fake-virus-notifications-mac",
+      "destination": "/pt/blog/safari-fake-virus-notifications-mac.html"
+    },
+    {
+      "source": "/pt/blog/safari-notifications-scam-iphone-ipad",
+      "destination": "/pt/blog/safari-notifications-scam-iphone-ipad.html"
+    },
+    {
+      "source": "/pt/blog/safari-search-engine-hijacked-mac",
+      "destination": "/pt/blog/safari-search-engine-hijacked-mac.html"
+    },
+    {
+      "source": "/pt/blog/safari-shift-key-scam-popup-mac",
+      "destination": "/pt/blog/safari-shift-key-scam-popup-mac.html"
+    },
+    {
+      "source": "/pt/blog/someone-remoted-into-my-mac",
+      "destination": "/pt/blog/someone-remoted-into-my-mac.html"
+    },
+    {
+      "source": "/pt/blog/stale-launch-items-macintosh",
+      "destination": "/pt/blog/stale-launch-items-macintosh.html"
+    },
+    {
+      "source": "/pt/blog/typed-password-scam-site-iphone-ipad",
+      "destination": "/pt/blog/typed-password-scam-site-iphone-ipad.html"
+    },
+    {
+      "source": "/pt/blog/virustotal-vs-local-mac-scout",
+      "destination": "/pt/blog/virustotal-vs-local-mac-scout.html"
+    },
+    {
+      "source": "/pt/blog/voyage-health-tracker-1st-15th",
+      "destination": "/pt/blog/voyage-health-tracker-1st-15th.html"
+    },
+    {
+      "source": "/pt/blog/what-is-a-battle-scout",
+      "destination": "/pt/blog/what-is-a-battle-scout.html"
     }
   ]
 }

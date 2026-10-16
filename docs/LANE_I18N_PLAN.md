@@ -33,9 +33,13 @@ Do **not** create `/es/blog` until Phase 1 kickoff.
 
 ---
 
-## Phase 1 · Spanish + Portuguese (Brazil)
+## Phase 1 · Spanish + Portuguese (Brazil) · **live**
 
-**Scope:** Top **20** matrix intents (popup · link · remote · Terminal · notifications · parent Mac · AV comparison).
+**Scope:** Full EN **Field Report** blog mirrored at `/es/blog/*` and `/pt/blog/*` (fixtures + `sync:blog-i18n`). Human review ongoing · locale notice on each guide links EN canonical.
+
+**Commands:** `npm run build:blog-i18n-fixtures` (MT cache) · `npm run sync:blog-i18n` · `npm run audit:i18n`
+
+**Original pilot scope (matrix top 20)** still the priority for editorial QA:
 
 | Item | Spec |
 |------|------|

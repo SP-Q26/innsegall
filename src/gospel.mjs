@@ -174,7 +174,8 @@ export const INNSEGALL_GOSPEL = {
     i18n_plan_doc: "docs/LANE_I18N_PLAN.md",
     intent_matrix_fixture: "fixtures/post-scare-intent-matrix-en.json",
     i18n_locales_next: ["es", "pt-BR", "fr", "ar"],
-    i18n_ship_blocked_until_en_gate: true,
+    i18n_ship_blocked_until_en_gate: false,
+    i18n_locales_live: ["es", "pt-BR"],
     deploy_surfaces: [
       "Blog field guides → sample_report install_intent",
       "alpha sample before install gate",

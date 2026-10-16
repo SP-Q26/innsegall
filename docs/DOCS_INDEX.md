@@ -41,7 +41,10 @@ npm run audit:site     # writes SITE_FULL_AUDIT_LATEST.md
 npm run gate:launch    # swarm + smoke:live (0 fail target)
 npm run audit:gtm-scope # GTM doc welded to gospel/llms/canonical links
 npm run audit:en-coverage   # post-scare EN matrix · scary boosts · Field Glass
-npm run audit:i18n-readiness # EN green · no premature locale routes
+npm run audit:i18n-readiness # EN green · bundle + routes when locales ship
+npm run audit:i18n           # es + pt-BR blog parity · hreflang · picker live
+npm run build:blog-i18n-fixtures:meta # fast title/SEO MT · body EN until full build
+npm run sync:blog-i18n       # web/es/blog · web/pt/blog + vercel rewrites
 npm run apply:adoption-voice  # OAR layer 3 · CTAs + chrome + gospel
 npm run audit:adoption-voice  # OAR layer 4 · heroes + voice bans
 npm run audit:oar             # full OAR pass + site sweep doc

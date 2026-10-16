@@ -31,13 +31,15 @@ check("i18n plan exists", plan.length > 200);
 check("i18n plan phases es pt", plan.includes("pt-BR") || /portugu/i.test(plan));
 
 const vercelJson = readFileSync(join(root, "web", "vercel.json"), "utf8");
-const prematureLocale =
+const localeShipped =
   /"\/es\/blog"/.test(vercelJson) ||
-  existsSync(join(root, "web", "es")) ||
+  existsSync(join(root, "web", "es", "blog")) ||
   existsSync(join(root, "fixtures", "blog-i18n"));
 
-if (prematureLocale) {
-  check("i18n fixtures when locale routes exist", existsSync(join(root, "fixtures", "blog-i18n")));
+if (localeShipped) {
+  check("i18n fixture dir", existsSync(join(root, "fixtures", "blog-i18n")));
+  check("es bundle", existsSync(join(root, "fixtures", "blog-i18n", "es.bundle.json")));
+  check("pt-BR bundle", existsSync(join(root, "fixtures", "blog-i18n", "pt-BR.bundle.json")));
 } else {
   check("i18n not shipped yet (expected)", true);
   check("EN gate documented in i18n plan", plan.includes("audit:en-coverage"));
