@@ -5,6 +5,19 @@
   var WARRIOR_KEY = "innsegall_warrior_ref";
   var path = location.pathname.replace(/\/$/, "") || "/";
 
+  function routeLocaleAndPath() {
+    var m = /^\/(es|pt|fr|ar)(\/|$)/.exec(path);
+    if (!m) return { routeLocale: "en", logicalPath: path };
+    var rest = path.slice(m[1].length + 1) || "/";
+    if (rest.charAt(0) !== "/") rest = "/" + rest;
+    var code = m[1] === "pt" ? "pt-BR" : m[1];
+    return { routeLocale: code, logicalPath: rest };
+  }
+
+  function activeLocale() {
+    return window.__INNSEGALL_LOCALE || routeLocaleAndPath().routeLocale || "en";
+  }
+
   var PAGE_MAP = {
     "/": "home",
     "/alpha": "alpha",
@@ -28,9 +41,10 @@
   };
 
   function pageCategory() {
-    if (PAGE_MAP[path]) return PAGE_MAP[path];
-    if (path.indexOf("/blog/") === 0) return "blog_post";
-    if (path.indexOf("/samples/") === 0) return "sample";
+    var logical = routeLocaleAndPath().logicalPath;
+    if (PAGE_MAP[logical]) return PAGE_MAP[logical];
+    if (logical === "/blog" || logical.indexOf("/blog/") === 0) return "blog_post";
+    if (logical.indexOf("/samples/") === 0) return "sample";
     return "other";
   }
 
@@ -73,6 +87,8 @@
       ref_channel: refChannel(),
       session_id: sessionId(),
       sku: sku,
+      locale: activeLocale(),
+      route_locale: routeLocaleAndPath().routeLocale,
     };
     var ref = warriorRef();
     if (ref) payload.warrior_ref = ref;

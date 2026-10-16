@@ -27,7 +27,7 @@ check("telemetry marketing_ping enum", telemetry.includes("marketing_ping") && t
 check("telemetry issue_spotlight enum", telemetry.includes("issue_spotlight") && telemetry.includes("validateIssueSpotlight"));
 
 const parleyBundle = readFileSync(join(web, "api/parley.js"), "utf8");
-const parleySource = readFileSync(join(web, "api/parley.source.js"), "utf8");
+const parleySource = readFileSync(join(web, "lib/parley/parley-api.source.js"), "utf8");
 check(
   "parley rate limit",
   parleyBundle.includes("rate_limited") && parleyBundle.includes("checkParleyRateLimit")

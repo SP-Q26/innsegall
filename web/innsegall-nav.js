@@ -4,6 +4,15 @@
 
   var path = location.pathname.replace(/\/$/, "") || "/";
 
+  function routeLocaleAndPath() {
+    var m = /^\/(es|pt|fr|ar)(\/|$)/.exec(path);
+    if (!m) return { routeLocale: "en", logicalPath: path };
+    var rest = path.slice(m[1].length + 1) || "/";
+    if (rest.charAt(0) !== "/") rest = "/" + rest;
+    var code = m[1] === "pt" ? "pt-BR" : m[1];
+    return { routeLocale: code, logicalPath: rest };
+  }
+
   var BEAM_NOTES = ["trace", "lane", "ping", "signal", "scout", "event", "follow", "read"];
   var BEAM_ARROWS = ["\u2197", "\u2192", "\u21e2", "\u2198"];
 
@@ -124,10 +133,21 @@
   };
 
   function pageCategory() {
-    if (PAGE_MAP[path]) return PAGE_MAP[path];
-    if (path.indexOf("/blog/") === 0) return "blog_post";
-    if (path.indexOf("/samples/") === 0) return "sample";
+    var logical = routeLocaleAndPath().logicalPath;
+    if (PAGE_MAP[logical]) return PAGE_MAP[logical];
+    if (logical === "/blog" || logical.indexOf("/blog/") === 0) return "blog_post";
+    if (logical.indexOf("/samples/") === 0) return "sample";
     return "other";
+  }
+
+  function blogSlugFromPath() {
+    var logical = routeLocaleAndPath().logicalPath;
+    if (logical.indexOf("/blog/") !== 0) return "";
+    return logical.slice("/blog/".length).split("/")[0].slice(0, 80);
+  }
+
+  function activeLocale() {
+    return window.__INNSEGALL_LOCALE || routeLocaleAndPath().routeLocale || "en";
   }
 
   function refChannel() {
@@ -168,7 +188,13 @@
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         event: event,
-        payload: Object.assign({ locale: window.__INNSEGALL_LOCALE || "en" }, payload || {}),
+        payload: Object.assign(
+          {
+            locale: activeLocale(),
+            route_locale: routeLocaleAndPath().routeLocale,
+          },
+          payload || {}
+        ),
       }),
       keepalive: true,
     }).catch(function () {});
@@ -176,7 +202,7 @@
 
   function sendMarketingPing() {
     var page = pageCategory();
-    var storageKey = "innsegall_mp_" + page + "_" + utcDay();
+    var storageKey = "innsegall_mp_" + page + "_" + activeLocale() + "_" + utcDay();
     try {
       if (sessionStorage.getItem(storageKey)) return;
       sessionStorage.setItem(storageKey, "1");
@@ -195,6 +221,8 @@
     if (warriorRef && String(warriorRef).length <= 64) {
       payload.warrior_ref = String(warriorRef);
     }
+    var slug = blogSlugFromPath();
+    if (page === "blog_post" && slug) payload.blog_slug = slug;
 
     postTelemetry("marketing_ping", payload);
   }

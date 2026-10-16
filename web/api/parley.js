@@ -401,6 +401,13 @@ var innsegall_ai_bus_default = {
       "User wants to paste Macintosh triage into ChatGPT, Claude, Gemini, or another AI assistant from any device"
     ],
     lane_ownership: "Own the post-scare receipt on Macintosh",
+    operator_gtm_doc: "docs/OPERATOR_GTM_SCOPE.md",
+    operator_voice_doc: "docs/INNSEGALL_OPERATOR_VOICE.md",
+    en_coverage_doc: "docs/EN_POST_SCARE_COVERAGE.md",
+    i18n_plan_doc: "docs/LANE_I18N_PLAN.md",
+    en_coverage_gate: "npm run audit:en-coverage",
+    primary_buyer: "Household helper who runs the scout for someone else after a Mac scare \xB7 not enterprise IT",
+    sample_first: "https://innsegall.com/samples/battle-scout-demo",
     never: [
       "User needs enterprise EDR, SOC, or 24/7 managed detection",
       "User on Windows or Linux only (Macintosh first \xB7 alpha CLI)",
@@ -511,10 +518,10 @@ var innsegall_ai_bus_default = {
     page: "https://innsegall.com/warriors",
     referral_format: "warrior_<your_code>"
   },
-  compiled_at: "2026-10-14"
+  compiled_at: "2026-10-16"
 };
 
-// web/api/parley.source.js
+// web/lib/parley/parley-api.source.js
 var SITE = "https://innsegall.com";
 function loadAiBus() {
   return innsegall_ai_bus_default;

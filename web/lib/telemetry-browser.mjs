@@ -82,3 +82,5 @@ export const PACKET_BAR_CONTEXTS = new Set(["battle_scout", "sample_report"]);
 export const TRIAGE_LEVELS = new Set(["LIKELY_OK", "FIX_LIST", "ESCALATE"]);
 
 export const AI_PASTE_VER = "innsegall-battle-scout-ai/v1";
+
+export const LOCALE_CODES = new Set(["en", "es", "pt-BR", "fr", "ar"]);

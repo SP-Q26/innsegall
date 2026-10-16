@@ -1,10 +1,10 @@
 /**
  * Parley API source · bundled to parley.js for Vercel (see scripts/bundle-parley-api.mjs).
  */
-import { buildParleyMessages } from "../lib/parley/prompt.mjs";
-import { runStaticParley } from "../lib/parley/static.mjs";
-import { checkParleyRateLimit, clientIp } from "../lib/parley-rate-limit.mjs";
-import aiBus from "../innsegall-ai-bus.json";
+import { buildParleyMessages } from "./prompt.mjs";
+import { runStaticParley } from "./static.mjs";
+import { checkParleyRateLimit, clientIp } from "../parley-rate-limit.mjs";
+import aiBus from "../../innsegall-ai-bus.json";
 
 const SITE = "https://innsegall.com";
 

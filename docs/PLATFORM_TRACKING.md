@@ -1,6 +1,19 @@
 # Platform tracking · Innsegall (no ad pixels)
 
-**Goal:** Know which pages and channels drive installs and clan signups **without** third-party analytics.
+**Goal:** Know which pages and channels drive installs and clan signups **without** third-party ad pixels.
+
+---
+
+## Vercel Analytics (dashboard · zero serverless slots)
+
+| Product | Script (injected by `sync-site-chrome.mjs`) | Enable in Vercel |
+|---------|---------------------------------------------|------------------|
+| **Web Analytics** | `/_vercel/insights/script.js` | Project → Analytics → Web Analytics **On** |
+| **Speed Insights** | `/_vercel/speed-insights/script.js` | Project → Analytics → Speed Insights **On** |
+
+These are **not** extra Serverless Functions · they do not count toward the Hobby **12 function** cap.
+
+**Audit:** `npm run audit:site-performance` · `npm run audit:vercel-functions` (currently **5/12** API routes).
 
 ---
 
@@ -28,10 +41,15 @@ Fired from `web/innsegall-nav.js` on marketing pages.
     "page": "clan",
     "ref_channel": "search",
     "session_id": "uuid-v4",
-    "warrior_ref": "warrior_demo"
+    "warrior_ref": "warrior_demo",
+    "locale": "es",
+    "route_locale": "es",
+    "blog_slug": "fake-virus-popup-macintosh"
   }
 }
 ```
+
+`locale` / `route_locale` / `blog_slug` are optional except on localized blog posts (slug when `page=blog_post`).
 
 ### `page` (enum)
 

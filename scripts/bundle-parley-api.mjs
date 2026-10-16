@@ -6,7 +6,7 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const web = join(root, "web");
-const entry = join(web, "api", "parley.source.js");
+const entry = join(web, "lib", "parley", "parley-api.source.js");
 const out = join(web, "api", "parley.js");
 
 const esbuildPkg = join(root, "node_modules", "esbuild");

@@ -69,6 +69,8 @@ const MARKETING_PAGES = new Set([
   "other",
 ]);
 
+const LOCALE_CODES = new Set(["en", "es", "pt-BR", "fr", "ar"]);
+
 const REF_CHANNELS = new Set([
   "direct",
   "search",
@@ -180,6 +182,20 @@ function validateInstallPing(payload) {
   return null;
 }
 
+function validateLocaleDims(payload) {
+  if (payload.locale != null) {
+    if (typeof payload.locale !== "string" || !LOCALE_CODES.has(payload.locale)) {
+      return "locale enum (en|es|pt-BR|fr|ar)";
+    }
+  }
+  if (payload.route_locale != null) {
+    if (typeof payload.route_locale !== "string" || !LOCALE_CODES.has(payload.route_locale)) {
+      return "route_locale enum";
+    }
+  }
+  return null;
+}
+
 function validateMarketingPing(payload) {
   if (!isPlainObject(payload)) return "payload must be an object";
   if (typeof payload.day !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(payload.day)) {
@@ -197,6 +213,13 @@ function validateMarketingPing(payload) {
   if (payload.warrior_ref != null) {
     if (typeof payload.warrior_ref !== "string" || payload.warrior_ref.length > 64) {
       return "warrior_ref max 64 chars";
+    }
+  }
+  const localeErr = validateLocaleDims(payload);
+  if (localeErr) return localeErr;
+  if (payload.blog_slug != null) {
+    if (typeof payload.blog_slug !== "string" || payload.blog_slug.length > 80) {
+      return "blog_slug max 80 chars";
     }
   }
   return null;
@@ -268,6 +291,8 @@ function validateCheckoutIntent(payload) {
       return "warrior_ref max 64 chars";
     }
   }
+  const localeErrCheckout = validateLocaleDims(payload);
+  if (localeErrCheckout) return localeErrCheckout;
   return null;
 }
 
@@ -344,6 +369,8 @@ function validateInstallIntent(payload) {
       return "warrior_ref max 64 chars";
     }
   }
+  const localeErr = validateLocaleDims(payload);
+  if (localeErr) return localeErr;
   return null;
 }
 

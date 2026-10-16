@@ -42,6 +42,7 @@
     "audit:isles": "node scripts/audit-isles-ethics.mjs && node scripts/audit-isles-launchpad.mjs",
     "diagnose:xano": "node scripts/diagnose-xano-wire.mjs",
     "audit:events": "node scripts/audit-events.mjs",
+    "audit:vercel-functions": "node scripts/audit-vercel-functions.mjs",
     "audit:gtm-scope": "node scripts/audit-gtm-scope.mjs",
     "audit:en-coverage": "node scripts/audit-en-post-scare-coverage.mjs",
     "audit:i18n-readiness": "node scripts/audit-i18n-readiness.mjs",

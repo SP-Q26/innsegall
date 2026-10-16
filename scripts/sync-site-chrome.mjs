@@ -77,8 +77,9 @@ const OG_BLOCK = `  <meta property="og:image" content="${OG_URL}">
 const NAV_SCRIPT = `  <script src="/innsegall-locale.js?v=${CSS_VER}" defer></script>
   <script src="/innsegall-nav.js?v=${CSS_VER}" defer></script>`;
 
-/** Vercel Web Analytics · enable in project dashboard · not @vercel/analytics (static site, not Next). */
-const VERCEL_ANALYTICS = `  <script defer src="/_vercel/insights/script.js"></script>`;
+/** Vercel Web Analytics + Speed Insights · enable both in project dashboard · zero serverless slots. */
+const VERCEL_ANALYTICS = `  <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>`;
 
 function faviconBlock(manifestHref = "/site.webmanifest") {
   return `  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -403,7 +404,10 @@ function fixChrome(html) {
     out = out.replace("</body>", `${NAV_SCRIPT}\n</body>`);
   }
 
-  if (!out.includes("/_vercel/insights/script.js") && out.includes("</body>")) {
+  if (
+    (!out.includes("/_vercel/insights/script.js") || !out.includes("/_vercel/speed-insights/script.js")) &&
+    out.includes("</body>")
+  ) {
     out = out.replace("</body>", `${VERCEL_ANALYTICS}\n</body>`);
   }
 

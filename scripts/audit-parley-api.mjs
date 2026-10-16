@@ -17,10 +17,10 @@ function check(name, ok) {
 }
 
 const src = readFileSync(join(root, "web", "api", "parley.js"), "utf8");
-const source = readFileSync(join(root, "web", "api", "parley.source.js"), "utf8");
+const source = readFileSync(join(root, "web", "lib", "parley", "parley-api.source.js"), "utf8");
 
-check("parley.source exists", existsSync(join(root, "web", "api", "parley.source.js")));
-check("parley source lib imports", source.includes('from "../lib/parley/prompt.mjs"'));
+check("parley source exists", existsSync(join(root, "web", "lib", "parley", "parley-api.source.js")));
+check("parley source lib imports", source.includes('from "./prompt.mjs"'));
 check("forbidden ../../lib in source", !source.includes("../../lib/parley-rate-limit"));
 check("web/lib/parley prompt", existsSync(join(root, "web", "lib", "parley", "prompt.mjs")));
 check("parley bundled marker", src.includes("bundle-parley-api.mjs"));

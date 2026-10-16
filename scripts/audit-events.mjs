@@ -83,6 +83,9 @@ for (const path of Object.keys(PAGE_MAP)) {
 }
 
 check("nav marketing_ping", nav.includes("marketing_ping"));
+check("nav i18n blog_post path", nav.includes("routeLocaleAndPath") && nav.includes("blog_slug"));
+check("telemetry locale enum", telemetry.includes("LOCALE_CODES"));
+check("checkout locale dims", checkout.includes("route_locale"));
 check("nav install_intent", nav.includes("install_intent"));
 check("nav packet bar hook", nav.includes("__innsegallPacketBar"));
 check("render packet bar telemetry", readFileSync(join(root, "src/render.mjs"), "utf8").includes("packet_bar_copy_ai_paste"));

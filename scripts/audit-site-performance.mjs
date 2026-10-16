@@ -82,6 +82,13 @@ check("no duplicate font links sitewide", duplicateFont === 0, String(duplicateF
 const navJs = readFileSync(join(web, "innsegall-nav.js"), "utf8");
 check("nav beam idle defer", navJs.includes("requestIdleCallback"));
 
+const chrome = readFileSync(join(root, "scripts", "sync-site-chrome.mjs"), "utf8");
+check("vercel web analytics script", chrome.includes("/_vercel/insights/script.js"));
+check("vercel speed insights script", chrome.includes("/_vercel/speed-insights/script.js"));
+const indexHtml = readFileSync(join(web, "index.html"), "utf8");
+check("index web analytics", indexHtml.includes("/_vercel/insights/script.js"));
+check("index speed insights", indexHtml.includes("/_vercel/speed-insights/script.js"));
+
 const msp = readFileSync(join(web, "msp.html"), "utf8");
 check("msp seat field-input class", msp.includes('class="field-input"'));
 check("msp seat label", msp.includes('for="msp-seat-count"'));

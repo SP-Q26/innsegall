@@ -69,7 +69,15 @@ marketing_ping (page + channel)
 
 **Weekly rollup:** `node scripts/report-funnel.mjs` (SQL hints) · `npm run audit:events` · `npm run diagnose:xano`
 
-**Dims:** `page` · `ref_channel` · `sku` · `macos_major` (CLI) · `asset` (install_intent) · `context` / `triage_level` (packet bar)
+**Dims:** `page` · `ref_channel` · `sku` · `macos_major` (CLI) · `asset` (install_intent) · `context` / `triage_level` (packet bar) · `locale` · `route_locale` · `blog_slug` (blog_post only)
+
+### `marketing_ping` · locale dims
+
+| Field | Meaning |
+|-------|---------|
+| `locale` | Active picker/cookie locale (`en` · `es` · `pt-BR` · …) |
+| `route_locale` | URL prefix locale (`/es` · `/pt` → `es` · `pt-BR`) |
+| `blog_slug` | Post slug when `page=blog_post` (no paths · slug only) |
 
 ---
 
