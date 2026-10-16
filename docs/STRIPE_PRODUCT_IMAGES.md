@@ -8,7 +8,7 @@ On a **shared Isles Collective** account, each brand uses **its own domain** for
 
 ## Assets
 
-WWLuxe-style tiles: **512×512**, `rx="72"` fjord field, gold/aurora rings, **icon-only** (no checkout label text).
+**v3 Isles frame** (Ships.one parity): **512×512**, radial fjord glow `#173a52 → #071018`, inner gold frame (`stroke-opacity 0.22`), bold action glyph · **icon-only** (no price text). Gate: `npm run audit:stripe-product-images`.
 
 | Tile | Action metaphor |
 |------|-----------------|

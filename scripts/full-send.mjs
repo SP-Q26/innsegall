@@ -27,6 +27,7 @@ run("git identity", "npm run check:git-identity");
 run("git audit", "npm run audit:git");
 run("preflight", "npm run preflight");
 run("audit-stripe (repo)", "node scripts/audit-stripe.mjs");
+run("audit-stripe-product-images", "node scripts/audit-stripe-product-images.mjs");
 run("audit-stripe-live", "node scripts/audit-stripe-live.mjs");
 run("audit:copy", "npm run audit:copy");
 run("audit:seo", "npm run audit:seo");

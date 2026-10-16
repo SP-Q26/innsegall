@@ -1,24 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Innsegall MSP roster">
   <defs>
-    <linearGradient id="msp-rim" x1="88" y1="88" x2="424" y2="424" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#a8d8ff" stop-opacity="0.45"/>
-      <stop offset="1" stop-color="#3daa8c" stop-opacity="0.35"/>
-    </linearGradient>
+    <radialGradient id="msp-glow" cx="50%" cy="44%" r="58%">
+      <stop offset="0%" stop-color="#173a52"/>
+      <stop offset="100%" stop-color="#071018"/>
+    </radialGradient>
     <linearGradient id="msp-panel" x1="256" y1="160" x2="256" y2="340" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#a8d8ff" stop-opacity="0.85"/>
-      <stop offset="1" stop-color="#3daa8c" stop-opacity="0.35"/>
+      <stop stop-color="#a8d8ff" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#3daa8c" stop-opacity="0.4"/>
     </linearGradient>
   </defs>
-  <rect width="512" height="512" rx="72" fill="#0b1d2e"/>
-  <circle cx="256" cy="256" r="218" fill="none" stroke="url(#msp-rim)" stroke-width="2.5"/>
-  <circle cx="256" cy="256" r="198" fill="none" stroke="#f4c95d" stroke-opacity="0.12" stroke-width="1.5"/>
+  <rect width="512" height="512" rx="64" fill="url(#msp-glow)"/>
+  <rect x="40" y="40" width="432" height="432" rx="48" fill="none" stroke="#f4c95d" stroke-opacity="0.22" stroke-width="2"/>
+  <circle cx="256" cy="256" r="198" fill="none" stroke="#f4c95d" stroke-opacity="0.1" stroke-width="1.5"/>
   <g transform="translate(256 252)" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="-108" y="-78" width="216" height="132" rx="20" stroke="url(#msp-panel)" stroke-width="14"/>
-    <path d="M-72 -78 V54 M-36 -78 V54 M0 -78 V54 M36 -78 V54 M72 -78 V54" stroke="#122a42" stroke-width="6" stroke-opacity="0.85"/>
-    <path d="M-108 -30 H108 M-108 18 H108" stroke="#122a42" stroke-width="6" stroke-opacity="0.85"/>
-    <path d="M0 -108 V-78" stroke="#f4c95d" stroke-width="14"/>
-    <circle cx="0" cy="-118" r="14" fill="#f4c95d" fill-opacity="0.9" stroke="#d4a84a" stroke-width="4"/>
-    <path d="M-44 -12 H44 M0 -42 V18" stroke="#f4c95d" stroke-width="12"/>
-    <circle cx="0" cy="54" r="10" fill="#3daa8c" fill-opacity="0.95"/>
+    <rect x="-112" y="-82" width="224" height="136" rx="22" stroke="url(#msp-panel)" stroke-width="16"/>
+    <path d="M-76 -82 V54 M-38 -82 V54 M0 -82 V54 M38 -82 V54 M76 -82 V54" stroke="#071018" stroke-width="7" stroke-opacity="0.9"/>
+    <path d="M-112 -34 H112 M-112 14 H112" stroke="#071018" stroke-width="7" stroke-opacity="0.9"/>
+    <path d="M0 -112 V-82" stroke="#f4c95d" stroke-width="16"/>
+    <circle cx="0" cy="-122" r="16" fill="#f4c95d" stroke="#d4a84a" stroke-width="4"/>
+    <path d="M-48 -14 H48 M0 -46 V20" stroke="#f4c95d" stroke-width="14"/>
+    <circle cx="0" cy="58" r="12" fill="#3daa8c"/>
   </g>
 </svg>

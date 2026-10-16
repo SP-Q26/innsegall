@@ -104,6 +104,7 @@
     "report:funnel": "node scripts/report-funnel.mjs",
     "audit:stripe-sandbox": "node scripts/audit-stripe-sandbox.mjs",
     "audit:stripe-live": "node scripts/audit-stripe-live.mjs",
+    "audit:stripe-product-images": "node scripts/audit-stripe-product-images.mjs",
     "audit:client-facing": "node scripts/audit-client-facing.mjs",
     "full-send": "node scripts/full-send.mjs",
     "audit:pre-l5": "node scripts/audit-pre-l5-levers.mjs",

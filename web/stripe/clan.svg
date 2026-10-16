@@ -1,22 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Innsegall Clan">
   <defs>
-    <linearGradient id="clan-rim" x1="96" y1="96" x2="416" y2="416" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#3daa8c" stop-opacity="0.55"/>
-      <stop offset="1" stop-color="#f4c95d" stop-opacity="0.35"/>
-    </linearGradient>
+    <radialGradient id="clan-glow" cx="50%" cy="44%" r="58%">
+      <stop offset="0%" stop-color="#173a52"/>
+      <stop offset="100%" stop-color="#071018"/>
+    </radialGradient>
     <linearGradient id="clan-beam" x1="256" y1="140" x2="256" y2="360" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#3daa8c" stop-opacity="0.9"/>
-      <stop offset="1" stop-color="#a8d8ff" stop-opacity="0.3"/>
+      <stop stop-color="#3daa8c" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#a8d8ff" stop-opacity="0.35"/>
     </linearGradient>
   </defs>
-  <rect width="512" height="512" rx="72" fill="#0b1d2e"/>
-  <circle cx="256" cy="256" r="218" fill="none" stroke="url(#clan-rim)" stroke-width="2.5"/>
-  <circle cx="256" cy="256" r="198" fill="none" stroke="#a8d8ff" stroke-opacity="0.14" stroke-width="1.5"/>
+  <rect width="512" height="512" rx="64" fill="url(#clan-glow)"/>
+  <rect x="40" y="40" width="432" height="432" rx="48" fill="none" stroke="#f4c95d" stroke-opacity="0.22" stroke-width="2"/>
+  <circle cx="256" cy="256" r="198" fill="none" stroke="#3daa8c" stroke-opacity="0.14" stroke-width="1.5"/>
   <g transform="translate(256 252)" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="-62" cy="-36" r="52" stroke="url(#clan-beam)" stroke-width="14"/>
-    <circle cx="62" cy="-36" r="52" stroke="url(#clan-beam)" stroke-width="14"/>
-    <circle cx="0" cy="58" r="56" stroke="#f4c95d" stroke-width="14" stroke-opacity="0.92"/>
-    <path d="M-28 2 L0 28 L28 2" stroke="#a8d8ff" stroke-width="8" stroke-opacity="0.55"/>
-    <path d="M-90 -36 H-34 M34 -36 H90 M0 2 V46" stroke="#c5d4e3" stroke-width="5" stroke-opacity="0.35"/>
+    <circle cx="-68" cy="-38" r="54" stroke="url(#clan-beam)" stroke-width="16"/>
+    <circle cx="68" cy="-38" r="54" stroke="url(#clan-beam)" stroke-width="16"/>
+    <circle cx="0" cy="62" r="58" stroke="#f4c95d" stroke-width="16" stroke-opacity="0.95"/>
+    <path d="M-32 4 L0 32 L32 4" stroke="#a8d8ff" stroke-width="10" stroke-opacity="0.6"/>
+    <path d="M-98 -38 H-38 M38 -38 H98 M0 6 V50" stroke="#c5d4e3" stroke-width="6" stroke-opacity="0.4"/>
   </g>
 </svg>

@@ -138,6 +138,7 @@ runSubAudit("audit-ai-bus.mjs");
 runSubAudit("audit-brand-ban.mjs");
 runSubAudit("audit-claymore.mjs");
 runSubAudit("audit-stripe.mjs");
+runSubAudit("audit-stripe-product-images.mjs");
 
 if (failed) {
   console.error(`\n${failed} P0 audit failure(s)`);

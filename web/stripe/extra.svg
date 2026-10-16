@@ -1,23 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Innsegall Extra Scout">
   <defs>
+    <radialGradient id="extra-glow" cx="50%" cy="44%" r="58%">
+      <stop offset="0%" stop-color="#173a52"/>
+      <stop offset="100%" stop-color="#071018"/>
+    </radialGradient>
     <linearGradient id="extra-beam" x1="256" y1="108" x2="256" y2="340" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#f4c95d" stop-opacity="0.95"/>
+      <stop stop-color="#f4c95d" stop-opacity="0.98"/>
       <stop offset="0.55" stop-color="#e8c872"/>
-      <stop offset="1" stop-color="#a8d8ff" stop-opacity="0.35"/>
-    </linearGradient>
-    <linearGradient id="extra-rim" x1="80" y1="80" x2="432" y2="432" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#f4c95d" stop-opacity="0.5"/>
-      <stop offset="1" stop-color="#3daa8c" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#a8d8ff" stop-opacity="0.4"/>
     </linearGradient>
   </defs>
-  <rect width="512" height="512" rx="72" fill="#0b1d2e"/>
-  <circle cx="256" cy="256" r="218" fill="none" stroke="url(#extra-rim)" stroke-width="2.5"/>
-  <circle cx="256" cy="256" r="198" fill="none" stroke="#a8d8ff" stroke-opacity="0.14" stroke-width="1.5"/>
+  <rect width="512" height="512" rx="64" fill="url(#extra-glow)"/>
+  <rect x="40" y="40" width="432" height="432" rx="48" fill="none" stroke="#f4c95d" stroke-opacity="0.22" stroke-width="2"/>
+  <circle cx="256" cy="256" r="198" fill="none" stroke="#a8d8ff" stroke-opacity="0.12" stroke-width="1.5"/>
   <g transform="translate(256 248)" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M0 -118 L0 52" stroke="url(#extra-beam)" stroke-width="22"/>
-    <ellipse cx="0" cy="72" rx="58" ry="22" fill="#e8a87c" fill-opacity="0.88" stroke="#e8a87c" stroke-width="4" stroke-opacity="0.5"/>
-    <path d="M-52 8 C-32 -36 32 -36 52 8" stroke="#a8d8ff" stroke-width="10" stroke-opacity="0.75"/>
-    <path d="M-18 -128 L0 -148 L18 -128" stroke="#f4c95d" stroke-width="12" stroke-opacity="0.9"/>
-    <circle cx="0" cy="-138" r="10" fill="#f4c95d" fill-opacity="0.85"/>
+    <path d="M0 -122 L0 56" stroke="url(#extra-beam)" stroke-width="24"/>
+    <ellipse cx="0" cy="76" rx="62" ry="24" fill="#e8a87c" fill-opacity="0.92" stroke="#f4c95d" stroke-width="5" stroke-opacity="0.45"/>
+    <path d="M-56 10 C-34 -40 34 -40 56 10" stroke="#a8d8ff" stroke-width="12" stroke-opacity="0.8"/>
+    <path d="M-20 -132 L0 -154 L20 -132" stroke="#f4c95d" stroke-width="14"/>
+    <circle cx="0" cy="-144" r="12" fill="#f4c95d"/>
   </g>
 </svg>

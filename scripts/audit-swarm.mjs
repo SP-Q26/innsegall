@@ -27,6 +27,7 @@ const lanes = [
   { name: "Abuse / credits", script: "audit-abuse.mjs", score: "9.5" },
   { name: "Privacy / local-first", script: "audit-privacy.mjs", score: "9.5" },
   { name: "Stripe / checkout", script: "audit-stripe.mjs", score: "9.5" },
+  { name: "Stripe product PNG tiles", script: "audit-stripe-product-images.mjs", score: "9.5" },
   { name: "Shell / nav / footer", script: "audit-shell.mjs", score: "9.5" },
   { name: "Voyage onboarding (P8)", script: "audit-voyage-onboarding.mjs", score: "9.0" },
   { name: "Internal links", script: "audit-links.mjs", score: "9.5" },
