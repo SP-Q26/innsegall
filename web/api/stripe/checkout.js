@@ -5,6 +5,7 @@ import {
   statementDescriptorSuffix,
   ISLES_COLLECTIVE,
 } from "../../lib/isles-checkout-branding.mjs";
+import { applyLiveE2eDiscount } from "../../lib/stripe-live-e2e-discount.mjs";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "", {
   apiVersion: "2024-11-20.acacia",
@@ -132,32 +133,34 @@ export default async function handler(req, res) {
   const descriptorSuffix = statementDescriptorSuffix(sku);
 
   try {
-    const session = await stripe.checkout.sessions.create({
-      mode: catalog.mode,
-      line_items: [lineItemForSku(sku, lineQty)],
-      success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: cancelUrl,
-      metadata: meta,
-      client_reference_id: warriorRef
-        ? `innsegall_${sku}_${warriorRef.replace(/[^a-zA-Z0-9_-]/g, "").slice(0, 40)}`
-        : `innsegall_${sku}`,
-      allow_promotion_codes: false,
-      // branding_settings needs Stripe API ≥ 2025-09-30 + Dashboard-shaped fields.
-      // Account-level Checkout branding (Dashboard) applies until we bump apiVersion.
-      custom_text: checkoutCustomText(sku),
-      ...(isSubscription
-        ? {
-            subscription_data: {
-              metadata: meta,
-            },
-          }
-        : {
-            payment_intent_data: {
-              metadata: meta,
-              statement_descriptor_suffix: descriptorSuffix,
-            },
-          }),
-    });
+    const sessionParams = applyLiveE2eDiscount(
+      {
+        mode: catalog.mode,
+        line_items: [lineItemForSku(sku, lineQty)],
+        success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: cancelUrl,
+        metadata: meta,
+        client_reference_id: warriorRef
+          ? `innsegall_${sku}_${warriorRef.replace(/[^a-zA-Z0-9_-]/g, "").slice(0, 40)}`
+          : `innsegall_${sku}`,
+        allow_promotion_codes: false,
+        custom_text: checkoutCustomText(sku),
+        ...(isSubscription
+          ? {
+              subscription_data: {
+                metadata: meta,
+              },
+            }
+          : {
+              payment_intent_data: {
+                metadata: meta,
+                statement_descriptor_suffix: descriptorSuffix,
+              },
+            }),
+      },
+      body,
+    );
+    const session = await stripe.checkout.sessions.create(sessionParams);
     return res.status(200).json({ url: session.url, id: session.id });
   } catch (e) {
     console.error("checkout", e);

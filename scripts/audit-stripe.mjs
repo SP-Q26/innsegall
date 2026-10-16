@@ -35,6 +35,12 @@ check("checkout extra amount 420", checkout.includes("420") || checkout.includes
 check("checkout clan amount 667", checkout.includes("667") || checkout.includes("STRIPE_PRICE_CLAN"));
 check("checkout msp sku", checkout.includes('"msp"') && checkout.includes("STRIPE_PRICE_MSP_SEAT"));
 check("checkout warrior_ref metadata", checkout.includes("warrior_ref"));
+check("checkout live e2e discount hook", checkout.includes("applyLiveE2eDiscount"));
+check(
+  "stripe live e2e lib",
+  existsSync(join(web, "lib/stripe-live-e2e-discount.mjs")) &&
+    existsSync(join(root, "scripts/lib/stripe-live-e2e-discount.mjs"))
+);
 check("checkout subscription mode", checkout.includes('"subscription"'));
 check(
   "checkout custom_text branding",
