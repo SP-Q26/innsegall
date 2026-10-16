@@ -2,6 +2,14 @@
   "name": "innsegall",
   "version": "0.4.0-alpha",
   "description": "Innsegall · send the scout · Battle Scout for Macintosh · alpha",
+  "homepage": "https://innsegall.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SP-Q26/innsegall.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SP-Q26/innsegall/issues"
+  },
   "type": "module",
   "private": true,
   "bin": {
@@ -35,6 +43,7 @@
     "audit:responsive-spacing": "node scripts/audit-responsive-spacing.mjs",
     "audit:workspace": "node scripts/audit-workspace-hygiene.mjs",
     "audit:git": "node scripts/git-audit.mjs",
+    "audit:lane-boundary": "node scripts/audit-lane-boundary.mjs",
     "clean:workspace": "rm -rf .smoke dist && echo 'cleaned .smoke dist'",
     "build:competitor-posts": "node scripts/build-competitor-absorption-posts.mjs",
     "build:seo-batch-20": "node scripts/build-seo-batch-20.mjs",

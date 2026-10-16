@@ -6,9 +6,13 @@ import {
   ISLES_COLLECTIVE,
 } from "../../lib/isles-checkout-branding.mjs";
 import { applyLiveE2eDiscount } from "../../lib/stripe-live-e2e-discount.mjs";
+import {
+  createIslesCheckoutSession,
+  ISLES_STRIPE_API_VERSION,
+} from "../../lib/isles-stripe-checkout-branding.mjs";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "", {
-  apiVersion: "2024-11-20.acacia",
+  apiVersion: ISLES_STRIPE_API_VERSION,
 });
 
 function priceEnvKey(sku) {
@@ -160,7 +164,9 @@ export default async function handler(req, res) {
       },
       body,
     );
-    const session = await stripe.checkout.sessions.create(sessionParams);
+    const session = await createIslesCheckoutSession(stripe, sessionParams, {
+      display_name: "Innsegall",
+    });
     return res.status(200).json({ url: session.url, id: session.id });
   } catch (e) {
     console.error("checkout", e);

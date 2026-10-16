@@ -91,6 +91,7 @@ if (porcelain) {
 
 run("check:git-identity", "npm run check:git-identity");
 run("audit:workspace", "npm run audit:workspace");
+run("audit:lane-boundary", "node scripts/audit-lane-boundary.mjs");
 
 const head = sh("git rev-parse --short HEAD");
 const originHead = sh("git rev-parse --short origin/main 2>/dev/null || echo unknown");

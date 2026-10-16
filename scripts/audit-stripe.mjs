@@ -36,6 +36,15 @@ check("checkout clan amount 667", checkout.includes("667") || checkout.includes(
 check("checkout msp sku", checkout.includes('"msp"') && checkout.includes("STRIPE_PRICE_MSP_SEAT"));
 check("checkout warrior_ref metadata", checkout.includes("warrior_ref"));
 check("checkout live e2e discount hook", checkout.includes("applyLiveE2eDiscount"));
+check("checkout isles session helper", checkout.includes("createIslesCheckoutSession"));
+check(
+  "checkout no parent-repo import",
+  !checkout.includes("../../../../lib/")
+);
+check(
+  "isles stripe branding lib",
+  existsSync(join(web, "lib/isles-stripe-checkout-branding.mjs"))
+);
 check(
   "stripe live e2e lib",
   existsSync(join(web, "lib/stripe-live-e2e-discount.mjs")) &&

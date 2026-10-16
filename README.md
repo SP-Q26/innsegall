@@ -1,6 +1,6 @@
 # Innsegall
 
-**Macintosh triage · Battle Scout · not antivirus.**
+**Site:** [https://innsegall.com](https://innsegall.com) · **Macintosh triage · Battle Scout · not antivirus.**
 
 Standalone product repo. Not coupled to SPQ.
 

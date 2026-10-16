@@ -11,15 +11,11 @@ export const ISLES_COLLECTIVE = {
   support_email: "hello@innsegall.com",
 };
 
-/**
- * Future: session branding_settings (Stripe API 2025-09-30+).
- * Use background_color / button_color per Stripe docs · not primary_color.
- * Gated until checkout.js apiVersion bump · see SHARED_STRIPE_CHECKOUT_BRANDING.md Phase 2.
- */
+/** @deprecated use islesCheckoutBrandingSettings from ./isles-stripe-checkout-branding.mjs */
 export function checkoutBrandingSettingsInnsegall() {
   return {
-    background_color: "#122A42",
-    button_color: "#F4C95D",
+    background_color: "#0E1A24",
+    button_color: "#D4B84A",
   };
 }
 
