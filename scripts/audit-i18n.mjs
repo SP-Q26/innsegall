@@ -57,6 +57,11 @@ for (const localeKey of LIVE_LOCALE_CODES) {
   }
 }
 
+for (const preview of ["ar", "fr"]) {
+  const dir = join(root, "web", preview, "blog");
+  check(`${preview} blog not shipped in repo`, !existsSync(dir));
+}
+
 if (failed) {
   console.error(`\n${failed} i18n failure(s)`);
   process.exit(1);

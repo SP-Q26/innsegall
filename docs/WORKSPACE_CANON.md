@@ -35,7 +35,7 @@ Never commit:
 
 - `.env.local` · `web/.env.local` · `.vercel/`
 
-**Public vs internal:** `docs/ISLES_PORTFOLIO.md` · `NORTH_STAR_AUDIT.md` · `WAKE_BELOW_DECK.md` stay in **git docs only** — never copy into `web/`. Gate: `npm run audit:lane-boundary`.
+**Public vs internal:** `docs/ISLES_PORTFOLIO.md` · `NORTH_STAR_AUDIT.md` · `WAKE_BELOW_DECK.md` stay in **git docs only** · never copy into `web/`. Gate: `npm run audit:lane-boundary`.
 
 **GitHub repo About:** set **Website** to `https://innsegall.com` (matches `package.json` `homepage`).
 
