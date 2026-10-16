@@ -1,6 +1,6 @@
 # Innsegall.com · full site audit
 
-**Generated:** 2026-10-15 · `node scripts/audit-site-inventory.mjs`  
+**Generated:** 2026-10-16 · `node scripts/audit-site-inventory.mjs`  
 **Project:** Vercel `innsegall_fe` · root `web/`  
 **Commands:** `npm run audit:site` · `npm run gate:launch` · `npm run smoke:live`
 
@@ -10,11 +10,11 @@
 
 | Metric | Count |
 |--------|------:|
-| HTML surfaces | 86 |
-| Indexable marketing + blog | 84 |
+| HTML surfaces | 220 |
+| Indexable marketing + blog | 218 |
 | Blog posts | 66 |
 | P0 inventory issues | 0 |
-| Sitemap URLs | 93 |
+| Sitemap URLs | 227 |
 
 **Operator:** Stripe LIVE flip in progress · push `main` after `npm run predeploy` · blog is primary float-mode SEO lever.
 
@@ -96,12 +96,146 @@
 | `/boat` | ✓ | ✓ | · | · | 127 | ok |
 | `/clan` | ✓ | ✓ | · | · | 128 | ok |
 | `/companion` | ✓ | ✓ | · | · | 152 | ok |
+| `/es/blog` | ✓ | ✓ | · | · | 159 | ok |
+| `/es/blog/after-suspicious-link-macintosh` | ✓ | ✓ | · | · | 159 | ok |
+| `/es/blog/apple-support-call-popup-scam-mac` | ✓ | ✓ | · | · | 164 | ok |
+| `/es/blog/auto-voyage-first-sail` | ✓ | ✓ | · | · | 157 | ok |
+| `/es/blog/blockblock-vs-post-scare-triage` | ✓ | ✓ | · | · | 158 | ok |
+| `/es/blog/check-parent-mac-after-scare` | ✓ | ✓ | · | · | 157 | ok |
+| `/es/blog/chrome-clear-browsing-data-after-scare-mac` | ✓ | ✓ | · | · | 160 | ok |
+| `/es/blog/chrome-fake-virus-popup-mac` | ✓ | ✓ | · | · | 164 | ok |
+| `/es/blog/chrome-notifications-scam-mac` | ✓ | ✓ | · | · | 163 | ok |
+| `/es/blog/chrome-search-engine-hijacked-mac` | ✓ | ✓ | · | · | 164 | ok |
+| `/es/blog/clicked-bad-link-iphone-ipad-guide` | ✓ | ✓ | · | · | 158 | ok |
+| `/es/blog/clicked-suspicious-link-macintosh` | ✓ | ✓ | · | · | 164 | ok |
+| `/es/blog/do-i-need-antivirus-mac-2026` | ✓ | ✓ | · | · | 161 | ok |
+| `/es/blog/downloaded-suspicious-file-iphone-ipad` | ✓ | ✓ | · | · | 164 | ok |
+| `/es/blog/downloads-folder-quarantine-mac-check` | ✓ | ✓ | · | · | 160 | ok |
+| `/es/blog/fake-virus-popup-iphone-ipad` | ✓ | ✓ | · | · | 164 | ok |
+| `/es/blog/fake-virus-popup-macintosh` | ✓ | ✓ | · | · | 155 | ok |
+| `/es/blog/field-desk-stripe-live-sep-2026` | ✓ | ✓ | · | · | 155 | ok |
+| `/es/blog/field-glass-oct-11-2026` | ✓ | ✓ | · | · | 163 | ok |
+| `/es/blog/field-glass-oct-14-2026` | ✓ | ✓ | · | · | 155 | ok |
+| `/es/blog/field-glass-oct-2-2026` | ✓ | ✓ | · | · | 162 | ok |
+| `/es/blog/field-glass-oct-7-2026` | ✓ | ✓ | · | · | 158 | ok |
+| `/es/blog/field-glass-oct-8-2026` | ✓ | ✓ | · | · | 160 | ok |
+| `/es/blog/field-glass-sep-19-2026` | ✓ | ✓ | · | · | 158 | ok |
+| `/es/blog/field-glass-sep-2026` | ✓ | ✓ | · | · | 158 | ok |
+| `/es/blog/field-glass-sep-22-2026` | ✓ | ✓ | · | · | 161 | ok |
+| `/es/blog/field-glass-sep-25-2026` | ✓ | ✓ | · | · | 153 | ok |
+| `/es/blog/field-glass-sep-30-2026` | ✓ | ✓ | · | · | 162 | ok |
+| `/es/blog/field-report-2026-09-06` | ✓ | ✓ | · | · | 160 | ok |
+| `/es/blog/gatekeeper-opened-unknown-app-mac` | ✓ | ✓ | · | · | 161 | ok |
+| `/es/blog/genius-bar-vs-battle-scout-mac` | ✓ | ✓ | · | · | 143 | ok |
+| `/es/blog/innsegall-ios-companion-i0` | ✓ | ✓ | · | · | 156 | ok |
+| `/es/blog/innsegall-vs-antivirus-macintosh` | ✓ | ✓ | · | · | 164 | ok |
+| `/es/blog/innsegall-vs-etrecheck-macintosh` | ✓ | ✓ | · | · | 164 | ok |
+| `/es/blog/innsegall-vs-mac-cleaners` | ✓ | ✓ | · | · | 160 | ok |
+| `/es/blog/join-the-innsegall-clan` | ✓ | ✓ | · | · | 159 | ok |
+| `/es/blog/knockknock-vs-post-scare-triage` | ✓ | ✓ | · | · | 162 | ok |
+| `/es/blog/mac-apple-id-locked-browser-scam` | ✓ | ✓ | · | · | 155 | ok |
+| `/es/blog/mac-browser-full-screen-virus-locker` | ✓ | ✓ | · | · | 162 | ok |
+| `/es/blog/mac-calendar-spam-invites-scam` | ✓ | ✓ | · | · | 161 | ok |
+| `/es/blog/mac-camera-microphone-light-worry` | ✓ | ✓ | · | · | 164 | ok |
+| `/es/blog/mac-configuration-profile-scam` | ✓ | ✓ | · | · | 161 | ok |
+| `/es/blog/mac-dns-changed-after-scare` | ✓ | ✓ | · | · | 158 | ok |
+| `/es/blog/mac-keychain-password-popup-loop-scam` | ✓ | ✓ | · | · | 154 | ok |
+| `/es/blog/mac-performance-panic-vs-security-panic` | ✓ | ✓ | · | · | 164 | ok |
+| `/es/blog/mac-screen-sharing-on-without-permission` | ✓ | ✓ | · | · | 157 | ok |
+| `/es/blog/mac-slow-after-suspicious-download` | ✓ | ✓ | · | · | 164 | ok |
+| `/es/blog/macintosh-hygiene-without-antivirus` | ✓ | ✓ | · | · | 164 | ok |
+| `/es/blog/macintosh-xprotect-after-scare` | ✓ | ✓ | · | · | 163 | ok |
+| `/es/blog/malwarebytes-vs-innsegall-after-scare` | ✓ | ✓ | · | · | 157 | ok |
+| `/es/blog/network-monitor-vs-post-scare-triage` | ✓ | ✓ | · | · | 164 | ok |
+| `/es/blog/onyx-vs-read-only-mac-scout` | ✓ | ✓ | · | · | 164 | ok |
+| `/es/blog/opened-suspicious-email-iphone-ipad` | ✓ | ✓ | · | · | 160 | ok |
+| `/es/blog/paste-battle-scout-for-ai-assistant` | ✓ | ✓ | · | · | 135 | ok |
+| `/es/blog/pasted-terminal-command-mac-scare` | ✓ | ✓ | · | · | 164 | ok |
+| `/es/blog/safari-allowed-notifications-by-mistake-mac` | ✓ | ✓ | · | · | 157 | ok |
+| `/es/blog/safari-clear-website-data-iphone-ipad` | ✓ | ✓ | · | · | 163 | ok |
+| `/es/blog/safari-fake-virus-notifications-mac` | ✓ | ✓ | · | · | 157 | ok |
+| `/es/blog/safari-notifications-scam-iphone-ipad` | ✓ | ✓ | · | · | 163 | ok |
+| `/es/blog/safari-search-engine-hijacked-mac` | ✓ | ✓ | · | · | 164 | ok |
+| `/es/blog/safari-shift-key-scam-popup-mac` | ✓ | ✓ | · | · | 157 | ok |
+| `/es/blog/someone-remoted-into-my-mac` | ✓ | ✓ | · | · | 157 | ok |
+| `/es/blog/stale-launch-items-macintosh` | ✓ | ✓ | · | · | 154 | ok |
+| `/es/blog/typed-password-scam-site-iphone-ipad` | ✓ | ✓ | · | · | 163 | ok |
+| `/es/blog/virustotal-vs-local-mac-scout` | ✓ | ✓ | · | · | 163 | ok |
+| `/es/blog/voyage-health-tracker-1st-15th` | ✓ | ✓ | · | · | 164 | ok |
+| `/es/blog/what-is-a-battle-scout` | ✓ | ✓ | · | · | 162 | ok |
 | `/guide` | ✓ | ✓ | · | · | 119 | ok |
 | `/install` | ✓ | ✓ | · | · | 120 | ok |
 | `/ios` | ✓ | ✓ | · | · | 158 | ok |
 | `/map` | ✓ | ✓ | · | · | 137 | ok |
 | `/msp` | ✓ | ✓ | · | · | 139 | ok |
 | `/privacy` | ✓ | ✓ | · | · | 153 | ok |
+| `/pt/blog` | ✓ | ✓ | · | · | 161 | ok |
+| `/pt/blog/after-suspicious-link-macintosh` | ✓ | ✓ | · | · | 163 | ok |
+| `/pt/blog/apple-support-call-popup-scam-mac` | ✓ | ✓ | · | · | 160 | ok |
+| `/pt/blog/auto-voyage-first-sail` | ✓ | ✓ | · | · | 160 | ok |
+| `/pt/blog/blockblock-vs-post-scare-triage` | ✓ | ✓ | · | · | 157 | ok |
+| `/pt/blog/check-parent-mac-after-scare` | ✓ | ✓ | · | · | 163 | ok |
+| `/pt/blog/chrome-clear-browsing-data-after-scare-mac` | ✓ | ✓ | · | · | 162 | ok |
+| `/pt/blog/chrome-fake-virus-popup-mac` | ✓ | ✓ | · | · | 165 | ok |
+| `/pt/blog/chrome-notifications-scam-mac` | ✓ | ✓ | · | · | 157 | ok |
+| `/pt/blog/chrome-search-engine-hijacked-mac` | ✓ | ✓ | · | · | 161 | ok |
+| `/pt/blog/clicked-bad-link-iphone-ipad-guide` | ✓ | ✓ | · | · | 157 | ok |
+| `/pt/blog/clicked-suspicious-link-macintosh` | ✓ | ✓ | · | · | 162 | ok |
+| `/pt/blog/do-i-need-antivirus-mac-2026` | ✓ | ✓ | · | · | 140 | ok |
+| `/pt/blog/downloaded-suspicious-file-iphone-ipad` | ✓ | ✓ | · | · | 159 | ok |
+| `/pt/blog/downloads-folder-quarantine-mac-check` | ✓ | ✓ | · | · | 161 | ok |
+| `/pt/blog/fake-virus-popup-iphone-ipad` | ✓ | ✓ | · | · | 163 | ok |
+| `/pt/blog/fake-virus-popup-macintosh` | ✓ | ✓ | · | · | 164 | ok |
+| `/pt/blog/field-desk-stripe-live-sep-2026` | ✓ | ✓ | · | · | 159 | ok |
+| `/pt/blog/field-glass-oct-11-2026` | ✓ | ✓ | · | · | 160 | ok |
+| `/pt/blog/field-glass-oct-14-2026` | ✓ | ✓ | · | · | 156 | ok |
+| `/pt/blog/field-glass-oct-2-2026` | ✓ | ✓ | · | · | 156 | ok |
+| `/pt/blog/field-glass-oct-7-2026` | ✓ | ✓ | · | · | 157 | ok |
+| `/pt/blog/field-glass-oct-8-2026` | ✓ | ✓ | · | · | 157 | ok |
+| `/pt/blog/field-glass-sep-19-2026` | ✓ | ✓ | · | · | 162 | ok |
+| `/pt/blog/field-glass-sep-2026` | ✓ | ✓ | · | · | 157 | ok |
+| `/pt/blog/field-glass-sep-22-2026` | ✓ | ✓ | · | · | 161 | ok |
+| `/pt/blog/field-glass-sep-25-2026` | ✓ | ✓ | · | · | 159 | ok |
+| `/pt/blog/field-glass-sep-30-2026` | ✓ | ✓ | · | · | 164 | ok |
+| `/pt/blog/field-report-2026-09-06` | ✓ | ✓ | · | · | 157 | ok |
+| `/pt/blog/gatekeeper-opened-unknown-app-mac` | ✓ | ✓ | · | · | 156 | ok |
+| `/pt/blog/genius-bar-vs-battle-scout-mac` | ✓ | ✓ | · | · | 137 | ok |
+| `/pt/blog/innsegall-ios-companion-i0` | ✓ | ✓ | · | · | 158 | ok |
+| `/pt/blog/innsegall-vs-antivirus-macintosh` | ✓ | ✓ | · | · | 162 | ok |
+| `/pt/blog/innsegall-vs-etrecheck-macintosh` | ✓ | ✓ | · | · | 161 | ok |
+| `/pt/blog/innsegall-vs-mac-cleaners` | ✓ | ✓ | · | · | 165 | ok |
+| `/pt/blog/join-the-innsegall-clan` | ✓ | ✓ | · | · | 158 | ok |
+| `/pt/blog/knockknock-vs-post-scare-triage` | ✓ | ✓ | · | · | 160 | ok |
+| `/pt/blog/mac-apple-id-locked-browser-scam` | ✓ | ✓ | · | · | 157 | ok |
+| `/pt/blog/mac-browser-full-screen-virus-locker` | ✓ | ✓ | · | · | 159 | ok |
+| `/pt/blog/mac-calendar-spam-invites-scam` | ✓ | ✓ | · | · | 158 | ok |
+| `/pt/blog/mac-camera-microphone-light-worry` | ✓ | ✓ | · | · | 157 | ok |
+| `/pt/blog/mac-configuration-profile-scam` | ✓ | ✓ | · | · | 157 | ok |
+| `/pt/blog/mac-dns-changed-after-scare` | ✓ | ✓ | · | · | 163 | ok |
+| `/pt/blog/mac-keychain-password-popup-loop-scam` | ✓ | ✓ | · | · | 158 | ok |
+| `/pt/blog/mac-performance-panic-vs-security-panic` | ✓ | ✓ | · | · | 164 | ok |
+| `/pt/blog/mac-screen-sharing-on-without-permission` | ✓ | ✓ | · | · | 160 | ok |
+| `/pt/blog/mac-slow-after-suspicious-download` | ✓ | ✓ | · | · | 164 | ok |
+| `/pt/blog/macintosh-hygiene-without-antivirus` | ✓ | ✓ | · | · | 161 | ok |
+| `/pt/blog/macintosh-xprotect-after-scare` | ✓ | ✓ | · | · | 158 | ok |
+| `/pt/blog/malwarebytes-vs-innsegall-after-scare` | ✓ | ✓ | · | · | 162 | ok |
+| `/pt/blog/network-monitor-vs-post-scare-triage` | ✓ | ✓ | · | · | 163 | ok |
+| `/pt/blog/onyx-vs-read-only-mac-scout` | ✓ | ✓ | · | · | 132 | ok |
+| `/pt/blog/opened-suspicious-email-iphone-ipad` | ✓ | ✓ | · | · | 164 | ok |
+| `/pt/blog/paste-battle-scout-for-ai-assistant` | ✓ | ✓ | · | · | 136 | ok |
+| `/pt/blog/pasted-terminal-command-mac-scare` | ✓ | ✓ | · | · | 158 | ok |
+| `/pt/blog/safari-allowed-notifications-by-mistake-mac` | ✓ | ✓ | · | · | 157 | ok |
+| `/pt/blog/safari-clear-website-data-iphone-ipad` | ✓ | ✓ | · | · | 159 | ok |
+| `/pt/blog/safari-fake-virus-notifications-mac` | ✓ | ✓ | · | · | 162 | ok |
+| `/pt/blog/safari-notifications-scam-iphone-ipad` | ✓ | ✓ | · | · | 161 | ok |
+| `/pt/blog/safari-search-engine-hijacked-mac` | ✓ | ✓ | · | · | 157 | ok |
+| `/pt/blog/safari-shift-key-scam-popup-mac` | ✓ | ✓ | · | · | 162 | ok |
+| `/pt/blog/someone-remoted-into-my-mac` | ✓ | ✓ | · | · | 161 | ok |
+| `/pt/blog/stale-launch-items-macintosh` | ✓ | ✓ | · | · | 160 | ok |
+| `/pt/blog/typed-password-scam-site-iphone-ipad` | ✓ | ✓ | · | · | 161 | ok |
+| `/pt/blog/virustotal-vs-local-mac-scout` | ✓ | ✓ | · | · | 155 | ok |
+| `/pt/blog/voyage-health-tracker-1st-15th` | ✓ | ✓ | · | · | 163 | ok |
+| `/pt/blog/what-is-a-battle-scout` | ✓ | ✓ | · | · | 163 | ok |
 | `/stability` | ✓ | ✓ | · | · | 125 | ok |
 | `/success` | no | ✗ | · | · | 101 | ok |
 | `/supplies` | ✓ | ✓ | · | · | 127 | ok |

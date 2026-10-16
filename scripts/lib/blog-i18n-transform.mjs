@@ -81,19 +81,29 @@ function replaceMainArticle(html, newMainInner, g, slug, localeKey) {
   });
 }
 
+function clampMetaDescription(text, max = 165) {
+  const s = String(text || "").trim();
+  if (s.length <= max) return s;
+  const cut = s.slice(0, max - 1);
+  const sp = cut.lastIndexOf(" ");
+  const body = sp > 80 ? cut.slice(0, sp) : cut;
+  return `${body}…`;
+}
+
 function patchTitleMeta(html, title, description) {
   let out = html;
   const fullTitle = `${title} · Innsegall`;
+  const desc = clampMetaDescription(description);
   out = out.replace(/<title>[^<]*<\/title>/i, `<title>${escAttr(fullTitle)}</title>`);
-  out = out.replace(/<meta name="description" content="[^"]*"/i, `<meta name="description" content="${escAttr(description)}"`);
+  out = out.replace(/<meta name="description" content="[^"]*"/i, `<meta name="description" content="${escAttr(desc)}"`);
   out = out.replace(/property="og:title" content="[^"]*"/gi, `property="og:title" content="${escAttr(title)}"`);
-  out = out.replace(/property="og:description" content="[^"]*"/gi, `property="og:description" content="${escAttr(description)}"`);
+  out = out.replace(/property="og:description" content="[^"]*"/gi, `property="og:description" content="${escAttr(desc)}"`);
   out = out.replace(/name="twitter:title" content="[^"]*"/gi, `name="twitter:title" content="${escAttr(title)}"`);
-  out = out.replace(/name="twitter:description" content="[^"]*"/gi, `name="twitter:description" content="${escAttr(description)}"`);
+  out = out.replace(/name="twitter:description" content="[^"]*"/gi, `name="twitter:description" content="${escAttr(desc)}"`);
   const headlineRe = /"headline":\s*"[^"]*"/;
   if (headlineRe.test(out)) out = out.replace(headlineRe, `"headline": ${JSON.stringify(title)}`);
   const descRe = /"description":\s*"[^"]*"/;
-  if (descRe.test(out)) out = out.replace(descRe, `"description": ${JSON.stringify(description)}`);
+  if (descRe.test(out)) out = out.replace(descRe, `"description": ${JSON.stringify(desc)}`);
   return out;
 }
 

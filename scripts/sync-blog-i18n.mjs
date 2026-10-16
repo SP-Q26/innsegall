@@ -25,6 +25,26 @@ function loadBundle(localeKey) {
   return JSON.parse(readFileSync(p, "utf8"));
 }
 
+function ensureSitemapEntries(slugs) {
+  const sitemapPath = join(web, "sitemap.xml");
+  let sitemap = readFileSync(sitemapPath, "utf8");
+  const today = new Date().toISOString().slice(0, 10);
+  const locs = [];
+  for (const localeKey of LIVE_LOCALE_CODES) {
+    const prefix = LOCALES[localeKey].prefix;
+    locs.push(`${SITE}${prefix}/blog`);
+    for (const slug of slugs) {
+      locs.push(`${SITE}${prefix}/blog/${slug}`);
+    }
+  }
+  for (const loc of locs) {
+    if (sitemap.includes(loc)) continue;
+    const block = `  <url>\n    <loc>${loc}</loc>\n    <lastmod>${today}</lastmod>\n  </url>\n`;
+    sitemap = sitemap.replace("</urlset>", `${block}</urlset>`);
+  }
+  writeFileSync(sitemapPath, sitemap, "utf8");
+}
+
 function ensureVercelRewrites(slugs) {
   const vercelPath = join(web, "vercel.json");
   const vercel = JSON.parse(readFileSync(vercelPath, "utf8"));
@@ -134,4 +154,5 @@ for (const slug of slugs) {
 }
 
 ensureVercelRewrites(slugs);
-console.log(`sync-blog-i18n · ${written} locale pages · EN hreflang ${enPatched} · rewrites OK`);
+ensureSitemapEntries(slugs);
+console.log(`sync-blog-i18n · ${written} locale pages · EN hreflang ${enPatched} · rewrites + sitemap OK`);

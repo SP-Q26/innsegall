@@ -25,6 +25,8 @@ const PAGE_ROUTES = new Set([
   "/msp",
   "/warriors",
   "/blog",
+  "/es/blog",
+  "/pt/blog",
   "/privacy",
   "/tos",
   "/success",
@@ -59,8 +61,19 @@ function isStaticAsset(path) {
 
 function resolvePageFile(path) {
   if (path === "/") return join(web, "index.html");
+  const localeBlog = path.match(/^\/(es|pt)\/blog(?:\/(.+))?$/);
+  if (localeBlog) {
+    if (!localeBlog[2]) return join(web, localeBlog[1], "blog", "index.html");
+    return join(web, localeBlog[1], "blog", `${localeBlog[2]}.html`);
+  }
+  if (path === "/blog") return join(web, "blog", "index.html");
   if (path.startsWith("/blog/")) return join(web, path.slice(1) + ".html");
   return join(web, path.replace(/^\//, "") + ".html");
+}
+
+function blogPathExists(path) {
+  const file = resolvePageFile(path);
+  return file && existsSync(file);
 }
 
 for (const file of walkHtml(web)) {
@@ -72,9 +85,8 @@ for (const file of walkHtml(web)) {
     const path = pathOnly(href);
     if (isStaticAsset(path)) continue;
     if (PAGE_ROUTES.has(path)) continue;
-    if (path.startsWith("/blog/")) {
-      const blogPath = join(web, path.slice(1) + ".html");
-      if (!existsSync(blogPath)) {
+    if (path.startsWith("/blog/") || path === "/blog" || /^\/(es|pt)\/blog/.test(path)) {
+      if (!blogPathExists(path)) {
         console.error(`FAIL link: ${rel} → ${href} (missing file)`);
         failed++;
       }
@@ -89,8 +101,8 @@ const sitemap = readFileSync(join(web, "sitemap.xml"), "utf8");
 const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
 for (const url of urls) {
   const path = url.replace("https://innsegall.com", "") || "/";
-  if (path.startsWith("/blog/")) {
-    if (!existsSync(join(web, path.slice(1) + ".html")) && path !== "/blog") {
+  if (path.startsWith("/blog/") || path.startsWith("/es/blog/") || path.startsWith("/pt/blog/")) {
+    if (!blogPathExists(path) && path !== "/blog" && path !== "/es/blog" && path !== "/pt/blog") {
       console.error(`FAIL sitemap: ${path}`);
       failed++;
     }
@@ -105,8 +117,8 @@ for (const url of urls) {
     }
     continue;
   }
-  if (path === "/blog") {
-    if (!existsSync(join(web, "blog/index.html"))) failed++;
+  if (path === "/blog" || path === "/es/blog" || path === "/pt/blog") {
+    if (!blogPathExists(path)) failed++;
     continue;
   }
   const filePath = resolvePageFile(path);

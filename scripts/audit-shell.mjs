@@ -41,11 +41,15 @@ for (const file of walkHtml(web)) {
   const html = readFileSync(file, "utf8");
   if (!html.includes('class="site-header"')) continue;
 
+  const blogNav =
+    html.includes('href="/blog"') ||
+    html.includes('href="/es/blog"') ||
+    html.includes('href="/pt/blog"');
   const navOk =
-    html.includes('href="/alpha">Get started</a>') &&
-    html.includes('href="/watch">Trending</a>') &&
-    html.includes('href="/blog">Help</a>') &&
-    html.includes('href="/clan">Clan</a>');
+    html.includes('href="/alpha"') &&
+    html.includes('href="/watch"') &&
+    blogNav &&
+    html.includes('href="/clan"');
   if (!navOk) {
     console.error(`FAIL: header nav · ${rel}`);
     failed++;

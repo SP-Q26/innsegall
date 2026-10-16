@@ -49,6 +49,11 @@ const STRIPE_LIVE_ALLOW = new Set([
   "blog/field-glass-sep-22-2026.html",
 ]);
 
+function stripeLiveAllowlisted(relPath) {
+  const base = relPath.replace(/^(es|pt)\//, "");
+  return STRIPE_LIVE_ALLOW.has(base);
+}
+
 function check(name, ok, detail = "") {
   if (!ok) {
     console.error(`FAIL client-facing: ${name}${detail ? ` · ${detail}` : ""}`);
@@ -75,7 +80,7 @@ function stripEmbeddedAgentJson(html) {
 function scanBackOfHouse(relPath, text) {
   const body = stripEmbeddedAgentJson(text);
   for (const rule of BACK_OF_HOUSE) {
-    if (rule.id === "Stripe live aside" && STRIPE_LIVE_ALLOW.has(relPath)) continue;
+    if (rule.id === "Stripe live aside" && stripeLiveAllowlisted(relPath)) continue;
     if (rule.re.test(body)) {
       check(`${relPath} · no ${rule.id}`, false);
     }
