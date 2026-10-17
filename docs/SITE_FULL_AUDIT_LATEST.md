@@ -97,7 +97,7 @@
 | `/clan` | ✓ | ✓ | · | · | 128 | ok |
 | `/companion` | ✓ | ✓ | · | · | 152 | ok |
 | `/es/blog` | ✓ | ✓ | · | · | 159 | ok |
-| `/es/blog/after-suspicious-link-macintosh` | ✓ | ✓ | · | · | 159 | ok |
+| `/es/blog/after-suspicious-link-macintosh` | ✓ | ✓ | · | · | 154 | ok |
 | `/es/blog/apple-support-call-popup-scam-mac` | ✓ | ✓ | · | · | 164 | ok |
 | `/es/blog/auto-voyage-first-sail` | ✓ | ✓ | · | · | 157 | ok |
 | `/es/blog/blockblock-vs-post-scare-triage` | ✓ | ✓ | · | · | 158 | ok |
@@ -107,12 +107,12 @@
 | `/es/blog/chrome-notifications-scam-mac` | ✓ | ✓ | · | · | 163 | ok |
 | `/es/blog/chrome-search-engine-hijacked-mac` | ✓ | ✓ | · | · | 164 | ok |
 | `/es/blog/clicked-bad-link-iphone-ipad-guide` | ✓ | ✓ | · | · | 158 | ok |
-| `/es/blog/clicked-suspicious-link-macintosh` | ✓ | ✓ | · | · | 164 | ok |
+| `/es/blog/clicked-suspicious-link-macintosh` | ✓ | ✓ | · | · | 156 | ok |
 | `/es/blog/do-i-need-antivirus-mac-2026` | ✓ | ✓ | · | · | 161 | ok |
 | `/es/blog/downloaded-suspicious-file-iphone-ipad` | ✓ | ✓ | · | · | 164 | ok |
 | `/es/blog/downloads-folder-quarantine-mac-check` | ✓ | ✓ | · | · | 160 | ok |
 | `/es/blog/fake-virus-popup-iphone-ipad` | ✓ | ✓ | · | · | 164 | ok |
-| `/es/blog/fake-virus-popup-macintosh` | ✓ | ✓ | · | · | 155 | ok |
+| `/es/blog/fake-virus-popup-macintosh` | ✓ | ✓ | · | · | 162 | ok |
 | `/es/blog/field-desk-stripe-live-sep-2026` | ✓ | ✓ | · | · | 155 | ok |
 | `/es/blog/field-glass-oct-11-2026` | ✓ | ✓ | · | · | 163 | ok |
 | `/es/blog/field-glass-oct-14-2026` | ✓ | ✓ | · | · | 155 | ok |
