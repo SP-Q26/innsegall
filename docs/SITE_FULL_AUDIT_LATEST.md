@@ -10,11 +10,11 @@
 
 | Metric | Count |
 |--------|------:|
-| HTML surfaces | 220 |
-| Indexable marketing + blog | 218 |
+| HTML surfaces | 224 |
+| Indexable marketing + blog | 222 |
 | Blog posts | 66 |
 | P0 inventory issues | 0 |
-| Sitemap URLs | 227 |
+| Sitemap URLs | 231 |
 
 **Operator:** Stripe LIVE flip in progress · push `main` after `npm run predeploy` · blog is primary float-mode SEO lever.
 
@@ -26,6 +26,7 @@
 |-------|:-----:|:-------:|:--------:|:-------:|-----:|--------|
 | `/` | ✓ | ✓ | · | · | 146 | ok |
 | `/alpha` | ✓ | ✓ | · | · | 123 | ok |
+| `/ar` | ✓ | ✓ | · | · | 118 | ok |
 | `/blog` | ✓ | ✓ | · | · | 155 | ok |
 | `/blog/after-suspicious-link-macintosh` | ✓ | ✓ | ✓ | ✓ | 154 | ok |
 | `/blog/apple-support-call-popup-scam-mac` | ✓ | ✓ | ✓ | ✓ | 151 | ok |
@@ -96,6 +97,7 @@
 | `/boat` | ✓ | ✓ | · | · | 127 | ok |
 | `/clan` | ✓ | ✓ | · | · | 128 | ok |
 | `/companion` | ✓ | ✓ | · | · | 152 | ok |
+| `/es` | ✓ | ✓ | · | · | 152 | ok |
 | `/es/blog` | ✓ | ✓ | · | · | 159 | ok |
 | `/es/blog/after-suspicious-link-macintosh` | ✓ | ✓ | · | · | 154 | ok |
 | `/es/blog/apple-support-call-popup-scam-mac` | ✓ | ✓ | · | · | 164 | ok |
@@ -163,12 +165,14 @@
 | `/es/blog/virustotal-vs-local-mac-scout` | ✓ | ✓ | · | · | 163 | ok |
 | `/es/blog/voyage-health-tracker-1st-15th` | ✓ | ✓ | · | · | 164 | ok |
 | `/es/blog/what-is-a-battle-scout` | ✓ | ✓ | · | · | 162 | ok |
+| `/fr` | ✓ | ✓ | · | · | 158 | ok |
 | `/guide` | ✓ | ✓ | · | · | 119 | ok |
 | `/install` | ✓ | ✓ | · | · | 120 | ok |
 | `/ios` | ✓ | ✓ | · | · | 158 | ok |
 | `/map` | ✓ | ✓ | · | · | 137 | ok |
 | `/msp` | ✓ | ✓ | · | · | 139 | ok |
 | `/privacy` | ✓ | ✓ | · | · | 153 | ok |
+| `/pt` | ✓ | ✓ | · | · | 156 | ok |
 | `/pt/blog` | ✓ | ✓ | · | · | 161 | ok |
 | `/pt/blog/after-suspicious-link-macintosh` | ✓ | ✓ | · | · | 163 | ok |
 | `/pt/blog/apple-support-call-popup-scam-mac` | ✓ | ✓ | · | · | 160 | ok |

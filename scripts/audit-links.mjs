@@ -25,6 +25,10 @@ const PAGE_ROUTES = new Set([
   "/msp",
   "/warriors",
   "/blog",
+  "/es",
+  "/pt",
+  "/fr",
+  "/ar",
   "/es/blog",
   "/pt/blog",
   "/privacy",
@@ -61,6 +65,8 @@ function isStaticAsset(path) {
 
 function resolvePageFile(path) {
   if (path === "/") return join(web, "index.html");
+  const localeHome = path.match(/^\/(es|pt|fr|ar)$/);
+  if (localeHome) return join(web, localeHome[1], "index.html");
   const localeBlog = path.match(/^\/(es|pt)\/blog(?:\/(.+))?$/);
   if (localeBlog) {
     if (!localeBlog[2]) return join(web, localeBlog[1], "blog", "index.html");
@@ -100,7 +106,8 @@ for (const file of walkHtml(web)) {
 const sitemap = readFileSync(join(web, "sitemap.xml"), "utf8");
 const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
 for (const url of urls) {
-  const path = url.replace("https://innsegall.com", "") || "/";
+  let path = url.replace("https://innsegall.com", "") || "/";
+  if (path.length > 1 && path.endsWith("/")) path = path.slice(0, -1);
   if (path.startsWith("/blog/") || path.startsWith("/es/blog/") || path.startsWith("/pt/blog/")) {
     if (!blogPathExists(path) && path !== "/blog" && path !== "/es/blog" && path !== "/pt/blog") {
       console.error(`FAIL sitemap: ${path}`);

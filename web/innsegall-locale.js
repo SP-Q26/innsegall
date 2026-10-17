@@ -9,8 +9,8 @@
     { code: "en", short: "EN", prefix: "", label: "English", live: true },
     { code: "es", short: "ES", prefix: "/es", label: "Espa\u00f1ol", live: true },
     { code: "pt-BR", short: "PT", prefix: "/pt", label: "Portugu\u00eas (Brasil)", live: true },
-    { code: "fr", short: "FR", prefix: "/fr", label: "Fran\u00e7ais", live: false },
-    { code: "ar", short: "AR", prefix: "/ar", label: "\u0627\u0644\u0639\u0631\u0628\u064a\u0629", live: false },
+    { code: "fr", short: "FR", prefix: "/fr", label: "Fran\u00e7ais", live: true },
+    { code: "ar", short: "AR", prefix: "/ar", label: "\u0627\u0644\u0639\u0631\u0628\u064a\u0629", live: true },
   ];
 
   function readCookie(name) {

@@ -62,6 +62,8 @@
     "audit:i18n-chrome": "node scripts/audit-i18n-chrome.mjs",
     "audit:i18n-pilot": "node scripts/audit-i18n-pilot.mjs",
     "sync:blog-i18n": "node scripts/sync-blog-i18n.mjs",
+    "sync:home-i18n": "node scripts/sync-home-i18n.mjs",
+    "audit:home-i18n": "node scripts/audit-home-i18n.mjs",
     "apply:adoption-voice": "node scripts/apply-adoption-voice.mjs",
     "sync:brand-sweep": "node scripts/sync-brand-sweep.mjs",
     "audit:adoption-voice": "node scripts/audit-adoption-voice.mjs",

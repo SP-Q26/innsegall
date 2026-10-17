@@ -6,14 +6,14 @@
 import { readdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { LOCALES, LIVE_LOCALE_CODES, SITE } from "./lib/blog-i18n-config.mjs";
+import { LOCALES, LIVE_LOCALE_CODES, HOME_LOCALE_CODES, SITE } from "./lib/blog-i18n-config.mjs";
 import { listBlogSlugs } from "./lib/blog-i18n-extract.mjs";
 
 const repoRoot = join(dirname(fileURLToPath(import.meta.url)), "..");
 const sampleSlug = listBlogSlugs(join(repoRoot, "web", "blog"), readdirSync)[0];
 
-/** Matches innsegall-locale.js · not shipped until live: true. */
-const PREVIEW_LOCALE_PREFIXES = ["/fr", "/ar"];
+/** Blog not mirrored yet · home pages ship first. */
+const PREVIEW_BLOG_PREFIXES = ["/fr", "/ar"];
 
 function getArg(name, fallback) {
   const hit = process.argv.find((a) => a.startsWith(`--${name}=`));
@@ -47,6 +47,31 @@ async function fetchPath(path) {
 }
 
 console.log(`innsegall smoke-i18n-live · ${base}\n`);
+
+console.log("── locale home pages ──");
+for (const localeKey of HOME_LOCALE_CODES) {
+  const cfg = LOCALES[localeKey];
+  const path = `${cfg.prefix}/`;
+  try {
+    const { res, text } = await fetchPath(path);
+    if (res.status < 200 || res.status >= 400) {
+      failMsg(`${res.status} ${path}`);
+      continue;
+    }
+    const lang = readHtmlLang(text);
+    if (lang !== cfg.htmlLang) {
+      failMsg(`${path} lang=${lang || "?"} expected ${cfg.htmlLang}`);
+      continue;
+    }
+    if (!text.includes(`${SITE}${cfg.prefix}/`)) {
+      failMsg(`${path} missing canonical`);
+      continue;
+    }
+    pass(`${res.status} ${path} · lang=${lang}`);
+  } catch (e) {
+    failMsg(`${path} ${e.message}`);
+  }
+}
 
 for (const localeKey of LIVE_LOCALE_CODES) {
   const cfg = LOCALES[localeKey];
@@ -84,19 +109,18 @@ for (const localeKey of LIVE_LOCALE_CODES) {
   }
 }
 
-console.log("── preview locales (not shipped) ──");
-for (const prefix of PREVIEW_LOCALE_PREFIXES) {
-  for (const path of [prefix, `${prefix}/blog`]) {
-    try {
-      const { res } = await fetchPath(path);
-      if (res.status === 404) {
-        pass(`${res.status} ${path} (expected until live)`);
-      } else {
-        failMsg(`${path} expected 404 got ${res.status} · flip live in innsegall-locale.js + ship blog`);
-      }
-    } catch (e) {
-      failMsg(`${path} ${e.message}`);
+console.log("── preview locale blogs (not shipped) ──");
+for (const prefix of PREVIEW_BLOG_PREFIXES) {
+  const path = `${prefix}/blog`;
+  try {
+    const { res } = await fetchPath(path);
+    if (res.status === 404) {
+      pass(`${res.status} ${path} (expected until blog ships)`);
+    } else {
+      failMsg(`${path} expected 404 got ${res.status} · ship blog before removing gate`);
     }
+  } catch (e) {
+    failMsg(`${path} ${e.message}`);
   }
 }
 
@@ -105,8 +129,13 @@ try {
   const { res, text } = await fetchPath("/");
   if (res.status >= 400) {
     failMsg(`/ ${res.status}`);
-  } else if (!text.includes('data-locale-code="es"') || !text.includes('data-locale-code="pt-BR"')) {
-    failMsg("/ missing live locale picker buttons");
+  } else if (
+    !text.includes('data-locale-code="es"') ||
+    !text.includes('data-locale-code="pt-BR"') ||
+    !text.includes('data-locale-code="fr"') ||
+    !text.includes('data-locale-code="ar"')
+  ) {
+    failMsg("/ missing locale picker buttons");
   } else if (!text.includes("innsegall-locale.js")) {
     failMsg("/ missing innsegall-locale.js");
   } else {

@@ -146,6 +146,38 @@
   ],
   "rewrites": [
     {
+      "source": "/ar/",
+      "destination": "/ar/index.html"
+    },
+    {
+      "source": "/ar",
+      "destination": "/ar/index.html"
+    },
+    {
+      "source": "/fr/",
+      "destination": "/fr/index.html"
+    },
+    {
+      "source": "/fr",
+      "destination": "/fr/index.html"
+    },
+    {
+      "source": "/pt/",
+      "destination": "/pt/index.html"
+    },
+    {
+      "source": "/pt",
+      "destination": "/pt/index.html"
+    },
+    {
+      "source": "/es/",
+      "destination": "/es/index.html"
+    },
+    {
+      "source": "/es",
+      "destination": "/es/index.html"
+    },
+    {
       "source": "/alpha",
       "destination": "/alpha.html"
     },

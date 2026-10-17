@@ -47,7 +47,12 @@ const pages = walkHtml(web)
     const canonical = html.match(/rel="canonical" href="([^"]+)"/)?.[1] || "";
     const isBlog = rel.startsWith("blog/") && rel !== "blog/index.html";
     const slug = isBlog ? rel.replace(/^blog\//, "").replace(/\.html$/, "") : "";
-    const inSitemap = sitemapLocs.some((u) => u === `https://innsegall.com${route}` || u.endsWith(route));
+    const inSitemap = sitemapLocs.some(
+      (u) =>
+        u === `https://innsegall.com${route}` ||
+        u === `https://innsegall.com${route}/` ||
+        u.endsWith(route)
+    );
     const inBlogIndex = isBlog ? blogIndex.includes(`/blog/${slug}`) : null;
     const inRewrite = isBlog ? rewriteDest.has(`blog/${slug}`) : null;
     const indexable = !noindex(html);

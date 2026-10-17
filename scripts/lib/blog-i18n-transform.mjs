@@ -26,22 +26,33 @@ function hreflangBlock(slug) {
 export function applyLocaleChrome(html, localeKey) {
   const cfg = LOCALES[localeKey];
   const g = GLOSSARY[localeKey];
+  const helpHref = cfg.blogLive ? `${cfg.prefix}/blog` : "/blog";
   let out = html;
   out = out.replace(/Skip to content/g, g.skip);
   out = out.replace(/href="\/alpha">Get started/g, `href="/alpha">${g.getStarted}`);
   out = out.replace(/href="\/alpha">Empezar/g, `href="/alpha">${g.getStarted}`);
   out = out.replace(/href="\/alpha">Come\u00e7ar/g, `href="/alpha">${g.getStarted}`);
+  out = out.replace(/href="\/alpha">Commencer/g, `href="/alpha">${g.getStarted}`);
   out = out.replace(/href="\/watch">Trending/g, `href="/watch">${g.trending}`);
   out = out.replace(
     new RegExp(`href="${cfg.prefix}/blog">Help`, "g"),
-    `href="${cfg.prefix}/blog">${g.navHelp || g.help}`
+    `href="${helpHref}">${g.navHelp || g.help}`
   );
-  out = out.replace(/href="\/blog">Help/g, `href="${cfg.prefix}/blog">${g.navHelp || g.help}`);
+  out = out.replace(/href="\/blog">Help/g, `href="${helpHref}">${g.navHelp || g.help}`);
   out = out.replace(/href="\/clan">Clan/g, `href="/clan">${g.clan}`);
-  out = out.replace(/locale-picker__option--soon" data-locale-code="es"/g, 'data-locale-code="es"');
-  out = out.replace(/locale-picker__option--soon" data-locale-code="pt-BR"/g, 'data-locale-code="pt-BR"');
+  for (const code of ["es", "pt-BR", "fr", "ar"]) {
+    out = out.replace(
+      new RegExp(`locale-picker__option--soon" data-locale-code="${code}"`, "g"),
+      `data-locale-code="${code}"`
+    );
+  }
   out = out.replace(/Espa\u00f1ol <span class="locale-picker__badge">soon<\/span>/g, "Espa\u00f1ol");
   out = out.replace(/Portugu\u00eas <span class="locale-picker__badge">soon<\/span>/g, "Portugu\u00eas");
+  out = out.replace(/Fran\u00e7ais <span class="locale-picker__badge">soon<\/span>/g, "Fran\u00e7ais");
+  out = out.replace(
+    /\u0627\u0644\u0639\u0631\u0628\u064a\u0629 <span class="locale-picker__badge">soon<\/span>/g,
+    "\u0627\u0644\u0639\u0631\u0628\u064a\u0629"
+  );
   out = out.replace(/aria-disabled="true"/g, "");
   return out;
 }
