@@ -8,7 +8,7 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { LOCALES, LIVE_LOCALE_CODES, SITE } from "./lib/blog-i18n-config.mjs";
 import { listBlogSlugs } from "./lib/blog-i18n-extract.mjs";
-import { localizeBlogPostHtml, addEnHreflang } from "./lib/blog-i18n-transform.mjs";
+import { localizeBlogPostHtml, addEnHreflang, applyLocaleChrome } from "./lib/blog-i18n-transform.mjs";
 import { GLOSSARY } from "./lib/blog-i18n-glossary.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -80,14 +80,10 @@ function buildLocaleBlogIndex(localeKey, slugs, bundles) {
   html = html.replaceAll(`${SITE}/blog`, `${SITE}${cfg.prefix}/blog`);
   html = html.replace(/href="\/blog\//g, `href="${cfg.prefix}/blog/`);
   html = html.replace(/href="\/blog"/g, `href="${cfg.prefix}/blog"`);
-  html = html.replace(/Skip to content/g, g.skip);
   html = html.replace(/Field Report/g, g.fieldReport);
-  html = html.replace(/Get started/g, g.getStarted);
-  html = html.replace(/locale-picker__option--soon" data-locale-code="es"/g, 'data-locale-code="es"');
-  html = html.replace(/locale-picker__option--soon" data-locale-code="pt-BR"/g, 'data-locale-code="pt-BR"');
-  html = html.replace(/Espa\u00f1ol <span class="locale-picker__badge">soon<\/span>/g, "Espa\u00f1ol");
-  html = html.replace(/Portugu\u00eas <span class="locale-picker__badge">soon<\/span>/g, "Portugu\u00eas");
-  html = html.replace(/aria-disabled="true"/g, "");
+  html = applyLocaleChrome(html, localeKey);
+  html = html.replace(/property="og:locale" content="en_US"/gi, `property="og:locale" content="${cfg.ogLocale}"`);
+  html = html.replace(/"inLanguage": "en-US"/g, `"inLanguage": "${cfg.htmlLang}"`);
 
   const canon = `${SITE}${cfg.prefix}/blog`;
   html = html.replace(/rel="canonical" href="[^"]*"/, `rel="canonical" href="${canon}"`);

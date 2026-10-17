@@ -147,7 +147,7 @@ export const INNSEGALL_GOSPEL = {
         id: "msp_mac_admin",
         label: "Small MSP or Mac admin · repeat client triage",
         sku: "msp",
-        reach: "MSP_OUTREACH_BRIEF · outbound",
+        reach: "MSP seat pack · outbound",
       },
       {
         id: "ai_forward",

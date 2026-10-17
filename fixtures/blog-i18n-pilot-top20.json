@@ -1,0 +1,26 @@
+{
+  "version": "2026-10-17",
+  "description": "Editorial QA pilot · post-scare intents · human-review priority before fr/ar",
+  "slugs": [
+    "fake-virus-popup-macintosh",
+    "clicked-suspicious-link-macintosh",
+    "after-suspicious-link-macintosh",
+    "apple-support-call-popup-scam-mac",
+    "mac-browser-full-screen-virus-locker",
+    "mac-keychain-password-popup-loop-scam",
+    "someone-remoted-into-my-mac",
+    "safari-fake-virus-notifications-mac",
+    "chrome-fake-virus-popup-mac",
+    "pasted-terminal-command-mac-scare",
+    "gatekeeper-opened-unknown-app-mac",
+    "mac-slow-after-suspicious-download",
+    "what-is-a-battle-scout",
+    "do-i-need-antivirus-mac-2026",
+    "malwarebytes-vs-innsegall-after-scare",
+    "innsegall-vs-antivirus-macintosh",
+    "check-parent-mac-after-scare",
+    "mac-calendar-spam-invites-scam",
+    "safari-search-engine-hijacked-mac",
+    "join-the-innsegall-clan"
+  ]
+}

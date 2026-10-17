@@ -1,5 +1,6 @@
 import { SITE, LOCALES } from "./blog-i18n-config.mjs";
 import { GLOSSARY } from "./blog-i18n-glossary.mjs";
+import { isPilotSlug } from "./blog-i18n-pilot.mjs";
 import { extractMainArticleHtml, slugFromCanonical } from "./blog-i18n-extract.mjs";
 
 function escAttr(s) {
@@ -21,12 +22,21 @@ function hreflangBlock(slug) {
   ].join("\n");
 }
 
-function replaceHeaderStrings(html, g) {
+/** Header + picker strings shared by posts and locale blog index. */
+export function applyLocaleChrome(html, localeKey) {
+  const cfg = LOCALES[localeKey];
+  const g = GLOSSARY[localeKey];
   let out = html;
   out = out.replace(/Skip to content/g, g.skip);
   out = out.replace(/href="\/alpha">Get started/g, `href="/alpha">${g.getStarted}`);
+  out = out.replace(/href="\/alpha">Empezar/g, `href="/alpha">${g.getStarted}`);
+  out = out.replace(/href="\/alpha">Come\u00e7ar/g, `href="/alpha">${g.getStarted}`);
   out = out.replace(/href="\/watch">Trending/g, `href="/watch">${g.trending}`);
-  out = out.replace(/href="\/blog">Help/g, `href="/blog">${g.help}`);
+  out = out.replace(
+    new RegExp(`href="${cfg.prefix}/blog">Help`, "g"),
+    `href="${cfg.prefix}/blog">${g.navHelp || g.help}`
+  );
+  out = out.replace(/href="\/blog">Help/g, `href="${cfg.prefix}/blog">${g.navHelp || g.help}`);
   out = out.replace(/href="\/clan">Clan/g, `href="/clan">${g.clan}`);
   out = out.replace(/locale-picker__option--soon" data-locale-code="es"/g, 'data-locale-code="es"');
   out = out.replace(/locale-picker__option--soon" data-locale-code="pt-BR"/g, 'data-locale-code="pt-BR"');
@@ -38,9 +48,11 @@ function replaceHeaderStrings(html, g) {
 
 function prefixBlogHrefs(html, prefix) {
   let out = html;
+  // Keep EN canonical + locale notice EN link untouched (full https URLs).
   out = out.replace(/href="\/blog\//g, `href="${prefix}/blog/`);
   out = out.replace(/href="\/blog"/g, `href="${prefix}/blog"`);
   out = out.replace(new RegExp(`href="${prefix}${prefix}/blog/`, "g"), `href="${prefix}/blog/`);
+  out = out.replace(new RegExp(`href="${prefix}${prefix}/blog"`, "g"), `href="${prefix}/blog"`);
   return out;
 }
 
@@ -68,9 +80,11 @@ function injectHreflang(html, slug) {
   return html.replace(/<head>/i, `<head>\n${block}`);
 }
 
-function replaceMainArticle(html, newMainInner, g, slug, localeKey) {
+function replaceMainArticle(html, newMainInner, g, slug, localeKey, fixture) {
   const cfg = LOCALES[localeKey];
-  const notice = `<p class="locale-notice blog-i18n-notice">${g.localeNotice}<a href="${SITE}/blog/${slug}">${g.localeNoticeEnLink}</a>.</p>`;
+  const pilot = fixture?.bodyReviewed === true || isPilotSlug(slug);
+  const noticeText = pilot && g.localeNoticePilot ? g.localeNoticePilot : g.localeNotice;
+  const notice = `<p class="locale-notice blog-i18n-notice">${noticeText}<a href="${SITE}/blog/${slug}">${g.localeNoticeEnLink}</a>.</p>`;
   const wrapped = `${notice}\n${newMainInner}`;
   const mainRe = /(<main[^>]*>)([\s\S]*?)(<\/main>)/i;
   const navTop = `<p class="legal-nav"><a href="${cfg.prefix}/blog">${g.backToBlog}</a></p>\n      <p class="section-label">${g.fieldGuide}</p>\n`;
@@ -118,17 +132,18 @@ export function localizeBlogPostHtml(enHtml, localeKey, fixture) {
   const slug = slugFromCanonical(enHtml) || "";
   let html = enHtml;
   html = swapUrls(html, slug, localeKey);
-  html = prefixBlogHrefs(html, cfg.prefix);
   html = injectHreflang(html, slug);
   if (fixture.title || fixture.description) {
     html = patchTitleMeta(html, fixture.title || "", fixture.description || "");
   }
   const mainHtml = fixture.mainHtml || extractMainArticleHtml(enHtml);
-  html = replaceMainArticle(html, mainHtml, g, slug, localeKey);
-  html = replaceHeaderStrings(html, g);
+  html = replaceMainArticle(html, mainHtml, g, slug, localeKey, fixture);
+  html = applyLocaleChrome(html, localeKey);
   html = html.replace(/Send the scout/g, g.sendScout);
   html = html.replace(/We send the scout/g, g.ctaStripLabel);
   html = html.replace(/Know you&apos;re okay · Macintosh triage/g, g.footerTagline);
+  html = html.replace(/>Privacy</g, `>${g.privacy}<`);
+  html = prefixBlogHrefs(html, cfg.prefix);
   return html;
 }
 

@@ -55,7 +55,10 @@ for (const abs of walkHtml(web)) {
   const rel = relative(web, abs).replace(/\\/g, "/");
   const html = readFileSync(abs, "utf8");
   const hasGospel = html.includes("innsegall-gospel") || html.includes("innsegall-ai-bus");
-  const hasCta = /Send the scout|Bring your clan/i.test(html);
+  const hasCta =
+    /Send the scout|Bring your clan|Enviar el explorador|Enviar o scout|Enviamos el explorador|Enviamos o scout/i.test(
+      html
+    );
   const hasLane = /not antivirus|post-scare|Battle Scout/i.test(html);
   const hasOg = html.includes("og:innsegall-card.png") || rel.includes("samples/");
   const hasLocale = html.includes("data-locale-picker") || !html.includes("site-header");

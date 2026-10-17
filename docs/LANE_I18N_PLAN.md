@@ -37,7 +37,9 @@ Do **not** create `/es/blog` until Phase 1 kickoff.
 
 **Scope:** Full EN **Field Report** blog mirrored at `/es/blog/*` and `/pt/blog/*` (fixtures + `sync:blog-i18n`). Human review ongoing · locale notice on each guide links EN canonical.
 
-**Commands:** `npm run build:blog-i18n-fixtures` (MT cache) · `npm run sync:blog-i18n` · `npm run audit:i18n`
+**Commands:** `npm run build:blog-i18n-fixtures` (MT cache) · `npm run build:blog-i18n-pilot` (top 20 body MT) · `npm run sync:blog-i18n` · `npm run audit:i18n` · `npm run audit:i18n-pilot`
+
+**Pilot list:** `fixtures/blog-i18n-pilot-top20.json` (20 slugs · editorial QA before fr/ar).
 
 **Original pilot scope (matrix top 20)** still the priority for editorial QA:
 

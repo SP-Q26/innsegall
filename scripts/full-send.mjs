@@ -36,6 +36,7 @@ run("audit:blog-funnel", "npm run audit:blog-funnel");
 run("audit:en-coverage", "npm run audit:en-coverage");
 run("audit:i18n-readiness", "npm run audit:i18n-readiness");
 run("audit:i18n", "npm run audit:i18n");
+run("audit:i18n-pilot", "npm run audit:i18n-pilot");
 run("audit:gtm-scope", "npm run audit:gtm-scope");
 run("audit:oar", "npm run audit:oar");
 run("audit:vercel-functions", "npm run audit:vercel-functions");

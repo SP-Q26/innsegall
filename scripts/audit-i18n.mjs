@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 /** i18n ship gate · es + pt-BR blog parity · hreflang · locale picker live. */
+import { execSync } from "node:child_process";
 import { readFileSync, existsSync, readdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -60,6 +61,13 @@ for (const localeKey of LIVE_LOCALE_CODES) {
 for (const preview of ["ar", "fr"]) {
   const dir = join(root, "web", preview, "blog");
   check(`${preview} blog not shipped in repo`, !existsSync(dir));
+}
+
+try {
+  execSync("node scripts/audit-i18n-chrome.mjs", { cwd: root, stdio: "pipe" });
+  check("i18n chrome gate", true);
+} catch {
+  check("i18n chrome gate", false, "npm run audit:i18n-chrome");
 }
 
 if (failed) {

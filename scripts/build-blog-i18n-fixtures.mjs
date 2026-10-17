@@ -7,6 +7,7 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { LOCALES, LIVE_LOCALE_CODES } from "./lib/blog-i18n-config.mjs";
+import { PILOT_BLOG_SLUGS, isPilotSlug } from "./lib/blog-i18n-pilot.mjs";
 import {
   extractMainArticleHtml,
   readTitle,
@@ -21,6 +22,7 @@ const blogDir = join(root, "web", "blog");
 const outDir = join(root, "fixtures", "blog-i18n");
 const force = process.argv.includes("--force");
 const metaOnly = process.argv.includes("--meta-only");
+const pilotOnly = process.argv.includes("--pilot-only");
 const slugArg = process.argv.find((a) => a.startsWith("--slug="))?.split("=")[1];
 
 mkdirSync(outDir, { recursive: true });
@@ -47,7 +49,11 @@ async function buildLocale(localeKey) {
     bundle = JSON.parse(readFileSync(bundlePath, "utf8"));
   }
 
-  const slugs = slugArg ? [slugArg] : listBlogSlugs(blogDir, readdirSync);
+  const slugs = slugArg
+    ? [slugArg]
+    : pilotOnly
+      ? PILOT_BLOG_SLUGS
+      : listBlogSlugs(blogDir, readdirSync);
   let n = 0;
   for (const slug of slugs) {
     if (bundle.posts[slug] && !force) continue;
@@ -65,7 +71,12 @@ async function buildLocale(localeKey) {
     await sleep(300);
     const mainHtml = metaOnly ? mainEn : await translateMainHtml(mainEn, localeKey);
 
-    bundle.posts[slug] = { title, description: desc, mainHtml };
+    bundle.posts[slug] = {
+      title,
+      description: desc,
+      mainHtml,
+      bodyReviewed: pilotOnly || isPilotSlug(slug),
+    };
     n++;
     if (n % 5 === 0) {
       writeFileSync(bundlePath, JSON.stringify(bundle, null, 2) + "\n", "utf8");

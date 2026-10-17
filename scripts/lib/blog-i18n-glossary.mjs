@@ -14,7 +14,10 @@ export const GLOSSARY = {
     privacy: "Privacidad",
     localeNotice:
       "Gu\u00eda en espa\u00f1ol (t\u00edtulo y navegaci\u00f3n) · el cuerpo puede estar en ingl\u00e9s mientras completamos la traducci\u00f3n · el informe Battle Scout se genera en tu Mac · pasos cr\u00edticos: ",
+    localeNoticePilot:
+      "Gu\u00eda en espa\u00f1ol · cuerpo revisado en esta versi\u00f3n piloto · el informe Battle Scout se genera en tu Mac · ingl\u00e9s original: ",
     localeNoticeEnLink: "versi\u00f3n en ingl\u00e9s",
+    navHelp: "Ayuda",
     ctaStripLabel: "Enviamos el explorador",
     footerTagline: "Tranquilo con tu Mac · triaje post-susto",
     notAntivirus: "no es antivirus",
@@ -33,7 +36,10 @@ export const GLOSSARY = {
     privacy: "Privacidade",
     localeNotice:
       "Guia em portugu\u00eas (t\u00edtulo e navega\u00e7\u00e3o) · o corpo pode estar em ingl\u00eas enquanto conclu\u00edmos a tradu\u00e7\u00e3o · o relat\u00f3rio Battle Scout \u00e9 gerado no seu Mac · passos cr\u00edticos: ",
+    localeNoticePilot:
+      "Guia em portugu\u00eas · corpo revisado nesta vers\u00e3o piloto · o relat\u00f3rio Battle Scout \u00e9 gerado no seu Mac · original em ingl\u00eas: ",
     localeNoticeEnLink: "vers\u00e3o em ingl\u00eas",
+    navHelp: "Ajuda",
     ctaStripLabel: "Enviamos o scout",
     footerTagline: "Fique em paz com o Mac · triagem p\u00f3s-susto",
     notAntivirus: "n\u00e3o \u00e9 antiv\u00edrus",
