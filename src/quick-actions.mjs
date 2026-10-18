@@ -16,7 +16,7 @@ export function expandHome(path, home = defaultHome()) {
   return String(path || "").replace(/^~(?=$|\/)/, home);
 }
 
-export function fileHref(path, home = homedir()) {
+export function fileHref(path, home = defaultHome()) {
   const abs = expandHome(path, home);
   if (abs.startsWith("x-apple.")) return abs;
   return encodeURI(`file://${abs}`);
