@@ -33,13 +33,15 @@ Do **not** create `/es/blog` until Phase 1 kickoff.
 
 ---
 
-## Phase 1 · Spanish + Portuguese (Brazil) · **live**
+## Phase 1 · Spanish + Portuguese (Brazil) · **live · traffic-led**
 
 **Scope:** Full EN **Field Report** blog mirrored at `/es/blog/*` and `/pt/blog/*` (fixtures + `sync:blog-i18n`). Human review ongoing · locale notice on each guide links EN canonical.
 
-**Commands:** `npm run build:blog-i18n-fixtures` (MT cache) · `npm run build:blog-i18n-pilot` (top 20 body MT) · `npm run sync:blog-i18n` · `npm run audit:i18n` · `npm run audit:i18n-pilot`
+**Operator playbook (Oct 2026 traffic):** `docs/I18N_ES_PT_TRAFFIC_OCT2026.md`
 
-**Pilot list:** `fixtures/blog-i18n-pilot-top20.json` (20 slugs · editorial QA before fr/ar).
+**Commands:** `npm run build:blog-i18n-fixtures` (MT cache) · `npm run build:blog-i18n-pilot` (top 20) · `npm run build:blog-i18n-wave2` · `npm run build:blog-i18n-wave3` · `npm run sync:blog-i18n` · `npm run audit:i18n` · `npm run audit:i18n-pilot` · `npm run audit:i18n-wave2` · `npm run audit:i18n-wave3`
+
+**Pilot list:** `fixtures/blog-i18n-pilot-top20.json` · **Wave 2:** `fixtures/blog-i18n-wave2.json` · **Wave 3:** `fixtures/blog-i18n-wave3.json`
 
 **Original pilot scope (matrix top 20)** still the priority for editorial QA:
 

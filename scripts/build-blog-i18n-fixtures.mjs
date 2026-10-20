@@ -7,7 +7,12 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync, readdirSync } from 
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { LOCALES, LIVE_LOCALE_CODES } from "./lib/blog-i18n-config.mjs";
-import { PILOT_BLOG_SLUGS, isPilotSlug } from "./lib/blog-i18n-pilot.mjs";
+import {
+  PILOT_BLOG_SLUGS,
+  WAVE2_BLOG_SLUGS,
+  WAVE3_BLOG_SLUGS,
+  isBodyReviewedSlug,
+} from "./lib/blog-i18n-pilot.mjs";
 import {
   extractMainArticleHtml,
   readTitle,
@@ -23,6 +28,8 @@ const outDir = join(root, "fixtures", "blog-i18n");
 const force = process.argv.includes("--force");
 const metaOnly = process.argv.includes("--meta-only");
 const pilotOnly = process.argv.includes("--pilot-only");
+const wave2Only = process.argv.includes("--wave2-only");
+const wave3Only = process.argv.includes("--wave3-only");
 const slugArg = process.argv.find((a) => a.startsWith("--slug="))?.split("=")[1];
 
 mkdirSync(outDir, { recursive: true });
@@ -53,7 +60,11 @@ async function buildLocale(localeKey) {
     ? [slugArg]
     : pilotOnly
       ? PILOT_BLOG_SLUGS
-      : listBlogSlugs(blogDir, readdirSync);
+      : wave2Only
+        ? WAVE2_BLOG_SLUGS
+        : wave3Only
+          ? WAVE3_BLOG_SLUGS
+          : listBlogSlugs(blogDir, readdirSync);
   let n = 0;
   for (const slug of slugs) {
     if (bundle.posts[slug] && !force) continue;
@@ -75,7 +86,7 @@ async function buildLocale(localeKey) {
       title,
       description: desc,
       mainHtml,
-      bodyReviewed: pilotOnly || isPilotSlug(slug),
+      bodyReviewed: pilotOnly || wave2Only || wave3Only || isBodyReviewedSlug(slug),
     };
     n++;
     if (n % 5 === 0) {

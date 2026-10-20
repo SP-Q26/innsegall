@@ -1,6 +1,6 @@
 import { SITE, LOCALES } from "./blog-i18n-config.mjs";
 import { GLOSSARY } from "./blog-i18n-glossary.mjs";
-import { isPilotSlug } from "./blog-i18n-pilot.mjs";
+import { isBodyReviewedSlug } from "./blog-i18n-pilot.mjs";
 import { extractMainArticleHtml, slugFromCanonical } from "./blog-i18n-extract.mjs";
 
 function escAttr(s) {
@@ -93,7 +93,7 @@ function injectHreflang(html, slug) {
 
 function replaceMainArticle(html, newMainInner, g, slug, localeKey, fixture) {
   const cfg = LOCALES[localeKey];
-  const pilot = fixture?.bodyReviewed === true || isPilotSlug(slug);
+  const pilot = fixture?.bodyReviewed === true || isBodyReviewedSlug(slug);
   const noticeText = pilot && g.localeNoticePilot ? g.localeNoticePilot : g.localeNotice;
   const notice = `<p class="locale-notice blog-i18n-notice">${noticeText}<a href="${SITE}/blog/${slug}">${g.localeNoticeEnLink}</a>.</p>`;
   const wrapped = `${notice}\n${newMainInner}`;

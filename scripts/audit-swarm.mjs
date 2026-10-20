@@ -55,6 +55,8 @@ const lanes = [
   { name: "i18n readiness (EN first)", script: "audit-i18n-readiness.mjs", score: "9.5" },
   { name: "i18n es + pt-BR blog", script: "audit-i18n.mjs", score: "9.5" },
   { name: "i18n pilot top-20", script: "audit-i18n-pilot.mjs", score: "9.5" },
+  { name: "i18n wave-2 es/pt traffic", script: "audit-i18n-wave2.mjs", score: "9.5" },
+  { name: "i18n wave-3 es/pt traffic", script: "audit-i18n-wave3.mjs", score: "9.5" },
   { name: "i18n locale homes", script: "audit-home-i18n.mjs", score: "9.5" },
   { name: "Vercel Hobby function budget (12)", script: "audit-vercel-functions.mjs", score: "9.5" },
   { name: "OAR adoption voice", script: "audit-adoption-voice.mjs", score: "9.5" },

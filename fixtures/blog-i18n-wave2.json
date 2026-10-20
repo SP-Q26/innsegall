@@ -1,0 +1,26 @@
+{
+  "version": "2026-10-20",
+  "description": "Wave 2 · iPhone/iPad + Chrome/Safari intents · es/pt traffic follow-up after pilot top 20",
+  "slugs": [
+    "fake-virus-popup-iphone-ipad",
+    "clicked-bad-link-iphone-ipad-guide",
+    "opened-suspicious-email-iphone-ipad",
+    "downloaded-suspicious-file-iphone-ipad",
+    "typed-password-scam-site-iphone-ipad",
+    "safari-clear-website-data-iphone-ipad",
+    "safari-notifications-scam-iphone-ipad",
+    "safari-allowed-notifications-by-mistake-mac",
+    "safari-shift-key-scam-popup-mac",
+    "chrome-clear-browsing-data-after-scare-mac",
+    "chrome-notifications-scam-mac",
+    "chrome-search-engine-hijacked-mac",
+    "mac-dns-changed-after-scare",
+    "mac-configuration-profile-scam",
+    "mac-apple-id-locked-browser-scam",
+    "downloads-folder-quarantine-mac-check",
+    "paste-battle-scout-for-ai-assistant",
+    "innsegall-ios-companion-i0",
+    "mac-camera-microphone-light-worry",
+    "safari-search-engine-hijacked-mac"
+  ]
+}

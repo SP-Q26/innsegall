@@ -10,7 +10,7 @@ import { fontHeadLines, FONT_LINK_RE, FONT_STYLESHEET_HREF } from "./site-fonts.
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const web = join(root, "web");
 const OG_URL = "https://innsegall.com/og/innsegall-card.png?v=20261008d";
-const CSS_VER = 28;
+const CSS_VER = 29;
 
 /** Homepage link-preview copy (Facebook · X · iMessage). */
 const HOME_SOCIAL = {
@@ -76,6 +76,8 @@ const OG_BLOCK = `  <meta property="og:image" content="${OG_URL}">
 
 const NAV_SCRIPT = `  <script src="/innsegall-locale.js?v=${CSS_VER}" defer></script>
   <script src="/innsegall-nav.js?v=${CSS_VER}" defer></script>`;
+
+const LOCALE_BLOG_SCRIPT = `  <script src="/innsegall-locale-blog.js?v=${CSS_VER}" defer></script>`;
 
 /** Vercel Web Analytics + Speed Insights · enable both in project dashboard · zero serverless slots. */
 const VERCEL_ANALYTICS = `  <script defer src="/_vercel/insights/script.js"></script>
@@ -414,6 +416,19 @@ function fixChrome(html) {
   return out;
 }
 
+/** EN Field Report posts only · suggest es/pt mirror from hreflang. */
+function fixEnBlogLocaleSuggest(html, filePath) {
+  const rel = filePath.replace(web + "/", "");
+  if (!rel.startsWith("blog/") || rel === "blog/index.html") return html;
+  if (rel.startsWith("es/") || rel.startsWith("pt/")) return html;
+  let out = html;
+  out = out.replace(/innsegall-locale-blog\.js\?v=\d+/g, `innsegall-locale-blog.js?v=${CSS_VER}`);
+  if (!out.includes("innsegall-locale-blog.js") && out.includes("</body>")) {
+    out = out.replace("</body>", `${LOCALE_BLOG_SCRIPT}\n</body>`);
+  }
+  return out;
+}
+
 let changed = 0;
 for (const file of walkHtml(web)) {
   const before = readFileSync(file, "utf8");
@@ -423,11 +438,14 @@ for (const file of walkHtml(web)) {
   } else if (file.includes("/samples/")) {
     continue;
   } else {
-    html = replaceHeader(html);
+    const rel = file.replace(web + "/", "");
+    const isLocalePage = /^(es|pt|fr|ar)\//.test(rel);
+    if (!isLocalePage) html = replaceHeader(html);
     html = fixSocialPreview(html, file);
     const manifestHref = file.endsWith(`${join("web", "companion.html")}`) ? "/companion.webmanifest" : "/site.webmanifest";
     html = fixFavicon(html, manifestHref);
     html = fixChrome(html);
+    html = fixEnBlogLocaleSuggest(html, file);
     html = replaceFooter(html);
   }
   if (html !== before) {
