@@ -54,7 +54,8 @@ function sleep(ms) {
 async function buildLocale(localeKey) {
   const bundlePath = join(outDir, `${localeKey}.bundle.json`);
   let bundle = { version: "2026-10-15", locale: localeKey, posts: {} };
-  if (existsSync(bundlePath) && !force) {
+  const waveOnly = pilotOnly || wave2Only || wave3Only || wave4Only;
+  if (existsSync(bundlePath) && (!force || waveOnly)) {
     bundle = JSON.parse(readFileSync(bundlePath, "utf8"));
   }
 
