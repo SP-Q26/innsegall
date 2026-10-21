@@ -39,9 +39,9 @@ Do **not** create `/es/blog` until Phase 1 kickoff.
 
 **Operator playbook (Oct 2026 traffic):** `docs/I18N_ES_PT_TRAFFIC_OCT2026.md`
 
-**Commands:** `npm run build:blog-i18n-fixtures` (MT cache) · `npm run build:blog-i18n-pilot` (top 20) · `npm run build:blog-i18n-wave2` · `npm run build:blog-i18n-wave3` · `npm run sync:blog-i18n` · `npm run audit:i18n` · `npm run audit:i18n-pilot` · `npm run audit:i18n-wave2` · `npm run audit:i18n-wave3`
+**Commands:** `npm run build:blog-i18n-fixtures` (MT cache) · `npm run build:blog-i18n-pilot` (top 20) · `npm run build:blog-i18n-wave2` · `npm run build:blog-i18n-wave3` · `npm run build:blog-i18n-wave4` · `npm run sync:blog-i18n` · `npm run audit:i18n` · `npm run audit:i18n-pilot` · `npm run audit:i18n-wave2` · `npm run audit:i18n-wave3` · `npm run audit:i18n-wave4`
 
-**Pilot list:** `fixtures/blog-i18n-pilot-top20.json` · **Wave 2:** `fixtures/blog-i18n-wave2.json` · **Wave 3:** `fixtures/blog-i18n-wave3.json`
+**Pilot list:** `fixtures/blog-i18n-pilot-top20.json` · **Wave 2:** `fixtures/blog-i18n-wave2.json` · **Wave 3:** `fixtures/blog-i18n-wave3.json` · **Wave 4:** `fixtures/blog-i18n-wave4.json` (Field Glass / desk remainder · 66/66 body-reviewed tier)
 
 **Original pilot scope (matrix top 20)** still the priority for editorial QA:
 

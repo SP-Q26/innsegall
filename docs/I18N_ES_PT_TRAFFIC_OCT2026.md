@@ -24,7 +24,8 @@
 | **Pilot top 20** | `fixtures/blog-i18n-pilot-top20.json` | “cuerpo revisado” / pilot copy | `npm run build:blog-i18n-pilot` |
 | **Wave 2 (20)** | `fixtures/blog-i18n-wave2.json` | Same pilot notice · iPhone/iPad + Chrome/Safari | `npm run build:blog-i18n-wave2` |
 | **Wave 3 (20)** | `fixtures/blog-i18n-wave3.json` | Same pilot notice · comparisons + hygiene + Voyage | `npm run build:blog-i18n-wave3` |
-| **Rest** | Remaining slugs (~7) | Title/nav MT · body MT in bundle · standard notice | `npm run build:blog-i18n-fixtures` |
+| **Wave 4 (7)** | `fixtures/blog-i18n-wave4.json` | Same pilot notice · Field Glass + Field Desk remainder | `npm run build:blog-i18n-wave4` |
+| **Full blog** | 66 slugs | All on **body reviewed** notice tier | waves 1–4 complete |
 
 After any fixture change: **`npm run sync:blog-i18n`** · **`npm run sync:site-chrome`** · gates below.
 
@@ -40,13 +41,14 @@ On **English** `/blog/{slug}` only: if `navigator.language` is `es` or `pt`, a d
 
 ```bash
 cd innsegall
-npm run build:blog-i18n-wave3    # or wave2 / pilot / full --force when needed
+npm run build:blog-i18n-wave4    # or wave3 / wave2 / pilot / full --force when needed
 npm run sync:blog-i18n
 npm run sync:site-chrome
 npm run audit:i18n
 npm run audit:i18n-pilot
 npm run audit:i18n-wave2
 npm run audit:i18n-wave3
+npm run audit:i18n-wave4
 npm run audit:i18n-chrome
 npm run gate:launch
 ```
