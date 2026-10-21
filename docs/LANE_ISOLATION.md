@@ -18,7 +18,7 @@
 
 ## Hard rules
 
-1. **No dirty trees in other repos.** Do not checkout `weweb-export`, bulk-edit SPQ, or leave uncommitted work in Simple Property for convenience.
+1. **No dirty trees in other repos.** On **SPQ**, use `weweb-export` only for WeWeb preview — **never** create `weweb-export` on **innsegall** (see `docs/GIT_BRANCH_LAW.md`). Do not bulk-edit SPQ from an Innsegall task or leave uncommitted work in Simple Property for convenience.
 2. **Commits / push only when the operator asks.** Before push: `npm run audit:git` (or `npm run check:git-identity`).
 3. **Git identity:** noreply GitHub only · no personal email in commits or tracked files (`@gmail`, `*.lan`, real names).
 4. **No secrets in git:** `.env`, `sk_live_`, `whsec_`, `re_` stay in Vercel / local `web/.env.local` only.

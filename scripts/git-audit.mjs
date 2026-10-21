@@ -36,6 +36,18 @@ const branch = sh("git branch --show-current");
 const upstream = sh("git rev-parse --abbrev-ref @{u} 2>/dev/null || echo none");
 console.log(`branch · ${branch} · upstream · ${upstream}`);
 
+/** SPQ WeWeb preview only · Innsegall is static web/ + Vercel · production = main */
+const FORBIDDEN_BRANCHES = new Set(["weweb-export"]);
+if (FORBIDDEN_BRANCHES.has(branch)) {
+  console.error(
+    "FAIL git-audit · branch weweb-export is SPQ/WeWeb only · Innsegall ships from main · git checkout main && git merge <work> && git push origin main"
+  );
+  failed++;
+}
+if (branch !== "main" && !branch.startsWith("ship/")) {
+  console.log(`note: feature branch ${branch} · merge to main before innsegall.com deploy`);
+}
+
 try {
   sh("git fetch origin main --quiet");
 } catch {
