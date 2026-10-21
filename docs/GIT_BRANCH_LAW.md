@@ -1,12 +1,12 @@
 # Innsegall · git branch law
 
-**Repo:** [github.com/SP-Q26/innsegall](https://github.com/SP-Q26/innsegall) — **not** the SPQ WeWeb monorepo.
+**Repo:** [github.com/SP-Q26/innsegall](https://github.com/SP-Q26/innsegall) · **not** the SPQ WeWeb monorepo.
 
 | Branch | Use |
 |--------|-----|
 | **`main`** | Production · [innsegall.com](https://innsegall.com) · Vercel `innsegall_fe` |
 | **`ship/*`** | Short-lived feature branches · merge to `main` via PR |
-| **`weweb-export`** | **Forbidden on this repo** — that name is **SP-Q26/SPQ** only (WeWeb → Vercel preview) |
+| **`weweb-export`** | **Forbidden on this repo** · that name is **SP-Q26/SPQ** only (WeWeb → Vercel preview) |
 
 ## Agent mistake (fix)
 
@@ -25,7 +25,7 @@ git branch -d weweb-export
 
 ## Checks
 
-- `npm run audit:git` — fails on `weweb-export` branch
-- `docs/LANE_ISOLATION.md` — lane map · no SPQ parent edits for Innsegall deploys
+- `npm run audit:git` · fails on `weweb-export` branch
+- `docs/LANE_ISOLATION.md` · lane map · no SPQ parent edits for Innsegall deploys
 
-**Cursor:** Open the **innsegall** folder as workspace root (or `cd` into the clone). SPQ’s `weweb-export` branch does not deploy Innsegall.
+**Cursor:** Open the **innsegall** folder as workspace root (or `cd` into the clone). SPQ's `weweb-export` branch does not deploy Innsegall.
