@@ -19,8 +19,10 @@ Maximize revenue per founder hour · automate what compounds · stay human where
 | **P2** | Blog md→html CI | SEO velocity | M | Manual alpha |
 | **P2** | `POST /api/redeem` server ledger | Anti-abuse + ROI on paid | M | Planned |
 | **P2** | Stripe Customer Portal | Churn automation | M | Planned |
-| **P3** | Auto Field Report publish | Content flywheel | M | Script exists |
-| **P3** | OG image on deploy | Social CTR | S | Planned |
+| **P2** | Field Glass cadence gate | SEO freshness | S | ✅ `audit:field-glass-cadence` · `flywheel:field-glass` |
+| **P2** | Issue spotlight flywheel | Telemetry → blog | M | ✅ `flywheel:issue-spotlight` · GET paste |
+| **P3** | Auto Field Report publish | Content flywheel | M | `field-report` local digest |
+| **P3** | OG image on deploy | Social CTR | S | ✅ `prep-deploy` export-og-png |
 | **P3** | Warrior credit auto-issue | Agent scale | L | Xano + rules |
 
 **S/M/L** = small/medium/large engineering days.

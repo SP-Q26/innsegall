@@ -284,3 +284,15 @@ Send the scout when the fog rolls in. Bring your clan if the horn sounds.
 - **Oct 23 desk** · [Field Glass](/blog/field-glass-oct-23-2026) · [Watch](/watch)
 - **Lane** · [Is Innsegall for you?](/boat)
 - **Pricing** · [Supplies](/supplies)
+
+---
+
+## Helpful links
+
+- **Scared tonight?** · [Send the scout](/alpha)
+- **ClickFix / fake AI install** · [Pasted Terminal command](/blog/pasted-terminal-command-mac-scare)
+- **iPhone/iPad Safari** · [/ios](/ios) · [Clear Safari data](/blog/safari-clear-website-data-iphone-ipad)
+- **AI handoff** · [Paste for assistants](/blog/paste-battle-scout-for-ai-assistant)
+- **Oct 23 desk** · [Field Glass](/blog/field-glass-oct-23-2026) · [Watch](/watch)
+- **Lane** · [Is Innsegall for you?](/boat)
+- **Pricing** · [Supplies](/supplies)

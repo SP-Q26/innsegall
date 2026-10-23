@@ -1279,6 +1279,12 @@ a.btn-link:focus-visible {
 .footer-credit {
   color: var(--laser-edge);
   letter-spacing: 0.1em;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.footer-credit:hover {
+  color: var(--text-primary);
 }
 
 @media (max-width: 32.5rem) {

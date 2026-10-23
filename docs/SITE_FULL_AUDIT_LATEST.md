@@ -1,6 +1,6 @@
 # Innsegall.com · full site audit
 
-**Generated:** 2026-10-21 · `node scripts/audit-site-inventory.mjs`  
+**Generated:** 2026-10-23 · `node scripts/audit-site-inventory.mjs`  
 **Project:** Vercel `innsegall_fe` · root `web/`  
 **Commands:** `npm run audit:site` · `npm run gate:launch` · `npm run smoke:live`
 
@@ -10,11 +10,11 @@
 
 | Metric | Count |
 |--------|------:|
-| HTML surfaces | 224 |
-| Indexable marketing + blog | 222 |
-| Blog posts | 66 |
+| HTML surfaces | 227 |
+| Indexable marketing + blog | 225 |
+| Blog posts | 67 |
 | P0 inventory issues | 0 |
-| Sitemap URLs | 231 |
+| Sitemap URLs | 234 |
 
 **Operator:** Stripe LIVE flip in progress · push `main` after `npm run predeploy` · blog is primary float-mode SEO lever.
 
@@ -24,7 +24,7 @@
 
 | Route | Index | Sitemap | Blog idx | Rewrite | Meta | Issues |
 |-------|:-----:|:-------:|:--------:|:-------:|-----:|--------|
-| `/` | ✓ | ✓ | · | · | 146 | ok |
+| `/` | ✓ | ✓ | · | · | 164 | ok |
 | `/alpha` | ✓ | ✓ | · | · | 123 | ok |
 | `/ar` | ✓ | ✓ | · | · | 118 | ok |
 | `/blog` | ✓ | ✓ | · | · | 155 | ok |
@@ -46,8 +46,9 @@
 | `/blog/fake-virus-popup-macintosh` | ✓ | ✓ | ✓ | ✓ | 151 | ok |
 | `/blog/field-desk-stripe-live-sep-2026` | ✓ | ✓ | ✓ | ✓ | 143 | ok |
 | `/blog/field-glass-oct-11-2026` | ✓ | ✓ | ✓ | ✓ | 145 | ok |
-| `/blog/field-glass-oct-14-2026` | ✓ | ✓ | ✓ | ✓ | 138 | ok |
+| `/blog/field-glass-oct-14-2026` | ✓ | ✓ | ✓ | ✓ | 136 | ok |
 | `/blog/field-glass-oct-2-2026` | ✓ | ✓ | ✓ | ✓ | 120 | ok |
+| `/blog/field-glass-oct-23-2026` | ✓ | ✓ | ✓ | ✓ | 153 | ok |
 | `/blog/field-glass-oct-7-2026` | ✓ | ✓ | ✓ | ✓ | 157 | ok |
 | `/blog/field-glass-oct-8-2026` | ✓ | ✓ | ✓ | ✓ | 150 | ok |
 | `/blog/field-glass-sep-19-2026` | ✓ | ✓ | ✓ | ✓ | 142 | ok |
@@ -81,7 +82,7 @@
 | `/blog/onyx-vs-read-only-mac-scout` | ✓ | ✓ | ✓ | ✓ | 122 | ok |
 | `/blog/opened-suspicious-email-iphone-ipad` | ✓ | ✓ | ✓ | ✓ | 160 | ok |
 | `/blog/paste-battle-scout-for-ai-assistant` | ✓ | ✓ | ✓ | ✓ | 136 | ok |
-| `/blog/pasted-terminal-command-mac-scare` | ✓ | ✓ | ✓ | ✓ | 147 | ok |
+| `/blog/pasted-terminal-command-mac-scare` | ✓ | ✓ | ✓ | ✓ | 143 | ok |
 | `/blog/safari-allowed-notifications-by-mistake-mac` | ✓ | ✓ | ✓ | ✓ | 158 | ok |
 | `/blog/safari-clear-website-data-iphone-ipad` | ✓ | ✓ | ✓ | ✓ | 157 | ok |
 | `/blog/safari-fake-virus-notifications-mac` | ✓ | ✓ | ✓ | ✓ | 147 | ok |
@@ -119,6 +120,7 @@
 | `/es/blog/field-glass-oct-11-2026` | ✓ | ✓ | · | · | 163 | ok |
 | `/es/blog/field-glass-oct-14-2026` | ✓ | ✓ | · | · | 155 | ok |
 | `/es/blog/field-glass-oct-2-2026` | ✓ | ✓ | · | · | 162 | ok |
+| `/es/blog/field-glass-oct-23-2026` | ✓ | ✓ | · | · | 157 | ok |
 | `/es/blog/field-glass-oct-7-2026` | ✓ | ✓ | · | · | 158 | ok |
 | `/es/blog/field-glass-oct-8-2026` | ✓ | ✓ | · | · | 160 | ok |
 | `/es/blog/field-glass-sep-19-2026` | ✓ | ✓ | · | · | 158 | ok |
@@ -194,6 +196,7 @@
 | `/pt/blog/field-glass-oct-11-2026` | ✓ | ✓ | · | · | 160 | ok |
 | `/pt/blog/field-glass-oct-14-2026` | ✓ | ✓ | · | · | 156 | ok |
 | `/pt/blog/field-glass-oct-2-2026` | ✓ | ✓ | · | · | 156 | ok |
+| `/pt/blog/field-glass-oct-23-2026` | ✓ | ✓ | · | · | 157 | ok |
 | `/pt/blog/field-glass-oct-7-2026` | ✓ | ✓ | · | · | 157 | ok |
 | `/pt/blog/field-glass-oct-8-2026` | ✓ | ✓ | · | · | 157 | ok |
 | `/pt/blog/field-glass-sep-19-2026` | ✓ | ✓ | · | · | 162 | ok |

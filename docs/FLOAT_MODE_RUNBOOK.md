@@ -40,8 +40,9 @@
 
 | Cadence | Action |
 |---------|--------|
-| Every 1–2 weeks | Field Glass or comparison blog post |
-| Per post | `fixtures/blog-posts-seo.json` · `npm run predeploy` · push |
+| Every 1–2 weeks | Field Glass desk · `npm run flywheel:field-glass` after editing `watch-hub.json` + new `.md` |
+| Weekly (optional) | `npm run flywheel:issue-spotlight` when Xano has `issue_spotlight` volume |
+| Per post | `npm run predeploy` · `npm run audit:field-glass-cadence` · push |
 | Optional | DEV.to canonical cross-post · one r/macapps thread/month |
 | Monthly | Glance Vercel errors · Stripe webhook log |
 

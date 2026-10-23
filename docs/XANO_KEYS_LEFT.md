@@ -80,7 +80,20 @@ precondition (($api_key == $env.sk_live_innsegall_ops_) || ($api_key == $env.sk_
 
 **Redeploy** after save (env does not apply until new deploy).
 
-### 6 · Smoke
+### 6 · Issue spotlight export (blog flywheel)
+
+Paste **`docs/pastes/innsegall-issue-spotlight-get.xs`** → **GET** `innsegall/issue_spotlight` · same API key · JWT off.
+
+```bash
+export XANO_EVENTS_URL='https://xfog-zdyr-rbyx.n7e.xano.io/api:innsegall_ops/innsegall/events'
+export XANO_API_KEY='<exact value stored in Xano sk_live_innsegall_ops_>'
+npm run flywheel:issue-spotlight -- --dry-run   # fetch + would-publish
+npm run flywheel:issue-spotlight                # publish + sync + audit
+```
+
+Optional: `XANO_ISSUE_SPOTLIGHT_URL` if the GET path differs from `…/events` → `…/issue_spotlight`.
+
+### 7 · Smoke
 
 ```bash
 cd innsegall

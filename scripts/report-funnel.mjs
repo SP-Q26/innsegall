@@ -52,8 +52,8 @@ if (existsSync(xanoDoc)) {
 }
 
 console.log("── Issue spotlight publish ──");
-console.log("  npm run publish:issue-spotlights:telemetry:dry");
-console.log("  Live: set XANO_ISSUE_SPOTLIGHT_URL + XANO_API_KEY · GH workflow_dispatch\n");
+console.log("  npm run flywheel:issue-spotlight -- --dry-run");
+console.log("  Live: paste docs/pastes/innsegall-issue-spotlight-get.xs · XANO_API_KEY (+ optional XANO_EVENTS_URL)\n");
 
 console.log("── Local env hints ──");
 const hasStripe = Boolean(process.env.STRIPE_SECRET_KEY);

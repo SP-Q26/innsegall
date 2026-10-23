@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-11",
+  "version": "2026-10-23",
   "defaultRelated": [
     { "href": "/alpha", "label": "Send the scout" },
     { "href": "/watch", "label": "Macintosh watch" },
@@ -41,6 +41,16 @@
       { "href": "/blog/voyage-health-tracker-1st-15th", "label": "Voyage tracker" },
       { "href": "/blog/field-glass-oct-8-2026", "label": "Field Glass · Oct 8" },
       { "href": "/watch", "label": "Watch hub" }
+    ],
+    "field-glass-oct-23-2026": [
+      { "href": "/blog/pasted-terminal-command-mac-scare", "label": "Pasted Terminal command" },
+      { "href": "/blog/field-glass-oct-14-2026", "label": "Field Glass · Oct 14" },
+      { "href": "/watch", "label": "Watch hub" }
+    ],
+    "pasted-terminal-command-mac-scare": [
+      { "href": "/blog/field-glass-oct-23-2026", "label": "Field Glass · Oct 23" },
+      { "href": "/blog/paste-battle-scout-for-ai-assistant", "label": "Paste for AI assistants" },
+      { "href": "/alpha", "label": "Send the scout" }
     ],
     "field-glass-oct-8-2026": [
       { "href": "/blog/field-glass-oct-11-2026", "label": "Field Glass · Oct 11" },

@@ -5,6 +5,7 @@ Operator-only · paste into Xano editor · not executed by CI.
 | File | Use |
 |------|-----|
 | [`innsegall-events-post.xs`](./innsegall-events-post.xs) | **POST `/innsegall/events`** · full stack: API-key auth precondition · event whitelist · forbidden payload keys · `db.add` |
+| [`innsegall-issue-spotlight-get.xs`](./innsegall-issue-spotlight-get.xs) | **GET `/innsegall/issue_spotlight`** · export recent `issue_spotlight` rows for `npm run flywheel:issue-spotlight` |
 
 **Canonical guide:** [`../XANO_PASTES.md`](../XANO_PASTES.md) · keys checklist [`../XANO_KEYS_LEFT.md`](../XANO_KEYS_LEFT.md)
 

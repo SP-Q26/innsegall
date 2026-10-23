@@ -36,5 +36,33 @@ check("llms latest field glass or watch", llms.includes(latest.slug) || llms.inc
 const seo = JSON.parse(readFileSync(join(root, "fixtures", "blog-posts-seo.json"), "utf8"));
 check("blog-posts-seo latest slug", Boolean(seo.posts?.[latest.slug]?.description));
 
+const slug = latest.slug;
+const enHtml = join(web, "blog", `${slug}.html`);
+check("latest EN html", existsSync(enHtml));
+
+const watchHtml = readFileSync(join(web, "watch.html"), "utf8");
+check("watch.html latest slug", watchHtml.includes(slug));
+
+const vercel = readFileSync(join(web, "vercel.json"), "utf8");
+check("vercel rewrite latest slug", vercel.includes(`"/blog/${slug}"`));
+
+const sitemap = readFileSync(join(web, "sitemap.xml"), "utf8");
+check("sitemap latest slug", sitemap.includes(`/blog/${slug}`));
+
+const blogIndex = readFileSync(join(web, "blog", "index.html"), "utf8");
+check("blog index latest slug", blogIndex.includes(`/blog/${slug}`));
+
+const wave5Path = join(root, "fixtures", "blog-i18n-wave5-growth.json");
+if (existsSync(wave5Path)) {
+  const wave5 = JSON.parse(readFileSync(wave5Path, "utf8"));
+  const slugs = wave5.slugs || [];
+  if (slugs.includes(slug)) {
+    check("es wave5 html", existsSync(join(web, "es", "blog", `${slug}.html`)));
+    check("pt wave5 html", existsSync(join(web, "pt", "blog", `${slug}.html`)));
+  }
+}
+
+check("watch-hub version", hub.version >= latest.date, `hub ${hub.version}`);
+
 if (failed) process.exit(1);
 console.log("audit-field-glass-cadence PASS");

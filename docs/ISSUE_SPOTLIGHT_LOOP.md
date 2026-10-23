@@ -62,15 +62,29 @@ After every `innsegall run` / `check` / `voyage`:
 
 ## Publish (operator / cron)
 
+**Xano export (one-time):** paste **`docs/pastes/innsegall-issue-spotlight-get.xs`** into API group `innsegall_ops` · publish live · JWT off · same `X-API-Key` as POST events.
+
+**Env (operator machine or GitHub secrets):**
+
+| Variable | Value |
+|----------|--------|
+| `XANO_API_KEY` | Same secret as Xano `sk_live_innsegall_ops_` |
+| `XANO_ISSUE_SPOTLIGHT_URL` | Optional · `https://…/api:innsegall_ops/innsegall/issue_spotlight` |
+| `XANO_EVENTS_URL` | If spotlight URL omitted · scripts derive `…/innsegall/issue_spotlight` from `…/innsegall/events` |
+
 **Pipeline (recommended):**
 
 ```bash
-# Xano env set → fetch + publish · else fixtures fallback
+# Full flywheel · Xano → blog → SEO + chrome + gospel
+npm run flywheel:issue-spotlight
+npm run flywheel:issue-spotlight -- --dry-run
+
+# Publish only (legacy)
 npm run publish:issue-spotlights:telemetry
 npm run publish:issue-spotlights:telemetry:dry
 
 # GitHub Actions: .github/workflows/issue-spotlight-publish.yml
-# Secrets: XANO_ISSUE_SPOTLIGHT_URL · XANO_API_KEY
+# Secrets: XANO_API_KEY · optional XANO_ISSUE_SPOTLIGHT_URL · XANO_EVENTS_URL
 ```
 
 Aggregate Xano rows (or local fixtures) · write blog HTML + markdown:

@@ -152,7 +152,7 @@ ${fontHeadLines()}
           <span class="footer-colophon-sep" aria-hidden="true"></span>
           <span>All rights reserved</span>
           <span class="footer-colophon-sep" aria-hidden="true"></span>
-          <span>Web by <a class="footer-credit" href="https://ajnichols.com" rel="noopener noreferrer">AJ Nichols</a></span>
+          <span><a class="footer-credit" href="https://ajnichols.com" rel="noopener noreferrer">Web</a> by AJ Nichols</span>
         </p>
       </div>
     </footer>

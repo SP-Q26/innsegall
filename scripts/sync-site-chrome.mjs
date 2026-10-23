@@ -92,6 +92,9 @@ function faviconBlock(manifestHref = "/site.webmanifest") {
   <link rel="manifest" href="${manifestHref}">`;
 }
 
+const FOOTER_WEB_CREDIT =
+  '<span><a class="footer-credit" href="https://ajnichols.com" rel="noopener noreferrer">Web</a> by AJ Nichols</span>';
+
 const CANONICAL_FOOTER = `    <footer class="site-footer">
       <div class="footer-grid">
         <div class="footer-brand">
@@ -125,7 +128,7 @@ const CANONICAL_FOOTER = `    <footer class="site-footer">
           <span class="footer-colophon-sep" aria-hidden="true"></span>
           <span>All rights reserved</span>
           <span class="footer-colophon-sep" aria-hidden="true"></span>
-          <span>Web by <a class="footer-credit" href="https://ajnichols.com" rel="noopener noreferrer">AJ Nichols</a></span>
+          ${FOOTER_WEB_CREDIT}
         </p>
       </div>
     </footer>`;
@@ -354,10 +357,24 @@ function fixOg(html) {
   return out;
 }
 
+function fixFooterWebCredit(html) {
+  if (!html.includes("Web by")) return html;
+  let out = html;
+  out = out.replace(
+    /<span>Web by <span class="footer-credit">AJ Nichols<\/span><\/span>/g,
+    FOOTER_WEB_CREDIT
+  );
+  out = out.replace(
+    /<span>Web by <a class="footer-credit" href="https:\/\/ajnichols\.com" rel="noopener noreferrer">AJ Nichols<\/a><\/span>/g,
+    FOOTER_WEB_CREDIT
+  );
+  return out;
+}
+
 function replaceFooter(html) {
   if (!html.includes('class="site-footer"')) return html;
   if (html.includes('class="footer-colophon"') && html.includes("The Isles Collective")) {
-    return html;
+    return fixFooterWebCredit(html);
   }
   return html.replace(/<footer class="site-footer">[\s\S]*?<\/footer>/, CANONICAL_FOOTER);
 }

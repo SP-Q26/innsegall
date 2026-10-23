@@ -246,3 +246,15 @@ Full search map · [Field Glass · Sep 22](/blog/field-glass-sep-22-2026). Still
 - **Oct 23 desk** · [Field Glass](/blog/field-glass-oct-23-2026) · [Watch](/watch)
 - **Lane** · [Is Innsegall for you?](/boat)
 - **Pricing** · [Supplies](/supplies)
+
+---
+
+## Helpful links
+
+- **Scared tonight?** · [Send the scout](/alpha)
+- **ClickFix / fake AI install** · [Pasted Terminal command](/blog/pasted-terminal-command-mac-scare)
+- **iPhone/iPad Safari** · [/ios](/ios) · [Clear Safari data](/blog/safari-clear-website-data-iphone-ipad)
+- **AI handoff** · [Paste for assistants](/blog/paste-battle-scout-for-ai-assistant)
+- **Oct 23 desk** · [Field Glass](/blog/field-glass-oct-23-2026) · [Watch](/watch)
+- **Lane** · [Is Innsegall for you?](/boat)
+- **Pricing** · [Supplies](/supplies)

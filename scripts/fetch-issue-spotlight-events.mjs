@@ -12,6 +12,7 @@
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { resolveIssueSpotlightExportUrl } from "./lib/xano-issue-spotlight-url.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -26,11 +27,21 @@ const days = Number(getArg("days") || "14");
 
 function normalizePayload(row) {
   if (!row || typeof row !== "object") return null;
+
+  if (row.event === "issue_spotlight" && row.payload && typeof row.payload === "object") {
+    const inner = row.payload;
+    if (inner.issue_key && inner.event_type) {
+      return { ...inner, day: inner.day || row.day };
+    }
+  }
+
   const payload = row.payload && typeof row.payload === "object" ? row.payload : row;
   if (payload.event === "issue_spotlight" && payload.payload) {
     return payload.payload;
   }
-  if (payload.issue_key && payload.event_type) return payload;
+  if (payload.issue_key && payload.event_type) {
+    return { ...payload, day: payload.day || row.day };
+  }
   return null;
 }
 
@@ -48,10 +59,13 @@ function parseFile(path) {
 }
 
 async function fetchXano() {
-  const url = process.env.XANO_ISSUE_SPOTLIGHT_URL;
+  const url = resolveIssueSpotlightExportUrl();
   const key = process.env.XANO_API_KEY;
   if (!url || !key) {
-    console.error("Set XANO_ISSUE_SPOTLIGHT_URL and XANO_API_KEY (see docs/ISSUE_SPOTLIGHT_LOOP.md)");
+    console.error(
+      "Set XANO_API_KEY and XANO_ISSUE_SPOTLIGHT_URL (or XANO_EVENTS_URL for derived GET …/issue_spotlight)"
+    );
+    console.error("Paste GET endpoint: docs/pastes/innsegall-issue-spotlight-get.xs");
     process.exit(1);
   }
   const res = await fetch(url, {
@@ -71,11 +85,11 @@ async function main() {
   if (fromFile) {
     events = parseFile(fromFile);
     console.log(`loaded ${events.length} issue_spotlight payload(s) from ${fromFile}`);
-  } else if (process.env.XANO_ISSUE_SPOTLIGHT_URL) {
+  } else if (resolveIssueSpotlightExportUrl() && process.env.XANO_API_KEY) {
     events = await fetchXano();
     console.log(`fetched ${events.length} issue_spotlight payload(s) from Xano`);
   } else {
-    console.error("Provide --from-file=… or set XANO_ISSUE_SPOTLIGHT_URL + XANO_API_KEY");
+    console.error("Provide --from-file=… or set XANO_API_KEY + export URL (see docs/ISSUE_SPOTLIGHT_LOOP.md)");
     process.exit(1);
   }
 

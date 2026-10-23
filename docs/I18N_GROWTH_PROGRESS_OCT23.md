@@ -34,4 +34,5 @@
 
 - Search Console · `/es/blog` · `/pt/blog` impressions
 - `marketing_ping` · `route_locale` + `page=blog_post`
-- Field Glass cadence · watch hub + `sync-watch-hub` (latest `field-glass-oct-23-2026`)
+- Field Glass cadence · `npm run flywheel:field-glass` · `npm run audit:field-glass-cadence`
+- Issue spotlight · `npm run flywheel:issue-spotlight` (Xano GET paste live)

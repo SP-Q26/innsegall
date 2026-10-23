@@ -27,6 +27,7 @@ execSync("node scripts/build-scary-moments-batch-5.mjs", { cwd: root, stdio: "in
 execSync("node scripts/sync-blog-field-desk.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-intro-leads.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-spam-scam-seo.mjs", { cwd: root, stdio: "inherit" });
+execSync("node scripts/sync-issue-spotlight-seo.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-pages-seo.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-body-boosts.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-related-rail.mjs", { cwd: root, stdio: "inherit" });
