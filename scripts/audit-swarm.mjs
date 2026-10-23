@@ -58,6 +58,7 @@ const lanes = [
   { name: "i18n wave-2 es/pt traffic", script: "audit-i18n-wave2.mjs", score: "9.5" },
   { name: "i18n wave-3 es/pt traffic", script: "audit-i18n-wave3.mjs", score: "9.5" },
   { name: "i18n wave-4 es/pt field glass", script: "audit-i18n-wave4.mjs", score: "9.5" },
+  { name: "i18n wave-5 growth es/pt", script: "audit-i18n-wave5.mjs", score: "9.5" },
   { name: "i18n locale homes", script: "audit-home-i18n.mjs", score: "9.5" },
   { name: "Vercel Hobby function budget (12)", script: "audit-vercel-functions.mjs", score: "9.5" },
   { name: "OAR adoption voice", script: "audit-adoption-voice.mjs", score: "9.5" },

@@ -1,14 +1,19 @@
 {
-  "version": "2026-10-14",
+  "version": "2026-10-23",
   "max_field_glass_age_days": 14,
   "latest_field_glass": {
-    "slug": "field-glass-oct-14-2026",
-    "title": "Field Glass Update · October 14, 2026",
-    "description": "Lane desk · own the post-scare receipt · AI onboarding + Copy for AI · Voyage Oct 15 recap · Chrome & calendar guides · not antivirus.",
-    "date": "2026-10-14",
-    "read_minutes": 7
+    "slug": "field-glass-oct-23-2026",
+    "title": "Field Glass Update · October 23, 2026",
+    "description": "ClickFix & fake AI install week · Chrome paste warnings · search-ad traps · Terminal paste ESCALATE lane · Mac browser profile fears · not antivirus.",
+    "date": "2026-10-23",
+    "read_minutes": 8
   },
   "field_glass_archive": [
+    {
+      "slug": "field-glass-oct-23-2026",
+      "title": "October 23 · ClickFix & AI lure desk",
+      "date": "2026-10-23"
+    },
     {
       "slug": "field-glass-oct-14-2026",
       "title": "October 14 · lane + agent desk",
@@ -47,36 +52,40 @@
   ],
   "trending_guides": [
     {
-      "query": "Someone remoted into my Mac",
-      "href": "/blog/someone-remoted-into-my-mac"
+      "query": "Pasted Terminal command Mac (ClickFix)",
+      "href": "/blog/pasted-terminal-command-mac-scare"
     },
     {
-      "query": "Mac calendar spam invites scam",
-      "href": "/blog/mac-calendar-spam-invites-scam"
-    },
-    {
-      "query": "Screen Sharing on without permission",
-      "href": "/blog/mac-screen-sharing-on-without-permission"
-    },
-    {
-      "query": "Keychain password keeps asking Mac",
-      "href": "/blog/mac-keychain-password-popup-loop-scam"
-    },
-    {
-      "query": "Fake virus popup Mac",
-      "href": "/blog/fake-virus-popup-macintosh"
+      "query": "Fake Claude or ChatGPT install Mac",
+      "href": "/blog/pasted-terminal-command-mac-scare"
     },
     {
       "query": "Chrome virus popup Mac",
       "href": "/blog/chrome-fake-virus-popup-mac"
     },
     {
+      "query": "Fake virus popup Mac",
+      "href": "/blog/fake-virus-popup-macintosh"
+    },
+    {
+      "query": "Someone remoted into my Mac",
+      "href": "/blog/someone-remoted-into-my-mac"
+    },
+    {
       "query": "Mac slow after scary download",
       "href": "/blog/mac-slow-after-suspicious-download"
     },
     {
-      "query": "Performance panic vs security panic",
-      "href": "/blog/mac-performance-panic-vs-security-panic"
+      "query": "Search engine hijacked Mac",
+      "href": "/blog/safari-search-engine-hijacked-mac"
+    },
+    {
+      "query": "DNS changed after scare",
+      "href": "/blog/mac-dns-changed-after-scare"
+    },
+    {
+      "query": "ChatGPT says I am hacked",
+      "href": "/blog/paste-battle-scout-for-ai-assistant"
     },
     {
       "query": "Bad link on iPhone or iPad",
@@ -87,34 +96,26 @@
       "href": "/blog/do-i-need-antivirus-mac-2026"
     },
     {
-      "query": "DNS changed after scare",
-      "href": "/blog/mac-dns-changed-after-scare"
-    },
-    {
-      "query": "Paste Battle Scout for ChatGPT",
-      "href": "/blog/paste-battle-scout-for-ai-assistant"
-    },
-    {
-      "query": "Innsegall vs Mac cleaners",
-      "href": "/blog/innsegall-vs-mac-cleaners"
+      "query": "Screen Sharing on without permission",
+      "href": "/blog/mac-screen-sharing-on-without-permission"
     }
   ],
   "scout_trends": [
+    {
+      "label": "ClickFix · fake AI installer pages",
+      "href": "/blog/pasted-terminal-command-mac-scare"
+    },
+    {
+      "label": "Chrome Enhanced Protection paste warnings",
+      "href": "/blog/chrome-fake-virus-popup-mac"
+    },
     {
       "label": "Remote access fear after scare popup",
       "href": "/blog/someone-remoted-into-my-mac"
     },
     {
-      "label": "Stale launch items after scareware cleanup",
-      "href": "/blog/stale-launch-items-macintosh"
-    },
-    {
       "label": "DNS changed after fake cleaner",
       "href": "/blog/mac-dns-changed-after-scare"
-    },
-    {
-      "label": "Voyage rhythm · 1st & 15th scouts",
-      "href": "/blog/voyage-health-tracker-1st-15th"
     },
     {
       "label": "AI paste without inventing malware",
@@ -123,77 +124,73 @@
   ],
   "events": [
     {
-      "date": "2026-10-15",
-      "title": "Voyage sail · free scheduled scout (today)",
+      "date": "2026-11-01",
+      "title": "Next Voyage · 1st of the month",
       "href": "/blog/voyage-health-tracker-1st-15th"
     },
     {
-      "date": "2026-11-01",
-      "title": "Next Voyage · 1st of the month",
+      "date": "2026-11-15",
+      "title": "Voyage sail · mid-month scout",
       "href": "/blog/voyage-health-tracker-1st-15th"
     }
   ],
   "field_glass_desk": {
-    "prev_href": "/blog/field-glass-oct-11-2026",
-    "prev_label": "Oct 11 desk",
-    "intro_html": "<strong>Innsegall</strong> · we own the <strong>post-scare receipt</strong> on Macintosh · not always-on AV · <strong>Voyage Oct 15</strong> is the next free sail · agents: read <a href=\"/llms.txt\">llms.txt</a> · local scout · then <strong>Copy for AI</strong> · <a href=\"/alpha\">Send the scout</a>.",
+    "prev_href": "/blog/field-glass-oct-14-2026",
+    "prev_label": "Oct 14 desk",
+    "intro_html": "<strong>Innsegall</strong> · week of <strong>ClickFix</strong> and fake <strong>AI tool install</strong> pages · most delivery is <strong>search ads and poisoned results</strong>, not email · <strong>Chrome</strong> is adding paste warnings when Enhanced Protection is on · our lane stays the same: <strong>local Battle Scout receipt</strong> on your Mac · <a href=\"/alpha\">Send the scout</a> · <a href=\"/watch\">Macintosh watch</a>.",
     "feel_rows": [
       {
-        "feel": "Someone remoted into my Mac",
-        "start": "<a href=\"/blog/someone-remoted-into-my-mac\">Evidence first</a> · then <a href=\"/alpha\">scout</a> · not panic subscriptions"
+        "feel": "I pasted a command from a fake Claude/ChatGPT page",
+        "start": "<a href=\"/blog/pasted-terminal-command-mac-scare\">ClickFix desk</a> · stop pasting · <a href=\"/alpha\">scout</a> · assume ESCALATE until evidence says otherwise"
       },
       {
-        "feel": "Calendar spam invites",
-        "start": "<a href=\"/blog/mac-calendar-spam-invites-scam\">Decline &amp; report</a> · do not open mystery .ics files"
+        "feel": "Google ad looked real · landed on download page",
+        "start": "<a href=\"/blog/chrome-fake-virus-popup-mac\">Close the tab</a> · install only from vendor URLs you type · <a href=\"/blog/pasted-terminal-command-mac-scare\">never paste from ads</a>"
       },
       {
-        "feel": "Voyage day is coming · quota?",
-        "start": "<a href=\"/blog/voyage-health-tracker-1st-15th\">Rhythm</a> · <code>innsegall scout</code> · <a href=\"/supplies\">Supplies</a>"
+        "feel": "Chrome warned me about a dangerous command",
+        "start": "Good · do not override · <a href=\"/blog/pasted-terminal-command-mac-scare\">what ClickFix is</a> · then <a href=\"/alpha\">scout</a> if you already ran something"
       },
       {
-        "feel": "Bad link on iPhone or iPad",
-        "start": "<a href=\"/ios#bad-link\">Panic hub</a> · <a href=\"/blog/clicked-bad-link-iphone-ipad-guide\">field guide</a>"
+        "feel": "Browser feels hijacked · sessions weird",
+        "start": "<a href=\"/blog/someone-remoted-into-my-mac\">Remote fear guide</a> · <a href=\"/blog/mac-dns-changed-after-scare\">DNS check</a> · scout for evidence"
       },
       {
-        "feel": "Safari virus popup",
-        "start": "<a href=\"/blog/fake-virus-popup-macintosh\">Mac popup guide</a> · <a href=\"/blog/fake-virus-popup-iphone-ipad\">iPhone guide</a>"
+        "feel": "Fake virus popup in Chrome or Safari",
+        "start": "<a href=\"/blog/chrome-fake-virus-popup-mac\">Chrome</a> · <a href=\"/blog/fake-virus-popup-macintosh\">Safari/Mac</a> · <a href=\"/blog/safari-shift-key-scam-popup-mac\">stuck popup</a>"
       },
       {
-        "feel": "Chrome virus popup on Mac",
-        "start": "<a href=\"/blog/chrome-fake-virus-popup-mac\">Chrome guide</a> · <a href=\"/blog/safari-shift-key-scam-popup-mac\">Safari twin</a>"
+        "feel": "ChatGPT says hacked · no Mac check yet",
+        "start": "<a href=\"/blog/paste-battle-scout-for-ai-assistant\">Scout first</a> · <a href=\"/guide#ai-handoff\">handoff</a> · no invented malware"
       },
       {
-        "feel": "Mac slow · not sure if hacked",
-        "start": "<a href=\"/blog/mac-performance-panic-vs-security-panic\">Performance vs security</a> · <a href=\"/alpha\">Send the scout</a>"
+        "feel": "Mac slow · did InstallFix break me?",
+        "start": "<a href=\"/blog/mac-performance-panic-vs-security-panic\">Performance vs security</a> · <a href=\"/blog/mac-slow-after-suspicious-download\">after download</a>"
       },
       {
-        "feel": "ChatGPT says I am hacked · no local check",
-        "start": "<a href=\"/blog/paste-battle-scout-for-ai-assistant\">AI handoff</a> · <a href=\"/guide#agent-pipe\">check --json</a> · scout first"
-      },
-      {
-        "feel": "Cleaner app vs Innsegall",
-        "start": "<a href=\"/blog/innsegall-vs-mac-cleaners\">Read-only receipt</a> · <a href=\"/boat\">Our lane</a>"
+        "feel": "Bad link on iPhone · Mac is fine",
+        "start": "<a href=\"/ios#bad-link\">iOS hub</a> · <a href=\"/blog/clicked-bad-link-iphone-ipad-guide\">field guide</a> · Mac scout separate"
       }
     ],
     "mist_links": [
+      { "href": "/blog/pasted-terminal-command-mac-scare", "label": "Pasted Terminal command (ClickFix)" },
+      { "href": "/blog/chrome-fake-virus-popup-mac", "label": "Chrome fake virus popup" },
+      { "href": "/blog/fake-virus-popup-macintosh", "label": "Safari/Mac scare popup" },
       { "href": "/blog/someone-remoted-into-my-mac", "label": "Someone remoted into my Mac" },
-      { "href": "/blog/mac-calendar-spam-invites-scam", "label": "Calendar spam invites" },
       { "href": "/blog/mac-dns-changed-after-scare", "label": "DNS changed after scare" },
-      { "href": "/blog/mac-configuration-profile-scam", "label": "Unexpected configuration profile" },
-      { "href": "/blog/fake-virus-popup-macintosh", "label": "Fake virus popup Mac" },
-      { "href": "/blog/voyage-health-tracker-1st-15th", "label": "Voyage health tracker" }
+      { "href": "/blog/paste-battle-scout-for-ai-assistant", "label": "Paste Battle Scout for AI" }
     ],
     "news_brief": [
-      "<strong>Lane clarity</strong> · Innsegall is post-scare triage between popups and Genius Bar · receipt layer · <a href=\"/boat\">Is Innsegall for you?</a>",
-      "<strong>AI onboarding</strong> · <a href=\"/llms.txt\">llms.txt</a> · <a href=\"/guide#ai-handoff\">guide handoff</a> · honor <code>innsegall-battle-scout-ai/v1</code> paste · no invented malware.",
-      "<strong>Voyage Oct 15</strong> · free read-only scout on the calendar · <code>innsegall voyage</code> or wait for the scheduled open.",
-      "<strong>Chrome Mac guides</strong> · many scares start in Chrome · <a href=\"/blog/chrome-fake-virus-popup-mac\">popup</a> · <a href=\"/blog/chrome-notifications-scam-mac\">notifications</a> · then scout.",
-      "<strong>SEO desk</strong> · 60 field guides live · <a href=\"/watch\">Macintosh watch</a> maps trending searches to calm answers."
+      "<strong>ClickFix peak</strong> · criminals use fake <strong>AI installer</strong> pages and <strong>search ads</strong> to make you paste a Terminal command · treat every paste from the web as hostile until you verify the vendor URL yourself.",
+      "<strong>Chrome (Oct 2026)</strong> · Enhanced Protection adds warnings when a site tries to push shell commands · if you see it, stop · <a href=\"/blog/pasted-terminal-command-mac-scare\">our ClickFix guide</a>.",
+      "<strong>Mac infostealers</strong> · reports of malware that clones <strong>browser profiles</strong> for live session theft · scary headlines · still start with <strong>evidence on your Mac</strong> · <a href=\"/alpha\">scout</a> · not subscription panic.",
+      "<strong>SEO lane</strong> · we map fear searches to calm field guides · <a href=\"/watch\">Macintosh watch</a> · 67 posts · es/pt mirrors on every new EN desk.",
+      "<strong>i18n growth</strong> · wave 5 ships <code>field-glass-oct-23-2026</code> to <code>/es/blog</code> and <code>/pt/blog</code> after EN publish · human review on scam steps."
     ],
     "habits": [
-      "Local scout before AI doom · paste Battle Scout · do not skip evidence.",
-      "Fix browser or phone surface first · Mac myth second.",
-      "Treat AV and cleaners as different jobs · Innsegall answers am I okay right now."
+      "Install AI tools only from URLs you type · never from ads or Discord pins.",
+      "If you pasted once · do not paste again · scout locally · rotate passwords from a clean device if ESCALATE.",
+      "Search traffic is the lure · email filters will not save you · bookmark real vendor pages."
     ]
   }
 }

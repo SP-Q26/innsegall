@@ -8,7 +8,7 @@ import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const web = join(root, "web");
-const OG_URL = "https://innsegall.com/og/innsegall-card.png";
+import { OG_URL, OG_ALT } from "./site-og-ver.mjs";
 let failed = 0;
 
 function walkHtml(dir, acc = []) {

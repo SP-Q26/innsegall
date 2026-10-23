@@ -150,7 +150,7 @@ export function patchEnHomeHreflang(enHtml) {
   let html = enHtml;
   if (html.includes('hreflang="en"') && !html.includes('hreflang="es"')) {
     html = html.replace(
-      /(<link rel="alternate" hreflang="en" href="[^"]*">)\s*\n\s*<link rel="alternate" hreflang="x-default"/i,
+      /(<link rel="alternate" hreflang="en" href="[^"]*">)\s*\n\s*<link rel="alternate" hreflang="x-default"[^>]*>/i,
       `$1\n${block.split("\n").slice(1).join("\n")}`
     );
   } else if (!html.includes('hreflang="es"')) {

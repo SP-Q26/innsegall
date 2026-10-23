@@ -9,7 +9,7 @@ import { CSS_HREF } from "./site-css-ver.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const web = join(root, "web");
-const OG_URL = "https://innsegall.com/og/innsegall-card.png?v=20261008d";
+import { OG_URL, OG_ALT } from "./site-og-ver.mjs";
 const OG_PATH = join(web, "og/innsegall-card.png");
 let failed = 0;
 
@@ -133,6 +133,14 @@ check("index og:description length", homeOgDesc.length >= 100 && homeOgDesc.leng
 check("index twitter matches og description", homeTwDesc === homeOgDesc);
 check("index og:image secure_url", home.includes("og:image:secure_url"));
 check("index twitter:url", home.includes('name="twitter:url"'));
+check("index hreflang x-default clean", !/hreflang="x-default"[^>]*>\s*href=/.test(home));
+const homeOgAlt = home.match(/property="og:image:alt" content="([^"]*)"/)?.[1] || "";
+const homeTwImgAlt = home.match(/name="twitter:image:alt" content="([^"]*)"/)?.[1] || "";
+check("index og:image:alt", homeOgAlt === OG_ALT);
+check("index twitter:image:alt matches og", homeTwImgAlt === homeOgAlt);
+check("index apple-touch-icon png", home.includes("/icons/apple-touch-icon.png"));
+check("es home og:locale", readFileSync(join(web, "es/index.html"), "utf8").includes('og:locale" content="es_ES"'));
+check("pt home og:locale", readFileSync(join(web, "pt/index.html"), "utf8").includes('og:locale" content="pt_BR"'));
 
 const platformBlogSlugs = Object.keys(
   JSON.parse(readFileSync(join(root, "fixtures", "blog-spam-scam-seo.json"), "utf8")).posts

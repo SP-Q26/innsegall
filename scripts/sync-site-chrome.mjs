@@ -6,17 +6,19 @@ import { readFileSync, writeFileSync, readdirSync, statSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { fontHeadLines, FONT_LINK_RE, FONT_STYLESHEET_HREF } from "./site-fonts.mjs";
+import { OG_URL, OG_ALT, TWITTER_SITE } from "./site-og-ver.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const web = join(root, "web");
-const OG_URL = "https://innsegall.com/og/innsegall-card.png?v=20261008d";
 const CSS_VER = 29;
+const APPLE_TOUCH_ICON = "/icons/apple-touch-icon.png";
+const SITE = "https://innsegall.com";
 
-/** Homepage link-preview copy (Facebook · X · iMessage). */
+/** Homepage link-preview copy (Facebook · X · LinkedIn · iMessage). */
 const HOME_SOCIAL = {
   title: "Innsegall · Know You're Okay",
   description:
-    "Scary popup or bad link? Run a calm check on your Mac · plain report · stays local until you share · free checkups 1st & 15th · not antivirus.",
+    "Fake virus popup or bad link on your Mac? Calm local Battle Scout · plain report · stays on your Mac until you share · free checkups 1st & 15th · not antivirus.",
 };
 
 const CANONICAL_HEADER = `<header class="site-header">
@@ -71,8 +73,9 @@ const OG_BLOCK = `  <meta property="og:image" content="${OG_URL}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:type" content="image/png">
-  <meta property="og:image:alt" content="Innsegall · Know you're okay · Macintosh triage">
-  <meta name="twitter:image" content="${OG_URL}">`;
+  <meta property="og:image:alt" content="${OG_ALT}">
+  <meta name="twitter:image" content="${OG_URL}">
+  <meta name="twitter:image:alt" content="${OG_ALT}">`;
 
 const NAV_SCRIPT = `  <script src="/innsegall-locale.js?v=${CSS_VER}" defer></script>
   <script src="/innsegall-nav.js?v=${CSS_VER}" defer></script>`;
@@ -85,7 +88,7 @@ const VERCEL_ANALYTICS = `  <script defer src="/_vercel/insights/script.js"></sc
 
 function faviconBlock(manifestHref = "/site.webmanifest") {
   return `  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="${APPLE_TOUCH_ICON}" sizes="180x180">
   <link rel="manifest" href="${manifestHref}">`;
 }
 
@@ -127,14 +130,16 @@ const CANONICAL_FOOTER = `    <footer class="site-footer">
       </div>
     </footer>`;
 
-const SITE = "https://innsegall.com";
-const OG_ALT = "Innsegall · Know you're okay · Macintosh triage";
-const TWITTER_SITE = "@innsegall";
-
 function escAttr(s) {
   return String(s || "")
     .replace(/&/g, "&amp;")
     .replace(/"/g, "&quot;");
+}
+
+function decodeAttr(s) {
+  return String(s || "")
+    .replace(/&quot;/g, '"')
+    .replace(/&amp;/g, "&");
 }
 
 function readMeta(html, key) {
@@ -142,7 +147,8 @@ function readMeta(html, key) {
     `<meta (?:property|name)="${key}" content="([^"]*)"`,
     "i"
   );
-  return html.match(re)?.[1] || "";
+  const raw = html.match(re)?.[1] || "";
+  return decodeAttr(raw);
 }
 
 function hasMeta(html, key) {
@@ -185,10 +191,26 @@ function walkHtml(dir, acc = []) {
   return acc;
 }
 
+function ogLocaleFromPath(filePath) {
+  const rel = filePath.replace(/\\/g, "/");
+  if (rel.includes("/es/")) return "es_ES";
+  if (rel.includes("/pt/")) return "pt_BR";
+  if (rel.includes("/fr/")) return "fr_FR";
+  if (rel.includes("/ar/")) return "ar_SA";
+  return "en_US";
+}
+
+function fixBrokenHreflang(html) {
+  return html.replace(
+    /(<link rel="alternate" hreflang="x-default" href="[^"]*">)\s*href="[^"]*">/gi,
+    "$1"
+  );
+}
+
 function fixSocialPreview(html, filePath) {
   if (html.includes('name="robots" content="noindex"')) return fixOg(html);
 
-  let out = fixOg(html);
+  let out = fixBrokenHreflang(fixOg(html));
   const rel = filePath.replace(/\\/g, "/");
   const isHome = rel.endsWith("web/index.html");
   const isArticle = rel.includes("/blog/") && !rel.endsWith("blog/index.html");
@@ -202,20 +224,25 @@ function fixSocialPreview(html, filePath) {
   if (isHome) {
     ogTitle = HOME_SOCIAL.title;
     ogDescription = HOME_SOCIAL.description;
+    out = out.replace(
+      /<meta name="description" content="[^"]*"/i,
+      `  <meta name="description" content="${escAttr(HOME_SOCIAL.description)}"`
+    );
   }
 
   out = ensureMeta(out, "og:type", isArticle ? "article" : "website");
   out = ensureMeta(out, "og:site_name", "Innsegall");
-  out = ensureMeta(out, "og:locale", "en_US");
+  out = replaceMeta(out, "og:locale", ogLocaleFromPath(filePath), true);
   out = replaceMeta(out, "og:title", ogTitle, true);
   out = replaceMeta(out, "og:description", ogDescription, true);
   if (ogUrl) out = replaceMeta(out, "og:url", ogUrl, true);
+  out = replaceMeta(out, "og:image:alt", OG_ALT, true);
 
   out = ensureMeta(out, "twitter:card", "summary_large_image", false);
   out = ensureMeta(out, "twitter:site", TWITTER_SITE, false);
   out = replaceMeta(out, "twitter:title", ogTitle, false);
   out = replaceMeta(out, "twitter:description", ogDescription, false);
-  out = ensureMeta(out, "twitter:image:alt", OG_ALT, false);
+  out = replaceMeta(out, "twitter:image:alt", OG_ALT, false);
   if (ogUrl) out = replaceMeta(out, "twitter:url", ogUrl, false);
 
   if (isArticle) {
@@ -429,6 +456,14 @@ function fixEnBlogLocaleSuggest(html, filePath) {
   return out;
 }
 
+function patchOrganizationLogo(html) {
+  if (!html.includes('"@type": "Organization"') || html.includes('"logo"')) return html;
+  return html.replace(
+    /("@type": "Organization"[^}]*"url": "https:\/\/innsegall\.com\/",)\s*\n(\s*"description")/,
+    `$1\n        "logo": "${SITE}/icons/apple-touch-icon.png",\n$2`
+  );
+}
+
 let changed = 0;
 for (const file of walkHtml(web)) {
   const before = readFileSync(file, "utf8");
@@ -442,6 +477,7 @@ for (const file of walkHtml(web)) {
     const isLocalePage = /^(es|pt|fr|ar)\//.test(rel);
     if (!isLocalePage) html = replaceHeader(html);
     html = fixSocialPreview(html, file);
+    if (file.endsWith(`${join("web", "index.html")}`)) html = patchOrganizationLogo(html);
     const manifestHref = file.endsWith(`${join("web", "companion.html")}`) ? "/companion.webmanifest" : "/site.webmanifest";
     html = fixFavicon(html, manifestHref);
     html = fixChrome(html);

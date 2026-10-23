@@ -1064,6 +1064,18 @@
     {
       "source": "/pt/blog/what-is-a-battle-scout",
       "destination": "/pt/blog/what-is-a-battle-scout.html"
+    },
+    {
+      "source": "/blog/field-glass-oct-23-2026",
+      "destination": "/blog/field-glass-oct-23-2026.html"
+    },
+    {
+      "source": "/es/blog/field-glass-oct-23-2026",
+      "destination": "/es/blog/field-glass-oct-23-2026.html"
+    },
+    {
+      "source": "/pt/blog/field-glass-oct-23-2026",
+      "destination": "/pt/blog/field-glass-oct-23-2026.html"
     }
   ]
 }

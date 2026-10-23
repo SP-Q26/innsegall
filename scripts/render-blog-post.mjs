@@ -3,8 +3,7 @@
 import { PRICING } from "../src/constants.mjs";
 import { CSS_VER } from "./site-css-ver.mjs";
 import { fontHeadLines } from "./site-fonts.mjs";
-
-const OG_URL = "https://innsegall.com/og/innsegall-card.png";
+import { OG_URL } from "./site-og-ver.mjs";
 
 /**
  * @param {{

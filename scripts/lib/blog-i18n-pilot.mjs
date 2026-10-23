@@ -7,6 +7,7 @@ const pilotPath = join(root, "fixtures", "blog-i18n-pilot-top20.json");
 const wave2Path = join(root, "fixtures", "blog-i18n-wave2.json");
 const wave3Path = join(root, "fixtures", "blog-i18n-wave3.json");
 const wave4Path = join(root, "fixtures", "blog-i18n-wave4.json");
+const wave5Path = join(root, "fixtures", "blog-i18n-wave5-growth.json");
 
 /** @type {string[]} */
 export const PILOT_BLOG_SLUGS = JSON.parse(readFileSync(pilotPath, "utf8")).slugs;
@@ -20,6 +21,9 @@ export const WAVE3_BLOG_SLUGS = JSON.parse(readFileSync(wave3Path, "utf8")).slug
 /** @type {string[]} */
 export const WAVE4_BLOG_SLUGS = JSON.parse(readFileSync(wave4Path, "utf8")).slugs;
 
+/** @type {string[]} */
+export const WAVE5_GROWTH_SLUGS = JSON.parse(readFileSync(wave5Path, "utf8")).slugs;
+
 /** Slugs that get the stronger “body reviewed” locale notice (pilot + waves). */
 export const BODY_REVIEWED_SLUGS = [
   ...new Set([
@@ -27,6 +31,7 @@ export const BODY_REVIEWED_SLUGS = [
     ...WAVE2_BLOG_SLUGS,
     ...WAVE3_BLOG_SLUGS,
     ...WAVE4_BLOG_SLUGS,
+    ...WAVE5_GROWTH_SLUGS,
   ]),
 ];
 
@@ -44,6 +49,10 @@ export function isWave3Slug(slug) {
 
 export function isWave4Slug(slug) {
   return WAVE4_BLOG_SLUGS.includes(slug);
+}
+
+export function isWave5GrowthSlug(slug) {
+  return WAVE5_GROWTH_SLUGS.includes(slug);
 }
 
 export function isBodyReviewedSlug(slug) {

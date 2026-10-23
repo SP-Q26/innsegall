@@ -10,7 +10,7 @@
 
 | Surface | URL | Notes |
 |---------|-----|--------|
-| Full blog mirror | `/es/blog/*` · `/pt/blog/*` | 66 posts · hreflang ↔ EN |
+| Full blog mirror | `/es/blog/*` · `/pt/blog/*` | **67** posts · hreflang ↔ EN |
 | Locale homes | `/es` · `/pt` | Hero + notice · body mostly EN below fold |
 | Picker | Header | `es` + `pt-BR` **live** · cookie + prefix swap |
 | Telemetry | `marketing_ping` | `locale` + `route_locale` on every ping |
@@ -25,7 +25,8 @@
 | **Wave 2 (20)** | `fixtures/blog-i18n-wave2.json` | Same pilot notice · iPhone/iPad + Chrome/Safari | `npm run build:blog-i18n-wave2` |
 | **Wave 3 (20)** | `fixtures/blog-i18n-wave3.json` | Same pilot notice · comparisons + hygiene + Voyage | `npm run build:blog-i18n-wave3` |
 | **Wave 4 (7)** | `fixtures/blog-i18n-wave4.json` | Same pilot notice · Field Glass + Field Desk remainder | `npm run build:blog-i18n-wave4` |
-| **Full blog** | 66 slugs | All on **body reviewed** notice tier | waves 1–4 complete |
+| **Wave 5 growth (1)** | `fixtures/blog-i18n-wave5-growth.json` | Same pilot notice · Oct 23 Field Glass (ClickFix / fake AI install) | `npm run build:blog-i18n-wave5` |
+| **Full blog** | 67 slugs | All on **body reviewed** notice tier | waves 1–5 complete |
 
 After any fixture change: **`npm run sync:blog-i18n`** · **`npm run sync:site-chrome`** · gates below.
 
@@ -41,7 +42,7 @@ On **English** `/blog/{slug}` only: if `navigator.language` is `es` or `pt`, a d
 
 ```bash
 cd innsegall
-npm run build:blog-i18n-wave4    # or wave3 / wave2 / pilot / full --force when needed
+npm run build:blog-i18n-wave5    # or wave4 / wave3 / wave2 / pilot / full --force when needed
 npm run sync:blog-i18n
 npm run sync:site-chrome
 npm run audit:i18n
@@ -49,6 +50,7 @@ npm run audit:i18n-pilot
 npm run audit:i18n-wave2
 npm run audit:i18n-wave3
 npm run audit:i18n-wave4
+npm run audit:i18n-wave5
 npm run audit:i18n-chrome
 npm run gate:launch
 ```

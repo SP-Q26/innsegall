@@ -12,6 +12,7 @@ import {
   WAVE2_BLOG_SLUGS,
   WAVE3_BLOG_SLUGS,
   WAVE4_BLOG_SLUGS,
+  WAVE5_GROWTH_SLUGS,
   isBodyReviewedSlug,
 } from "./lib/blog-i18n-pilot.mjs";
 import {
@@ -32,6 +33,7 @@ const pilotOnly = process.argv.includes("--pilot-only");
 const wave2Only = process.argv.includes("--wave2-only");
 const wave3Only = process.argv.includes("--wave3-only");
 const wave4Only = process.argv.includes("--wave4-only");
+const wave5Only = process.argv.includes("--wave5-only");
 const slugArg = process.argv.find((a) => a.startsWith("--slug="))?.split("=")[1];
 
 mkdirSync(outDir, { recursive: true });
@@ -54,7 +56,7 @@ function sleep(ms) {
 async function buildLocale(localeKey) {
   const bundlePath = join(outDir, `${localeKey}.bundle.json`);
   let bundle = { version: "2026-10-15", locale: localeKey, posts: {} };
-  const waveOnly = pilotOnly || wave2Only || wave3Only || wave4Only;
+  const waveOnly = pilotOnly || wave2Only || wave3Only || wave4Only || wave5Only;
   if (existsSync(bundlePath) && (!force || waveOnly)) {
     bundle = JSON.parse(readFileSync(bundlePath, "utf8"));
   }
@@ -69,7 +71,9 @@ async function buildLocale(localeKey) {
           ? WAVE3_BLOG_SLUGS
           : wave4Only
             ? WAVE4_BLOG_SLUGS
-            : listBlogSlugs(blogDir, readdirSync);
+            : wave5Only
+              ? WAVE5_GROWTH_SLUGS
+              : listBlogSlugs(blogDir, readdirSync);
   let n = 0;
   for (const slug of slugs) {
     if (bundle.posts[slug] && !force) continue;
@@ -92,7 +96,7 @@ async function buildLocale(localeKey) {
       description: desc,
       mainHtml,
       bodyReviewed:
-        pilotOnly || wave2Only || wave3Only || wave4Only || isBodyReviewedSlug(slug),
+        pilotOnly || wave2Only || wave3Only || wave4Only || wave5Only || isBodyReviewedSlug(slug),
     };
     n++;
     if (n % 5 === 0) {
