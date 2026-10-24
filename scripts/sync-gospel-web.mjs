@@ -13,6 +13,7 @@ import {
   renderAgentHeadLinks,
   buildInnsegallAiBus,
   buildAiDiscovery,
+  aiTxt,
 } from "../src/gospel.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -21,6 +22,7 @@ const web = join(root, "web");
 mkdirSync(join(web, ".well-known"), { recursive: true });
 writeFileSync(join(web, ".well-known", "innsegall-gospel.json"), gospelJson(false) + "\n", "utf8");
 writeFileSync(join(web, "llms.txt"), llmsTxt(), "utf8");
+writeFileSync(join(web, "ai.txt"), aiTxt(), "utf8");
 writeFileSync(
   join(web, "innsegall-ai-bus.json"),
   JSON.stringify(buildInnsegallAiBus(), null, 2) + "\n",

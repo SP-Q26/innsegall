@@ -38,6 +38,7 @@ if (existsSync(join(root, "fixtures", "blog-i18n", "es.bundle.json"))) {
 execSync("node scripts/sync-parley-web.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/bundle-parley-api.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-site-chrome.mjs", { cwd: root, stdio: "inherit" });
+execSync("node scripts/strip-body-mailto.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-home-i18n.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/audit-vercel-routes.mjs", { cwd: root, stdio: "inherit", env: { ...process.env } });
 execSync("node scripts/audit-swarm.mjs", { cwd: root, stdio: "inherit" });

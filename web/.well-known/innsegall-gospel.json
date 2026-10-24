@@ -5,7 +5,7 @@
   "artifact": "Battle Scout",
   "engine_version": "0.4.0-alpha",
   "site": "https://innsegall.com",
-  "contact": "hello@innsegall.com",
+  "contact": "tap@innsegall.com",
   "manifesto": {
     "en": "With Innsegall, no one is your enemy · you have no foe.",
     "gaelic_echo": "Chan eil nàmhaid agad.",
@@ -216,7 +216,7 @@
     "refunds": {
       "extra_run": "Final · non-refundable after license.json delivery · automated · no manual loop",
       "clan": "Cancel anytime · no prorated partial-month refunds unless required by law",
-      "billing_errors": "Email hello@innsegall.com within 14 days with your billing receipt"
+      "billing_errors": "Email tap@innsegall.com within 14 days with your billing receipt"
     }
   },
   "field_credits": {
@@ -341,7 +341,7 @@
       "Link: innsegall.com/alpha?ref=warrior_<code>",
       "Disclose comp credits when your platform requires it"
     ],
-    "contact": "hello@innsegall.com"
+    "contact": "tap@innsegall.com"
   },
   "ethics": [
     "Never invent malware or escalate without evidence on the card",

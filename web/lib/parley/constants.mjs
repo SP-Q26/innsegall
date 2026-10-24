@@ -90,7 +90,7 @@ export function gaelicMarkdown(vc) {
 /** Alpha pricing · local quota gate until Stripe */
 export const PRICING = {
   site_url: "https://innsegall.com",
-  contact_email: "hello@innsegall.com",
+  contact_email: "tap@innsegall.com",
   free: {
     label: "Free",
     scouts_per_month: 2,

@@ -31,7 +31,7 @@ function gaelicMarkdown(vc) {
 }
 var PRICING = {
   site_url: "https://innsegall.com",
-  contact_email: "hello@innsegall.com",
+  contact_email: "tap@innsegall.com",
   free: {
     label: "Free",
     scouts_per_month: 2,
@@ -191,7 +191,7 @@ var innsegall_ai_bus_default = {
   artifact: "Battle Scout",
   engine_version: "0.4.0-alpha",
   site: "https://innsegall.com",
-  contact: "hello@innsegall.com",
+  contact: "tap@innsegall.com",
   manifesto: "With Innsegall, no one is your enemy \xB7 you have no foe.",
   lane: {
     is: "Post-scare Macintosh triage \xB7 between popups and Genius Bar",
@@ -235,7 +235,7 @@ var innsegall_ai_bus_default = {
     refunds: {
       extra_run: "Final \xB7 non-refundable after license.json delivery \xB7 automated \xB7 no manual loop",
       clan: "Cancel anytime \xB7 no prorated partial-month refunds unless required by law",
-      billing_errors: "Email hello@innsegall.com within 14 days with your billing receipt"
+      billing_errors: "Email tap@innsegall.com within 14 days with your billing receipt"
     }
   },
   privacy_promise: {
@@ -518,7 +518,7 @@ var innsegall_ai_bus_default = {
     page: "https://innsegall.com/warriors",
     referral_format: "warrior_<your_code>"
   },
-  compiled_at: "2026-10-16"
+  compiled_at: "2026-10-24"
 };
 
 // web/lib/parley/parley-api.source.js

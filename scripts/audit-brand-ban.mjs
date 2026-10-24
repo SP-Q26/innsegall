@@ -14,7 +14,8 @@ const EXT = /\.(html|mjs|js|txt|json|sh)$/i;
 
 /** Retired terms · customer copy only (docs/ excluded). */
 export const BRAND_BAN = [
-  { id: "help_email", pattern: /help@innsegall\.com/i, note: "use hello@innsegall.com" },
+  { id: "help_email", pattern: /help@innsegall\.com/i, note: "use tap@innsegall.com" },
+  { id: "hello_email_retired", pattern: /hello@innsegall\.com/i, note: "use tap@innsegall.com" },
   { id: "xx_codename", pattern: /\bXX\s+(for\s+Mac|app)\b/i, note: "internal codename leak" },
   { id: "incident_card", pattern: /\bIncident Card\b/, note: "retired · Battle Scout" },
   { id: "run_the_check", pattern: /Run the check/i, note: "retired CTA · Send the scout" },
@@ -37,6 +38,7 @@ const LINE_ALLOW = [
   /Avoid.*Incident Card/,
   /not.*Run the check/i,
   /help@innsegall/,
+  /hello@innsegall/,
   /XX for Mac/,
   /2 free scouts/,
   /House Call/,

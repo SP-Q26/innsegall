@@ -20,6 +20,7 @@ try {
 const lanes = [
   { name: "Launch / automation", script: "audit-launch.mjs", score: "9.5" },
   { name: "SEO / discoverability", script: "audit-seo.mjs", score: "9.2" },
+  { name: "Contact inboxes (tap@ footer-only)", script: "audit-four-inboxes.mjs", score: "9.5" },
   { name: "Social previews", script: "audit-social-preview.mjs", score: "10" },
   { name: "AI-bus / gospel", script: "audit-ai-bus.mjs", score: "9.0" },
   { name: "AI handoff / triage paste", script: "audit-ai-handoff.mjs", score: "9.0" },

@@ -137,8 +137,8 @@ assert("passage upsell clan link", htmlEscalate.includes("/clan"));
 assert("passage upsell buy links", htmlEscalate.includes("buy=extra") && htmlEscalate.includes("buy=clan"));
 assert("backup playbook section", htmlEscalate.includes('id="section-backup-playbook"'));
 assert("backup time machine copy", htmlEscalate.includes("Time Machine"));
-assert("horn uses hello@", !htmlEscalate.includes("help@innsegall.com"));
-assert("horn uses hello@", htmlEscalate.includes("hello@innsegall.com"));
+assert("horn avoids help@", !htmlEscalate.includes("help@innsegall.com"));
+assert("horn uses tap@", htmlEscalate.includes("tap@innsegall.com"));
 
 import {
   checkScoutQuota,

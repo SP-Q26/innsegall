@@ -6,7 +6,7 @@ import { readFileSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { buildInnsegallAiBus } from "../src/gospel.mjs";
-import { ENGINE_VERSION } from "../src/constants.mjs";
+import { ENGINE_VERSION, PRICING } from "../src/constants.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const web = join(root, "web");
@@ -37,7 +37,7 @@ check("ai-bus schema", fileBus.schema === "innsegall-ai-bus");
 check("ai-bus version", fileBus.version === 1);
 check("ai-bus primary_cta", fileBus.primary_cta === "Send the scout");
 check("ai-bus engine_version", fileBus.engine_version === ENGINE_VERSION);
-check("ai-bus contact", fileBus.contact === "hello@innsegall.com");
+check("ai-bus contact", fileBus.contact === PRICING.contact_email);
 check(
   "ai-bus agent_surfaces",
   fileBus.agent_surfaces?.ai_bus === "#innsegall-ai-bus" &&

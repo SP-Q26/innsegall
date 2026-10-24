@@ -2,7 +2,7 @@
   "schema": "innsegall-ai-discovery",
   "version": 1,
   "site": "https://innsegall.com",
-  "contact": "hello@innsegall.com",
+  "contact": "tap@innsegall.com",
   "manifesto": "With Innsegall, no one is your enemy · you have no foe.",
   "read_order": [
     "https://innsegall.com/llms.txt",
@@ -43,5 +43,5 @@
     "sharing": "You choose export, sharing with family, or AI paste · never automatic.",
     "billing": "Stripe sees payment metadata only · not your scout contents."
   },
-  "compiled_at": "2026-10-17"
+  "compiled_at": "2026-10-24"
 }

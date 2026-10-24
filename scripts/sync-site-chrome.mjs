@@ -7,10 +7,12 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { fontHeadLines, FONT_LINK_RE, FONT_STYLESHEET_HREF } from "./site-fonts.mjs";
 import { OG_URL, OG_ALT, TWITTER_SITE } from "./site-og-ver.mjs";
+import { CONTACT_EMAIL, FOOTER_MAILTO_ANCHOR } from "./contact-email.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const web = join(root, "web");
 const CSS_VER = 29;
+
 const APPLE_TOUCH_ICON = "/icons/apple-touch-icon.png";
 const SITE = "https://innsegall.com";
 
@@ -118,7 +120,7 @@ const CANONICAL_FOOTER = `    <footer class="site-footer">
           <a class="nav-link nav-link--footer" href="https://github.com/SP-Q26/innsegall" rel="noopener noreferrer">Engine</a>
           <a class="nav-link nav-link--footer" href="/tos">Terms</a>
           <a class="nav-link nav-link--footer" href="/privacy">Privacy</a>
-          <a class="nav-link nav-link--footer" href="mailto:hello@innsegall.com">hello@</a>
+          <a class="nav-link nav-link--footer" href="mailto:tap@innsegall.com" id="footer-tap">tap@</a>
         </nav>
       </div>
       <p class="footer-note">Help articles · privacy-first · free checkups on the 1st &amp; 15th.</p>
@@ -371,12 +373,22 @@ function fixFooterWebCredit(html) {
   return out;
 }
 
+function fixFooterContactMailto(html) {
+  return html.replace(
+    /<a class="nav-link nav-link--footer" href="mailto:[^"]+"[^>]*>hello@<\/a>/g,
+    FOOTER_MAILTO_ANCHOR
+  );
+}
+
 function replaceFooter(html) {
   if (!html.includes('class="site-footer"')) return html;
+  let out = html;
   if (html.includes('class="footer-colophon"') && html.includes("The Isles Collective")) {
-    return fixFooterWebCredit(html);
+    out = fixFooterWebCredit(html);
+  } else {
+    out = html.replace(/<footer class="site-footer">[\s\S]*?<\/footer>/, CANONICAL_FOOTER);
   }
-  return html.replace(/<footer class="site-footer">[\s\S]*?<\/footer>/, CANONICAL_FOOTER);
+  return fixFooterContactMailto(out);
 }
 
 function fixFavicon(html, manifestHref = "/site.webmanifest") {
@@ -401,6 +413,7 @@ function fixSuccessPage(html) {
   let out = html;
   out = replaceHeader(out);
   out = fixOg(out);
+  out = fixFavicon(out);
   out = fixChrome(out);
   out = replaceFooter(out);
   if (!out.includes("innsegall-nav.js") && out.includes("</body>")) {
@@ -481,6 +494,20 @@ function patchOrganizationLogo(html) {
   );
 }
 
+function patchOrganizationContact(html) {
+  if (!html.includes('"@type": "Organization"') || html.includes('"email"')) return html;
+  if (html.includes('"logo":')) {
+    return html.replace(
+      /("logo": "https:\/\/innsegall\.com\/icons\/apple-touch-icon\.png",)\s*\n(\s*"description")/,
+      `$1\n        "email": "${CONTACT_EMAIL}",\n$2`
+    );
+  }
+  return html.replace(
+    /("url": "https:\/\/innsegall\.com\/",)\s*\n(\s*"description")/,
+    `$1\n        "email": "${CONTACT_EMAIL}",\n$2`
+  );
+}
+
 let changed = 0;
 for (const file of walkHtml(web)) {
   const before = readFileSync(file, "utf8");
@@ -494,7 +521,10 @@ for (const file of walkHtml(web)) {
     const isLocalePage = /^(es|pt|fr|ar)\//.test(rel);
     if (!isLocalePage) html = replaceHeader(html);
     html = fixSocialPreview(html, file);
-    if (file.endsWith(`${join("web", "index.html")}`)) html = patchOrganizationLogo(html);
+    if (file.endsWith(`${join("web", "index.html")}`)) {
+      html = patchOrganizationLogo(html);
+      html = patchOrganizationContact(html);
+    }
     const manifestHref = file.endsWith(`${join("web", "companion.html")}`) ? "/companion.webmanifest" : "/site.webmanifest";
     html = fixFavicon(html, manifestHref);
     html = fixChrome(html);

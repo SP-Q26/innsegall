@@ -8,7 +8,7 @@ export const ISLES_COLLECTIVE = {
   legal_name: "The Isles Collective",
   statement_prefix: "ISLES CO",
   support_url: "https://innsegall.com/tos",
-  support_email: "hello@innsegall.com",
+  support_email: "tap@innsegall.com",
 };
 
 /** @deprecated use islesCheckoutBrandingSettings from ./isles-stripe-checkout-branding.mjs */

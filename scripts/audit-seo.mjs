@@ -139,6 +139,14 @@ const homeTwImgAlt = home.match(/name="twitter:image:alt" content="([^"]*)"/)?.[
 check("index og:image:alt", homeOgAlt === OG_ALT);
 check("index twitter:image:alt matches og", homeTwImgAlt === homeOgAlt);
 check("index apple-touch-icon png", home.includes("/icons/apple-touch-icon.png"));
+check(
+  "all pages apple-touch png not svg",
+  !walkHtml(web).some((rel) => {
+    if (rel.includes("samples/")) return false;
+    const h = readFileSync(join(web, rel), "utf8");
+    return /rel="apple-touch-icon"[^>]*favicon\.svg/.test(h);
+  })
+);
 check("es home og:locale", readFileSync(join(web, "es/index.html"), "utf8").includes('og:locale" content="es_ES"'));
 check("pt home og:locale", readFileSync(join(web, "pt/index.html"), "utf8").includes('og:locale" content="pt_BR"'));
 

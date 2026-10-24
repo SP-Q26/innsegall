@@ -242,7 +242,7 @@ export const INNSEGALL_GOSPEL = {
     refunds: {
       extra_run: "Final · non-refundable after license.json delivery · automated · no manual loop",
       clan: "Cancel anytime · no prorated partial-month refunds unless required by law",
-      billing_errors: "Email hello@innsegall.com within 14 days with your billing receipt",
+      billing_errors: `Email ${PRICING.contact_email} within 14 days with your billing receipt`,
     },
   },
 
@@ -569,6 +569,21 @@ export function buildInnsegallAiBus() {
 }
 
 /** Head link tags for agent discovery · inject on high-traffic pages. */
+/** Plain discovery index at /ai.txt · contact from PRICING.contact_email. */
+export function aiTxt() {
+  const site = PRICING.site_url;
+  return `# Innsegall AI discovery · ${site}
+# Canonical agent gospel · read in order
+
+llms-txt: ${site}/llms.txt
+ai-discovery: ${site}/.well-known/ai-discovery.json
+gospel: ${site}/.well-known/innsegall-gospel.json
+ai-bus: ${site}/innsegall-ai-bus.json
+parley-api: ${site}/api/parley
+contact: ${PRICING.contact_email}
+`;
+}
+
 export function buildAiDiscovery() {
   const bus = buildInnsegallAiBus();
   const site = PRICING.site_url;

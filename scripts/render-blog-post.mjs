@@ -4,6 +4,7 @@ import { PRICING } from "../src/constants.mjs";
 import { CSS_VER } from "./site-css-ver.mjs";
 import { fontHeadLines } from "./site-fonts.mjs";
 import { OG_URL } from "./site-og-ver.mjs";
+import { APPLE_TOUCH_LINK, FOOTER_MAILTO_ANCHOR } from "./contact-email.mjs";
 
 /**
  * @param {{
@@ -54,7 +55,7 @@ export function renderBlogPostHtml(opts) {
   <link rel="alternate" type="text/plain" href="https://innsegall.com/llms.txt" title="Innsegall · AI agent gospel (llms.txt)">
   <meta name="innsegall:agent-hint" content="${escapeHtml(opts.agentHint)}">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/favicon.svg">
+${APPLE_TOUCH_LINK}
   <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="/innsegall.css?v=${CSS_VER}">
 ${fontHeadLines()}
@@ -142,7 +143,7 @@ ${fontHeadLines()}
           <a class="nav-link nav-link--footer" href="/blog">Report</a>
           <a class="nav-link nav-link--footer" href="/tos">Terms</a>
           <a class="nav-link nav-link--footer" href="/privacy">Privacy</a>
-          <a class="nav-link nav-link--footer" href="mailto:hello@innsegall.com">hello@</a>
+          ${FOOTER_MAILTO_ANCHOR}
         </nav>
       </div>
       <p class="footer-note">Field Report · anonymized scout digests · <strong>Voyage</strong> on the 1st &amp; 15th.</p>
