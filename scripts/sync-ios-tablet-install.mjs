@@ -191,9 +191,21 @@ function ensureInstallPage(filename, deviceKey, route) {
   html = replaceBlock(html, PAGE_START, PAGE_END, renderInstallPage(deviceKey));
   html = patchInstallHead(html, deviceKey, route);
   writeFileSync(path, html, "utf8");
+  mirrorInstallNestedPath(html, route);
   ensureRewrite(route, `/${filename}`);
   ensureSitemap(`${SITE}${route}`);
   console.log(`sync-ios-tablet-install · ${filename}`);
+}
+
+/** cleanUrls: /install/ios must be install/ios.html (install.html shadows rewrites). */
+function mirrorInstallNestedPath(html, route) {
+  const m = route.match(/^\/install\/(ios|tablet)$/);
+  if (!m) return;
+  const nestedDir = join(web, "install");
+  mkdirSync(nestedDir, { recursive: true });
+  const nestedPath = join(nestedDir, `${m[1]}.html`);
+  writeFileSync(nestedPath, html, "utf8");
+  console.log(`sync-ios-tablet-install · install/${m[1]}.html`);
 }
 
 function patchCompanion() {

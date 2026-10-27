@@ -10,8 +10,8 @@
 
 | Metric | Count |
 |--------|------:|
-| HTML surfaces | 232 |
-| Indexable marketing + blog | 230 |
+| HTML surfaces | 234 |
+| Indexable marketing + blog | 232 |
 | Blog posts | 68 |
 | P0 inventory issues | 0 |
 | Sitemap URLs | 239 |
@@ -173,6 +173,8 @@
 | `/guide` | ✓ | ✓ | · | · | 119 | ok |
 | `/install` | ✓ | ✓ | · | · | 120 | ok |
 | `/install/ios` | ✓ | ✓ | · | · | 140 | ok |
+| `/install/ios` | ✓ | ✓ | · | · | 140 | ok |
+| `/install/tablet` | ✓ | ✓ | · | · | 138 | ok |
 | `/install/tablet` | ✓ | ✓ | · | · | 138 | ok |
 | `/ios` | ✓ | ✓ | · | · | 151 | ok |
 | `/map` | ✓ | ✓ | · | · | 137 | ok |

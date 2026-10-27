@@ -47,6 +47,8 @@ const tablet = readFileSync(join(web, "tablet.html"), "utf8");
 check("ios install-companion", ios.includes('id="install-companion"'));
 check("tablet install-companion", tablet.includes('id="install-companion"'));
 check("install-ios exists", existsSync(join(web, "install-ios.html")));
+check("install/ios nested route", existsSync(join(web, "install", "ios.html")));
+check("install/tablet nested route", existsSync(join(web, "install", "tablet.html")));
 check("install-tablet exists", existsSync(join(web, "install-tablet.html")));
 
 const vercel = readFileSync(join(web, "vercel.json"), "utf8");

@@ -3,7 +3,7 @@
   "short_name": "Innsegall",
   "description": "Battle Scout inbox on iPhone and iPad · Mac runs the scout · paste stays on your device.",
   "start_url": "/companion",
-  "scope": "/companion",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#0B1D2E",
   "theme_color": "#0B1D2E",

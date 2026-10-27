@@ -2298,8 +2298,7 @@ button.innsegall-checkout:disabled {
   font-size: clamp(2rem, 6.5vw, 3.25rem);
   font-weight: 700;
   line-height: 1.08;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
   margin: 0 0 var(--space-4);
   color: var(--text-primary);
 }

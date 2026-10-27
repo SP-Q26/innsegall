@@ -76,8 +76,16 @@ function resolvePageFile(path) {
   }
   if (path === "/blog") return join(web, "blog", "index.html");
   if (path.startsWith("/blog/")) return join(web, path.slice(1) + ".html");
-  if (path === "/install/ios") return join(web, "install-ios.html");
-  if (path === "/install/tablet") return join(web, "install-tablet.html");
+  if (path === "/install/ios") {
+    const nested = join(web, "install", "ios.html");
+    if (existsSync(nested)) return nested;
+    return join(web, "install-ios.html");
+  }
+  if (path === "/install/tablet") {
+    const nested = join(web, "install", "tablet.html");
+    if (existsSync(nested)) return nested;
+    return join(web, "install-tablet.html");
+  }
   return join(web, path.replace(/^\//, "") + ".html");
 }
 
