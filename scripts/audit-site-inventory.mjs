@@ -36,12 +36,14 @@ const pages = walkHtml(web)
   .map((abs) => {
     const rel = relative(web, abs).replace(/\\/g, "/");
     const html = readFileSync(abs, "utf8");
-    const route =
+    let route =
       rel === "index.html"
         ? "/"
         : rel.endsWith("/index.html")
           ? `/${rel.replace(/\/index\.html$/, "")}`
           : `/${rel.replace(/\.html$/, "")}`;
+    if (rel === "install-ios.html") route = "/install/ios";
+    if (rel === "install-tablet.html") route = "/install/tablet";
     const title = html.match(/<title>([^<]*)<\/title>/i)?.[1] || "";
     const desc = html.match(/<meta name="description" content="([^"]*)"/)?.[1] || "";
     const canonical = html.match(/rel="canonical" href="([^"]+)"/)?.[1] || "";

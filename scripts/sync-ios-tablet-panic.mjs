@@ -94,6 +94,7 @@ function renderPanicHub(deviceKey) {
         <a class="panic-sticky-link" href="#bad-link">Bad link</a>
         <a class="panic-sticky-link" href="#bad-email">Email</a>
         <a class="panic-sticky-link" href="#bad-download">Download</a>
+        <a class="panic-sticky-link" href="#install-companion">Install</a>
         <a class="panic-sticky-link" href="/companion">Companion</a>
       </div>`;
 

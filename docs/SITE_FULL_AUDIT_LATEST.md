@@ -1,6 +1,6 @@
 # Innsegall.com · full site audit
 
-**Generated:** 2026-10-24 · `node scripts/audit-site-inventory.mjs`  
+**Generated:** 2026-10-27 · `node scripts/audit-site-inventory.mjs`  
 **Project:** Vercel `innsegall_fe` · root `web/`  
 **Commands:** `npm run audit:site` · `npm run gate:launch` · `npm run smoke:live`
 
@@ -10,11 +10,11 @@
 
 | Metric | Count |
 |--------|------:|
-| HTML surfaces | 227 |
-| Indexable marketing + blog | 225 |
-| Blog posts | 67 |
+| HTML surfaces | 232 |
+| Indexable marketing + blog | 230 |
+| Blog posts | 68 |
 | P0 inventory issues | 0 |
-| Sitemap URLs | 234 |
+| Sitemap URLs | 239 |
 
 **Operator:** Stripe LIVE flip in progress · push `main` after `npm run predeploy` · blog is primary float-mode SEO lever.
 
@@ -49,6 +49,7 @@
 | `/blog/field-glass-oct-14-2026` | ✓ | ✓ | ✓ | ✓ | 136 | ok |
 | `/blog/field-glass-oct-2-2026` | ✓ | ✓ | ✓ | ✓ | 120 | ok |
 | `/blog/field-glass-oct-23-2026` | ✓ | ✓ | ✓ | ✓ | 153 | ok |
+| `/blog/field-glass-oct-25-2026` | ✓ | ✓ | ✓ | ✓ | 143 | ok |
 | `/blog/field-glass-oct-7-2026` | ✓ | ✓ | ✓ | ✓ | 157 | ok |
 | `/blog/field-glass-oct-8-2026` | ✓ | ✓ | ✓ | ✓ | 150 | ok |
 | `/blog/field-glass-sep-19-2026` | ✓ | ✓ | ✓ | ✓ | 142 | ok |
@@ -121,6 +122,7 @@
 | `/es/blog/field-glass-oct-14-2026` | ✓ | ✓ | · | · | 155 | ok |
 | `/es/blog/field-glass-oct-2-2026` | ✓ | ✓ | · | · | 162 | ok |
 | `/es/blog/field-glass-oct-23-2026` | ✓ | ✓ | · | · | 157 | ok |
+| `/es/blog/field-glass-oct-25-2026` | ✓ | ✓ | · | · | 162 | ok |
 | `/es/blog/field-glass-oct-7-2026` | ✓ | ✓ | · | · | 158 | ok |
 | `/es/blog/field-glass-oct-8-2026` | ✓ | ✓ | · | · | 160 | ok |
 | `/es/blog/field-glass-sep-19-2026` | ✓ | ✓ | · | · | 158 | ok |
@@ -170,7 +172,9 @@
 | `/fr` | ✓ | ✓ | · | · | 158 | ok |
 | `/guide` | ✓ | ✓ | · | · | 119 | ok |
 | `/install` | ✓ | ✓ | · | · | 120 | ok |
-| `/ios` | ✓ | ✓ | · | · | 158 | ok |
+| `/install/ios` | ✓ | ✓ | · | · | 140 | ok |
+| `/install/tablet` | ✓ | ✓ | · | · | 138 | ok |
+| `/ios` | ✓ | ✓ | · | · | 151 | ok |
 | `/map` | ✓ | ✓ | · | · | 137 | ok |
 | `/msp` | ✓ | ✓ | · | · | 139 | ok |
 | `/privacy` | ✓ | ✓ | · | · | 153 | ok |
@@ -197,6 +201,7 @@
 | `/pt/blog/field-glass-oct-14-2026` | ✓ | ✓ | · | · | 156 | ok |
 | `/pt/blog/field-glass-oct-2-2026` | ✓ | ✓ | · | · | 156 | ok |
 | `/pt/blog/field-glass-oct-23-2026` | ✓ | ✓ | · | · | 157 | ok |
+| `/pt/blog/field-glass-oct-25-2026` | ✓ | ✓ | · | · | 143 | ok |
 | `/pt/blog/field-glass-oct-7-2026` | ✓ | ✓ | · | · | 157 | ok |
 | `/pt/blog/field-glass-oct-8-2026` | ✓ | ✓ | · | · | 157 | ok |
 | `/pt/blog/field-glass-sep-19-2026` | ✓ | ✓ | · | · | 162 | ok |
@@ -246,7 +251,7 @@
 | `/stability` | ✓ | ✓ | · | · | 125 | ok |
 | `/success` | no | ✗ | · | · | 101 | ok |
 | `/supplies` | ✓ | ✓ | · | · | 127 | ok |
-| `/tablet` | ✓ | ✓ | · | · | 145 | ok |
+| `/tablet` | ✓ | ✓ | · | · | 143 | ok |
 | `/tos` | ✓ | ✓ | · | · | 143 | ok |
 | `/warriors` | ✓ | ✓ | · | · | 140 | ok |
 | `/watch` | ✓ | ✓ | · | · | 162 | ok |

@@ -11,7 +11,7 @@ import { CONTACT_EMAIL, FOOTER_MAILTO_ANCHOR } from "./contact-email.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const web = join(root, "web");
-const CSS_VER = 29;
+const CSS_VER = 31;
 
 const APPLE_TOUCH_ICON = "/icons/apple-touch-icon.png";
 const SITE = "https://innsegall.com";
@@ -51,6 +51,7 @@ const CANONICAL_HEADER = `<header class="site-header">
       <div class="header-end">
         <nav class="header-nav" aria-label="Site">
           <a class="nav-link" href="/alpha">Get started</a>
+          <a class="nav-link" href="/ios">iPhone/iPad</a>
           <a class="nav-link" href="/watch">Trending</a>
           <a class="nav-link" href="/blog">Help</a>
           <a class="nav-link" href="/clan">Clan</a>

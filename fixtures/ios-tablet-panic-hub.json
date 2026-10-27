@@ -110,7 +110,7 @@
       "sibling_href": "/tablet#bad-link",
       "sibling_label": "iPad & tablet",
       "lead_panic": "<strong>Macintosh runs the scout.</strong> iPhone holds the receipt · read it · paste it · breathe. <strong>Scared on this phone?</strong> Pick what happened below · we guide this device first.",
-      "meta_description": "Bad link, email, or download on iPhone? Calm step-by-step on device first · honest Mac scout limits · companion reads Battle Scouts · Know you're okay."
+      "meta_description": "Bad link, email, or download on iPhone? Calm Safari steps on device first · honest Mac scout limits · companion reads Battle Scouts · Know you're okay."
     },
     "tablet": {
       "page": "/tablet",
@@ -120,7 +120,7 @@
       "sibling_href": "/ios#bad-link",
       "sibling_label": "iPhone",
       "lead_panic": "Tablet is for <strong>reading the receipt</strong> · split-screen with chat · paste triage into any AI. The scout runs on your <strong>Mac</strong>. <strong>Scared on this iPad?</strong> Pick what happened below · we guide the tablet first.",
-      "meta_description": "Bad link, email, or download on iPad? Guided steps on this tablet first · Mac scout for the computer · companion inbox · Know you're okay."
+      "meta_description": "Bad link, email, or download on iPad? Calm Safari steps on this tablet first · Mac scout for the computer · companion inbox · Know you're okay."
     }
   }
 }

@@ -51,6 +51,7 @@ const lanes = [
   { name: "Workspace hygiene", script: "audit-workspace-hygiene.mjs", score: "9.5" },
   { name: "Blog funnel (Phase 7 W1a)", script: "audit-blog-funnel.mjs", score: "9.5" },
   { name: "Visit → install conversion", script: "audit-funnel-conversion.mjs", score: "9.5" },
+  { name: "Home panic funnel", script: "audit-home-panic-funnel.mjs", score: "9.5" },
   { name: "Operator GTM scope", script: "audit-gtm-scope.mjs", score: "9.5" },
   { name: "EN post-scare coverage (i18n gate)", script: "audit-en-post-scare-coverage.mjs", score: "9.5" },
   { name: "i18n readiness (EN first)", script: "audit-i18n-readiness.mjs", score: "9.5" },

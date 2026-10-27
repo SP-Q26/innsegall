@@ -13,6 +13,7 @@ const steps = [
   ["sync:blog-intro-leads", "npm run sync:blog-intro-leads"],
   ["sync:blog-brand", "npm run sync:blog-brand"],
   ["sync:pages-seo", "npm run sync:pages-seo"],
+  ["sync:home-panic-funnel", "node scripts/sync-home-panic-funnel.mjs"],
   ["sync-site-chrome", "node scripts/sync-site-chrome.mjs"],
   ["sync-gospel", "npm run sync-gospel"],
 ];

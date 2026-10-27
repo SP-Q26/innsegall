@@ -19,7 +19,12 @@ import { APPLE_TOUCH_LINK, FOOTER_MAILTO_ANCHOR } from "./contact-email.mjs";
  */
 export function renderBlogPostHtml(opts) {
   const url = `${PRICING.site_url}/blog/${opts.slug}`;
-  const label = opts.reportType === "issue_spotlight" ? "Issue spotlight" : "Field Report";
+  const label =
+    opts.reportType === "issue_spotlight"
+      ? "Issue spotlight"
+      : opts.reportType === "field_glass"
+        ? "Field Glass"
+        : "Field Report";
 
   return `<!DOCTYPE html>
 <html lang="en">

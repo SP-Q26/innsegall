@@ -35,10 +35,15 @@ const variants = JSON.parse(
 check("alpha sample before gatekeeper", alpha.indexOf("battle-scout-sample") < alpha.indexOf("gatekeeper"));
 check("alpha hero sample CTA", /#battle-scout-sample|battle-scout-demo/.test(alpha.slice(0, alpha.indexOf("gatekeeper"))));
 check("alpha lay of the land headline", /lay of the land/i.test(alpha));
+const aboveProblem = index.slice(0, index.indexOf("problem-title"));
+check("index panic CTA above fold", /href="#start-here"/.test(aboveProblem) && /What scared you/.test(aboveProblem));
+check("index avenue ios paths above fold", /href="\/ios#/.test(aboveProblem));
 check(
-  "index sample link in hero",
-  /samples\/battle-scout-demo/.test(index.slice(0, index.indexOf("problem-title")))
+  "index sample in start-here options",
+  /samples\/battle-scout-demo/.test(index) && index.includes("home-more-options")
 );
+check("index start-here avenue selector", index.includes('id="start-here"') && index.includes("avenue-selector"));
+check("index start-here before hero", index.indexOf('id="start-here"') < index.indexOf('class="hero"'));
 check("nav wireInstallIntent", nav.includes("wireInstallIntentLinks"));
 check("nav copy_terminal intent", nav.includes('"copy_terminal"') || nav.includes("'copy_terminal'"));
 check("nav sample_report intent", nav.includes("sample_report"));

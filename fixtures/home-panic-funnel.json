@@ -1,0 +1,58 @@
+{
+  "version": "2026-10-28",
+  "section_label": "Start here",
+  "title": "What scared you?",
+  "lead": "Tap the one that fits · we open calm steps on the next page · not a sales funnel · not antivirus.",
+  "avenue_label": "Pick your situation",
+  "avenues": [
+    { "href": "/ios#fake-popup", "label": "Fake virus or security popup", "device": "iPhone" },
+    { "href": "/ios#bad-link", "label": "Clicked a bad link", "device": "iPhone" },
+    { "href": "/tablet#fake-popup", "label": "Fake popup or scary page", "device": "iPad" },
+    { "href": "/tablet#bad-link", "label": "Bad link on Safari", "device": "iPad" },
+    { "href": "/blog/fake-virus-popup-macintosh", "label": "Fake virus popup in browser", "device": "Mac" },
+    { "href": "/blog/clicked-suspicious-link-macintosh", "label": "Clicked a suspicious link", "device": "Mac" },
+    { "href": "/blog/pasted-terminal-command-mac-scare", "label": "Pasted something in Terminal", "device": "Mac" },
+    { "href": "/blog/someone-remoted-into-my-mac", "label": "Someone may be on my Mac", "device": "Mac" },
+    { "href": "/ios#typed-password", "label": "Typed password on a scam site", "device": "iPhone" },
+    { "href": "/blog/check-parent-mac-after-scare", "label": "Parent or partner Mac scare", "device": "Household" }
+  ],
+  "device_selector_label": "Not sure · pick device",
+  "device_selector_lead": "One door · then the same calm guides.",
+  "lanes": [
+    {
+      "id": "iphone",
+      "title": "iPhone",
+      "body": "Steps on this phone first · Companion optional after.",
+      "href": "/ios#bad-link",
+      "cta": "Open iPhone steps",
+      "secondary_href": "/install/ios",
+      "secondary_cta": "Add Companion"
+    },
+    {
+      "id": "ipad",
+      "title": "iPad",
+      "body": "Tablet steps · split-screen with chat later.",
+      "href": "/tablet#bad-link",
+      "cta": "Open iPad steps",
+      "secondary_href": "/install/tablet",
+      "secondary_cta": "Add Companion"
+    },
+    {
+      "id": "mac",
+      "title": "This Mac",
+      "body": "Read-only scout · plain Battle Scout receipt.",
+      "primary_href": "/alpha",
+      "primary_cta": "Send the scout",
+      "secondary_href": "/samples/battle-scout-demo",
+      "secondary_cta": "Sample first"
+    }
+  ],
+  "more_options_label": "More options",
+  "more_options": [
+    { "href": "/watch", "label": "Today's Field Glass desk" },
+    { "href": "/blog", "label": "All help articles" },
+    { "href": "/install", "label": "Install on Mac" },
+    { "href": "/companion", "label": "Companion inbox" },
+    { "href": "/boat", "label": "What Innsegall is" }
+  ]
+}

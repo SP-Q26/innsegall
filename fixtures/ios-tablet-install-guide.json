@@ -1,0 +1,88 @@
+{
+  "version": "2026-10-27",
+  "honesty": "No App Store app today · Innsegall does not scan your phone or tablet · the Mac runs the scout · this install is <strong>Companion on Home Screen</strong> plus a pinned panic guide.",
+  "companion_track": {
+    "title": "Install Companion (Battle Scout inbox)",
+    "lead": "Takes about two minutes · data stays on this device · not antivirus.",
+    "steps": [
+      {
+        "title": "Open Companion in Safari",
+        "body": "Type or tap <a href=\"/companion\">innsegall.com/companion</a> · use <strong>Safari</strong> (Chrome on iOS cannot Add to Home Screen the same way)."
+      },
+      {
+        "title": "Add to Home Screen",
+        "body": "Tap the <strong>Share</strong> button (square with up arrow) · scroll · <strong>Add to Home Screen</strong> · name it <em>Innsegall</em> · Add."
+      },
+      {
+        "title": "Open from the icon",
+        "body": "Launch from your Home Screen · full-screen inbox · import paste from your Mac scout · tap <strong>Load sample</strong> to see how it looks."
+      },
+      {
+        "title": "After a Mac scout",
+        "body": "On the Mac Battle Scout · tap <strong>Copy for AI</strong> · paste into Companion · or share the JSON to Files and use <strong>Files</strong> import."
+      }
+    ]
+  },
+  "panic_pin_track": {
+    "title": "Pin this panic guide",
+    "steps": [
+      {
+        "title": "Bookmark this page",
+        "body": "Share → <strong>Add Bookmark</strong> · or Add to Home Screen on <a href=\"/ios\">iPhone guide</a> / <a href=\"/tablet\">iPad guide</a> separately."
+      },
+      {
+        "title": "Use the jump chips",
+        "body": "Bad link · email · download · fake popup · scroll to your scenario · follow steps on <strong>this device first</strong>."
+      }
+    ]
+  },
+  "settings_tour": {
+    "title": "Where to look in Settings (after a scare)",
+    "items": [
+      {
+        "label": "Safari · block pop-ups",
+        "path": "Settings → Safari → Block Pop-ups"
+      },
+      {
+        "label": "Safari · extensions",
+        "path": "Settings → Safari → Extensions"
+      },
+      {
+        "label": "Safari · clear one site",
+        "path": "Settings → Safari → Advanced → Website Data → search the site → Remove"
+      },
+      {
+        "label": "Unknown profiles",
+        "path": "Settings → General → VPN &amp; Device Management"
+      },
+      {
+        "label": "Downloads",
+        "path": "Files app → Downloads · delete without opening"
+      },
+      {
+        "label": "Notifications spam",
+        "path": "Settings → Notifications → Safari · turn off unwanted alerts"
+      }
+    ]
+  },
+  "devices": {
+    "ios": {
+      "page": "/ios",
+      "install_page": "/install/ios",
+      "device_name": "iPhone",
+      "page_title": "Install on iPhone",
+      "hero": "Put Innsegall on your iPhone · Companion inbox + panic guide · no App Store.",
+      "add_to_home_note": "On iPhone the Share button is at the <strong>bottom</strong> of Safari (or top on iPad in landscape).",
+      "tablet_tip": null
+    },
+    "tablet": {
+      "page": "/tablet",
+      "install_page": "/install/tablet",
+      "device_name": "iPad",
+      "page_title": "Install on iPad",
+      "hero": "Put Innsegall on your iPad · Companion inbox + split-screen with chat · no App Store.",
+      "add_to_home_note": "On iPad use Share (top right) → <strong>Add to Home Screen</strong>.",
+      "tablet_tip": "Tip: open Companion in Safari side-by-side with Messages or ChatGPT · paste triage without leaving the thread."
+    }
+  }
+}

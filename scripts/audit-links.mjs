@@ -14,6 +14,8 @@ const PAGE_ROUTES = new Set([
   "/guide",
   "/stability",
   "/install",
+  "/install/ios",
+  "/install/tablet",
   "/ios",
   "/companion",
   "/supplies",
@@ -74,6 +76,8 @@ function resolvePageFile(path) {
   }
   if (path === "/blog") return join(web, "blog", "index.html");
   if (path.startsWith("/blog/")) return join(web, path.slice(1) + ".html");
+  if (path === "/install/ios") return join(web, "install-ios.html");
+  if (path === "/install/tablet") return join(web, "install-tablet.html");
   return join(web, path.replace(/^\//, "") + ".html");
 }
 

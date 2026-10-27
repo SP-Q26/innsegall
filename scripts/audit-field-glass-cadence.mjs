@@ -25,6 +25,9 @@ const maxDays = hub.max_field_glass_age_days || 14;
 const latestMs = Date.parse(latest.date);
 const ageDays = (Date.now() - latestMs) / (1000 * 60 * 60 * 24);
 check(`latest Field Glass within ${maxDays}d`, ageDays <= maxDays + 1, `${Math.round(ageDays)}d old`);
+if (ageDays > 1.25) {
+  console.warn(`warn: Field Glass is ${Math.round(ageDays * 10) / 10}d old · target daily desk (npm run flywheel:daily)`);
+}
 
 check("field-desk points at latest slug", desk.html.includes(`/blog/${latest.slug}`));
 check("field-desk version bumped", desk.version === latest.date || desk.version >= latest.date);

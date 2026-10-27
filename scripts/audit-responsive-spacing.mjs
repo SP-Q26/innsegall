@@ -37,7 +37,9 @@ check("index field guides grid class", index.includes("card-grid--guides"));
 check(`index css cache v${CSS_HREF.split("=")[1]}`, index.includes(CSS_HREF));
 
 const HOME_FLOW = [
+  'id="start-here"',
   'class="hero"',
+  'id="problem-title"',
   'id="lay-of-the-land"',
   'id="how-it-works"',
   'id="ai-share"',

@@ -1076,6 +1076,26 @@
     {
       "source": "/pt/blog/field-glass-oct-23-2026",
       "destination": "/pt/blog/field-glass-oct-23-2026.html"
+    },
+    {
+      "source": "/blog/field-glass-oct-25-2026",
+      "destination": "/blog/field-glass-oct-25-2026.html"
+    },
+    {
+      "source": "/es/blog/field-glass-oct-25-2026",
+      "destination": "/es/blog/field-glass-oct-25-2026.html"
+    },
+    {
+      "source": "/pt/blog/field-glass-oct-25-2026",
+      "destination": "/pt/blog/field-glass-oct-25-2026.html"
+    },
+    {
+      "source": "/install/ios",
+      "destination": "/install-ios.html"
+    },
+    {
+      "source": "/install/tablet",
+      "destination": "/install-tablet.html"
     }
   ]
 }

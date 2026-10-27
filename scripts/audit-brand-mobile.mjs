@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /** iOS · tablet · companion · on-brand mobile lattice. */
-import { readFileSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -36,6 +36,10 @@ check("ios bad-email anchor", ios.includes('id="bad-email"'));
 check("ios bad-download anchor", ios.includes('id="bad-download"'));
 check("ios honesty", ios.includes("does not scan your iPhone"));
 check("ios sticky bar", ios.includes("panic-sticky-bar"));
+check("ios install walkthrough", ios.includes('id="install-companion"'));
+check("tablet install walkthrough", tablet.includes('id="install-companion"'));
+check("install-ios page", existsSync(join(web, "install-ios.html")));
+check("install-tablet page", existsSync(join(web, "install-tablet.html")));
 check("tablet panic hub", tablet.includes("panic-hub") && tablet.includes('id="bad-link"'));
 check("tablet bad-email anchor", tablet.includes('id="bad-email"'));
 check("tablet honesty", tablet.includes("does not scan your iPad"));

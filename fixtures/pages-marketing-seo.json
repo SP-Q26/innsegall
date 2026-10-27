@@ -10,6 +10,8 @@
     "companion.html": { "breadcrumb": "Companion", "webApplication": true },
     "guide.html": { "breadcrumb": "Guide", "aboutSoftware": true },
     "install.html": { "breadcrumb": "Install help", "aboutSoftware": true },
+    "install-ios.html": { "breadcrumb": "Install on iPhone", "aboutSoftware": false },
+    "install-tablet.html": { "breadcrumb": "Install on iPad", "aboutSoftware": false },
     "ios.html": { "breadcrumb": "iOS companion", "aboutSoftware": false },
     "tablet.html": { "breadcrumb": "iPad & tablet", "aboutSoftware": false },
     "map.html": { "breadcrumb": "Sea map", "aboutSoftware": true },

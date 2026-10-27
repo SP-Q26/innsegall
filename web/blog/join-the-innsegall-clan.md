@@ -269,3 +269,36 @@ If you are the person everyone texts when Safari acts weird, you are already **c
 - **Oct 23 desk** · [Field Glass](/blog/field-glass-oct-23-2026) · [Watch](/watch)
 - **Lane** · [Is Innsegall for you?](/boat)
 - **Pricing** · [Supplies](/supplies)
+
+---
+
+## Helpful links
+
+- **Worried after a scare?** · [Send the scout](/alpha)
+- **Sample + install** · [Demo receipt](/samples/battle-scout-demo) · [Install](/install)
+- **Fake update pages** · [Profiles / System Settings scams](/blog/mac-configuration-profile-scam)
+- **Oct 25 desk** · [Field Glass](/blog/field-glass-oct-25-2026) · [Watch](/watch)
+- **Lane** · [Is Innsegall for you?](/boat)
+- **Pricing** · [Supplies](/supplies)
+
+---
+
+## Helpful links
+
+- **Worried after a scare?** · [Send the scout](/alpha)
+- **Sample + install** · [Demo receipt](/samples/battle-scout-demo) · [Install](/install)
+- **Fake update pages** · [Profiles / System Settings scams](/blog/mac-configuration-profile-scam)
+- **Oct 25 desk** · [Field Glass](/blog/field-glass-oct-25-2026) · [Watch](/watch)
+- **Lane** · [Is Innsegall for you?](/boat)
+- **Pricing** · [Supplies](/supplies)
+
+---
+
+## Helpful links
+
+- **Worried after a scare?** · [Send the scout](/alpha)
+- **Sample + install** · [Demo receipt](/samples/battle-scout-demo) · [Install](/install)
+- **Fake update pages** · [Profiles / System Settings scams](/blog/mac-configuration-profile-scam)
+- **Oct 25 desk** · [Field Glass](/blog/field-glass-oct-25-2026) · [Watch](/watch)
+- **Lane** · [Is Innsegall for you?](/boat)
+- **Pricing** · [Supplies](/supplies)

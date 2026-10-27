@@ -2287,6 +2287,169 @@ button.innsegall-checkout:disabled {
   border-left: 3px solid rgba(244, 201, 93, 0.45);
 }
 
+/* Home · device picker for panic landings */
+.home-start-here {
+  padding-top: var(--space-4);
+  padding-bottom: var(--space-2);
+}
+
+.avenue-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr));
+  gap: var(--space-3);
+  margin: var(--space-3) 0 var(--space-5);
+}
+
+.avenue-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 0.35rem;
+  min-height: 4.5rem;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(244, 201, 93, 0.35);
+  background: rgba(18, 42, 66, 0.65);
+  color: var(--mist);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.avenue-card:hover {
+  border-color: rgba(244, 201, 93, 0.55);
+  background: rgba(18, 42, 66, 0.85);
+  transform: translateY(-2px);
+}
+
+.avenue-card__device {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gremlin-smoke);
+}
+
+.avenue-card__label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--mist);
+}
+
+.device-selector {
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid rgba(168, 216, 255, 0.15);
+}
+
+.device-selector-title {
+  font-size: 1.05rem;
+  font-family: var(--font-display);
+  margin: 0 0 var(--space-2);
+}
+
+.device-selector-lead {
+  margin: 0 0 var(--space-3);
+  color: var(--gremlin-smoke);
+  font-size: 0.95rem;
+}
+
+.home-device-funnel--compact {
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+}
+
+.home-more-options {
+  margin-top: var(--space-4);
+  color: var(--gremlin-smoke);
+  font-size: 0.92rem;
+}
+
+.home-more-options summary {
+  cursor: pointer;
+  color: var(--mist);
+  font-weight: 600;
+}
+
+.home-more-options-links {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: var(--space-3);
+  row-gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.home-device-funnel {
+  margin-top: var(--space-4);
+}
+
+.home-device-card--featured {
+  border: 1px solid rgba(244, 201, 93, 0.4);
+  box-shadow: 0 0 0 1px rgba(244, 201, 93, 0.1);
+}
+
+.home-device-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: var(--space-3);
+  row-gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.home-quick-scares {
+  margin-top: var(--space-4);
+}
+
+.platform-install-steps li span {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--gremlin-smoke);
+}
+
+.platform-install-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: var(--space-3);
+  row-gap: var(--space-2);
+  margin: var(--space-4) 0;
+}
+
+.platform-install-note,
+.platform-install-tip {
+  color: var(--gremlin-smoke);
+  max-width: 42rem;
+}
+
+.settings-lookup-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-3) 0;
+  font-size: 0.92rem;
+}
+
+.settings-lookup-table th,
+.settings-lookup-table td {
+  padding: 0.65rem 0.75rem;
+  border-bottom: 1px solid rgba(168, 216, 255, 0.15);
+  text-align: left;
+  vertical-align: top;
+}
+
+.settings-path {
+  font-size: 0.85rem;
+  color: var(--mist);
+  word-break: break-word;
+}
+
+.companion-install-walk {
+  margin: var(--space-4) 0 var(--space-5);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(244, 201, 93, 0.28);
+  background: rgba(18, 42, 66, 0.45);
+}
+
 /* Panic hub · /ios · /tablet · under-stress triage */
 .panic-hub {
   margin: var(--space-5) 0 var(--space-6);

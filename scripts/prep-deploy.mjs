@@ -21,6 +21,7 @@ execSync("node scripts/build-seo-batch-20.mjs", { cwd: root, stdio: "inherit" })
 execSync("node scripts/build-competitor-absorption-posts.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-watch-hub.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-ios-tablet-panic.mjs", { cwd: root, stdio: "inherit" });
+execSync("node scripts/sync-ios-tablet-install.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/build-ios-seo-batch.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/build-chrome-mac-seo-batch.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/build-scary-moments-batch-5.mjs", { cwd: root, stdio: "inherit" });
@@ -37,6 +38,7 @@ if (existsSync(join(root, "fixtures", "blog-i18n", "es.bundle.json"))) {
 }
 execSync("node scripts/sync-parley-web.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/bundle-parley-api.mjs", { cwd: root, stdio: "inherit" });
+execSync("node scripts/sync-home-panic-funnel.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-site-chrome.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/strip-body-mailto.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-home-i18n.mjs", { cwd: root, stdio: "inherit" });
