@@ -7,6 +7,8 @@
 
 A **local-first inbox** in the browser for `innsegall-battle-scout-ai/v1` JSON from your Mac Battle Scout. Same triage badge mental model as the future native app · **no on-device scout** · **no upload** to Innsegall servers.
 
+**Light review on this device:** a honest Safari/Settings checklist (not antivirus) · environment signals (Home Screen, HTTPS, clipboard) · panic shortcuts to `/ios`, `/tablet`, `/install/*`, and home `#start-here`. Progress is stored in **localStorage** on that browser only.
+
 ## Install (1 tap)
 
 1. Open **/companion** in Safari on iPhone or iPad.
@@ -28,7 +30,10 @@ A **local-first inbox** in the browser for `innsegall-battle-scout-ai/v1` JSON f
 
 ```bash
 node scripts/audit-companion-web.mjs
-npm run audit:swarm   # includes companion lane
+node scripts/audit-links-full.mjs
+node scripts/audit-link-anchors.mjs
+node scripts/sync-companion-guide.mjs   # after fixture edits
+npm run audit:swarm   # includes companion + link lanes
 ```
 
 ## Native app (later)

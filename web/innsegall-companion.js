@@ -3,6 +3,8 @@
  */
 import {
   COMPANION_STORAGE_KEY,
+  COMPANION_CHECKLIST_KEY,
+  DEVICE_CHECKLIST,
   validateBattleScoutAi,
   inboxEntryKey,
   isFreeVoyageDay,
@@ -177,6 +179,104 @@ async function loadSample() {
   importFromText(text);
 }
 
+function loadChecklistState() {
+  try {
+    const raw = localStorage.getItem(COMPANION_CHECKLIST_KEY);
+    const obj = raw ? JSON.parse(raw) : {};
+    return obj && typeof obj === "object" ? obj : {};
+  } catch {
+    return {};
+  }
+}
+
+function saveChecklistState(state) {
+  localStorage.setItem(COMPANION_CHECKLIST_KEY, JSON.stringify(state));
+}
+
+function detectDeviceGuideHref() {
+  const ua = navigator.userAgent || "";
+  if (/iPad/.test(ua)) return "/tablet#bad-link";
+  if (/iPhone|iPod/.test(ua)) return "/ios#bad-link";
+  return "/#start-here";
+}
+
+function renderLightSignals() {
+  const host = $("#companion-light-signals");
+  if (!host) return;
+  const standalone = window.matchMedia("(display-mode: standalone)").matches;
+  const secure = window.isSecureContext;
+  const online = navigator.onLine;
+  const clipboard = Boolean(navigator.clipboard?.writeText);
+  const notif =
+    typeof Notification !== "undefined" ? Notification.permission : "unsupported";
+  const rows = [
+    { ok: standalone, label: "Opened from Home Screen", hint: standalone ? "Good for inbox" : "Share → Add to Home Screen" },
+    { ok: secure, label: "Secure connection", hint: secure ? "HTTPS" : "Use https://innsegall.com" },
+    { ok: online, label: "Network", hint: online ? "Online · guides load" : "Offline · inbox still works" },
+    { ok: clipboard, label: "Clipboard", hint: clipboard ? "Paste imports work" : "Long-press to paste" },
+    {
+      ok: notif === "denied" || notif === "default",
+      label: "Notification permission",
+      hint:
+        notif === "granted"
+          ? "Safari notifications on · review in Settings if spammy"
+          : "We do not push scare alerts · optional",
+    },
+  ];
+  host.innerHTML = `
+    <ul class="companion-signal-list">
+      ${rows
+        .map(
+          (r) =>
+            `<li class="companion-signal companion-signal--${r.ok ? "ok" : "warn"}"><span class="companion-signal-label">${escapeHtml(
+              r.label
+            )}</span><span class="companion-signal-hint">${escapeHtml(r.hint)}</span></li>`
+        )
+        .join("")}
+    </ul>
+    <p class="companion-muted">Environment signals only · not a virus scan · <a href="${escapeHtml(
+      detectDeviceGuideHref()
+    )}">Open panic steps</a></p>
+  `;
+}
+
+function wireDeviceChecklist() {
+  const root = $("#companion-checklist-root");
+  const progress = $("#companion-checklist-progress");
+  if (!root) return;
+  let state = loadChecklistState();
+
+  function render() {
+    const done = DEVICE_CHECKLIST.filter((item) => state[item.id]).length;
+    if (progress) {
+      progress.hidden = false;
+      progress.textContent = `${done} of ${DEVICE_CHECKLIST.length} steps checked · saved on this device only`;
+    }
+    root.innerHTML = DEVICE_CHECKLIST
+      .map((item) => {
+        const checked = Boolean(state[item.id]);
+        return `<li class="companion-checklist-item">
+          <label>
+            <input type="checkbox" data-check-id="${escapeHtml(item.id)}" ${checked ? "checked" : ""}>
+            <span class="companion-checklist-label">${escapeHtml(item.label)}</span>
+          </label>
+          <p class="companion-checklist-detail">${escapeHtml(item.detail)} · <a href="${escapeHtml(
+          item.guideHref
+        )}">Guide</a></p>
+        </li>`;
+      })
+      .join("");
+    root.querySelectorAll("input[type=checkbox]").forEach((input) => {
+      input.addEventListener("change", () => {
+        state = { ...state, [input.dataset.checkId]: input.checked };
+        saveChecklistState(state);
+        render();
+      });
+    });
+  }
+  render();
+}
+
 function wireVoyage() {
   const el = $("#companion-voyage");
   if (!el) return;
@@ -199,6 +299,8 @@ function wireVoyage() {
 }
 
 function init() {
+  renderLightSignals();
+  wireDeviceChecklist();
   wireVoyage();
   const list = sortInbox(loadInbox());
   saveInbox(list);

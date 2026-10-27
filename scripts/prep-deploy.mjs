@@ -22,6 +22,7 @@ execSync("node scripts/build-competitor-absorption-posts.mjs", { cwd: root, stdi
 execSync("node scripts/sync-watch-hub.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-ios-tablet-panic.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-ios-tablet-install.mjs", { cwd: root, stdio: "inherit" });
+execSync("node scripts/sync-companion-guide.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/build-ios-seo-batch.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/build-chrome-mac-seo-batch.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/build-scary-moments-batch-5.mjs", { cwd: root, stdio: "inherit" });

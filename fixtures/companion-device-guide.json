@@ -1,0 +1,59 @@
+{
+  "version": "2026-10-27",
+  "light_review_title": "Light review on this device",
+  "light_review_lead": "Not a virus scan · Safari and Settings steps you can do on iPhone or iPad · check off as you go · saved only in this browser.",
+  "checklist": [
+    {
+      "id": "safari-popups",
+      "label": "Safari · Block Pop-ups is on",
+      "detail": "Settings → Safari → Block Pop-ups",
+      "guide_href": "/ios#fake-popup"
+    },
+    {
+      "id": "safari-extensions",
+      "label": "Safari · review Extensions",
+      "detail": "Settings → Safari → Extensions · remove anything you do not trust",
+      "guide_href": "/blog/safari-fake-virus-notifications-mac"
+    },
+    {
+      "id": "clear-site",
+      "label": "Clear data for the scary site only",
+      "detail": "Settings → Safari → Advanced → Website Data · search the site · Remove",
+      "guide_href": "/blog/safari-clear-website-data-iphone-ipad"
+    },
+    {
+      "id": "profiles",
+      "label": "No unknown VPN or device profiles",
+      "detail": "Settings → General → VPN & Device Management",
+      "guide_href": "/ios#bad-link"
+    },
+    {
+      "id": "downloads",
+      "label": "Delete suspicious downloads unopened",
+      "detail": "Files → Downloads · delete without opening",
+      "guide_href": "/blog/downloaded-suspicious-file-iphone-ipad"
+    },
+    {
+      "id": "passwords",
+      "label": "Change passwords if you typed them on a scam page",
+      "detail": "Use another device · Apple ID or bank · not on the scam tab",
+      "guide_href": "/ios#typed-password"
+    }
+  ],
+  "panic_shortcuts": [
+    { "href": "/#start-here", "label": "What scared you? (home)" },
+    { "href": "/ios#bad-link", "label": "Bad link · iPhone" },
+    { "href": "/ios#fake-popup", "label": "Fake popup · iPhone" },
+    { "href": "/tablet#bad-link", "label": "Bad link · iPad" },
+    { "href": "/install/ios", "label": "Install walkthrough · iPhone" },
+    { "href": "/install/tablet", "label": "Install walkthrough · iPad" }
+  ],
+  "mac_lane": {
+    "title": "When the Mac matters",
+    "body": "Innsegall runs a read-only scout on the Mac · import the receipt here.",
+    "primary_href": "/alpha",
+    "primary_label": "Send the scout",
+    "secondary_href": "/samples/battle-scout-demo",
+    "secondary_label": "See sample report"
+  }
+}

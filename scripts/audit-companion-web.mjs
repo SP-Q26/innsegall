@@ -5,7 +5,12 @@
 import { readFileSync, existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { validateBattleScoutAi, COMPANION_FORMAT } from "../web/lib/companion-core.mjs";
+import {
+  validateBattleScoutAi,
+  COMPANION_FORMAT,
+  DEVICE_CHECKLIST,
+  COMPANION_CHECKLIST_KEY,
+} from "../web/lib/companion-core.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const web = join(root, "web");
@@ -37,6 +42,7 @@ ok("companion local-only copy", companionHtml.includes("stays in your browser") 
 
 const manifest = JSON.parse(readFileSync(join(web, "companion.webmanifest"), "utf8"));
 ok("manifest start_url /companion", manifest.start_url === "/companion");
+ok("manifest scope site-wide", manifest.scope === "/");
 ok("manifest standalone", manifest.display === "standalone");
 
 const vercel = readFileSync(join(web, "vercel.json"), "utf8");
@@ -63,6 +69,22 @@ ok("core format const", coreJs.includes(COMPANION_FORMAT));
 
 const iosDoc = readFileSync(join(root, "docs", "IOS_PRODUCT.md"), "utf8");
 ok("IOS_PRODUCT web companion", iosDoc.includes("WEB_COMPANION") || iosDoc.includes("web companion"));
+
+ok("install/ios nested file", existsSync(join(web, "install", "ios.html")));
+ok("install/tablet nested file", existsSync(join(web, "install", "tablet.html")));
+ok("companion device guide section", companionHtml.includes('id="companion-device-guide"'));
+ok("companion light signals host", companionHtml.includes("companion-light-signals"));
+ok("companion checklist host", companionHtml.includes("companion-checklist-root"));
+ok("companion start-here nav", companionHtml.includes('/#start-here'));
+ok("companion install tablet link", companionHtml.includes('href="/install/tablet"'));
+ok("companion js v2", companionHtml.includes("innsegall-companion.js?v=2"));
+ok("companion checklist fixture", existsSync(join(root, "fixtures", "companion-device-guide.json")));
+ok("sync companion guide script", existsSync(join(root, "scripts", "sync-companion-guide.mjs")));
+ok("core device checklist", DEVICE_CHECKLIST.length >= 6);
+ok("core checklist storage key", COMPANION_CHECKLIST_KEY.includes("checklist"));
+ok("companion wire checklist", companionJs.includes("wireDeviceChecklist"));
+ok("companion light signals", companionJs.includes("renderLightSignals"));
+ok("no duplicate insights script", (companionHtml.match(/_vercel\/insights\/script/g) || []).length === 1);
 
 console.log(failed ? `\n${failed} companion-web failure(s)` : "\nWeb companion audit passed · deploy /companion");
 process.exit(failed ? 1 : 0);

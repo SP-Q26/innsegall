@@ -3,8 +3,49 @@
  */
 
 export const COMPANION_STORAGE_KEY = "innsegall_companion_inbox_v1";
+export const COMPANION_CHECKLIST_KEY = "innsegall_companion_checklist_v1";
 export const COMPANION_FORMAT = "innsegall-battle-scout-ai/v1";
 export const MAX_IMPORT_BYTES = 512 * 1024;
+
+/** On-device review steps (not a malware scan). Keep in sync with fixtures/companion-device-guide.json */
+export const DEVICE_CHECKLIST = [
+  {
+    id: "safari-popups",
+    label: "Safari · Block Pop-ups is on",
+    detail: "Settings → Safari → Block Pop-ups",
+    guideHref: "/ios#fake-popup",
+  },
+  {
+    id: "safari-extensions",
+    label: "Safari · review Extensions",
+    detail: "Settings → Safari → Extensions · remove anything you do not trust",
+    guideHref: "/blog/safari-fake-virus-notifications-mac",
+  },
+  {
+    id: "clear-site",
+    label: "Clear data for the scary site only",
+    detail: "Settings → Safari → Advanced → Website Data · search the site · Remove",
+    guideHref: "/blog/safari-clear-website-data-iphone-ipad",
+  },
+  {
+    id: "profiles",
+    label: "No unknown VPN or device profiles",
+    detail: "Settings → General → VPN & Device Management",
+    guideHref: "/ios#bad-link",
+  },
+  {
+    id: "downloads",
+    label: "Delete suspicious downloads unopened",
+    detail: "Files → Downloads · delete without opening",
+    guideHref: "/blog/downloaded-suspicious-file-iphone-ipad",
+  },
+  {
+    id: "passwords",
+    label: "Change passwords if you typed them on a scam page",
+    detail: "Use another device · Apple ID or bank · not on the scam tab",
+    guideHref: "/ios#typed-password",
+  },
+];
 
 const TRIAGE = new Set(["LIKELY_OK", "FIX_LIST", "ESCALATE"]);
 

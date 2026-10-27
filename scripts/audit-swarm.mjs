@@ -33,6 +33,7 @@ const lanes = [
   { name: "Voyage onboarding (P8)", script: "audit-voyage-onboarding.mjs", score: "9.0" },
   { name: "Internal links", script: "audit-links.mjs", score: "9.5" },
   { name: "Internal links (full)", script: "audit-links-full.mjs", score: "9.5" },
+  { name: "Internal link anchors", script: "audit-link-anchors.mjs", score: "9.5" },
   { name: "Issue spotlight loop", script: "audit-issue-spotlight.mjs", score: "9.0" },
   { name: "Discovery / trust", script: "audit-discovery.mjs", score: "9.0" },
   { name: "Events / telemetry", script: "audit-events.mjs", score: "9.5" },

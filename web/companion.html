@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta property="og:site_name" content="Innsegall">
-                            <meta property="og:locale" content="en_US">
+                              <meta property="og:locale" content="en_US">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Companion · Innsegall</title>
@@ -25,20 +25,20 @@
   <link rel="describedby" href="https://innsegall.com/.well-known/innsegall-gospel.json" type="application/json">
   <link rel="alternate" type="application/json" href="https://innsegall.com/.well-known/ai-discovery.json" title="Innsegall · AI discovery manifest">
   <link rel="alternate" type="application/json" href="https://innsegall.com/innsegall-ai-bus.json" title="Innsegall · AI bus (compact agent context)">
-                                                                                          <meta property="og:title" content="Companion · Innsegall">
-                                                                                        <meta name="twitter:url" content="https://innsegall.com/companion">
+                                                                                            <meta property="og:title" content="Companion · Innsegall">
+                                                                                          <meta name="twitter:url" content="https://innsegall.com/companion">
   <meta name="twitter:image" content="https://innsegall.com/og/innsegall-card.png?v=20261023a">
     <meta name="twitter:image:alt" content="Innsegall · Know you're okay · Macintosh triage">
-                                                                                          <meta name="twitter:description" content="Innsegall companion for iPhone and iPad: import Battle Scout JSON, triage badge, Voyage reminders. Local inbox only · no App Store · Mac runs the scout.">
-                                                                                          <meta name="twitter:title" content="Companion · Innsegall">
+                                                                                            <meta name="twitter:description" content="Innsegall companion for iPhone and iPad: import Battle Scout JSON, triage badge, Voyage reminders. Local inbox only · no App Store · Mac runs the scout.">
+                                                                                            <meta name="twitter:title" content="Companion · Innsegall">
   <meta name="twitter:site" content="@innsegall">
-                                                                                          <meta property="og:url" content="https://innsegall.com/companion">
-                                                                                          <meta property="og:description" content="Innsegall companion for iPhone and iPad: import Battle Scout JSON, triage badge, Voyage reminders. Local inbox only · no App Store · Mac runs the scout.">
+                                                                                            <meta property="og:url" content="https://innsegall.com/companion">
+                                                                                            <meta property="og:description" content="Innsegall companion for iPhone and iPad: import Battle Scout JSON, triage badge, Voyage reminders. Local inbox only · no App Store · Mac runs the scout.">
   <meta property="og:type" content="website">
-                                                                                            <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+                                                                                              <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" sizes="180x180">
   <link rel="manifest" href="/companion.webmanifest">
-  <link rel="stylesheet" href="/innsegall.css?v=33">
+  <link rel="stylesheet" href="/innsegall.css?v=34">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=DM+Sans:wght@400;600&display=swap">
@@ -132,7 +132,9 @@
         </span>
       </a>
       <nav class="header-nav" aria-label="Site">
-        <a href="/ios">About</a>
+        <a href="/#start-here">Start here</a>
+        <a href="/ios">iPhone steps</a>
+        <a href="/tablet">iPad steps</a>
         <a href="/alpha">Mac scout</a>
       </nav>
     </header>
@@ -169,6 +171,37 @@
         <p><a href="/install/ios">iPhone walkthrough</a> · <a href="/install/tablet">iPad walkthrough</a> · <a href="/ios">Panic guide</a></p>
       </section>
 <!-- INNSEGALL_COMPANION_INSTALL_END -->
+
+<!-- INNSEGALL_COMPANION_DEVICE_GUIDE_START -->
+      <section class="companion-device-guide" id="companion-device-guide" aria-labelledby="companion-device-guide-title">
+        <h2 class="companion-h2" id="companion-device-guide-title">Light review on this device</h2>
+        <p class="companion-muted">Not a virus scan · Safari and Settings steps you can do on iPhone or iPad · check off as you go · saved only in this browser.</p>
+
+        <div class="companion-light-signals" id="companion-light-signals" aria-live="polite"></div>
+
+        <div class="companion-checklist-progress" id="companion-checklist-progress" hidden></div>
+        <ul class="companion-checklist" id="companion-checklist-root" aria-label="On-device review checklist"></ul>
+
+        <h3 class="companion-h3">Panic shortcuts</h3>
+        <div class="companion-shortcut-grid">
+            <a class="companion-shortcut" href="/#start-here">What scared you? (home)</a>
+            <a class="companion-shortcut" href="/ios#bad-link">Bad link · iPhone</a>
+            <a class="companion-shortcut" href="/ios#fake-popup">Fake popup · iPhone</a>
+            <a class="companion-shortcut" href="/tablet#bad-link">Bad link · iPad</a>
+            <a class="companion-shortcut" href="/install/ios">Install walkthrough · iPhone</a>
+            <a class="companion-shortcut" href="/install/tablet">Install walkthrough · iPad</a>
+        </div>
+
+        <aside class="companion-mac-lane card">
+          <h3 class="companion-h3">When the Mac matters</h3>
+          <p>Innsegall runs a read-only scout on the Mac · import the receipt here.</p>
+          <div class="companion-actions">
+            <a class="btn-horn btn-horn--compact" href="/alpha">Send the scout</a>
+            <a class="btn-link" href="/samples/battle-scout-demo">See sample report</a>
+          </div>
+        </aside>
+      </section>
+<!-- INNSEGALL_COMPANION_DEVICE_GUIDE_END -->
 
       <div class="companion-grid">
         <section class="companion-panel" aria-labelledby="companion-import-heading">
@@ -212,9 +245,12 @@
       </div>
 
       <p class="companion-footer-links">
-        <a href="/tablet">iPad layout guide</a> ·
-        <a href="/privacy">Privacy</a> ·
-        <a href="/ios">iOS guide</a>
+        <a href="/#start-here">Home · what scared you?</a> ·
+        <a href="/install/ios">Install · iPhone</a> ·
+        <a href="/install/tablet">Install · iPad</a> ·
+        <a href="/tablet">iPad guide</a> ·
+        <a href="/ios">iPhone guide</a> ·
+        <a href="/privacy">Privacy</a>
       </p>
     </main>
 
@@ -229,10 +265,9 @@
       </nav>
     </footer>
   </div>
-  <script type="module" src="/innsegall-companion.js?v=1"></script>
-    <script src="/innsegall-locale.js?v=33" defer></script>
-  <script src="/innsegall-nav.js?v=33" defer></script>
-  <script defer src="/_vercel/insights/script.js"></script>
+  <script type="module" src="/innsegall-companion.js?v=2"></script>
+  <script src="/innsegall-locale.js?v=34" defer></script>
+  <script src="/innsegall-nav.js?v=34" defer></script>
   <script defer src="/_vercel/insights/script.js"></script>
   <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
