@@ -26,6 +26,9 @@ check("avenue-selector present", index.includes("avenue-selector") && index.incl
 check("device-selector present", index.includes("device-selector"));
 check("more options collapsed", index.includes("home-more-options") && index.includes("<details"));
 
+check("panic banner headline", index.includes(hub.panic_banner) && index.includes("home-panic-banner"));
+check("device cards before avenues", index.indexOf("home-device-card--iphone") < index.indexOf("avenue-grid"));
+check("colored device cards", index.includes("home-device-card--iphone") && index.includes("home-device-card--ipad") && index.includes("home-device-card--mac"));
 check("title scare-first", index.includes(hub.title));
 check("avenue count in html", (index.match(/class="avenue-card"/g) || []).length >= hub.avenues.length);
 

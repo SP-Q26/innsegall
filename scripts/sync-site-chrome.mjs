@@ -11,7 +11,7 @@ import { CONTACT_EMAIL, FOOTER_MAILTO_ANCHOR } from "./contact-email.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const web = join(root, "web");
-const CSS_VER = 31;
+const CSS_VER = 32;
 
 const APPLE_TOUCH_ICON = "/icons/apple-touch-icon.png";
 const SITE = "https://innsegall.com";

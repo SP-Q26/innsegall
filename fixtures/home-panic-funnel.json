@@ -1,6 +1,7 @@
 {
-  "version": "2026-10-28",
+  "version": "2026-10-28b",
   "section_label": "Start here",
+  "panic_banner": "PANIC IS OPTIONAL - we got you",
   "title": "What scared you?",
   "lead": "Tap the one that fits · we open calm steps on the next page · not a sales funnel · not antivirus.",
   "avenue_label": "Pick your situation",
@@ -39,7 +40,7 @@
     },
     {
       "id": "mac",
-      "title": "This Mac",
+      "title": "Mac",
       "body": "Read-only scout · plain Battle Scout receipt.",
       "primary_href": "/alpha",
       "primary_cta": "Send the scout",

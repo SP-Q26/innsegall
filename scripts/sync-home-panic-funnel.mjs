@@ -23,7 +23,7 @@ function esc(s) {
 
 function laneCard(lane) {
   if (lane.primary_href) {
-    return `            <article class="card home-device-card home-device-card--compact">
+    return `            <article class="card home-device-card home-device-card--compact home-device-card--${esc(lane.id)}">
               <h3>${esc(lane.title)}</h3>
               <p>${lane.body}</p>
               <div class="home-device-card-actions">
@@ -32,7 +32,7 @@ function laneCard(lane) {
               </div>
             </article>`;
   }
-  return `            <article class="card home-device-card home-device-card--compact">
+  return `            <article class="card home-device-card home-device-card--compact home-device-card--${esc(lane.id)}">
               <h3>${esc(lane.title)}</h3>
               <p>${lane.body}</p>
               <div class="home-device-card-actions">
@@ -54,23 +54,24 @@ const moreOptions = hub.more_options
   .join("\n");
 
 const block = `${START}
-      <section class="section home-start-here" id="start-here" aria-labelledby="start-here-title">
+      <section class="section home-start-here" id="start-here" aria-labelledby="start-here-banner">
         <p class="section-label">${esc(hub.section_label)}</p>
-        <h2 id="start-here-title">${esc(hub.title)}</h2>
+        <h2 id="start-here-banner" class="home-panic-banner">${esc(hub.panic_banner)}</h2>
+
+        <div class="device-selector device-selector--primary" aria-label="${esc(hub.device_selector_label)}">
+          <p class="device-selector-lead device-selector-lead--tight">${hub.device_selector_lead}</p>
+          <div class="card-grid home-device-funnel home-device-funnel--compact home-device-funnel--hero">
+${hub.lanes.map(laneCard).join("\n")}
+          </div>
+        </div>
+
+        <h3 id="start-here-title" class="home-scare-title">${esc(hub.title)}</h3>
         <p class="section-lead">${hub.lead}</p>
 
         <div class="avenue-selector" role="navigation" aria-label="${esc(hub.avenue_label)}">
           <p class="panic-jump-label">${esc(hub.avenue_label)}</p>
           <div class="avenue-grid">
 ${avenues}
-          </div>
-        </div>
-
-        <div class="device-selector" aria-labelledby="device-selector-title">
-          <h3 class="device-selector-title" id="device-selector-title">${esc(hub.device_selector_label)}</h3>
-          <p class="device-selector-lead">${hub.device_selector_lead}</p>
-          <div class="card-grid home-device-funnel home-device-funnel--compact">
-${hub.lanes.map(laneCard).join("\n")}
           </div>
         </div>
 

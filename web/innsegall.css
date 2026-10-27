@@ -2289,8 +2289,75 @@ button.innsegall-checkout:disabled {
 
 /* Home · device picker for panic landings */
 .home-start-here {
-  padding-top: var(--space-4);
+  padding-top: var(--space-3);
   padding-bottom: var(--space-2);
+}
+
+.home-panic-banner {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6.5vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0 0 var(--space-4);
+  color: var(--text-primary);
+}
+
+.home-scare-title {
+  font-family: var(--font-display);
+  font-size: 1.65rem;
+  margin: var(--space-5) 0 var(--space-2);
+}
+
+.device-selector--primary {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.device-selector-lead--tight {
+  margin-bottom: var(--space-3);
+}
+
+.home-device-funnel--hero {
+  margin-top: 0;
+}
+
+.home-device-card--iphone {
+  border-color: rgba(61, 170, 140, 0.65);
+  background: linear-gradient(155deg, rgba(20, 58, 72, 0.95) 0%, rgba(11, 29, 46, 0.92) 100%);
+  box-shadow: 0 0 0 1px rgba(61, 170, 140, 0.2);
+}
+
+.home-device-card--iphone h3 {
+  color: #7ee8c8;
+}
+
+.home-device-card--ipad {
+  border-color: rgba(168, 140, 232, 0.65);
+  background: linear-gradient(155deg, rgba(42, 32, 72, 0.95) 0%, rgba(18, 28, 52, 0.92) 100%);
+  box-shadow: 0 0 0 1px rgba(168, 140, 232, 0.22);
+}
+
+.home-device-card--ipad h3 {
+  color: #c9b6ff;
+}
+
+.home-device-card--mac {
+  border-color: rgba(244, 201, 93, 0.7);
+  background: linear-gradient(155deg, rgba(58, 48, 28, 0.92) 0%, rgba(18, 42, 66, 0.9) 100%);
+  box-shadow: 0 0 0 1px rgba(244, 201, 93, 0.25);
+}
+
+.home-device-card--mac h3 {
+  color: var(--beam-gold);
+}
+
+.home-device-card--iphone .btn-link,
+.home-device-card--ipad .btn-link,
+.home-device-card--mac .btn-link {
+  color: var(--spirit-silver);
 }
 
 .avenue-grid {
