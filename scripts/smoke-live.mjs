@@ -44,6 +44,8 @@ const PATHS = [
   "/lottie/inn-glass-arrival-lottie.json",
   "/lottie/inn-glass-arrival-fallback.svg",
   "/install",
+  "/install/ios",
+  "/install/tablet",
   "/ios",
   "/tablet",
   "/companion",
@@ -170,6 +172,18 @@ async function check(path) {
       !text.includes("--fjord-deep")
     ) {
       failMsg(`${path} missing innsegall.css design tokens`);
+      return;
+    }
+    if (path === "/" && !text.includes('id="start-here"')) {
+      failMsg(`${path} missing #start-here panic funnel`);
+      return;
+    }
+    if (path === "/companion" && !text.includes("companion-device-guide")) {
+      failMsg(`${path} missing companion device guide`);
+      return;
+    }
+    if ((path === "/install/ios" || path === "/install/tablet") && !text.includes("Add to Home Screen")) {
+      failMsg(`${path} missing install walkthrough copy`);
       return;
     }
     pass(`${res.status} ${path}`);

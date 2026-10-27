@@ -72,6 +72,7 @@ const lanes = [
   { name: "Structured data (Phase 7 W1b)", script: "audit-structured-data.mjs", score: "9.0" },
   { name: "Site inventory (all pages)", script: "audit-site-inventory.mjs", score: "9.5" },
   { name: "Site performance · load + forms", script: "audit-site-performance.mjs", score: "9.5" },
+  { name: "Site wave · SEO/meta/blog/spacing", script: "audit-site-wave.mjs", score: "9.5" },
 ];
 
 let failed = 0;

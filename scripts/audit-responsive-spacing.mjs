@@ -27,6 +27,8 @@ check("css tablet hero-actions row", /@media \(min-width: 48rem\)[\s\S]*\.hero-a
 check("css tablet pricing 3-col", /@media \(min-width: 48rem\)[\s\S]*\.pricing-grid/.test(css));
 check("css guides grid class", /\.card-grid--guides/.test(css));
 check("css safe-area footer padding", /safe-area-inset-bottom/.test(css));
+check("css avenue grid narrow stack", /@media \(max-width: 32\.5rem\)[\s\S]*\.avenue-grid/.test(css));
+check("css companion main safe-area", /\.companion-main[\s\S]*safe-area-inset-left/.test(css));
 
 const index = readFileSync(join(web, "index.html"), "utf8");
 const pricingPos = index.indexOf('id="pricing"');
@@ -64,6 +66,8 @@ const KEY_HTML = [
   "ios.html",
   "tablet.html",
   "blog/index.html",
+  "install/ios.html",
+  "install/tablet.html",
 ];
 
 for (const rel of KEY_HTML) {

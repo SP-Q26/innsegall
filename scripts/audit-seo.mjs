@@ -63,6 +63,8 @@ const keyPages = [
   "privacy.html",
   "tos.html",
   "blog/index.html",
+  "install/ios.html",
+  "install/tablet.html",
 ];
 for (const rel of keyPages) {
   const html = readFileSync(join(web, rel), "utf8");

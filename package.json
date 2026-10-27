@@ -38,6 +38,7 @@
     "preflight": "bash scripts/run-launch-preflight.sh",
     "audit": "node scripts/audit-launch.mjs",
     "audit:swarm": "node scripts/audit-swarm.mjs",
+    "audit:wave": "node scripts/audit-site-wave.mjs",
     "audit:brand-stack": "node scripts/audit-brand-stack.mjs",
     "audit:copy": "node scripts/audit-brand-stack.mjs && node scripts/audit-blog-funnel.mjs && node scripts/audit-responsive-spacing.mjs",
     "audit:responsive-spacing": "node scripts/audit-responsive-spacing.mjs",
