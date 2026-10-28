@@ -39,6 +39,12 @@ const faviconSvg = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://
 `;
 writeFileSync(favSvg, faviconSvg, "utf8");
 
+writeFileSync(join(root, "web/brand-mark.svg"), faviconSvg, "utf8");
+writeFileSync(join(root, "web/innsegall-vercel-logo.svg"), faviconSvg, "utf8");
+
+execSync("node scripts/sync-og-card.mjs", { cwd: root, stdio: "inherit" });
+execSync("node scripts/sync-stripe-tiles.mjs", { cwd: root, stdio: "inherit" });
+
 const stamp = readFileSync(master).length;
 console.log(
   `sync-brand-assets OK · ver ${BRAND_ICON_VER} · master ${Math.round(stamp / 1024)} KB · mark/apple/favicon-32/favicon.svg`

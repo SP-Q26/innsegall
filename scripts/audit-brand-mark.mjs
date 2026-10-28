@@ -50,6 +50,29 @@ const manifest = readFileSync(join(web, "site.webmanifest"), "utf8");
 check("webmanifest apple icon", manifest.includes("apple-touch-icon.png"));
 check("webmanifest mark", manifest.includes("innsegall-mark.png"));
 
+const ogSvg = readFileSync(join(web, "og/innsegall-card.svg"), "utf8");
+check("og card sword art", ogSvg.includes("data:image/png;base64,"));
+check("og card no legacy horn", !ogSvg.includes("horn-beam") && !ogSvg.includes("brand-beam"));
+
+const ogPng = join(web, "og/innsegall-card.png");
+check("og card png", existsSync(ogPng));
+if (existsSync(ogPng)) {
+  check("og png size", statSync(ogPng).size > 20_000, `${Math.round(statSync(ogPng).size / 1024)} KB`);
+}
+
+check("brand-mark.svg synced", readFileSync(join(web, "brand-mark.svg"), "utf8").includes("innsegall-mark.png"));
+check("vercel logo synced", readFileSync(join(web, "innsegall-vercel-logo.svg"), "utf8").includes("innsegall-mark.png"));
+
+const extraStripe = readFileSync(join(web, "stripe/extra.svg"), "utf8");
+check("stripe extra sword", extraStripe.includes("data:image/png;base64,"));
+
+let legacySvg = 0;
+for (const f of ["index.html", "companion.html", "es/index.html", "pt/index.html"]) {
+  const h = readFileSync(join(web, f), "utf8");
+  if (h.includes("brand-beam")) legacySvg++;
+}
+check("no legacy horn in key headers", legacySvg === 0, `${legacySvg} pages`);
+
 const companion = readFileSync(join(web, "companion.webmanifest"), "utf8");
 check("companion manifest mark", companion.includes("apple-touch-icon.png"));
 

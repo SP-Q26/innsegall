@@ -40,10 +40,9 @@ for (const [sku, item] of Object.entries(STRIPE_CATALOG)) {
   else {
     const svg = readFileSync(svgPath, "utf8");
     if (!/viewBox="0 0 512 512"/.test(svg)) bad(`${base} SVG must be 512 viewBox`);
-    if (!/radialGradient/i.test(svg)) bad(`${base} SVG missing radial glow (v3 frame)`);
-    if (!/stroke-opacity="0\.22"/.test(svg) && !/stroke-opacity=.0\.22/.test(svg)) {
-      bad(`${base} SVG missing inner gold frame`);
-    }
+    if (!/radialGradient/i.test(svg)) bad(`${base} SVG missing radial glow`);
+    if (!/data:image\/png;base64,/.test(svg)) bad(`${base} SVG missing sword mark embed`);
+    if (!/stroke-opacity="0\.3/.test(svg)) bad(`${base} SVG missing accent frame`);
   }
 
   if (!existsSync(pngPath)) bad(`missing ${pngPath} — npm run export:stripe-images`);
@@ -67,8 +66,8 @@ for (const f of pngs) {
   if (!expectedPngs.has(f)) bad(`stray PNG ${f}`);
 }
 
-const exportScript = readFileSync(join(root, "scripts/export-stripe-product-images.mjs"), "utf8");
-if (!exportScript.includes("512")) bad("export script must rasterize to 512px");
+const syncStripe = readFileSync(join(root, "scripts/sync-stripe-tiles.mjs"), "utf8");
+if (!syncStripe.includes("512")) bad("sync-stripe-tiles must rasterize to 512px");
 
 const vercel = readFileSync(join(root, "web/vercel.json"), "utf8");
 if (!vercel.includes("/:path*.png")) bad("vercel.json missing PNG cache headers");

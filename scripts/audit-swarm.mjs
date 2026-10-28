@@ -126,6 +126,10 @@ const visualChecks = [
   ["Guide Battle Scout sample", readFileSync(join(web, "guide.html"), "utf8").includes("battle-scout-sample")],
   ["Sample scout HTML", existsSync(join(web, "samples/battle-scout-demo.html"))],
   ["OG SVG master", existsSync(join(web, "og/innsegall-card.svg"))],
+  [
+    "OG card sword mark",
+    readFileSync(join(web, "og/innsegall-card.svg"), "utf8").includes("data:image/png;base64,"),
+  ],
   ["OG PNG raster", existsSync(join(web, "og/innsegall-card.png"))],
   ["Hosted OG", index.includes("/og/innsegall-card.png")],
   ["Blog rune divider", readFileSync(join(web, "blog/what-is-a-battle-scout.html"), "utf8").includes("blog-rune-divider")],

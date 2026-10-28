@@ -8,7 +8,7 @@ import { fileURLToPath } from "node:url";
 import { fontHeadLines, FONT_LINK_RE, FONT_STYLESHEET_HREF } from "./site-fonts.mjs";
 import { OG_URL, OG_ALT, TWITTER_SITE } from "./site-og-ver.mjs";
 import { CONTACT_EMAIL, FOOTER_MAILTO_ANCHOR } from "./contact-email.mjs";
-import { brandMarkImgHtml, FAVICON_32_HREF } from "./site-brand-ver.mjs";
+import { brandMarkImgHtml, FAVICON_32_HREF, BRAND_ICON_VER } from "./site-brand-ver.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const web = join(root, "web");
@@ -251,6 +251,21 @@ function fixSocialPreview(html, filePath) {
 function replaceHeader(html) {
   if (!html.includes('class="site-header"')) return html;
   return html.replace(/<header class="site-header">[\s\S]*?<\/header>/, CANONICAL_HEADER);
+}
+
+/** Locale / companion pages skip full header replace · still swap legacy horn SVG. */
+function replaceBrandMark(html) {
+  if (!html.includes('<svg class="brand-mark"')) return html;
+  return html.replace(/<svg class="brand-mark"[\s\S]*?<\/svg>/, brandMarkImgHtml());
+}
+
+function patchOrganizationLogoUrl(html) {
+  const logoUrl = `${SITE}/icons/innsegall-mark.png?v=${BRAND_ICON_VER}`;
+  if (!html.includes('"@type": "Organization"')) return html;
+  if (html.includes('"logo":')) {
+    return html.replace(/"logo": "https:\/\/innsegall\.com\/[^"]+"/g, `"logo": "${logoUrl}"`);
+  }
+  return html;
 }
 
 function fixOg(html) {
@@ -502,7 +517,9 @@ for (const file of walkHtml(web)) {
     const rel = file.replace(web + "/", "");
     const isLocalePage = /^(es|pt|fr|ar)\//.test(rel);
     if (!isLocalePage) html = replaceHeader(html);
+    html = replaceBrandMark(html);
     html = fixSocialPreview(html, file);
+    html = patchOrganizationLogoUrl(html);
     if (file.endsWith(`${join("web", "index.html")}`)) {
       html = patchOrganizationLogo(html);
       html = patchOrganizationContact(html);
