@@ -3,9 +3,15 @@
   <channel>
     <title>Innsegall · Field Glass watch</title>
     <link>https://innsegall.com/watch</link>
-    <description>macOS patch week · fake System Settings pages · session-theft headlines · extension scare after breach news · calm Mac receipt · not antivirus.</description>
+    <description>Zero-day exploit headlines · fake emergency browser updates · infostealer wave · calm Mac Battle Scout · read-only receipt · not antivirus.</description>
     <language>en-us</language>
     <atom:link href="https://innsegall.com/watch-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>October 28 · exploit-week desk</title>
+    <link>https://innsegall.com/blog/field-glass-oct-28-2026</link>
+    <guid isPermaLink="true">https://innsegall.com/blog/field-glass-oct-28-2026</guid>
+    <pubDate>Wed, 28 Oct 2026 00:00:00 GMT</pubDate>
+  </item>
   <item>
     <title>October 25 · patch &amp; profile desk</title>
     <link>https://innsegall.com/blog/field-glass-oct-25-2026</link>

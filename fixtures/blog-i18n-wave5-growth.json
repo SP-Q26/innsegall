@@ -1,5 +1,9 @@
 {
-  "version": "2026-10-25",
+  "version": "2026-10-28",
   "description": "Growth wave · new EN posts ship to es/pt with pilot notice (Field Glass desks + trending desks)",
-  "slugs": ["field-glass-oct-23-2026", "field-glass-oct-25-2026"]
+  "slugs": [
+    "field-glass-oct-23-2026",
+    "field-glass-oct-25-2026",
+    "field-glass-oct-28-2026"
+  ]
 }

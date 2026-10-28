@@ -386,3 +386,14 @@ No enemy. No foe. Just a scout home from the mist · and you, walking on.
 - **Oct 25 desk** · [Field Glass](/blog/field-glass-oct-25-2026) · [Watch](/watch)
 - **Lane** · [Is Innsegall for you?](/boat)
 - **Pricing** · [Supplies](/supplies)
+
+---
+
+## Helpful links
+
+- **Worried after a scare?** · [Send the scout](/alpha)
+- **Sample + install** · [Demo receipt](/samples/battle-scout-demo) · [Install](/install)
+- **Fake update pages** · [Profiles / System Settings scams](/blog/mac-configuration-profile-scam)
+- **Oct 28 desk** · [Field Glass](/blog/field-glass-oct-28-2026) · [Watch](/watch)
+- **Lane** · [Is Innsegall for you?](/boat)
+- **Pricing** · [Supplies](/supplies)

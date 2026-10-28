@@ -1,14 +1,19 @@
 {
-  "version": "2026-10-25",
+  "version": "2026-10-28",
   "max_field_glass_age_days": 3,
   "latest_field_glass": {
-    "slug": "field-glass-oct-25-2026",
-    "title": "Field Glass Update · October 25, 2026",
-    "description": "macOS patch week · fake System Settings pages · session-theft headlines · extension scare after breach news · calm Mac receipt · not antivirus.",
-    "date": "2026-10-25",
+    "slug": "field-glass-oct-28-2026",
+    "title": "Field Glass Update · October 28, 2026",
+    "description": "Zero-day exploit headlines · fake emergency browser updates · infostealer wave · calm Mac Battle Scout · read-only receipt · not antivirus.",
+    "date": "2026-10-28",
     "read_minutes": 7
   },
   "field_glass_archive": [
+    {
+      "slug": "field-glass-oct-28-2026",
+      "title": "October 28 · exploit-week desk",
+      "date": "2026-10-28"
+    },
     {
       "slug": "field-glass-oct-25-2026",
       "title": "October 25 · patch & profile desk",
@@ -56,6 +61,18 @@
     }
   ],
   "trending_guides": [
+    {
+      "query": "Zero day exploit Mac what to do",
+      "href": "/blog/field-glass-oct-28-2026"
+    },
+    {
+      "query": "Emergency browser update popup fake",
+      "href": "/blog/mac-configuration-profile-scam"
+    },
+    {
+      "query": "Infostealer Mac am I hacked",
+      "href": "/blog/someone-remoted-into-my-mac"
+    },
     {
       "query": "Pasted Terminal command Mac (ClickFix)",
       "href": "/blog/pasted-terminal-command-mac-scare"
@@ -107,6 +124,14 @@
   ],
   "scout_trends": [
     {
+      "label": "Exploit-week headlines · patch from Apple only",
+      "href": "/blog/field-glass-oct-28-2026"
+    },
+    {
+      "label": "Fake emergency Chrome/Firefox update pages",
+      "href": "/blog/mac-configuration-profile-scam"
+    },
+    {
       "label": "ClickFix · fake AI installer pages",
       "href": "/blog/pasted-terminal-command-mac-scare"
     },
@@ -140,37 +165,37 @@
     }
   ],
   "field_glass_desk": {
-    "prev_href": "/blog/field-glass-oct-23-2026",
-    "prev_label": "Oct 23 desk",
-    "intro_html": "<strong>Innsegall</strong> · weekend of <strong>macOS security headlines</strong> and fake <strong>System Settings</strong> pages · the news is loud · your next step can stay quiet: <strong>update from Apple</strong>, then a <strong>read-only Battle Scout</strong> on your Mac if something still feels wrong · <a href=\"/alpha\">Send the scout</a> · <a href=\"/install\">Install</a> · <a href=\"/watch\">Macintosh watch</a>.",
+    "prev_href": "/blog/field-glass-oct-25-2026",
+    "prev_label": "Oct 25 desk",
+    "intro_html": "<strong>Innsegall</strong> · a loud week of <strong>zero-day and exploit headlines</strong> · social feeds call it a hacking war · on your Mac the calm move is the same: <strong>patch from Apple or your browser vendor</strong>, refuse fake &quot;emergency update&quot; pages, then a <strong>read-only Battle Scout</strong> if the machine still feels wrong · <a href=\"/alpha\">Send the scout</a> · <a href=\"/install\">Install</a> · <a href=\"/watch\">Macintosh watch</a>.",
     "feel_rows": [
       {
-        "feel": "News says \"install this update now\" · pop-up is not Apple",
-        "start": "Real updates live in <strong>System Settings → General → Software Update</strong> · close browser tabs · <a href=\"/blog/mac-configuration-profile-scam\">profile scams</a> · <a href=\"/alpha\">scout</a> if you installed something odd"
+        "feel": "CVE names everywhere · do I need to panic-install something?",
+        "start": "Read the desk · patch only inside <strong>System Settings → Software Update</strong> or the browser&apos;s own About/Update menu · <a href=\"/blog/mac-configuration-profile-scam\">fake update pages</a> · <a href=\"/alpha\">scout</a> after a sketchy install"
       },
       {
-        "feel": "Headline about browser sessions stolen · am I logged out everywhere?",
-        "start": "<a href=\"/blog/someone-remoted-into-my-mac\">Remote fear guide</a> · sign out of browsers you do not recognize · <a href=\"/alpha\">scout</a> for local evidence · rotate passwords from a clean device"
+        "feel": "Browser says \"critical update\" in a tab that is not my browser",
+        "start": "Close the tab · never download <code>.pkg</code> or <code>.dmg</code> from search ads · <a href=\"/blog/chrome-fake-virus-popup-mac\">Chrome scare pages</a> · real updates do not need a cleaner first"
       },
       {
-        "feel": "Still carrying ClickFix worry from this week",
+        "feel": "Infostealer / session theft story · passwords feel exposed",
+        "start": "<a href=\"/blog/someone-remoted-into-my-mac\">Remote fear guide</a> · rotate passwords from a clean device · <a href=\"/alpha\">scout</a> for local persistence · not five AV trials"
+      },
+      {
+        "feel": "ClickFix or \"run this in Terminal\" still circulating",
         "start": "<a href=\"/blog/pasted-terminal-command-mac-scare\">ClickFix desk</a> · stop pasting · <a href=\"/blog/field-glass-oct-23-2026\">Oct 23 brief</a>"
       },
       {
-        "feel": "Cleaner extension offered after a breach story",
-        "start": "<a href=\"/blog/mac-slow-after-suspicious-download\">After download</a> · remove unknown extensions in browser settings · not a panic subscription"
+        "feel": "News says \"active exploitation\" · Mac feels normal",
+        "start": "Patch · reboot once · <a href=\"/blog/mac-performance-panic-vs-security-panic\">performance vs security panic</a> · scout if behavior changed"
       },
       {
-        "feel": "Fake virus popup returned after updating",
-        "start": "<a href=\"/blog/fake-virus-popup-macintosh\">Mac popup</a> · <a href=\"/blog/chrome-fake-virus-popup-mac\">Chrome</a> · pop-ups are theater · scout when unsure"
+        "feel": "Cleaner or extension pushed right after breach news",
+        "start": "<a href=\"/blog/mac-slow-after-suspicious-download\">After download</a> · <a href=\"/blog/macintosh-hygiene-without-antivirus\">hygiene without AV</a> · remove what you did not install"
       },
       {
-        "feel": "AI assistant says I am compromised",
+        "feel": "AI chatbot says you are in an exploit campaign",
         "start": "<a href=\"/blog/paste-battle-scout-for-ai-assistant\">Paste Battle Scout</a> · <a href=\"/guide#ai-handoff\">handoff</a> · evidence before drama"
-      },
-      {
-        "feel": "Mac feels slow · is it the exploit?",
-        "start": "<a href=\"/blog/mac-performance-panic-vs-security-panic\">Performance vs security</a> · patch first · scout second"
       },
       {
         "feel": "Phone scare · Mac untouched",
@@ -178,24 +203,25 @@
       }
     ],
     "mist_links": [
+      { "href": "/blog/field-glass-oct-25-2026", "label": "Oct 25 · patch & profile desk" },
       { "href": "/blog/mac-configuration-profile-scam", "label": "Fake System Settings / profiles" },
       { "href": "/blog/someone-remoted-into-my-mac", "label": "Someone remoted into my Mac" },
       { "href": "/blog/pasted-terminal-command-mac-scare", "label": "Pasted Terminal command (ClickFix)" },
-      { "href": "/blog/mac-dns-changed-after-scare", "label": "DNS changed after scare" },
+      { "href": "/blog/chrome-fake-virus-popup-mac", "label": "Chrome fake virus popup" },
       { "href": "/blog/paste-battle-scout-for-ai-assistant", "label": "Paste Battle Scout for AI" },
       { "href": "/install", "label": "Install Innsegall (first scout)" }
     ],
     "news_brief": [
-      "<strong>Patch week</strong> · when Apple ships security fixes, scammers ship <strong>look-alike update pages</strong> · only trust the built-in Software Update pane · we link calm steps, not fear clicks.",
-      "<strong>Session theft headlines</strong> · infostealers that copy <strong>browser profiles</strong> are real in the news · your Mac still deserves <strong>local evidence</strong> before you buy remote-access theater · <a href=\"/alpha\">scout</a>.",
-      "<strong>Extension upsells</strong> · after every breach story, extension stores fill with &quot;protect your Mac&quot; tools · remove what you did not install · <a href=\"/blog/macintosh-hygiene-without-antivirus\">hygiene without AV</a>.",
-      "<strong>Daily desk + i18n</strong> · each EN Field Glass ships to <code>/es/blog</code> and <code>/pt/blog</code> the same day · <a href=\"/watch\">watch hub</a> stays the map.",
-      "<strong>Clear path</strong> · <a href=\"/samples/battle-scout-demo\">see a sample receipt</a> · <a href=\"/install\">install</a> · <a href=\"/alpha\">send the scout</a> · one honest answer on your Mac."
+      "<strong>Exploit-week noise</strong> · responsible vendors patch fast · scammers ride the same headlines with <strong>fake emergency update</strong> pages and paste-this-fix posts · we map calm Mac steps, not a doom feed.",
+      "<strong>Zero-day headlines</strong> · most Mac users still win with <strong>Software Update</strong> and browser updates · if you already clicked something odd, <a href=\"/alpha\">scout</a> for local evidence before buying remote-access theater.",
+      "<strong>Infostealer wave</strong> · stories about stolen browser sessions are real in the industry · rotate credentials from a clean device · remove unknown login items and extensions · <a href=\"/blog/someone-remoted-into-my-mac\">remote fear guide</a>.",
+      "<strong>Same-day i18n</strong> · this desk ships in <code>/es/blog</code> and <code>/pt/blog</code> with EN · <a href=\"/watch\">watch hub</a> lists archive + trends.",
+      "<strong>Clear path</strong> · <a href=\"/samples/battle-scout-demo\">sample receipt</a> · <a href=\"/install\">install</a> · <a href=\"/alpha\">send the scout</a> · one honest answer on your Macintosh."
     ],
     "habits": [
-      "Update macOS from System Settings · not from a link in search results.",
-      "If a headline scared you · read our desk · then scout · do not install five cleaners.",
-      "Share the Battle Scout with family or IT · plain English · no doom feed."
+      "Patch macOS and browsers from built-in menus · not from ads, DMs, or \"critical update\" tabs.",
+      "After a headline scare · read one desk · scout once · do not stack cleaners and extensions.",
+      "Share your Battle Scout with family or IT · plain English · skip the hacking-war scroll."
     ]
   }
 }

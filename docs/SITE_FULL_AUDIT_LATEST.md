@@ -10,11 +10,11 @@
 
 | Metric | Count |
 |--------|------:|
-| HTML surfaces | 234 |
-| Indexable marketing + blog | 232 |
-| Blog posts | 68 |
+| HTML surfaces | 237 |
+| Indexable marketing + blog | 235 |
+| Blog posts | 69 |
 | P0 inventory issues | 0 |
-| Sitemap URLs | 239 |
+| Sitemap URLs | 242 |
 
 **Operator:** Stripe LIVE flip in progress · push `main` after `npm run predeploy` · blog is primary float-mode SEO lever.
 
@@ -50,6 +50,7 @@
 | `/blog/field-glass-oct-2-2026` | ✓ | ✓ | ✓ | ✓ | 120 | ok |
 | `/blog/field-glass-oct-23-2026` | ✓ | ✓ | ✓ | ✓ | 153 | ok |
 | `/blog/field-glass-oct-25-2026` | ✓ | ✓ | ✓ | ✓ | 143 | ok |
+| `/blog/field-glass-oct-28-2026` | ✓ | ✓ | ✓ | ✓ | 139 | ok |
 | `/blog/field-glass-oct-7-2026` | ✓ | ✓ | ✓ | ✓ | 157 | ok |
 | `/blog/field-glass-oct-8-2026` | ✓ | ✓ | ✓ | ✓ | 150 | ok |
 | `/blog/field-glass-sep-19-2026` | ✓ | ✓ | ✓ | ✓ | 142 | ok |
@@ -123,6 +124,7 @@
 | `/es/blog/field-glass-oct-2-2026` | ✓ | ✓ | · | · | 162 | ok |
 | `/es/blog/field-glass-oct-23-2026` | ✓ | ✓ | · | · | 157 | ok |
 | `/es/blog/field-glass-oct-25-2026` | ✓ | ✓ | · | · | 162 | ok |
+| `/es/blog/field-glass-oct-28-2026` | ✓ | ✓ | · | · | 162 | ok |
 | `/es/blog/field-glass-oct-7-2026` | ✓ | ✓ | · | · | 158 | ok |
 | `/es/blog/field-glass-oct-8-2026` | ✓ | ✓ | · | · | 160 | ok |
 | `/es/blog/field-glass-sep-19-2026` | ✓ | ✓ | · | · | 158 | ok |
@@ -204,6 +206,7 @@
 | `/pt/blog/field-glass-oct-2-2026` | ✓ | ✓ | · | · | 156 | ok |
 | `/pt/blog/field-glass-oct-23-2026` | ✓ | ✓ | · | · | 157 | ok |
 | `/pt/blog/field-glass-oct-25-2026` | ✓ | ✓ | · | · | 143 | ok |
+| `/pt/blog/field-glass-oct-28-2026` | ✓ | ✓ | · | · | 159 | ok |
 | `/pt/blog/field-glass-oct-7-2026` | ✓ | ✓ | · | · | 157 | ok |
 | `/pt/blog/field-glass-oct-8-2026` | ✓ | ✓ | · | · | 157 | ok |
 | `/pt/blog/field-glass-sep-19-2026` | ✓ | ✓ | · | · | 162 | ok |
