@@ -91,6 +91,7 @@ check("companion light signals", companion.includes("companion-light-signals"));
 check("companion install ios link", companion.includes('href="/install/ios"'));
 
 const index = readFileSync(join(web, "index.html"), "utf8");
+check("index sword mark", index.includes("innsegall-mark.png"));
 check("home start-here first", index.indexOf('id="start-here"') < index.indexOf('class="hero"'));
 check("home panic sentence case", index.includes("Panic is optional") && !index.includes("PANIC IS OPTIONAL"));
 

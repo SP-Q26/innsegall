@@ -10,16 +10,22 @@
   "lang": "en-US",
   "icons": [
     {
+      "src": "/icons/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/innsegall-mark.png?v=20261028a",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
       "src": "/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"
-    },
-    {
-      "src": "/og/innsegall-card.png",
-      "sizes": "1200x630",
-      "type": "image/png",
-      "purpose": "any"
     }
   ]
 }

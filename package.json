@@ -83,6 +83,7 @@
     "export:og-png": "node scripts/export-og-png.mjs",
     "export:apple-touch-icon": "node scripts/export-apple-touch-icon.mjs",
     "sync:site-chrome": "node scripts/sync-site-chrome.mjs",
+    "sync:brand": "node scripts/sync-brand-assets.mjs && node scripts/sync-site-chrome.mjs",
     "sync:blog-brand": "node scripts/sync-blog-brand.mjs",
     "sync:watch-hub": "node scripts/sync-watch-hub.mjs",
     "audit:field-glass-cadence": "node scripts/audit-field-glass-cadence.mjs",

@@ -30,6 +30,7 @@ const lanes = [
   { name: "Stripe / checkout", script: "audit-stripe.mjs", score: "9.5" },
   { name: "Stripe product PNG tiles", script: "audit-stripe-product-images.mjs", score: "9.5" },
   { name: "Shell / nav / footer", script: "audit-shell.mjs", score: "9.5" },
+  { name: "Brand mark · logo + favicon", script: "audit-brand-mark.mjs", score: "9.5" },
   { name: "Voyage onboarding (P8)", script: "audit-voyage-onboarding.mjs", score: "9.0" },
   { name: "Internal links", script: "audit-links.mjs", score: "9.5" },
   { name: "Internal links (full)", script: "audit-links-full.mjs", score: "9.5" },
@@ -132,7 +133,7 @@ const visualChecks = [
   ["Beam background", index.includes('class="beam-bg"')],
   ["Beam signals layer", readFileSync(join(web, "innsegall-nav.js"), "utf8").includes("mountBeamSignals")],
   ["Beam signals CSS", readFileSync(join(web, "innsegall.css"), "utf8").includes(".beam-signals")],
-  ["Brand mark SVG", index.includes('class="brand-mark"')],
+  ["Brand mark icon", index.includes("innsegall-mark.png")],
   ["Footer nav", index.includes('class="footer-links"')],
   [
     "Field echoes scout-for-you",

@@ -14,7 +14,7 @@ execSync("node scripts/sync-gospel-web.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-battle-scout-sample.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/export-sample-scout.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/export-og-png.mjs", { cwd: root, stdio: "inherit" });
-execSync("node scripts/export-apple-touch-icon.mjs", { cwd: root, stdio: "inherit" });
+execSync("node scripts/sync-brand-assets.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/export-stripe-product-images.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/sync-blog-brand.mjs", { cwd: root, stdio: "inherit" });
 execSync("node scripts/build-seo-batch-20.mjs", { cwd: root, stdio: "inherit" });

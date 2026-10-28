@@ -8,10 +8,11 @@ import { fileURLToPath } from "node:url";
 import { fontHeadLines, FONT_LINK_RE, FONT_STYLESHEET_HREF } from "./site-fonts.mjs";
 import { OG_URL, OG_ALT, TWITTER_SITE } from "./site-og-ver.mjs";
 import { CONTACT_EMAIL, FOOTER_MAILTO_ANCHOR } from "./contact-email.mjs";
+import { brandMarkImgHtml, FAVICON_32_HREF } from "./site-brand-ver.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const web = join(root, "web");
-const CSS_VER = 35;
+const CSS_VER = 36;
 
 const APPLE_TOUCH_ICON = "/icons/apple-touch-icon.png";
 const SITE = "https://innsegall.com";
@@ -25,24 +26,7 @@ const HOME_SOCIAL = {
 
 const CANONICAL_HEADER = `<header class="site-header">
       <a class="brand-lockup" href="/" aria-label="Innsegall home">
-        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="brand-beam" x1="20" y1="0" x2="20" y2="40" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#F4C95D" stop-opacity="0.9"/>
-              <stop offset="1" stop-color="#A8D8FF" stop-opacity="0.2"/>
-            </linearGradient>
-          </defs>
-          <rect width="40" height="40" rx="8" fill="#122A42"/>
-          <rect x="1.5" y="1.5" width="37" height="37" rx="7" fill="none" stroke="#F4C95D" stroke-opacity="0.35" stroke-width="1"/>
-          <g fill="none" stroke-linecap="round" stroke-width="1.2">
-            <path d="M6 10 L9 6 L12 10" stroke="#F4C95D" opacity="0.55"/>
-            <path d="M20 10 L23 6 L26 10" stroke="#3DAA8C" opacity="0.4"/>
-            <path d="M28 10 L31 6 L34 10" stroke="#A8D8FF" opacity="0.45"/>
-          </g>
-          <path d="M20 6v28" stroke="url(#brand-beam)" stroke-width="2" stroke-linecap="round"/>
-          <ellipse cx="20" cy="30" rx="8" ry="3" fill="#E8A87C" opacity="0.85"/>
-          <path d="M14 22c2-4 10-4 12 0" stroke="#A8D8FF" stroke-width="1.5" fill="none" opacity="0.7"/>
-        </svg>
+        ${brandMarkImgHtml()}
         <span>
           <span class="brand-word">Innsegall</span>
           <span class="brand-pronounce">IN-sheh-gal · post-scare Mac triage</span>
@@ -91,6 +75,7 @@ const VERCEL_ANALYTICS = `  <script defer src="/_vercel/insights/script.js"></sc
 
 function faviconBlock(manifestHref = "/site.webmanifest") {
   return `  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="${FAVICON_32_HREF}" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="${APPLE_TOUCH_ICON}" sizes="180x180">
   <link rel="manifest" href="${manifestHref}">`;
 }
@@ -398,14 +383,10 @@ function fixFavicon(html, manifestHref = "/site.webmanifest") {
   out = out.replace(/<link rel="icon"[^>]*>\s*/g, "");
   out = out.replace(/<link rel="apple-touch-icon"[^>]*>\s*/g, "");
   out = out.replace(/<link rel="manifest"[^>]*>\s*/g, "");
-  if (!out.includes("/favicon.svg")) {
-    if (out.includes('rel="stylesheet"')) {
-      out = out.replace(/(<link rel="stylesheet"[^>]*>)/, `${block}\n  $1`);
-    } else if (out.includes("</head>")) {
-      out = out.replace("</head>", `${block}\n</head>`);
-    }
-  } else if (!out.includes(manifestHref)) {
-    out = out.replace(/(<link rel="apple-touch-icon"[^>]*>)/, `$1\n  <link rel="manifest" href="${manifestHref}">`);
+  if (out.includes('rel="stylesheet"')) {
+    out = out.replace(/(<link rel="stylesheet"[^>]*>)/, `${block}\n  $1`);
+  } else if (out.includes("</head>")) {
+    out = out.replace("</head>", `${block}\n</head>`);
   }
   return out;
 }

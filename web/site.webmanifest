@@ -15,6 +15,12 @@
       "purpose": "any maskable"
     },
     {
+      "src": "/icons/innsegall-mark.png?v=20261028a",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
       "src": "/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml",

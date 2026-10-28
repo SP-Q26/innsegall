@@ -50,6 +50,10 @@ const PATHS = [
   "/tablet",
   "/companion",
   "/companion.webmanifest",
+  "/favicon.svg",
+  "/icons/innsegall-mark.png",
+  "/icons/apple-touch-icon.png",
+  "/icons/favicon-32.png",
   "/innsegall-companion.js",
   "/lib/companion-core.mjs",
   "/supplies",
@@ -176,6 +180,10 @@ async function check(path) {
     }
     if (path === "/" && !text.includes('id="start-here"')) {
       failMsg(`${path} missing #start-here panic funnel`);
+      return;
+    }
+    if (path === "/" && !text.includes("innsegall-mark.png")) {
+      failMsg(`${path} missing sword-in-stone brand mark`);
       return;
     }
     if (path === "/companion" && !text.includes("companion-device-guide")) {

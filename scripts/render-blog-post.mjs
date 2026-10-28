@@ -4,7 +4,8 @@ import { PRICING } from "../src/constants.mjs";
 import { CSS_VER } from "./site-css-ver.mjs";
 import { fontHeadLines } from "./site-fonts.mjs";
 import { OG_URL } from "./site-og-ver.mjs";
-import { APPLE_TOUCH_LINK, FOOTER_MAILTO_ANCHOR } from "./contact-email.mjs";
+import { FOOTER_MAILTO_ANCHOR } from "./contact-email.mjs";
+import { brandMarkImgHtml, FAVICON_32_HREF } from "./site-brand-ver.mjs";
 
 /**
  * @param {{
@@ -60,7 +61,8 @@ export function renderBlogPostHtml(opts) {
   <link rel="alternate" type="text/plain" href="https://innsegall.com/llms.txt" title="Innsegall · AI agent gospel (llms.txt)">
   <meta name="innsegall:agent-hint" content="${escapeHtml(opts.agentHint)}">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-${APPLE_TOUCH_LINK}
+  <link rel="icon" href="${FAVICON_32_HREF}" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" sizes="180x180">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="/innsegall.css?v=${CSS_VER}">
 ${fontHeadLines()}
@@ -90,24 +92,7 @@ ${fontHeadLines()}
   <div class="page">
     <header class="site-header">
       <a class="brand-lockup" href="/" aria-label="Innsegall home">
-        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="brand-beam" x1="20" y1="0" x2="20" y2="40" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#F4C95D" stop-opacity="0.9"/>
-              <stop offset="1" stop-color="#A8D8FF" stop-opacity="0.2"/>
-            </linearGradient>
-          </defs>
-          <rect width="40" height="40" rx="8" fill="#122A42"/>
-          <rect x="1.5" y="1.5" width="37" height="37" rx="7" fill="none" stroke="#F4C95D" stroke-opacity="0.35" stroke-width="1"/>
-          <g fill="none" stroke-linecap="round" stroke-width="1.2">
-            <path d="M6 10 L9 6 L12 10" stroke="#F4C95D" opacity="0.55"/>
-            <path d="M20 10 L23 6 L26 10" stroke="#3DAA8C" opacity="0.4"/>
-            <path d="M28 10 L31 6 L34 10" stroke="#A8D8FF" opacity="0.45"/>
-          </g>
-          <path d="M20 6v28" stroke="url(#brand-beam)" stroke-width="2" stroke-linecap="round"/>
-          <ellipse cx="20" cy="30" rx="8" ry="3" fill="#E8A87C" opacity="0.85"/>
-          <path d="M14 22c2-4 10-4 12 0" stroke="#A8D8FF" stroke-width="1.5" fill="none" opacity="0.7"/>
-        </svg>
+        ${brandMarkImgHtml()}
         <span>
           <span class="brand-word">Innsegall</span>
           <span class="brand-pronounce">IN-sheh-gal · built for your Macintosh clan · family · iPad &amp; iOS</span>
