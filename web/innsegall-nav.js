@@ -345,4 +345,65 @@
   } else {
     wireInstallIntentLinks();
   }
+
+  function initHomePanicFunnel() {
+    var root = document.querySelector("[data-home-panic-funnel]");
+    if (!root) return;
+
+    var chips = root.querySelectorAll("[data-device-filter]");
+    var panel = root.querySelector("[data-home-scare-panel]");
+    var hint = root.querySelector("[data-home-scare-hint]");
+    var cards = root.querySelectorAll(".avenue-card[data-device-key]");
+    if (!chips.length || !panel || !cards.length) return;
+
+    var storageKey = "innsegall_home_device";
+
+    function matchesFilter(cardKey, filter) {
+      if (cardKey === "household") return true;
+      return cardKey === filter;
+    }
+
+    function applyFilter(filter, focusPanel) {
+      chips.forEach(function (chip) {
+        var on = chip.getAttribute("data-device-filter") === filter;
+        chip.setAttribute("aria-pressed", on ? "true" : "false");
+      });
+
+      cards.forEach(function (card) {
+        var key = card.getAttribute("data-device-key");
+        card.hidden = !matchesFilter(key, filter);
+      });
+
+      if (hint) hint.hidden = true;
+      panel.hidden = false;
+
+      try {
+        sessionStorage.setItem(storageKey, filter);
+      } catch (e) {}
+
+      if (focusPanel) {
+        panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+    }
+
+    chips.forEach(function (chip) {
+      chip.addEventListener("click", function () {
+        applyFilter(chip.getAttribute("data-device-filter"), true);
+      });
+    });
+
+    var saved = null;
+    try {
+      saved = sessionStorage.getItem(storageKey);
+    } catch (e2) {}
+    if (saved === "iphone" || saved === "ipad" || saved === "mac") {
+      applyFilter(saved, false);
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initHomePanicFunnel, { once: true });
+  } else {
+    initHomePanicFunnel();
+  }
 })();

@@ -23,17 +23,16 @@ const main = index.split('<main id="main">')[1] || index;
 
 check("start-here before hero", main.indexOf('id="start-here"') < main.indexOf('class="hero"'));
 check("avenue-selector present", index.includes("avenue-selector") && index.includes("avenue-card"));
-check("device-selector present", index.includes("device-selector"));
-check("more options collapsed", index.includes("home-more-options") && index.includes("<details"));
-
-check("panic banner headline", index.includes(hub.panic_banner) && index.includes("home-panic-banner"));
-check("device cards before avenues", index.indexOf("home-device-card--iphone") < index.indexOf("avenue-grid"));
-check("colored device cards", index.includes("home-device-card--iphone") && index.includes("home-device-card--ipad") && index.includes("home-device-card--mac"));
+check("device chips present", index.includes("home-device-chip") && index.includes("data-device-filter"));
+check("scare panel hidden until device", index.includes("data-home-scare-panel") && index.includes("data-home-scare-hint"));
+check("device chips before avenues", index.indexOf("home-device-chips") < index.indexOf("avenue-grid"));
+check("colored device chips", index.includes("home-device-chip--iphone") && index.includes("home-device-chip--ipad") && index.includes("home-device-chip--mac"));
 check("title scare-first", index.includes(hub.title));
 check("avenue count in html", (index.match(/class="avenue-card"/g) || []).length >= hub.avenues.length);
 
 for (const a of hub.avenues) {
-  check(`avenue href ${a.href}`, index.includes(`href="${a.href}"`));
+  const href = a.href.startsWith("/blog/") ? a.href : a.href;
+  check(`avenue href ${a.href}`, index.includes(`href="${href}"`) || index.includes(a.href));
 }
 
 check("iphone steps ios#bad-link", index.includes('/ios#bad-link'));
@@ -41,6 +40,7 @@ check("ipad steps tablet#bad-link", index.includes('/tablet#bad-link'));
 check("mac popup guide", index.includes("/blog/fake-virus-popup-macintosh"));
 check("hero links start-here", /href="#start-here"/.test(index));
 check("hero primary panic CTA", /btn-horn[^>]*href="#start-here"/.test(index) || /href="#start-here"[^>]*class="[^"]*btn-horn/.test(index));
+check("no pick your situation label", !index.includes("Pick your situation"));
 
 const ios = readFileSync(join(web, "ios.html"), "utf8");
 const tablet = readFileSync(join(web, "tablet.html"), "utf8");

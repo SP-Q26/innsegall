@@ -12,7 +12,7 @@ import { brandMarkImgHtml, FAVICON_32_HREF, BRAND_ICON_VER } from "./site-brand-
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const web = join(root, "web");
-const CSS_VER = 36;
+const CSS_VER = 37;
 
 const APPLE_TOUCH_ICON = "/icons/apple-touch-icon.png";
 const SITE = "https://innsegall.com";

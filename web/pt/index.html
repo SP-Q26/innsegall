@@ -19,11 +19,11 @@
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Innsegall">
-                                                                                                        <meta property="og:title" content="Innsegall · Fique em paz com o Mac">
-                                                                                                      <meta name="twitter:url" content="https://innsegall.com/pt/">
+                                                                                                          <meta property="og:title" content="Innsegall · Fique em paz com o Mac">
+                                                                                                        <meta name="twitter:url" content="https://innsegall.com/pt/">
   <meta name="twitter:site" content="@innsegall">
-                                                                                                        <meta property="og:description" content="Pop-up assustador ou link estranho? Checagem calma no Mac · relatório simples · local até você compartilhar · checkups grátis dias 1 e 15 · não é antivírus.">
-                                                                                                        <meta property="og:url" content="https://innsegall.com/pt/">
+                                                                                                          <meta property="og:description" content="Pop-up assustador ou link estranho? Checagem calma no Mac · relatório simples · local até você compartilhar · checkups grátis dias 1 e 15 · não é antivírus.">
+                                                                                                          <meta property="og:url" content="https://innsegall.com/pt/">
   <meta property="og:image" content="https://innsegall.com/og/innsegall-card.png?v=20261028a">
   <meta property="og:image:secure_url" content="https://innsegall.com/og/innsegall-card.png?v=20261028a">
   <meta property="og:image:width" content="1200">
@@ -33,8 +33,8 @@
     <meta property="og:locale" content="pt_BR">
 
   <meta name="twitter:card" content="summary_large_image">
-                                                                                                        <meta name="twitter:title" content="Innsegall · Fique em paz com o Mac">
-                                                                                                        <meta name="twitter:description" content="Pop-up assustador ou link estranho? Checagem calma no Mac · relatório simples · local até você compartilhar · checkups grátis dias 1 e 15 · não é antivírus.">
+                                                                                                          <meta name="twitter:title" content="Innsegall · Fique em paz com o Mac">
+                                                                                                          <meta name="twitter:description" content="Pop-up assustador ou link estranho? Checagem calma no Mac · relatório simples · local até você compartilhar · checkups grátis dias 1 e 15 · não é antivírus.">
   <meta name="twitter:image" content="https://innsegall.com/og/innsegall-card.png?v=20261028a">
     <meta name="twitter:image:alt" content="Innsegall · Know you're okay · Macintosh triage">
 
@@ -44,11 +44,11 @@
   <link rel="alternate" type="application/json" href="https://innsegall.com/.well-known/ai-discovery.json" title="Innsegall · AI discovery manifest">
   <link rel="alternate" type="application/json" href="https://innsegall.com/innsegall-ai-bus.json" title="Innsegall · AI bus (compact agent context)">
 
-                                                                            <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+                                                                              <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="/icons/favicon-32.png?v=20261028a" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" sizes="180x180">
   <link rel="manifest" href="/site.webmanifest">
-  <link rel="stylesheet" href="/innsegall.css?v=36">
+  <link rel="stylesheet" href="/innsegall.css?v=37">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=DM+Sans:wght@400;600&display=swap">
@@ -241,56 +241,39 @@
       <p class="locale-notice home-i18n-notice">Início em português · seções abaixo podem estar em inglês enquanto localizamos · o scout roda no seu Mac · <a href="/pt/blog">blog em português</a>.</p>
       
       <!-- HOME_PANIC_FUNNEL_START -->
-      <section class="section home-start-here" id="start-here" aria-labelledby="start-here-banner">
+      <section class="section home-start-here" id="start-here" aria-labelledby="start-here-banner" data-home-panic-funnel>
         <p class="section-label">Start here</p>
         <h2 id="start-here-banner" class="home-panic-banner">Panic is optional - we got you</h2>
 
-        <div class="device-selector device-selector--primary" aria-label="Not sure · pick device">
-          <p class="device-selector-lead device-selector-lead--tight">One door · then the same calm guides.</p>
-          <div class="card-grid home-device-funnel home-device-funnel--compact home-device-funnel--hero">
-            <article class="card home-device-card home-device-card--compact home-device-card--iphone">
-              <h3>iPhone</h3>
-              <p>Steps on this phone first · Companion optional after.</p>
-              <div class="home-device-card-actions">
-                <a class="btn-horn btn-horn--compact" href="/ios#bad-link">Open iPhone steps</a>
-                <a class="btn-link" href="/install/ios">Add Companion</a>
-              </div>
-            </article>
-            <article class="card home-device-card home-device-card--compact home-device-card--ipad">
-              <h3>iPad</h3>
-              <p>Tablet steps · split-screen with chat later.</p>
-              <div class="home-device-card-actions">
-                <a class="btn-horn btn-horn--compact" href="/tablet#bad-link">Open iPad steps</a>
-                <a class="btn-link" href="/install/tablet">Add Companion</a>
-              </div>
-            </article>
-            <article class="card home-device-card home-device-card--compact home-device-card--mac">
-              <h3>Mac</h3>
-              <p>Read-only scout · plain Battle Scout receipt.</p>
-              <div class="home-device-card-actions">
-                <a class="btn-horn btn-horn--compact" href="/alpha">Enviar o scout</a>
-                <a class="btn-link" href="/samples/battle-scout-demo">Sample first</a>
-              </div>
-            </article>
+        <div class="home-device-chips-wrap">
+          <p class="home-device-chips-label">Which device?</p>
+          <p class="home-device-chips-lead">Tap one · we show the scares that fit.</p>
+          <div class="home-device-chips" role="group" aria-label="Which device?">
+            <button type="button" class="home-device-chip home-device-chip--iphone" data-device-filter="iphone" aria-pressed="false">iPhone</button>
+            <button type="button" class="home-device-chip home-device-chip--ipad" data-device-filter="ipad" aria-pressed="false">iPad</button>
+            <button type="button" class="home-device-chip home-device-chip--mac" data-device-filter="mac" aria-pressed="false">Mac</button>
           </div>
         </div>
 
-        <h3 id="start-here-title" class="home-scare-title">What scared you?</h3>
-        <p class="section-lead">Tap the one that fits · we open calm steps on the next page · not a sales funnel · not antivirus.</p>
+        <p class="home-scare-hint" data-home-scare-hint>Choose iPhone, iPad, or Mac above.</p>
 
-        <div class="avenue-selector" role="navigation" aria-label="Pick your situation">
-          <p class="panic-jump-label">Pick your situation</p>
-          <div class="avenue-grid">
-            <a class="avenue-card" href="/ios#fake-popup"><span class="avenue-card__device">iPhone</span><span class="avenue-card__label">Fake virus or security popup</span></a>
-            <a class="avenue-card" href="/ios#bad-link"><span class="avenue-card__device">iPhone</span><span class="avenue-card__label">Clicked a bad link</span></a>
-            <a class="avenue-card" href="/tablet#fake-popup"><span class="avenue-card__device">iPad</span><span class="avenue-card__label">Fake popup or scary page</span></a>
-            <a class="avenue-card" href="/tablet#bad-link"><span class="avenue-card__device">iPad</span><span class="avenue-card__label">Bad link on Safari</span></a>
-            <a class="avenue-card" href="/pt/blog/fake-virus-popup-macintosh"><span class="avenue-card__device">Mac</span><span class="avenue-card__label">Fake virus popup in browser</span></a>
-            <a class="avenue-card" href="/pt/blog/clicked-suspicious-link-macintosh"><span class="avenue-card__device">Mac</span><span class="avenue-card__label">Clicked a suspicious link</span></a>
-            <a class="avenue-card" href="/pt/blog/pasted-terminal-command-mac-scare"><span class="avenue-card__device">Mac</span><span class="avenue-card__label">Pasted something in Terminal</span></a>
-            <a class="avenue-card" href="/pt/blog/someone-remoted-into-my-mac"><span class="avenue-card__device">Mac</span><span class="avenue-card__label">Someone may be on my Mac</span></a>
-            <a class="avenue-card" href="/ios#typed-password"><span class="avenue-card__device">iPhone</span><span class="avenue-card__label">Typed password on a scam site</span></a>
-            <a class="avenue-card" href="/pt/blog/check-parent-mac-after-scare"><span class="avenue-card__device">Household</span><span class="avenue-card__label">Parent or partner Mac scare</span></a>
+        <div class="home-scare-panel" data-home-scare-panel hidden>
+          <h3 id="start-here-title" class="home-scare-title">What happened?</h3>
+          <p class="section-lead home-scare-lead">One tap · calm steps on the next page.</p>
+
+          <div class="avenue-selector avenue-selector--filtered" role="navigation" aria-label="What happened" data-home-avenue>
+            <div class="avenue-grid">
+            <a class="avenue-card" href="/ios#fake-popup" data-device-key="iphone"><span class="avenue-card__device">iPhone</span><span class="avenue-card__label">Fake virus or security popup</span></a>
+            <a class="avenue-card" href="/ios#bad-link" data-device-key="iphone"><span class="avenue-card__device">iPhone</span><span class="avenue-card__label">Clicked a bad link</span></a>
+            <a class="avenue-card" href="/ios#typed-password" data-device-key="iphone"><span class="avenue-card__device">iPhone</span><span class="avenue-card__label">Typed password on a scam site</span></a>
+            <a class="avenue-card" href="/tablet#fake-popup" data-device-key="ipad"><span class="avenue-card__device">iPad</span><span class="avenue-card__label">Fake popup or scary page</span></a>
+            <a class="avenue-card" href="/tablet#bad-link" data-device-key="ipad"><span class="avenue-card__device">iPad</span><span class="avenue-card__label">Bad link on Safari</span></a>
+            <a class="avenue-card" href="/pt/blog/fake-virus-popup-macintosh" data-device-key="mac"><span class="avenue-card__device">Mac</span><span class="avenue-card__label">Fake virus popup in browser</span></a>
+            <a class="avenue-card" href="/pt/blog/clicked-suspicious-link-macintosh" data-device-key="mac"><span class="avenue-card__device">Mac</span><span class="avenue-card__label">Clicked a suspicious link</span></a>
+            <a class="avenue-card" href="/pt/blog/pasted-terminal-command-mac-scare" data-device-key="mac"><span class="avenue-card__device">Mac</span><span class="avenue-card__label">Pasted something in Terminal</span></a>
+            <a class="avenue-card" href="/pt/blog/someone-remoted-into-my-mac" data-device-key="mac"><span class="avenue-card__device">Mac</span><span class="avenue-card__label">Someone may be on my Mac</span></a>
+            <a class="avenue-card" href="/pt/blog/check-parent-mac-after-scare" data-device-key="household"><span class="avenue-card__device">Household</span><span class="avenue-card__label">Parent or partner Mac scare</span></a>
+            </div>
           </div>
         </div>
 
@@ -673,8 +656,8 @@
     </footer>
   </div>
   <script src="/innsegall-checkout.js?v=2" defer></script>
-    <script src="/innsegall-locale.js?v=36" defer></script>
-  <script src="/innsegall-nav.js?v=36" defer></script>
+    <script src="/innsegall-locale.js?v=37" defer></script>
+  <script src="/innsegall-nav.js?v=37" defer></script>
   <script defer src="/_vercel/insights/script.js"></script>
   <script defer src="/_vercel/insights/script.js"></script>
   <script defer src="/_vercel/speed-insights/script.js"></script>

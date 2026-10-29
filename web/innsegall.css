@@ -2318,10 +2318,102 @@ button.innsegall-checkout:disabled {
   color: var(--text-primary);
 }
 
+.home-device-chips-wrap {
+  margin-bottom: var(--space-4);
+}
+
+.home-device-chips-label {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0 0 var(--space-1);
+  color: var(--spirit-silver);
+}
+
+.home-device-chips-lead {
+  margin: 0 0 var(--space-3);
+  font-size: 0.92rem;
+  color: var(--gremlin-smoke);
+}
+
+.home-device-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.home-device-chip {
+  flex: 1 1 6.5rem;
+  min-width: 6.5rem;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(168, 216, 255, 0.22);
+  background: rgba(11, 29, 46, 0.75);
+  color: var(--spirit-silver);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.home-device-chip:hover {
+  transform: translateY(-1px);
+  border-color: rgba(244, 201, 93, 0.45);
+}
+
+.home-device-chip[aria-pressed="true"] {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.home-device-chip--iphone[aria-pressed="true"] {
+  border-color: rgba(61, 170, 140, 0.85);
+  background: linear-gradient(155deg, rgba(20, 58, 72, 0.98) 0%, rgba(11, 29, 46, 0.95) 100%);
+  color: #9ef0d4;
+}
+
+.home-device-chip--ipad[aria-pressed="true"] {
+  border-color: rgba(168, 140, 232, 0.85);
+  background: linear-gradient(155deg, rgba(42, 32, 72, 0.98) 0%, rgba(18, 28, 52, 0.95) 100%);
+  color: #ddd0ff;
+}
+
+.home-device-chip--mac[aria-pressed="true"] {
+  border-color: rgba(244, 201, 93, 0.85);
+  background: linear-gradient(155deg, rgba(58, 48, 28, 0.95) 0%, rgba(18, 42, 66, 0.92) 100%);
+  color: var(--beam-gold);
+}
+
+.home-scare-hint {
+  margin: 0 0 var(--space-4);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  border: 1px dashed rgba(168, 216, 255, 0.2);
+  color: var(--gremlin-smoke);
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.home-scare-hint[hidden] {
+  display: none;
+}
+
+.home-scare-panel[hidden] {
+  display: none;
+}
+
 .home-scare-title {
   font-family: var(--font-display);
   font-size: 1.65rem;
-  margin: var(--space-5) 0 var(--space-2);
+  margin: 0 0 var(--space-2);
+  color: var(--text-primary);
+}
+
+.home-scare-lead {
+  margin-bottom: var(--space-3);
+  max-width: 36rem;
 }
 
 .device-selector--primary {
@@ -2376,45 +2468,54 @@ button.innsegall-checkout:disabled {
 
 .avenue-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr));
-  gap: var(--space-3);
-  margin: var(--space-3) 0 var(--space-5);
+  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+  gap: var(--space-2);
+  margin: 0 0 var(--space-5);
 }
 
 .avenue-card {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  row-gap: 0.35rem;
-  min-height: 4.5rem;
+  justify-content: center;
+  row-gap: 0.25rem;
+  min-height: 3.75rem;
   padding: var(--space-3) var(--space-4);
   border-radius: var(--radius-md);
-  border: 1px solid rgba(244, 201, 93, 0.35);
-  background: rgba(18, 42, 66, 0.65);
-  color: var(--mist);
+  border: 1px solid rgba(168, 216, 255, 0.18);
+  background: rgba(8, 24, 40, 0.88);
+  color: var(--spirit-silver);
   text-decoration: none;
   cursor: pointer;
   transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
+.avenue-card[hidden] {
+  display: none;
+}
+
 .avenue-card:hover {
-  border-color: rgba(244, 201, 93, 0.55);
-  background: rgba(18, 42, 66, 0.85);
+  border-color: rgba(244, 201, 93, 0.5);
+  background: rgba(14, 36, 58, 0.95);
   transform: translateY(-2px);
 }
 
+.home-scare-panel .avenue-card__device {
+  display: none;
+}
+
 .avenue-card__device {
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--gremlin-smoke);
 }
 
 .avenue-card__label {
-  font-size: 0.95rem;
+  font-size: 1.02rem;
   font-weight: 600;
-  line-height: 1.35;
-  color: var(--mist);
+  line-height: 1.4;
+  color: var(--text-primary);
 }
 
 .device-selector {
