@@ -10,15 +10,42 @@
 
 | Metric | Count |
 |--------|------:|
-| HTML surfaces | 237 |
-| Indexable marketing + blog | 235 |
-| Blog posts | 69 |
+| HTML surfaces | 240 |
+| Indexable marketing + blog | 238 |
+| Blog posts | 70 |
 | P0 inventory issues | 0 |
-| Sitemap URLs | 242 |
+| Sitemap URLs | 245 |
+| Brand logo/favicon gate | ✓ sword-in-stone · 20261028a |
 
 **Operator:** Stripe LIVE flip in progress · push `main` after `npm run predeploy` · blog is primary float-mode SEO lever.
 
+
 ---
+
+## Brand · logo + favicon (sword-in-stone)
+
+**Canon:** `fixtures/brand/innsegall-logo-master.jpg` → `npm run sync:brand` → `icons/innsegall-mark.png`, favicons, OG, Stripe tiles, header `<img class="brand-mark">`.  
+**Version pins:** mark/favicon `?v=20261028a` · OG `?v=20261028a` · gate `node scripts/audit-brand-mark.mjs` (swarm lane).
+
+| Check | Status | Notes |
+|-------|:------:|-------|
+| Master art `fixtures/brand/innsegall-logo-master.jpg` | ✓ | ok |
+| Header mark `web/icons/innsegall-mark.png` | ✓ | ok |
+| Favicon 32 `web/icons/favicon-32.png` | ✓ | ok |
+| Apple touch `web/icons/apple-touch-icon.png` | ✓ | ok |
+| `favicon.svg` embeds mark PNG (not legacy horn SVG) | ✓ | ok |
+| OG card PNG `web/og/innsegall-card.png` | ✓ | ok |
+| OG cache ver matches site head | ✓ | ok |
+| Home header uses `class="brand-mark"` + versioned mark URL | ✓ | ok |
+| Home favicon 32 uses versioned URL | ✓ | ok |
+| Home apple-touch-icon PNG (not favicon.svg) | ✓ | ok |
+| No legacy `brand-beam` horn in home header | ✓ | ok |
+| Sitewide apple-touch uses PNG not favicon.svg | ✓ | ok |
+| Pages with sword mark or brand-mark img | ✓ | 239/239 headers |
+| `site.webmanifest` references mark + apple-touch | ✓ | ok |
+
+**Regenerate assets after master change:** `npm run sync:brand` · then `npm run sync:site-chrome` · bump `site-brand-ver.mjs` / `site-og-ver.mjs` if needed.
+
 
 ## Page inventory
 
@@ -51,6 +78,7 @@
 | `/blog/field-glass-oct-23-2026` | ✓ | ✓ | ✓ | ✓ | 153 | ok |
 | `/blog/field-glass-oct-25-2026` | ✓ | ✓ | ✓ | ✓ | 143 | ok |
 | `/blog/field-glass-oct-28-2026` | ✓ | ✓ | ✓ | ✓ | 139 | ok |
+| `/blog/field-glass-oct-29-2026` | ✓ | ✓ | ✓ | ✓ | 143 | ok |
 | `/blog/field-glass-oct-7-2026` | ✓ | ✓ | ✓ | ✓ | 157 | ok |
 | `/blog/field-glass-oct-8-2026` | ✓ | ✓ | ✓ | ✓ | 150 | ok |
 | `/blog/field-glass-sep-19-2026` | ✓ | ✓ | ✓ | ✓ | 142 | ok |
@@ -125,6 +153,7 @@
 | `/es/blog/field-glass-oct-23-2026` | ✓ | ✓ | · | · | 157 | ok |
 | `/es/blog/field-glass-oct-25-2026` | ✓ | ✓ | · | · | 162 | ok |
 | `/es/blog/field-glass-oct-28-2026` | ✓ | ✓ | · | · | 162 | ok |
+| `/es/blog/field-glass-oct-29-2026` | ✓ | ✓ | · | · | 161 | ok |
 | `/es/blog/field-glass-oct-7-2026` | ✓ | ✓ | · | · | 158 | ok |
 | `/es/blog/field-glass-oct-8-2026` | ✓ | ✓ | · | · | 160 | ok |
 | `/es/blog/field-glass-sep-19-2026` | ✓ | ✓ | · | · | 158 | ok |
@@ -207,6 +236,7 @@
 | `/pt/blog/field-glass-oct-23-2026` | ✓ | ✓ | · | · | 157 | ok |
 | `/pt/blog/field-glass-oct-25-2026` | ✓ | ✓ | · | · | 143 | ok |
 | `/pt/blog/field-glass-oct-28-2026` | ✓ | ✓ | · | · | 159 | ok |
+| `/pt/blog/field-glass-oct-29-2026` | ✓ | ✓ | · | · | 162 | ok |
 | `/pt/blog/field-glass-oct-7-2026` | ✓ | ✓ | · | · | 157 | ok |
 | `/pt/blog/field-glass-oct-8-2026` | ✓ | ✓ | · | · | 157 | ok |
 | `/pt/blog/field-glass-sep-19-2026` | ✓ | ✓ | · | · | 162 | ok |

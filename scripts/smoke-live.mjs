@@ -8,6 +8,7 @@
 import { readdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { BRAND_ICON_VER, BRAND_MARK_HREF } from "./site-brand-ver.mjs";
 
 const repoRoot = join(dirname(fileURLToPath(import.meta.url)), "..");
 const blogDir = join(repoRoot, "web", "blog");
@@ -184,6 +185,14 @@ async function check(path) {
     }
     if (path === "/" && !text.includes("innsegall-mark.png")) {
       failMsg(`${path} missing sword-in-stone brand mark`);
+      return;
+    }
+    if (path === "/" && !text.includes(BRAND_MARK_HREF)) {
+      failMsg(`${path} brand mark missing cache ver ${BRAND_ICON_VER} (${BRAND_MARK_HREF})`);
+      return;
+    }
+    if (path === "/" && text.includes("brand-beam")) {
+      failMsg(`${path} legacy horn/beam header art (brand-beam)`);
       return;
     }
     if (path === "/companion" && !text.includes("companion-device-guide")) {

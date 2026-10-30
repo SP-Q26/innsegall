@@ -7,7 +7,8 @@ alwaysApply: true
 
 **Canon:** `docs/LANE_ISOLATION.md` · **Full send:** `docs/FULL_SEND.md`
 
-- Workspace = **innsegall repo root** (`main`) · not SPQ parent · not Simple Property · not `weweb-export`.
+- Workspace = **innsegall repo root** (`main`) · not SPQ parent · not Simple Property · not `weweb-export`. **Map:** SPQ `docs/CURSOR_LANE_MAP.md`.
+- Cursor chat prefix: **`[innsegall]`** · new chat when leaving this folder.
 - No commits/push unless operator asks · before push: `npm run audit:git`.
 - Git: noreply only · no secrets in git · `isles_brand=innsegall` on Stripe metadata only.
 - No em dash in customer `web/` copy · no WeWeb MCP for this lane.
