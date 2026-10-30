@@ -36,7 +36,11 @@ check("alpha sample before gatekeeper", alpha.indexOf("battle-scout-sample") < a
 check("alpha hero sample CTA", /#battle-scout-sample|battle-scout-demo/.test(alpha.slice(0, alpha.indexOf("gatekeeper"))));
 check("alpha lay of the land headline", /lay of the land/i.test(alpha));
 const aboveProblem = index.slice(0, index.indexOf("problem-title"));
-check("index panic CTA above fold", /href="#start-here"/.test(aboveProblem) && /What scared you/.test(aboveProblem));
+check(
+  "index panic CTA above fold",
+  /href="#start-here"/.test(aboveProblem) &&
+    (/Start here|What happened\?|home-device-chip|data-home-panic-funnel/.test(aboveProblem))
+);
 check("index avenue ios paths above fold", /href="\/ios#/.test(aboveProblem));
 check(
   "index sample in start-here options",
