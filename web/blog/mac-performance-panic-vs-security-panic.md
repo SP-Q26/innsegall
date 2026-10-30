@@ -246,3 +246,14 @@ Close the tab · no toll-free support · scout when you need a receipt.
 - **Oct 28 desk** · [Field Glass](/blog/field-glass-oct-28-2026) · [Watch](/watch)
 - **Lane** · [Is Innsegall for you?](/boat)
 - **Pricing** · [Supplies](/supplies)
+
+---
+
+## Helpful links
+
+- **Worried after a scare?** · [Send the scout](/alpha)
+- **Sample + install** · [Demo receipt](/samples/battle-scout-demo) · [Install](/install)
+- **Start here** · [Home funnel](/) · [Watch](/watch)
+- **Oct 29 desk** · [Field Glass](/blog/field-glass-oct-29-2026)
+- **Lane** · [Is Innsegall for you?](/boat)
+- **Pricing** · [Supplies](/supplies)

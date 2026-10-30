@@ -3,9 +3,15 @@
   <channel>
     <title>Innsegall · Field Glass watch</title>
     <link>https://innsegall.com/watch</link>
-    <description>Zero-day exploit headlines · fake emergency browser updates · infostealer wave · calm Mac Battle Scout · read-only receipt · not antivirus.</description>
+    <description>Patch fatigue after exploit week · password rotation calm · fake update tabs linger · one Battle Scout receipt · read-only Mac · not antivirus.</description>
     <language>en-us</language>
     <atom:link href="https://innsegall.com/watch-feed.xml" rel="self" type="application/rss+xml"/>
+  <item>
+    <title>October 29 · patch-fatigue desk</title>
+    <link>https://innsegall.com/blog/field-glass-oct-29-2026</link>
+    <guid isPermaLink="true">https://innsegall.com/blog/field-glass-oct-29-2026</guid>
+    <pubDate>Thu, 29 Oct 2026 00:00:00 GMT</pubDate>
+  </item>
   <item>
     <title>October 28 · exploit-week desk</title>
     <link>https://innsegall.com/blog/field-glass-oct-28-2026</link>

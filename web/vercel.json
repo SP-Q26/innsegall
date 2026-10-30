@@ -1108,6 +1108,18 @@
     {
       "source": "/pt/blog/field-glass-oct-28-2026",
       "destination": "/pt/blog/field-glass-oct-28-2026.html"
+    },
+    {
+      "source": "/blog/field-glass-oct-29-2026",
+      "destination": "/blog/field-glass-oct-29-2026.html"
+    },
+    {
+      "source": "/es/blog/field-glass-oct-29-2026",
+      "destination": "/es/blog/field-glass-oct-29-2026.html"
+    },
+    {
+      "source": "/pt/blog/field-glass-oct-29-2026",
+      "destination": "/pt/blog/field-glass-oct-29-2026.html"
     }
   ]
 }

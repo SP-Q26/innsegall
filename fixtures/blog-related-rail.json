@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-28",
+  "version": "2026-10-29",
   "defaultRelated": [
     { "href": "/alpha", "label": "Send the scout" },
     { "href": "/watch", "label": "Macintosh watch" },
@@ -42,25 +42,31 @@
       { "href": "/blog/field-glass-oct-8-2026", "label": "Field Glass · Oct 8" },
       { "href": "/watch", "label": "Watch hub" }
     ],
+    "field-glass-oct-29-2026": [
+      { "href": "/blog/mac-performance-panic-vs-security-panic", "label": "Patch fatigue vs panic" },
+      { "href": "/blog/field-glass-oct-29-2026", "label": "Field Glass · Oct 29" },
+      { "href": "/", "label": "Start here" },
+      { "href": "/watch", "label": "Watch hub" }
+    ],
     "field-glass-oct-28-2026": [
       { "href": "/blog/someone-remoted-into-my-mac", "label": "Remote fear guide" },
-      { "href": "/blog/field-glass-oct-25-2026", "label": "Field Glass · Oct 25" },
+      { "href": "/blog/field-glass-oct-29-2026", "label": "Field Glass · Oct 29" },
       { "href": "/blog/pasted-terminal-command-mac-scare", "label": "ClickFix desk" },
       { "href": "/watch", "label": "Watch hub" }
     ],
     "field-glass-oct-25-2026": [
       { "href": "/blog/mac-configuration-profile-scam", "label": "Fake System Settings" },
-      { "href": "/blog/field-glass-oct-28-2026", "label": "Field Glass · Oct 28" },
+      { "href": "/blog/field-glass-oct-29-2026", "label": "Field Glass · Oct 29" },
       { "href": "/install", "label": "Install Innsegall" },
       { "href": "/watch", "label": "Watch hub" }
     ],
     "field-glass-oct-23-2026": [
       { "href": "/blog/pasted-terminal-command-mac-scare", "label": "Pasted Terminal command" },
-      { "href": "/blog/field-glass-oct-28-2026", "label": "Field Glass · Oct 28" },
+      { "href": "/blog/field-glass-oct-29-2026", "label": "Field Glass · Oct 29" },
       { "href": "/watch", "label": "Watch hub" }
     ],
     "pasted-terminal-command-mac-scare": [
-      { "href": "/blog/field-glass-oct-28-2026", "label": "Field Glass · Oct 28" },
+      { "href": "/blog/field-glass-oct-29-2026", "label": "Field Glass · Oct 29" },
       { "href": "/blog/paste-battle-scout-for-ai-assistant", "label": "Paste for AI assistants" },
       { "href": "/alpha", "label": "Send the scout" }
     ],
